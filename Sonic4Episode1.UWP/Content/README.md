@@ -1,0 +1,1 @@
+All `.xnb` files in the /SOUND/ folder must be accompanied by a `.wma` audio file.

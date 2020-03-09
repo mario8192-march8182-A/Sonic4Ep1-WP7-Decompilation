@@ -1,0 +1,2308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b76d7017-de12-460c-9861-5432a8065644</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Sonic4Episode1</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Abstraction\IAccelerometer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Abstraction\IControlSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Abstraction\KeyboardController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)accel\CArray2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)accel\CArray3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)accel\CArray4.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)accel\CCircularBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ao\CProc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\A2S.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AkMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AkUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Am.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmAlarm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmAme.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmAmeNode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmAssert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmBind.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmCri.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmDraw.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmEndian.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmFs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmIphone.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmMatrix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmMem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmMotion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmQuat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmRender.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmTexture.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmThread.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmTimer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmTp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmTrail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmTxb.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AmVector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoAct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoPad.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoPresence.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoSys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoSysMsg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoTex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoTvx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoWin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\AoYsd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ArrayPointer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\CMain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\CMainTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\CMain_PauseMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\CPadPolarHandle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\CPadVirtualPad.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\CProc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\CProcCount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmapWater.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmBuyScreen.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmCmnBackup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmFileSlct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmLoading.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmLogoCom.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmLogoSega.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmLogoSonic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmManual.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmMovie.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmOption.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmSave.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmSndBgmPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmSound.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmStaffroll.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmStfrlMdlCtrl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmStgSlct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmTitle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\DmTitleOp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\dwater.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\FX.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GLVertexBuffer_.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss3Pillar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss4.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss4Body.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss4Capsule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss4Chibi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss4Effect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss4Eggman.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss4Util.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Ctplt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Efct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Egg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Land.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Rocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Trigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Turret.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBsCmn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmCamera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmClearDemo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmClrdm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmCockpit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmComEfct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmDeco.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmDecoGlare.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEfctBossCmn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEfctCmn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEfctEne.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEfctZone.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEnding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEne3d.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneBuku.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneCom.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneGabu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneGardon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneHari.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneHariSenbo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneHaro.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneKama.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneKani.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneMereon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneMogu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneMotora.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEnemy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneSting.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneTStar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneUnides.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneUniuni.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEneUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmFade.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmFix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGameDat.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmk.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkAnimal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBelt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBobbin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBoss3Pillar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBoss3Route.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBoss5.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBoss5LandPlace.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBreakLand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBreakObj.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBreakWall.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBridge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBubble.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkBumper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkCamScr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkCannon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkCapsule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkDashPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkDecoFrameMgr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkDrainTank.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkDSign.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkEnBmpr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkFlag.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkFlipper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkForceSpin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkGear.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkGoalPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkLand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkLoop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkNeedle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkNeedleNeon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkPiston.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkPointMarker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkPressPillar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkPSteam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkPulley.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkPWall.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkRock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkRockRide.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkScrew.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSeesaw.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkShutter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSlot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSpCtplt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSpear.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSplRing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSpring.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsArrow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsCircle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsEmerald.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsEndurance.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsGoal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsOblong.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsRingGate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsSquare.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSsTime.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkStart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSteamPipe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkStopper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSwitch.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkSwWall.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkTarzanRope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkTruck.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkUpBumper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkWaterArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmGmkWaterSlider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmMain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmMapFar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmObj.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmOver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPad.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPause.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlyEfct.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlyEfctTrial.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlyParam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlySeq.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmRing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmScore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmScoreDisp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmSound.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmSplStage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmStartDemo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmStartMsg.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmTvx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmTvxDraw.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmWaterSurface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsEnv.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsFont.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsInit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsMainSys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsMemFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsReboot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsRegion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsSound.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsSystemBgm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GsTrophy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\HgTrophy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\IClearable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\IFunctor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ITask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ITaskAsv.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ITaskLink.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ITaskLinkAsv.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\IzFade.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Md.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Mp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Mpp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\MppAssert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\MtMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\MtTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NN.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnBinCnk.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnCalc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnCamera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnDraw.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnGL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnLight.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnMaterial.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnMaterialGLES11.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnMatrix.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnMotion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnPrim.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnShader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnTex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\NnTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Ob.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObCamera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObCollision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObDraw.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObjBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObLight.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObObjectWork.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObRect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObTbl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Pool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Reference.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\SysEvt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Vector3_VertexData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ByteBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)dbg\CPadEmu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DoubleType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)er\CTrgAoAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)er\CTrgBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)er\CTrgFlick.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)er\CTrgRect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)er\CTrgState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)er\CTrgStateEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)er\IntPair.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FloatBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameFramework\BenchmarkObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameFramework\GameObjectBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameFramework\SpriteObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameFramework\TextObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLBlendIdxData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLBlendWeightData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLColorData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLIndexBuffer_ByteBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLNormalData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLPositionData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLTexCoordData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GLVector3Data.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\EEmeraldStage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\ESpecialStage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\GSS_BACKUP.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\SBackup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\SOption.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\SSpecial.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\SSpecialSolo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\SStage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\SStageSolo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gs\backup\SSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\BlendStateExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\DepthStencilStateExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\MppBitConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\OpenGL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\RasterizerStateEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\SamplerStateExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QuadType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SaveState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)setting\file.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)setting\main.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShortBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sonic4Ep1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StreamExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Stubs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TripleType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIntBuffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UShortBuffer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_BG.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_BTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_MSG_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_OBI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\CMN\D_CMN_WIN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\LOADING\D_LOADING.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\LOGO\D_LOGO_SEGA_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\LOGO\D_LOGO_SEGA_US_EU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\LOGO\D_LOGO_SONIC.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\MANUAL\D_MANUAL_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\OPTION\D_OPTION_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_END_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_FONT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\D_STFRL_IMG000.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STFRL\STAFF_LIST.YSD">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\STGSLCT\D_STGSLCT_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLEOP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\DEMO\TITLE\D_TITLE_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\CPIT\CPIT_MAIN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_BS_CMN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_CMN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E002.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E004.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E005.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E006.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E007.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E010.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E013.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\EFF\EFF_E014.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\ENE\ENE_HARI_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\ENE\ENE_HARI_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\ENE\ENE_HARI_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\ENE\GMK_HARI_R.TXB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_ANIMAL_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_ANIMAL_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_ANIMAL_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_CAPSULE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_CAPSULE_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_CAPSULE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_DASH_P_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_DASH_P_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_DASH_P_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_DASH_P_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_GOAL_PNL_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_GOAL_PNL_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_ITEM_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_ITEM_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_NEEDLE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_NEEDLE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_NEEDLE_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_P_MARKER_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_P_MARKER_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_P_MARKER_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_P_MARKER_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_SPRING_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_SPRING_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_SPRING_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_SS_RING_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_SS_RING_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\GMK\GMK_SS_RING_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE.AMA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_CN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_FI.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_FR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_GE.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_HK.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_IT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_JP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_L.AMA">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_PT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_RU.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_SP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\MENU\G_PAUSE_US.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\PLY\SON_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\PLY\SON_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\PLY\SON_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\PLY\SSON_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\PLY\SSON_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\RING\RING_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\RING\RING_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_COM\RING\RING_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\EFF\EFF_ZONESS.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_1UP_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_1UP_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_ARROW_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_ARROW_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_ARROW_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_CIRCLE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_CIRCLE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_CIRCLE_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_EMERALD_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_EMERALD_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_EMERALD_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_ENDURANCE_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_ENDURANCE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_ENDURANCE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_ENDURANCE_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_GOAL_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_GOAL_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_GOAL_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_OBLONG_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_OBLONG_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_OBLONG_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_OBLONG_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_RINGGATE_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_RINGGATE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_RINGGATE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_RINGGATE_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_SQUARE_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_SQUARE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_SQUARE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_SQUARE_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_TIME_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\GMK\GMK_SS_TIME_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAPFAR\SS01_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAPFAR\SS02_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAPFAR\SS03_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAPFAR\SS04_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAPFAR\SS05_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAPFAR\SS06_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAPFAR\SS07_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS1_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS2_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS3_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS4_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS5_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS6_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS7_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS_ATTR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS_M.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MAP\SS_T.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_SS\MSG\G_MSG_SS.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\BOSS\BOSS01.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\DECO\DECO_ZONE1.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\EFF\EFF_ZONE1.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_GABU_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_GABU_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_GABU_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_MEREON_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_MEREON_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_MEREON_R_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_MEREON_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_MOTORA_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_MOTORA_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_MOTORA_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_STING_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_STING_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\ENE\ENE_STING_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\END_SONIC_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\END_SONIC_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_BRIDGE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_BRIDGE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_B_LAND1_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_B_LAND1_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_B_LAND1_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_B_OBJ_1_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_B_OBJ_1_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_B_WALL1_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_B_WALL1_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_LAND_1_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_LAND_1_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_PULLEY_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_PULLEY_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_PULLEY_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_T_ROPE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_T_ROPE_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\GMK\GMK_T_ROPE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAPFAR\ZONE13_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAPFAR\ZONE1_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE11_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE12_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE13_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE1BOSS_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE1E_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE1_ATTR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE1_M.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE1\MAP\ZONE1_T.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\BOSS\BOSS02.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\DECO\DECO_ZONE2.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\EFF\EFF_ZONE2.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\ENE\ENE_GARDON_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\ENE\ENE_GARDON_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\ENE\ENE_GARDON_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\ENE\ENE_HARO_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\ENE\ENE_HARO_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\ENE\ENE_HARO_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BOBBIN_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BOBBIN_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BOBBIN_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BOBBIN_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BUMPER_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BUMPER_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BUMPER_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_BUMPER_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_B_OBJ_2_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_B_OBJ_2_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_B_WALL2_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_B_WALL2_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_CANNON_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_CANNON_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_FLIPPER_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_FLIPPER_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_FLIPPER_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_FLIPPER_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_LAND_2_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_LAND_2_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_LAND_2_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_LAND_2_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SHUTTER_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SHUTTER_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SLOT_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SLOT_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SLOT_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SP_CTPLT_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SP_CTPLT_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SP_CTPLT_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_SP_CTPLT_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_STOPPER_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_STOPPER_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\GMK\GMK_STOPPER_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAPFAR\ZONE2_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAP\ZONE21_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAP\ZONE22_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAP\ZONE23_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAP\ZONE2BOSS_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAP\ZONE2_ATTR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAP\ZONE2_M.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MAP\ZONE2_T.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE2\MSG\G_MSG_Z2.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\BOSS\BOSS03.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\DECO\DECO_ZONE3.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\EFF\EFF_ZONE3.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_BUKU_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_BUKU_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_BUKU_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_MOGU_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_MOGU_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_MOGU_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_UNIDES_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_UNIDES_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_UNIDES_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_UNIUNI_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_UNIUNI_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\ENE\ENE_UNIUNI_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_B3_PILLAR_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_B3_PILLAR_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_B3_PILLAR_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_B_OBJ_3_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_B_OBJ_3_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_B_WALL3_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_B_WALL3_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_DSIGN_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_DSIGN_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_D_TANK_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_D_TANK_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_D_TANK_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_LAND_3_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_LAND_3_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_LAND_3_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_LAND_3_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_PRESSWALL_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_PRESSWALL_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_ROCK_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_ROCK_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_ROCK_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SPEAR_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SPEAR_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SWITCH3_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SWITCH3_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SWITCH3_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SW_WALL3_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SW_WALL3_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SW_WALL3_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_SW_WALL3_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_TRUCK_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_TRUCK_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_TRUCK_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_WATER_SF_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_WATER_SLIDER_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_WATER_SLIDER_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_WATER_SLIDER_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\GMK\GMK_WATER_SLIDER_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAPFAR\ZONE3_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAP\ZONE31_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAP\ZONE32_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAP\ZONE33_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAP\ZONE3BOSS_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAP\ZONE3_ATTR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAP\ZONE3_M.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MAP\ZONE3_T.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE3\MSG\G_MSG_Z3.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\BOSS\BOSS04.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\DECO\DECO_ZONE4.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\EFF\EFF_ZONE4.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_KAMA_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_KAMA_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_KAMA_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_KANI_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_KANI_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_KANI_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_T_STAR_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_T_STAR_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_T_STAR_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\ENE\ENE_T_STAR_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_BELT_CONV_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_BELT_CONV_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_BELT_CONV_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_B_WALL4_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_B_WALL4_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_GEAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_GEAR2_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_GEAR2_OPT_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_GEAR_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_GEAR_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_LAND_4_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_LAND_4_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_PISTON_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_PISTON_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_PRESSWALL4_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_PRESSWALL4_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_PRESSWALL4_MTN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_PRESSWALL4_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_P_PILLAR_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_P_PILLAR_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_P_PILLAR_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_P_STEAM_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_P_STEAM_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_SEESAW_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_SEESAW_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_STEAMPIPE_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_STEAMPIPE_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_SWITCH4_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_SWITCH4_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_SW_WALL4_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_SW_WALL4_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_UP_BMPR_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\GMK\GMK_UP_BMPR_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\MAP\ZONE41_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\MAP\ZONE42_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\MAP\ZONE43_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\MAP\ZONE4BOSS_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\MAP\ZONE4_ATTR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\MAP\ZONE4_M.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONE4\MAP\ZONE4_T.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\BOSS\BOSS05.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\DECO\DECO_ZONEF.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\EFF\EFF_ZONE5.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_TVX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_LAND_F_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_LAND_F_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_LAND_F_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_SHUTTER_F_MAT.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_SHUTTER_F_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_SHUTTER_F_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_STEAMPIPE_F_MDL.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\GMK\GMK_STEAMPIPE_F_TEX.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\MAPFAR\ZONEF_MAPFAR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\MAP\ZONEFB_MAP.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\MAP\ZONEF_ATTR.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\MAP\ZONEF_M.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\G_ZONEF\MAP\ZONEF_T.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\Kootenay.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\large.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_cn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_es.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_fi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_fr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_ge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_hk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_it.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_ja.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_pt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_ru.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\ach_top_us.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\arrow2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\live_a9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\nums.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\LIVE\tab.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\medium.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\small.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S3FX079b_Add_SXcasino38_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX016a_S2_645F_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX017a_S2_3441_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX026a_SK4D_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX031a_S2_132C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX033a_SB_expl2_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX039a_SKA6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX040a_SBL_b0501_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX041a_SK77_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX043a_S2_2437_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX044a_SK61_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX046a_SK44_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX047a_SK87_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX048a_SKB4_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX049a050a_SH_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX051a_SB_b0504_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX052a_0166_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX053a_RS_cursol_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX054a_SH_S07_18_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX055a_0323_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX056a_PTLEdit_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX058a_SB_alert_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX059a_SBL_22LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX060a_SK91_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX061a_SK98_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX062a_SK5E_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX063a_Punch_Hit_S3K59ED_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX065a_Pre_Last_S1B7_48.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX066a_DeathEgg_LastExpl_ED_44ST.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX076a_SX_ropeway_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX077a_S2_2134_44_casino_bobbin.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX078a_S2_6863_44_casino_flipper.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX079a_FluidDyn_Pf01_Edited44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX080a_S2_3340_44_casino_slot.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX082a_S2_5859_44_casino_bumper.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX083a_S2_5758_44_casino_change.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX084a_S2_6762_44_casino_catapult.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX085a_SK55_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX086a_SH_C1004_5dB_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX088a_add8dB_S2_464D_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX091a_0313_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX092a_BigrRock3_03_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX092b_BigRock3_05_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX093a_Lorry_02_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX093b_Lorry_10_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX094a_SKDB_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX095a_SK69_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX096a_SK57mix59_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX097a_steam02_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX098a_Pipe_In_SKA4ED_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX099a_S2_313E_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX100a_S2_293C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX101_Gear_05_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX103a_SK88_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX111a_S2_8271_master_3dB_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX112a_S2_2235_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX114a_PTLEdit_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX115a_PTLEdit_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX116a_lorry2_stop_mix_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX117a_lorry3_jump2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX118a_lorry4_land_mix_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX119a_lorry5_jump1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX120a_SKA4_edit_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX121a_S2_5354_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX122a_piston1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX123a_piston2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX124b_gear2_Stop_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX125b_SK77_SK79ED_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX126a_S2_5455_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX127a_MetalSFX07_48.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX128a_Shutter1_1_B0500_22LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX128a_Shutter1_B0500_22LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\S4FX129a_Shutter2_0306_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL000_SHSY07_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL001_SHSY08_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL002_SHSY09_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL003_SHSY05_32.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL004_SHSY10_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL005_SHSY13_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL006_S1CD_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL007_S1C5_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL008_S1BF_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL009_SK62_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL010_SK36_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL011_SK33_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL012_SKB9_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL013_S1A3_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL014_S1B2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL015_SHPLSP01_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL018_SK3A_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL019_SKAB_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL020_SKB6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL021_SK3C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL022_S1A6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL023_SK6C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL024_S1C2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL025_S1AD_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL032_S1CB_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL036_S1C7_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL038_SK9B_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL067_SKB1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL068_SK52_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL069_SHCN000B_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL070_S1B9_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL071_SK6E_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL072_SK81_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL073_S1A1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL074_S1CF_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL075_S1C4_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL081_SHSTG0531_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL087_S1B6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL089_SK6F_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL090_SHSTG0210_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL104_S1C3_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL105_S1CA_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL106_S1BA_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL107_S1A8_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL109_SHSTG0519_32.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL110_SHSY22_32.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL_dummy.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SND_BGM.inf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SND_FX.inf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SNG_EMERALD.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4cn_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4cn_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4cn_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4cn_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4es_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4es_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4es_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4es_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fi_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fi_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fi_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fi_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fr_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fr_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fr_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4fr_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ge_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ge_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ge_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ge_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4hk_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4hk_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4hk_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4hk_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4it_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4it_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4it_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4it_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ja_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ja_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ja_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ja_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4pt_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4pt_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4pt_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4pt_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ru_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ru_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ru_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4ru_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_back_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_buy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_buy_HL.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_ss_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_ss_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_ss_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_ss_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\UPSELL\s4us_ss_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Microsoft.Xna.Framework.RuntimeProfile" />
+    <None Include="$(MSBuildThisFileDirectory)Microsoft.Xna.Framework.XlastConfiguration" />
+    <None Include="$(MSBuildThisFileDirectory)Sonic4 ep I.ico" />
+  </ItemGroup>
+</Project>

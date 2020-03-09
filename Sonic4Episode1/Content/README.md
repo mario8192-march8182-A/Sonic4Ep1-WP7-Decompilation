@@ -1,0 +1,1 @@
+All `.xnb` files in the /SOUND/ folder must be accompanied by an `.ogg` vorbis audio file.
