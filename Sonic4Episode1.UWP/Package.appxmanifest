@@ -3,7 +3,7 @@
   <Identity Name="1df09ac0-1e4a-47fd-bddb-a637e552de2f" Publisher="CN=wamwo" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="1df09ac0-1e4a-47fd-bddb-a637e552de2f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Sonic4EpisodeUWP</DisplayName>
+    <DisplayName>Sonic4Episode1.UWP</DisplayName>
     <PublisherDisplayName>wamwo</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -14,8 +14,8 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Sonic4EpisodeUWP.App">
-      <uap:VisualElements DisplayName="Sonic4EpisodeUWP" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Sonic4EpisodeUWP" BackgroundColor="#464646">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Sonic4Episode1.UWP.App">
+      <uap:VisualElements DisplayName="Sonic 4: Episode 1 Deluxe" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Sonic4EpisodeUWP" BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="landscape" />

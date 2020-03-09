@@ -1,0 +1,1228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ED1BD7A2-7AA9-4D2F-A027-2B9504EF35D9}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sonic4Episode1.Android</RootNamespace>
+    <AssemblyName>Sonic4Episode1.Android</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidSupportedAbis>armeabi-v7a%3bx86</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions>.m4a</AndroidStoreUncompressedFileExtensions>
+    <MandroidI18n />
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <MonoGamePlatform>Android</MonoGamePlatform>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;ANDROID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <LangVersion>7.2</LangVersion>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;ANDROID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="OpenTK-1.0" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Android\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Essentials, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Essentials.1.5.1\lib\netstandard2.0\Xamarin.Essentials.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activity1.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XamarinAccelerometer.cs" />
+    <AndroidAsset Include="Content\*" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Content\LIVE\ach_top_cn.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_es.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_fi.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_fr.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_ge.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_hk.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_it.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_ja.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_pt.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_ru.png" />
+    <AndroidAsset Include="Content\LIVE\ach_top_us.png" />
+    <AndroidAsset Include="Content\LIVE\arrow.png" />
+    <AndroidAsset Include="Content\LIVE\arrow2.png" />
+    <AndroidAsset Include="Content\LIVE\live_a1.png" />
+    <AndroidAsset Include="Content\LIVE\live_a10.png" />
+    <AndroidAsset Include="Content\LIVE\live_a11.png" />
+    <AndroidAsset Include="Content\LIVE\live_a12.png" />
+    <AndroidAsset Include="Content\LIVE\live_a13.png" />
+    <AndroidAsset Include="Content\LIVE\live_a14.png" />
+    <AndroidAsset Include="Content\LIVE\live_a15.png" />
+    <AndroidAsset Include="Content\LIVE\live_a16.png" />
+    <AndroidAsset Include="Content\LIVE\live_a2.png" />
+    <AndroidAsset Include="Content\LIVE\live_a3.png" />
+    <AndroidAsset Include="Content\LIVE\live_a4.png" />
+    <AndroidAsset Include="Content\LIVE\live_a5.png" />
+    <AndroidAsset Include="Content\LIVE\live_a6.png" />
+    <AndroidAsset Include="Content\LIVE\live_a7.png" />
+    <AndroidAsset Include="Content\LIVE\live_a8.png" />
+    <AndroidAsset Include="Content\LIVE\live_a9.png" />
+    <AndroidAsset Include="Content\LIVE\nums.png" />
+    <AndroidAsset Include="Content\LIVE\tab.png" />
+    <AndroidAsset Include="Content\SOUND\S4EP1_00_Z1A1_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_00_Z1A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_01_Z1A2_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_01_Z1A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_02_Z1A3_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_02_Z1A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_03_Z2A1_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_03_Z2A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_04_Z2A2_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_04_Z2A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_05_Z2A3_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_05_Z2A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_06_Z3A1_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_06_Z3A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_07_Z3A2_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_07_Z3A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_08_Z3A3_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_08_Z3A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_09_Z4A1_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_09_Z4A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_10_Z4A2_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_10_Z4A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_11_Z4A3_Normal_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_11_Z4A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_12_Title_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_12_Title_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_12_Title_Mixed4816.xnb.bak">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_13_Menu_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_13_Menu_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_14_SpecialStage_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_14_SpecialStage_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_15_Boss1_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_15_Boss1_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_16_Boss2_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_16_Boss2_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_17_Final_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_17_Final_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_18_Ending_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_18_Ending_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_19_Clear_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_19_Clear_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_20_Clear_Final_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_20_Clear_Final_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_22_Obore_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_22_Obore_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_23_Invincible_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_23_Invincible_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_24_1up_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_24_1up_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_25_New_Record_4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_25_New_Record_4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_26_Gameover_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_26_Gameover_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_27_Z1A1_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_27_Z1A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_28_Z1A2_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_28_Z1A2_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_29_Z1A3_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_29_Z1A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_30_Z2A1_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_30_Z2A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_32_Z2A3_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_32_Z2A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_33_Z3A1_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_33_Z3A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_35_Z3A3_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_35_Z3A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_36_Z4A1_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_36_Z4A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_37_Z4A2_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_37_Z4A2_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_38_Z4A3_Speedup_Mixed4816.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4EP1_38_Z4A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SNG_EMERALD.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SNG_EMERALD.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\UPSELL\s4cn_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4cn_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4cn_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4cn_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4es_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4es_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4es_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4es_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fi_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fi_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fi_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fi_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fr_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fr_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fr_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4fr_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ge_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ge_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ge_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ge_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4hk_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4hk_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4hk_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4hk_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4it_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4it_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4it_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4it_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ja_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ja_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ja_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ja_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4pt_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4pt_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4pt_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4pt_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ru_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ru_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ru_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4ru_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_arrow.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_back.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_back_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_bg.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_buy.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_buy_HL.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_ss_1.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_ss_2.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_ss_3.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_ss_4.png" />
+    <AndroidAsset Include="Content\UPSELL\s4us_ss_5.png" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN.AMB">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_CN.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_FI.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_FR.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_GE.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_HK.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_IT.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_PT.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_RU.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_SP.AMB" />
+    <AndroidAsset Include="Content\DEMO\BUY_SCREEN\D_BUY_SCREEN_US.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_BG.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_BTN.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_CN.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_FI.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_FR.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_GE.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_HK.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_IT.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_PT.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_RU.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_SP.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_MSG_US.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_OBI.AMB" />
+    <AndroidAsset Include="Content\DEMO\CMN\D_CMN_WIN.AMB" />
+    <AndroidAsset Include="Content\DEMO\LOADING\D_LOADING.AMB" />
+    <AndroidAsset Include="Content\DEMO\LOGO\D_LOGO_SEGA_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\LOGO\D_LOGO_SEGA_US_EU.AMB" />
+    <AndroidAsset Include="Content\DEMO\LOGO\D_LOGO_SONIC.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_CN.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_FI.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_FR.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_GE.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_HK.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_IT.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_PT.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_RU.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_SP.AMB" />
+    <AndroidAsset Include="Content\DEMO\MANUAL\D_MANUAL_US.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_CN.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_FI.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_FR.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_GE.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_HK.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_IT.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_PT.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_RU.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_SP.AMB" />
+    <AndroidAsset Include="Content\DEMO\OPTION\D_OPTION_US.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_CN.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_FI.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_FR.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_GE.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_HK.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_IT.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_PT.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_RU.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_SP.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_END_US.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_FONT.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\D_STFRL_IMG000.AMB" />
+    <AndroidAsset Include="Content\DEMO\STFRL\STAFF_LIST.YSD" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_CN.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_FI.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_FR.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_GE.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_HK.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_IT.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_PT.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_RU.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_SP.AMB" />
+    <AndroidAsset Include="Content\DEMO\STGSLCT\D_STGSLCT_US.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLEOP.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_CN.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_FI.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_FR.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_GE.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_HK.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_IT.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_JP.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_PT.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_RU.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_SP.AMB" />
+    <AndroidAsset Include="Content\DEMO\TITLE\D_TITLE_US.AMB" />
+    <AndroidAsset Include="Content\G_COM\CPIT\CPIT_MAIN.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_BS_CMN.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_CMN.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E002.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E004.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E005.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E006.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E007.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E010.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E013.AMB" />
+    <AndroidAsset Include="Content\G_COM\EFF\EFF_E014.AMB" />
+    <AndroidAsset Include="Content\G_COM\ENE\ENE_HARI_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\ENE\ENE_HARI_MTN.AMB" />
+    <AndroidAsset Include="Content\G_COM\ENE\ENE_HARI_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\ENE\GMK_HARI_R.TXB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_ANIMAL_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_ANIMAL_MTN.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_ANIMAL_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_CAPSULE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_CAPSULE_MTN.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_CAPSULE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_DASH_P_MAT.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_DASH_P_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_DASH_P_MTN.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_DASH_P_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_GOAL_PNL_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_GOAL_PNL_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_ITEM_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_ITEM_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_NEEDLE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_NEEDLE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_NEEDLE_TVX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_P_MARKER_MAT.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_P_MARKER_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_P_MARKER_MTN.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_P_MARKER_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_SPRING_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_SPRING_MTN.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_SPRING_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_SS_RING_MAT.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_SS_RING_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\GMK\GMK_SS_RING_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE.AMA" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_CN.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_FI.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_FR.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_GE.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_HK.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_IT.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_JP.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_L.AMA" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_PT.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_RU.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_SP.AMB" />
+    <AndroidAsset Include="Content\G_COM\MENU\G_PAUSE_US.AMB" />
+    <AndroidAsset Include="Content\G_COM\PLY\SON_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\PLY\SON_MTN.AMB" />
+    <AndroidAsset Include="Content\G_COM\PLY\SON_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\PLY\SSON_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\PLY\SSON_TEX.AMB" />
+    <AndroidAsset Include="Content\G_COM\RING\RING_MAT.AMB" />
+    <AndroidAsset Include="Content\G_COM\RING\RING_MDL.AMB" />
+    <AndroidAsset Include="Content\G_COM\RING\RING_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\EFF\EFF_ZONESS.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_1UP_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_1UP_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_ARROW_MAT.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_ARROW_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_ARROW_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_CIRCLE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_CIRCLE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_CIRCLE_TVX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_EMERALD_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_EMERALD_MTN.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_EMERALD_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_ENDURANCE_MAT.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_ENDURANCE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_ENDURANCE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_ENDURANCE_TVX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_GOAL_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_GOAL_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_GOAL_TVX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_OBLONG_MAT.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_OBLONG_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_OBLONG_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_OBLONG_TVX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_RINGGATE_MAT.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_RINGGATE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_RINGGATE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_RINGGATE_TVX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_SQUARE_MAT.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_SQUARE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_SQUARE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_SQUARE_TVX.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_TIME_MDL.AMB" />
+    <AndroidAsset Include="Content\G_SS\GMK\GMK_SS_TIME_TEX.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAPFAR\SS01_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAPFAR\SS02_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAPFAR\SS03_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAPFAR\SS04_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAPFAR\SS05_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAPFAR\SS06_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAPFAR\SS07_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS1_MAP.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS2_MAP.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS3_MAP.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS4_MAP.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS5_MAP.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS6_MAP.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS7_MAP.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS_ATTR.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS_M.AMB" />
+    <AndroidAsset Include="Content\G_SS\MAP\SS_T.AMB" />
+    <AndroidAsset Include="Content\G_SS\MSG\G_MSG_SS.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\BOSS\BOSS01.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\DECO\DECO_ZONE1.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\EFF\EFF_ZONE1.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_GABU_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_GABU_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_GABU_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_MEREON_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_MEREON_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_MEREON_R_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_MEREON_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_MOTORA_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_MOTORA_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_MOTORA_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_STING_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_STING_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\ENE\ENE_STING_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\END_SONIC_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\END_SONIC_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_BRIDGE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_BRIDGE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_B_LAND1_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_B_LAND1_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_B_LAND1_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_B_OBJ_1_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_B_OBJ_1_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_B_WALL1_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_B_WALL1_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_LAND_1_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_LAND_1_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_PULLEY_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_PULLEY_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_PULLEY_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_T_ROPE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_T_ROPE_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\GMK\GMK_T_ROPE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAPFAR\ZONE13_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAPFAR\ZONE1_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE11_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE12_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE13_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE1BOSS_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE1E_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE1_ATTR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE1_M.AMB" />
+    <AndroidAsset Include="Content\G_ZONE1\MAP\ZONE1_T.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\BOSS\BOSS02.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\DECO\DECO_ZONE2.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\EFF\EFF_ZONE2.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\ENE\ENE_GARDON_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\ENE\ENE_GARDON_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\ENE\ENE_GARDON_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\ENE\ENE_HARO_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\ENE\ENE_HARO_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\ENE\ENE_HARO_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BOBBIN_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BOBBIN_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BOBBIN_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BOBBIN_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BUMPER_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BUMPER_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BUMPER_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_BUMPER_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_B_OBJ_2_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_B_OBJ_2_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_B_WALL2_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_B_WALL2_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_CANNON_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_CANNON_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_FLIPPER_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_FLIPPER_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_FLIPPER_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_FLIPPER_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_LAND_2_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_LAND_2_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_LAND_2_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_LAND_2_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SHUTTER_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SHUTTER_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SLOT_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SLOT_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SLOT_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SP_CTPLT_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SP_CTPLT_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SP_CTPLT_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_SP_CTPLT_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_STOPPER_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_STOPPER_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\GMK\GMK_STOPPER_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAPFAR\ZONE2_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAP\ZONE21_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAP\ZONE22_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAP\ZONE23_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAP\ZONE2BOSS_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAP\ZONE2_ATTR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAP\ZONE2_M.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MAP\ZONE2_T.AMB" />
+    <AndroidAsset Include="Content\G_ZONE2\MSG\G_MSG_Z2.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\BOSS\BOSS03.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\DECO\DECO_ZONE3.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\EFF\EFF_ZONE3.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_BUKU_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_BUKU_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_BUKU_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_MOGU_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_MOGU_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_MOGU_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_UNIDES_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_UNIDES_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_UNIDES_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_UNIUNI_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_UNIUNI_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\ENE\ENE_UNIUNI_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_B3_PILLAR_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_B3_PILLAR_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_B3_PILLAR_TVX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_B_OBJ_3_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_B_OBJ_3_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_B_WALL3_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_B_WALL3_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_DSIGN_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_DSIGN_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_D_TANK_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_D_TANK_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_D_TANK_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_LAND_3_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_LAND_3_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_LAND_3_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_LAND_3_TVX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_PRESSWALL_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_PRESSWALL_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_ROCK_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_ROCK_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_ROCK_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SPEAR_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SPEAR_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SWITCH3_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SWITCH3_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SWITCH3_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SW_WALL3_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SW_WALL3_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SW_WALL3_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_SW_WALL3_TVX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_TRUCK_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_TRUCK_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_TRUCK_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_WATER_SF_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_WATER_SLIDER_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_WATER_SLIDER_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_WATER_SLIDER_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\GMK\GMK_WATER_SLIDER_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAPFAR\ZONE3_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAP\ZONE31_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAP\ZONE32_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAP\ZONE33_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAP\ZONE3BOSS_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAP\ZONE3_ATTR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAP\ZONE3_M.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MAP\ZONE3_T.AMB" />
+    <AndroidAsset Include="Content\G_ZONE3\MSG\G_MSG_Z3.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\BOSS\BOSS04.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\DECO\DECO_ZONE4.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\EFF\EFF_ZONE4.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_KAMA_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_KAMA_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_KAMA_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_KANI_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_KANI_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_KANI_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_T_STAR_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_T_STAR_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_T_STAR_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\ENE\ENE_T_STAR_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_BELT_CONV_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_BELT_CONV_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_BELT_CONV_TVX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_B_WALL4_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_B_WALL4_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_GEAR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_GEAR2_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_GEAR2_OPT_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_GEAR_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_GEAR_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_LAND_4_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_LAND_4_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_PISTON_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_PISTON_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_PRESSWALL4_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_PRESSWALL4_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_PRESSWALL4_MTN.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_PRESSWALL4_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_P_PILLAR_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_P_PILLAR_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_P_PILLAR_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_P_STEAM_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_P_STEAM_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_SEESAW_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_SEESAW_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_STEAMPIPE_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_STEAMPIPE_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_SWITCH4_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_SWITCH4_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_SW_WALL4_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_SW_WALL4_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_UP_BMPR_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\GMK\GMK_UP_BMPR_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\MAP\ZONE41_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\MAP\ZONE42_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\MAP\ZONE43_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\MAP\ZONE4BOSS_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\MAP\ZONE4_ATTR.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\MAP\ZONE4_M.AMB" />
+    <AndroidAsset Include="Content\G_ZONE4\MAP\ZONE4_T.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\BOSS\BOSS05.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\DECO\DECO_ZONEF.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\EFF\EFF_ZONE5.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_B3_PILLAR_F_TVX.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_LAND_F_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_LAND_F_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_LAND_F_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_SHUTTER_F_MAT.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_SHUTTER_F_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_SHUTTER_F_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_STEAMPIPE_F_MDL.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\GMK\GMK_STEAMPIPE_F_TEX.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\MAPFAR\ZONEF_MAPFAR.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\MAP\ZONEFB_MAP.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\MAP\ZONEF_ATTR.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\MAP\ZONEF_M.AMB" />
+    <AndroidAsset Include="Content\G_ZONEF\MAP\ZONEF_T.AMB" />
+    <None Include="packages.config" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Layout\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AndroidManifest.xml" />
+    <AndroidAsset Include="Content\SOUND\S3FX079b_Add_SXcasino38_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX016a_S2_645F_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX017a_S2_3441_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX026a_SK4D_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX031a_S2_132C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX033a_SB_expl2_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX039a_SKA6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX040a_SBL_b0501_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX041a_SK77_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX043a_S2_2437_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX044a_SK61_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX046a_SK44_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX047a_SK87_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX048a_SKB4_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX049a050a_SH_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX051a_SB_b0504_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX052a_0166_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX053a_RS_cursol_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX054a_SH_S07_18_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX055a_0323_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX056a_PTLEdit_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX058a_SB_alert_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX059a_SBL_22LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX060a_SK91_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX061a_SK98_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX062a_SK5E_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX063a_Punch_Hit_S3K59ED_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX065a_Pre_Last_S1B7_48.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX066a_DeathEgg_LastExpl_ED_44ST.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX076a_SX_ropeway_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX077a_S2_2134_44_casino_bobbin.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX078a_S2_6863_44_casino_flipper.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX079a_FluidDyn_Pf01_Edited44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX080a_S2_3340_44_casino_slot.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX082a_S2_5859_44_casino_bumper.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX083a_S2_5758_44_casino_change.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX084a_S2_6762_44_casino_catapult.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX085a_SK55_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX086a_SH_C1004_5dB_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX088a_add8dB_S2_464D_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX091a_0313_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX092a_BigrRock3_03_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX092b_BigRock3_05_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX093a_Lorry_02_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX093b_Lorry_10_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX094a_SKDB_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX095a_SK69_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX096a_SK57mix59_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX097a_steam02_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX098a_Pipe_In_SKA4ED_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX099a_S2_313E_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX100a_S2_293C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX101_Gear_05_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX103a_SK88_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX111a_S2_8271_master_3dB_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX112a_S2_2235_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX114a_PTLEdit_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX115a_PTLEdit_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX116a_lorry2_stop_mix_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX117a_lorry3_jump2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX118a_lorry4_land_mix_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX119a_lorry5_jump1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX120a_SKA4_edit_44LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX121a_S2_5354_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX122a_piston1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX123a_piston2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX124b_gear2_Stop_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX125b_SK77_SK79ED_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX126a_S2_5455_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX127a_MetalSFX07_48.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX128a_Shutter1_1_B0500_22LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX128a_Shutter1_B0500_22LP.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\S4FX129a_Shutter2_0306_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL000_SHSY07_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL001_SHSY08_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL002_SHSY09_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL003_SHSY05_32.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL004_SHSY10_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL005_SHSY13_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL006_S1CD_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL007_S1C5_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL008_S1BF_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL009_SK62_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL010_SK36_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL011_SK33_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL012_SKB9_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL013_S1A3_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL014_S1B2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL015_SHPLSP01_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL018_SK3A_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL019_SKAB_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL020_SKB6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL021_SK3C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL022_S1A6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL023_SK6C_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL024_S1C2_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL025_S1AD_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL032_S1CB_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL036_S1C7_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL038_SK9B_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL067_SKB1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL068_SK52_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL069_SHCN000B_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL070_S1B9_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL071_SK6E_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL072_SK81_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL073_S1A1_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL074_S1CF_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL075_S1C4_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL081_SHSTG0531_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL087_S1B6_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL089_SK6F_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL090_SHSTG0210_22.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL104_S1C3_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL105_S1CA_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL106_S1BA_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL107_S1A8_44.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL109_SHSTG0519_32.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL110_SHSY22_32.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SDL_dummy.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SND_BGM.inf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Content\SOUND\SND_FX.inf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <Import Project="..\Sonic4Episode1.Shared\Sonic4Episode1.projitems" Label="Shared" />
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

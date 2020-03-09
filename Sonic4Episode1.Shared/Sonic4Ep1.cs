@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Security.Cryptography;
 using GameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
@@ -12,6 +14,8 @@ using XnaMediaPlayer = Microsoft.Xna.Framework.Media.MediaPlayer;
 // Token: 0x020003E1 RID: 993
 public class Sonic4Ep1 : Game
 {
+    private bool _resizePending;
+
     // Token: 0x06002879 RID: 10361 RVA: 0x00152E78 File Offset: 0x00151078
     public Sonic4Ep1()
     {
@@ -24,7 +28,11 @@ public class Sonic4Ep1 : Game
         this.graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
         this.graphics.PreparingDeviceSettings += this.graphics_PreparingDeviceSettings;
         this.graphics.SynchronizeWithVerticalRetrace = true;
+#if UWP || __IOS__ || __ANDROID__
+        this.graphics.IsFullScreen = true;
+#else
         this.graphics.IsFullScreen = false;
+#endif
         base.IsMouseVisible = true;
         base.Content.RootDirectory = "Content";
         base.TargetElapsedTime = TimeSpan.FromTicks(TimeSpan.TicksPerSecond / 30);
@@ -54,7 +62,7 @@ public class Sonic4Ep1 : Game
 
     private void OnClientSizeChange(object sender, EventArgs e)
     {
-        appMain?.amIPhoneInitNN(base.GraphicsDevice.Viewport);
+        _resizePending = true;
     }
 
     // Token: 0x0600287A RID: 10362 RVA: 0x00152F69 File Offset: 0x00151169
@@ -103,6 +111,7 @@ public class Sonic4Ep1 : Game
         {
             SaveState._saveFile(SaveState.save);
         }
+
         //if (!Guide.IsVisible)
         //{
         //	this.storeSystemVolume = true;
@@ -121,7 +130,7 @@ public class Sonic4Ep1 : Game
         //	}
         //}                                   
         //this.storeSystemVolume = false;
-    }     
+    }
 
     // Token: 0x0600287E RID: 10366 RVA: 0x00153128 File Offset: 0x00151328
     protected override void OnActivated(object sender, EventArgs args)
@@ -131,6 +140,7 @@ public class Sonic4Ep1 : Game
         {
             this.deviceMusicVolume = XnaMediaPlayer.Volume;
         }
+
         if ((AppMain.g_gm_main_system.game_flag & 64U) == 0U)
         {
             AppMain.g_pause_flag = true;
@@ -140,9 +150,9 @@ public class Sonic4Ep1 : Game
     // Token: 0x0600287F RID: 10367 RVA: 0x00153158 File Offset: 0x00151358
     private void accelerometer_ReadingChanged(object sender, AccelerometerChangeEventArgs e)
     {
-        this.accel.X = (float)e.X;
-        this.accel.Y = (float)e.Y;
-        this.accel.Z = (float)e.Z;
+        this.accel.X = (float) e.X;
+        this.accel.Y = (float) e.Y;
+        this.accel.Z = (float) e.Z;
     }
 
     // Token: 0x06002880 RID: 10368 RVA: 0x00153190 File Offset: 0x00151390
@@ -157,8 +167,9 @@ public class Sonic4Ep1 : Game
         if (Sonic4Ep1.inputDataRead)
         {
             Sonic4Ep1.inputDataRead = false;
-            AppMain.onTouchEvents();
 
+
+            AppMain.onTouchEvents();
             AppMain.amIPhoneAccelerate(ref this.accel);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
             {
@@ -174,12 +185,21 @@ public class Sonic4Ep1 : Game
     // Token: 0x06002882 RID: 10370 RVA: 0x00153224 File Offset: 0x00151424
     protected override void Draw(GameTime gameTime)
     {
+        if (_resizePending)
+        {
+            graphics.PreferredBackBufferWidth = base.GraphicsDevice.Viewport.Width;
+            graphics.PreferredBackBufferHeight = base.GraphicsDevice.Viewport.Height;
+            graphics.ApplyChanges();
+
+            appMain?.amIPhoneInitNN(base.GraphicsDevice.Viewport);
+        }
+
         Sonic4Ep1.inputDataRead = true;
         OpenGL.drawPrimitives_Count = 0;
         OpenGL.drawVertexBuffer_Count = 0;
         this.appMain.AppMainLoop();
         this.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
-       // benchmarkObject.Draw(gameTime, this.spriteBatch);
+        // benchmarkObject.Draw(gameTime, this.spriteBatch);
         this.spriteBatch.End();
 
         base.Draw(gameTime);

@@ -8,8 +8,8 @@
     <ProjectGuid>{49CF0131-8B9C-4E60-84AE-6FC5EFC4B813}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sonic4EpisodeUWP</RootNamespace>
-    <AssemblyName>Sonic4EpisodeUWP</AssemblyName>
+    <RootNamespace>Sonic4Episode1.UWP</RootNamespace>
+    <AssemblyName>Sonic4Episode1.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>

@@ -273,28 +273,28 @@ namespace gs.backup
 		public const uint c_fast_time_max_limit = 36000U;
 
 		// Token: 0x04006484 RID: 25732
-		private protected SStageSolo.SRecord[] m_record = AppMain.New<SStageSolo.SRecord>(2U);
+		protected SStageSolo.SRecord[] m_record = AppMain.New<SStageSolo.SRecord>(2U);
 
 		// Token: 0x04006485 RID: 25733
-		private protected uint m_is_new = 1U;
+		protected uint m_is_new = 1U;
 
 		// Token: 0x04006486 RID: 25734
-		private protected uint m_is_high_score_use_supersonic = 1U;
+		protected uint m_is_high_score_use_supersonic = 1U;
 
 		// Token: 0x04006487 RID: 25735
-		private protected uint m_is_fast_time_use_supersonic = 1U;
+		protected uint m_is_fast_time_use_supersonic = 1U;
 
 		// Token: 0x04006488 RID: 25736
-		private protected uint m_is_score_uploaded_once = 1U;
+		protected uint m_is_score_uploaded_once = 1U;
 
 		// Token: 0x04006489 RID: 25737
-		private protected uint m_is_time_uploaded_once = 1U;
+		protected uint m_is_time_uploaded_once = 1U;
 
 		// Token: 0x0400648A RID: 25738
-		private protected uint m_is_use_supersonic_once = 1U;
+		protected uint m_is_use_supersonic_once = 1U;
 
 		// Token: 0x0400648B RID: 25739
-		private protected uint m_reserve1 = 26U;
+		protected uint m_reserve1 = 26U;
 
 		// Token: 0x0200042F RID: 1071
 		public struct ERecordKind
