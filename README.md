@@ -1,6 +1,12 @@
 # Sonic4Ep1-WP7-Decompilation
 Decompilation of Sonic 4 Episode 1 for Windows Phone 7, and subsequent port to Windows, macOS, Linux, Windows Phone and iOS
 
+# Features
+ - Basic controller/keyboard support in the game itself (menus still depend on touch/mouse)
+ - Toggleable loop camera [🦀🦀](https://twitter.com/da_wamwoowam/status/1236706830962905089)
+ - Discord rich presence
+ - Accelerometer support on iOS and Windows Phone (emulation soon)
+
 # Issues
 
 ## Game is unbeatable
