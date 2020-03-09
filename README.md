@@ -1,15 +1,13 @@
 # Sonic4Ep1-WP7-Decompilation
-Decompilation of Sonic 4 Episode 1 for Windows Phone 7
+Decompilation of Sonic 4 Episode 1 for Windows Phone 7, and subsequent port to Windows, Windows Phone and iOS
 
 # Issues
-## Game is unplayable
-The game is unplayable due to collision bugs. I'm assuming these are rounding/truncation errors due to type casts added to fix the build.
-Need to review the changes made in the history and port over the fixes.
+
+## Game is unbeatable
+After fixing the major collision issues the game is *mostly* playable, however as it stands it's not possible to complete Casino Street Act 3 or Lost Labyrinth Act 2 due to other collision issues.
+
 ## AppMain.cs is still way too big
-It's so big that it VS to lag pretty badly and sometimes even crashes it outright.
-## Touch controls
-The game is made for touch controls which makes it hard to play on PC, however I have hacked in mouse controls for the time being so the game logic can be tested further.
-## XNB files are incompatible
-The XNB files that come with the game are incompatible with the Windows XNA runtime. They need to be patched for the time being, but it could be automatically.
-## GamerServices unavailable
-Some XNA gamerservices like the Guide and Xbox Live are unavailable and will cause the game to crash at boot or at runtime. A workaround has been added.
+It's so big that it VS to lag pretty badly, but I've never had it hard crash.
+
+## XNB files are perfectly fine
+The issue is the format of the audio itself, MonoGame on Windows excpects OGG Vorbis audio, while the original audio files are WMAs. A simple conversion with ffmpeg and a mass rename is enough to fix most of these issues. I've also built a tool that changes the file extension the XNBs are looking for, to make this process easier.
