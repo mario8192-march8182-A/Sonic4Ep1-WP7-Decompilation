@@ -272,7 +272,7 @@ public partial class AppMain
         ply_work.obj_work.move_flag &= 4294967279U;
         ply_work.obj_work.user_timer = 0;
         ply_work.obj_work.user_work = 0U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqFwMain);
+        ply_work.seq_func = AppMain.gmPlySeqFwMain;
     }
 
     // Token: 0x06001720 RID: 5920 RVA: 0x000C9A54 File Offset: 0x000C7C54
@@ -351,7 +351,7 @@ public partial class AppMain
             AppMain.GmPlyEfctCreateSpinJumpBlur(ply_work);
         }
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqWalkMain);
+        ply_work.seq_func = AppMain.gmPlySeqWalkMain;
         ply_work.obj_work.user_timer = 0;
     }
 
@@ -394,7 +394,7 @@ public partial class AppMain
             AppMain.GmPlySeqSetProgramTurnFwTurn(ply_work);
         }
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTurnMain);
+        ply_work.seq_func = AppMain.gmPlySeqTurnMain;
     }
 
     // Token: 0x06001724 RID: 5924 RVA: 0x000C9DA6 File Offset: 0x000C7FA6
@@ -412,7 +412,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 11);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqLookupMain);
+        ply_work.seq_func = AppMain.gmPlySeqLookupMain;
     }
 
     // Token: 0x06001726 RID: 5926 RVA: 0x000C9DF8 File Offset: 0x000C7FF8
@@ -421,7 +421,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 12);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqLookupMain);
+        ply_work.seq_func = AppMain.gmPlySeqLookupMain;
     }
 
     // Token: 0x06001727 RID: 5927 RVA: 0x000C9E46 File Offset: 0x000C8046
@@ -429,7 +429,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 13);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqLookupEndMain);
+        ply_work.seq_func = AppMain.gmPlySeqLookupEndMain;
     }
 
     // Token: 0x06001728 RID: 5928 RVA: 0x000C9E78 File Offset: 0x000C8078
@@ -465,7 +465,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 14);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqSquatMain);
+        ply_work.seq_func = AppMain.gmPlySeqSquatMain;
     }
 
     // Token: 0x0600172B RID: 5931 RVA: 0x000C9F08 File Offset: 0x000C8108
@@ -478,7 +478,7 @@ public partial class AppMain
         {
             ply_work.obj_work.spd_m = 0;
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqSquatMain);
+        ply_work.seq_func = AppMain.gmPlySeqSquatMain;
     }
 
     // Token: 0x0600172C RID: 5932 RVA: 0x000C9F79 File Offset: 0x000C8179
@@ -486,7 +486,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 16);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqSquatEndMain);
+        ply_work.seq_func = AppMain.gmPlySeqSquatEndMain;
     }
 
     // Token: 0x0600172D RID: 5933 RVA: 0x000C9FAC File Offset: 0x000C81AC
@@ -518,7 +518,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 23);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqBrakeMain);
+        ply_work.seq_func = AppMain.gmPlySeqBrakeMain;
         AppMain.GmSoundPlaySE("Brake");
         AppMain.GmPlyEfctCreateBrakeImpact(ply_work);
         AppMain.GmPlyEfctCreateBrakeDust(ply_work);
@@ -570,7 +570,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 27);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqSpinMain);
+        ply_work.seq_func = AppMain.gmPlySeqSpinMain;
         AppMain.GmPlayerSetAtk(ply_work);
         if (ply_work.prev_seq_state != 37 && (ply_work.player_flag & 131072U) == 0U)
         {
@@ -612,7 +612,7 @@ public partial class AppMain
         {
             ply_work.dash_power = ply_work.spd_spin;
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqSpinDashMain);
+        ply_work.seq_func = AppMain.gmPlySeqSpinDashMain;
         AppMain.GmPlayerSetAtk(ply_work);
         if (ply_work.spin_se_timer <= 0)
         {
@@ -640,7 +640,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 30);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqSpinDashMain);
+        ply_work.seq_func = AppMain.gmPlySeqSpinDashMain;
         AppMain.GmPlayerSetAtk(ply_work);
         AppMain.GmPlyEfctCreateSpinDust(ply_work);
     }
@@ -694,7 +694,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 33);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqStaggerMain);
+        ply_work.seq_func = AppMain.gmPlySeqStaggerMain;
         AppMain.GmPlyEfctCreateSweat(ply_work);
     }
 
@@ -704,7 +704,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 34);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqStaggerMain);
+        ply_work.seq_func = AppMain.gmPlySeqStaggerMain;
         AppMain.GmPlyEfctCreateSweat(ply_work);
     }
 
@@ -714,7 +714,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 35);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqStaggerMain);
+        ply_work.seq_func = AppMain.gmPlySeqStaggerMain;
         AppMain.GmPlyEfctCreateSweat(ply_work);
     }
 
@@ -746,7 +746,7 @@ public partial class AppMain
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag |= 32912U;
         ply_work.obj_work.move_flag &= 4294967294U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqJumpMain);
+        ply_work.seq_func = AppMain.gmPlySeqJumpMain;
         ply_work.obj_work.spd.x = AppMain.FX_Mul(ply_work.obj_work.spd_m, AppMain.mtMathCos((int)(ply_work.obj_work.dir.z - (AppMain.g_gm_main_system.pseudofall_dir - ply_work.prev_dir_fall2))));
         ply_work.obj_work.spd.y = AppMain.FX_Mul(ply_work.obj_work.spd_m, AppMain.mtMathSin((int)(ply_work.obj_work.dir.z - (AppMain.g_gm_main_system.pseudofall_dir - ply_work.prev_dir_fall2))));
         ply_work.obj_work.spd_m = 0;
@@ -839,10 +839,10 @@ public partial class AppMain
         }
         if ((ply_work.player_flag & 262144U) != 0U)
         {
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckJumpMain);
+            ply_work.seq_func = AppMain.gmPlySeqTruckJumpMain;
             return;
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqJumpMain);
+        ply_work.seq_func = AppMain.gmPlySeqJumpMain;
     }
 
     // Token: 0x0600173E RID: 5950 RVA: 0x000CAAA4 File Offset: 0x000C8CA4
@@ -977,7 +977,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 17);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqWallPushMain);
+        ply_work.seq_func = AppMain.gmPlySeqWallPushMain;
     }
 
     // Token: 0x06001743 RID: 5955 RVA: 0x000CAE15 File Offset: 0x000C9015
@@ -1008,7 +1008,7 @@ public partial class AppMain
         ply_work.player_flag |= 128U;
         ply_work.obj_work.dir.z = 0;
         ply_work.gmk_flag &= 4261410812U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqHomingMain);
+        ply_work.seq_func = AppMain.gmPlySeqHomingMain;
         ply_work.obj_work.user_timer = 131072;
         ply_work.homing_timer = 98304;
         ply_work.homing_boost_timer = 262144;
@@ -1085,7 +1085,7 @@ public partial class AppMain
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag |= 32912U;
         ply_work.obj_work.move_flag &= 4294967294U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqHomingRefMain);
+        ply_work.seq_func = AppMain.gmPlySeqHomingRefMain;
         ply_work.obj_work.spd.x = 0;
         if ((ply_work.player_flag & 67108864U) != 0U)
         {
@@ -1163,7 +1163,7 @@ public partial class AppMain
         }
         AppMain.GmPlayerSetAtk(ply_work);
         AppMain.GmPlyEfctCreateJumpDash(ply_work);
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqJumpDashMain);
+        ply_work.seq_func = AppMain.gmPlySeqJumpDashMain;
     }
 
     // Token: 0x0600174A RID: 5962 RVA: 0x000CB4A4 File Offset: 0x000C96A4
@@ -1235,7 +1235,7 @@ public partial class AppMain
         ply_work.obj_work.move_flag &= 4294967294U;
         ply_work.invincible_timer = ply_work.time_damage;
         AppMain.GmPlayerSetDefInvincible(ply_work);
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqDamageMain);
+        ply_work.seq_func = AppMain.gmPlySeqDamageMain;
         ply_work.obj_work.disp_flag |= 4U;
         AppMain.GMM_PAD_VIB_LARGE_TIME(60f);
     }
@@ -1302,7 +1302,7 @@ public partial class AppMain
         }
         AppMain.GmPlayerActionChange(ply_work, 37);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqDeathMain);
+        ply_work.seq_func = AppMain.gmPlySeqDeathMain;
         ply_work.obj_work.user_timer = 0;
         ply_work.water_timer = 0;
         AppMain.GMM_PAD_VIB_LARGE_TIME(90f);
@@ -1378,7 +1378,7 @@ public partial class AppMain
             ply_work.gmk_flag |= 536870912U;
         }
         AppMain.GmPlayerActionChange(ply_work, 50);
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTransformSuperMain);
+        ply_work.seq_func = AppMain.gmPlySeqTransformSuperMain;
         ply_work.obj_work.user_timer = 593920;
         ply_work.obj_work.user_work = 0U;
         AppMain.GmPlyEfctCreateSuperStart(ply_work);
@@ -1541,7 +1541,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 0);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.user_timer = 245760;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqBossGoalMain);
+        ply_work.seq_func = AppMain.gmPlySeqBossGoalMain;
     }
 
     // Token: 0x0600175A RID: 5978 RVA: 0x000CC190 File Offset: 0x000CA390
@@ -1621,7 +1621,7 @@ public partial class AppMain
             AppMain.GmPlayerActionChange(ply_work, 0);
             ply_work.obj_work.disp_flag |= 4U;
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqBoss5DemoMain);
+        ply_work.seq_func = AppMain.gmPlySeqBoss5DemoMain;
     }
 
     // Token: 0x0600175E RID: 5982 RVA: 0x000CC388 File Offset: 0x000CA588
@@ -1682,7 +1682,7 @@ public partial class AppMain
         ply_work.player_flag |= 4194304U;
         ply_work.player_flag &= 3220176895U;
         ply_work.obj_work.dir_slope = 192;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTRetryFw);
+        ply_work.seq_func = AppMain.gmPlySeqTRetryFw;
     }
 
     // Token: 0x06001762 RID: 5986 RVA: 0x000CC567 File Offset: 0x000CA767
@@ -1709,7 +1709,7 @@ public partial class AppMain
         AppMain.GmPlySeqMoveWalk(ply_work);
         AppMain.GmPlayerWalkActionSet(ply_work);
         ply_work.obj_work.user_timer = 0;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTRetryAcc);
+        ply_work.seq_func = AppMain.gmPlySeqTRetryAcc;
     }
 
     // Token: 0x06001765 RID: 5989 RVA: 0x000CC5E0 File Offset: 0x000CA7E0
@@ -1771,7 +1771,7 @@ public partial class AppMain
         ply_work.obj_work.move_flag &= 4294967279U;
         ply_work.obj_work.user_timer = 0;
         ply_work.obj_work.user_work = 0U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckFwMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckFwMain;
     }
 
     // Token: 0x06001768 RID: 5992 RVA: 0x000CC824 File Offset: 0x000CAA24
@@ -1845,7 +1845,7 @@ public partial class AppMain
             ply_work.obj_work.disp_flag |= 4U;
         }
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckWalkMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckWalkMain;
         ply_work.obj_work.user_timer = 0;
         ply_work.truck_left_flip_timer = 245760;
     }
@@ -1914,7 +1914,7 @@ public partial class AppMain
         ply_work.obj_work.move_flag |= 49296U;
         ply_work.obj_work.move_flag &= 4294967294U;
         ply_work.gmk_flag &= 1073479679U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckJumpMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckJumpMain;
         ushort angle = (ushort)(ply_work.obj_work.dir.z + ply_work.obj_work.dir_fall - ply_work.jump_pseudofall_dir);
         ply_work.obj_work.spd.x = AppMain.FX_Mul(ply_work.obj_work.spd_m, AppMain.mtMathCos((int)angle));
         ply_work.obj_work.spd.y = AppMain.FX_Mul(ply_work.obj_work.spd_m, AppMain.mtMathSin((int)angle));
@@ -1960,7 +1960,7 @@ public partial class AppMain
         ply_work.obj_work.user_work = 0U;
         ply_work.timer = 0;
         AppMain.GmPlySeqSetJumpState(ply_work, 0, 0U);
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckJumpMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckJumpMain;
         AppMain.GmPlayerSetAtk(ply_work);
         AppMain.GmSoundPlaySE("Lorry3");
     }
@@ -2019,7 +2019,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 14);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckSquatMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckSquatMain;
     }
 
     // Token: 0x0600176F RID: 5999 RVA: 0x000CD160 File Offset: 0x000CB360
@@ -2032,7 +2032,7 @@ public partial class AppMain
         {
             ply_work.obj_work.spd_m = 0;
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckSquatMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckSquatMain;
     }
 
     // Token: 0x06001770 RID: 6000 RVA: 0x000CD1D1 File Offset: 0x000CB3D1
@@ -2040,7 +2040,7 @@ public partial class AppMain
     {
         AppMain.GmPlayerActionChange(ply_work, 16);
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqSquatEndMain);
+        ply_work.seq_func = AppMain.gmPlySeqSquatEndMain;
     }
 
     // Token: 0x06001771 RID: 6001 RVA: 0x000CD204 File Offset: 0x000CB404
@@ -2068,7 +2068,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 33);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckStaggerMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckStaggerMain;
         ply_work.obj_work.user_timer = 0;
         AppMain.GmPlyEfctCreateSweat(ply_work);
     }
@@ -2079,7 +2079,7 @@ public partial class AppMain
         AppMain.GmPlayerActionChange(ply_work, 34);
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqTruckStaggerMain);
+        ply_work.seq_func = AppMain.gmPlySeqTruckStaggerMain;
         ply_work.obj_work.user_timer = 0;
         AppMain.GmPlyEfctCreateSweat(ply_work);
     }
@@ -3898,7 +3898,7 @@ public partial class AppMain
         AppMain.GmPlySeqChangeSequenceState(ply_work, 30);
         AppMain.GmPlayerStateGimmickInit(ply_work);
         ply_work.gmk_obj = com_work.obj_work;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickRockRidePush);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickRockRidePush;
         AppMain.OBS_OBJECT_WORK obj_work = ply_work.obj_work;
         AppMain.OBS_OBJECT_WORK gmk_obj = ply_work.gmk_obj;
         AppMain.GmPlayerActionChange(ply_work, 17);
@@ -3936,11 +3936,11 @@ public partial class AppMain
         if (obj_work.pos.y > gmk_obj.pos.y)
         {
             AppMain.GmPlySeqChangeSequence(ply_work, 16);
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickRockRideStop);
+            ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickRockRideStop;
         }
         else
         {
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickRockRide);
+            ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickRockRide;
             AppMain.GmPlayerCameraOffsetSet(ply_work, 0, -48);
             AppMain.GmCameraAllowSet(10f, 30f, 0f);
         }
@@ -3991,7 +3991,7 @@ public partial class AppMain
     {
         AppMain.GmPlySeqChangeSequenceState(ply_work, 33);
         AppMain.GmPlayerStateGimmickInit(ply_work);
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickBreathing);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickBreathing;
         AppMain.OBS_OBJECT_WORK obj_work = ply_work.obj_work;
         obj_work.spd_m = 0;
         obj_work.spd.x = 0;
@@ -4053,7 +4053,7 @@ public partial class AppMain
         ply_work.obj_work.disp_flag |= 4U;
         ply_work.obj_work.move_flag &= 4294967279U;
         ply_work.obj_work.user_timer = 60;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainDashPanel);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainDashPanel;
         if ((ply_work.player_flag & 262144U) == 0U)
         {
             AppMain.GmPlySeqGmkSpdSet(ply_work, array6[(int)((UIntPtr)type)][0], array6[(int)((UIntPtr)type)][1]);
@@ -4104,7 +4104,7 @@ public partial class AppMain
         AppMain.GmPlySeqChangeSequenceState(ply_work, 36);
         AppMain.GmPlayerStateGimmickInit(ply_work);
         ply_work.gmk_obj = com_work.obj_work;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainWaterSlider);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainWaterSlider;
         ply_work.obj_work.move_flag &= 4294967279U;
         AppMain.GmPlayerActionChange(ply_work, 65);
         AppMain.OBS_OBJECT_WORK obj_work = ply_work.obj_work;
@@ -4126,7 +4126,7 @@ public partial class AppMain
             ply_work.obj_work.disp_flag |= 4U;
         }
         ply_work.obj_work.move_flag &= 4294967279U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainSpipe);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainSpipe;
         AppMain.GmPlyEfctCreateSpinDashBlur(ply_work, 1U);
         AppMain.GmPlyEfctCreateSpinDashCircleBlur(ply_work);
     }
@@ -4134,7 +4134,7 @@ public partial class AppMain
     // Token: 0x0600085A RID: 2138 RVA: 0x00049649 File Offset: 0x00047849
     private static ushort GmPlySeqScrewCheck(AppMain.GMS_PLAYER_WORK ply_work)
     {
-        if (ply_work.seq_func == new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkScrewMain))
+        if (ply_work.seq_func == AppMain.gmPlySeqGmkScrewMain)
         {
             return 1;
         }
@@ -4170,7 +4170,7 @@ public partial class AppMain
             ply_work.obj_work.user_timer = ply_work.obj_work.pos.x - ply_work.gmk_work0;
         }
         ply_work.gmk_work1 -= (int)ply_work.obj_work.field_rect[3] << 12;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkScrewMain);
+        ply_work.seq_func = AppMain.gmPlySeqGmkScrewMain;
         ply_work.timer = 16;
     }
 
@@ -4207,7 +4207,7 @@ public partial class AppMain
         {
             ply_work.obj_work.spd_add.y = 672;
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkCannonWait);
+        ply_work.seq_func = AppMain.gmPlySeqGmkCannonWait;
         ply_work.gmk_obj = gmk_work.obj_work;
         ply_work.gmk_flag2 |= 134U;
         AppMain.GmPlayerSetDefInvincible(ply_work);
@@ -4241,7 +4241,7 @@ public partial class AppMain
         ply_work.obj_work.spd.y = 0;
         ply_work.obj_work.move_flag &= 4294967167U;
         ply_work.obj_work.flag |= 2U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkStopperMove);
+        ply_work.seq_func = AppMain.gmPlySeqGmkStopperMove;
         ply_work.gmk_obj = gmk_work.obj_work;
     }
 
@@ -4249,7 +4249,7 @@ public partial class AppMain
     private static void GmPlySeqInitStopperEnd(AppMain.GMS_PLAYER_WORK ply_work)
     {
         ply_work.obj_work.move_flag |= 144U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkStopperEnd);
+        ply_work.seq_func = AppMain.gmPlySeqGmkStopperEnd;
     }
 
     // Token: 0x06000861 RID: 2145 RVA: 0x00049A63 File Offset: 0x00047C63
@@ -4275,7 +4275,7 @@ public partial class AppMain
         ply_work.obj_work.spd.x = 0;
         ply_work.obj_work.spd.y = 0;
         ply_work.obj_work.dir.z = 0;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkSeesaw);
+        ply_work.seq_func = AppMain.gmPlySeqGmkSeesaw;
         ply_work.gmk_obj = gmk_work.obj_work;
         AppMain.GmPlyEfctCreateSpinDashBlur(ply_work, 1U);
         AppMain.GmPlyEfctCreateSpinDashCircleBlur(ply_work);
@@ -4329,7 +4329,7 @@ public partial class AppMain
         ply_work.obj_work.spd_add.z = 0;
         ply_work.obj_work.user_timer = 60;
         ply_work.no_spddown_timer = no_spddown_timer * 4096;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainPinball);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainPinball;
         AppMain.GmPlayerSetAtk(ply_work);
         AppMain.GmSoundPlaySE("Spin");
     }
@@ -4456,7 +4456,7 @@ public partial class AppMain
         ply_work.no_spddown_timer = no_spddown_timer * 4096;
         ply_work.obj_work.user_timer = no_move_time;
         ply_work.obj_work.user_flag = 1U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainPinballAir);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainPinballAir;
         if (num != 0U)
         {
             AppMain.GmPlayerSetAtk(ply_work);
@@ -4499,7 +4499,7 @@ public partial class AppMain
         ply_work.obj_work.move_flag |= 33040U;
         ply_work.obj_work.spd_m = 0;
         ply_work.obj_work.dir.z = 0;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainFlipper);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainFlipper;
         AppMain.GmSoundPlaySE("Spin");
         if (ply_work.obj_work.spd.x > 0)
         {
@@ -4528,7 +4528,7 @@ public partial class AppMain
             ply_work.obj_work.disp_flag |= 4U;
             AppMain.GmPlyEfctCreateSpinDashBlur(ply_work, 0U);
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainForceSpin);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainForceSpin;
         ply_work.obj_work.user_timer = ply_work.obj_work.spd_m;
         ply_work.obj_work.user_flag = 0U;
         AppMain.GmPlayerSetAtk(ply_work);
@@ -4552,7 +4552,7 @@ public partial class AppMain
             ply_work.obj_work.disp_flag |= 4U;
             AppMain.GmPlyEfctCreateSpinDashBlur(ply_work, 0U);
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainForceSpinDec);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainForceSpinDec;
         ply_work.obj_work.user_timer = ply_work.obj_work.spd_m;
         ply_work.obj_work.user_flag = 1U;
         AppMain.GmPlayerSetAtk(ply_work);
@@ -4566,7 +4566,7 @@ public partial class AppMain
         AppMain.GmPlySeqChangeSequenceState(ply_work, 53);
         ply_work.obj_work.move_flag |= 32912U;
         ply_work.obj_work.move_flag &= 4294967294U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainForceSpinFall);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainForceSpinFall;
         ply_work.obj_work.spd.x = AppMain.FX_Mul(ply_work.obj_work.spd_m, AppMain.mtMathCos((int)ply_work.obj_work.dir.z));
         ply_work.obj_work.spd.y = AppMain.FX_Mul(ply_work.obj_work.spd_m, AppMain.mtMathSin((int)ply_work.obj_work.dir.z));
         if ((ply_work.obj_work.user_flag & 1U) != 0U && AppMain.MTM_MATH_ABS(ply_work.obj_work.spd.x) > AppMain.MTM_MATH_ABS(ply_work.obj_work.spd.y))
@@ -4597,7 +4597,7 @@ public partial class AppMain
         ply_work.obj_work.spd.y = 0;
         ply_work.obj_work.dir.z = 0;
         AppMain.GmPlyEfctCreateSpinDashBlur(ply_work, 0U);
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainPinballCtpltHold);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainPinballCtpltHold;
         ply_work.gmk_obj = gmk_work.obj_work;
     }
 
@@ -4611,7 +4611,7 @@ public partial class AppMain
         if (spd_x != 0)
         {
             ply_work.obj_work.move_flag &= 4294967279U;
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainPinballCtplt);
+            ply_work.seq_func = AppMain.gmPlySeqGmkMainPinballCtplt;
             if (spd_x > 0)
             {
                 ply_work.obj_work.disp_flag &= 4294967294U;
@@ -4627,7 +4627,7 @@ public partial class AppMain
             AppMain.GmPlySeqGmkSpdSet(ply_work, spd_x, spd_y);
             ply_work.obj_work.spd_m = 0;
             ply_work.obj_work.dir.z = 0;
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainPinballAir);
+            ply_work.seq_func = AppMain.gmPlySeqGmkMainPinballAir;
         }
         ply_work.obj_work.flag &= 4294967293U;
         AppMain.GmPlayerSetAtk(ply_work);
@@ -4660,7 +4660,7 @@ public partial class AppMain
             AppMain.GmPlayerCameraOffsetSet(ply_work, 0, -48);
             AppMain.GmCameraAllowSet(0f, 0f, 0f);
         }
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainMoveGear);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainMoveGear;
     }
 
     // Token: 0x06000872 RID: 2162 RVA: 0x0004A728 File Offset: 0x00048928
@@ -4677,7 +4677,7 @@ public partial class AppMain
         ply_work.obj_work.spd_m = 0;
         AppMain.GmPlayerSetDefInvincible(ply_work);
         ply_work.invincible_timer = 0;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainSteamPipe);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainSteamPipe;
         ply_work.gmk_obj = null;
         ply_work.obj_work.user_timer = 0;
         AppMain.GmPlyEfctCreateSteamPipe(ply_work);
@@ -4743,7 +4743,7 @@ public partial class AppMain
         ply_work.obj_work.spd_add.x = 0;
         ply_work.obj_work.spd_add.y = 0;
         ply_work.obj_work.spd_add.z = 0;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainDrainTank);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainDrainTank;
     }
 
     // Token: 0x06000877 RID: 2167 RVA: 0x0004AA64 File Offset: 0x00048C64
@@ -4792,7 +4792,7 @@ public partial class AppMain
         ply_work.obj_work.spd_m = 0;
         ply_work.obj_work.move_flag |= 40960U;
         ply_work.obj_work.user_timer = no_move_time;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainBoss5Quake);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainBoss5Quake;
     }
 
     // Token: 0x0600087A RID: 2170 RVA: 0x0004AC54 File Offset: 0x00048E54
@@ -4800,7 +4800,7 @@ public partial class AppMain
     {
         AppMain.GmPlySeqChangeSequenceState(ply_work, 62);
         AppMain.GmPlayerActionChange(ply_work, 77);
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainEndingFrontSide);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainEndingFrontSide;
         ply_work.obj_work.spd_m = 0;
         ply_work.obj_work.spd.x = 0;
         ply_work.obj_work.spd.y = 0;
@@ -4814,7 +4814,7 @@ public partial class AppMain
         AppMain.GmPlySeqChangeSequenceState(ply_work, 63);
         AppMain.GmPlayerActionChange(ply_work, 39);
         ply_work.obj_work.disp_flag |= 4U;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainEndingFinish);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainEndingFinish;
         ply_work.obj_work.spd.y = -10240;
         ply_work.obj_work.spd_add.y = 168;
         ply_work.obj_work.dir.y = 16384;
@@ -4871,7 +4871,7 @@ public partial class AppMain
             AppMain.GmPlayerActionChange(ply_work, 74);
         }
         ply_work.gmk_work0 = (int)((ushort)(num / 17));
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainTruckDanger);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainTruckDanger;
         AppMain.GmSoundPlaySE("Lorry2");
     }
 
@@ -4896,7 +4896,7 @@ public partial class AppMain
         ply_work.gmk_work2 = 0;
         ply_work.gmk_work3 = gmk_work;
         ply_work.obj_work.vib_timer = 0;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainTruckDangerRet);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainTruckDangerRet;
     }
 
     // Token: 0x0600087E RID: 2174 RVA: 0x0004AFED File Offset: 0x000491ED
@@ -5007,7 +5007,7 @@ public partial class AppMain
         ply_work.gmk_work0 = ofst_x;
         ply_work.gmk_work1 = ofst_y;
         ply_work.gmk_work2 = ofst_z;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.GmPlySeqGmkMainGimmickDepend);
+        ply_work.seq_func = AppMain.GmPlySeqGmkMainGimmickDepend;
     }
 
     // Token: 0x06000881 RID: 2177 RVA: 0x0004B354 File Offset: 0x00049554
@@ -5272,7 +5272,7 @@ public partial class AppMain
         if ((obj_work.disp_flag & 8U) != 0U)
         {
             obj_work.user_timer = 5;
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickRockRideStartWait);
+            ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickRockRideStartWait;
             obj_work.obj_3d.speed[0] = 1f;
         }
     }
@@ -5287,7 +5287,7 @@ public partial class AppMain
             return;
         }
         obj_work.user_timer = 0;
-        ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickRockRideStartJump);
+        ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickRockRideStartJump;
     }
 
     // Token: 0x06000886 RID: 2182 RVA: 0x0004BD80 File Offset: 0x00049F80
@@ -5303,7 +5303,7 @@ public partial class AppMain
                 num = -num;
             }
             AppMain.GmPlySeqGmkInitGmkJump(ply_work, num, -24576);
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickRockRideStartFall);
+            ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickRockRideStartFall;
         }
     }
 
@@ -5324,7 +5324,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK gmk_obj = ply_work.gmk_obj;
         if (gmk_obj.spd_m == 0)
         {
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkMainGimmickRockRideStop);
+            ply_work.seq_func = AppMain.gmPlySeqGmkMainGimmickRockRideStop;
             AppMain.GmPlayerCameraOffsetSet(ply_work, 0, 0);
             AppMain.GmCameraAllowReset();
             return;
@@ -5595,7 +5595,7 @@ public partial class AppMain
         }
         if (ply_work.obj_work.pos.x == ply_work.gmk_obj.pos.x && ply_work.obj_work.pos.y == ply_work.gmk_obj.pos.y)
         {
-            ply_work.seq_func = new AppMain.seq_func_delegate(AppMain.gmPlySeqGmkStopperWait);
+            ply_work.seq_func = AppMain.gmPlySeqGmkStopperWait;
         }
     }
 

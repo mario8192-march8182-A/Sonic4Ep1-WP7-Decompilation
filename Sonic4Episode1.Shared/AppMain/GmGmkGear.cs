@@ -134,8 +134,8 @@ public partial class AppMain
             obs_OBJECT_WORK.flag |= 2U;
             return obs_OBJECT_WORK;
         }
-        obs_OBJECT_WORK.ppIn = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearInFunc );
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkGearDest ) );
+        obs_OBJECT_WORK.ppIn = AppMain.gmGmkGearInFunc;
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkGearDest );
         gms_GMK_GEAR_WORK.h_snd_gear = AppMain.GsSoundAllocSeHandle();
         AppMain.GmSoundStopSE( gms_GMK_GEAR_WORK.h_snd_gear );
         AppMain.GmSoundPlaySE( "Gear", gms_GMK_GEAR_WORK.h_snd_gear );
@@ -144,7 +144,7 @@ public partial class AppMain
             float num = 0.2f;
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_gear_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
             obs_OBJECT_WORK.pos.z = -131072;
-            obs_OBJECT_WORK.ppLast = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearLastFunc );
+            obs_OBJECT_WORK.ppLast = AppMain.gmGmkGearLastFunc;
             num += 0.2f * ( float )AppMain.MTM_MATH_CLIP( ( int )eve_rec.left, 0, 3 );
             gms_GMK_GEAR_WORK.h_snd_gear.au_player.SetAisac( "Speed", num );
         }
@@ -154,7 +154,7 @@ public partial class AppMain
             obs_OBJECT_WORK.pos.z = -131072;
             AppMain.ObjCopyAction3dNNModel( AppMain.gm_gmk_gear_opt_obj_3d_list[0], gms_GMK_GEAR_WORK.obj_3d_gear_opt );
             AppMain.ObjCopyAction3dNNModel( AppMain.gm_gmk_gear_opt_obj_3d_list[1], gms_GMK_GEAR_WORK.obj_3d_gear_opt_ashiba );
-            obs_OBJECT_WORK.ppLast = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearMoveLastFunc );
+            obs_OBJECT_WORK.ppLast = AppMain.gmGmkGearMoveLastFunc;
         }
         else
         {
@@ -162,7 +162,7 @@ public partial class AppMain
             obs_OBJECT_WORK.pos.z = -131072;
             AppMain.ObjCopyAction3dNNModel( AppMain.gm_gmk_gear_opt_obj_3d_list[0], gms_GMK_GEAR_WORK.obj_3d_gear_opt );
             AppMain.ObjCopyAction3dNNModel( AppMain.gm_gmk_gear_opt_obj_3d_list[1], gms_GMK_GEAR_WORK.obj_3d_gear_opt_ashiba );
-            obs_OBJECT_WORK.ppLast = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearMoveLastFunc );
+            obs_OBJECT_WORK.ppLast = AppMain.gmGmkGearMoveLastFunc;
         }
         AppMain.OBS_COLLISION_WORK col_work = gms_GMK_GEAR_WORK.gmk_work.ene_com.col_work;
         col_work.obj_col.obj = ( AppMain.OBS_OBJECT_WORK )gms_GMK_GEAR_WORK;
@@ -214,7 +214,7 @@ public partial class AppMain
         }
         else if ( eve_rec.id == 182 )
         {
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearMoveSwDraw );
+            obs_OBJECT_WORK.ppOut = AppMain.gmGmkGearMoveSwDraw;
             byte[] array;
             if ( AppMain.gm_gmk_gear_add_data[16] is AppMain.AmbChunk )
             {
@@ -250,11 +250,11 @@ public partial class AppMain
                 obs_OBJECT_WORK.user_flag |= 4U;
             }
             AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-            obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkMoveGearBodyDefFunc );
+            obs_RECT_WORK.ppDef = AppMain.gmGmkMoveGearBodyDefFunc;
             obs_RECT_WORK.ppHit = null;
             AppMain.ObjRectWorkSet( obs_RECT_WORK, -16, -72, 16, -48 );
             obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[0];
-            obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkMoveGearDefFunc );
+            obs_RECT_WORK.ppDef = AppMain.gmGmkMoveGearDefFunc;
             obs_RECT_WORK.ppHit = null;
             AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
             AppMain.ObjRectDefSet( obs_RECT_WORK, 65527, 0 );
@@ -365,7 +365,7 @@ public partial class AppMain
         }
         else
         {
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearMoveSwDraw );
+            obs_OBJECT_WORK.ppOut = AppMain.gmGmkGearMoveSwDraw;
             byte[] array3;
             if ( AppMain.gm_gmk_gear_add_data[16] is AppMain.AmbChunk )
             {
@@ -395,7 +395,7 @@ public partial class AppMain
             AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
             AppMain.ObjRectGroupSet( obs_RECT_WORK, 0, 2 );
             obs_RECT_WORK.ppDef = null;
-            obs_RECT_WORK.ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkGearSwitchAtkHitFunc );
+            obs_RECT_WORK.ppHit = AppMain.gmGmkGearSwitchAtkHitFunc;
             AppMain.ObjRectAtkSet( obs_RECT_WORK, 8, 1 );
             AppMain.ObjRectDefSet( obs_RECT_WORK, ushort.MaxValue, 0 );
             AppMain.ObjRectWorkSet( obs_RECT_WORK, -92, -92, 92, 92 );
@@ -425,11 +425,11 @@ public partial class AppMain
         }
         else
         {
-            obs_OBJECT_WORK.ppIn = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearInFunc );
+            obs_OBJECT_WORK.ppIn = AppMain.gmGmkGearInFunc;
             AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_COM_WORK.rect_work[1];
             AppMain.ObjRectGroupSet( obs_RECT_WORK, 0, 2 );
             obs_RECT_WORK.ppDef = null;
-            obs_RECT_WORK.ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkMoveGearEndAtkHitFunc );
+            obs_RECT_WORK.ppHit = AppMain.gmGmkMoveGearEndAtkHitFunc;
             AppMain.ObjRectAtkSet( obs_RECT_WORK, 8, 1 );
             AppMain.ObjRectDefSet( obs_RECT_WORK, ushort.MaxValue, 0 );
             AppMain.ObjRectWorkSet( obs_RECT_WORK, -32, -32, 32, 32 );
@@ -528,7 +528,7 @@ public partial class AppMain
     // Token: 0x06000582 RID: 1410 RVA: 0x00030588 File Offset: 0x0002E788
     private static void gmGmkGearFwInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearFwMain );
+        obj_work.ppFunc = AppMain.gmGmkGearFwMain;
     }
 
     // Token: 0x06000583 RID: 1411 RVA: 0x0003059C File Offset: 0x0002E79C
@@ -606,7 +606,7 @@ public partial class AppMain
         obj_work.spd.x = ( obj_work.spd.y = 0 );
         obj_work.spd_add.x = ( obj_work.spd_add.y = 0 );
         gms_GMK_GEAR_WORK.vib_end = false;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearFwMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearFwMain;
     }
 
     // Token: 0x06000586 RID: 1414 RVA: 0x00030970 File Offset: 0x0002EB70
@@ -634,7 +634,7 @@ public partial class AppMain
         obj_work.flag |= 16U;
         obj_work.move_flag &= 4294959103U;
         gms_GMK_GEAR_WORK.stop_timer = 737280;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearMoveMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearMoveMain;
     }
 
     // Token: 0x06000588 RID: 1416 RVA: 0x00030A94 File Offset: 0x0002EC94
@@ -676,7 +676,7 @@ public partial class AppMain
         AppMain.GMS_GMK_GEAR_WORK gms_GMK_GEAR_WORK = (AppMain.GMS_GMK_GEAR_WORK)obj_work;
         gms_GMK_GEAR_WORK.rect_ret_timer = 65536;
         obj_work.flag &= 4294967293U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearRetWaitMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearRetWaitMain;
     }
 
     // Token: 0x0600058A RID: 1418 RVA: 0x00030BB8 File Offset: 0x0002EDB8
@@ -718,7 +718,7 @@ public partial class AppMain
             return;
         }
         gms_GMK_GEAR_WORK.ret_max_speed = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearRetMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearRetMain;
     }
 
     // Token: 0x0600058C RID: 1420 RVA: 0x00030D44 File Offset: 0x0002EF44
@@ -828,7 +828,7 @@ public partial class AppMain
             AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)gms_ENEMY_COM_WORK.target_obj;
             AppMain.GmPlayerCameraOffsetSet( gms_PLAYER_WORK, ( short )( gms_PLAYER_WORK.gmk_camera_center_ofst_x + cam_ofst_x ), ( short )( gms_PLAYER_WORK.gmk_camera_center_ofst_y + cam_ofst_y ) );
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearSwitchExeMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearSwitchExeMain;
     }
 
     // Token: 0x0600058E RID: 1422 RVA: 0x00030FC8 File Offset: 0x0002F1C8
@@ -900,7 +900,7 @@ public partial class AppMain
         obj_work.user_timer = gms_GMK_GEAR_WORK.move_stagger_dir_spd;
         gms_GMK_GEAR_WORK.move_stagger_step = 0;
         obj_work.user_work = ( uint )gms_GMK_GEAR_WORK.move_stagger_step;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearEndStaggerMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearEndStaggerMain;
     }
 
     // Token: 0x06000590 RID: 1424 RVA: 0x0003121C File Offset: 0x0002F41C
@@ -1075,7 +1075,7 @@ public partial class AppMain
         obj_work.move_flag |= 8448U;
         gms_GMK_GEAR_WORK.gmk_work.ene_com.enemy_flag |= 1U;
         gms_GMK_GEAR_WORK.gmk_work.ene_com.target_obj = null;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearEndMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearEndMain;
     }
 
     // Token: 0x06000592 RID: 1426 RVA: 0x0003171C File Offset: 0x0002F91C
@@ -1096,7 +1096,7 @@ public partial class AppMain
         gms_GMK_GEAR_WORK.gmk_work.ene_com.enemy_flag |= 1U;
         gms_GMK_GEAR_WORK.gmk_work.ene_com.target_obj = null;
         obj_work.user_timer = 245760;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearSwitchRetWaitMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearSwitchRetWaitMain;
     }
 
     // Token: 0x06000594 RID: 1428 RVA: 0x000317D0 File Offset: 0x0002F9D0
@@ -1142,7 +1142,7 @@ public partial class AppMain
         {
             gms_GMK_GEAR_WORK.rect_ret_timer = 65536;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearSwitchRetMain );
+        obj_work.ppFunc = AppMain.gmGmkMoveGearSwitchRetMain;
     }
 
     // Token: 0x06000596 RID: 1430 RVA: 0x00031928 File Offset: 0x0002FB28
@@ -1348,7 +1348,7 @@ public partial class AppMain
         AppMain.GMS_GMK_GEAR_WORK gms_GMK_GEAR_WORK = (AppMain.GMS_GMK_GEAR_WORK)obj_work;
         if ( ( gms_GMK_GEAR_WORK.gmk_work.ene_com.eve_rec.flag & 1 ) != 0 && gms_GMK_GEAR_WORK.gmk_work.ene_com.eve_rec.byte_param[1] == 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkMoveGearEndSwitchFwMain );
+            obj_work.ppFunc = AppMain.gmGmkMoveGearEndSwitchFwMain;
         }
     }
 
@@ -1396,7 +1396,7 @@ public partial class AppMain
     {
         AppMain.GMS_GMK_GEAR_WORK gms_GMK_GEAR_WORK = (AppMain.GMS_GMK_GEAR_WORK)obj_work;
         gms_GMK_GEAR_WORK.open_rot_dist = 65536;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearSwFwMain );
+        obj_work.ppFunc = AppMain.gmGmkGearSwFwMain;
         gms_GMK_GEAR_WORK.move_gear_obj = null;
     }
 
@@ -1408,11 +1408,11 @@ public partial class AppMain
     // Token: 0x060005A0 RID: 1440 RVA: 0x000321A6 File Offset: 0x000303A6
     private static void gmGmkGearSwRotExtWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        if ( obj_work.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearSwFwMain ) )
+        if ( obj_work.ppFunc == AppMain.gmGmkGearSwFwMain )
         {
             AppMain.GmSoundPlaySE( "Gear2", null );
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearSwRotExtWaitMain );
+        obj_work.ppFunc = AppMain.gmGmkGearSwRotExtWaitMain;
     }
 
     // Token: 0x060005A1 RID: 1441 RVA: 0x000321E0 File Offset: 0x000303E0
@@ -1437,7 +1437,7 @@ public partial class AppMain
     // Token: 0x060005A2 RID: 1442 RVA: 0x00032263 File Offset: 0x00030463
     private static void gmGmkGearSwRotExtInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGearSwRotExtMain );
+        obj_work.ppFunc = AppMain.gmGmkGearSwRotExtMain;
     }
 
     // Token: 0x060005A3 RID: 1443 RVA: 0x00032278 File Offset: 0x00030478

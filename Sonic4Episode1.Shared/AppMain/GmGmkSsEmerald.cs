@@ -32,10 +32,10 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4194308U;
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 2U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsEmeraldMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsEmeraldMain;
         gms_ENEMY_3D_WORK.ene_com.rect_work[0].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSsEmeraldDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkSsEmeraldDefFunc;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -4, -4, 4, 4 );
         int efct_zone_idx;

@@ -16,7 +16,7 @@ public partial class AppMain
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 1 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectSet( obs_RECT_WORK.rect, ( short )eve_rec.left, ( short )eve_rec.top, ( short )( eve_rec.width + ( byte )eve_rec.left ), ( short )( eve_rec.height + ( byte )eve_rec.top ) );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkFlagChangeDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkFlagChangeDefFunc;
         obs_RECT_WORK.parent_obj = obs_OBJECT_WORK;
         obs_RECT_WORK.flag |= 192U;
         obs_OBJECT_WORK.move_flag |= 8480U;

@@ -50,7 +50,7 @@ public class SaveState
 			{
 				SaveState.saveThread = null;
 			}
-			SaveState.saveThread = new Thread(new ParameterizedThreadStart(SaveState._saveFile));
+			SaveState.saveThread = new Thread(SaveState._saveFile);
 			SaveState.SaveData saveData = SaveState.save;
 			SaveState.saveThread.Start(saveData);
 		}

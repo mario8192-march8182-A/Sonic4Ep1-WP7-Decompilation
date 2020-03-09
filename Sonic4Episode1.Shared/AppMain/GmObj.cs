@@ -79,7 +79,7 @@ public partial class AppMain
     // Token: 0x060004E3 RID: 1251 RVA: 0x00029E5C File Offset: 0x0002805C
     private static void GmObjSetClip( AppMain.OBS_OBJECT_WORK obj_work, short out_ofst, short plus_left, short plus_top, short plus_right, short plus_bottom )
     {
-        obj_work.ppViewCheck = new AppMain.OBS_OBJECT_WORK_Delegate3( AppMain.ObjObjectViewOutCheck );
+        obj_work.ppViewCheck = AppMain.ObjObjectViewOutCheck;
         obj_work.view_out_ofst = out_ofst;
         obj_work.view_out_ofst_plus[0] = plus_left;
         obj_work.view_out_ofst_plus[1] = plus_top;

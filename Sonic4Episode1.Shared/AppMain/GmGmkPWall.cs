@@ -175,7 +175,7 @@ public partial class AppMain
         if ( AppMain.g_gm_gamedat_zone_type_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] == 2 )
         {
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_presswall_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWall_ppOut );
+            obs_OBJECT_WORK.ppOut = AppMain.gmGmkPressWall_ppOut;
             if ( eve_rec.height == 0 )
             {
                 gms_GMK_PWALL_WORK.wall_height = 0;
@@ -193,7 +193,7 @@ public partial class AppMain
         else
         {
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_presswall_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWall_ppOut );
+            obs_OBJECT_WORK.ppOut = AppMain.gmGmkPressWall_ppOut;
             AppMain.ObjAction3dNNMaterialMotionLoad( obs_OBJECT_WORK.obj_3d, 0, null, null, 1, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 895 ).pData );
             AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
             obs_OBJECT_WORK.disp_flag |= 4U;
@@ -222,7 +222,7 @@ public partial class AppMain
         {
             gms_GMK_PWALL_WORK.wall_speed = 4096;
         }
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkPressWallExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkPressWallExit );
         gms_GMK_PWALL_WORK.se_handle = null;
         AppMain.gmGmkPressWallStart( obs_OBJECT_WORK );
         return obs_OBJECT_WORK;
@@ -365,7 +365,7 @@ public partial class AppMain
                 obs_RECT_WORK.flag |= 4U;
                 obs_RECT_WORK.flag |= 1024U;
                 obj_work.flag &= 4294967293U;
-                obs_RECT_WORK.ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkPressWallZ4Hit );
+                obs_RECT_WORK.ppHit = AppMain.gmGmkPressWallZ4Hit;
             }
             if ( AppMain.g_gm_gamedat_zone_type_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] == 2 && obj_work.user_flag != 0U )
             {
@@ -378,7 +378,7 @@ public partial class AppMain
                 AppMain.GmSoundPlaySEForce( "MovingWall", gms_GMK_PWALL_WORK.se_handle );
             }
             gms_GMK_PWALL_WORK.efct_obj = null;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForce );
+            obj_work.ppFunc = AppMain.gmGmkPressWallForce;
             AppMain.gmGmkPressWallForce( obj_work );
         }
     }
@@ -403,7 +403,7 @@ public partial class AppMain
                 AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK3 = gms_GMK_PWALL_WORK;
                 gms_GMK_PWALL_WORK3.wall_vibration += 3;
                 gms_GMK_PWALL_WORK.wall_brake = gms_GMK_PWALL_WORK.wall_speed;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForce_100 );
+                obj_work.ppFunc = AppMain.gmGmkPressWallForce_100;
                 AppMain.gmGmkPressWallForce_100( obj_work );
                 return;
             }
@@ -435,13 +435,13 @@ public partial class AppMain
                     gms_GMK_PWALL_WORK.efct_obj = null;
                     gms_GMK_PWALL_WORK.wall_effect_build_timer = 0;
                 }
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForceZ4_Stop );
+                obj_work.ppFunc = AppMain.gmGmkPressWallForceZ4_Stop;
             }
             else if ( ( obj_work.user_flag & 1U ) != 0U || gms_GMK_PWALL_WORK.ply_death )
             {
                 gms_GMK_PWALL_WORK.wall_brake = gms_GMK_PWALL_WORK.wall_speed;
                 obj_work.user_flag &= 4294967294U;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForceZ4_Hit );
+                obj_work.ppFunc = AppMain.gmGmkPressWallForceZ4_Hit;
                 if ( gms_GMK_PWALL_WORK.efct_obj != null )
                 {
                     AppMain.ObjDrawKillAction3DES( gms_GMK_PWALL_WORK.efct_obj );
@@ -476,7 +476,7 @@ public partial class AppMain
             gms_GMK_PWALL_WORK2.wall_vibration += 1;
             return;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForce_200 );
+        obj_work.ppFunc = AppMain.gmGmkPressWallForce_200;
         AppMain.gmGmkPressWallSeStop( obj_work );
     }
 
@@ -508,11 +508,11 @@ public partial class AppMain
             gms_GMK_PWALL_WORK.wall_brake = 0;
             if ( !gms_GMK_PWALL_WORK.ply_death && gms_GMK_PWALL_WORK.wall_speed != 0 )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForceZ4_Hit_100 );
+                obj_work.ppFunc = AppMain.gmGmkPressWallForceZ4_Hit_100;
             }
             else
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForceZ4_Stop );
+                obj_work.ppFunc = AppMain.gmGmkPressWallForceZ4_Stop;
             }
         }
         if ( gms_GMK_PWALL_WORK.gmk_work.obj_3d.speed[0] > 0f )
@@ -543,7 +543,7 @@ public partial class AppMain
         {
             gms_GMK_PWALL_WORK.ply_death = true;
             gms_GMK_PWALL_WORK.wall_speed = 0;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForceZ4_Stop );
+            obj_work.ppFunc = AppMain.gmGmkPressWallForceZ4_Stop;
             return;
         }
         gms_GMK_PWALL_WORK.wall_brake += gms_GMK_PWALL_WORK.wall_speed / 64;
@@ -557,7 +557,7 @@ public partial class AppMain
             obj_work.disp_flag &= 4294963199U;
             obj_work.flag &= 4294967293U;
             gms_GMK_PWALL_WORK.ply_death = false;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallForce );
+            obj_work.ppFunc = AppMain.gmGmkPressWallForce;
         }
         if ( gms_GMK_PWALL_WORK.gmk_work.obj_3d.speed[0] < 1f )
         {
@@ -639,7 +639,7 @@ public partial class AppMain
         gms_GMK_PWALL_WORK.master_posy = obj_work.pos.y;
         AppMain.pwall.stop_wall = false;
         obj_work.disp_flag |= 32U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallStay );
+        obj_work.ppFunc = AppMain.gmGmkPressWallStay;
     }
 
     // Token: 0x06001B28 RID: 6952 RVA: 0x000F7E34 File Offset: 0x000F6034
@@ -677,7 +677,7 @@ public partial class AppMain
         obj_work.disp_flag |= 32U;
         obj_work.move_flag |= 8960U;
         obj_work.flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallStopperMain );
+        obj_work.ppFunc = AppMain.gmGmkPressWallStopperMain;
     }
 
     // Token: 0x06001B2A RID: 6954 RVA: 0x000F7FB8 File Offset: 0x000F61B8
@@ -714,7 +714,7 @@ public partial class AppMain
         gms_GMK_PWALLCTRL_WORK.last_ply_y = gms_PLAYER_WORK.obj_work.pos.y;
         obj_work.disp_flag |= 32U;
         obj_work.move_flag |= 8960U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallControler );
+        obj_work.ppFunc = AppMain.gmGmkPressWallControler;
     }
 
     // Token: 0x06001B2C RID: 6956 RVA: 0x000F81D8 File Offset: 0x000F63D8
@@ -747,7 +747,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 256U;
         obs_OBJECT_WORK.disp_flag |= 134217728U;
         ( ( AppMain.GMS_GMK_PRESSWALL_PARTS )obs_OBJECT_WORK ).ofst_y = -8192;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallRail );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPressWallRail;
         obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK( () => new AppMain.GMS_GMK_PRESSWALL_PARTS(), parent_obj, 0, "PresswallRail-Botom" );
         gms_EFFECT_3DNN_WORK = ( AppMain.GMS_EFFECT_3DNN_WORK )obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_presswall_obj_3d_list[1], gms_EFFECT_3DNN_WORK.obj_3d );
@@ -758,7 +758,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 256U;
         obs_OBJECT_WORK.disp_flag |= 134217728U;
         ( ( AppMain.GMS_GMK_PRESSWALL_PARTS )obs_OBJECT_WORK ).ofst_y = height - 65536;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallRail );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPressWallRail;
     }
 
     // Token: 0x06001B2F RID: 6959 RVA: 0x000F8448 File Offset: 0x000F6648
@@ -796,12 +796,12 @@ public partial class AppMain
             obs_OBJECT_WORK.disp_flag |= 4194304U;
             obs_OBJECT_WORK.disp_flag |= 256U;
             obs_OBJECT_WORK.disp_flag |= 134217728U;
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallParts );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPressWallParts;
             AppMain.GMS_GMK_PRESSWALL_PARTS gms_GMK_PRESSWALL_PARTS = (AppMain.GMS_GMK_PRESSWALL_PARTS)obs_OBJECT_WORK;
             gms_GMK_PRESSWALL_PARTS.master_posy = pos_y;
             if ( height == 0 )
             {
-                obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPressWallZ4Parts_ppOut );
+                obs_OBJECT_WORK.ppOut = AppMain.gmGmkPressWallZ4Parts_ppOut;
             }
         }
         AppMain.ObjAction3dNNMaterialMotionLoad( obs_OBJECT_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 895 ).pData );

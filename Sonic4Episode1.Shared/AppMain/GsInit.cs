@@ -32,12 +32,12 @@ public partial class AppMain
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
         gss_MAIN_SYS_INFO.is_save_run = 0U;
-        AppMain.g_gs_init_tcb = AppMain.amTaskMake(new AppMain.TaskProc(AppMain.gsInitTaskProcedure), new AppMain.TaskProc(AppMain.gsInitTaskDestructor), 0U, 0U, 0U, "gsInit");
+        AppMain.g_gs_init_tcb = AppMain.amTaskMake(AppMain.gsInitTaskProcedure, AppMain.gsInitTaskDestructor, 0U, 0U, 0U, "gsInit");
         AppMain.g_gs_init_tcb.work = new AppMain.GSS_INIT_WORK();
         AppMain.GSS_INIT_WORK gss_INIT_WORK = (AppMain.GSS_INIT_WORK)AppMain.amTaskGetWork(AppMain.g_gs_init_tcb);
         gss_INIT_WORK.count = 0;
         gss_INIT_WORK.fs = null;
-        gss_INIT_WORK.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcSysFirst);
+        gss_INIT_WORK.proc = AppMain.gsInitProcSysFirst;
         AppMain.amTaskStart(AppMain.g_gs_init_tcb);
     }
 
@@ -100,13 +100,13 @@ public partial class AppMain
         {
             AppMain.IzFadeInitEasyTask(0U, 0, 0, 0, byte.MaxValue, 0, 0, 0, byte.MaxValue, 1f);
         }
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcStrapLoad);
+        work.proc = AppMain.gsInitProcStrapLoad;
     }
 
     // Token: 0x060009EF RID: 2543 RVA: 0x00059B63 File Offset: 0x00057D63
     private static void gsInitProcStrapLoad(AppMain.GSS_INIT_WORK work)
     {
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcLoadLoadingFile);
+        work.proc = AppMain.gsInitProcLoadLoadingFile;
     }
 
     // Token: 0x060009F0 RID: 2544 RVA: 0x00059B78 File Offset: 0x00057D78
@@ -121,7 +121,7 @@ public partial class AppMain
             AppMain.DmLoadingBuild(work.fs);
             AppMain.amFsClearRequest(work.fs);
             work.fs = null;
-            work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcBuildLoadingFile);
+            work.proc = AppMain.gsInitProcBuildLoadingFile;
         }
     }
 
@@ -130,20 +130,20 @@ public partial class AppMain
     {
         if (AppMain.DmLoadingBuildCheck())
         {
-            work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcLoadSysMsgFile);
+            work.proc = AppMain.gsInitProcLoadSysMsgFile;
         }
     }
 
     // Token: 0x060009F2 RID: 2546 RVA: 0x00059BF4 File Offset: 0x00057DF4
     private static void gsInitProcLoadSysMsgFile(AppMain.GSS_INIT_WORK work)
     {
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcLoadSaveMsgFile);
+        work.proc = AppMain.gsInitProcLoadSaveMsgFile;
     }
 
     // Token: 0x060009F3 RID: 2547 RVA: 0x00059C08 File Offset: 0x00057E08
     private static void gsInitProcLoadSaveMsgFile(AppMain.GSS_INIT_WORK work)
     {
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcSysLast);
+        work.proc = AppMain.gsInitProcSysLast;
     }
 
     // Token: 0x060009F4 RID: 2548 RVA: 0x00059C1C File Offset: 0x00057E1C
@@ -151,7 +151,7 @@ public partial class AppMain
     {
         AppMain.AoAccountInit();
         AppMain.AoStorageInit();
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcCheckTrial);
+        work.proc = AppMain.gsInitProcCheckTrial;
     }
 
     // Token: 0x060009F5 RID: 2549 RVA: 0x00059C3C File Offset: 0x00057E3C
@@ -161,7 +161,7 @@ public partial class AppMain
         AppMain.amSystemLog("\n================================================\n");
         AppMain.amSystemLog("gsInit - product mode : Full\n");
         AppMain.amSystemLog("================================================\n\n");
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcInitTorphy);
+        work.proc = AppMain.gsInitProcInitTorphy;
 
     }
 
@@ -169,13 +169,13 @@ public partial class AppMain
     private static void gsInitProcInitTorphy(AppMain.GSS_INIT_WORK work)
     {
         AppMain.GsTrophyInit();
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcInstallTorphy);
+        work.proc = AppMain.gsInitProcInstallTorphy;
     }
 
     // Token: 0x060009F7 RID: 2551 RVA: 0x00059CB9 File Offset: 0x00057EB9
     private static void gsInitProcInstallTorphy(AppMain.GSS_INIT_WORK work)
     {
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcPresence);
+        work.proc = AppMain.gsInitProcPresence;
     }
 
     // Token: 0x060009F8 RID: 2552 RVA: 0x00059CCD File Offset: 0x00057ECD
@@ -187,14 +187,14 @@ public partial class AppMain
         }
         if (AoPresence.AoPresenceInitialized())
         {
-            work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcWaitPadEnable);
+            work.proc = AppMain.gsInitProcWaitPadEnable;
         }
     }
 
     // Token: 0x060009F9 RID: 2553 RVA: 0x00059CF5 File Offset: 0x00057EF5
     private static void gsInitProcWaitPadEnable(AppMain.GSS_INIT_WORK work)
     {
-        work.proc = new AppMain.GSS_INIT_WORK.ProcDelegate(AppMain.gsInitProcEnd);
+        work.proc = AppMain.gsInitProcEnd;
     }
 
     // Token: 0x060009FA RID: 2554 RVA: 0x00059D09 File Offset: 0x00057F09

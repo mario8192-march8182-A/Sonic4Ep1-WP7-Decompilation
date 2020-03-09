@@ -69,7 +69,7 @@ public partial class AppMain
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_BELTC_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_beltconv_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -69632;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBeltConveyor_ppOut );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkBeltConveyor_ppOut;
         obs_OBJECT_WORK.move_flag |= 8448U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.flag |= 2U;
@@ -239,6 +239,6 @@ public partial class AppMain
         gms_GMK_BELTC_WORK.gmk_work.ene_com.col_work.obj_col.attr = 1;
         gms_GMK_BELTC_WORK.last_under = false;
         gms_GMK_BELTC_WORK.tex_u = 0f;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBeltConveyorStay );
+        obj_work.ppFunc = AppMain.gmGmkBeltConveyorStay;
     }
 }

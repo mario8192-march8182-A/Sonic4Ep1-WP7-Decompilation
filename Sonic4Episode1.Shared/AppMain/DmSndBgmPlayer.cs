@@ -94,10 +94,10 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.dm_snd_bgm_player_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.dmSndBgmPlayerProcMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.dmSndBgmPlayerDest ), 0U, 0, 4096U, 0, () => new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK(), "DM_SND_BGM_PLAYER_MAIN" );
+        AppMain.dm_snd_bgm_player_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.dmSndBgmPlayerProcMain, AppMain.dmSndBgmPlayerDest, 0U, 0, 4096U, 0, () => new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK(), "DM_SND_BGM_PLAYER_MAIN" );
         AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK dms_SND_BGM_PLAYER_MAIN_WORK = (AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK)AppMain.dm_snd_bgm_player_tcb.work;
         AppMain.dm_snd_bgm_player_flag = 0U;
-        dms_SND_BGM_PLAYER_MAIN_WORK.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcInit );
+        dms_SND_BGM_PLAYER_MAIN_WORK.proc_update = AppMain.dmSndBgmPlayerProcInit;
     }
 
     // Token: 0x06000CA9 RID: 3241 RVA: 0x000701A4 File Offset: 0x0006E3A4
@@ -125,7 +125,7 @@ public partial class AppMain
     private static void dmSndBgmPlayerProcInit( AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK main_work )
     {
         AppMain.DmSoundBuild();
-        main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcBuildIdle );
+        main_work.proc_update = AppMain.dmSndBgmPlayerProcBuildIdle;
     }
 
     // Token: 0x06000CAC RID: 3244 RVA: 0x00070207 File Offset: 0x0006E407
@@ -134,7 +134,7 @@ public partial class AppMain
         if ( AppMain.DmSoundBuildCheck() )
         {
             AppMain.DmSoundInit();
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcWaitSetBgm );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcWaitSetBgm;
             main_work.end_timer = 0;
         }
     }
@@ -147,7 +147,7 @@ public partial class AppMain
         {
             AppMain.DmSoundStopJingle( 24 );
             AppMain.DmSoundStopBGM( 24 );
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcStopIdle );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcStopIdle;
             return;
         }
         if ( ( AppMain.dm_snd_bgm_player_flag & 16U ) != 0U || ( AppMain.dm_snd_bgm_player_flag & 32U ) != 0U )
@@ -162,20 +162,20 @@ public partial class AppMain
                 AppMain.DmSoundPlayMenuBGM( 0, 32 );
                 AppMain.dm_snd_bgm_player_flag &= 4294967279U;
             }
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcPlayIdle );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcPlayIdle;
             main_work.end_timer = 0;
             return;
         }
         if ( ( AppMain.dm_snd_bgm_player_flag & 64U ) != 0U )
         {
             AppMain.DmSoundStopBGM( 0 );
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcStopIdle );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcStopIdle;
             return;
         }
         if ( ( AppMain.dm_snd_bgm_player_flag & 128U ) != 0U )
         {
             AppMain.DmSoundStopJingle( 24 );
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcStopIdle );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcStopIdle;
         }
     }
 
@@ -186,19 +186,19 @@ public partial class AppMain
         {
             AppMain.DmSoundStopJingle( 24 );
             AppMain.DmSoundStopBGM( 24 );
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcStopIdle );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcStopIdle;
             return;
         }
         if ( ( AppMain.dm_snd_bgm_player_flag & 64U ) != 0U )
         {
             AppMain.DmSoundStopBGM( 0 );
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcStopIdle );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcStopIdle;
             return;
         }
         if ( ( AppMain.dm_snd_bgm_player_flag & 128U ) != 0U )
         {
             AppMain.DmSoundStopJingle( 24 );
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcStopIdle );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcStopIdle;
         }
     }
 
@@ -210,7 +210,7 @@ public partial class AppMain
             if ( ( AppMain.dm_snd_bgm_player_flag & 4U ) != 0U )
             {
                 AppMain.dm_snd_bgm_player_flag &= 4294967291U;
-                main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcSndRelease );
+                main_work.proc_update = AppMain.dmSndBgmPlayerProcSndRelease;
                 return;
             }
             if ( ( AppMain.dm_snd_bgm_player_flag & 64U ) != 0U )
@@ -233,7 +233,7 @@ public partial class AppMain
                 AppMain.dm_snd_bgm_player_flag |= 32U;
                 AppMain.dm_snd_bgm_player_flag &= 4294967167U;
             }
-            main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcWaitSetBgm );
+            main_work.proc_update = AppMain.dmSndBgmPlayerProcWaitSetBgm;
         }
     }
 
@@ -242,7 +242,7 @@ public partial class AppMain
     {
         AppMain.DmSoundExit();
         AppMain.DmSoundFlush();
-        main_work.proc_update = new AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK._proc_( AppMain.dmSndBgmPlayerProcSndFinish );
+        main_work.proc_update = AppMain.dmSndBgmPlayerProcSndFinish;
     }
 
     // Token: 0x06000CB1 RID: 3249 RVA: 0x000704CE File Offset: 0x0006E6CE

@@ -111,7 +111,7 @@ public partial class AppMain
     {
         efct_work.efct_com.obj_work.ppFunc = null;
         AppMain.GmEffect3DESSetupBase( efct_work, type, init_flag );
-        efct_work.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4EffMainFuncDeleteAtEnd );
+        efct_work.efct_com.obj_work.ppFunc = AppMain.gmBoss4EffMainFuncDeleteAtEnd;
     }
 
     // Token: 0x060002AD RID: 685 RVA: 0x00016714 File Offset: 0x00014914
@@ -140,7 +140,7 @@ public partial class AppMain
         {
             AppMain.VEC_Set( ref obs_OBJECT_WORK.pos, pos.Value.x, pos.Value.y, pos.Value.z );
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4EffMainFuncFlagLink );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss4EffMainFuncFlagLink;
         obs_OBJECT_WORK.flag |= 32U;
         gms_BOSS4_EFF_COMMON_WORK.lookflag = ctrl_flag;
         gms_BOSS4_EFF_COMMON_WORK.lookmask = mask;
@@ -208,14 +208,14 @@ public partial class AppMain
             gms_EFFECT_3DES_WORK = AppMain.GmBoss4EffCommonInit( 743, default( AppMain.VecFx32? ) );
             gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = null;
             AppMain.GmEffect3DESSetupBase( gms_EFFECT_3DES_WORK, 2U, 64U );
-            gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4EffMainFuncDeleteAtEnd );
+            gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmBoss4EffMainFuncDeleteAtEnd;
         }
         else
         {
             gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate( null, 7 );
             gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = null;
             AppMain.GmEffect3DESSetupBase( gms_EFFECT_3DES_WORK, 2U, 1U );
-            gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4EffMainFuncDeleteAtEnd );
+            gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmBoss4EffMainFuncDeleteAtEnd;
             if ( --bomb_work.interval_timer_sound <= 0 )
             {
                 bomb_work.interval_timer_sound = 3;

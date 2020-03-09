@@ -53,7 +53,7 @@ public partial class AppMain
         obs_OBJECT_WORK.flag |= 512U;
         obs_OBJECT_WORK.flag |= 2U;
         obs_OBJECT_WORK.flag &= 4294967279U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkEndingAnimalMove );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkEndingAnimalMove;
         return obs_OBJECT_WORK;
     }
 
@@ -99,7 +99,7 @@ public partial class AppMain
         obs_OBJECT_WORK.flag |= 512U;
         obs_OBJECT_WORK.flag |= 2U;
         obs_OBJECT_WORK.flag &= 4294967279U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkAnimalWait );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkAnimalWait;
         return obs_OBJECT_WORK;
     }
 
@@ -126,7 +126,7 @@ public partial class AppMain
         obj_work.spd.y = AppMain.g_gm_gmk_animal_speed_param[( int )obj_work.user_work].jump;
         obj_work.spd_fall = AppMain.g_gm_gmk_animal_speed_param[( int )obj_work.user_work].gravity;
         obj_work.pos.z = 131072;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkAnimalJump );
+        obj_work.ppFunc = AppMain.gmGmkAnimalJump;
     }
 
     // Token: 0x060018B5 RID: 6325 RVA: 0x000E17B8 File Offset: 0x000DF9B8

@@ -308,7 +308,7 @@ public partial class AppMain
         }
         if ( AppMain.gm_sound_bgm_win_boss_tcb == null )
         {
-            AppMain.gm_sound_bgm_win_boss_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSoundBGMWinBossFunc ), new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSoundBGMWinBossDest ), 0U, 0, 32767U, 5, () => new AppMain.GMS_SOUND_BGM_WIN_BOSS_MGR_WORK(), "GM_SOUND_WB" );
+            AppMain.gm_sound_bgm_win_boss_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmSoundBGMWinBossFunc, AppMain.gmSoundBGMWinBossDest, 0U, 0, 32767U, 5, () => new AppMain.GMS_SOUND_BGM_WIN_BOSS_MGR_WORK(), "GM_SOUND_WB" );
             AppMain.GMS_SOUND_BGM_WIN_BOSS_MGR_WORK gms_SOUND_BGM_WIN_BOSS_MGR_WORK = (AppMain.GMS_SOUND_BGM_WIN_BOSS_MGR_WORK)AppMain.gm_sound_bgm_win_boss_tcb.work;
             gms_SOUND_BGM_WIN_BOSS_MGR_WORK.Clear();
             gms_SOUND_BGM_WIN_BOSS_MGR_WORK.timer = AppMain.gm_sound_bgm_win_boss_wait_frame_list[AppMain.GMM_MAIN_GET_ZONE_TYPE()];
@@ -624,7 +624,7 @@ public partial class AppMain
         }
         else
         {
-            AppMain.gm_sound_1shot_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSound1ShotJingleFunc ), new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSound1ShotJingleDest ), 0U, 0, 32767U, 5, () => new AppMain.GMS_SOUND_1SHOT_JINGLE_WORK(), "GM_SOUND_1SH" );
+            AppMain.gm_sound_1shot_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmSound1ShotJingleFunc, AppMain.gmSound1ShotJingleDest, 0U, 0, 32767U, 5, () => new AppMain.GMS_SOUND_1SHOT_JINGLE_WORK(), "GM_SOUND_1SH" );
         }
         AppMain.GMS_SOUND_1SHOT_JINGLE_WORK gms_SOUND_1SHOT_JINGLE_WORK = (AppMain.GMS_SOUND_1SHOT_JINGLE_WORK)AppMain.gm_sound_1shot_tcb.work;
         gms_SOUND_1SHOT_JINGLE_WORK.Clear();
@@ -681,7 +681,7 @@ public partial class AppMain
         AppMain.GMS_SOUND_BGM_FADE_MGR_WORK gms_SOUND_BGM_FADE_MGR_WORK;
         if ( AppMain.gm_sound_bgm_fade_tcb == null )
         {
-            AppMain.gm_sound_bgm_fade_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSoundBGMFadeFunc ), new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSoundBGMFadeDest ), 0U, 0, 32767U, 5, () => new AppMain.GMS_SOUND_BGM_FADE_MGR_WORK(), "GM_SOUND_BFADE" );
+            AppMain.gm_sound_bgm_fade_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmSoundBGMFadeFunc, AppMain.gmSoundBGMFadeDest, 0U, 0, 32767U, 5, () => new AppMain.GMS_SOUND_BGM_FADE_MGR_WORK(), "GM_SOUND_BFADE" );
             gms_SOUND_BGM_FADE_MGR_WORK = ( AppMain.GMS_SOUND_BGM_FADE_MGR_WORK )AppMain.gm_sound_bgm_fade_tcb.work;
             gms_SOUND_BGM_FADE_MGR_WORK.Clear();
         }

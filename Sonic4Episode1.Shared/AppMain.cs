@@ -331,8 +331,8 @@ public partial class AppMain
         };
         this.dm_titleop_com_fileinfo_list = new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[]
         {
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.post_func_Delegate(AppMain.dmTitleOpLoadPostFuncMapFar)),
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/TITLE/D_TITLEOP.AMB", new AppMain.post_func_Delegate(AppMain.dmTitleOpLoadPostFuncTitleLogo))
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.dmTitleOpLoadPostFuncMapFar),
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/TITLE/D_TITLEOP.AMB", AppMain.dmTitleOpLoadPostFuncTitleLogo)
         };
         //base..ctor();
         AppMain.m_game = game;
@@ -350,7 +350,7 @@ public partial class AppMain
         AppMain.SYS_EVT_DATA._exit_sys_func_ f5 = null;
         short[] ar = new short[8];
         array24[num11] = new AppMain.SYS_EVT_DATA(f, f2, f3, f4, f5, ar, 0U);
-        array23[1] = new AppMain.SYS_EVT_DATA(new AppMain.SYS_EVT_DATA._init_func_(AppMain.GsMainSysSystemInitEvent), null, null, null, null, new short[]
+        array23[1] = new AppMain.SYS_EVT_DATA(AppMain.GsMainSysSystemInitEvent, null, null, null, null, new short[]
         {
             2,
             2,
@@ -363,7 +363,7 @@ public partial class AppMain
         }, 0U);
         AppMain.SYS_EVT_DATA[] array25 = array23;
         int num12 = 2;
-        AppMain.SYS_EVT_DATA._init_func_ f6 = new AppMain.SYS_EVT_DATA._init_func_(this.DmLogoSegaInit);
+        AppMain.SYS_EVT_DATA._init_func_ f6 = this.DmLogoSegaInit;
         AppMain.SYS_EVT_DATA._exit_func_ f7 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f8 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f9 = null;
@@ -371,7 +371,7 @@ public partial class AppMain
         short[] array26 = new short[8];
         array26[0] = 13;
         array25[num12] = new AppMain.SYS_EVT_DATA(f6, f7, f8, f9, f10, array26, 0U);
-        array23[3] = new AppMain.SYS_EVT_DATA(new AppMain.SYS_EVT_DATA._init_func_(this.DmTitleStart), null, null, null, null, new short[]
+        array23[3] = new AppMain.SYS_EVT_DATA(this.DmTitleStart, null, null, null, null, new short[]
         {
             6,
             5,
@@ -382,7 +382,7 @@ public partial class AppMain
             0,
             0
         }, 0U);
-        array23[4] = new AppMain.SYS_EVT_DATA(new AppMain.SYS_EVT_DATA._init_func_(this.DmMainMenuStart), null, null, null, null, new short[]
+        array23[4] = new AppMain.SYS_EVT_DATA(this.DmMainMenuStart, null, null, null, null, new short[]
         {
             6,
             5,
@@ -393,7 +393,7 @@ public partial class AppMain
             0,
             0
         }, 0U);
-        array23[5] = new AppMain.SYS_EVT_DATA(new AppMain.SYS_EVT_DATA._init_func_(this.DmStgSlctStart), null, null, null, null, new short[]
+        array23[5] = new AppMain.SYS_EVT_DATA(this.DmStgSlctStart, null, null, null, null, new short[]
         {
             6,
             11,
@@ -404,7 +404,7 @@ public partial class AppMain
             0,
             0
         }, 0U);
-        array23[6] = new AppMain.SYS_EVT_DATA(new AppMain.SYS_EVT_DATA._init_func_(this.GmMainInit), null, null, null, null, new short[]
+        array23[6] = new AppMain.SYS_EVT_DATA(this.GmMainInit, null, null, null, null, new short[]
         {
             5,
             6,
@@ -418,7 +418,7 @@ public partial class AppMain
         }, 0U);
         AppMain.SYS_EVT_DATA[] array27 = array23;
         int num13 = 7;
-        AppMain.SYS_EVT_DATA._init_func_ f11 = new AppMain.SYS_EVT_DATA._init_func_(this.DbgDummyInitResult);
+        AppMain.SYS_EVT_DATA._init_func_ f11 = this.DbgDummyInitResult;
         AppMain.SYS_EVT_DATA._exit_func_ f12 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f13 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f14 = null;
@@ -428,7 +428,7 @@ public partial class AppMain
         array27[num13] = new AppMain.SYS_EVT_DATA(f11, f12, f13, f14, f15, array28, 0U);
         AppMain.SYS_EVT_DATA[] array29 = array23;
         int num14 = 8;
-        AppMain.SYS_EVT_DATA._init_func_ f16 = new AppMain.SYS_EVT_DATA._init_func_(AppMain.DmOptionStart);
+        AppMain.SYS_EVT_DATA._init_func_ f16 = AppMain.DmOptionStart;
         AppMain.SYS_EVT_DATA._exit_func_ f17 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f18 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f19 = null;
@@ -437,7 +437,7 @@ public partial class AppMain
         array30[0] = 10;
         array30[1] = 3;
         array29[num14] = new AppMain.SYS_EVT_DATA(f16, f17, f18, f19, f20, array30, 0U);
-        array23[9] = new AppMain.SYS_EVT_DATA(new AppMain.SYS_EVT_DATA._init_func_(this.GmMainInit), null, null, null, null, new short[]
+        array23[9] = new AppMain.SYS_EVT_DATA(this.GmMainInit, null, null, null, null, new short[]
         {
             10,
             3,
@@ -450,7 +450,7 @@ public partial class AppMain
         }, 0U);
         AppMain.SYS_EVT_DATA[] array31 = array23;
         int num15 = 10;
-        AppMain.SYS_EVT_DATA._init_func_ f21 = new AppMain.SYS_EVT_DATA._init_func_(AppMain.DmStaffRollStart);
+        AppMain.SYS_EVT_DATA._init_func_ f21 = AppMain.DmStaffRollStart;
         AppMain.SYS_EVT_DATA._exit_func_ f22 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f23 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f24 = null;
@@ -461,7 +461,7 @@ public partial class AppMain
         array31[num15] = new AppMain.SYS_EVT_DATA(f21, f22, f23, f24, f25, array32, 0U);
         AppMain.SYS_EVT_DATA[] array33 = array23;
         int num16 = 11;
-        AppMain.SYS_EVT_DATA._init_func_ f26 = new AppMain.SYS_EVT_DATA._init_func_(AppMain.GmSpStageBranchInit);
+        AppMain.SYS_EVT_DATA._init_func_ f26 = AppMain.GmSpStageBranchInit;
         AppMain.SYS_EVT_DATA._exit_func_ f27 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f28 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f29 = null;
@@ -471,7 +471,7 @@ public partial class AppMain
         array33[num16] = new AppMain.SYS_EVT_DATA(f26, f27, f28, f29, f30, array34, 0U);
         AppMain.SYS_EVT_DATA[] array35 = array23;
         int num17 = 12;
-        AppMain.SYS_EVT_DATA._init_func_ f31 = new AppMain.SYS_EVT_DATA._init_func_(this.EvBuyScreenStart);
+        AppMain.SYS_EVT_DATA._init_func_ f31 = this.EvBuyScreenStart;
         AppMain.SYS_EVT_DATA._exit_func_ f32 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f33 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f34 = null;
@@ -482,7 +482,7 @@ public partial class AppMain
         array35[num17] = new AppMain.SYS_EVT_DATA(f31, f32, f33, f34, f35, array36, 0U);
         AppMain.SYS_EVT_DATA[] array37 = array23;
         int num18 = 13;
-        AppMain.SYS_EVT_DATA._init_func_ f36 = new AppMain.SYS_EVT_DATA._init_func_(this.DmLogoSonicInit);
+        AppMain.SYS_EVT_DATA._init_func_ f36 = this.DmLogoSonicInit;
         AppMain.SYS_EVT_DATA._exit_func_ f37 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f38 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f39 = null;
@@ -492,7 +492,7 @@ public partial class AppMain
         array37[num18] = new AppMain.SYS_EVT_DATA(f36, f37, f38, f39, f40, array38, 0U);
         AppMain.SYS_EVT_DATA[] array39 = array23;
         int num19 = 14;
-        AppMain.SYS_EVT_DATA._init_func_ f41 = new AppMain.SYS_EVT_DATA._init_func_(this.DmMovieInit);
+        AppMain.SYS_EVT_DATA._init_func_ f41 = this.DmMovieInit;
         AppMain.SYS_EVT_DATA._exit_func_ f42 = null;
         AppMain.SYS_EVT_DATA._reset_func_ f43 = null;
         AppMain.SYS_EVT_DATA._init_sys_func_ f44 = null;
@@ -1019,9 +1019,9 @@ public partial class AppMain
         AppMain.g_gm_gmk_bumper_obj_3d_list = null;
         AppMain.gm_evemgr_create_eve_func_tbl = new AppMain._eve_func_[]
         {
-            new AppMain._eve_func_(AppMain.gmEveMgrCreateEventBlkEvent),
-            new AppMain._eve_func_(AppMain.gmEveMgrCreateEventBlkRing),
-            new AppMain._eve_func_(AppMain.gmEveMgrCreateEventBlkDecorate)
+            AppMain.gmEveMgrCreateEventBlkEvent,
+            AppMain.gmEveMgrCreateEventBlkRing,
+            AppMain.gmEveMgrCreateEventBlkDecorate
         };
         AppMain.gm_evemgr_create_size_tbl = new ushort[]
         {
@@ -7190,13 +7190,13 @@ public partial class AppMain
             136,
             136
         };
-        AppMain._ObjDrawActionSummary = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.ObjDrawActionSummary);
-        AppMain._GmEnemyDefaultInFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEnemyDefaultInFunc);
-        AppMain._GmEnemyDefaultMoveFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEnemyDefaultMoveFunc);
-        AppMain._gmEnemyDefaultRecFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmEnemyDefaultRecFunc);
-        AppMain._gmEnemyActionCallBack = new AppMain.OBS_OBJECT_WORK_Delegate2(AppMain.gmEnemyActionCallBack);
-        AppMain._GmEnemyDefaultDefFunc = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.GmEnemyDefaultDefFunc);
-        AppMain._GmEnemyDefaultAtkFunc = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.GmEnemyDefaultAtkFunc);
+        AppMain._ObjDrawActionSummary = AppMain.ObjDrawActionSummary;
+        AppMain._GmEnemyDefaultInFunc = AppMain.GmEnemyDefaultInFunc;
+        AppMain._GmEnemyDefaultMoveFunc = AppMain.GmEnemyDefaultMoveFunc;
+        AppMain._gmEnemyDefaultRecFunc = AppMain.gmEnemyDefaultRecFunc;
+        AppMain._gmEnemyActionCallBack = AppMain.gmEnemyActionCallBack;
+        AppMain._GmEnemyDefaultDefFunc = AppMain.GmEnemyDefaultDefFunc;
+        AppMain._GmEnemyDefaultAtkFunc = AppMain.GmEnemyDefaultAtkFunc;
         AppMain.gm_efct_cmn_proc_state = 0U;
         AppMain.gm_efct_cmn_tex_reg_id = -1;
         AppMain.gm_efct_cmn_model_reg_id_list = null;
@@ -7239,33 +7239,33 @@ public partial class AppMain
         };
         AppMain.gm_boss5_efct_create_param_tbl = new AppMain.GMS_EFFECT_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFFECT_CREATE_PARAM(11, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(16, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(17, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(18, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 19U, new AppMain.NNS_VECTOR(0f, -6f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-180), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, AppMain.AKM_DEGtoA16(-90)), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(26, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), AppMain.AKM_DEGtoA16(90), 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(27, 0U, 23U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), AppMain.AKM_DEGtoA16(90), 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 9),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), AppMain.AKM_DEGtoA16(90), 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(32, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(35, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(36, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(37, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1)
+            new AppMain.GMS_EFFECT_CREATE_PARAM(11, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(16, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(17, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(18, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 19U, new AppMain.NNS_VECTOR(0f, -6f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-180), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, AppMain.AKM_DEGtoA16(-90)), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(26, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), AppMain.AKM_DEGtoA16(90), 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(27, 0U, 23U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), AppMain.AKM_DEGtoA16(90), 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 9),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), AppMain.AKM_DEGtoA16(90), 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(32, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(35, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(36, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(37, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1)
         };
         AppMain.gm_boss5_efct_breakdown_smoke_disp_ofst_tbl = new float[][]
         {
@@ -7414,55 +7414,55 @@ public partial class AppMain
         AppMain._am_draw_sort_system_exec = new AppMain._am_draw_command_delegate[]
         {
             null,
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSortObject),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSortObject),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSortPrimitive2D),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSortPrimitive3D)
+            AppMain._amDrawSortObject,
+            AppMain._amDrawSortObject,
+            AppMain._amDrawSortPrimitive2D,
+            AppMain._amDrawSortPrimitive3D
         };
         AppMain._am_draw_regist_func = new AppMain._am_draw_regist_delegate[]
         {
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawRegistNop),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawLoadTexture),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawReleaseTexture),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawVertexBufferObject),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawDeleteVertexObject),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawLoadShaderObject),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawReleaseStdShader),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawLoadShader),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawBuildShader),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawCreateShader),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawReleaseShader),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawLoadTextureImage),
-            new AppMain._am_draw_regist_delegate(AppMain._amDrawReleaseTextureImage)
+            AppMain._amDrawRegistNop,
+            AppMain._amDrawLoadTexture,
+            AppMain._amDrawReleaseTexture,
+            AppMain._amDrawVertexBufferObject,
+            AppMain._amDrawDeleteVertexObject,
+            AppMain._amDrawLoadShaderObject,
+            AppMain._amDrawReleaseStdShader,
+            AppMain._amDrawLoadShader,
+            AppMain._amDrawBuildShader,
+            AppMain._amDrawCreateShader,
+            AppMain._amDrawReleaseShader,
+            AppMain._amDrawLoadTextureImage,
+            AppMain._amDrawReleaseTextureImage
         };
         AppMain._am_draw_system_exec = new AppMain._am_draw_command_delegate[]
         {
             null,
-            new AppMain._am_draw_command_delegate(AppMain._amDrawTaskMake),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawPrintf),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawPrintColor),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawHeapMap),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawThreadMap),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawObject),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawObject),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawObjectSetMaterial),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawMotion),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawMotion),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawMotionTRS),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawMotionTRS),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawPrimitive2D),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawPrimitive3D),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetDiffuse),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetAmbient),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetAlpha),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetSpecular),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetEnvMap),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetBlend),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetTexOffset),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetFog),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetFogColor),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetFogRange),
-            new AppMain._am_draw_command_delegate(AppMain._amDrawSetZMode)
+            AppMain._amDrawTaskMake,
+            AppMain._amDrawPrintf,
+            AppMain._amDrawPrintColor,
+            AppMain._amDrawHeapMap,
+            AppMain._amDrawThreadMap,
+            AppMain._amDrawObject,
+            AppMain._amDrawObject,
+            AppMain._amDrawObjectSetMaterial,
+            AppMain._amDrawMotion,
+            AppMain._amDrawMotion,
+            AppMain._amDrawMotionTRS,
+            AppMain._amDrawMotionTRS,
+            AppMain._amDrawPrimitive2D,
+            AppMain._amDrawPrimitive3D,
+            AppMain._amDrawSetDiffuse,
+            AppMain._amDrawSetAmbient,
+            AppMain._amDrawSetAlpha,
+            AppMain._amDrawSetSpecular,
+            AppMain._amDrawSetEnvMap,
+            AppMain._amDrawSetBlend,
+            AppMain._amDrawSetTexOffset,
+            AppMain._amDrawSetFog,
+            AppMain._amDrawSetFogColor,
+            AppMain._amDrawSetFogRange,
+            AppMain._amDrawSetZMode
         };
         AppMain._am_draw_world_view_matrix = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
         AppMain._am_draw_command_buf = new object[4][];
@@ -7550,19 +7550,19 @@ public partial class AppMain
         AppMain.gm_ene_haro_obj_3d_list = null;
         AppMain.gm_efct_ene_create_param_tbl = new AppMain.GMS_EFCT_ENE_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -8f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), 7, 590, 607, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -13f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), 7, 590, 608, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1, -1, -1, 0U),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1, -1, -1, 0U),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), 8, 592, 611, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), 9, 594, 612, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(1)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 3U, new AppMain.NNS_VECTOR(0f, -0.5f, 8f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), 10, 596, 613, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(1)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), 11, 598, 614, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), 11, 598, 615, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 2U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), 12, 600, 616, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(180), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), 13, 602, 617, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(3)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), 13, 602, 618, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(3)),
-            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(180), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), 14, 604, 619, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(1) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(2) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(3))
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -8f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 7, 590, 607, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -13f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 7, 590, 608, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1, -1, -1, 0U),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1, -1, -1, 0U),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 8, 592, 611, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 9, 594, 612, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(1)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 3U, new AppMain.NNS_VECTOR(0f, -0.5f, 8f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 10, 596, 613, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(1)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 11, 598, 614, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 11, 598, 615, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 2U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 12, 600, 616, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(180), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 13, 602, 617, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(3)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 13, 602, 618, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(3)),
+            new AppMain.GMS_EFCT_ENE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(180), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 14, 604, 619, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(1) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(2) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(3))
         };
         array13 = new int[13];
         array13[0] = -1;
@@ -9116,103 +9116,103 @@ public partial class AppMain
         AppMain.gmEneHariMotionCallback_base_mtx = new AppMain.NNS_MATRIX();
         AppMain.gm_efct_cmn_create_param_tbl = new AppMain.GMS_EFCT_CMN_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 6f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 0U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 0U, 7U, new AppMain.NNS_VECTOR(0f, 1.875f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 98), 103),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 0U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(10, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(11, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 3U, new AppMain.NNS_VECTOR(0f, 8f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(17, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(18, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(19, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(21, 2U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(23, 1U, 1U, new AppMain.NNS_VECTOR(0f, 6f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(24, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(29, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new AppMain.NNS_VECTOR(0f, 8f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 65U, new AppMain.NNS_VECTOR(0f, 7f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 20U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 99), 104),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(36, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(37, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(38, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(39, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(40, 2U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 2f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(41, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(42, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(43, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(44, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(45, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(46, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(47, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(48, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(49, 1U, 65U, new AppMain.NNS_VECTOR(0f, 17f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(50, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(51, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(52, 0U, 55U, new AppMain.NNS_VECTOR(0f, -5f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), 100), 105),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(53, 0U, 55U, new AppMain.NNS_VECTOR(0f, -5f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), 101), 105),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(54, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(55, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(56, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(57, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(58, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(59, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(60, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(61, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(62, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(63, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(64, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(65, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(66, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(67, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(68, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(69, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(70, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(71, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(72, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(73, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(74, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(75, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(76, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(77, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(78, 0U, 5U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), 102), 106),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(79, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(80, 2U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(81, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(82, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(83, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(84, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(85, 1U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(86, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(87, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(88, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(89, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(90, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(91, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(92, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(93, 2U, 2U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(94, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(95, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(96, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1)
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 6f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 0U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 0U, 7U, new AppMain.NNS_VECTOR(0f, 1.875f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 98), 103),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 0U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(10, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(11, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 3U, new AppMain.NNS_VECTOR(0f, 8f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(17, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(18, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(19, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(21, 2U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(23, 1U, 1U, new AppMain.NNS_VECTOR(0f, 6f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(24, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(29, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new AppMain.NNS_VECTOR(0f, 8f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 65U, new AppMain.NNS_VECTOR(0f, 7f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 20U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 99), 104),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(36, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(37, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(38, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(39, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(40, 2U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 2f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(41, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(42, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(43, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(44, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(45, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(46, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(47, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(48, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(49, 1U, 65U, new AppMain.NNS_VECTOR(0f, 17f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(50, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(51, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(52, 0U, 55U, new AppMain.NNS_VECTOR(0f, -5f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, 100), 105),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(53, 0U, 55U, new AppMain.NNS_VECTOR(0f, -5f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, 101), 105),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(54, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(55, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(56, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(57, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(58, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(59, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(60, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(61, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(62, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(63, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(64, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(65, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(66, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(67, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(68, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(69, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(70, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(71, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(72, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(73, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(74, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(75, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(76, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(77, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(78, 0U, 5U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 102), 106),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(79, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(80, 2U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(81, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(82, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(83, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(84, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(85, 1U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(86, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(87, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(88, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(89, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(90, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(91, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(92, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(93, 2U, 2U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(94, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(95, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(96, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1)
         };
         array11 = new int[184][];
         array11[0] = new int[]
@@ -12729,12 +12729,12 @@ public partial class AppMain
             15U
         };
         AppMain.OBS_RECT_WORK_Delegate1[] array30 = new AppMain.OBS_RECT_WORK_Delegate1[184];
-        array30[17] = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmDecoRectFuncChangeDecreaseMotionSpeed);
-        array30[26] = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmDecoRectFuncChangeMotionCount);
-        array30[111] = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmDecoRectFuncChangeDecreaseMotionSpeed);
-        array30[114] = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmDecoRectFuncChangeMotionCount);
-        array30[170] = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmDecoRectFuncChangeMotionCommonFrame);
-        array30[171] = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmDecoRectFuncChangeMotionCommonFrame);
+        array30[17] = AppMain.gmDecoRectFuncChangeDecreaseMotionSpeed;
+        array30[26] = AppMain.gmDecoRectFuncChangeMotionCount;
+        array30[111] = AppMain.gmDecoRectFuncChangeDecreaseMotionSpeed;
+        array30[114] = AppMain.gmDecoRectFuncChangeMotionCount;
+        array30[170] = AppMain.gmDecoRectFuncChangeMotionCommonFrame;
+        array30[171] = AppMain.gmDecoRectFuncChangeMotionCommonFrame;
         AppMain.g_gm_deco_func_rect = array30;
         array = new short[184][];
         short[][] array31 = array;
@@ -13843,18 +13843,18 @@ public partial class AppMain
             null,
             null,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoMainFuncMotionApplyCommonFrame),
+            AppMain.gmDecoMainFuncMotionApplyCommonFrame,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoMainFuncMotionApplyCommonFrame),
+            AppMain.gmDecoMainFuncMotionApplyCommonFrame,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoMainFuncMotionApplyCommonFrame),
+            AppMain.gmDecoMainFuncMotionApplyCommonFrame,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoMainFuncMotionApplyCommonFrame),
+            AppMain.gmDecoMainFuncMotionApplyCommonFrame,
             null,
             null,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoMainFuncEffectCheckCommonFrame),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoMainFuncLoop)
+            AppMain.gmDecoMainFuncEffectCheckCommonFrame,
+            AppMain.gmDecoMainFuncLoop
         };
         AppMain.g_gm_deco_pos = new int[][]
         {
@@ -14965,379 +14965,379 @@ public partial class AppMain
         };
         AppMain.g_gm_deco_func_dest = new AppMain.GSF_TASK_PROCEDURE[]
         {
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest),
-            new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDecoTcbDest)
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest,
+            AppMain.gmDecoTcbDest
         };
         AppMain.MPP_VOID_OBS_OBJECT_WORK[] array209 = new AppMain.MPP_VOID_OBS_OBJECT_WORK[184];
         AppMain.g_gm_deco_func_move = array209;
         AppMain.g_gm_deco_func_out = new AppMain.MPP_VOID_OBS_OBJECT_WORK[]
         {
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmDecoGlareDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmDecoGlareDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmDecoGlareDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallFront),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallFront),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallFront),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallFront),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoSetDrawFall),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallBack),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallBack),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallBack),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallBack),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmDecoGlareDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.GmDecoGlareDraw,
+            AppMain.GmDecoGlareDraw,
+            AppMain.GmDecoGlareDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoDrawFallFront,
+            AppMain.gmDecoDrawFallFront,
+            AppMain.gmDecoDrawFallFront,
+            AppMain.gmDecoDrawFallFront,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoSetDrawFall,
+            AppMain.gmDecoDrawFallBack,
+            AppMain.gmDecoDrawFallBack,
+            AppMain.gmDecoDrawFallBack,
+            AppMain.gmDecoDrawFallBack,
+            AppMain.GmDecoGlareDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
             null,
             null,
             null,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallFront),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallFront),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallBack),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFallBack),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
+            AppMain.gmDecoDrawFallFront,
+            AppMain.gmDecoDrawFallFront,
+            AppMain.gmDecoDrawFallBack,
+            AppMain.gmDecoDrawFallBack,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
             null,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmDecoGlareDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmDecoGlareDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.GmDecoGlareDraw,
+            AppMain.GmDecoGlareDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter3Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter3Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter3Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter3Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter3Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter5Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter5Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter5Line),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDraw),
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDrawFinalShutter3Line,
+            AppMain.gmDecoDrawFinalShutter3Line,
+            AppMain.gmDecoDrawFinalShutter3Line,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDrawFinalShutter3Line,
+            AppMain.gmDecoDrawFinalShutter3Line,
+            AppMain.gmDecoDrawFinalShutter5Line,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDrawFinalShutter5Line,
+            AppMain.gmDecoDrawFinalShutter5Line,
+            AppMain.gmDecoDraw,
+            AppMain.gmDecoDraw,
             null,
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmDecoDrawFinalShutter5Line)
+            AppMain.gmDecoDrawFinalShutter5Line
         };
         AppMain.g_deco_fall_manager = AppMain.New<AppMain.GMS_DECO_FALL_MANAGER>(16);
         AppMain.g_deco_tvx_work = AppMain.New<AppMain.GMS_DECO_PRIM_DRAW_WORK>(16);
@@ -15348,9 +15348,9 @@ public partial class AppMain
         AppMain.g_deco_data = null;
         AppMain.gmDeco_matMotionHeader = null;
         AppMain.gmDeco_motionHeader = null;
-        AppMain._gmDecoTcbProcPostDT = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmDecoTcbProcPostDT);
-        AppMain._gmDecoDrawFallFrontUserFunc = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmDecoDrawFallFrontUserFunc);
-        AppMain._gmDecoDrawFallBackUserFunc = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmDecoDrawFallBackUserFunc);
+        AppMain._gmDecoTcbProcPostDT = AppMain.gmDecoTcbProcPostDT;
+        AppMain._gmDecoDrawFallFrontUserFunc = AppMain.gmDecoDrawFallFrontUserFunc;
+        AppMain._gmDecoDrawFallBackUserFunc = AppMain.gmDecoDrawFallBackUserFunc;
         AppMain.OBD_DRAW_USER_COMMAND_SORT_3DNN_MODEL = 0;
         AppMain.OBD_DRAW_USER_COMMAND_SORT_3DNN_MATMTN = 1;
         AppMain.OBD_DRAW_USER_COMMAND_SORT_3DNN_MAX = 2;
@@ -15365,19 +15365,19 @@ public partial class AppMain
         AppMain.OBD_DRAW_USER_COMMAND_3DNN_MAX = 8;
         AppMain.obj_draw_user_command_func_tbl = new AppMain._am_draw_command_delegate[]
         {
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNModel_DT),
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNModel_DT),
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNMotion_DT),
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNMotion_DT),
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNSetCamera_DT),
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNUserFunc_DT),
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNDrawMotion_DT),
-            new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNDrawMotion_DT)
+            AppMain.objDraw3DNNModel_DT,
+            AppMain.objDraw3DNNModel_DT,
+            AppMain.objDraw3DNNMotion_DT,
+            AppMain.objDraw3DNNMotion_DT,
+            AppMain.objDraw3DNNSetCamera_DT,
+            AppMain.objDraw3DNNUserFunc_DT,
+            AppMain.objDraw3DNNDrawMotion_DT,
+            AppMain.objDraw3DNNDrawMotion_DT
         };
         AppMain.obj_draw_user_command_sort_func_tbl = new AppMain.MPP_VOID_AMSCOMMANDHEADER_NNFDRAWOBJ[]
         {
-            new AppMain.MPP_VOID_AMSCOMMANDHEADER_NNFDRAWOBJ(AppMain.objDraw3DNNSortModel_DT),
-            new AppMain.MPP_VOID_AMSCOMMANDHEADER_NNFDRAWOBJ(AppMain.objDraw3DNNSortModel_DT)
+            AppMain.objDraw3DNNSortModel_DT,
+            AppMain.objDraw3DNNSortModel_DT
         };
         AppMain.obj_draw_3dnn_command_state_tbl = new uint[]
         {
@@ -15406,22 +15406,22 @@ public partial class AppMain
         AppMain.obj_draw_material_cb_func = null;
         AppMain.obj_draw_material_cb_param = null;
         AppMain.obj_draw_effect_server_tcb = null;
-        AppMain._objDrawStart_DT = new AppMain.TaskProc(AppMain.objDrawStart_DT);
+        AppMain._objDrawStart_DT = AppMain.objDrawStart_DT;
         AppMain.ObjDrawAction3DNN_obj_mtx = new AppMain.NNS_MATRIX();
         AppMain._ObjDraw3DNNModel_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_MODEL>();
         AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE>();
-        AppMain._objDraw3DNNDrawPrimitive_DT = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.objDraw3DNNDrawPrimitive_DT);
+        AppMain._objDraw3DNNDrawPrimitive_DT = AppMain.objDraw3DNNDrawPrimitive_DT;
         AppMain.vec_dispObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
         AppMain.vec_posObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
         AppMain.vec_scaleObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
         AppMain.vecObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
-        AppMain._objDraw3DESMatrixPush_UserFunc = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.objDraw3DESMatrixPush_UserFunc);
-        AppMain._objDraw3DESMatrixPop_UserFunc = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.objDraw3DESMatrixPop_UserFunc);
+        AppMain._objDraw3DESMatrixPush_UserFunc = AppMain.objDraw3DESMatrixPush_UserFunc;
+        AppMain._objDraw3DESMatrixPop_UserFunc = AppMain.objDraw3DESMatrixPop_UserFunc;
         AppMain.ObjDrawAction2DAMA_acm = new AppMain.AOS_ACT_ACM();
-        AppMain._objDraw2DAMAPre_DT = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.objDraw2DAMAPre_DT);
+        AppMain._objDraw2DAMAPre_DT = AppMain.objDraw2DAMAPre_DT;
         AppMain._objDraw3DNNSetCamera_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SET_CAMERA>();
         AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL>();
-        AppMain._objDraw3DNNMaterialCallback = new AppMain.NNS_MATERIALCALLBACK_FUNC(AppMain.objDraw3DNNMaterialCallback);
+        AppMain._objDraw3DNNMaterialCallback = AppMain.objDraw3DNNMaterialCallback;
         AppMain.tempSNNS_MATRIX0 = default(AppMain.SNNS_MATRIX);
         AppMain.gm_gmk_upbumper_obj_3d_list = null;
         AppMain.tbl_upbmper_rebound_data = new AppMain.GMS_GMK_UPBUMPER_REBOUND_DATA[]
@@ -16758,7 +16758,7 @@ public partial class AppMain
             2
         };
         AppMain.gm_gmk_land_3_obj_tvx_list = null;
-        AppMain._gmGmkLandColFall = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkLandColFall);
+        AppMain._gmGmkLandColFall = AppMain.gmGmkLandColFall;
         AppMain.gm_gmk_gear_obj_3d_list = null;
         AppMain.gm_gmk_gear_move_obj_3d_list = null;
         AppMain.gm_gmk_gear_sw_obj_3d_list = null;
@@ -17194,10 +17194,10 @@ public partial class AppMain
         };
         AppMain.gm_gamedat_tbl_common = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostRing), 2),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostRing), 3),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostRing), 4),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/CPIT/CPIT_MAIN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostCockpit), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostRing, 2),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostRing, 3),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostRing, 4),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/CPIT/CPIT_MAIN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostCockpit, -1)
         };
         AppMain.gm_gamedat_tbl_common_info_tbl = new AppMain.GMS_GAMEDAT_LOAD_INFO[]
         {
@@ -17205,11 +17205,11 @@ public partial class AppMain
         };
         AppMain.gm_gamedat_tbl_player_sonic = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostPlayer), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostPlayer), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SSON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostPlayer), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SSON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostPlayer), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SON_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostPlayer), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SON_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostPlayer, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostPlayer, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SSON_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostPlayer, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SSON_TEX.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostPlayer, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/PLY/SON_MTN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostPlayer, -1)
         };
         AppMain.gm_gamedat_tbl_player_info_tbl = new AppMain.GMS_GAMEDAT_LOAD_INFO[]
         {
@@ -17223,256 +17223,256 @@ public partial class AppMain
         };
         AppMain.gm_gamedat_tbl_map01_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE11_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE11_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map01_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE12_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE12_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map01_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE13_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE13_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE13_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE13_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map01_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1BOSS_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE13_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1BOSS_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE13_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map02_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE21_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE21_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map02_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE22_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE22_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map02_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE23_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE23_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map02_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2BOSS_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2BOSS_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAP/ZONE2_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MAPFAR/ZONE2_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/DECO/DECO_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map03_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE31_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostWaterSurface), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE31_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostWaterSurface, -1)
         };
         AppMain.gm_gamedat_tbl_map03_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE32_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostWaterSurface), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE32_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostWaterSurface, -1)
         };
         AppMain.gm_gamedat_tbl_map03_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE33_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostWaterSurface), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE33_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostWaterSurface, -1)
         };
         AppMain.gm_gamedat_tbl_map03_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3BOSS_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostWaterSurface), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3BOSS_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAP/ZONE3_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MAPFAR/ZONE3_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/DECO/DECO_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SF_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostWaterSurface, -1)
         };
         AppMain.gm_gamedat_tbl_map04_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE41_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE41_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map04_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE42_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE42_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map04_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE43_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE43_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map04_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4BOSS_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4BOSS_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/MAP/ZONE4_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/DECO/DECO_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map_final_BOSS01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map_final_BOSS02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map_final_BOSS03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map_final_BOSS04 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("/bb/gmstage.bb", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("/bb/gmstage.bb", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostMap, -1)
         };
         AppMain.gm_gamedat_tbl_map_final_BOSS05 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEFB_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAP/ZONEF_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/MAPFAR/ZONEF_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/DECO/DECO_ZONEF.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map_SS01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS1_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS01_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS1_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS01_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1)
         };
         AppMain.gm_gamedat_tbl_map_SS02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS2_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS02_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS2_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS02_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1)
         };
         AppMain.gm_gamedat_tbl_map_SS03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS3_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS03_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS3_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS03_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1)
         };
         AppMain.gm_gamedat_tbl_map_SS04 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS4_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS04_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS4_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS04_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1)
         };
         AppMain.gm_gamedat_tbl_map_SS05 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS5_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS05_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS5_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS05_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1)
         };
         AppMain.gm_gamedat_tbl_map_SS06 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS6_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS06_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS6_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS06_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1)
         };
         AppMain.gm_gamedat_tbl_map_SS07 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS7_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS07_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS7_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAP/SS_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MAPFAR/SS07_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1)
         };
         AppMain.gm_gamedat_tbl_map_ending = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1E_MAP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMap), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostMapFar), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostDeco), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1E_MAP.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_M.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_T.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAP/ZONE1_ATTR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMap, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/MAPFAR/ZONE1_MAPFAR.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostMapFar, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/DECO/DECO_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostDeco, -1)
         };
         AppMain.gm_gamedat_tbl_map_info_tbl = new AppMain.GMS_GAMEDAT_LOAD_INFO[]
         {
@@ -17508,164 +17508,164 @@ public partial class AppMain
         };
         AppMain.gm_gamedat_tbl_effect01_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 7),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 8),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 7),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 8),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect01_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 7),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 8),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 7),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 8),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect01_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 7),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 8),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 7),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 8),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect01_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 15)
         };
         AppMain.gm_gamedat_tbl_effect02_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E005.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 9),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E006.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 10),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E005.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 9),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E006.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 10),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect02_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E005.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 9),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E006.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 10),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E005.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 9),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E006.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 10),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect02_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E005.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 9),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E006.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 10),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E005.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 9),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E006.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 10),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect02_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEffect, 15),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/EFF/EFF_ZONE2.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect03_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 11),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 12),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 11),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 12),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect03_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 11),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 12),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 11),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 12),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect03_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 11),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 12),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 11),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 12),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect03_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 11),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 12),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E007.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 11),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E010.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 12),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/EFF/EFF_ZONE3.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 15)
         };
         AppMain.gm_gamedat_tbl_effect04_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E013.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 13),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E013.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 13),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect04_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E013.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 13),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E013.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 13),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect04_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E013.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 13),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 14),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E013.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 13),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E014.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 14),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect04_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 15),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/EFF/EFF_ZONE4.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect_final_BOSS01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 15)
         };
         AppMain.gm_gamedat_tbl_effect_final_BOSS02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 15)
         };
         AppMain.gm_gamedat_tbl_effect_final_BOSS03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 15)
         };
         AppMain.gm_gamedat_tbl_effect_final_BOSS04 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect_final_BOSS05 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 15)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/EFF/EFF_ZONE5.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_BS_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 15)
         };
         AppMain.gm_gamedat_tbl_effect_ss01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/EFF/EFF_ZONESS.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/EFF/EFF_ZONESS.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect_ending = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 5),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 7),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 8),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEffect), 6)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_CMN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 5),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E002.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 7),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/EFF/EFF_E004.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 8),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/EFF/EFF_ZONE1.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEffect, 6)
         };
         AppMain.gm_gamedat_tbl_effect_info_tbl = new AppMain.GMS_GAMEDAT_LOAD_INFO[]
         {
@@ -17701,242 +17701,242 @@ public partial class AppMain
         };
         AppMain.gm_gamedat_tbl_enemy01_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 661),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 662),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 663),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 664),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 665),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 666),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 667),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 668),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 669),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 670),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_R_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 671),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 672),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 673)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 661),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 662),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 663),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 664),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 665),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 666),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 667),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 668),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 669),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 670),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_R_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 671),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 672),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 673)
         };
         AppMain.gm_gamedat_tbl_enemy01_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 661),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 662),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 663),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 664),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 665),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 666),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 667),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 668),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 669),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 670),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_R_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 671),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 672),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 673)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 661),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 662),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 663),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 664),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 665),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 666),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 667),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 668),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 669),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 670),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_R_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 671),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 672),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 673)
         };
         AppMain.gm_gamedat_tbl_enemy01_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 661),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 662),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 663),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 664),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 665),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 666),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 667),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 668),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 669),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 670),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_R_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 671),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 672),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 673)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 661),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 662),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MOTORA_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 663),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 664),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 665),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_GABU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 666),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 667),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 668),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_STING_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 669),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 670),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_R_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 671),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 672),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/ENE/ENE_MEREON_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 673)
         };
         AppMain.gm_gamedat_tbl_enemy01_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/BOSS/BOSS01.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/BOSS/BOSS01.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1)
         };
         AppMain.gm_gamedat_tbl_enemy02_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 677),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 678),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 679),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 687),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 688),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 689)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 677),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 678),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 679),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 687),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 688),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 689)
         };
         AppMain.gm_gamedat_tbl_enemy02_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660)
         };
         AppMain.gm_gamedat_tbl_enemy02_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 677),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 678),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 679),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 687),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 688),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 689)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 677),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 678),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_GARDON_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 679),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 687),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 688),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/ENE/ENE_HARO_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 689)
         };
         AppMain.gm_gamedat_tbl_enemy02_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/BOSS/BOSS02.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/BOSS/BOSS02.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1)
         };
         AppMain.gm_gamedat_tbl_enemy03_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 674),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 675),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 676),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 690),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 691),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 692),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 693),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 694),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 695),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 696),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 697),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 698)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 674),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 675),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 676),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 690),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 691),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 692),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 693),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 694),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 695),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 696),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 697),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 698)
         };
         AppMain.gm_gamedat_tbl_enemy03_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 674),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 675),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 676)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 674),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 675),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 676)
         };
         AppMain.gm_gamedat_tbl_enemy03_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 674),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 675),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 676),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 690),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 691),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 692),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 693),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 694),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 695),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 696),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 697),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 698)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 674),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 675),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 676),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 690),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 691),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 692),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 693),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 694),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIUNI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 695),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 696),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 697),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_BUKU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 698)
         };
         AppMain.gm_gamedat_tbl_enemy03_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/BOSS/BOSS03.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 674),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 675),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 676),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 690),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 691),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 692)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/BOSS/BOSS03.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 674),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 675),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_MOGU_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 676),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 690),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 691),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/ENE/ENE_UNIDES_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 692)
         };
         AppMain.gm_gamedat_tbl_enemy03_final_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/BOSS/BOSS03.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/BOSS/BOSS03.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1)
         };
         AppMain.gm_gamedat_tbl_enemy04_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 680),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 681),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 682),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 683),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 684),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 685),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 686),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 699),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 700),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 701)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 680),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 681),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 682),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 683),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 684),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 685),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 686),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 699),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 700),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 701)
         };
         AppMain.gm_gamedat_tbl_enemy04_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 680),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 681),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 682),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 683),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 684),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 685),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 686),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 699),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 700),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 701)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 680),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 681),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 682),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 683),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 684),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 685),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 686),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 699),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 700),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 701)
         };
         AppMain.gm_gamedat_tbl_enemy04_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 680),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 681),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 682),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 683),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 684),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 685),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 686),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 699),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 700),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 701)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 680),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 681),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 682),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_T_STAR_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 683),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 684),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 685),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KANI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 686),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 699),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 700),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/ENE/ENE_KAMA_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 701)
         };
         AppMain.gm_gamedat_tbl_enemy04_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/BOSS/BOSS04.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/BOSS/BOSS04.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1)
         };
         AppMain.gm_gamedat_tbl_enemy_final_BOSS01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/BOSS/BOSS05.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/BOSS/BOSS05.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1)
         };
         AppMain.gm_gamedat_tbl_enemy_final_BOSS02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660)
         };
         AppMain.gm_gamedat_tbl_enemy_final_BOSS03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660)
         };
         AppMain.gm_gamedat_tbl_enemy_final_BOSS04 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 658),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 659),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostEnemy), 660)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 658),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 659),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/ENE/ENE_HARI_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostEnemy, 660)
         };
         AppMain.gm_gamedat_tbl_enemy_final_BOSS05 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/BOSS/BOSS05.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/BOSS/BOSS05.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1)
         };
         AppMain.gm_gamedat_tbl_enemy_ending = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/BOSS/BOSS03.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostBoss), -1)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/BOSS/BOSS03.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostBoss, -1)
         };
         AppMain.gm_gamedat_tbl_enemy_info_tbl = new AppMain.GMS_GAMEDAT_LOAD_INFO[]
         {
@@ -18004,569 +18004,569 @@ public partial class AppMain
         };
         AppMain.gm_gamedat_tbl_com_gimmick = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SPRING_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 791),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SPRING_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 792),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SPRING_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 793),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_NEEDLE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 822),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_NEEDLE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 823),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_NEEDLE_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 824),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 825),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 826),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 827),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 828),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_GOAL_PNL_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 836),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_GOAL_PNL_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 837),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 838),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 839),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 840),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 841),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ITEM_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 789),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ITEM_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 790),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ANIMAL_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 870),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ANIMAL_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 871),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ANIMAL_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 872),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SS_RING_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 880),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SS_RING_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 881),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SS_RING_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 882)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SPRING_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 791),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SPRING_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 792),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SPRING_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 793),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_NEEDLE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 822),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_NEEDLE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 823),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_NEEDLE_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 824),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 825),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 826),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 827),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_DASH_P_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 828),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_GOAL_PNL_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 836),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_GOAL_PNL_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 837),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 838),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 839),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 840),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_P_MARKER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 841),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ITEM_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 789),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ITEM_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 790),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ANIMAL_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 870),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ANIMAL_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 871),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_ANIMAL_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 872),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SS_RING_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 880),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SS_RING_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 881),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_SS_RING_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 882)
         };
         AppMain.gm_gamedat_tbl_gimmick01_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 801),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 802),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 794),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 795),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 796),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 878),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 879)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 801),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 802),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 794),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 795),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 796),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 878),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 879)
         };
         AppMain.gm_gamedat_tbl_gimmick01_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 801),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 802),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_T_ROPE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 829),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_T_ROPE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 830),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_T_ROPE_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 831),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 794),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 795),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 796),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 878),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 879)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 801),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 802),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_T_ROPE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 829),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_T_ROPE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 830),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_T_ROPE_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 831),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 794),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 795),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 796),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 878),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 879)
         };
         AppMain.gm_gamedat_tbl_gimmick01_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 801),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 802),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_PULLEY_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 819),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_PULLEY_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 820),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_PULLEY_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 821),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 794),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 795),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 796),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 878),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 879)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 801),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 802),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_PULLEY_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 819),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_PULLEY_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 820),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_PULLEY_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 821),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 794),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 795),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_LAND1_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 796),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_OBJ_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_B_WALL1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 878),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_BRIDGE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 879)
         };
         AppMain.gm_gamedat_tbl_gimmick01_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 801),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 802),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 860),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 861),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 862)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 801),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 802),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 860),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 861),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 862)
         };
         AppMain.gm_gamedat_tbl_gimmick02_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 803),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 804),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 805),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 806),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 863),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 864),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 865),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 866),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 847),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 848),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 849),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 873),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 874),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 875),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 883),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 884),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 885),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 886),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 803),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 804),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 805),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 806),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 863),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 864),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 865),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 866),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 847),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 848),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 849),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 873),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 874),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 875),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 883),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 884),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 885),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 886),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798)
         };
         AppMain.gm_gamedat_tbl_gimmick02_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 863),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 864),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 865),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 866),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 847),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 848),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 849),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 873),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 874),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 875),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 883),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 884),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 885),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 886),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 984),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 985),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 986),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MSG/G_MSG_Z2.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 991),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 992)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 863),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 864),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 865),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 866),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 847),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 848),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_STOPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 849),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 873),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 874),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SLOT_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 875),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 883),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 884),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 885),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 886),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 984),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 985),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 986),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/MSG/G_MSG_Z2.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 991),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 992)
         };
         AppMain.gm_gamedat_tbl_gimmick02_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 803),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 804),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 805),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 806),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 863),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 864),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 865),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 866),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_CANNON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 858),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_CANNON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 859),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 883),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 884),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 885),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 886),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 984),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 985),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 986)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 803),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 804),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 805),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_LAND_2_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 806),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 863),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 864),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 865),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 866),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_CANNON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 858),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_CANNON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 859),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 883),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 884),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 885),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SP_CTPLT_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 886),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_OBJ_2_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_B_WALL2_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 984),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 985),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 986)
         };
         AppMain.gm_gamedat_tbl_gimmick02_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SHUTTER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 938),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SHUTTER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 939),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 860),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 861),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 862)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SHUTTER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 938),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_SHUTTER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 939),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 860),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 861),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 862)
         };
         AppMain.gm_gamedat_tbl_gimmick03_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 807),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 808),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 809),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 810),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_ROCK_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 816),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_ROCK_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 817),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_ROCK_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 818),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 856),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 857),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 931),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 932),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 933),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 934),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 935),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 936),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 937)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 807),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 808),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 809),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 810),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_ROCK_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 816),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_ROCK_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 817),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_ROCK_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 818),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 856),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 857),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 931),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 932),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 933),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 934),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 935),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 936),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 937)
         };
         AppMain.gm_gamedat_tbl_gimmick03_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 807),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 808),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 809),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 810),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 856),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 857),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_TRUCK_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 928),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_TRUCK_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 929),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_TRUCK_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 930),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_DSIGN_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 954),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_DSIGN_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 955),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 931),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 932),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 933),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 934),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 935),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 936),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 937),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MSG/G_MSG_Z3.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 991),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 992)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 807),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 808),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 809),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 810),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 856),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 857),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_TRUCK_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 928),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_TRUCK_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 929),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_TRUCK_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 930),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_DSIGN_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 954),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_DSIGN_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 955),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 931),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 932),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 933),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 934),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 935),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 936),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 937),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/MSG/G_MSG_Z3.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 991),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 992)
         };
         AppMain.gm_gamedat_tbl_gimmick03_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 807),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 808),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 809),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 810),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 832),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 833),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 834),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 835),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 856),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 857),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_PRESSWALL_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 892),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_PRESSWALL_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 893),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 799),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 800),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_D_TANK_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 923),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_D_TANK_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 924),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_D_TANK_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 925),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 931),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 932),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 933),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 934),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 935),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 936),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 937)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 807),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 808),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 809),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 810),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 832),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 833),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 834),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_WATER_SLIDER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 835),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 856),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 857),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_PRESSWALL_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 892),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_PRESSWALL_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 893),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 799),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_OBJ_3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 800),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B_WALL3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_D_TANK_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 923),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_D_TANK_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 924),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_D_TANK_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 925),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 931),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 932),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SWITCH3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 933),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 934),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 935),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 936),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 937)
         };
         AppMain.gm_gamedat_tbl_gimmick03_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 807),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 808),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 809),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 810),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 856),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 857),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B3_PILLAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 941),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B3_PILLAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 942),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B3_PILLAR_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 944),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 945),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 946),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 947),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 948),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 860),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 861),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 862)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 807),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 808),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 809),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_LAND_3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 810),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 856),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SPEAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 857),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B3_PILLAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 941),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B3_PILLAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 942),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_B3_PILLAR_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 944),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 945),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 946),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 947),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 948),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 860),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 861),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 862)
         };
         AppMain.gm_gamedat_tbl_gimmick04_01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 811),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 812),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 842),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 843),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 844),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 845),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 846),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 850),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 851),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 921),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 922),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 926),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 927),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 931),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 932),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 934),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 935)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 811),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 812),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 842),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 843),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 844),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 845),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 846),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 850),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 851),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 921),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 922),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 926),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 927),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 931),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 932),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostGimmick, 934),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_TEX.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostGimmick, 935)
         };
         AppMain.gm_gamedat_tbl_gimmick04_02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 811),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 812),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 842),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 843),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 844),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 845),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 846),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 850),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 851),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 921),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 922),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 926),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 927),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 887),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 888),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 889),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 890),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_OPT_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 891),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 931),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 932),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 934),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 935)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 811),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 812),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 842),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 843),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 844),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 845),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 846),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 850),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 851),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 921),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 922),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 926),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 927),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 887),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 888),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 889),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 890),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_OPT_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 891),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 931),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 932),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostGimmick, 934),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_TEX.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostGimmick, 935)
         };
         AppMain.gm_gamedat_tbl_gimmick04_03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 811),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 812),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 842),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 843),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 844),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 845),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 846),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 850),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 851),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SEESAW_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 876),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SEESAW_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 877),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 921),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 922),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 926),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 927),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 892),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 893),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 894),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 895),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 797),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 798),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 887),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 888),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 889),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 890),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_OPT_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 891),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 931),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 932),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 934),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHeadSub), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 935),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_PILLAR_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 951),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_PILLAR_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 952),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_PILLAR_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 953)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 811),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 812),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 842),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PISTON_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 843),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 844),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 845),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_BELT_CONV_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 846),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 850),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_UP_BMPR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 851),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SEESAW_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 876),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SEESAW_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 877),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 921),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 922),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 926),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_STEAM_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 927),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 892),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 893),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 894),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_PRESSWALL4_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 895),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 797),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_B_WALL4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 798),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 887),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 888),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 889),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 890),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_GEAR2_OPT_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 891),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 931),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SWITCH4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 932),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_MDL.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostGimmick, 934),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_SW_WALL4_TEX.AMB", AppMain.gmGameDatLoadAllocHeadSub, null, AppMain.gmGameDatLoadProcPostGimmick, 935),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_PILLAR_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 951),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_PILLAR_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 952),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_P_PILLAR_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 953)
         };
         AppMain.gm_gamedat_tbl_gimmick04_BOSS = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 811),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 812),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 860),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 861),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 862)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 811),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_LAND_4_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 812),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 860),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 861),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/GMK/GMK_CAPSULE_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 862)
         };
         AppMain.gm_gamedat_tbl_gimmick_Final_BOSS01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 813),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 814),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 815),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 921),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 922),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 941),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 942),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 943),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 945),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 946),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 947),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 938),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 939),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 940),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 944),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 948)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 813),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 814),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 815),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 921),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 922),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 941),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 942),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 943),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 945),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 946),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 947),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 938),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 939),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 940),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 944),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 948)
         };
         AppMain.gm_gamedat_tbl_gimmick_Final_BOSS02 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 813),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 814),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 815),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 921),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 922),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 941),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 942),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 943),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 945),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 946),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 947),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 938),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 939),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 940),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 944),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 948)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 813),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 814),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 815),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 921),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 922),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 941),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 942),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 943),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 945),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 946),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 947),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 938),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 939),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 940),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 944),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 948)
         };
         AppMain.gm_gamedat_tbl_gimmick_Final_BOSS03 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 813),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 814),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 815),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 921),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 922),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 941),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 942),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 943),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 945),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 946),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 947),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 938),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 939),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 940),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 944),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 948)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 813),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 814),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 815),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 921),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_STEAMPIPE_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 922),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 941),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 942),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 943),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 945),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 946),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 947),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 938),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 939),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 940),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 944),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 948)
         };
         AppMain.gm_gamedat_tbl_gimmick_Final_BOSS04 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 813),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 814),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 815)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 813),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 814),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 815)
         };
         AppMain.gm_gamedat_tbl_gimmick_Final_BOSS05 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 813),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 814),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 815),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 921),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 922),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 852),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 853),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 854),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 855),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 867),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 868),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 869),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 941),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 942),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 943),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 945),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 946),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 947),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 938),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 939),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 944),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 948)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 813),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 814),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_LAND_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 815),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 921),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE4/GMK/GMK_STEAMPIPE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 922),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 852),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 853),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 854),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BUMPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 855),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 867),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 868),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_FLIPPER_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 869),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 941),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 942),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 943),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 945),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 946),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 947),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 938),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_SHUTTER_F_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 939),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONEF/GMK/GMK_B3_PILLAR_F_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 944),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE3/GMK/GMK_SW_WALL3_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 948)
         };
         AppMain.gm_gamedat_tbl_gimmick_ss01 = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 896),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 897),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 898),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 899),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_CIRCLE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 900),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_CIRCLE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 901),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_CIRCLE_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 902),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 903),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 904),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 905),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 906),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_GOAL_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 907),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_GOAL_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 908),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_GOAL_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 909),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_EMERALD_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 910),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_EMERALD_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 911),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_EMERALD_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 912),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_1UP_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 913),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_1UP_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 914),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_TIME_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 915),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_TIME_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 916),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 917),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 918),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 919),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 920),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 984),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 985),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 986),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 987),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 988),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 989),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_TVX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 990),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 863),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 864),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 865),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 866),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MSG/G_MSG_SS.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 991),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 992)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 896),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 897),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 898),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_SQUARE_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 899),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_CIRCLE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 900),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_CIRCLE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 901),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_CIRCLE_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 902),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 903),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 904),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 905),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ENDURANCE_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 906),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_GOAL_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 907),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_GOAL_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 908),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_GOAL_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 909),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_EMERALD_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 910),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_EMERALD_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 911),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_EMERALD_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 912),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_1UP_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 913),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_1UP_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 914),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_TIME_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 915),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_TIME_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 916),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 917),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 918),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 919),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_RINGGATE_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 920),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 984),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 985),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_ARROW_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 986),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 987),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 988),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 989),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/GMK/GMK_SS_OBLONG_TVX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 990),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 863),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 864),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MTN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 865),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE2/GMK/GMK_BOBBIN_MAT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 866),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_SS/MSG/G_MSG_SS.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 991),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 992)
         };
         AppMain.gm_gamedat_tbl_gimmick_ending = new AppMain.GMS_GAMEDAT_LOAD_DATA[]
         {
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 801),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 802),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/END_SONIC_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 949),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/END_SONIC_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 950),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_MDL.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 956),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_TEX.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 957),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_FONT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 958),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 959),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_IMG000.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 960),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_JP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 961),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_US.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 962),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_FR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 963),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_IT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 964),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_GE.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 965),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_SP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 966),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_FI.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 967),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_PT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 968),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_RU.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 969),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_CN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 970),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_HK.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 971),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 972),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_JP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 973),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_US.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 974),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_FR.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 975),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_IT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 976),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_GE.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 977),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_SP.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 978),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_FI.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 979),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_PT.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 980),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_RU.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 981),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_CN.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 982),
-            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_HK.AMB", new AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_(AppMain.gmGameDatLoadAllocHead), null, new AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_(AppMain.gmGameDatLoadProcPostGimmick), 983)
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 801),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/GMK_LAND_1_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 802),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/END_SONIC_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 949),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_ZONE1/GMK/END_SONIC_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 950),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_MDL.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 956),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("G_COM/RING/RING_TEX.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 957),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_FONT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 958),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_WIN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 959),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_IMG000.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 960),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_JP.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 961),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_US.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 962),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_FR.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 963),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_IT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 964),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_GE.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 965),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_SP.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 966),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_FI.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 967),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_PT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 968),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_RU.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 969),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_CN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 970),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/CMN/D_CMN_MSG_HK.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 971),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 972),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_JP.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 973),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_US.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 974),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_FR.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 975),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_IT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 976),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_GE.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 977),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_SP.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 978),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_FI.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 979),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_PT.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 980),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_RU.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 981),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_CN.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 982),
+            new AppMain.GMS_GAMEDAT_LOAD_DATA("DEMO/STFRL/D_STFRL_END_HK.AMB", AppMain.gmGameDatLoadAllocHead, null, AppMain.gmGameDatLoadProcPostGimmick, 983)
         };
         AppMain.gm_gamedat_tbl_gimmick_common_info_tbl = new AppMain.GMS_GAMEDAT_LOAD_INFO[]
         {
@@ -18747,35 +18747,35 @@ public partial class AppMain
         };
         AppMain.gm_fix_part_init_func_tbl = new AppMain.GMF_FIX_PART_INIT_FUNC[]
         {
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixRingCountPartInit),
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixScorePartInit),
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixTimerPartInit),
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixChallengePartInit),
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixVirtualPadPartInit)
+            AppMain.gmFixRingCountPartInit,
+            AppMain.gmFixScorePartInit,
+            AppMain.gmFixTimerPartInit,
+            AppMain.gmFixChallengePartInit,
+            AppMain.gmFixVirtualPadPartInit
         };
         AppMain.gm_fix_ta_part_init_func_tbl = new AppMain.GMF_FIX_PART_INIT_FUNC[]
         {
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixRingCountPartInit),
+            AppMain.gmFixRingCountPartInit,
             null,
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixTimerPartInit),
+            AppMain.gmFixTimerPartInit,
             null,
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixVirtualPadPartInit)
+            AppMain.gmFixVirtualPadPartInit
         };
         AppMain.gm_fix_ta_s22_part_init_func_tbl = new AppMain.GMF_FIX_PART_INIT_FUNC[]
         {
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixRingCountPartInit),
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixScorePartInit),
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixTimerPartInit),
+            AppMain.gmFixRingCountPartInit,
+            AppMain.gmFixScorePartInit,
+            AppMain.gmFixTimerPartInit,
             null,
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixVirtualPadPartInit)
+            AppMain.gmFixVirtualPadPartInit
         };
         AppMain.gm_fix_ss_part_init_func_tbl = new AppMain.GMF_FIX_PART_INIT_FUNC[]
         {
             null,
             null,
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixTimerSSPartInit),
+            AppMain.gmFixTimerSSPartInit,
             null,
-            new AppMain.GMF_FIX_PART_INIT_FUNC(AppMain.gmFixVirtualPadPartInit)
+            AppMain.gmFixVirtualPadPartInit
         };
         AppMain.gm_fix_ringcount_act_id_tbl = new int[]
         {
@@ -19724,22 +19724,22 @@ public partial class AppMain
         AppMain.dm_logo_sega_build_state = false;
         AppMain.dm_logo_sega_com_fileinfo_list = new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[]
         {
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/PLY/SON_MDL.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSegaLoadPostFunc)),
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/PLY/SON_TEX.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSegaLoadPostFunc)),
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/PLY/SON_MTN.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSegaLoadPostFunc)),
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/EFF/EFF_CMN.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSegaLoadPostFunc))
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/PLY/SON_MDL.AMB", AppMain.dmLogoSegaLoadPostFunc),
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/PLY/SON_TEX.AMB", AppMain.dmLogoSegaLoadPostFunc),
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/PLY/SON_MTN.AMB", AppMain.dmLogoSegaLoadPostFunc),
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("G_COM/EFF/EFF_CMN.AMB", AppMain.dmLogoSegaLoadPostFunc)
         };
         AppMain.dm_logo_sega_localize_fileinfo_list_region_jp = new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[]
         {
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SEGA_JP.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSegaLoadPostFunc))
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SEGA_JP.AMB", AppMain.dmLogoSegaLoadPostFunc)
         };
         AppMain.dm_logo_sega_localize_fileinfo_list_region_us = new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[]
         {
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SEGA_US_EU.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSegaLoadPostFunc))
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SEGA_US_EU.AMB", AppMain.dmLogoSegaLoadPostFunc)
         };
         AppMain.dm_logo_sega_localize_fileinfo_list_region_eu = new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[]
         {
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SEGA_US_EU.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSegaLoadPostFunc))
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SEGA_US_EU.AMB", AppMain.dmLogoSegaLoadPostFunc)
         };
         AppMain.dm_logo_sega_localize_fileinfo_list_tbl = new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[][]
         {
@@ -20348,85 +20348,85 @@ public partial class AppMain
         AppMain.GME_GAME_DBUILD_MDL_STATE_MAX = 4;
         AppMain.gm_gamedat_build_area_tbl = new AppMain.gamedat_build_area_func[]
         {
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage11),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage12),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage13),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage1Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage21),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage22),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage23),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage2Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage31),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage32),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage33),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage3Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage41),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage42),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage43),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStage4Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageFinalBoss01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageFinalBoss02),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageFinalBoss03),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageFinalBoss04),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageFinalBoss05),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildEnding)
+            AppMain.gmGameDatBuildStage11,
+            AppMain.gmGameDatBuildStage12,
+            AppMain.gmGameDatBuildStage13,
+            AppMain.gmGameDatBuildStage1Boss,
+            AppMain.gmGameDatBuildStage21,
+            AppMain.gmGameDatBuildStage22,
+            AppMain.gmGameDatBuildStage23,
+            AppMain.gmGameDatBuildStage2Boss,
+            AppMain.gmGameDatBuildStage31,
+            AppMain.gmGameDatBuildStage32,
+            AppMain.gmGameDatBuildStage33,
+            AppMain.gmGameDatBuildStage3Boss,
+            AppMain.gmGameDatBuildStage41,
+            AppMain.gmGameDatBuildStage42,
+            AppMain.gmGameDatBuildStage43,
+            AppMain.gmGameDatBuildStage4Boss,
+            AppMain.gmGameDatBuildStageFinalBoss01,
+            AppMain.gmGameDatBuildStageFinalBoss02,
+            AppMain.gmGameDatBuildStageFinalBoss03,
+            AppMain.gmGameDatBuildStageFinalBoss04,
+            AppMain.gmGameDatBuildStageFinalBoss05,
+            AppMain.gmGameDatBuildSS01,
+            AppMain.gmGameDatBuildSS01,
+            AppMain.gmGameDatBuildSS01,
+            AppMain.gmGameDatBuildSS01,
+            AppMain.gmGameDatBuildSS01,
+            AppMain.gmGameDatBuildSS01,
+            AppMain.gmGameDatBuildSS01,
+            AppMain.gmGameDatBuildEnding
         };
         AppMain.gm_gamedat_flush_area_tbl = new AppMain.gamedat_build_area_func[]
         {
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage11),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage12),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage13),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage1Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage21),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage22),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage23),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage2Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage31),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage32),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage33),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage3Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage41),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage42),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage43),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStage4Boss),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageFinalBoss01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageFinalBoss02),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageFinalBoss03),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageFinalBoss04),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageFinalBoss05),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushSS01),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushEnding)
+            AppMain.gmGameDatFlushStage11,
+            AppMain.gmGameDatFlushStage12,
+            AppMain.gmGameDatFlushStage13,
+            AppMain.gmGameDatFlushStage1Boss,
+            AppMain.gmGameDatFlushStage21,
+            AppMain.gmGameDatFlushStage22,
+            AppMain.gmGameDatFlushStage23,
+            AppMain.gmGameDatFlushStage2Boss,
+            AppMain.gmGameDatFlushStage31,
+            AppMain.gmGameDatFlushStage32,
+            AppMain.gmGameDatFlushStage33,
+            AppMain.gmGameDatFlushStage3Boss,
+            AppMain.gmGameDatFlushStage41,
+            AppMain.gmGameDatFlushStage42,
+            AppMain.gmGameDatFlushStage43,
+            AppMain.gmGameDatFlushStage4Boss,
+            AppMain.gmGameDatFlushStageFinalBoss01,
+            AppMain.gmGameDatFlushStageFinalBoss02,
+            AppMain.gmGameDatFlushStageFinalBoss03,
+            AppMain.gmGameDatFlushStageFinalBoss04,
+            AppMain.gmGameDatFlushStageFinalBoss05,
+            AppMain.gmGameDatFlushSS01,
+            AppMain.gmGameDatFlushSS01,
+            AppMain.gmGameDatFlushSS01,
+            AppMain.gmGameDatFlushSS01,
+            AppMain.gmGameDatFlushSS01,
+            AppMain.gmGameDatFlushSS01,
+            AppMain.gmGameDatFlushSS01,
+            AppMain.gmGameDatFlushEnding
         };
         AppMain.gm_obj_build_model_work_buf = AppMain.New<AppMain.GMS_GDBUILD_BUILD_MDL_WORK>(64);
         AppMain.gm_obj_build_model_work_reg_num = 0;
         AppMain.gm_gamedat_build_boss_buttle_tbl = new AppMain.gamedat_build_area_func[]
         {
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageF_BB1),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageF_BB2),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageF_BB3),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageF_BB4),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatBuildStageF_BBF)
+            AppMain.gmGameDatBuildStageF_BB1,
+            AppMain.gmGameDatBuildStageF_BB2,
+            AppMain.gmGameDatBuildStageF_BB3,
+            AppMain.gmGameDatBuildStageF_BB4,
+            AppMain.gmGameDatBuildStageF_BBF
         };
         AppMain.gm_gamedat_flush_boss_buttle_tbl = new AppMain.gamedat_build_area_func[]
         {
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageF_BB1),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageF_BB2),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageF_BB3),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageF_BB4),
-            new AppMain.gamedat_build_area_func(AppMain.gmGameDatFlushStageF_BBF)
+            AppMain.gmGameDatFlushStageF_BB1,
+            AppMain.gmGameDatFlushStageF_BB2,
+            AppMain.gmGameDatFlushStageF_BB3,
+            AppMain.gmGameDatFlushStageF_BB4,
+            AppMain.gmGameDatFlushStageF_BBF
         };
         AppMain.gm_ene_kama_obj_3d_list = null;
         AppMain.gm_ene_kama_blink_anime_pat = new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT[]
@@ -20468,12 +20468,12 @@ public partial class AppMain
         AppMain.gm_ene_gabu_obj_3d_list = null;
         AppMain.gm_efct_boss_cmn_create_param_tbl = new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -8f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-60), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -14f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1),
-            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -17f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1)
+            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -8f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-60), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -14f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+            new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -17f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1)
         };
         AppMain.gm_efct_boss_cmn_tex_reg_id = -1;
         AppMain.gm_efct_boss_cmn_model_reg_num = 0;
@@ -20579,7 +20579,7 @@ public partial class AppMain
         AppMain.dm_logo_sonic_build_state = false;
         AppMain.dm_logo_sonic_com_fileinfo_list = new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[]
         {
-            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SONIC.AMB", new AppMain.post_func_Delegate(AppMain.dmLogoSonicLoadPostFunc))
+            new AppMain.DMS_LOGO_COM_LOAD_FILE_INFO("DEMO/LOGO/D_LOGO_SONIC.AMB", AppMain.dmLogoSonicLoadPostFunc)
         };
         AppMain.dm_logo_sonic_com_file_num = 1;
         array245 = new byte[2];
@@ -23260,38 +23260,38 @@ public partial class AppMain
         AppMain.gm_boss5_body_state_enter_info_tbl = new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO[]
         {
             new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(null, 0),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterStart), 0),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterMoveNml), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterMoveFast), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterMoveFast), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterStomp), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterStomp), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterCrash), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterRpc), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterRpc), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterBerserk), 1),
-            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateEnterDefeat), 1)
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterStart, 0),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterMoveNml, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterMoveFast, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterMoveFast, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterStomp, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterStomp, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterCrash, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterRpc, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterRpc, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterBerserk, 1),
+            new AppMain.GMS_BOSS5_BODY_STATE_ENTER_INFO(AppMain.gmBoss5BodyStateEnterDefeat, 1)
         };
         AppMain.gm_boss5_body_state_leave_func_tbl = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK[]
         {
             null,
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveStart),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveMoveNml),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveMoveFast),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveMoveFast),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveStomp),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveStomp),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveCrash),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveRpc),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveRpc),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveBerserk),
-            new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodyStateLeaveDefeat)
+            AppMain.gmBoss5BodyStateLeaveStart,
+            AppMain.gmBoss5BodyStateLeaveMoveNml,
+            AppMain.gmBoss5BodyStateLeaveMoveFast,
+            AppMain.gmBoss5BodyStateLeaveMoveFast,
+            AppMain.gmBoss5BodyStateLeaveStomp,
+            AppMain.gmBoss5BodyStateLeaveStomp,
+            AppMain.gmBoss5BodyStateLeaveCrash,
+            AppMain.gmBoss5BodyStateLeaveRpc,
+            AppMain.gmBoss5BodyStateLeaveRpc,
+            AppMain.gmBoss5BodyStateLeaveBerserk,
+            AppMain.gmBoss5BodyStateLeaveDefeat
         };
         AppMain.gm_boss5_body_sub_seq_enter_func_tbl = new AppMain.GMS_BOSS5_BODY_SUBSEQ_ENTER_INFO[]
         {
-            new AppMain.GMS_BOSS5_BODY_SUBSEQ_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodySubSeqEnterMoveFastCrash), 3),
-            new AppMain.GMS_BOSS5_BODY_SUBSEQ_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodySubSeqEnterMoveFastCrash), 4),
-            new AppMain.GMS_BOSS5_BODY_SUBSEQ_ENTER_INFO(new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK(AppMain.gmBoss5BodySubSeqEnterRpcStrDmg), 9)
+            new AppMain.GMS_BOSS5_BODY_SUBSEQ_ENTER_INFO(AppMain.gmBoss5BodySubSeqEnterMoveFastCrash, 3),
+            new AppMain.GMS_BOSS5_BODY_SUBSEQ_ENTER_INFO(AppMain.gmBoss5BodySubSeqEnterMoveFastCrash, 4),
+            new AppMain.GMS_BOSS5_BODY_SUBSEQ_ENTER_INFO(AppMain.gmBoss5BodySubSeqEnterRpcStrDmg, 9)
         };
         AppMain.gm_boss5_body_state_strat_tbl = new int[]
         {
@@ -26627,37 +26627,37 @@ public partial class AppMain
 
         AppMain.hg_trophy_check_info_tbl_clear_demo = new AppMain.HGS_TROPHY_CHECK_INFO[]
         {
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 0U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireStage11Clear)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 1U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireFirstChaosEmerald)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 6U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireStageS1AllRings)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 8U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireAllChaosEmeralds)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 9U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireStage11ClearIn1Min)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 10U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireStageFClearNoDamage)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 11U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireStage100Rings)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 12U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireDefeatBoss1)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 13U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireDefeatBoss2)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 14U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireDefeatBoss3)),
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 15U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireDefeatBoss4))
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 0U, AppMain.hgTrophyCheckAcquireStage11Clear),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 1U, AppMain.hgTrophyCheckAcquireFirstChaosEmerald),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 6U, AppMain.hgTrophyCheckAcquireStageS1AllRings),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 8U, AppMain.hgTrophyCheckAcquireAllChaosEmeralds),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 9U, AppMain.hgTrophyCheckAcquireStage11ClearIn1Min),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 10U, AppMain.hgTrophyCheckAcquireStageFClearNoDamage),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 11U, AppMain.hgTrophyCheckAcquireStage100Rings),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 12U, AppMain.hgTrophyCheckAcquireDefeatBoss1),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 13U, AppMain.hgTrophyCheckAcquireDefeatBoss2),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 14U, AppMain.hgTrophyCheckAcquireDefeatBoss3),
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 15U, AppMain.hgTrophyCheckAcquireDefeatBoss4)
         };
         AppMain.hg_trophy_check_info_tbl_goal_in = new AppMain.HGS_TROPHY_CHECK_INFO[]
         {
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 3U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireSsonicInAllAct))
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 3U, AppMain.hgTrophyCheckAcquireSsonicInAllAct)
         };
         AppMain.hg_trophy_check_info_tbl_inc_ene_kill_count = new AppMain.HGS_TROPHY_CHECK_INFO[]
         {
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 2U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquire1000EnemyKill))
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 2U, AppMain.hgTrophyCheckAcquire1000EnemyKill)
         };
         AppMain.hg_trophy_check_info_tbl_end_credits_finished = new AppMain.HGS_TROPHY_CHECK_INFO[]
         {
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 4U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireReachEnd))
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 4U, AppMain.hgTrophyCheckAcquireReachEnd)
         };
         AppMain.hg_trophy_check_info_tbl_upload_record = new AppMain.HGS_TROPHY_CHECK_INFO[]
         {
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 5U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquireUploadAllRecords))
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 5U, AppMain.hgTrophyCheckAcquireUploadAllRecords)
         };
         AppMain.hg_trophy_check_info_tbl_inc_challenge = new AppMain.HGS_TROPHY_CHECK_INFO[]
         {
-            new AppMain.HGS_TROPHY_CHECK_INFO(0, 7U, new AppMain.HGF_TROPHY_ACQUIRE_CHECK_FUNC(AppMain.hgTrophyCheckAcquire99Challenge))
+            new AppMain.HGS_TROPHY_CHECK_INFO(0, 7U, AppMain.hgTrophyCheckAcquire99Challenge)
         };
         AppMain.hg_trophy_check_timing_info_tbl = new AppMain.HGS_TROPHY_CHECK_TIMING_INFO[]
         {
@@ -26937,22 +26937,22 @@ public partial class AppMain
         AppMain.gm_boss3_body_state_func_tbl_enter = new AppMain.GMF_BOSS3_BODY_STATE_FUNC[]
         {
             null,
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateStartEnter),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateChaseMoveEnter),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStatePreBattleEnter),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateBattleEnter),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateDefeatEnter),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateEscapeEnter)
+            AppMain.gmBoss3BodyStateStartEnter,
+            AppMain.gmBoss3BodyStateChaseMoveEnter,
+            AppMain.gmBoss3BodyStatePreBattleEnter,
+            AppMain.gmBoss3BodyStateBattleEnter,
+            AppMain.gmBoss3BodyStateDefeatEnter,
+            AppMain.gmBoss3BodyStateEscapeEnter
         };
         AppMain.gm_boss3_body_state_func_tbl_leave = new AppMain.GMF_BOSS3_BODY_STATE_FUNC[]
         {
             null,
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateStartLeave),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateChaseMoveLeave),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStatePreBattleLeave),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateBattleLeave),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateDefeatLeave),
-            new AppMain.GMF_BOSS3_BODY_STATE_FUNC(AppMain.gmBoss3BodyStateEscapeLeave)
+            AppMain.gmBoss3BodyStateStartLeave,
+            AppMain.gmBoss3BodyStateChaseMoveLeave,
+            AppMain.gmBoss3BodyStatePreBattleLeave,
+            AppMain.gmBoss3BodyStateBattleLeave,
+            AppMain.gmBoss3BodyStateDefeatLeave,
+            AppMain.gmBoss3BodyStateEscapeLeave
         };
         AppMain.g_boss3_node_index_list = new int[]
         {
@@ -27097,9 +27097,9 @@ public partial class AppMain
         AppMain.g_water_surface_mgr_real = new AppMain.GMS_WATER_SURFACE_MGR();
         AppMain.g_water_surface_mgr = null;
         AppMain._dmap_water = null;
-        AppMain._gmWaterSurfaceTcbProcPreDrawDT = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmWaterSurfaceTcbProcPreDrawDT);
-        AppMain._gmWaterSurfaceUserFuncMatrixPush = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmWaterSurfaceUserFuncMatrixPush);
-        AppMain._gmWaterSurfaceUserFuncPop = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmWaterSurfaceUserFuncPop);
+        AppMain._gmWaterSurfaceTcbProcPreDrawDT = AppMain.gmWaterSurfaceTcbProcPreDrawDT;
+        AppMain._gmWaterSurfaceUserFuncMatrixPush = AppMain.gmWaterSurfaceUserFuncMatrixPush;
+        AppMain._gmWaterSurfaceUserFuncPop = AppMain.gmWaterSurfaceUserFuncPop;
         AppMain._gm_mapFar_render_work = new AppMain.AMS_RENDER_TARGET();
         AppMain.g_map_far_data_real = new AppMain.GMS_MAP_FAR_DATA();
         AppMain.g_map_far_data = null;
@@ -27127,12 +27127,12 @@ public partial class AppMain
         AppMain.g_map_far_zone_1_scene_obj_func_main = array209;
         AppMain.g_map_far_zone_1_scene_obj_func_out = new AppMain.MPP_VOID_OBS_OBJECT_WORK[]
         {
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawSea),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawRotate),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawRockA),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawRockB),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawRockC),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDraw2DBG)
+            AppMain.gmMapFarSceneObjFuncDrawSea,
+            AppMain.gmMapFarSceneObjFuncDrawRotate,
+            AppMain.gmMapFarSceneObjFuncDrawRockA,
+            AppMain.gmMapFarSceneObjFuncDrawRockB,
+            AppMain.gmMapFarSceneObjFuncDrawRockC,
+            AppMain.gmMapFarSceneObjFuncDraw2DBG
         };
         AppMain.g_map_far_zone_1_scroll_x = new AppMain.GMS_MAP_FAR_SCROLL[]
         {
@@ -27174,9 +27174,9 @@ public partial class AppMain
         AppMain.g_map_far_zone_2_scene_obj_func_main = array209;
         AppMain.g_map_far_zone_2_scene_obj_func_out = new AppMain.MPP_VOID_OBS_OBJECT_WORK[]
         {
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDraw2DBG),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawWheel),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawSLight)
+            AppMain.gmMapFarSceneObjFuncDraw2DBG,
+            AppMain.gmMapFarSceneObjFuncDrawWheel,
+            AppMain.gmMapFarSceneObjFuncDrawSLight
         };
         AppMain.g_map_far_zone_2_scroll_x = new AppMain.GMS_MAP_FAR_SCROLL[]
         {
@@ -27206,7 +27206,7 @@ public partial class AppMain
         AppMain.g_map_far_zone_3_scene_obj_func_main = array209;
         AppMain.g_map_far_zone_3_scene_obj_func_out = new AppMain.MPP_VOID_OBS_OBJECT_WORK[]
         {
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDraw2DBG)
+            AppMain.gmMapFarSceneObjFuncDraw2DBG
         };
         AppMain.g_map_far_zone_3_scroll_x = new AppMain.GMS_MAP_FAR_SCROLL[]
         {
@@ -27234,7 +27234,7 @@ public partial class AppMain
         AppMain.g_map_far_zone_final_scene_obj_func_main = array209;
         AppMain.g_map_far_zone_final_scene_obj_func_out = new AppMain.MPP_VOID_OBS_OBJECT_WORK[]
         {
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDraw2DBG)
+            AppMain.gmMapFarSceneObjFuncDraw2DBG
         };
         AppMain.g_map_far_zone_final_scroll_x = new AppMain.GMS_MAP_FAR_SCROLL[]
         {
@@ -27254,7 +27254,7 @@ public partial class AppMain
         AppMain.g_map_far_zone_ss_scene_obj_func_main = array209;
         AppMain.g_map_far_zone_ss_scene_obj_func_out = new AppMain.MPP_VOID_OBS_OBJECT_WORK[]
         {
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmMapFarSceneObjFuncDrawBg)
+            AppMain.gmMapFarSceneObjFuncDrawBg
         };
         AppMain.g_map_far_zone_ss_scroll_x = new AppMain.GMS_MAP_FAR_SCROLL[]
         {
@@ -27285,8 +27285,8 @@ public partial class AppMain
             new AppMain.NNS_RGBA_U8(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue)
         };
         AppMain.GmMapFarGetCameraTarget_result = new AppMain.NNS_VECTOR();
-        AppMain._gmMapFarTcbProcPreDrawDT = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmMapFarTcbProcPreDrawDT);
-        AppMain._gmMapFarTcbProcPostDrawDT = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.gmMapFarTcbProcPostDrawDT);
+        AppMain._gmMapFarTcbProcPreDrawDT = AppMain.gmMapFarTcbProcPreDrawDT;
+        AppMain._gmMapFarTcbProcPostDrawDT = AppMain.gmMapFarTcbProcPostDrawDT;
         AppMain.gmMapFarCameraGetPos_result = new AppMain.NNS_VECTOR();
         AppMain.gmMapFarZone1GetCameraPos_result = new AppMain.NNS_VECTOR();
         AppMain.gmMapFarZone2GetCameraPos_result = new AppMain.NNS_VECTOR();
@@ -27300,22 +27300,22 @@ public partial class AppMain
         AppMain.gm_gmk_cannon_obj_3d_list = null;
         AppMain.g_gm_event_tbl = new AppMain.Del__[]
         {
-            new AppMain.Del__(AppMain.GmEneHariSenboInit),
-            new AppMain.Del__(AppMain.GmEneMotoraInit),
-            new AppMain.Del__(AppMain.GmEneStingInit),
-            new AppMain.Del__(AppMain.GmEneGabuInit),
-            new AppMain.Del__(AppMain.GmEneMereonInit),
-            new AppMain.Del__(AppMain.GmEneMereonInit),
-            new AppMain.Del__(AppMain.GmEneMoguInit),
-            new AppMain.Del__(AppMain.GmEneGardonInit),
-            new AppMain.Del__(AppMain.GmEneTStarInit),
-            new AppMain.Del__(AppMain.GmEneKaniInit),
-            new AppMain.Del__(AppMain.GmEneHaroInit),
-            new AppMain.Del__(AppMain.GmEneUnidesInit),
-            new AppMain.Del__(AppMain.GmEneUniuniInit),
-            new AppMain.Del__(AppMain.GmEneBukuInit),
-            new AppMain.Del__(AppMain.GmEneKamaInit),
-            new AppMain.Del__(AppMain.GmEneHariSenboInit),
+            AppMain.GmEneHariSenboInit,
+            AppMain.GmEneMotoraInit,
+            AppMain.GmEneStingInit,
+            AppMain.GmEneGabuInit,
+            AppMain.GmEneMereonInit,
+            AppMain.GmEneMereonInit,
+            AppMain.GmEneMoguInit,
+            AppMain.GmEneGardonInit,
+            AppMain.GmEneTStarInit,
+            AppMain.GmEneKaniInit,
+            AppMain.GmEneHaroInit,
+            AppMain.GmEneUnidesInit,
+            AppMain.GmEneUniuniInit,
+            AppMain.GmEneBukuInit,
+            AppMain.GmEneKamaInit,
+            AppMain.GmEneHariSenboInit,
             null,
             null,
             null,
@@ -27355,484 +27355,484 @@ public partial class AppMain
             null,
             null,
             null,
-            new AppMain.Del__(AppMain.GmBoss5Init),
-            new AppMain.Del__(AppMain.GmBoss4Init),
-            new AppMain.Del__(AppMain.GmBoss3Init),
-            new AppMain.Del__(AppMain.GmBoss2Init),
-            new AppMain.Del__(AppMain.GmBoss1Init),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkItemInit),
-            new AppMain.Del__(AppMain.GmGmkItemInit),
-            new AppMain.Del__(AppMain.GmGmkItemInit),
-            new AppMain.Del__(AppMain.GmGmkItemInit),
-            new AppMain.Del__(AppMain.GmGmkItemInit),
+            AppMain.GmBoss5Init,
+            AppMain.GmBoss4Init,
+            AppMain.GmBoss3Init,
+            AppMain.GmBoss2Init,
+            AppMain.GmBoss1Init,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkItemInit,
+            AppMain.GmGmkItemInit,
+            AppMain.GmGmkItemInit,
+            AppMain.GmGmkItemInit,
+            AppMain.GmGmkItemInit,
             null,
             null,
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkStartInit),
-            new AppMain.Del__(AppMain.GmGmkLandInit),
-            new AppMain.Del__(AppMain.GmGmkLandInit),
-            new AppMain.Del__(AppMain.GmGmkLandInit),
-            new AppMain.Del__(AppMain.GmGmkRockChaseManagerInit),
-            new AppMain.Del__(AppMain.GmGmkRockFallManagerInit),
-            new AppMain.Del__(AppMain.GmGmkPulleyBaseInit),
-            new AppMain.Del__(AppMain.GmGmkPulleyPoleLInit),
-            new AppMain.Del__(AppMain.GmGmkPulleyPoleRInit),
-            new AppMain.Del__(AppMain.GmGmkPulleyRopeFInit),
-            new AppMain.Del__(AppMain.GmGmkPulleyRopeTInit),
-            new AppMain.Del__(AppMain.GmGmkNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkPulleyRopeTInit),
-            new AppMain.Del__(AppMain.GmGmkRockRideInit),
-            new AppMain.Del__(AppMain.GmGmkActNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkActNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkSpringInit),
-            new AppMain.Del__(AppMain.GmGmkWaterAreaInit),
-            new AppMain.Del__(AppMain.GmGmkWaterAreaInit),
-            new AppMain.Del__(AppMain.GmGmkWaterAreaInit),
-            new AppMain.Del__(AppMain.GmGmkWaterAreaInit),
-            new AppMain.Del__(AppMain.GmGmkWaterAreaInit),
-            new AppMain.Del__(AppMain.GmGmkDashPanelInit),
-            new AppMain.Del__(AppMain.GmGmkDashPanelInit),
-            new AppMain.Del__(AppMain.GmGmkDashPanelInit),
-            new AppMain.Del__(AppMain.GmGmkDashPanelInit),
-            new AppMain.Del__(AppMain.GmGmkBubbleManagerInit),
-            new AppMain.Del__(AppMain.GmGmkTarzanRopeInit),
-            new AppMain.Del__(AppMain.GmGmkTarzanRopeInit),
-            new AppMain.Del__(AppMain.GmGmkTarzanRopeInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkWaterSliderInit),
-            new AppMain.Del__(AppMain.GmGmkGoalPanelInit),
-            new AppMain.Del__(AppMain.GmGmkBreakLandRInit),
-            new AppMain.Del__(AppMain.GmGmkBreakLandLInit),
-            new AppMain.Del__(AppMain.GmGmkPistonUpInit),
-            new AppMain.Del__(AppMain.GmGmkPistonDownInit),
-            new AppMain.Del__(AppMain.GmGmkLandInit),
-            new AppMain.Del__(AppMain.GmGmkPointMarkerInit),
-            new AppMain.Del__(AppMain.GmGmkBreakObjInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkCamScrLimitInit),
-            new AppMain.Del__(AppMain.GmGmkBeltConveyorInit),
-            new AppMain.Del__(AppMain.GmGmkBreakWall_L1Init),
-            new AppMain.Del__(AppMain.GmGmkBreakWall_L2Init),
-            new AppMain.Del__(AppMain.GmGmkBreakWall_R1Init),
-            new AppMain.Del__(AppMain.GmGmkBreakWall_R2Init),
-            new AppMain.Del__(AppMain.GmGmkBreakWall_C1Init),
-            new AppMain.Del__(AppMain.GmGmkSpipeInit),
-            new AppMain.Del__(AppMain.GmGmkBreakWall_C2Init),
-            new AppMain.Del__(AppMain.GmGmkStopperNormInit),
-            new AppMain.Del__(AppMain.GmGmkStopperSlotInit),
-            new AppMain.Del__(AppMain.GmGmkBreakFloorInit),
-            new AppMain.Del__(AppMain.GmGmkUpBumperLInit),
-            new AppMain.Del__(AppMain.GmGmkUpBumperRInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkBumperInit),
-            new AppMain.Del__(AppMain.GmGmkSpearUInit),
-            new AppMain.Del__(AppMain.GmGmkSpearDInit),
-            new AppMain.Del__(AppMain.GmGmkSpearLInit),
-            new AppMain.Del__(AppMain.GmGmkSpearRInit),
-            new AppMain.Del__(AppMain.GmGmkScrewInit),
-            new AppMain.Del__(AppMain.GmGmkCannonInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkCapsuleInit),
-            new AppMain.Del__(AppMain.GmGmkEnBmprInit),
-            new AppMain.Del__(AppMain.GmGmkEnBmprInit),
-            new AppMain.Del__(AppMain.GmGmkEnBmprInit),
-            new AppMain.Del__(AppMain.GmGmkEnBmprInit),
-            new AppMain.Del__(AppMain.GmGmkBobbinInit),
-            new AppMain.Del__(AppMain.GmGmkFlipperInit),
-            new AppMain.Del__(AppMain.GmGmkFlipperInit),
-            new AppMain.Del__(AppMain.GmGmkFlipperInit),
-            new AppMain.Del__(AppMain.GmGmkSlotInit),
-            new AppMain.Del__(AppMain.GmGmkSeesaw0Init),
-            new AppMain.Del__(AppMain.GmGmkSeesaw30Init),
-            new AppMain.Del__(AppMain.GmGmkSeesaw330Init),
-            new AppMain.Del__(AppMain.GmGmkBridgeInit),
-            new AppMain.Del__(AppMain.GmGmkCamScrLimitReleaseInit),
-            new AppMain.Del__(AppMain.GmGmkSpCtplt0Init),
-            new AppMain.Del__(AppMain.GmGmkSpCtplt45Init),
-            new AppMain.Del__(AppMain.GmGmkSpCtplt315Init),
-            new AppMain.Del__(AppMain.GmGmkGearInit),
-            new AppMain.Del__(AppMain.GmGmkGearInit),
-            new AppMain.Del__(AppMain.GmGmkGearMoveEndInit),
-            new AppMain.Del__(AppMain.GmGmkGearInit),
-            new AppMain.Del__(AppMain.GmGmkForceSpinSetInit),
-            new AppMain.Del__(AppMain.GmGmkForceSpinResetInit),
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkStartInit,
+            AppMain.GmGmkLandInit,
+            AppMain.GmGmkLandInit,
+            AppMain.GmGmkLandInit,
+            AppMain.GmGmkRockChaseManagerInit,
+            AppMain.GmGmkRockFallManagerInit,
+            AppMain.GmGmkPulleyBaseInit,
+            AppMain.GmGmkPulleyPoleLInit,
+            AppMain.GmGmkPulleyPoleRInit,
+            AppMain.GmGmkPulleyRopeFInit,
+            AppMain.GmGmkPulleyRopeTInit,
+            AppMain.GmGmkNeedleInit,
+            AppMain.GmGmkNeedleInit,
+            AppMain.GmGmkNeedleInit,
+            AppMain.GmGmkNeedleInit,
+            AppMain.GmGmkPulleyRopeTInit,
+            AppMain.GmGmkRockRideInit,
+            AppMain.GmGmkActNeedleInit,
+            AppMain.GmGmkActNeedleInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkSpringInit,
+            AppMain.GmGmkWaterAreaInit,
+            AppMain.GmGmkWaterAreaInit,
+            AppMain.GmGmkWaterAreaInit,
+            AppMain.GmGmkWaterAreaInit,
+            AppMain.GmGmkWaterAreaInit,
+            AppMain.GmGmkDashPanelInit,
+            AppMain.GmGmkDashPanelInit,
+            AppMain.GmGmkDashPanelInit,
+            AppMain.GmGmkDashPanelInit,
+            AppMain.GmGmkBubbleManagerInit,
+            AppMain.GmGmkTarzanRopeInit,
+            AppMain.GmGmkTarzanRopeInit,
+            AppMain.GmGmkTarzanRopeInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkWaterSliderInit,
+            AppMain.GmGmkGoalPanelInit,
+            AppMain.GmGmkBreakLandRInit,
+            AppMain.GmGmkBreakLandLInit,
+            AppMain.GmGmkPistonUpInit,
+            AppMain.GmGmkPistonDownInit,
+            AppMain.GmGmkLandInit,
+            AppMain.GmGmkPointMarkerInit,
+            AppMain.GmGmkBreakObjInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkCamScrLimitInit,
+            AppMain.GmGmkBeltConveyorInit,
+            AppMain.GmGmkBreakWall_L1Init,
+            AppMain.GmGmkBreakWall_L2Init,
+            AppMain.GmGmkBreakWall_R1Init,
+            AppMain.GmGmkBreakWall_R2Init,
+            AppMain.GmGmkBreakWall_C1Init,
+            AppMain.GmGmkSpipeInit,
+            AppMain.GmGmkBreakWall_C2Init,
+            AppMain.GmGmkStopperNormInit,
+            AppMain.GmGmkStopperSlotInit,
+            AppMain.GmGmkBreakFloorInit,
+            AppMain.GmGmkUpBumperLInit,
+            AppMain.GmGmkUpBumperRInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkBumperInit,
+            AppMain.GmGmkSpearUInit,
+            AppMain.GmGmkSpearDInit,
+            AppMain.GmGmkSpearLInit,
+            AppMain.GmGmkSpearRInit,
+            AppMain.GmGmkScrewInit,
+            AppMain.GmGmkCannonInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkCapsuleInit,
+            AppMain.GmGmkEnBmprInit,
+            AppMain.GmGmkEnBmprInit,
+            AppMain.GmGmkEnBmprInit,
+            AppMain.GmGmkEnBmprInit,
+            AppMain.GmGmkBobbinInit,
+            AppMain.GmGmkFlipperInit,
+            AppMain.GmGmkFlipperInit,
+            AppMain.GmGmkFlipperInit,
+            AppMain.GmGmkSlotInit,
+            AppMain.GmGmkSeesaw0Init,
+            AppMain.GmGmkSeesaw30Init,
+            AppMain.GmGmkSeesaw330Init,
+            AppMain.GmGmkBridgeInit,
+            AppMain.GmGmkCamScrLimitReleaseInit,
+            AppMain.GmGmkSpCtplt0Init,
+            AppMain.GmGmkSpCtplt45Init,
+            AppMain.GmGmkSpCtplt315Init,
+            AppMain.GmGmkGearInit,
+            AppMain.GmGmkGearInit,
+            AppMain.GmGmkGearMoveEndInit,
+            AppMain.GmGmkGearInit,
+            AppMain.GmGmkForceSpinSetInit,
+            AppMain.GmGmkForceSpinResetInit,
             null,
             null,
-            new AppMain.Del__(AppMain.GmGmkPressWallInit),
-            new AppMain.Del__(AppMain.GmGmkPressWallStopInit),
-            new AppMain.Del__(AppMain.GmGmkPressWallControlerInit),
-            new AppMain.Del__(AppMain.GmGmkSsSquareInit),
-            new AppMain.Del__(AppMain.GmGmkSsCircleInit),
-            new AppMain.Del__(AppMain.GmGmkSsCircleInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkSsEnduranceInit),
-            new AppMain.Del__(AppMain.GmGmkSsGoalInit),
-            new AppMain.Del__(AppMain.GmGmkSsEmeraldInit),
-            new AppMain.Del__(AppMain.GmGmkSsTimeInit),
-            new AppMain.Del__(AppMain.GmGmkSsRingGateInit),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeGateRInit),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeGateLInit),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeA1Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeA2Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeA3Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeA4Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeB1Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeB2Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeB3Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeB4Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeJ1Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeJ2Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeJ3Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeJ4Init),
-            new AppMain.Del__(AppMain.GmGmkSteamPipeGateEInit),
-            new AppMain.Del__(AppMain.GmGmkDrainTankInitIn),
-            new AppMain.Del__(AppMain.GmGmkDrainTankInitOut),
-            new AppMain.Del__(AppMain.GmGmkPopSteamUInit),
-            new AppMain.Del__(AppMain.GmGmkPopSteamRInit),
-            new AppMain.Del__(AppMain.GmGmkPopSteamDInit),
-            new AppMain.Del__(AppMain.GmGmkPopSteamLInit),
-            new AppMain.Del__(AppMain.GmGmkTruckInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkSwitchInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkSwWallInit),
-            new AppMain.Del__(AppMain.GmGmkLoopInit),
-            new AppMain.Del__(AppMain.GmGmkShutterInInit),
-            new AppMain.Del__(AppMain.GmGmkShutterOutInit),
-            new AppMain.Del__(AppMain.GmGmkNeedleNeonInitStand),
-            new AppMain.Del__(AppMain.GmGmkTruckNoLandingInit),
-            new AppMain.Del__(AppMain.GmGmkTruckNoLandingInit),
-            new AppMain.Del__(AppMain.GmGmkTruckNoLandingInit),
-            new AppMain.Del__(AppMain.GmGmkTruckNoLandingInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkTruckGravityInit),
-            new AppMain.Del__(AppMain.GmGmkBreakWall_C1_H_Init),
-            new AppMain.Del__(AppMain.GmGmkZ3LandPulleyInit),
-            new AppMain.Del__(AppMain.GmGmkZ3LandRopeInit),
-            new AppMain.Del__(AppMain.GmGmkZ3LandRopeInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkBoss3RouteInit),
-            new AppMain.Del__(AppMain.GmGmkBoss3PillarInitManager),
-            new AppMain.Del__(AppMain.GmGmkEndingAnimalInit),
-            new AppMain.Del__(AppMain.GmGmkBoss5TriggerInit),
-            new AppMain.Del__(AppMain.GmGmkBoss5LandPlaceInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkPressPillarInit),
-            new AppMain.Del__(AppMain.GmGmkPressPillarInit),
-            new AppMain.Del__(AppMain.GmGmkFlagChangeInit),
-            new AppMain.Del__(AppMain.GmGmkDSignInit),
-            new AppMain.Del__(AppMain.GmGmkDSignInit),
-            new AppMain.Del__(AppMain.GmGmkDSignInit),
-            new AppMain.Del__(AppMain.GmGmkDSignInit),
-            new AppMain.Del__(AppMain.GmGmkSsArrowInit),
-            new AppMain.Del__(AppMain.GmGmkSsOblongInit),
-            new AppMain.Del__(AppMain.GmGmkDecoFrameMgrInit),
-            new AppMain.Del__(AppMain.GmGmkDecoFrameMgrInit),
+            AppMain.GmGmkPressWallInit,
+            AppMain.GmGmkPressWallStopInit,
+            AppMain.GmGmkPressWallControlerInit,
+            AppMain.GmGmkSsSquareInit,
+            AppMain.GmGmkSsCircleInit,
+            AppMain.GmGmkSsCircleInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkSsEnduranceInit,
+            AppMain.GmGmkSsGoalInit,
+            AppMain.GmGmkSsEmeraldInit,
+            AppMain.GmGmkSsTimeInit,
+            AppMain.GmGmkSsRingGateInit,
+            AppMain.GmGmkSteamPipeGateRInit,
+            AppMain.GmGmkSteamPipeGateLInit,
+            AppMain.GmGmkSteamPipeA1Init,
+            AppMain.GmGmkSteamPipeA2Init,
+            AppMain.GmGmkSteamPipeA3Init,
+            AppMain.GmGmkSteamPipeA4Init,
+            AppMain.GmGmkSteamPipeB1Init,
+            AppMain.GmGmkSteamPipeB2Init,
+            AppMain.GmGmkSteamPipeB3Init,
+            AppMain.GmGmkSteamPipeB4Init,
+            AppMain.GmGmkSteamPipeJ1Init,
+            AppMain.GmGmkSteamPipeJ2Init,
+            AppMain.GmGmkSteamPipeJ3Init,
+            AppMain.GmGmkSteamPipeJ4Init,
+            AppMain.GmGmkSteamPipeGateEInit,
+            AppMain.GmGmkDrainTankInitIn,
+            AppMain.GmGmkDrainTankInitOut,
+            AppMain.GmGmkPopSteamUInit,
+            AppMain.GmGmkPopSteamRInit,
+            AppMain.GmGmkPopSteamDInit,
+            AppMain.GmGmkPopSteamLInit,
+            AppMain.GmGmkTruckInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkSwitchInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkSwWallInit,
+            AppMain.GmGmkLoopInit,
+            AppMain.GmGmkShutterInInit,
+            AppMain.GmGmkShutterOutInit,
+            AppMain.GmGmkNeedleNeonInitStand,
+            AppMain.GmGmkTruckNoLandingInit,
+            AppMain.GmGmkTruckNoLandingInit,
+            AppMain.GmGmkTruckNoLandingInit,
+            AppMain.GmGmkTruckNoLandingInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkTruckGravityInit,
+            AppMain.GmGmkBreakWall_C1_H_Init,
+            AppMain.GmGmkZ3LandPulleyInit,
+            AppMain.GmGmkZ3LandRopeInit,
+            AppMain.GmGmkZ3LandRopeInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkBoss3RouteInit,
+            AppMain.GmGmkBoss3PillarInitManager,
+            AppMain.GmGmkEndingAnimalInit,
+            AppMain.GmGmkBoss5TriggerInit,
+            AppMain.GmGmkBoss5LandPlaceInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkPressPillarInit,
+            AppMain.GmGmkPressPillarInit,
+            AppMain.GmGmkFlagChangeInit,
+            AppMain.GmGmkDSignInit,
+            AppMain.GmGmkDSignInit,
+            AppMain.GmGmkDSignInit,
+            AppMain.GmGmkDSignInit,
+            AppMain.GmGmkSsArrowInit,
+            AppMain.GmGmkSsOblongInit,
+            AppMain.GmGmkDecoFrameMgrInit,
+            AppMain.GmGmkDecoFrameMgrInit,
             null,
             null,
             null,
             null,
             null,
-            new AppMain.Del__(AppMain.GmGmkRockFallInit),
-            new AppMain.Del__(AppMain.GmGmkCapsuleBodyInit),
-            new AppMain.Del__(AppMain.GmGmkCamScrLimitInit),
-            new AppMain.Del__(AppMain.GmGmkCamScrLimitReleaseInit),
-            new AppMain.Del__(AppMain.GmGmkSplRingInit),
-            new AppMain.Del__(AppMain.GmGmkDrainTankSplashInit),
-            new AppMain.Del__(AppMain.GmGmkRockHookInit),
-            new AppMain.Del__(AppMain.GmGmkRockChaseInit),
-            new AppMain.Del__(AppMain.GmEneTStarNeedleInit),
-            new AppMain.Del__(AppMain.GmEneUnidesNeedleInit),
-            new AppMain.Del__(AppMain.GmEneUniuniNeedleInit),
-            new AppMain.Del__(AppMain.GmEneKamaLeftHandInit),
-            new AppMain.Del__(AppMain.GmEneKamaRightHandInit),
-            new AppMain.Del__(AppMain.GmBoss1BodyInit),
-            new AppMain.Del__(AppMain.GmBoss1ChainInit),
-            new AppMain.Del__(AppMain.GmBoss1EggInit),
-            new AppMain.Del__(AppMain.GmBoss2BodyInit),
-            new AppMain.Del__(AppMain.GmBoss2EggInit),
-            new AppMain.Del__(AppMain.GmBoss2BallInit),
-            new AppMain.Del__(AppMain.GmBoss3BodyInit),
-            new AppMain.Del__(AppMain.GmBoss3EggInit),
-            new AppMain.Del__(AppMain.GmBoss4BodyInit),
-            new AppMain.Del__(AppMain.GmBoss4EggInit),
-            new AppMain.Del__(AppMain.GmBoss4CapsuleInit1st),
-            new AppMain.Del__(AppMain.GmBoss4CapsuleInit2nd),
-            new AppMain.Del__(AppMain.GmBoss4ChibiInit1st),
-            new AppMain.Del__(AppMain.GmBoss4ChibiInit2nd),
-            new AppMain.Del__(AppMain.GmBoss4ChibiInit2ndSpeed),
-            new AppMain.Del__(AppMain.GmBoss4ChibiInit2ndBig),
-            new AppMain.Del__(AppMain.GmBoss4ChibiInit2ndIron),
-            new AppMain.Del__(AppMain.GmBoss5BodyInit),
-            new AppMain.Del__(AppMain.GmBoss5CoreInit),
-            new AppMain.Del__(AppMain.GmBoss5RocketInit),
-            new AppMain.Del__(AppMain.GmBoss5TurretInit),
-            new AppMain.Del__(AppMain.GmBoss5EggInit),
-            new AppMain.Del__(AppMain.GmGmkBackNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkStandNeedleInit),
-            new AppMain.Del__(AppMain.GmGmkNeedleNeonInitNeedle),
-            new AppMain.Del__(AppMain.GmGmkNeedleNeonInitGlaer),
-            new AppMain.Del__(AppMain.GmGmkBoss3PillarInitParts),
-            new AppMain.Del__(AppMain.GmGmkBoss3PillarInitParts),
-            new AppMain.Del__(AppMain.GmGmkBoss3PillarInitParts),
-            new AppMain.Del__(AppMain.GmGmkBoss3PillarInitParts),
-            new AppMain.Del__(AppMain.GmGmkBoss3PillarInitWall),
-            new AppMain.Del__(AppMain.GmBoss5LandInit),
-            new AppMain.Del__(AppMain.GmBoss5CtpltInit)
+            AppMain.GmGmkRockFallInit,
+            AppMain.GmGmkCapsuleBodyInit,
+            AppMain.GmGmkCamScrLimitInit,
+            AppMain.GmGmkCamScrLimitReleaseInit,
+            AppMain.GmGmkSplRingInit,
+            AppMain.GmGmkDrainTankSplashInit,
+            AppMain.GmGmkRockHookInit,
+            AppMain.GmGmkRockChaseInit,
+            AppMain.GmEneTStarNeedleInit,
+            AppMain.GmEneUnidesNeedleInit,
+            AppMain.GmEneUniuniNeedleInit,
+            AppMain.GmEneKamaLeftHandInit,
+            AppMain.GmEneKamaRightHandInit,
+            AppMain.GmBoss1BodyInit,
+            AppMain.GmBoss1ChainInit,
+            AppMain.GmBoss1EggInit,
+            AppMain.GmBoss2BodyInit,
+            AppMain.GmBoss2EggInit,
+            AppMain.GmBoss2BallInit,
+            AppMain.GmBoss3BodyInit,
+            AppMain.GmBoss3EggInit,
+            AppMain.GmBoss4BodyInit,
+            AppMain.GmBoss4EggInit,
+            AppMain.GmBoss4CapsuleInit1st,
+            AppMain.GmBoss4CapsuleInit2nd,
+            AppMain.GmBoss4ChibiInit1st,
+            AppMain.GmBoss4ChibiInit2nd,
+            AppMain.GmBoss4ChibiInit2ndSpeed,
+            AppMain.GmBoss4ChibiInit2ndBig,
+            AppMain.GmBoss4ChibiInit2ndIron,
+            AppMain.GmBoss5BodyInit,
+            AppMain.GmBoss5CoreInit,
+            AppMain.GmBoss5RocketInit,
+            AppMain.GmBoss5TurretInit,
+            AppMain.GmBoss5EggInit,
+            AppMain.GmGmkBackNeedleInit,
+            AppMain.GmGmkStandNeedleInit,
+            AppMain.GmGmkNeedleNeonInitNeedle,
+            AppMain.GmGmkNeedleNeonInitGlaer,
+            AppMain.GmGmkBoss3PillarInitParts,
+            AppMain.GmGmkBoss3PillarInitParts,
+            AppMain.GmGmkBoss3PillarInitParts,
+            AppMain.GmGmkBoss3PillarInitParts,
+            AppMain.GmGmkBoss3PillarInitWall,
+            AppMain.GmBoss5LandInit,
+            AppMain.GmBoss5CtpltInit
         };
         AppMain.g_gm_decorate_tbl = new AppMain.Del__2[]
         {
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitPrimitive3D),
-            new AppMain.Del__2(AppMain.GmDecoInitPrimitive3D),
-            new AppMain.Del__2(AppMain.GmDecoInitPrimitive3D),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionTouch),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionTouch),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitPrimitive3D),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitEffect),
-            new AppMain.Del__2(AppMain.GmDecoInitEffect),
-            new AppMain.Del__2(AppMain.GmDecoInitEffectBlockAndNext),
-            new AppMain.Del__2(AppMain.GmDecoInitEffectBlock),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitFall),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitEffect),
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModelMaterial,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModelMaterial,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitPrimitive3D,
+            AppMain.GmDecoInitPrimitive3D,
+            AppMain.GmDecoInitPrimitive3D,
+            AppMain.GmDecoInitModelMotionTouch,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModelMotionTouch,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitPrimitive3D,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitEffect,
+            AppMain.GmDecoInitEffect,
+            AppMain.GmDecoInitEffectBlockAndNext,
+            AppMain.GmDecoInitEffectBlock,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitFall,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitEffect,
             null,
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitPrimitive3D),
-            new AppMain.Del__2(AppMain.GmDecoInitPrimitive3D),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionTouch),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionTouch),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModelEffect),
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitPrimitive3D,
+            AppMain.GmDecoInitPrimitive3D,
+            AppMain.GmDecoInitModelMotionTouch,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModelMotionTouch,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModelEffect,
             null,
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterialTouch),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterialTouch),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMotionMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModelMaterial),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
-            new AppMain.Del__2(AppMain.GmDecoInitModel),
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModelMotionMaterialTouch,
+            AppMain.GmDecoInitModelMotionMaterialTouch,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModelMaterial,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModelMotionMaterial,
+            AppMain.GmDecoInitModelMaterial,
+            AppMain.GmDecoInitModel,
+            AppMain.GmDecoInitModel,
             null,
-            new AppMain.Del__2(AppMain.GmDecoInitModelLoop)
+            AppMain.GmDecoInitModelLoop
         };
         AppMain.g_gm_event_size_tbl = new ushort[]
         {
@@ -28493,34 +28493,34 @@ public partial class AppMain
         AppMain.gm_boss2_body_state_func_tbl_enter = new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK[]
         {
             null,
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateStartEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateCatchMoveEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateCatchArmEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateCatchCarryEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePreBallEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateBallMoveEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateBallShootEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePrePinBallEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePinBallMoveEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePinBallRollEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateDefeatEnter),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateEscapeEnter)
+            AppMain.gmBoss2BodyStateStartEnter,
+            AppMain.gmBoss2BodyStateCatchMoveEnter,
+            AppMain.gmBoss2BodyStateCatchArmEnter,
+            AppMain.gmBoss2BodyStateCatchCarryEnter,
+            AppMain.gmBoss2BodyStatePreBallEnter,
+            AppMain.gmBoss2BodyStateBallMoveEnter,
+            AppMain.gmBoss2BodyStateBallShootEnter,
+            AppMain.gmBoss2BodyStatePrePinBallEnter,
+            AppMain.gmBoss2BodyStatePinBallMoveEnter,
+            AppMain.gmBoss2BodyStatePinBallRollEnter,
+            AppMain.gmBoss2BodyStateDefeatEnter,
+            AppMain.gmBoss2BodyStateEscapeEnter
         };
         AppMain.gm_boss2_body_state_func_tbl_leave = new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK[]
         {
             null,
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateStartLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateCatchMoveLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateCatchArmLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateCatchCarryLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePreBallLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateBallMoveLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateBallShootLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePrePinBallLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePinBallMoveLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStatePinBallRollLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateDefeatLeave),
-            new AppMain.MPP_VOID_GMS_BOSS2_BODY_WORK(AppMain.gmBoss2BodyStateEscapeLeave)
+            AppMain.gmBoss2BodyStateStartLeave,
+            AppMain.gmBoss2BodyStateCatchMoveLeave,
+            AppMain.gmBoss2BodyStateCatchArmLeave,
+            AppMain.gmBoss2BodyStateCatchCarryLeave,
+            AppMain.gmBoss2BodyStatePreBallLeave,
+            AppMain.gmBoss2BodyStateBallMoveLeave,
+            AppMain.gmBoss2BodyStateBallShootLeave,
+            AppMain.gmBoss2BodyStatePrePinBallLeave,
+            AppMain.gmBoss2BodyStatePinBallMoveLeave,
+            AppMain.gmBoss2BodyStatePinBallRollLeave,
+            AppMain.gmBoss2BodyStateDefeatLeave,
+            AppMain.gmBoss2BodyStateEscapeLeave
         };
         AppMain.g_boss2_node_index_list = new int[]
         {
@@ -30529,13 +30529,13 @@ public partial class AppMain
         AppMain.g_gm_gmk_boss3_wall_obj_tvx_list = null;
         AppMain.g_gm_gmk_bobbin_obj_3d_list = null;
         AppMain._GmEffectCreateWork_Delegate = (() => new AppMain.GMS_EFFECT_COM_WORK());
-        AppMain._GmEffectDefaultExit = new AppMain.GSF_TASK_PROCEDURE(AppMain.GmEffectDefaultExit);
-        AppMain._ObjDrawActionSummaryDelegate = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.ObjDrawActionSummary);
-        AppMain._ObjObjectMoveDelegate = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.ObjObjectMove);
-        AppMain._gmEffectDefaultRecFuncDelegate = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmEffectDefaultRecFunc);
+        AppMain._GmEffectDefaultExit = AppMain.GmEffectDefaultExit;
+        AppMain._ObjDrawActionSummaryDelegate = AppMain.ObjDrawActionSummary;
+        AppMain._ObjObjectMoveDelegate = AppMain.ObjObjectMove;
+        AppMain._gmEffectDefaultRecFuncDelegate = AppMain.gmEffectDefaultRecFunc;
         AppMain.GMS_EFFECT_3DES_WORK_Pool = new AppMain.SimplePool<AppMain.GMS_EFFECT_3DES_WORK>();
         AppMain._GmEffect3dESTaskDelegate = (() => AppMain.GMS_EFFECT_3DES_WORK_Pool.Alloc());
-        AppMain._GmEffectDefaultMainFuncDeleteAtEnd = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd);
+        AppMain._GmEffectDefaultMainFuncDeleteAtEnd = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         AppMain.GMD_BS_CMN_CNM_FLAG_INHERIT_SCALE = 1U;
         AppMain.GMD_BS_CMN_CNM_FLAG_LOCAL_COORDINATE = 2U;
         AppMain.GMD_BS_CMN_RECT_HIT_SIDE_LEFT = 1U;
@@ -30673,26 +30673,26 @@ public partial class AppMain
         AppMain.gm_boss1_body_state_enter_info_tbl = new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO[]
         {
             new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(null, false),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterStart), false),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterPrep), false),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterPreAtkNml), false),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterAtkNml), false),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterAtkBash), false),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterDmgNml), false),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterDefeat), true),
-            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS1_BODY_STATE_ENTER_FUNC(AppMain.gmBoss1BodyStateEnterEscape), false)
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterStart, false),
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterPrep, false),
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterPreAtkNml, false),
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterAtkNml, false),
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterAtkBash, false),
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterDmgNml, false),
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterDefeat, true),
+            new AppMain.GMS_BOSS1_BODY_STATE_ENTER_INFO(AppMain.gmBoss1BodyStateEnterEscape, false)
         };
         AppMain.gm_boss1_body_state_leave_func_tbl = new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC[]
         {
             null,
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeaveStart),
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeavePrep),
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeavePreAtkNml),
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeaveAtkNml),
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeaveAtkBash),
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeaveDmgNml),
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeaveDefeat),
-            new AppMain.GMF_BOSS1_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss1BodyStateLeaveEscape)
+            AppMain.gmBoss1BodyStateLeaveStart,
+            AppMain.gmBoss1BodyStateLeavePrep,
+            AppMain.gmBoss1BodyStateLeavePreAtkNml,
+            AppMain.gmBoss1BodyStateLeaveAtkNml,
+            AppMain.gmBoss1BodyStateLeaveAtkBash,
+            AppMain.gmBoss1BodyStateLeaveDmgNml,
+            AppMain.gmBoss1BodyStateLeaveDefeat,
+            AppMain.gmBoss1BodyStateLeaveEscape
         };
         AppMain.gm_boss1_eff_sw_atk_flag_tbl = new ushort[]
         {
@@ -31922,26 +31922,26 @@ public partial class AppMain
         AppMain.gm_boss4_body_state_enter_info_tbl = new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO[]
         {
             new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(null, false),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnterStart), false),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnterPreAtkNml), false),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnterAtkNml), false),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnter1stEnd), false),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnter2nd), false),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnterDmgNml), false),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnterDefeat), true),
-            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(new AppMain.GMF_BOSS4_BODY_STATE_ENTER_FUNC(AppMain.gmBoss4BodyStateEnterEscape), false)
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnterStart, false),
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnterPreAtkNml, false),
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnterAtkNml, false),
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnter1stEnd, false),
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnter2nd, false),
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnterDmgNml, false),
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnterDefeat, true),
+            new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(AppMain.gmBoss4BodyStateEnterEscape, false)
         };
         AppMain.gm_boss4_body_state_leave_func_tbl = new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC[]
         {
             null,
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeaveStart),
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeavePreAtkNml),
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeaveAtkNml),
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeave1stEnd),
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeave2nd),
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeaveDmgNml),
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeaveDefeat),
-            new AppMain.GMF_BOSS4_BODY_STATE_LEAVE_FUNC(AppMain.gmBoss4BodyStateLeaveEscape)
+            AppMain.gmBoss4BodyStateLeaveStart,
+            AppMain.gmBoss4BodyStateLeavePreAtkNml,
+            AppMain.gmBoss4BodyStateLeaveAtkNml,
+            AppMain.gmBoss4BodyStateLeave1stEnd,
+            AppMain.gmBoss4BodyStateLeave2nd,
+            AppMain.gmBoss4BodyStateLeaveDmgNml,
+            AppMain.gmBoss4BodyStateLeaveDefeat,
+            AppMain.gmBoss4BodyStateLeaveEscape
         };
         AppMain.gm_boss4_locking = 0;
         AppMain.g_ao_act_sys_draw_prio = 4096U;
@@ -31980,7 +31980,7 @@ public partial class AppMain
         AppMain.g_ao_act_acm_flag_peak = 0U;
         AppMain.g_ao_act_texlist = null;
         AppMain.AOS_SPRITE_Pool = new AppMain.Pool<AppMain.AOS_SPRITE>();
-        AppMain.aoActDrawTask_TaskProc = new AppMain.TaskProc(AppMain.aoActDrawTask);
+        AppMain.aoActDrawTask_TaskProc = AppMain.aoActDrawTask;
         AppMain.AmaMagicId = new byte[]
         {
             33,
@@ -31996,8 +31996,8 @@ public partial class AppMain
         AppMain.aoActDrawSortState_spr_tbl = null;
         AppMain.gs_task_mt_system_tcb = null;
         AppMain.gs_task_mtsys = default(AppMain.GSS_TASK_SYS);
-        AppMain._mtTaskProcedure = new AppMain.TaskProc(AppMain.mtTaskProcedure);
-        AppMain._mtTaskDestructor = new AppMain.TaskProc(AppMain.mtTaskDestructor);
+        AppMain._mtTaskProcedure = AppMain.mtTaskProcedure;
+        AppMain._mtTaskDestructor = AppMain.mtTaskDestructor;
         AppMain.mtTaskMethodDictionary = new Dictionary<Type, AppMain.SCallSlot>();
         AppMain.g_txb_min_filter = new ushort[]
         {
@@ -32024,97 +32024,97 @@ public partial class AppMain
             2
         };
         AppMain.seq_func_delegate[] array532 = new AppMain.seq_func_delegate[67];
-        array532[0] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitFw);
-        array532[1] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitWalk);
-        array532[2] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTurn);
-        array532[3] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupStart);
-        array532[4] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupMiddle);
-        array532[5] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupEnd);
-        array532[6] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSquatStart);
-        array532[7] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSquatMiddle);
-        array532[8] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSquatEnd);
-        array532[9] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBrake);
-        array532[10] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpin);
-        array532[11] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpinDashAcc);
-        array532[12] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpinDash);
-        array532[13] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitStaggerFront);
-        array532[14] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitStaggerBack);
-        array532[15] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitStaggerDanger);
-        array532[16] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitFall);
-        array532[17] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitJump);
-        array532[18] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitWallPush);
-        array532[19] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitHoming);
-        array532[20] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitHomingRef);
-        array532[21] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitJumpDash);
-        array532[22] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitDamage);
-        array532[23] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitDeath);
-        array532[24] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTransformSuper);
-        array532[25] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBossGaol);
-        array532[26] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBoss5Demo);
-        array532[27] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTRetryFw);
-        array532[28] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTRetryAcc);
+        array532[0] = AppMain.GmPlySeqInitFw;
+        array532[1] = AppMain.GmPlySeqInitWalk;
+        array532[2] = AppMain.GmPlySeqInitTurn;
+        array532[3] = AppMain.GmPlySeqInitLookupStart;
+        array532[4] = AppMain.GmPlySeqInitLookupMiddle;
+        array532[5] = AppMain.GmPlySeqInitLookupEnd;
+        array532[6] = AppMain.GmPlySeqInitSquatStart;
+        array532[7] = AppMain.GmPlySeqInitSquatMiddle;
+        array532[8] = AppMain.GmPlySeqInitSquatEnd;
+        array532[9] = AppMain.GmPlySeqInitBrake;
+        array532[10] = AppMain.GmPlySeqInitSpin;
+        array532[11] = AppMain.GmPlySeqInitSpinDashAcc;
+        array532[12] = AppMain.GmPlySeqInitSpinDash;
+        array532[13] = AppMain.GmPlySeqInitStaggerFront;
+        array532[14] = AppMain.GmPlySeqInitStaggerBack;
+        array532[15] = AppMain.GmPlySeqInitStaggerDanger;
+        array532[16] = AppMain.GmPlySeqInitFall;
+        array532[17] = AppMain.GmPlySeqInitJump;
+        array532[18] = AppMain.GmPlySeqInitWallPush;
+        array532[19] = AppMain.GmPlySeqInitHoming;
+        array532[20] = AppMain.GmPlySeqInitHomingRef;
+        array532[21] = AppMain.GmPlySeqInitJumpDash;
+        array532[22] = AppMain.GmPlySeqInitDamage;
+        array532[23] = AppMain.GmPlySeqInitDeath;
+        array532[24] = AppMain.GmPlySeqInitTransformSuper;
+        array532[25] = AppMain.GmPlySeqInitBossGaol;
+        array532[26] = AppMain.GmPlySeqInitBoss5Demo;
+        array532[27] = AppMain.GmPlySeqInitTRetryFw;
+        array532[28] = AppMain.GmPlySeqInitTRetryAcc;
         AppMain.g_gm_ply_seq_init_tbl_son = array532;
         array532 = new AppMain.seq_func_delegate[67];
-        array532[0] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitFw);
-        array532[1] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitWalk);
-        array532[2] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTurn);
-        array532[3] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupStart);
-        array532[4] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupMiddle);
-        array532[5] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupEnd);
-        array532[6] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSquatStart);
-        array532[7] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSquatMiddle);
-        array532[8] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSquatEnd);
-        array532[9] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBrake);
-        array532[10] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpin);
-        array532[11] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpinDashAcc);
-        array532[12] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpinDash);
-        array532[13] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitStaggerFront);
-        array532[14] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitStaggerBack);
-        array532[15] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitStaggerDanger);
-        array532[16] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitFall);
-        array532[17] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitJump);
-        array532[18] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitWallPush);
-        array532[19] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitHoming);
-        array532[20] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitHomingRef);
-        array532[21] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitJumpDash);
-        array532[22] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitDamage);
-        array532[23] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitDeath);
-        array532[24] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTransformSuper);
-        array532[25] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBossGaol);
-        array532[26] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBoss5Demo);
-        array532[27] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTRetryFw);
-        array532[28] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTRetryAcc);
+        array532[0] = AppMain.GmPlySeqInitFw;
+        array532[1] = AppMain.GmPlySeqInitWalk;
+        array532[2] = AppMain.GmPlySeqInitTurn;
+        array532[3] = AppMain.GmPlySeqInitLookupStart;
+        array532[4] = AppMain.GmPlySeqInitLookupMiddle;
+        array532[5] = AppMain.GmPlySeqInitLookupEnd;
+        array532[6] = AppMain.GmPlySeqInitSquatStart;
+        array532[7] = AppMain.GmPlySeqInitSquatMiddle;
+        array532[8] = AppMain.GmPlySeqInitSquatEnd;
+        array532[9] = AppMain.GmPlySeqInitBrake;
+        array532[10] = AppMain.GmPlySeqInitSpin;
+        array532[11] = AppMain.GmPlySeqInitSpinDashAcc;
+        array532[12] = AppMain.GmPlySeqInitSpinDash;
+        array532[13] = AppMain.GmPlySeqInitStaggerFront;
+        array532[14] = AppMain.GmPlySeqInitStaggerBack;
+        array532[15] = AppMain.GmPlySeqInitStaggerDanger;
+        array532[16] = AppMain.GmPlySeqInitFall;
+        array532[17] = AppMain.GmPlySeqInitJump;
+        array532[18] = AppMain.GmPlySeqInitWallPush;
+        array532[19] = AppMain.GmPlySeqInitHoming;
+        array532[20] = AppMain.GmPlySeqInitHomingRef;
+        array532[21] = AppMain.GmPlySeqInitJumpDash;
+        array532[22] = AppMain.GmPlySeqInitDamage;
+        array532[23] = AppMain.GmPlySeqInitDeath;
+        array532[24] = AppMain.GmPlySeqInitTransformSuper;
+        array532[25] = AppMain.GmPlySeqInitBossGaol;
+        array532[26] = AppMain.GmPlySeqInitBoss5Demo;
+        array532[27] = AppMain.GmPlySeqInitTRetryFw;
+        array532[28] = AppMain.GmPlySeqInitTRetryAcc;
         AppMain.g_gm_ply_seq_init_tbl_sp_son = array532;
         array532 = new AppMain.seq_func_delegate[67];
-        array532[0] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckFw);
-        array532[1] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckWalk);
-        array532[2] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTurn);
-        array532[3] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupStart);
-        array532[4] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupMiddle);
-        array532[5] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitLookupEnd);
-        array532[6] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckSquatStart);
-        array532[7] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckSquatMiddle);
-        array532[8] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckSquatEnd);
-        array532[9] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBrake);
-        array532[10] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpin);
-        array532[11] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpinDashAcc);
-        array532[12] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitSpinDash);
-        array532[13] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckStaggerFront);
-        array532[14] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckStaggerBack);
-        array532[15] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitStaggerDanger);
-        array532[16] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckFall);
-        array532[17] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTruckJump);
-        array532[18] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitWallPush);
-        array532[19] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitHoming);
-        array532[20] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitHomingRef);
-        array532[21] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitJumpDash);
-        array532[22] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitDamage);
-        array532[23] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitDeath);
-        array532[24] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTransformSuper);
-        array532[25] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBossGaol);
-        array532[26] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitBoss5Demo);
-        array532[27] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTRetryFw);
-        array532[28] = new AppMain.seq_func_delegate(AppMain.GmPlySeqInitTRetryAcc);
+        array532[0] = AppMain.GmPlySeqInitTruckFw;
+        array532[1] = AppMain.GmPlySeqInitTruckWalk;
+        array532[2] = AppMain.GmPlySeqInitTurn;
+        array532[3] = AppMain.GmPlySeqInitLookupStart;
+        array532[4] = AppMain.GmPlySeqInitLookupMiddle;
+        array532[5] = AppMain.GmPlySeqInitLookupEnd;
+        array532[6] = AppMain.GmPlySeqInitTruckSquatStart;
+        array532[7] = AppMain.GmPlySeqInitTruckSquatMiddle;
+        array532[8] = AppMain.GmPlySeqInitTruckSquatEnd;
+        array532[9] = AppMain.GmPlySeqInitBrake;
+        array532[10] = AppMain.GmPlySeqInitSpin;
+        array532[11] = AppMain.GmPlySeqInitSpinDashAcc;
+        array532[12] = AppMain.GmPlySeqInitSpinDash;
+        array532[13] = AppMain.GmPlySeqInitTruckStaggerFront;
+        array532[14] = AppMain.GmPlySeqInitTruckStaggerBack;
+        array532[15] = AppMain.GmPlySeqInitStaggerDanger;
+        array532[16] = AppMain.GmPlySeqInitTruckFall;
+        array532[17] = AppMain.GmPlySeqInitTruckJump;
+        array532[18] = AppMain.GmPlySeqInitWallPush;
+        array532[19] = AppMain.GmPlySeqInitHoming;
+        array532[20] = AppMain.GmPlySeqInitHomingRef;
+        array532[21] = AppMain.GmPlySeqInitJumpDash;
+        array532[22] = AppMain.GmPlySeqInitDamage;
+        array532[23] = AppMain.GmPlySeqInitDeath;
+        array532[24] = AppMain.GmPlySeqInitTransformSuper;
+        array532[25] = AppMain.GmPlySeqInitBossGaol;
+        array532[26] = AppMain.GmPlySeqInitBoss5Demo;
+        array532[27] = AppMain.GmPlySeqInitTRetryFw;
+        array532[28] = AppMain.GmPlySeqInitTRetryAcc;
         AppMain.g_gm_ply_seq_init_tbl_tr_son = array532;
         AppMain.g_gm_ply_seq_init_tbl_list = new AppMain.seq_func_delegate[][]
         {
@@ -32587,10 +32587,10 @@ public partial class AppMain
         AppMain.obj_ptcb = null;
         AppMain.obj_data_work_save = null;
         AppMain.obj_data_max_save = 0;
-        AppMain._ObjObjectExit = new AppMain.GSF_TASK_PROCEDURE(AppMain.ObjObjectExit);
-        AppMain._ObjObjectMain = new AppMain.GSF_TASK_PROCEDURE(AppMain.ObjObjectMain);
-        AppMain._ObjObjectViewOutCheck = new AppMain.OBS_OBJECT_WORK_Delegate3(AppMain.ObjObjectViewOutCheck);
-        AppMain._objObjectDataReleaseCheck = new AppMain.GSF_TASK_PROCEDURE(AppMain.objObjectDataReleaseCheck);
+        AppMain._ObjObjectExit = AppMain.ObjObjectExit;
+        AppMain._ObjObjectMain = AppMain.ObjObjectMain;
+        AppMain._ObjObjectViewOutCheck = AppMain.ObjObjectViewOutCheck;
+        AppMain._objObjectDataReleaseCheck = AppMain.objObjectDataReleaseCheck;
         AppMain.nnCalcNode_mtx_pool = new AppMain.SimplePool<AppMain.NNS_MATRIX>();
         AppMain.nnInitMaterialMotionObject_bTexOffsetMot = new bool[8];
         AppMain._am_iphone_accel_data = new AppMain.AMS_IPHONE_ACCEL_DATA();
@@ -34669,8 +34669,8 @@ public partial class AppMain
         AppMain.dm_titleop_data = new AppMain.AMS_FS[2];
         AppMain.dm_titleop_mapfar_data = new object[4];
         AppMain.dm_titleop_aos_tex = null;
-        AppMain._dmTitleOpPreDrawDT = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.dmTitleOpPreDrawDT);
-        AppMain._dmTitleOpFallShaderPreRenderUserFunc = new AppMain.OBF_DRAW_USER_DT_FUNC(AppMain.dmTitleOpFallShaderPreRenderUserFunc);
+        AppMain._dmTitleOpPreDrawDT = AppMain.dmTitleOpPreDrawDT;
+        AppMain._dmTitleOpFallShaderPreRenderUserFunc = AppMain.dmTitleOpFallShaderPreRenderUserFunc;
         AppMain.AKD_UTIL_FRAME60_TO_TIME_MAX_FRAME = 215999 / 2;
         AppMain.sFile = "";
         AppMain.obj_load_initial_work = new AppMain.OBS_LOAD_INITIAL_WORK();
@@ -34679,8 +34679,8 @@ public partial class AppMain
         AppMain._obj_collision_tbl_nx = new AppMain.OBS_COLLISION_OBJ[144];
         AppMain._obj_collision_num = 0;
         AppMain._obj_collision_num_nx = 0;
-        AppMain._objGetColDataY = new AppMain.pFunc_Delegate(AppMain.objGetColDataY);
-        AppMain._objGetColDataX = new AppMain.pFunc_Delegate(AppMain.objGetColDataX);
+        AppMain._objGetColDataY = AppMain.objGetColDataY;
+        AppMain._objGetColDataX = AppMain.objGetColDataX;
         AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE0 = AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE(0);
         AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE1 = AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE(1);
         AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE2 = AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE(2);
@@ -34712,44 +34712,44 @@ public partial class AppMain
         AppMain._am_ecb_head = new AppMain.AMS_AME_ECB();
         AppMain._am_ecb_tail = new AppMain.AMS_AME_ECB();
         AppMain.AmeDelegateFunc[] array539 = new AppMain.AmeDelegateFunc[16];
-        array539[0] = new AppMain.AmeDelegateFunc(AppMain._amInitOmni);
-        array539[1] = new AppMain.AmeDelegateFunc(AppMain._amUpdateOmni);
-        array539[2] = new AppMain.AmeDelegateFunc(AppMain._amDrawOmni);
-        array539[4] = new AppMain.AmeDelegateFunc(AppMain._amInitDirectional);
-        array539[5] = new AppMain.AmeDelegateFunc(AppMain._amUpdateDirectional);
-        array539[6] = new AppMain.AmeDelegateFunc(AppMain._amDrawDirectional);
-        array539[8] = new AppMain.AmeDelegateFunc(AppMain._amInitSurface);
-        array539[9] = new AppMain.AmeDelegateFunc(AppMain._amUpdateSurface);
-        array539[10] = new AppMain.AmeDelegateFunc(AppMain._amDrawSurface);
-        array539[12] = new AppMain.AmeDelegateFunc(AppMain._amInitCircle);
-        array539[13] = new AppMain.AmeDelegateFunc(AppMain._amUpdateCircle);
-        array539[14] = new AppMain.AmeDelegateFunc(AppMain._amDrawCircle);
+        array539[0] = AppMain._amInitOmni;
+        array539[1] = AppMain._amUpdateOmni;
+        array539[2] = AppMain._amDrawOmni;
+        array539[4] = AppMain._amInitDirectional;
+        array539[5] = AppMain._amUpdateDirectional;
+        array539[6] = AppMain._amDrawDirectional;
+        array539[8] = AppMain._amInitSurface;
+        array539[9] = AppMain._amUpdateSurface;
+        array539[10] = AppMain._amDrawSurface;
+        array539[12] = AppMain._amInitCircle;
+        array539[13] = AppMain._amUpdateCircle;
+        array539[14] = AppMain._amDrawCircle;
         AppMain._am_emitter_func = array539;
         array539 = new AppMain.AmeDelegateFunc[20];
-        array539[0] = new AppMain.AmeDelegateFunc(AppMain._amInitSimpleSprite);
-        array539[1] = new AppMain.AmeDelegateFunc(AppMain._amUpdateSimpleSprite);
-        array539[2] = new AppMain.AmeDelegateFunc(AppMain._amDrawSimpleSprite);
-        array539[4] = new AppMain.AmeDelegateFunc(AppMain._amInitSprite);
-        array539[5] = new AppMain.AmeDelegateFunc(AppMain._amUpdateSprite);
-        array539[6] = new AppMain.AmeDelegateFunc(AppMain._amDrawSprite);
-        array539[8] = new AppMain.AmeDelegateFunc(AppMain._amInitLine);
-        array539[9] = new AppMain.AmeDelegateFunc(AppMain._amUpdateLine);
-        array539[10] = new AppMain.AmeDelegateFunc(AppMain._amDrawLine);
-        array539[12] = new AppMain.AmeDelegateFunc(AppMain._amInitPlane);
-        array539[13] = new AppMain.AmeDelegateFunc(AppMain._amUpdatePlane);
-        array539[14] = new AppMain.AmeDelegateFunc(AppMain._amDrawPlane);
-        array539[16] = new AppMain.AmeDelegateFunc(AppMain._amInitModel);
-        array539[17] = new AppMain.AmeDelegateFunc(AppMain._amUpdateModel);
-        array539[18] = new AppMain.AmeDelegateFunc(AppMain._amDrawModel);
+        array539[0] = AppMain._amInitSimpleSprite;
+        array539[1] = AppMain._amUpdateSimpleSprite;
+        array539[2] = AppMain._amDrawSimpleSprite;
+        array539[4] = AppMain._amInitSprite;
+        array539[5] = AppMain._amUpdateSprite;
+        array539[6] = AppMain._amDrawSprite;
+        array539[8] = AppMain._amInitLine;
+        array539[9] = AppMain._amUpdateLine;
+        array539[10] = AppMain._amDrawLine;
+        array539[12] = AppMain._amInitPlane;
+        array539[13] = AppMain._amUpdatePlane;
+        array539[14] = AppMain._amDrawPlane;
+        array539[16] = AppMain._amInitModel;
+        array539[17] = AppMain._amUpdateModel;
+        array539[18] = AppMain._amDrawModel;
         AppMain._am_particle_func = array539;
         AppMain._am_field_func = new AppMain.AmeFieldFunc[]
         {
-            new AppMain.AmeFieldFunc(AppMain._amApplyGravity),
-            new AppMain.AmeFieldFunc(AppMain._amApplyUniform),
-            new AppMain.AmeFieldFunc(AppMain._amApplyRadial),
-            new AppMain.AmeFieldFunc(AppMain._amApplyVortex),
-            new AppMain.AmeFieldFunc(AppMain._amApplyDrag),
-            new AppMain.AmeFieldFunc(AppMain._amApplyNoise)
+            AppMain._amApplyGravity,
+            AppMain._amApplyUniform,
+            AppMain._amApplyRadial,
+            AppMain._amApplyVortex,
+            AppMain._amApplyDrag,
+            AppMain._amApplyNoise
         };
         AppMain._amEffectCreate_vec = new AppMain.NNS_VECTOR4D();
         AppMain._amEffect_create_param = new AppMain.AMS_AME_CREATE_PARAM();
@@ -35237,91 +35237,91 @@ public partial class AppMain
         };
         AppMain.gm_efct_zone01_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 0U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1)
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 0U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone02_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1)
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone03_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(10, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(15, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(16, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(18, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 32f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 32f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(25, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(28, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(30, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(31, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(33, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(34, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1)
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(10, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(15, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(16, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(18, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 32f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 32f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(25, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(28, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(30, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(31, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(33, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(34, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone04_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1)
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone_final_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1)
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone_ss_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(9, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(10, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(15, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1),
-            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmEffectDefaultMainFuncDeleteAtEnd), -1), -1, -1)
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(9, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(10, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(15, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+            new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f), new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone_create_info = new AppMain.GMS_EFCT_ZONE_CREATE_INFO[]
         {
@@ -83404,9 +83404,9 @@ public partial class AppMain
     // Token: 0x04003E00 RID: 15872
     private static AppMain._obj_block_collision_func_delegate[] _obj_block_collision_func = new AppMain._obj_block_collision_func_delegate[]
     {
-        new AppMain._obj_block_collision_func_delegate(AppMain.objBlockColEmpty),
-        new AppMain._obj_block_collision_func_delegate(AppMain.objBlockColBlockFill),
-        new AppMain._obj_block_collision_func_delegate(AppMain.objBlockColBlockFillThrough)
+        AppMain.objBlockColEmpty,
+        AppMain.objBlockColBlockFill,
+        AppMain.objBlockColBlockFillThrough
     };
 
     // Token: 0x04003E01 RID: 15873

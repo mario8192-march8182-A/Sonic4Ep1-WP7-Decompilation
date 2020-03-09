@@ -1299,7 +1299,7 @@ public partial class AppMain
         AppMain.ObjLoadSetInitDrawFlag( false );
         if ( AppMain.obj_ptcb == null )
         {
-            AppMain.obj_ptcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.objMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.objDestructor ), 0U, ( ushort )pause_level, ( uint )prio, ( int )group, null, "object" );
+            AppMain.obj_ptcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.objMain, AppMain.objDestructor, 0U, ( ushort )pause_level, ( uint )prio, ( int )group, null, "object" );
         }
     }
 
@@ -1312,7 +1312,7 @@ public partial class AppMain
             {
                 obs_OBJECT_WORK.flag |= 4U;
             }
-            AppMain.mtTaskChangeTcbProcedure( AppMain.obj_ptcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.objExitWait ) );
+            AppMain.mtTaskChangeTcbProcedure( AppMain.obj_ptcb, AppMain.objExitWait );
             AppMain.g_obj.flag |= 2147483648U;
         }
     }

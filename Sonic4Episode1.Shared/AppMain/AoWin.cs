@@ -61,7 +61,7 @@ public partial class AppMain
         aos_WIN_DRAW_WORK.y = y;
         aos_WIN_DRAW_WORK.w = w;
         aos_WIN_DRAW_WORK.h = h;
-        AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.aoWinSysTaskDraw ), prio, aos_WIN_DRAW_WORK );
+        AppMain.amDrawMakeTask( AppMain.aoWinSysTaskDraw, prio, aos_WIN_DRAW_WORK );
     }
 
     // Token: 0x060018E6 RID: 6374 RVA: 0x000E2D04 File Offset: 0x000E0F04

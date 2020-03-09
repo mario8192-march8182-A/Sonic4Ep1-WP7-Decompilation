@@ -542,7 +542,7 @@ public partial class AppMain
         bmcb_mgr.bmcb_head.prev = null;
         bmcb_mgr.bmcb_tail.next = null;
         bmcb_mgr.bmcb_tail.prev = bmcb_mgr.bmcb_head;
-        obj_work.obj_3d.mtn_cb_func = new AppMain.mtn_cb_func_delegate( AppMain.gmBsCmnBossMotionCallbackFunc );
+        obj_work.obj_3d.mtn_cb_func = AppMain.gmBsCmnBossMotionCallbackFunc;
         obj_work.obj_3d.mtn_cb_param = bmcb_mgr;
     }
 
@@ -585,7 +585,7 @@ public partial class AppMain
     private static void GmBsCmnCreateSNMWork( AppMain.GMS_BS_CMN_SNM_WORK snm_work, AppMain.NNS_OBJECT _object, ushort reg_max )
     {
         AppMain.UNREFERENCED_PARAMETER( _object );
-        AppMain.gmBsCmnInitBossMotionCBLink( snm_work.bmcb_link, new AppMain.MPP_VOID_MOTION_NSSOBJECT_OBJECT( AppMain.gmBsCmnMotionCallbackStoreNodeMatrix ), snm_work );
+        AppMain.gmBsCmnInitBossMotionCBLink( snm_work.bmcb_link, AppMain.gmBsCmnMotionCallbackStoreNodeMatrix, snm_work );
         snm_work.reg_node_cnt = 0;
         snm_work.reg_node_max = reg_max;
         snm_work.node_info_list = AppMain.New<AppMain.GMS_BS_CMN_SNM_NODE_INFO>( ( int )reg_max );
@@ -754,7 +754,7 @@ public partial class AppMain
     // Token: 0x0600144C RID: 5196 RVA: 0x000B36EC File Offset: 0x000B18EC
     private static void GmBsCmnInitCNMCb( AppMain.OBS_OBJECT_WORK obj_work, AppMain.GMS_BS_CMN_CNM_MGR_WORK cnm_mgr_work )
     {
-        obj_work.obj_3d.mplt_cb_func = new AppMain.MPP_VOID_ARRAYNNSMATRIX_NNSOBJECT_OBJECT( AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix );
+        obj_work.obj_3d.mplt_cb_func = AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix;
         obj_work.obj_3d.mplt_cb_param = null;
     }
 
@@ -884,7 +884,7 @@ public partial class AppMain
         AppMain.nnMakeUnitMatrix( gms_BS_CMN_NODE_CTRL_OBJECT.w_mtx );
         obs_OBJECT_WORK.disp_flag |= 32U;
         obs_OBJECT_WORK.ppOut = null;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBsCmnNodeControlObjectMainFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBsCmnNodeControlObjectMainFunc;
         return gms_BS_CMN_NODE_CTRL_OBJECT;
     }
 

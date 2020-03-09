@@ -18,7 +18,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 2U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsArrowMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsArrowMain;
         AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, 0, AppMain.readAMBFile( AppMain.ObjDataGet( 986 ).pData ) );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.dir.z = ( ushort )( eve_rec.width << 8 );

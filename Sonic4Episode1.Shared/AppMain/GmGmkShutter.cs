@@ -77,7 +77,7 @@ public partial class AppMain
             return;
         }
         obj_work.spd.y = -16384;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkShutterInMainClose );
+        obj_work.ppFunc = AppMain.gmGmkShutterInMainClose;
         obj_work.disp_flag &= 4294967263U;
         AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)obj_work;
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
@@ -99,7 +99,7 @@ public partial class AppMain
             return;
         }
         obj_work.spd.y = 16384;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkShutterOutMainOpen );
+        obj_work.ppFunc = AppMain.gmGmkShutterOutMainOpen;
         AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)obj_work;
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         if ( num == 4 && gms_GMK_SHUTTER_WORK.effect_work == null )
@@ -174,12 +174,12 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.enemy_flag |= 16384U;
         obj_work.pos.z = -655360;
         obj_work.user_work = ( uint )( obj_work.pos.y - 262144 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkShutterInMainWaitClose );
+        obj_work.ppFunc = AppMain.gmGmkShutterInMainWaitClose;
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         if ( num == 4 )
         {
-            obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkShutterInOutFuncForFinalZone );
-            AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkShutterDestFuncForFinaleZone ) );
+            obj_work.ppOut = AppMain.gmGmkShutterInOutFuncForFinalZone;
+            AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkShutterDestFuncForFinaleZone );
         }
     }
 
@@ -275,8 +275,8 @@ public partial class AppMain
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         if ( num == 4 )
         {
-            obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkShutterOutOutFuncForFinalZone );
-            AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkShutterDestFuncForFinaleZone ) );
+            obj_work.ppOut = AppMain.gmGmkShutterOutOutFuncForFinalZone;
+            AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkShutterDestFuncForFinaleZone );
         }
     }
 

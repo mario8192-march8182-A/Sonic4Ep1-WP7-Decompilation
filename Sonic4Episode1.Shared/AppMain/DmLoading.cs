@@ -196,7 +196,7 @@ public partial class AppMain
     // Token: 0x060009C3 RID: 2499 RVA: 0x0005729C File Offset: 0x0005549C
     private static void dmLoadingInit()
     {
-        AppMain.dm_loading_mgr_p.tcb = AppMain.mtTaskMake( new AppMain.GSF_TASK_PROCEDURE( AppMain.dmLoadingProcMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.dmLoadingDest ), 0U, 32767, 8192U, 10, () => new AppMain.DMS_LOADING_MAIN_WORK(), "LOADING_MAIN" );
+        AppMain.dm_loading_mgr_p.tcb = AppMain.mtTaskMake( AppMain.dmLoadingProcMain, AppMain.dmLoadingDest, 0U, 32767, 8192U, 10, () => new AppMain.DMS_LOADING_MAIN_WORK(), "LOADING_MAIN" );
         AppMain.DMS_LOADING_MAIN_WORK dms_LOADING_MAIN_WORK = (AppMain.DMS_LOADING_MAIN_WORK)AppMain.dm_loading_mgr_p.tcb.work;
         dms_LOADING_MAIN_WORK.draw_state = ( AppMain.AoActSysGetDrawStateEnable() ? 1U : 0U );
         AppMain.AoActSysSetDrawStateEnable( dms_LOADING_MAIN_WORK.draw_state == 1U );
@@ -205,7 +205,7 @@ public partial class AppMain
             AppMain.dm_loading_draw_state = AppMain.AoActSysGetDrawState();
         }
         AppMain.dmLoadingSetInitData( dms_LOADING_MAIN_WORK );
-        dms_LOADING_MAIN_WORK.proc_update = new AppMain.DMS_LOADING_MAIN_WORK._proc_update_( AppMain.dmLoadingProcInit );
+        dms_LOADING_MAIN_WORK.proc_update = AppMain.dmLoadingProcInit;
     }
 
     // Token: 0x060009C4 RID: 2500 RVA: 0x00057364 File Offset: 0x00055564
@@ -252,7 +252,7 @@ public partial class AppMain
     // Token: 0x060009C7 RID: 2503 RVA: 0x00057416 File Offset: 0x00055616
     private static void dmLoadingProcInit( AppMain.DMS_LOADING_MAIN_WORK main_work )
     {
-        main_work.proc_update = new AppMain.DMS_LOADING_MAIN_WORK._proc_update_( AppMain.dmLoadingProcCreateAct );
+        main_work.proc_update = AppMain.dmLoadingProcCreateAct;
     }
 
     // Token: 0x060009C8 RID: 2504 RVA: 0x0005742C File Offset: 0x0005562C
@@ -265,8 +265,8 @@ public partial class AppMain
             AppMain.AoActSetTexture( AppMain.AoTexGetTexList( tex ) );
             main_work.act[( int )( ( UIntPtr )num )] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_loading[( int )( ( UIntPtr )num )] );
         }
-        main_work.proc_update = new AppMain.DMS_LOADING_MAIN_WORK._proc_update_( AppMain.dmLoadingProcFadeIn );
-        main_work.proc_draw = new AppMain.DMS_LOADING_MAIN_WORK._proc_draw_( AppMain.dmLoadingProcActDraw );
+        main_work.proc_update = AppMain.dmLoadingProcFadeIn;
+        main_work.proc_draw = AppMain.dmLoadingProcActDraw;
         if ( main_work.is_maingame_load )
         {
             AppMain.IzFadeInitEasy( 0U, 0U, 32f );
@@ -281,7 +281,7 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.IzFadeExit();
-            main_work.proc_update = new AppMain.DMS_LOADING_MAIN_WORK._proc_update_( AppMain.dmLoadingProcNowLoading );
+            main_work.proc_update = AppMain.dmLoadingProcNowLoading;
         }
     }
 
@@ -290,7 +290,7 @@ public partial class AppMain
     {
         if ( AppMain.dm_loading_check_load_comp && main_work.timer > 60f )
         {
-            main_work.proc_update = new AppMain.DMS_LOADING_MAIN_WORK._proc_update_( AppMain.dmLoadingProcAlreadyLoaded );
+            main_work.proc_update = AppMain.dmLoadingProcAlreadyLoaded;
             main_work.timer = 0f;
             if ( main_work.is_maingame_load )
             {
@@ -314,7 +314,7 @@ public partial class AppMain
     {
         if ( main_work.timer > 32f )
         {
-            main_work.proc_update = new AppMain.DMS_LOADING_MAIN_WORK._proc_update_( AppMain.dmLoadingProcFadeOut );
+            main_work.proc_update = AppMain.dmLoadingProcFadeOut;
             main_work.timer = 0f;
         }
         if ( main_work.sonic_set_frame >= 12f )
@@ -331,7 +331,7 @@ public partial class AppMain
     {
         if ( AppMain.IzFadeIsEnd() )
         {
-            main_work.proc_update = new AppMain.DMS_LOADING_MAIN_WORK._proc_update_( AppMain.dmLoadingProcStopDraw );
+            main_work.proc_update = AppMain.dmLoadingProcStopDraw;
             main_work.proc_draw = null;
         }
     }
@@ -357,7 +357,7 @@ public partial class AppMain
         AppMain.dmLoadingCommonDraw( main_work );
         if ( main_work.draw_state != 0U )
         {
-            AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.dmLoadingTaskDraw ), 32768, null );
+            AppMain.amDrawMakeTask( AppMain.dmLoadingTaskDraw, 32768, null );
         }
     }
 

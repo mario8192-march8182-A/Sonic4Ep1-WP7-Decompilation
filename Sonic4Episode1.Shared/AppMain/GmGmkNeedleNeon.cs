@@ -58,7 +58,7 @@ public partial class AppMain
     private static void GmGmkNeedleNeonChangeModeActive( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_flag &= 4294967294U;
-        if ( obj_work.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainOn ) || obj_work.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainActive ) )
+        if ( obj_work.ppFunc == AppMain.gmGmkNeedleNeonNeedleMainOn || obj_work.ppFunc == AppMain.gmGmkNeedleNeonNeedleMainActive )
         {
             return;
         }
@@ -69,7 +69,7 @@ public partial class AppMain
     private static void GmGmkNeedleNeonChangeModeWait( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_flag &= 4294967294U;
-        if ( obj_work.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainWait ) || obj_work.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainOff ) )
+        if ( obj_work.ppFunc == AppMain.gmGmkNeedleNeonNeedleMainWait || obj_work.ppFunc == AppMain.gmGmkNeedleNeonNeedleMainOff )
         {
             return;
         }
@@ -108,7 +108,7 @@ public partial class AppMain
         {
             return;
         }
-        if ( obj_work.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainWait ) )
+        if ( obj_work.ppFunc == AppMain.gmGmkNeedleNeonNeedleMainWait )
         {
             return;
         }
@@ -168,7 +168,7 @@ public partial class AppMain
         obj_work.pos.z = -655360;
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonStandDrawFunc );
+        obj_work.ppOut = AppMain.gmGmkNeedleNeonStandDrawFunc;
     }
 
     // Token: 0x06000DE2 RID: 3554 RVA: 0x0007A6A8 File Offset: 0x000788A8
@@ -189,34 +189,34 @@ public partial class AppMain
         obj_work.flag |= 16U;
         obj_work.pos.z = -655360;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonDrawFunc );
+        obj_work.ppOut = AppMain.gmGmkNeedleNeonDrawFunc;
         AppMain.gmGmkNeedleNeonNeedleChangeModeWait( obj_work );
     }
 
     // Token: 0x06000DE3 RID: 3555 RVA: 0x0007A7E1 File Offset: 0x000789E1
     private static void gmGmkNeedleNeonNeedleChangeModeWait( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainWait );
+        obj_work.ppFunc = AppMain.gmGmkNeedleNeonNeedleMainWait;
     }
 
     // Token: 0x06000DE4 RID: 3556 RVA: 0x0007A7F5 File Offset: 0x000789F5
     private static void gmGmkNeedleNeonNeedleChangeModeOn( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainOn );
+        obj_work.ppFunc = AppMain.gmGmkNeedleNeonNeedleMainOn;
         AppMain.GmSoundPlaySE( "Boss2_06" );
     }
 
     // Token: 0x06000DE5 RID: 3557 RVA: 0x0007A813 File Offset: 0x00078A13
     private static void gmGmkNeedleNeonNeedleChangeModeActive( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainActive );
+        obj_work.ppFunc = AppMain.gmGmkNeedleNeonNeedleMainActive;
     }
 
     // Token: 0x06000DE6 RID: 3558 RVA: 0x0007A827 File Offset: 0x00078A27
     private static void gmGmkNeedleNeonNeedleChangeModeOff( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.flag |= 2U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleNeonNeedleMainOff );
+        obj_work.ppFunc = AppMain.gmGmkNeedleNeonNeedleMainOff;
     }
 
     // Token: 0x06000DE7 RID: 3559 RVA: 0x0007A84C File Offset: 0x00078A4C

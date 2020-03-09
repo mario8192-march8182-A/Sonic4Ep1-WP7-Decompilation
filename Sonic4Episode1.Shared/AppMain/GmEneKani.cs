@@ -93,7 +93,7 @@ public partial class AppMain
         gms_ENE_KANI_WORK.spd_dec_dist = 20480;
         AppMain.gmEneKaniWalkInit( obs_OBJECT_WORK );
         AppMain.GmEneUtilInitNodeMatrix( gms_ENE_KANI_WORK.node_work, obs_OBJECT_WORK, 3 );
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmEneExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmEneExit );
         AppMain.GmEneUtilGetNodeMatrix( gms_ENE_KANI_WORK.node_work, 16 );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 64U;
@@ -130,7 +130,7 @@ public partial class AppMain
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GmEneComActionSetDependHFlip( obj_work, 2, 2 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKaniWalkMain );
+        obj_work.ppFunc = AppMain.gmEneKaniWalkMain;
         obj_work.move_flag &= 4294967291U;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -173,7 +173,7 @@ public partial class AppMain
             {
                 obj_work.spd.x = 2048;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKaniWalkMain );
+            obj_work.ppFunc = AppMain.gmEneKaniWalkMain;
             if ( gms_ENE_KANI_WORK.walk_s != 0 )
             {
                 gms_ENE_KANI_WORK.timer = 15;
@@ -197,7 +197,7 @@ public partial class AppMain
             gms_ENE_KANI_WORK.ata_futa = 0;
             if ( AppMain.gmEneKaniGetLength2N( obj_work ) < 8464 )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKaniAttackInit );
+                obj_work.ppFunc = AppMain.gmEneKaniAttackInit;
                 return;
             }
         }
@@ -212,7 +212,7 @@ public partial class AppMain
     {
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
         obj_work.disp_flag &= 4294967291U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKaniAttackMain );
+        obj_work.ppFunc = AppMain.gmEneKaniAttackMain;
         obj_work.spd.x = 0;
         AppMain.GmSoundPlaySE( "Kani" );
     }
@@ -236,7 +236,7 @@ public partial class AppMain
         obs_RECT_WORK.flag |= 4U;
         if ( AppMain.GmBsCmnIsActionEnd( obj_work ) != 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKaniAttackEnd );
+            obj_work.ppFunc = AppMain.gmEneKaniAttackEnd;
             AppMain.ObjDrawObjectActionSet( obj_work, 1 );
         }
         AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
@@ -261,7 +261,7 @@ public partial class AppMain
         obs_RECT_WORK.flag |= 4U;
         if ( AppMain.GmBsCmnIsActionEnd( obj_work ) != 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKaniWalkInit );
+            obj_work.ppFunc = AppMain.gmEneKaniWalkInit;
         }
         AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
     }
@@ -280,7 +280,7 @@ public partial class AppMain
     public static void gmEneKaniFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.spd.x = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKaniFlipMain );
+        obj_work.ppFunc = AppMain.gmEneKaniFlipMain;
     }
 
     // Token: 0x06000E0C RID: 3596 RVA: 0x0007BDEB File Offset: 0x00079FEB

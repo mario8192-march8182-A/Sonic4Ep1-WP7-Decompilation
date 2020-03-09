@@ -625,12 +625,12 @@ public partial class AppMain
     // Token: 0x06001B83 RID: 7043 RVA: 0x000FBCF8 File Offset: 0x000F9EF8
     private static void dmStaffRollInit()
     {
-        AppMain.dm_stfrl_mgr_p.tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.dmStaffRollProcMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.dmStaffRollDest ), 0U, 32767, 12288U, 10, () => new AppMain.DMS_STFRL_MAIN_WORK(), "STAFFROLL_MAIN" );
+        AppMain.dm_stfrl_mgr_p.tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.dmStaffRollProcMain, AppMain.dmStaffRollDest, 0U, 32767, 12288U, 10, () => new AppMain.DMS_STFRL_MAIN_WORK(), "STAFFROLL_MAIN" );
         AppMain.DMS_STFRL_MAIN_WORK dms_STFRL_MAIN_WORK = (AppMain.DMS_STFRL_MAIN_WORK)AppMain.dm_stfrl_mgr_p.tcb.work;
         AppMain.AoActSysSetDrawStateEnable( true );
         AppMain.AoActSysSetDrawState( AppMain.AoActSysGetDrawState() );
         AppMain.dmStaffRollSetInitData( dms_STFRL_MAIN_WORK );
-        dms_STFRL_MAIN_WORK.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcInit );
+        dms_STFRL_MAIN_WORK.proc_update = AppMain.dmStaffRollProcInit;
     }
 
     // Token: 0x06001B84 RID: 7044 RVA: 0x000FBD98 File Offset: 0x000F9F98
@@ -665,7 +665,7 @@ public partial class AppMain
         }
         if ( ( dms_STFRL_MAIN_WORK.flag & 2147483648U ) != 0U && !AppMain.AoAccountIsCurrentEnable() )
         {
-            dms_STFRL_MAIN_WORK.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeOut );
+            dms_STFRL_MAIN_WORK.proc_update = AppMain.dmStaffRollProcFadeOut;
             dms_STFRL_MAIN_WORK.flag &= 2147483647U;
             dms_STFRL_MAIN_WORK.flag |= 1073741824U;
             if ( AppMain.dm_stfrl_is_pause_maingame )
@@ -734,7 +734,7 @@ public partial class AppMain
     {
         if ( AppMain.dm_stfrl_is_full_staffroll )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcLoadData );
+            main_work.proc_update = AppMain.dmStaffRollProcLoadData;
             AppMain.DmStaffRollBuildForGame();
             main_work.arc_list_font_amb = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_list_font_amb_fs );
             main_work.arc_scr_amb_fs = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_scr_amb_fs );
@@ -748,7 +748,7 @@ public partial class AppMain
         {
             main_work.arc_list_font_amb_fs = AppMain.amFsReadBackground( "DEMO/STFRL/D_STFRL_FONT.AMB" );
             main_work.staff_list_fs = AppMain.amFsRead( "DEMO/STFRL/STAFF_LIST.YSD" );
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcLoadData );
+            main_work.proc_update = AppMain.dmStaffRollProcLoadData;
         }
         AppMain.GsMainSysSetSleepFlag( false );
     }
@@ -768,7 +768,7 @@ public partial class AppMain
                 AppMain.dmStaffRollDataClearRequestEasy( main_work );
                 AppMain.dmStaffRollDataBuildEasy( main_work );
             }
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcDataBuild );
+            main_work.proc_update = AppMain.dmStaffRollProcDataBuild;
         }
     }
 
@@ -783,13 +783,13 @@ public partial class AppMain
                 main_work.ring_work[0] = AppMain.DmStfrlMdlCtrlSetRingObj( 0, 0U );
                 main_work.ring_work[1] = AppMain.DmStfrlMdlCtrlSetRingObj( 20, 3U );
                 main_work.ring_work[2] = AppMain.DmStfrlMdlCtrlSetRingObj( 40, 6U );
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcCreateAct );
+                main_work.proc_update = AppMain.dmStaffRollProcCreateAct;
             }
             else
             {
                 main_work.flag |= 2147483648U;
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeIn );
-                main_work.proc_draw = new AppMain.DMS_STFRL_MAIN_WORK._proc_draw_( AppMain.dmStaffRollProcActDraw );
+                main_work.proc_update = AppMain.dmStaffRollProcFadeIn;
+                main_work.proc_draw = AppMain.dmStaffRollProcActDraw;
                 AppMain.IzFadeInitEasy( 0U, 0U, 64f );
             }
             if ( !AppMain.AoYsdFileIsYsdFile( AppMain.dm_stfrl_data_mgr_p.stf_list_ysd ) )
@@ -829,8 +829,8 @@ public partial class AppMain
             main_work.act[( int )( ( UIntPtr )num )] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_staff[( int )( ( UIntPtr )num )] );
         }
         main_work.flag |= 2147483648U;
-        main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeIn );
-        main_work.proc_draw = new AppMain.DMS_STFRL_MAIN_WORK._proc_draw_( AppMain.dmStaffRollProcActDraw );
+        main_work.proc_update = AppMain.dmStaffRollProcFadeIn;
+        main_work.proc_draw = AppMain.dmStaffRollProcActDraw;
         AppMain.IzFadeInitEasy( 0U, 0U, 64f );
     }
 
@@ -840,7 +840,7 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.IzFadeExit();
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcNowStaffRoll );
+            main_work.proc_update = AppMain.dmStaffRollProcNowStaffRoll;
             AppMain.dmStaffRollSetFadePageInfoEfctData( main_work );
             main_work.timer = 32f;
             if ( AppMain.dm_stfrl_is_full_staffroll )
@@ -851,7 +851,7 @@ public partial class AppMain
             {
                 AppMain.GsSoundPlayBgm( main_work.bgm_scb, "snd_sng_z1a1", 0 );
             }
-            main_work.proc_input = new AppMain.DMS_STFRL_MAIN_WORK._proc_input_( AppMain.dmStaffRollInputProcStaffRollMain );
+            main_work.proc_input = AppMain.dmStaffRollInputProcStaffRollMain;
         }
     }
 
@@ -866,11 +866,11 @@ public partial class AppMain
         {
             if ( AppMain.dm_stfrl_is_full_staffroll )
             {
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcModeFadeOut );
+                main_work.proc_update = AppMain.dmStaffRollProcModeFadeOut;
             }
             else
             {
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeOut );
+                main_work.proc_update = AppMain.dmStaffRollProcFadeOut;
             }
             if ( AppMain.dm_stfrl_is_pause_maingame )
             {
@@ -887,7 +887,7 @@ public partial class AppMain
         }
         if ( main_work.timer <= 0f )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcNowStaffRoll );
+            main_work.proc_update = AppMain.dmStaffRollProcNowStaffRoll;
             main_work.timer = 0f;
         }
         main_work.timer -= main_work.disp_frm_time;
@@ -904,11 +904,11 @@ public partial class AppMain
         {
             if ( AppMain.dm_stfrl_is_full_staffroll )
             {
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcModeFadeOut );
+                main_work.proc_update = AppMain.dmStaffRollProcModeFadeOut;
             }
             else
             {
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeOut );
+                main_work.proc_update = AppMain.dmStaffRollProcFadeOut;
             }
             if ( AppMain.dm_stfrl_is_pause_maingame )
             {
@@ -925,7 +925,7 @@ public partial class AppMain
         }
         if ( main_work.fade_timer <= 0f )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcSetChangeData );
+            main_work.proc_update = AppMain.dmStaffRollProcSetChangeData;
             main_work.fade_timer = 0f;
             return;
         }
@@ -944,11 +944,11 @@ public partial class AppMain
         {
             if ( AppMain.dm_stfrl_is_full_staffroll )
             {
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcModeFadeOut );
+                main_work.proc_update = AppMain.dmStaffRollProcModeFadeOut;
             }
             else
             {
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeOut );
+                main_work.proc_update = AppMain.dmStaffRollProcFadeOut;
             }
             if ( AppMain.dm_stfrl_is_pause_maingame )
             {
@@ -968,18 +968,18 @@ public partial class AppMain
         {
             AppMain.dmStaffRollSetFadePageInfoEfctData( main_work );
             main_work.timer = 32f;
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcDispWaitStaffList );
+            main_work.proc_update = AppMain.dmStaffRollProcDispWaitStaffList;
             AppMain.UNREFERENCED_PARAMETER( main_work );
             return;
         }
         main_work.cur_disp_list_page = main_work.disp_list_page_num - 1U;
         if ( AppMain.dm_stfrl_is_full_staffroll )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcModeFadeOut );
+            main_work.proc_update = AppMain.dmStaffRollProcModeFadeOut;
         }
         else
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeOut );
+            main_work.proc_update = AppMain.dmStaffRollProcFadeOut;
         }
         if ( AppMain.dm_stfrl_is_pause_maingame )
         {
@@ -996,7 +996,7 @@ public partial class AppMain
     {
         if ( AppMain.IzFadeIsEnd() )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcModeFadeIn );
+            main_work.proc_update = AppMain.dmStaffRollProcModeFadeIn;
             main_work.disp_mode = 1U;
             if ( AppMain.dm_stfrl_is_pause_maingame )
             {
@@ -1016,8 +1016,8 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.IzFadeExit();
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcEndModeIdle );
-            main_work.proc_input = new AppMain.DMS_STFRL_MAIN_WORK._proc_input_( AppMain.dmStaffRollInputProcWin );
+            main_work.proc_update = AppMain.dmStaffRollProcEndModeIdle;
+            main_work.proc_input = AppMain.dmStaffRollInputProcWin;
             main_work.timer = 32f;
             main_work.flag |= 128U;
         }
@@ -1081,12 +1081,12 @@ public partial class AppMain
         }
         if ( AppMain.dm_stfrl_is_full_staffroll )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcWinModeFadeOut );
+            main_work.proc_update = AppMain.dmStaffRollProcWinModeFadeOut;
             main_work.proc_input = null;
         }
         else
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeOut );
+            main_work.proc_update = AppMain.dmStaffRollProcFadeOut;
             main_work.proc_input = null;
         }
         main_work.flag &= 4294967291U;
@@ -1104,7 +1104,7 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.dmStaffRollNodispEndModel( main_work );
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcWinModeFadeIn );
+            main_work.proc_update = AppMain.dmStaffRollProcWinModeFadeIn;
             main_work.disp_mode = 2U;
             AppMain.IzFadeInitEasy( 0U, 0U, 80f );
             AppMain.GsSoundStopBgm( main_work.bgm_scb, 0 );
@@ -1117,7 +1117,7 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.IzFadeExit();
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcWindowNodispIdle );
+            main_work.proc_update = AppMain.dmStaffRollProcWindowNodispIdle;
             if ( ( AppMain.g_gs_main_sys_info.game_flag & 32U ) == 0U )
             {
                 main_work.announce_flag |= 1U;
@@ -1130,7 +1130,7 @@ public partial class AppMain
     {
         if ( main_work.announce_flag != 0U )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcWindowOpenEfct );
+            main_work.proc_update = AppMain.dmStaffRollProcWindowOpenEfct;
             main_work.proc_input = null;
             main_work.win_timer = 0f;
             for ( int i = 0; i < 1; i++ )
@@ -1145,7 +1145,7 @@ public partial class AppMain
             AppMain.GsSoundPlaySe( "Window", main_work.se_handle );
             return;
         }
-        main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcTrophyCheck );
+        main_work.proc_update = AppMain.dmStaffRollProcTrophyCheck;
     }
 
     // Token: 0x06001B96 RID: 7062 RVA: 0x000FCAA0 File Offset: 0x000FACA0
@@ -1153,8 +1153,8 @@ public partial class AppMain
     {
         if ( ( main_work.flag & 512U ) != 0U )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcWindowAnnounceIdle );
-            main_work.proc_input = new AppMain.DMS_STFRL_MAIN_WORK._proc_input_( AppMain.dmStaffRollInputProcWin );
+            main_work.proc_update = AppMain.dmStaffRollProcWindowAnnounceIdle;
+            main_work.proc_input = AppMain.dmStaffRollInputProcWin;
             main_work.flag |= 64U;
             main_work.flag &= 4294966783U;
             return;
@@ -1174,7 +1174,7 @@ public partial class AppMain
             main_work.proc_input = null;
             main_work.win_timer = 8f;
             main_work.flag &= 4294967231U;
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcWindowCloseEfct );
+            main_work.proc_update = AppMain.dmStaffRollProcWindowCloseEfct;
             AppMain.GsSoundPlaySe( "Ok", main_work.se_handle );
             main_work.flag &= 4294967291U;
             main_work.flag &= 4294967293U;
@@ -1186,7 +1186,7 @@ public partial class AppMain
     {
         if ( ( main_work.flag & 512U ) != 0U )
         {
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcWindowNodispIdle );
+            main_work.proc_update = AppMain.dmStaffRollProcWindowNodispIdle;
             main_work.announce_flag &= ~( 1U << ( int )main_work.win_mode );
             main_work.flag &= 4294966271U;
             main_work.flag &= 4294966783U;
@@ -1197,7 +1197,7 @@ public partial class AppMain
     // Token: 0x06001B99 RID: 7065 RVA: 0x000FCC0C File Offset: 0x000FAE0C
     private static void dmStaffRollProcTrophyCheck( AppMain.DMS_STFRL_MAIN_WORK main_work )
     {
-        main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFadeOut );
+        main_work.proc_update = AppMain.dmStaffRollProcFadeOut;
         if ( AppMain.dm_stfrl_is_full_staffroll )
         {
             AppMain.HgTrophyTryAcquisition( 3 );
@@ -1226,7 +1226,7 @@ public partial class AppMain
                 AppMain.GsSoundFreeSeHandle( main_work.se_handle );
                 main_work.se_handle = null;
             }
-            main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcStopDraw );
+            main_work.proc_update = AppMain.dmStaffRollProcStopDraw;
             main_work.proc_draw = null;
         }
     }
@@ -1242,7 +1242,7 @@ public partial class AppMain
                 main_work.act[i] = null;
             }
         }
-        main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcDataRelease );
+        main_work.proc_update = AppMain.dmStaffRollProcDataRelease;
     }
 
     // Token: 0x06001B9C RID: 7068 RVA: 0x000FCD10 File Offset: 0x000FAF10
@@ -1254,7 +1254,7 @@ public partial class AppMain
             AppMain.ObjObjectClearAllObject();
             AppMain.ObjPreExit();
         }
-        main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcFinish );
+        main_work.proc_update = AppMain.dmStaffRollProcFinish;
     }
 
     // Token: 0x06001B9D RID: 7069 RVA: 0x000FCD3C File Offset: 0x000FAF3C
@@ -1310,7 +1310,7 @@ public partial class AppMain
             }
             if ( AppMain.dm_stfrl_is_full_staffroll )
             {
-                main_work.proc_update = new AppMain.DMS_STFRL_MAIN_WORK._proc_update_( AppMain.dmStaffRollProcSaveEndCheck );
+                main_work.proc_update = AppMain.dmStaffRollProcSaveEndCheck;
                 AppMain.DmSaveMenuStart( true, false );
             }
             else
@@ -1403,7 +1403,7 @@ public partial class AppMain
         ams_PARAM_DRAW_PRIMITIVE.zTest = 0;
         AppMain.AoActDrawCorWide( vtxPC3D, 0, 4U, AppMain.AOE_ACT_CORW.AOD_ACT_CORW_NONE );
         AppMain.amDrawPrimitive3D( 40U, ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.dmStaffRollTaskBgDraw ), 2048, 0U );
+        AppMain.amDrawMakeTask( AppMain.dmStaffRollTaskBgDraw, 2048, 0U );
         AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
@@ -1446,7 +1446,7 @@ public partial class AppMain
         ams_PARAM_DRAW_PRIMITIVE.zTest = 0;
         AppMain.AoActDrawCorWide( AppMain.dmStaffRollStageScrDraw_DrawArray, 0, 4U, AppMain.AOE_ACT_CORW.AOD_ACT_CORW_LEFT );
         AppMain.amDrawPrimitive3D( 30U, ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.dmStaffRollStageScrTaskDraw ), 2304, null );
+        AppMain.amDrawMakeTask( AppMain.dmStaffRollStageScrTaskDraw, 2304, null );
         AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
@@ -1478,7 +1478,7 @@ public partial class AppMain
             num5 += AppMain.dm_stfrl_list_id_font_height_tbl[( int )( ( UIntPtr )main_work.page_line_type[( int )( ( UIntPtr )num6 )] )];
         }
         main_work.page_line_type = null;
-        AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.dmStaffRollTaskDraw ), 2560, 0U );
+        AppMain.amDrawMakeTask( AppMain.dmStaffRollTaskDraw, 2560, 0U );
     }
 
     // Token: 0x06001BA7 RID: 7079 RVA: 0x000FD57C File Offset: 0x000FB77C
@@ -1716,7 +1716,7 @@ public partial class AppMain
         AppMain.AoActSortExecute();
         AppMain.AoActSortDraw();
         AppMain.AoActSortUnregAll();
-        AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.dmStaffRollEndActTaskDraw ), 2304, 0U );
+        AppMain.amDrawMakeTask( AppMain.dmStaffRollEndActTaskDraw, 2304, 0U );
     }
 
     // Token: 0x06001BAA RID: 7082 RVA: 0x000FE084 File Offset: 0x000FC284
@@ -1756,7 +1756,7 @@ public partial class AppMain
         AppMain.AoActSortExecute();
         AppMain.AoActSortDraw();
         AppMain.AoActSortUnregAll();
-        AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.dmStaffRollWinActTaskDraw ), 3072, 0U );
+        AppMain.amDrawMakeTask( AppMain.dmStaffRollWinActTaskDraw, 3072, 0U );
     }
 
     // Token: 0x06001BAC RID: 7084 RVA: 0x000FE1E6 File Offset: 0x000FC3E6
@@ -2045,8 +2045,8 @@ public partial class AppMain
         AppMain.g_obj.ppPre = null;
         AppMain.g_obj.ppPost = null;
         AppMain.g_obj.ppCollision = null;
-        AppMain.g_obj.ppObjPre = new AppMain.OBJECT_WORK_Delegate( AppMain.GmObjObjPreFunc );
-        AppMain.g_obj.ppObjPost = new AppMain.OBJECT_WORK_Delegate( AppMain.GmObjObjPostFunc );
+        AppMain.g_obj.ppObjPre = AppMain.GmObjObjPreFunc;
+        AppMain.g_obj.ppObjPost = AppMain.GmObjObjPostFunc;
         AppMain.g_obj.ppRegRecAuto = null;
         AppMain.g_obj.draw_scale.x = ( AppMain.g_obj.draw_scale.y = ( AppMain.g_obj.draw_scale.z = 13107 ) );
         AppMain.g_obj.inv_draw_scale.x = ( AppMain.g_obj.inv_draw_scale.y = ( AppMain.g_obj.inv_draw_scale.z = AppMain.FX_Div( 4096, AppMain.g_obj.draw_scale.x ) ) );
@@ -2147,7 +2147,7 @@ public partial class AppMain
         AppMain.g_obj.glb_camera_type = 1;
         AppMain.GmCameraDelayReset();
         AppMain.GmCameraAllowReset();
-        AppMain.ObjCameraSetUserFunc( 0, new AppMain.OBJF_CAMERA_USER_FUNC( AppMain.dmStaffRollCameraFunc ) );
+        AppMain.ObjCameraSetUserFunc( 0, AppMain.dmStaffRollCameraFunc );
         AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
         obs_CAMERA.scale = 0.67438334f;
         obs_CAMERA.ofst.z = 1000f;

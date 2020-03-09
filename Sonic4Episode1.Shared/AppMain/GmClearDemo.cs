@@ -85,7 +85,7 @@ public partial class AppMain
     private static void gmClearDemoInit()
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmClearDemoProcMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmClearDemoDest), 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmClearDemoProcMain, AppMain.gmClearDemoDest, 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
         AppMain.gm_clrdm_mgr_p.tcb = mts_TASK_TCB;
         AppMain.GMS_CLRDM_MAIN_WORK gms_CLRDM_MAIN_WORK = (AppMain.GMS_CLRDM_MAIN_WORK)mts_TASK_TCB.work;
         for (int i = 0; i < 2; i++)
@@ -149,7 +149,7 @@ public partial class AppMain
     private static void gmClearDemoRetryInit()
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmClearDemoProcMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmClearDemoDest), 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmClearDemoProcMain, AppMain.gmClearDemoDest, 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
         AppMain.gm_clrdm_mgr_p.tcb = mts_TASK_TCB;
         AppMain.GMS_CLRDM_MAIN_WORK gms_CLRDM_MAIN_WORK = (AppMain.GMS_CLRDM_MAIN_WORK)mts_TASK_TCB.work;
         for (int i = 0; i < 2; i++)
@@ -172,7 +172,7 @@ public partial class AppMain
         AppMain.gmClearDemoCreateObjActTime(gms_CLRDM_MAIN_WORK);
         AppMain.gmClearDemoCreateObjNormalTimeAtk(gms_CLRDM_MAIN_WORK);
         AppMain.gmClearDemoSetRetryInitAct(gms_CLRDM_MAIN_WORK);
-        gms_CLRDM_MAIN_WORK.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcRetryStart);
+        gms_CLRDM_MAIN_WORK.proc_update = AppMain.gmClearDemoProcRetryStart;
     }
 
     // Token: 0x06000E1E RID: 3614 RVA: 0x0007C41C File Offset: 0x0007A61C
@@ -182,10 +182,10 @@ public partial class AppMain
         {
             if (main_work.game_mode == 0)
             {
-                main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeScoreMoveEfct);
+                main_work.proc_update = AppMain.gmClearDemoProcSpeScoreMoveEfct;
                 return;
             }
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeMoveEfct);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeTimeMoveEfct;
             AppMain.gmClearDemoSetClearTimeRecord(main_work);
             AppMain.gmClearDemoSetSortBufTimeAct(main_work);
             main_work.tex_new_record_act.obj_2d.speed = 0f;
@@ -195,10 +195,10 @@ public partial class AppMain
         {
             if (main_work.game_mode == 0)
             {
-                main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcMoveEfct);
+                main_work.proc_update = AppMain.gmClearDemoProcMoveEfct;
                 return;
             }
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcTimeMoveEfct);
+            main_work.proc_update = AppMain.gmClearDemoProcTimeMoveEfct;
             AppMain.gmClearDemoSetClearTimeRecord(main_work);
             AppMain.gmClearDemoSetSortBufTimeAct(main_work);
             main_work.tex_new_record_act.obj_2d.speed = 0f;
@@ -596,7 +596,7 @@ public partial class AppMain
     {
         if (AppMain.AoActIsEndTrs(main_work.tex_total_act.obj_2d.act))
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcPrevCalcScore);
+            main_work.proc_update = AppMain.gmClearDemoProcPrevCalcScore;
             AppMain.amFlagOn(ref main_work.flag, 32U);
             AppMain.amFlagOn(ref main_work.flag, 512U);
         }
@@ -619,8 +619,8 @@ public partial class AppMain
         main_work.timer += (float)main_work.count;
         if (main_work.timer > 150f)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcCalcScore);
-            main_work.proc_calc_score = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoSetCalcScore);
+            main_work.proc_update = AppMain.gmClearDemoProcCalcScore;
+            main_work.proc_calc_score = AppMain.gmClearDemoSetCalcScore;
             main_work.timer = 0f;
         }
         if (AppMain.amTpIsTouchPush(0) || AppMain.isBackKeyPressed())
@@ -639,7 +639,7 @@ public partial class AppMain
         main_work.timer += (float)main_work.count;
         if ((main_work.flag & 4U) != 0U || (main_work.flag & 8U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcWaitDispSonic);
+            main_work.proc_update = AppMain.gmClearDemoProcWaitDispSonic;
             main_work.time_score[1] = main_work.time_score[0];
             main_work.ring_score[1] = main_work.ring_score[0];
             main_work.total_score[1] = main_work.total_score[0];
@@ -687,7 +687,7 @@ public partial class AppMain
     {
         if (main_work.timer >= 60f)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcDispIdle);
+            main_work.proc_update = AppMain.gmClearDemoProcDispIdle;
             main_work.timer = 0f;
             if ((main_work.flag & 16U) != 0U)
             {
@@ -707,7 +707,7 @@ public partial class AppMain
     {
         if (main_work.timer >= (float)main_work.idle_time)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcFadeOut);
+            main_work.proc_update = AppMain.gmClearDemoProcFadeOut;
             AppMain.IzFadeInitEasy(0U, 1U, 32f);
         }
         if ((main_work.flag & 16U) != 0U)
@@ -725,7 +725,7 @@ public partial class AppMain
     {
         if (AppMain.IzFadeIsEnd())
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcFinish);
+            main_work.proc_update = AppMain.gmClearDemoProcFinish;
             main_work.timer = 0f;
             return;
         }
@@ -758,7 +758,7 @@ public partial class AppMain
     {
         if (AppMain.AoActIsEndTrs(main_work.tex_big_time_act.obj_2d.act))
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcTimeWaitTimeEfct);
+            main_work.proc_update = AppMain.gmClearDemoProcTimeWaitTimeEfct;
             for (int i = 0; i < 7; i++)
             {
                 AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i], main_work.record_time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(49 + i), 0);
@@ -781,13 +781,13 @@ public partial class AppMain
         {
             if ((main_work.flag & 4096U) != 0U)
             {
-                main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcTimeMoveNewRecord);
+                main_work.proc_update = AppMain.gmClearDemoProcTimeMoveNewRecord;
                 main_work.tex_new_record_act.obj_2d.speed = 1f;
                 main_work.idle_time = 180;
             }
             else
             {
-                main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcTimeDispEffect);
+                main_work.proc_update = AppMain.gmClearDemoProcTimeDispEffect;
                 main_work.idle_time = 120;
             }
             AppMain.HgTrophyTryAcquisition(0);
@@ -807,7 +807,7 @@ public partial class AppMain
     {
         if (AppMain.AoActIsEndTrs(main_work.tex_new_record_act.obj_2d.act))
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcTimeDispEffect);
+            main_work.proc_update = AppMain.gmClearDemoProcTimeDispEffect;
             AppMain.GmSoundPlayJingle(5U);
         }
         AppMain.gmClearDemoSetTimeAtkSortBufAct(main_work);
@@ -824,7 +824,7 @@ public partial class AppMain
         }
         if (main_work.timer > (float)main_work.idle_time || (main_work.flag & 4U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcChangeRetryOut);
+            main_work.proc_update = AppMain.gmClearDemoProcChangeRetryOut;
             AppMain.IzFadeInitEasy(0U, 1U, 32f);
             main_work.timer = 0f;
             main_work.flag &= 4294967291U;
@@ -836,7 +836,7 @@ public partial class AppMain
     // Token: 0x06000E34 RID: 3636 RVA: 0x0007D744 File Offset: 0x0007B944
     private static void gmClearDemoProcRetryStart(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
-        main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcChangeRetryOut);
+        main_work.proc_update = AppMain.gmClearDemoProcChangeRetryOut;
         AppMain.IzFadeInitEasy(0U, 1U, 32f);
         main_work.timer = 0f;
     }
@@ -849,7 +849,7 @@ public partial class AppMain
             if (main_work.nodisp_check)
             {
                 AppMain.IzFadeInitEasy(0U, 0U, 32f);
-                main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcChangeRetryIn);
+                main_work.proc_update = AppMain.gmClearDemoProcChangeRetryIn;
                 main_work.nodisp_check = false;
                 return;
             }
@@ -865,7 +865,7 @@ public partial class AppMain
     {
         if (AppMain.IzFadeIsEnd())
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcWaitSelectRetry);
+            main_work.proc_update = AppMain.gmClearDemoProcWaitSelectRetry;
         }
     }
 
@@ -876,13 +876,13 @@ public partial class AppMain
         AppMain.gmClearDemoSetRetryInput(main_work);
         if ((main_work.flag & 4U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcWaitRetrySonicRunEfct);
+            main_work.proc_update = AppMain.gmClearDemoProcWaitRetrySonicRunEfct;
             AppMain.GmPlySeqChangeTRetryAcc(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)]);
             return;
         }
         if ((main_work.flag & 2U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcFadeOut);
+            main_work.proc_update = AppMain.gmClearDemoProcFadeOut;
             AppMain.IzFadeInitEasy(0U, 1U, 32f);
         }
     }
@@ -893,7 +893,7 @@ public partial class AppMain
         AppMain.gmClearDemoSetBgColorBlack();
         if (AppMain.ObjObjectViewOutCheck(AppMain.g_gm_main_system.ply_work[0].obj_work) != 0)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcFadeOut);
+            main_work.proc_update = AppMain.gmClearDemoProcFadeOut;
             main_work.flag |= 8192U;
             AppMain.IzFadeInitEasy(0U, 1U, 32f);
         }
@@ -1002,7 +1002,7 @@ public partial class AppMain
         gms_PLAYER_WORK.obj_work.flag &= 4294967167U;
         gms_PLAYER_WORK.obj_work.disp_flag &= 4294967263U;
         AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
-        AppMain.ObjCameraSetUserFunc(0, new AppMain.OBJF_CAMERA_USER_FUNC(AppMain.GmCameraFunc));
+        AppMain.ObjCameraSetUserFunc(0, AppMain.GmCameraFunc);
         AppMain.GmCameraScaleSet(1f, 1f);
         obs_CAMERA.roll = 0;
         gms_PLAYER_WORK.gmk_flag &= 4294934527U;
@@ -1075,7 +1075,7 @@ public partial class AppMain
     {
         if (AppMain.AoActIsEndTrs(main_work.tex_total_act.obj_2d.act))
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeScorePrevCalcScore);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeScorePrevCalcScore;
             AppMain.amFlagOn(ref main_work.flag, 32U);
             AppMain.amFlagOn(ref main_work.flag, 512U);
         }
@@ -1098,8 +1098,8 @@ public partial class AppMain
         main_work.timer += (float)main_work.count;
         if (main_work.timer > 150f)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeScoreCalcScore);
-            main_work.proc_calc_score = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoSetCalcScore);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeScoreCalcScore;
+            main_work.proc_calc_score = AppMain.gmClearDemoSetCalcScore;
             main_work.timer = 0f;
         }
         if (AppMain.amTpIsTouchPush(0) || AppMain.isBackKeyPressed())
@@ -1118,7 +1118,7 @@ public partial class AppMain
         main_work.timer += (float)main_work.count;
         if ((main_work.flag & 4U) != 0U || (main_work.flag & 8U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeScoreWaitDispSonic);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeScoreWaitDispSonic;
             main_work.time_score[1] = main_work.time_score[0];
             main_work.ring_score[1] = main_work.ring_score[0];
             main_work.total_score[1] = main_work.total_score[0];
@@ -1166,7 +1166,7 @@ public partial class AppMain
     {
         if (main_work.timer >= 60f)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeScoreDispIdle);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeScoreDispIdle;
             main_work.timer = 0f;
             if ((main_work.flag & 16U) != 0U)
             {
@@ -1186,7 +1186,7 @@ public partial class AppMain
     {
         if (main_work.timer >= (float)main_work.idle_time)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeScoreFadeOut);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeScoreFadeOut;
             AppMain.IzFadeInitEasy(0U, 3U, 32f);
         }
         if ((main_work.flag & 16U) != 0U)
@@ -1204,7 +1204,7 @@ public partial class AppMain
     {
         if (AppMain.IzFadeIsEnd())
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeScoreFinish);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeScoreFinish;
             main_work.timer = 0f;
             return;
         }
@@ -1230,7 +1230,7 @@ public partial class AppMain
     {
         if (AppMain.AoActIsEndTrs(main_work.tex_big_time_act.obj_2d.act))
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeWaitTimeEfct);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeTimeWaitTimeEfct;
             for (int i = 0; i < 7; i++)
             {
                 AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i], main_work.record_time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(49 + i), 0);
@@ -1253,13 +1253,13 @@ public partial class AppMain
         {
             if ((main_work.flag & 4096U) != 0U)
             {
-                main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeTimeMoveNewRecord);
+                main_work.proc_update = AppMain.gmClearDemoProcSpeTimeTimeMoveNewRecord;
                 main_work.tex_new_record_act.obj_2d.speed = 1f;
                 main_work.idle_time = 180;
             }
             else
             {
-                main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeDispEffect);
+                main_work.proc_update = AppMain.gmClearDemoProcSpeTimeDispEffect;
                 main_work.idle_time = 120;
             }
             AppMain.HgTrophyTryAcquisition(0);
@@ -1279,7 +1279,7 @@ public partial class AppMain
     {
         if (AppMain.AoActIsEndTrs(main_work.tex_new_record_act.obj_2d.act))
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeDispEffect);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeTimeDispEffect;
             AppMain.GmSoundPlayJingle(5U);
         }
         AppMain.gmClearDemoSetTimeAtkSortBufAct(main_work);
@@ -1296,7 +1296,7 @@ public partial class AppMain
         }
         if (main_work.timer > (float)main_work.idle_time || (main_work.flag & 4U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeChangeRetryOut);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeTimeChangeRetryOut;
             AppMain.IzFadeInitEasy(0U, 1U, 32f);
             main_work.timer = 0f;
             main_work.flag &= 4294967291U;
@@ -1310,7 +1310,7 @@ public partial class AppMain
     {
         if (AppMain.IzFadeIsEnd())
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeChangeRetryIn);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeTimeChangeRetryIn;
             AppMain.IzFadeInitEasy(0U, 0U, 32f);
             AppMain.gmClearDemoSetRetryDispInfo(main_work);
             AppMain.gmClearDemoSetRetrySortBufAct(main_work);
@@ -1325,7 +1325,7 @@ public partial class AppMain
     {
         if (AppMain.IzFadeIsEnd())
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcSpeTimeWaitSelectRetry);
+            main_work.proc_update = AppMain.gmClearDemoProcSpeTimeWaitSelectRetry;
         }
     }
 
@@ -1336,13 +1336,13 @@ public partial class AppMain
         AppMain.gmClearDemoSetRetryInput(main_work);
         if ((main_work.flag & 4U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcWaitRetrySonicRunEfct);
+            main_work.proc_update = AppMain.gmClearDemoProcWaitRetrySonicRunEfct;
             AppMain.GmPlySeqChangeTRetryAcc(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)]);
             return;
         }
         if ((main_work.flag & 2U) != 0U)
         {
-            main_work.proc_update = new AppMain.GMS_CLRDM_MAIN_WORK._WorkDelegate(AppMain.gmClearDemoProcFadeOut);
+            main_work.proc_update = AppMain.gmClearDemoProcFadeOut;
             AppMain.IzFadeInitEasy(0U, 1U, 32f);
         }
     }
@@ -2234,6 +2234,6 @@ public partial class AppMain
             AppMain.amDrawSetBGColor(bgColor);
             return;
         }
-        AppMain.amDrawMakeTask(new AppMain.TaskProc(AppMain.gmClearDemoSetBgColorBlack), 65280);
+        AppMain.amDrawMakeTask(AppMain.gmClearDemoSetBgColorBlack, 65280);
     }
 }

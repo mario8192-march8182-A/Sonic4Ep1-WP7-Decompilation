@@ -98,9 +98,9 @@ public partial class AppMain
         {
             gms_GMK_SWWALL_WORK.h_snd = AppMain.GsSoundAllocSeHandle();
         }
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkSwWallDest ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkSwWallDest );
         obs_OBJECT_WORK.pos.z = -655360;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSwWallDispFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkSwWallDispFunc;
         gms_GMK_SWWALL_WORK.id = ( uint )AppMain.MTM_MATH_CLIP( ( int )eve_rec.left, 0, 64 );
         ushort num;
         ushort num2;
@@ -260,7 +260,7 @@ public partial class AppMain
     {
         AppMain.GMS_GMK_SWWALL_WORK gms_GMK_SWWALL_WORK = (AppMain.GMS_GMK_SWWALL_WORK)obj_work;
         obj_work.flag &= 4294967279U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSwWallFwMain );
+        obj_work.ppFunc = AppMain.gmGmkSwWallFwMain;
         obj_work.col_work.obj_col.obj = obj_work;
         if ( gms_GMK_SWWALL_WORK.h_snd != null )
         {
@@ -300,7 +300,7 @@ public partial class AppMain
             gms_GMK_SWWALL_WORK.wall_spd = 16384;
         }
         obj_work.flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSwWallOpenMain );
+        obj_work.ppFunc = AppMain.gmGmkSwWallOpenMain;
         obj_work.col_work.obj_col.obj = obj_work;
         if ( gms_GMK_SWWALL_WORK.h_snd != null )
         {
@@ -356,7 +356,7 @@ public partial class AppMain
             gms_GMK_SWWALL_WORK.wall_spd = 16384;
         }
         obj_work.flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSwWallCloseMain );
+        obj_work.ppFunc = AppMain.gmGmkSwWallCloseMain;
         obj_work.col_work.obj_col.obj = obj_work;
         if ( gms_GMK_SWWALL_WORK.h_snd != null )
         {

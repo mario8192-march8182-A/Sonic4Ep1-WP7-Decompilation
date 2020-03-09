@@ -494,7 +494,7 @@ public partial class AppMain
     // Token: 0x060006A4 RID: 1700 RVA: 0x0003C1A4 File Offset: 0x0003A3A4
     private static void GmFixInit()
     {
-        AppMain.gm_fix_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmFixProcMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmFixDest), 0U, 0, 18432U, 5, () => new AppMain.GMS_FIX_MGR_WORK(), "GM_FIX_MGR");
+        AppMain.gm_fix_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmFixProcMain, AppMain.gmFixDest, 0U, 0, 18432U, 5, () => new AppMain.GMS_FIX_MGR_WORK(), "GM_FIX_MGR");
         AppMain.GMS_FIX_MGR_WORK gms_FIX_MGR_WORK = (AppMain.GMS_FIX_MGR_WORK)AppMain.gm_fix_tcb.work;
         gms_FIX_MGR_WORK.Clear();
         AppMain.GMF_FIX_PART_INIT_FUNC[] array;
@@ -824,13 +824,13 @@ public partial class AppMain
     {
         AppMain.GMS_FIX_PART_WORK gms_FIX_PART_WORK = (AppMain.GMS_FIX_PART_WORK)mgr_work.part_ringcount;
         AppMain.gmFixRegisterPart(mgr_work, gms_FIX_PART_WORK, 0);
-        gms_FIX_PART_WORK.proc_update = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixRingCountPartProcUpdateMain);
-        gms_FIX_PART_WORK.proc_disp = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixRingCountPartProcDispMain);
+        gms_FIX_PART_WORK.proc_update = AppMain.gmFixRingCountPartProcUpdateMain;
+        gms_FIX_PART_WORK.proc_disp = AppMain.gmFixRingCountPartProcDispMain;
         for (int i = 0; i < 4; i++)
         {
             AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_RING");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixSubpartOutFunc);
+            obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.gm_fix_ringcount_act_id_tbl[i], 0);
             AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
             if (i != 0)
@@ -941,8 +941,8 @@ public partial class AppMain
         int num = 0;
         AppMain.GMS_FIX_PART_WORK gms_FIX_PART_WORK = (AppMain.GMS_FIX_PART_WORK)mgr_work.part_score;
         AppMain.gmFixRegisterPart(mgr_work, gms_FIX_PART_WORK, 1);
-        gms_FIX_PART_WORK.proc_update = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixScorePartProcUpdateMain);
-        gms_FIX_PART_WORK.proc_disp = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixScorePartProcDispMain);
+        gms_FIX_PART_WORK.proc_update = AppMain.gmFixScorePartProcUpdateMain;
+        gms_FIX_PART_WORK.proc_disp = AppMain.gmFixScorePartProcDispMain;
         if (AppMain.gmFixIsStage22())
         {
             AppMain.act_id_tblgmFixScorePartInit = AppMain.gm_fix_score_stage22_act_id_tbl[AppMain.gmFixGetPlan()];
@@ -962,7 +962,7 @@ public partial class AppMain
             {
                 AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_SCORE");
                 AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
-                obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixSubpartOutFunc);
+                obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
                 AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.act_id_tblgmFixScorePartInit[i], 0);
                 AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
                 AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
@@ -1014,8 +1014,8 @@ public partial class AppMain
         AppMain.GMS_FIX_PART_WORK gms_FIX_PART_WORK = (AppMain.GMS_FIX_PART_WORK)mgr_work.part_timer;
         AppMain.GMS_FIX_PART_TIMER part_timer = mgr_work.part_timer;
         AppMain.gmFixRegisterPart(mgr_work, gms_FIX_PART_WORK, 2);
-        gms_FIX_PART_WORK.proc_update = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixTimerPartProcUpdateMain);
-        gms_FIX_PART_WORK.proc_disp = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixTimerPartProcDispMain);
+        gms_FIX_PART_WORK.proc_update = AppMain.gmFixTimerPartProcUpdateMain;
+        gms_FIX_PART_WORK.proc_disp = AppMain.gmFixTimerPartProcDispMain;
         if (AppMain.gmFixIsTimeAttack())
         {
             AppMain.act_id_tblgmFixTimerPartInit = AppMain.gm_fix_timer_timeattack_act_id_tbl;
@@ -1029,7 +1029,7 @@ public partial class AppMain
         {
             AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_TIMER");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixSubpartOutFunc);
+            obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.act_id_tblgmFixTimerPartInit[i], 0);
             AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
             if (AppMain.gmFixIsTimeAttack())
@@ -1057,8 +1057,8 @@ public partial class AppMain
         AppMain.GMS_FIX_PART_WORK gms_FIX_PART_WORK = (AppMain.GMS_FIX_PART_WORK)mgr_work.part_timer;
         AppMain.GMS_FIX_PART_TIMER part_timer = mgr_work.part_timer;
         AppMain.gmFixRegisterPart(mgr_work, gms_FIX_PART_WORK, 2);
-        gms_FIX_PART_WORK.proc_update = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixTimerPartProcUpdateMain);
-        gms_FIX_PART_WORK.proc_disp = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixTimerPartProcDispMain);
+        gms_FIX_PART_WORK.proc_update = AppMain.gmFixTimerPartProcUpdateMain;
+        gms_FIX_PART_WORK.proc_disp = AppMain.gmFixTimerPartProcDispMain;
         part_timer.flag |= 1U;
         for (int i = 0; i < 8; i++)
         {
@@ -1076,7 +1076,7 @@ public partial class AppMain
                 num = 1;
                 num2 = 1;
             }
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixSubpartOutFunc);
+            obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][num], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[num2]), (uint)AppMain.gm_fix_timer_ss_act_id_tbl[AppMain.GsEnvGetLanguage()][i], 0);
             AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
             ((AppMain.GMS_FIX_PART_TIMER)gms_FIX_PART_WORK).sub_parts[i] = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
@@ -1347,13 +1347,13 @@ public partial class AppMain
     {
         AppMain.GMS_FIX_PART_WORK gms_FIX_PART_WORK = (AppMain.GMS_FIX_PART_WORK)mgr_work.part_challenge;
         AppMain.gmFixRegisterPart(mgr_work, gms_FIX_PART_WORK, 3);
-        gms_FIX_PART_WORK.proc_update = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixChallengePartProcUpdateMain);
-        gms_FIX_PART_WORK.proc_disp = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixChallengePartProcDispMain);
+        gms_FIX_PART_WORK.proc_update = AppMain.gmFixChallengePartProcUpdateMain;
+        gms_FIX_PART_WORK.proc_disp = AppMain.gmFixChallengePartProcDispMain;
         for (int i = 0; i < 5; i++)
         {
             AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_CHALLENGE");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixSubpartOutFunc);
+            obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.gm_fix_challenge_act_id_tbl[AppMain.gmFixGetPlan()][i], 0);
             AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
             ((AppMain.GMS_FIX_PART_CHALLENGE)gms_FIX_PART_WORK).sub_parts[i] = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
@@ -1413,15 +1413,15 @@ public partial class AppMain
 
         AppMain.MPP_VOID_OBS_OBJECT_WORK[] array = new AppMain.MPP_VOID_OBS_OBJECT_WORK[]
         {
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_SUPER_SONIC.OutFunc),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_PAUSE.OutFunc),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_ACTION.OutFunc),
-            new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_MOVE_PAD.OutFunc)
+            AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_SUPER_SONIC.OutFunc,
+            AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_PAUSE.OutFunc,
+            AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_ACTION.OutFunc,
+            AppMain.gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_MOVE_PAD.OutFunc
         };
         AppMain.GMS_FIX_PART_WORK gms_FIX_PART_WORK = (AppMain.GMS_FIX_PART_WORK)mgr_work.part_virtual_pad;
         AppMain.gmFixRegisterPart(mgr_work, gms_FIX_PART_WORK, 4);
-        gms_FIX_PART_WORK.proc_update = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixVirtualPadPartProcUpdateMain);
-        gms_FIX_PART_WORK.proc_disp = new AppMain.MPP_VOID_GMS_FIX_PART_WORK(AppMain.gmFixVirtualPadPartProcDispMain);
+        gms_FIX_PART_WORK.proc_update = AppMain.gmFixVirtualPadPartProcUpdateMain;
+        gms_FIX_PART_WORK.proc_disp = AppMain.gmFixVirtualPadPartProcDispMain;
         int i = 0;
         int num = 4;
         while (i < num)

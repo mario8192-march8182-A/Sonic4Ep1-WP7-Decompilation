@@ -86,7 +86,7 @@ public partial class AppMain
                 }
                 gms_GMK_BLAND_WORK.broken_timer = 45;
                 gms_GMK_BLAND_WORK.quake_timer = 0;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBreakLandStay_100 );
+                obj_work.ppFunc = AppMain.gmGmkBreakLandStay_100;
             }
         }
     }
@@ -119,7 +119,7 @@ public partial class AppMain
             obj_work.disp_flag &= 4294967291U;
             gms_GMK_BLAND_WORK.gmk_work.ene_com.col_work.obj_col.obj = null;
             AppMain.GmSoundPlaySE( "BreakGround" );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBreakLandBroken );
+            obj_work.ppFunc = AppMain.gmGmkBreakLandBroken;
             return;
         }
         gms_GMK_BLAND_WORK.quake_timer &= 3;
@@ -174,7 +174,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 8448U;
         obs_OBJECT_WORK.disp_flag |= 272629760U;
         obs_OBJECT_WORK.flag |= 2U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBreakLandStay );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkBreakLandStay;
         gms_GMK_BLAND_WORK.vect = vect;
         return obs_OBJECT_WORK;
     }

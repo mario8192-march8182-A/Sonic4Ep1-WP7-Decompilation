@@ -529,7 +529,7 @@ public partial class AppMain
         obj_work.user_flag = ( uint )obj_index;
         obj_work.ppFunc = main_func;
         obj_work.ppOut = out_func;
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.ObjObjectExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.ObjObjectExit );
         AppMain.gmMapFarDataSetObjWork( obj_work, obj_index );
         return gms_MAP_FAR_OBJ_WORK;
     }
@@ -610,7 +610,7 @@ public partial class AppMain
     private static AppMain.MTS_TASK_TCB gmMapFarCreateTcbPreDraw()
     {
         AppMain.GMS_MAP_FAR_MGR gms_MAP_FAR_MGR = AppMain.gmMapFarGetMgr();
-        gms_MAP_FAR_MGR.tcb_pre_draw = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMapFarTcbProcPreDraw ), null, 0U, 0, 12544U, 5, null, "GM MAP FAR PRE DRAW" );
+        gms_MAP_FAR_MGR.tcb_pre_draw = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmMapFarTcbProcPreDraw, null, 0U, 0, 12544U, 5, null, "GM MAP FAR PRE DRAW" );
         return gms_MAP_FAR_MGR.tcb_pre_draw;
     }
 
@@ -712,7 +712,7 @@ public partial class AppMain
     private static AppMain.MTS_TASK_TCB gmMapFarCreateTcbPostDraw()
     {
         AppMain.GMS_MAP_FAR_MGR gms_MAP_FAR_MGR = AppMain.gmMapFarGetMgr();
-        gms_MAP_FAR_MGR.tcb_post_draw = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMapFarTcbProcPostDraw ), null, 0U, 0, 12544U, 5, null, "GM MAP FAR POST DRAW" );
+        gms_MAP_FAR_MGR.tcb_post_draw = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmMapFarTcbProcPostDraw, null, 0U, 0, 12544U, 5, null, "GM MAP FAR POST DRAW" );
         return gms_MAP_FAR_MGR.tcb_post_draw;
     }
 
@@ -1653,7 +1653,7 @@ public partial class AppMain
     private static void gmMapFarZone1Init()
     {
         int num = AppMain.gmMapFarGetStageId();
-        AppMain.gmMapFarChangeTcbProcDraw( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMpaFarZone1TcbProcDraw ) );
+        AppMain.gmMapFarChangeTcbProcDraw( AppMain.gmMpaFarZone1TcbProcDraw );
         AppMain.gmMapFarCameraSetInfo( 1, 0 );
         AppMain.GMS_MAP_FAR_SCROLL[] scroll_list;
         int scroll_info_num;
@@ -1783,7 +1783,7 @@ public partial class AppMain
     private static void gmMapFarZone2Init()
     {
         int num = AppMain.gmMapFarGetStageId();
-        AppMain.gmMapFarChangeTcbProcDraw( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMpaFarZone2TcbProcDraw ) );
+        AppMain.gmMapFarChangeTcbProcDraw( AppMain.gmMpaFarZone2TcbProcDraw );
         AppMain.gmMapFarCameraSetInfo( 1, 0 );
         AppMain.GMS_MAP_FAR_SCROLL[] scroll_list;
         int scroll_info_num;
@@ -1897,7 +1897,7 @@ public partial class AppMain
     // Token: 0x060011EA RID: 4586 RVA: 0x0009D9C8 File Offset: 0x0009BBC8
     private static void gmMapFarZone3Init()
     {
-        AppMain.gmMapFarChangeTcbProcDraw( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMpaFarZone3TcbProcDraw ) );
+        AppMain.gmMapFarChangeTcbProcDraw( AppMain.gmMpaFarZone3TcbProcDraw );
         AppMain.gmMapFarCameraSetInfo( 1, 0 );
         AppMain.GMS_MAP_FAR_SCROLL[] scroll_list = AppMain.g_map_far_zone_3_scroll_x;
         int scroll_info_num = AppMain.g_map_far_zone_3_scroll_num_x;
@@ -1980,7 +1980,7 @@ public partial class AppMain
     // Token: 0x060011F1 RID: 4593 RVA: 0x0009DB87 File Offset: 0x0009BD87
     private static void gmMapFarZone4Init()
     {
-        AppMain.gmMapFarChangeTcbProcDraw( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMpaFarZone4TcbProcDraw ) );
+        AppMain.gmMapFarChangeTcbProcDraw( AppMain.gmMpaFarZone4TcbProcDraw );
     }
 
     // Token: 0x060011F2 RID: 4594 RVA: 0x0009DB9A File Offset: 0x0009BD9A
@@ -2022,7 +2022,7 @@ public partial class AppMain
     // Token: 0x060011F7 RID: 4599 RVA: 0x0009DC24 File Offset: 0x0009BE24
     private static void gmMapFarZoneFinalInit()
     {
-        AppMain.gmMapFarChangeTcbProcDraw( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMpaFarZoneFinalTcbProcDraw ) );
+        AppMain.gmMapFarChangeTcbProcDraw( AppMain.gmMpaFarZoneFinalTcbProcDraw );
         AppMain.gmMapFarCameraSetInfo( 1, 0 );
         AppMain.GMS_MAP_FAR_SCROLL[] scroll_list = AppMain.g_map_far_zone_final_scroll_x;
         int scroll_info_num = AppMain.g_map_far_zone_final_scroll_num_x;
@@ -2107,7 +2107,7 @@ public partial class AppMain
     // Token: 0x060011FE RID: 4606 RVA: 0x0009DE40 File Offset: 0x0009C040
     private static void gmMapFarZoneSSInit()
     {
-        AppMain.gmMapFarChangeTcbProcDraw( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMpaFarZoneSSTcbProcDraw ) );
+        AppMain.gmMapFarChangeTcbProcDraw( AppMain.gmMpaFarZoneSSTcbProcDraw );
         AppMain.gmMapFarCameraSetInfo( 1, 0 );
         AppMain.GMS_MAP_FAR_SCROLL[] scroll_list = AppMain.g_map_far_zone_ss_scroll_x;
         int scroll_info_num = AppMain.g_map_far_zone_ss_scroll_num_x;

@@ -133,7 +133,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet( obj_work, 4 );
         obj_work.disp_flag |= 4U;
         obj_work.pos.z = -655360;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMoguWaitMain );
+        obj_work.ppFunc = AppMain.gmEneMoguWaitMain;
     }
 
     // Token: 0x06001038 RID: 4152 RVA: 0x0008D20C File Offset: 0x0008B40C
@@ -146,7 +146,7 @@ public partial class AppMain
         int num3 = AppMain.FX_Mul(num, num) + AppMain.FX_Mul(num2, num2);
         if ( num3 <= AppMain.FX_F32_TO_FX32( 25600f ) )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMoguJumpInit );
+            obj_work.ppFunc = AppMain.gmEneMoguJumpInit;
             AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK;
             if ( AppMain.gmEneMoguCheckWater( mogu_work, 48 ) == 0 )
             {
@@ -176,7 +176,7 @@ public partial class AppMain
         obj_work.move_flag |= 128U;
         obj_work.move_flag &= 4294967294U;
         obj_work.move_flag &= 4294967291U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMoguJumpMain );
+        obj_work.ppFunc = AppMain.gmEneMoguJumpMain;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
             obj_work.spd.x = -2048;
@@ -228,7 +228,7 @@ public partial class AppMain
         if ( ( obj_work.move_flag & 1U ) != 0U )
         {
             AppMain.GmEneComActionSetDependHFlip( obj_work, 0, 1 );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMoguJumpEnd );
+            obj_work.ppFunc = AppMain.gmEneMoguJumpEnd;
         }
         AppMain.gmEneMoguCheckWater( gms_ENE_MOGU_WORK, 0 );
     }
@@ -240,7 +240,7 @@ public partial class AppMain
         AppMain.gmEneMoguCheckWater( mogu_work, 0 );
         if ( ( obj_work.disp_flag & 8U ) != 0U )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMoguWalkInit );
+            obj_work.ppFunc = AppMain.gmEneMoguWalkInit;
         }
     }
 
@@ -249,7 +249,7 @@ public partial class AppMain
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 6, 7 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMoguWalkMain );
+        obj_work.ppFunc = AppMain.gmEneMoguWalkMain;
         obj_work.move_flag &= 4294967291U;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -324,7 +324,7 @@ public partial class AppMain
     public static void gmEneMoguFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 2, 3 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMoguFlipMain );
+        obj_work.ppFunc = AppMain.gmEneMoguFlipMain;
     }
 
     // Token: 0x06001040 RID: 4160 RVA: 0x0008D72F File Offset: 0x0008B92F

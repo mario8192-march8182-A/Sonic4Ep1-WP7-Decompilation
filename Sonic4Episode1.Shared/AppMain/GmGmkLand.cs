@@ -81,11 +81,11 @@ public partial class AppMain
         {
             if ( num4 == 0 )
             {
-                obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkLand3TvxDrawFunc );
+                obs_OBJECT_WORK.ppOut = AppMain.gmGmkLand3TvxDrawFunc;
             }
             else
             {
-                obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkLand3TvxRDrawFunc );
+                obs_OBJECT_WORK.ppOut = AppMain.gmGmkLand3TvxRDrawFunc;
             }
         }
         obs_OBJECT_WORK.pos.z = -131072;
@@ -162,7 +162,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.flag |= 2U;
         obs_OBJECT_WORK.user_work = ( uint )( ( short )( eve_rec.left << 8 ) / 10 );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkLand3TvxPulleyDrawFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkLand3TvxPulleyDrawFunc;
         return obs_OBJECT_WORK;
     }
 
@@ -190,11 +190,11 @@ public partial class AppMain
         {
             gms_ENEMY_3D_WORK.obj_3d.mat_speed = ( float )eve_rec.left / 10f;
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkLand3TvxRopeMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkLand3TvxRopeMain;
         float num = 120f;
         float num2 = AppMain.g_gm_main_system.sync_time / (num / gms_ENEMY_3D_WORK.obj_3d.mat_speed);
         gms_ENEMY_3D_WORK.obj_3d.mat_frame = ( num2 - ( float )( ( int )num2 ) ) * num;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkLand3TvxRopeDrawFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkLand3TvxRopeDrawFunc;
         return obs_OBJECT_WORK;
     }
 
@@ -204,7 +204,7 @@ public partial class AppMain
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         obj_work.prev_pos.x = ( obj_work.pos.x >> 12 ) + ( int )gms_ENEMY_3D_WORK.ene_com.eve_rec.left + ( gms_ENEMY_3D_WORK.ene_com.eve_rec.width >> 1 );
         obj_work.prev_pos.y = ( obj_work.pos.y >> 12 ) + ( int )gms_ENEMY_3D_WORK.ene_com.eve_rec.top + ( gms_ENEMY_3D_WORK.ene_com.eve_rec.height >> 1 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkLandMain );
+        obj_work.ppFunc = AppMain.gmGmkLandMain;
         if ( ( gms_ENEMY_3D_WORK.ene_com.eve_rec.width | gms_ENEMY_3D_WORK.ene_com.eve_rec.height ) == 0 )
         {
             return;

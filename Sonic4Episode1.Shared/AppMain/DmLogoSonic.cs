@@ -34,7 +34,7 @@ public partial class AppMain
             this.dmLogoSonicStart();
             return;
         }
-        AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicLoadWait), null, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSONT_LW");
+        AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicLoadWait, null, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSONT_LW");
         this.DmLogoSonicLoad();
     }
 
@@ -56,7 +56,7 @@ public partial class AppMain
     public void DmLogoSonicBuild()
     {
         AppMain.AMS_AMB_HEADER[] array = new AppMain.AMS_AMB_HEADER[1];
-        AppMain.dm_logo_sonic_build_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicDataBuildMain), new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicDataBuildDest), 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSONT_BUILD");
+        AppMain.dm_logo_sonic_build_tcb = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicDataBuildMain, this.dmLogoSonicDataBuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSONT_BUILD");
         AppMain.dm_logo_sonic_aos_tex = AppMain.New<AppMain.AOS_TEXTURE>(1);
         string dir;
         array[0] = AppMain.readAMBFile(AppMain.amBindGet(AppMain.dm_logo_sonic_data[0], 1, out dir));
@@ -78,7 +78,7 @@ public partial class AppMain
     // Token: 0x060009A6 RID: 2470 RVA: 0x00056C20 File Offset: 0x00054E20
     public void DmLogoSonicFlush()
     {
-        AppMain.dm_logo_sonic_flush_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicDataFlushMain), new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicDataFlushDest), 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSONT_FLUSH");
+        AppMain.dm_logo_sonic_flush_tcb = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicDataFlushMain, this.dmLogoSonicDataFlushDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSONT_FLUSH");
         AppMain.AOS_TEXTURE[] array = AppMain.dm_logo_sonic_aos_tex;
         for (int i = 0; i < 1; i++)
         {
@@ -113,7 +113,7 @@ public partial class AppMain
         if (this.DmLogoSonicLoadCheck())
         {
             this.DmLogoSonicBuild();
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicBuildWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, this.dmLogoSonicBuildWait);
         }
     }
 
@@ -152,13 +152,13 @@ public partial class AppMain
     {
         AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
         AppMain.NNS_RGB nns_RGB = new AppMain.NNS_RGB(1f, 1f, 1f);
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicMainFunc), null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SONIC_WORK(), "DM_LSONT_MAIN");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SONIC_WORK(), "DM_LSONT_MAIN");
         AppMain.DMS_LOGO_SONIC_WORK dms_LOGO_SONIC_WORK = (AppMain.DMS_LOGO_SONIC_WORK)mts_TASK_TCB.work;
         AppMain.nnSetPrimitive3DMaterial(ref nns_RGBA, ref nns_RGB, 1f);
         AppMain.AoActSysSetDrawStateEnable(false);
         this.dmLogoSonicActionCreate(dms_LOGO_SONIC_WORK);
         AppMain.IzFadeInitEasy(0U, 2U, 60f, true);
-        dms_LOGO_SONIC_WORK.func = new AppMain.DMS_LOGO_SONIC_WORK._func_(this.dmLogoSonicFadeInWaitFunc);
+        dms_LOGO_SONIC_WORK.func = this.dmLogoSonicFadeInWaitFunc;
     }
 
     // Token: 0x060009AF RID: 2479 RVA: 0x00056E48 File Offset: 0x00055048
@@ -186,11 +186,11 @@ public partial class AppMain
                 {
                     AppMain.IzFadeInitEasy(0U, 3U, 10f, true);
                 }
-                dms_LOGO_SONIC_WORK.func = new AppMain.DMS_LOGO_SONIC_WORK._func_(this.dmLogoSonicFadeOutWaitFunc);
+                dms_LOGO_SONIC_WORK.func = this.dmLogoSonicFadeOutWaitFunc;
             }
             if ((dms_LOGO_SONIC_WORK.flag & 4U) != 0U)
             {
-                AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicPreEndWait));
+                AppMain.mtTaskChangeTcbProcedure(tcb, this.dmLogoSonicPreEndWait);
                 dms_LOGO_SONIC_WORK.timer = 0;
                 return;
             }
@@ -214,7 +214,7 @@ public partial class AppMain
     {
         if (AppMain.IzFadeIsEnd())
         {
-            logo_work.func = new AppMain.DMS_LOGO_SONIC_WORK._func_(this.dmLogoSonicDispWaitFunc);
+            logo_work.func = this.dmLogoSonicDispWaitFunc;
             logo_work.timer = 0;
         }
     }
@@ -225,7 +225,7 @@ public partial class AppMain
         logo_work.timer++;
         if (logo_work.timer >= 120)
         {
-            logo_work.func = new AppMain.DMS_LOGO_SONIC_WORK._func_(this.dmLogoSonicFadeOutWaitFunc);
+            logo_work.func = this.dmLogoSonicFadeOutWaitFunc;
             AppMain.IzFadeInitEasy(0U, 3U, 60f, true);
             logo_work.flag &= 4294967294U;
             return;
@@ -254,7 +254,7 @@ public partial class AppMain
         {
             this.dmLogoSonicActionDelete(dms_LOGO_SONIC_WORK);
             this.DmLogoSonicFlush();
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicFlushWaitFunc));
+            AppMain.mtTaskChangeTcbProcedure(tcb, this.dmLogoSonicFlushWaitFunc);
         }
     }
 
@@ -266,7 +266,7 @@ public partial class AppMain
             return;
         }
         this.DmLogoSonicRelease();
-        AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSonicRelesehWaitFunc));
+        AppMain.mtTaskChangeTcbProcedure(tcb, this.dmLogoSonicRelesehWaitFunc);
     }
 
     // Token: 0x060009B5 RID: 2485 RVA: 0x00057082 File Offset: 0x00055282

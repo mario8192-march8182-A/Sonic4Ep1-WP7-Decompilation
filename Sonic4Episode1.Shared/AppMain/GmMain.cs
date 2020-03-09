@@ -418,14 +418,14 @@ public partial class AppMain
                 AppMain._bossThread.Join();
             }
             AppMain._bossThread = null;
-            AppMain._bossThread = new Thread(new ParameterizedThreadStart(AppMain._GmMainDatLoadBossBattleStart));
+            AppMain._bossThread = new Thread(AppMain._GmMainDatLoadBossBattleStart);
             AppMain._bossFinishThread = false;
             AppMain._bossThread.Start(boss_type);
             return;
         }
         AppMain._bossFinishThread = true;
         AppMain.GmGameDatLoadBoosBattleInit(boss_type);
-        AppMain.gm_main_load_bossbattle_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataLoadBoosBattleMgr_LoadWait), null, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_MAIN_LOAD_BB_MGR_WORK(), "GM_LOAD_BBM");
+        AppMain.gm_main_load_bossbattle_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainDataLoadBoosBattleMgr_LoadWait, null, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_MAIN_LOAD_BB_MGR_WORK(), "GM_LOAD_BBM");
         AppMain.GMS_MAIN_LOAD_BB_MGR_WORK gms_MAIN_LOAD_BB_MGR_WORK = (AppMain.GMS_MAIN_LOAD_BB_MGR_WORK)AppMain.gm_main_load_bossbattle_tcb.work;
         gms_MAIN_LOAD_BB_MGR_WORK.boss_type = boss_type;
         gms_MAIN_LOAD_BB_MGR_WORK.b_end = false;
@@ -486,7 +486,7 @@ public partial class AppMain
         return;
     Block_8:
         AppMain.GmGameDatLoadBoosBattleInit(boss_type);
-        AppMain.gm_main_load_bossbattle_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataLoadBoosBattleMgr_LoadWait), null, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_MAIN_LOAD_BB_MGR_WORK(), "GM_LOAD_BBM");
+        AppMain.gm_main_load_bossbattle_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainDataLoadBoosBattleMgr_LoadWait, null, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_MAIN_LOAD_BB_MGR_WORK(), "GM_LOAD_BBM");
         AppMain.GMS_MAIN_LOAD_BB_MGR_WORK gms_MAIN_LOAD_BB_MGR_WORK = (AppMain.GMS_MAIN_LOAD_BB_MGR_WORK)AppMain.gm_main_load_bossbattle_tcb.work;
         gms_MAIN_LOAD_BB_MGR_WORK.boss_type = boss_type;
         gms_MAIN_LOAD_BB_MGR_WORK.b_end = false;
@@ -527,7 +527,7 @@ public partial class AppMain
     {
         AppMain.GmGameDatFlushBossBattleInit();
         AppMain.GmGameDatFlushBossBattle(boss_type);
-        AppMain.gm_main_release_bossbattle_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataReleaseBoosBattleMgr_FlushWait), null, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_MAIN_LOAD_BB_MGR_WORK(), "GM_RELEASEBBM");
+        AppMain.gm_main_release_bossbattle_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainDataReleaseBoosBattleMgr_FlushWait, null, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_MAIN_LOAD_BB_MGR_WORK(), "GM_RELEASEBBM");
         AppMain.GMS_MAIN_LOAD_BB_MGR_WORK gms_MAIN_LOAD_BB_MGR_WORK = (AppMain.GMS_MAIN_LOAD_BB_MGR_WORK)AppMain.gm_main_release_bossbattle_tcb.work;
         gms_MAIN_LOAD_BB_MGR_WORK.boss_type = boss_type;
         gms_MAIN_LOAD_BB_MGR_WORK.b_end = false;
@@ -662,7 +662,7 @@ public partial class AppMain
             num++;
         }
         AppMain.GmGameDatLoadInit(load_proc, AppMain.g_gs_main_sys_info.stage_id, array);
-        AppMain.gm_main_load_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataLoadWait), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataLoadDest), 0U, ushort.MaxValue, 4096U, 0, null, "GM_LOAD_WAIT");
+        AppMain.gm_main_load_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainDataLoadWait, AppMain.gmMainDataLoadDest, 0U, ushort.MaxValue, 4096U, 0, null, "GM_LOAD_WAIT");
         AoPresence.AoPresenceSet(AoPresenceLocation.Stage);
     }
 
@@ -683,7 +683,7 @@ public partial class AppMain
             AppMain.GmGameDatBuildInit();
             AppMain.GmGameDatBuildStandard();
             AppMain.GmGameDatBuildArea();
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataBuildWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataBuildWait);
         }
     }
 
@@ -710,7 +710,7 @@ public partial class AppMain
         AppMain.GmGameDatLoadExit();
         AppMain.g_gs_main_sys_info.game_flag |= 16U;
         AppMain.DmLoadingSetLoadComplete();
-        AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataLoadingEndWait));
+        AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataLoadingEndWait);
     }
 
     // Token: 0x060003AC RID: 940 RVA: 0x0001D078 File Offset: 0x0001B278
@@ -733,7 +733,7 @@ public partial class AppMain
     // Token: 0x060003AE RID: 942 RVA: 0x0001D099 File Offset: 0x0001B299
     private static void gmMainRebuild()
     {
-        AppMain.gm_main_load_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainRebuildWait), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainRebuildDest), 0U, ushort.MaxValue, 4096U, 0, null, "GM_REBUILD_WAIT");
+        AppMain.gm_main_load_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainRebuildWait, AppMain.gmMainRebuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "GM_REBUILD_WAIT");
         AppMain.GmGameDatReBuildRestart();
     }
 
@@ -760,13 +760,13 @@ public partial class AppMain
         AppMain.GSF_TASK_PROCEDURE proc;
         if (AppMain.g_gs_main_sys_info.stage_id != 16)
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitWait);
+            proc = AppMain.gmMainDataFlushExitWait;
         }
         else
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitFinalClearObjWait);
+            proc = AppMain.gmMainDataFlushExitFinalClearObjWait;
         }
-        AppMain.gm_main_release_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(proc, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataReleaseDest), 0U, ushort.MaxValue, 4096U, 0, null, "GM_UNLOAD_WAIT");
+        AppMain.gm_main_release_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(proc, AppMain.gmMainDataReleaseDest, 0U, ushort.MaxValue, 4096U, 0, null, "GM_UNLOAD_WAIT");
     }
 
     // Token: 0x060003B2 RID: 946 RVA: 0x0001D154 File Offset: 0x0001B354
@@ -781,22 +781,22 @@ public partial class AppMain
         AppMain.GSF_TASK_PROCEDURE proc;
         if (AppMain.GmMainDatLoadBossBattleLoadCheck())
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitFinalWait);
+            proc = AppMain.gmMainDataFlushExitFinalWait;
             AppMain.GmGameDatLoadBossBattleExit();
             AppMain.GmGameDatReleaseBossBattleStart(AppMain.g_gm_main_system.boss_load_no);
         }
         else if (AppMain.GmMainDatLoadBossBattleLoadNowCheck())
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitFinalLoadWait);
+            proc = AppMain.gmMainDataFlushExitFinalLoadWait;
         }
         else if (AppMain.GmMainDatReleaseBossBattleReleaseNowCheck())
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitFinalWait);
+            proc = AppMain.gmMainDataFlushExitFinalWait;
             AppMain.GmGameDatLoadBossBattleExit();
         }
         else
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitWait);
+            proc = AppMain.gmMainDataFlushExitWait;
             AppMain.GmGameDatReleaseBossBattleExit();
         }
         AppMain.mtTaskChangeTcbProcedure(tcb, proc);
@@ -809,7 +809,7 @@ public partial class AppMain
         {
             AppMain.GmGameDatLoadBossBattleExit();
             AppMain.GmGameDatReleaseBossBattleStart(AppMain.g_gm_main_system.boss_load_no);
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitFinalWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataFlushExitFinalWait);
         }
     }
 
@@ -819,7 +819,7 @@ public partial class AppMain
         if (AppMain.GmMainDatReleaseBossBattleReleaseCheck())
         {
             AppMain.GmGameDatReleaseBossBattleExit();
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushExitWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataFlushExitWait);
         }
     }
 
@@ -831,7 +831,7 @@ public partial class AppMain
             return;
         }
         AppMain.GsSoundReset();
-        AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataFlushWait));
+        AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataFlushWait);
         AppMain.GmGameDatFlushInit();
         AppMain.GmGameDatFlushArea();
         AppMain.GmGameDatFlushStandard();
@@ -860,7 +860,7 @@ public partial class AppMain
         AppMain.GmGameDatReleaseStandard();
         AppMain.GmGameDatReleaseArea();
         AppMain.GmPauseMenuRelease();
-        AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataReleaseWait));
+        AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataReleaseWait);
     }
 
     // Token: 0x060003B7 RID: 951 RVA: 0x0001D2F0 File Offset: 0x0001B4F0
@@ -898,13 +898,13 @@ public partial class AppMain
         AppMain.GSF_TASK_PROCEDURE proc;
         if (AppMain.g_gs_main_sys_info.stage_id != 16)
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseWait);
+            proc = AppMain.gmMainObjectReleaseWait;
         }
         else
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseFinalClearObjWait);
+            proc = AppMain.gmMainObjectReleaseFinalClearObjWait;
         }
-        AppMain.gm_main_release_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(proc, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseDest), 0U, ushort.MaxValue, 4096U, 0, null, "GM_UNLOAD_OBJ_WAIT");
+        AppMain.gm_main_release_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(proc, AppMain.gmMainObjectReleaseDest, 0U, ushort.MaxValue, 4096U, 0, null, "GM_UNLOAD_OBJ_WAIT");
     }
 
     // Token: 0x060003BA RID: 954 RVA: 0x0001D418 File Offset: 0x0001B618
@@ -917,22 +917,22 @@ public partial class AppMain
         AppMain.GSF_TASK_PROCEDURE proc;
         if (AppMain.GmMainDatLoadBossBattleLoadCheck())
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseFinalWait);
+            proc = AppMain.gmMainObjectReleaseFinalWait;
             AppMain.GmGameDatLoadBossBattleExit();
             AppMain.GmGameDatReleaseBossBattleStart(AppMain.g_gm_main_system.boss_load_no);
         }
         else if (AppMain.GmMainDatLoadBossBattleLoadNowCheck())
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseFinalLoadWait);
+            proc = AppMain.gmMainObjectReleaseFinalLoadWait;
         }
         else if (AppMain.GmMainDatReleaseBossBattleReleaseNowCheck())
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseFinalWait);
+            proc = AppMain.gmMainObjectReleaseFinalWait;
             AppMain.GmGameDatLoadBossBattleExit();
         }
         else
         {
-            proc = new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseWait);
+            proc = AppMain.gmMainObjectReleaseWait;
             AppMain.GmGameDatReleaseBossBattleExit();
             AppMain.g_obj.flag |= 1073741824U;
             AppMain.ObjExit();
@@ -947,7 +947,7 @@ public partial class AppMain
         {
             AppMain.GmGameDatLoadBossBattleExit();
             AppMain.GmGameDatReleaseBossBattleStart(AppMain.g_gm_main_system.boss_load_no);
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseFinalWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainObjectReleaseFinalWait);
         }
     }
 
@@ -957,7 +957,7 @@ public partial class AppMain
         if (AppMain.GmMainDatReleaseBossBattleReleaseCheck())
         {
             AppMain.GmGameDatReleaseBossBattleExit();
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainObjectReleaseWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainObjectReleaseWait);
             AppMain.g_obj.flag |= 1073741824U;
             AppMain.ObjExit();
         }
@@ -1041,15 +1041,15 @@ public partial class AppMain
         AppMain.g_gm_main_system.die_event_wait_time = 0;
         AppMain.g_gm_main_system.pseudofall_dir = 0;
         AppMain.g_gm_main_system.boss_load_no = -1;
-        AppMain.g_gm_main_system.pre_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainPre), null, 0U, 0, 4096U, 5, null, "GM_MAIN_PRE");
-        AppMain.g_gm_main_system.post_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainPost), null, 0U, 0, 32768U, 5, null, "GM_MAIN_POST");
+        AppMain.g_gm_main_system.pre_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainPre, null, 0U, 0, 4096U, 5, null, "GM_MAIN_PRE");
+        AppMain.g_gm_main_system.post_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainPost, null, 0U, 0, 32768U, 5, null, "GM_MAIN_POST");
         AppMain.g_obj.flag = 4194408U;
-        AppMain.g_obj.ppPre = new AppMain.OBJECT_Delegate(AppMain.GmObjPreFunc);
+        AppMain.g_obj.ppPre = AppMain.GmObjPreFunc;
         AppMain.g_obj.ppPost = null;
-        AppMain.g_obj.ppCollision = new AppMain.OBJECT_WORK_Delegate(AppMain.GmObjCollision);
-        AppMain.g_obj.ppObjPre = new AppMain.OBJECT_WORK_Delegate(AppMain.GmObjObjPreFunc);
-        AppMain.g_obj.ppObjPost = new AppMain.OBJECT_WORK_Delegate(AppMain.GmObjObjPostFunc);
-        AppMain.g_obj.ppRegRecAuto = new AppMain.OBJECT_WORK_Delegate(AppMain.GmObjRegistRectAuto);
+        AppMain.g_obj.ppCollision = AppMain.GmObjCollision;
+        AppMain.g_obj.ppObjPre = AppMain.GmObjObjPreFunc;
+        AppMain.g_obj.ppObjPost = AppMain.GmObjObjPostFunc;
+        AppMain.g_obj.ppRegRecAuto = AppMain.GmObjRegistRectAuto;
         AppMain.g_obj.draw_scale.x = (AppMain.g_obj.draw_scale.y = (AppMain.g_obj.draw_scale.z = 13107));
         AppMain.g_obj.inv_draw_scale.x = (AppMain.g_obj.inv_draw_scale.y = (AppMain.g_obj.inv_draw_scale.z = AppMain.FX_Div(4096, AppMain.g_obj.draw_scale.x)));
         AppMain.g_obj.depth = 128;
@@ -1464,7 +1464,7 @@ public partial class AppMain
             AppMain.GmGameDatLoadExit();
             AppMain.GmGameDatBuildBossBattleInit();
             AppMain.GmGameDatBuildBossBattle(gms_MAIN_LOAD_BB_MGR_WORK.boss_type);
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataLoadBoosBattleMgr_BuildWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataLoadBoosBattleMgr_BuildWait);
         }
     }
 
@@ -1489,7 +1489,7 @@ public partial class AppMain
         {
             AppMain.GMS_MAIN_LOAD_BB_MGR_WORK gms_MAIN_LOAD_BB_MGR_WORK = (AppMain.GMS_MAIN_LOAD_BB_MGR_WORK)tcb.work;
             AppMain.GmGameDatBoosBattleRelease(gms_MAIN_LOAD_BB_MGR_WORK.boss_type);
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataReleaseBoosBattleMgr_ReleaseWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataReleaseBoosBattleMgr_ReleaseWait);
         }
     }
 
@@ -1502,7 +1502,7 @@ public partial class AppMain
             gms_MAIN_LOAD_BB_MGR_WORK.b_end = true;
             AppMain.g_gm_main_system.boss_load_no = -1;
             AppMain.g_gm_main_system.game_flag &= 4290772991U;
-            AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmMainDataReleaseBoosBattleMgr_EndWait));
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataReleaseBoosBattleMgr_EndWait);
         }
     }
 

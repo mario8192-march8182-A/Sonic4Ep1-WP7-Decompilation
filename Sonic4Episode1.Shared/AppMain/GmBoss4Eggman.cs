@@ -84,14 +84,14 @@ public partial class AppMain
         AppMain.ObjDrawObjectSetToon( obs_OBJECT_WORK );
         obs_OBJECT_WORK.obj_3d.blend_spd = 0.125f;
         obs_OBJECT_WORK.disp_flag |= 134217728U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4EggWaitLoad );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss4EggWaitLoad;
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.disp_flag |= 4U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         gms_BOSS4_EGG_WORK.dir_work.direction = 0;
         AppMain.GmBoss4UtilInitTurnGently( gms_BOSS4_EGG_WORK.dir_work, 0, 1, false );
         AppMain.GmBoss4UtilUpdateTurnGently( gms_BOSS4_EGG_WORK.dir_work );
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss4EggExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmBoss4EggExit );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 64U;
         return obs_OBJECT_WORK;
@@ -159,7 +159,7 @@ public partial class AppMain
         AppMain.GMS_BOSS4_EGG_WORK gms_BOSS4_EGG_WORK = (AppMain.GMS_BOSS4_EGG_WORK)obj_work;
         if ( ( AppMain.GMM_BOSS4_MGR( work ).flag & 1U ) != 0U )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4EggMain );
+            obj_work.ppFunc = AppMain.gmBoss4EggMain;
             AppMain.gmBoss4EggProcIdleInit( gms_BOSS4_EGG_WORK );
             AppMain.GmBoss4UtilInitNodeMatrix( gms_BOSS4_EGG_WORK.node_work, obj_work, 4 );
         }
@@ -222,7 +222,7 @@ public partial class AppMain
     // Token: 0x060005E4 RID: 1508 RVA: 0x000347E3 File Offset: 0x000329E3
     private static void gmBoss4EggProcIdleInit( AppMain.GMS_BOSS4_EGG_WORK egg_work )
     {
-        egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS4_EGG_WORK( AppMain.gmBoss4EggProcIdleUpdateLoop );
+        egg_work.proc_update = AppMain.gmBoss4EggProcIdleUpdateLoop;
     }
 
     // Token: 0x060005E5 RID: 1509 RVA: 0x000347F8 File Offset: 0x000329F8
@@ -249,7 +249,7 @@ public partial class AppMain
         {
             AppMain.gmBoss4EggSetActionIndependent( egg_work, 0 );
         }
-        egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS4_EGG_WORK( AppMain.gmBoss4EggProcLaughUpdateLoop );
+        egg_work.proc_update = AppMain.gmBoss4EggProcLaughUpdateLoop;
     }
 
     // Token: 0x060005E7 RID: 1511 RVA: 0x0003489C File Offset: 0x00032A9C
@@ -267,14 +267,14 @@ public partial class AppMain
     private static void gmBoss4EggProcThrowInit( AppMain.GMS_BOSS4_EGG_WORK egg_work )
     {
         AppMain.gmBoss4EggSetActionIndependent( egg_work, 3 );
-        egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS4_EGG_WORK( AppMain.gmBoss4EggProcThrowUpdateLoop );
+        egg_work.proc_update = AppMain.gmBoss4EggProcThrowUpdateLoop;
     }
 
     // Token: 0x060005E9 RID: 1513 RVA: 0x000348DF File Offset: 0x00032ADF
     private static void gmBoss4EggProcThrowLeftInit( AppMain.GMS_BOSS4_EGG_WORK egg_work )
     {
         AppMain.gmBoss4EggSetActionIndependent( egg_work, 4 );
-        egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS4_EGG_WORK( AppMain.gmBoss4EggProcThrowUpdateLoop );
+        egg_work.proc_update = AppMain.gmBoss4EggProcThrowUpdateLoop;
     }
 
     // Token: 0x060005EA RID: 1514 RVA: 0x000348FC File Offset: 0x00032AFC
@@ -293,7 +293,7 @@ public partial class AppMain
     {
         AppMain.gmBoss4EggSetActionIndependent( egg_work, 2 );
         AppMain.gmBoss4EffSweatInit( egg_work );
-        egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS4_EGG_WORK( AppMain.gmBoss4EggProcDamageUpdateLoop );
+        egg_work.proc_update = AppMain.gmBoss4EggProcDamageUpdateLoop;
     }
 
     // Token: 0x060005EC RID: 1516 RVA: 0x00034948 File Offset: 0x00032B48
@@ -315,7 +315,7 @@ public partial class AppMain
         {
             AppMain.gmBoss4EffSweatInit( egg_work );
         }
-        egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS4_EGG_WORK( AppMain.gmBoss4EggProcEscapeUpdateLoop );
+        egg_work.proc_update = AppMain.gmBoss4EggProcEscapeUpdateLoop;
     }
 
     // Token: 0x060005EE RID: 1518 RVA: 0x000349A3 File Offset: 0x00032BA3
@@ -328,7 +328,7 @@ public partial class AppMain
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(AppMain.GMM_BS_OBJ(egg_work), 93);
         AppMain.GmEffect3DESAddDispOffset( gms_EFFECT_3DES_WORK, 0f, 32f, 0f );
-        AppMain.GMM_BS_OBJ( gms_EFFECT_3DES_WORK ).ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4EffSweatProcMain );
+        AppMain.GMM_BS_OBJ( gms_EFFECT_3DES_WORK ).ppFunc = AppMain.gmBoss4EffSweatProcMain;
         egg_work.flag |= 2U;
     }
 

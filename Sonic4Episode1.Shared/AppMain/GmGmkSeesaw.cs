@@ -234,8 +234,8 @@ public partial class AppMain
         short[] array = AppMain.seesaw_alive;
         ushort seesaw_id = gms_GMK_SEESAW_WORK.seesaw_id;
         array[( int )seesaw_id] = ( short )( array[( int )seesaw_id] + 1 );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkSeesawExitTCB ) );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSeesawStay );
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkSeesawExitTCB );
+        obj_work.ppFunc = AppMain.gmGmkSeesawStay;
     }
 
     // Token: 0x060017AC RID: 6060 RVA: 0x000D1788 File Offset: 0x000CF988
@@ -380,7 +380,7 @@ public partial class AppMain
                         AppMain.gmGmkSeesaw_PlayerHold( obj_work );
                         return;
                     }
-                    obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSeesaw_PlayerHold );
+                    obj_work.ppFunc = AppMain.gmGmkSeesaw_PlayerHold;
                 }
             }
         }
@@ -395,7 +395,7 @@ public partial class AppMain
         {
             if ( ( AppMain.control_right.gmk_work.ene_com.obj_work.pos.x >= obj_work.pos.x && ply_work.obj_work.spd.x >= 0 ) || ( AppMain.control_right.gmk_work.ene_com.obj_work.pos.x <= obj_work.pos.x && ply_work.obj_work.spd.x <= 0 ) )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSeesawStay );
+                obj_work.ppFunc = AppMain.gmGmkSeesawStay;
                 AppMain.gmGmkSeesawStay( obj_work );
                 return;
             }
@@ -410,7 +410,7 @@ public partial class AppMain
         num /= ( long )AppMain.mtMathCos( ( int )gms_GMK_SEESAW_WORK.tilt );
         gms_GMK_SEESAW_WORK.player_distance = num;
         AppMain.control_right = gms_GMK_SEESAW_WORK;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSeesaw_PlayerHold_100 );
+        obj_work.ppFunc = AppMain.gmGmkSeesaw_PlayerHold_100;
         AppMain.gmGmkSeesaw_PlayerHold_100( obj_work );
     }
 
@@ -428,7 +428,7 @@ public partial class AppMain
             {
                 AppMain.control_right = null;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSeesawStay );
+            obj_work.ppFunc = AppMain.gmGmkSeesawStay;
             AppMain.gmGmkSeesawStay( obj_work );
             return;
         }
@@ -525,7 +525,7 @@ public partial class AppMain
         gms_GMK_SEESAW_WORK.tilt_d = 0;
         AppMain.control_right = null;
         AppMain.lock_seesaw_id = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSeesawStay );
+        obj_work.ppFunc = AppMain.gmGmkSeesawStay;
     }
 
     // Token: 0x060017AF RID: 6063 RVA: 0x000D21F4 File Offset: 0x000D03F4

@@ -183,7 +183,7 @@ public partial class AppMain
     // Token: 0x060017B8 RID: 6072 RVA: 0x000D24D8 File Offset: 0x000D06D8
     private static void dmManualInit()
     {
-        AppMain.dm_manual_mgr_p.tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.dmManualProcMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.dmManualDest ), 0U, 32767, 12288U, 10, () => new AppMain.DMS_MANUAL_MAIN_WORK(), "MANUAL_MAIN" );
+        AppMain.dm_manual_mgr_p.tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.dmManualProcMain, AppMain.dmManualDest, 0U, 32767, 12288U, 10, () => new AppMain.DMS_MANUAL_MAIN_WORK(), "MANUAL_MAIN" );
         AppMain.DMS_MANUAL_MAIN_WORK dms_MANUAL_MAIN_WORK = (AppMain.DMS_MANUAL_MAIN_WORK)AppMain.dm_manual_mgr_p.tcb.work;
         dms_MANUAL_MAIN_WORK.draw_state = ( AppMain.AoActSysGetDrawStateEnable() ? 1U : 0U );
         AppMain.AoActSysSetDrawStateEnable( dms_MANUAL_MAIN_WORK.draw_state != 0U );
@@ -207,7 +207,7 @@ public partial class AppMain
             AppMain.dm_manual_is_pause_maingame = true;
             dms_MANUAL_MAIN_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
         }
-        dms_MANUAL_MAIN_WORK.proc_update = new AppMain.DMS_MANUAL_MAIN_WORK._proc_update_( AppMain.dmManualProcInit );
+        dms_MANUAL_MAIN_WORK.proc_update = AppMain.dmManualProcInit;
     }
 
     // Token: 0x060017B9 RID: 6073 RVA: 0x000D25E4 File Offset: 0x000D07E4
@@ -227,7 +227,7 @@ public partial class AppMain
         }
         if ( ( dms_MANUAL_MAIN_WORK.flag & 2147483648U ) != 0U && !AppMain.AoAccountIsCurrentEnable() )
         {
-            dms_MANUAL_MAIN_WORK.proc_update = new AppMain.DMS_MANUAL_MAIN_WORK._proc_update_( AppMain.dmManualProcFadeOut );
+            dms_MANUAL_MAIN_WORK.proc_update = AppMain.dmManualProcFadeOut;
             dms_MANUAL_MAIN_WORK.flag &= 2147483647U;
             if ( AppMain.dm_manual_is_pause_maingame )
             {
@@ -259,7 +259,7 @@ public partial class AppMain
     // Token: 0x060017BC RID: 6076 RVA: 0x000D26D3 File Offset: 0x000D08D3
     private static void dmManualProcInit( AppMain.DMS_MANUAL_MAIN_WORK main_work )
     {
-        main_work.proc_update = new AppMain.DMS_MANUAL_MAIN_WORK._proc_update_( AppMain.dmManualProcCreateAct );
+        main_work.proc_update = AppMain.dmManualProcCreateAct;
         main_work.flag |= 2147483648U;
     }
 
@@ -285,8 +285,8 @@ public partial class AppMain
             AppMain.AoActSetTexture( AppMain.AoTexGetTexList( tex ) );
             main_work.act[( int )( ( UIntPtr )num3 )] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_m[( int )( ( UIntPtr )num3 )] );
         }
-        main_work.proc_update = new AppMain.DMS_MANUAL_MAIN_WORK._proc_update_( AppMain.dmManualProcFadeIn );
-        main_work.proc_draw = new AppMain.DMS_MANUAL_MAIN_WORK._proc_draw_( AppMain.dmManualProcActDraw );
+        main_work.proc_update = AppMain.dmManualProcFadeIn;
+        main_work.proc_draw = AppMain.dmManualProcActDraw;
         if ( AppMain.dm_manual_is_pause_maingame )
         {
             AppMain.IzFadeInitEasyColor( 0, 32767, 61439, 18U, 0U, 0U, 32f, true );
@@ -301,8 +301,8 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.IzFadeExit();
-            main_work.proc_update = new AppMain.DMS_MANUAL_MAIN_WORK._proc_update_( AppMain.dmManualProcWaitInput );
-            main_work.proc_input = new AppMain.DMS_MANUAL_MAIN_WORK._proc_input_( AppMain.dmManualInputProcMain );
+            main_work.proc_update = AppMain.dmManualProcWaitInput;
+            main_work.proc_input = AppMain.dmManualInputProcMain;
         }
     }
 
@@ -346,7 +346,7 @@ public partial class AppMain
         }
         if ( ( main_work.flag & 2U ) != 0U )
         {
-            main_work.proc_update = new AppMain.DMS_MANUAL_MAIN_WORK._proc_update_( AppMain.dmManualProcFadeOut );
+            main_work.proc_update = AppMain.dmManualProcFadeOut;
             if ( AppMain.dm_manual_is_pause_maingame )
             {
                 AppMain.IzFadeInitEasyColor( 0, 32767, 61439, 18U, 0U, 1U, 32f, true );
@@ -409,7 +409,7 @@ public partial class AppMain
     {
         if ( AppMain.IzFadeIsEnd() )
         {
-            main_work.proc_update = new AppMain.DMS_MANUAL_MAIN_WORK._proc_update_( AppMain.dmManualProcStopDraw );
+            main_work.proc_update = AppMain.dmManualProcStopDraw;
             main_work.proc_draw = null;
             if ( main_work.se_handle != null )
             {
@@ -472,7 +472,7 @@ public partial class AppMain
         AppMain.dmManualCommonDraw( main_work );
         if ( main_work.draw_state > 0U )
         {
-            AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.dmManualTaskDraw ), 32768, 0U );
+            AppMain.amDrawMakeTask( AppMain.dmManualTaskDraw, 32768, 0U );
         }
     }
 

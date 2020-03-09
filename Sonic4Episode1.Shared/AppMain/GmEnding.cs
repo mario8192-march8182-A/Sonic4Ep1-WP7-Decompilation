@@ -54,7 +54,7 @@ public partial class AppMain
     {
         AppMain.g_gm_main_system.game_flag |= 8388608U;
         AppMain.GmFixSetDispEx( false, false, false, true, false );
-        AppMain.gm_ending_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmEndingCtrl ), null, 0U, 0, 18448U, 5, () => new AppMain.GMS_ENDING_WORK(), "ENDING_CTRL" );
+        AppMain.gm_ending_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmEndingCtrl, null, 0U, 0, 18448U, 5, () => new AppMain.GMS_ENDING_WORK(), "ENDING_CTRL" );
         AppMain.GMS_ENDING_WORK gms_ENDING_WORK = (AppMain.GMS_ENDING_WORK)AppMain.gm_ending_tcb.work;
         gms_ENDING_WORK.step = 0;
         gms_ENDING_WORK.flag = 1U;
@@ -161,7 +161,7 @@ public partial class AppMain
         AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), gms_PLAYER_WORK.obj_work, 0, "END_PIC");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEndingLastPic );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmEndingLastPic;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ending_obj_3d_list[gms_ENDING_WORK.type], gms_EFFECT_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK.move_flag |= 16128U;
         obs_OBJECT_WORK.disp_flag |= 4194336U;

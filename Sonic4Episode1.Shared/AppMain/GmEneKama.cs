@@ -188,7 +188,7 @@ public partial class AppMain
         AppMain.gmEneKamaWalkInit( obs_OBJECT_WORK );
         gms_ENE_KAMA_WORK.attack = 0;
         AppMain.GmEneUtilInitNodeMatrix( gms_ENE_KAMA_WORK.node_work, obs_OBJECT_WORK, 32 );
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmEneKamaExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmEneKamaExit );
         AppMain.GmEneUtilGetNodeMatrix( gms_ENE_KAMA_WORK.node_work, 9 );
         AppMain.GmEneUtilGetNodeMatrix( gms_ENE_KAMA_WORK.node_work, 6 );
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GmEventMgrLocalEventBirth(311, obs_OBJECT_WORK.pos.x, obs_OBJECT_WORK.pos.y, 0, 0, 0, 0, 0, 0);
@@ -385,7 +385,7 @@ public partial class AppMain
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 6, 7 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaWalkMain );
+        obj_work.ppFunc = AppMain.gmEneKamaWalkMain;
         obj_work.move_flag &= 4294967291U;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -409,7 +409,7 @@ public partial class AppMain
         AppMain.GMS_ENE_KAMA_WORK kama_work = (AppMain.GMS_ENE_KAMA_WORK)obj_work;
         if ( AppMain.gmEneKamaIsPlayerFront( obj_work ) != 0 && AppMain.gmEneKamaGetLength2N( obj_work ) <= 12544 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaAttackInit );
+            obj_work.ppFunc = AppMain.gmEneKamaAttackInit;
             return;
         }
         if ( ( obj_work.disp_flag & 2U ) != 0U )
@@ -450,7 +450,7 @@ public partial class AppMain
     {
         obj_work.obj_3d.blend_spd = 0.1f;
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 4, 5 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaFlipMain );
+        obj_work.ppFunc = AppMain.gmEneKamaFlipMain;
         obj_work.spd.x = 0;
     }
 
@@ -472,7 +472,7 @@ public partial class AppMain
         AppMain.GMS_ENE_KAMA_WORK gms_ENE_KAMA_WORK = (AppMain.GMS_ENE_KAMA_WORK)obj_work;
         AppMain.GmEneComActionSetDependHFlip( obj_work, 2, 3 );
         obj_work.disp_flag &= 4294967291U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaAttackPreMain );
+        obj_work.ppFunc = AppMain.gmEneKamaAttackPreMain;
         obj_work.move_flag &= 4294967291U;
         obj_work.spd.x = 0;
         gms_ENE_KAMA_WORK.timer = gms_ENE_KAMA_WORK.atk_wait;
@@ -488,7 +488,7 @@ public partial class AppMain
             {
                 AppMain.GmEneComActionSetDependHFlip( obj_work, 0, 1 );
                 obj_work.disp_flag &= 4294967291U;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaAttackMain );
+                obj_work.ppFunc = AppMain.gmEneKamaAttackMain;
                 obj_work.move_flag &= 4294967291U;
                 obj_work.spd.x = 0;
                 gms_ENE_KAMA_WORK.timer = 7;
@@ -508,7 +508,7 @@ public partial class AppMain
             return;
         }
         gms_ENE_KAMA_WORK.attack = 1;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaAttackWait );
+        obj_work.ppFunc = AppMain.gmEneKamaAttackWait;
     }
 
     // Token: 0x0600094D RID: 2381 RVA: 0x00053B10 File Offset: 0x00051D10
@@ -524,13 +524,13 @@ public partial class AppMain
             }
             if ( AppMain.gmEneKamaGetLength2N( obj_work ) <= 12544 )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaFlashInit );
+                obj_work.ppFunc = AppMain.gmEneKamaFlashInit;
                 return;
             }
             obj_work.obj_3d.speed[0] = 2f;
             AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 4, 5 );
             obj_work.disp_flag &= 4294967291U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaFlipAtafuta );
+            obj_work.ppFunc = AppMain.gmEneKamaFlipAtafuta;
             obj_work.spd.x = 0;
             if ( gms_ENE_KAMA_WORK.walk_s != 0 )
             {
@@ -558,7 +558,7 @@ public partial class AppMain
             {
                 obj_work.spd.x = 2048;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaAttackWait );
+            obj_work.ppFunc = AppMain.gmEneKamaAttackWait;
         }
     }
 
@@ -575,7 +575,7 @@ public partial class AppMain
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 10, 11 );
         obj_work.disp_flag |= 4U;
         gms_ENE_KAMA_WORK.timer = 180;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaFlashMain );
+        obj_work.ppFunc = AppMain.gmEneKamaFlashMain;
     }
 
     // Token: 0x06000950 RID: 2384 RVA: 0x00053CF4 File Offset: 0x00051EF4
@@ -598,7 +598,7 @@ public partial class AppMain
             gms_ENE_KAMA_WORK.timer = 180;
             AppMain.GmSoundPlaySE( "Boss2_03" );
             obj_work.disp_flag |= 32U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaFlashEnd );
+            obj_work.ppFunc = AppMain.gmEneKamaFlashEnd;
             AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENE_KAMA_WORK.ene_3d_work.ene_com.rect_work[1];
             AppMain.ObjRectWorkSet( obs_RECT_WORK, -30, -30, 30, 10 );
             obs_RECT_WORK.flag |= 4U;
@@ -686,7 +686,7 @@ public partial class AppMain
         obj_work.ofst.y = 0;
         obj_work.dir.z = 0;
         obj_work.flag &= 4294966783U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaHandWaitMain );
+        obj_work.ppFunc = AppMain.gmEneKamaHandWaitMain;
     }
 
     // Token: 0x06000954 RID: 2388 RVA: 0x000541B8 File Offset: 0x000523B8
@@ -720,7 +720,7 @@ public partial class AppMain
         AppMain.GmEneUtilSetMatrixNN( obj_work, nns_MATRIX );
         if ( gms_ENE_KAMA_WORK2.attack != 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaHandAttackInit );
+            obj_work.ppFunc = AppMain.gmEneKamaHandAttackInit;
         }
     }
 
@@ -732,7 +732,7 @@ public partial class AppMain
         AppMain.VecFx32 vecFx = AppMain.gmEneKamaGetPlayerVectorFx(obj_work);
         obj_work.spd.x = ( int )( ( float )vecFx.x * 1.75f );
         obj_work.spd.y = ( int )( ( float )vecFx.y * 1.75f );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneKamaHandAttackMain );
+        obj_work.ppFunc = AppMain.gmEneKamaHandAttackMain;
         gms_ENE_KAMA_WORK.timer = 120;
         if ( ( gms_ENE_KAMA_WORK2.ene_3d_work.ene_com.obj_work.disp_flag & 2U ) != 0U )
         {

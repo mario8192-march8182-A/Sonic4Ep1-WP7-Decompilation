@@ -19,7 +19,7 @@ public partial class AppMain
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_ss_ringgate_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
             uint num = AppMain.g_gm_main_system.sync_time % 128U;
             gms_ENEMY_3D_WORK.obj_3d.mat_frame = num;
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsRingGateDrawFunc );
+            obs_OBJECT_WORK.ppOut = AppMain.gmGmkSsRingGateDrawFunc;
             obs_OBJECT_WORK.user_flag = ( ( obs_OBJECT_WORK.user_flag & 1U ) | ( num & 127U ) << 8 );
         }
         else
@@ -41,7 +41,7 @@ public partial class AppMain
             obs_OBJECT_WORK2.move_flag |= 8448U;
             obs_OBJECT_WORK2.disp_flag &= 4294967039U;
             obs_OBJECT_WORK2.user_work = 0U;
-            obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsRingGateNumMain );
+            obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkSsRingGateNumMain;
             obs_OBJECT_WORK2.dir.y = 49152;
             obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK( () => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GATENUM10" );
             gms_EFFECT_3DNN_WORK = ( AppMain.GMS_EFFECT_3DNN_WORK )obs_OBJECT_WORK2;
@@ -51,7 +51,7 @@ public partial class AppMain
             obs_OBJECT_WORK2.move_flag |= 8448U;
             obs_OBJECT_WORK2.disp_flag &= 4294967039U;
             obs_OBJECT_WORK2.user_work = 1U;
-            obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsRingGateNumMain );
+            obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkSsRingGateNumMain;
             obs_OBJECT_WORK2.dir.y = 49152;
             obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK( () => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GATENUM1" );
             gms_EFFECT_3DNN_WORK = ( AppMain.GMS_EFFECT_3DNN_WORK )obs_OBJECT_WORK2;
@@ -61,13 +61,13 @@ public partial class AppMain
             obs_OBJECT_WORK2.move_flag |= 8448U;
             obs_OBJECT_WORK2.disp_flag &= 4294967039U;
             obs_OBJECT_WORK2.user_work = 2U;
-            obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsRingGateNumMain );
+            obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkSsRingGateNumMain;
             obs_OBJECT_WORK2.dir.y = 49152;
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsRingGateMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsRingGateMain;
         gms_ENEMY_3D_WORK.ene_com.rect_work[0].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSsRingGateDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkSsRingGateDefFunc;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         if ( ( eve_rec.flag & 1 ) != 0 )
         {
@@ -101,7 +101,7 @@ public partial class AppMain
             gms_ENEMY_3D_WORK.ene_com.rect_work[2].flag &= 4294967291U;
             gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.obj = null;
             obs_OBJECT_WORK.ppFunc = null;
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjDrawActionSummary );
+            obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
         }
         return obs_OBJECT_WORK;
     }
@@ -134,7 +134,7 @@ public partial class AppMain
             AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
             gms_ENEMY_3D_WORK.ene_com.rect_work[2].flag &= 4294967291U;
             gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.obj = null;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsRingGateVanish );
+            obj_work.ppFunc = AppMain.gmGmkSsRingGateVanish;
             obj_work.disp_flag |= 134217728U;
             obj_work.obj_3d.drawflag |= 8388608U;
             obj_work.obj_3d.draw_state.alpha.alpha = 1f;
@@ -152,7 +152,7 @@ public partial class AppMain
         obj_work.user_timer--;
         if ( obj_work.user_timer == 8 )
         {
-            obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjDrawActionSummary );
+            obj_work.ppOut = AppMain.ObjDrawActionSummary;
             AppMain.ObjObjectAction3dNNModelReleaseCopy( obj_work );
             AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.gm_gmk_ss_ringgate_obj_3d_list[1], ( ( AppMain.GMS_ENEMY_3D_WORK )obj_work ).obj_3d );
         }

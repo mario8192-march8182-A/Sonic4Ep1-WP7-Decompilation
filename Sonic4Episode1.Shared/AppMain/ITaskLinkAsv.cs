@@ -55,7 +55,7 @@ public partial class AppMain
         public void AttachTask( string name, uint priority, uint user, uint attribute, int group, uint stall_mask, uint run_mask )
         {
             this.DetachTask();
-            this.m_task_tcb = AppMain.amTaskMake( new AppMain.TaskProc( AppMain.ITaskLinkAsv.procedure ), new AppMain.TaskProc( AppMain.ITaskLinkAsv.destructor ), priority, user, attribute, name, stall_mask, group, run_mask );
+            this.m_task_tcb = AppMain.amTaskMake( AppMain.ITaskLinkAsv.procedure, AppMain.ITaskLinkAsv.destructor, priority, user, attribute, name, stall_mask, group, run_mask );
             this.m_task_tcb.work = new AppMain.ITaskLinkAsv.SWork();
             AppMain.ITaskLinkAsv.SWork swork = (AppMain.ITaskLinkAsv.SWork)AppMain.amTaskGetWork(this.m_task_tcb);
             swork.owner = this;
@@ -76,7 +76,7 @@ public partial class AppMain
         // Token: 0x06001FEC RID: 8172 RVA: 0x0013D6CC File Offset: 0x0013B8CC
         public static AppMain.ITaskLinkAsv CastFromTaskTcb( AppMain.AMS_TCB tcb )
         {
-            if ( new AppMain.TaskProc( AppMain.ITaskLinkAsv.procedure ) == tcb.procedure || new AppMain.TaskProc( AppMain.ITaskLinkAsv.destructor ) == tcb.destructor )
+            if ( AppMain.ITaskLinkAsv.procedure == tcb.procedure || AppMain.ITaskLinkAsv.destructor == tcb.destructor )
             {
                 AppMain.ITaskLinkAsv.SWork swork = (AppMain.ITaskLinkAsv.SWork)AppMain.amTaskGetWork(tcb);
                 if ( swork.owner != null && swork.owner.m_task_tcb == tcb )

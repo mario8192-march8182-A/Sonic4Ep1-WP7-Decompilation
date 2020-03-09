@@ -52,7 +52,7 @@ public partial class AppMain
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 1 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectSet( obs_RECT_WORK.rect, ( short )( eve_rec.left * 2 ), ( short )( eve_rec.top * 2 ), ( short )( ( ushort )( eve_rec.width * 2 ) + ( ushort )( ( short )( eve_rec.left * 2 ) ) ), ( short )( ( ushort )( eve_rec.height * 2 ) + ( ushort )( ( short )( eve_rec.top * 2 ) ) ) );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSpipeDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkSpipeDefFunc;
         obs_RECT_WORK.parent_obj = obs_OBJECT_WORK;
         obs_RECT_WORK.flag |= 192U;
         return obs_OBJECT_WORK;
@@ -207,11 +207,11 @@ public partial class AppMain
                 return;
             case 4:
             case 5:
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSteamPipeStay_100 );
+                obj_work.ppFunc = AppMain.gmGmkSteamPipeStay_100;
                 return;
             case 6:
             case 7:
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSteamPipeStay_Exit );
+                obj_work.ppFunc = AppMain.gmGmkSteamPipeStay_Exit;
                 return;
         }
         obj_work.ppFunc = null;
@@ -236,14 +236,14 @@ public partial class AppMain
                 case 4:
                 case 5:
                     gms_GMK_STEAMP_WORK.timer = 60;
-                    obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSteamPipe_GateIn );
+                    obj_work.ppFunc = AppMain.gmGmkSteamPipe_GateIn;
                     AppMain.GmSoundPlaySE( "PipeIn" );
                     return;
                 case 6:
                 case 7:
                     gms_GMK_STEAMP_WORK.timer = 0;
                     AppMain.gmGmkSteamPipe_GateOutColClear( obj_work );
-                    obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSteamPipe_GateOut );
+                    obj_work.ppFunc = AppMain.gmGmkSteamPipe_GateOut;
                     break;
                 default:
                     return;
@@ -311,7 +311,7 @@ public partial class AppMain
             AppMain.GmPlySeqInitSteamPipeOut( gms_GMK_STEAMP_WORK.ply_work, spd_x );
             AppMain.GmSoundPlaySE( "PipeOut" );
             gms_GMK_STEAMP_WORK.timer = 8;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSteamPipe_GateOut_100 );
+            obj_work.ppFunc = AppMain.gmGmkSteamPipe_GateOut_100;
         }
     }
 
@@ -325,7 +325,7 @@ public partial class AppMain
         {
             AppMain.gmGmkSteamPipe_GateOutColSet( obj_work );
             gms_GMK_STEAMP_WORK.status = 0;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSteamPipeStay_Exit );
+            obj_work.ppFunc = AppMain.gmGmkSteamPipeStay_Exit;
         }
     }
 
@@ -363,7 +363,7 @@ public partial class AppMain
             obs_RECT_WORK.ppHit = null;
             if ( type < 6 )
             {
-                obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSteamGateHit );
+                obs_RECT_WORK.ppDef = AppMain.gmGmkSteamGateHit;
                 gms_GMK_STEAMP_WORK.gmk_work.ene_com.col_work.obj_col.obj = obj_work;
                 gms_GMK_STEAMP_WORK.gmk_work.ene_com.col_work.obj_col.width = 32;
                 gms_GMK_STEAMP_WORK.gmk_work.ene_com.col_work.obj_col.height = 16;
@@ -373,7 +373,7 @@ public partial class AppMain
             }
             else
             {
-                obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSteamExitHit );
+                obs_RECT_WORK.ppDef = AppMain.gmGmkSteamExitHit;
             }
             AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
             AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
@@ -383,7 +383,7 @@ public partial class AppMain
         }
         gms_GMK_STEAMP_WORK.obj_type = type;
         gms_GMK_STEAMP_WORK.status = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSteamPipeStay );
+        obj_work.ppFunc = AppMain.gmGmkSteamPipeStay;
     }
 
     // Token: 0x06000DB6 RID: 3510 RVA: 0x000793DC File Offset: 0x000775DC

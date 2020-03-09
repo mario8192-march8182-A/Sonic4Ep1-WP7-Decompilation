@@ -48,7 +48,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.move_flag &= 4294967167U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5CtpltMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5CtpltMain;
         AppMain.gmBoss5CtpltProcInit( ctplt_work );
         return obs_OBJECT_WORK;
     }
@@ -97,7 +97,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ctplt_work);
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.disp_flag |= 4U;
-        ctplt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_CTPLT_WORK( AppMain.gmBoss5CtpltProcIdle );
+        ctplt_work.proc_update = AppMain.gmBoss5CtpltProcIdle;
     }
 
     // Token: 0x0600079D RID: 1949 RVA: 0x00043768 File Offset: 0x00041968
@@ -109,7 +109,7 @@ public partial class AppMain
         if ( ( mgr_work.flag & 8388608U ) != 0U )
         {
             obs_OBJECT_WORK.spd_add.y = AppMain.GMD_BOSS5_CTPLT_MOVE_DOWN_ACC;
-            ctplt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_CTPLT_WORK( AppMain.gmBoss5CtpltProcMoveDown );
+            ctplt_work.proc_update = AppMain.gmBoss5CtpltProcMoveDown;
         }
     }
 

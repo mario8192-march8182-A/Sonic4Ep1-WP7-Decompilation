@@ -58,7 +58,7 @@ public partial class AppMain
         AppMain.mppAssertNotImpl();
         AppMain.amAssert( thread );
         AppMain.amAssert( proc );
-        thread.thread_id = new Thread( new ParameterizedThreadStart( proc.Invoke ) );
+        thread.thread_id = new Thread( proc.Invoke );
         if ( thread.thread_id != null )
         {
             AppMain.amAlarmCreate( thread.alarm_exit );

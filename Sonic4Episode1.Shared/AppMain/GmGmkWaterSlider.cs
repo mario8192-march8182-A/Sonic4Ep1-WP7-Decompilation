@@ -52,8 +52,8 @@ public partial class AppMain
             AppMain.g_gm_gmk_water_slider_effct_player = AppMain.GmEfctZoneEsCreate( obj_work, 2, 23 );
             AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.g_gm_gmk_water_slider_effct_player;
             obs_OBJECT_WORK.parent_ofst.z = 131072;
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkWaterSliderEffectMainFunc );
-            AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkWaterSliderEffectDestFunc ) );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkWaterSliderEffectMainFunc;
+            AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkWaterSliderEffectDestFunc );
         }
         if ( AppMain.g_gm_gmk_water_slider_se_handle == null )
         {
@@ -229,8 +229,8 @@ public partial class AppMain
         obj_work.disp_flag |= 20U;
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkWaterSliderDrawFunc );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkWaterSliderDestFunc ) );
+        obj_work.ppOut = AppMain.gmGmkWaterSliderDrawFunc;
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkWaterSliderDestFunc );
     }
 
     // Token: 0x06000660 RID: 1632 RVA: 0x000387D8 File Offset: 0x000369D8
@@ -260,7 +260,7 @@ public partial class AppMain
         }
         AppMain.ObjRectWorkZSet( obs_RECT_WORK, ( short )( num - 8 ), -8, -500, ( short )( num2 + 8 ), ( short )( num3 + 8 ), 500 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkWaterSliderDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkWaterSliderDefFunc;
     }
 
     // Token: 0x06000661 RID: 1633 RVA: 0x0003887C File Offset: 0x00036A7C
@@ -332,7 +332,7 @@ public partial class AppMain
             AppMain.GmPlySeqInitWaterSlider( gms_PLAYER_WORK, gms_ENEMY_3D_WORK.ene_com );
             gms_ENEMY_3D_WORK.ene_com.target_obj = parent_obj2;
             gimmick_rect.flag |= 1024U;
-            parent_obj.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkWaterSliderMainActive );
+            parent_obj.ppFunc = AppMain.gmGmkWaterSliderMainActive;
             AppMain.GmGmkWaterSliderCreateEffect();
             AppMain.nnMakeUnitMatrix( gms_PLAYER_WORK.ex_obj_mtx_r );
             int num = -6144;

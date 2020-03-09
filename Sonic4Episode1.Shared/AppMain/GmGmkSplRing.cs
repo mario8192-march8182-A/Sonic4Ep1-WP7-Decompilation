@@ -21,9 +21,9 @@ public partial class AppMain
         obs_OBJECT_WORK.flag |= 18U;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.flag |= 134217728U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSplRingDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkSplRingDefFunc;
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -4, -4, 4, 4 );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSplRingWait );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSplRingWait;
         return obs_OBJECT_WORK;
     }
 
@@ -92,7 +92,7 @@ public partial class AppMain
         AppMain.ObjDrawAction3DNNMaterialUpdate( obj_work.obj_3d, ref num );
         if ( ( obj_work.dir.y & 32767 ) == 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSplRingVanish );
+            obj_work.ppFunc = AppMain.gmGmkSplRingVanish;
             AppMain.GMS_EFFECT_3DES_WORK efct_3des = AppMain.GmEfctCmnEsCreate(obj_work, 78);
             AppMain.GmEffect3DESSetDispOffset( efct_3des, 0f, 0f, 50f );
             AppMain.GmEfctCmnEsCreate( obj_work, 79 );
@@ -132,7 +132,7 @@ public partial class AppMain
         }
         AppMain.GmPlySeqInitSplIn( gms_PLAYER_WORK, gms_ENEMY_COM_WORK.obj_work.pos );
         gms_PLAYER_WORK.gmk_flag2 |= 6U;
-        ( ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK ).ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSplRingVanishReady );
+        ( ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK ).ppFunc = AppMain.gmGmkSplRingVanishReady;
         gms_ENEMY_COM_WORK.obj_work.dir.y = ( ushort )( ( gms_ENEMY_COM_WORK.obj_work.dir.y & 57344 ) );
         gms_ENEMY_COM_WORK.obj_work.flag |= 2U;
         AppMain.GMM_PAD_VIB_SMALL();

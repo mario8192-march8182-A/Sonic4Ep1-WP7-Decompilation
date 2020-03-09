@@ -994,7 +994,7 @@ public partial class AppMain
         aos_ACT_DRAW.count = 1U;
         aos_ACT_DRAW.sprite = new AppMain.AOS_SPRITE[1];
         aos_ACT_DRAW.sprite[0].Assign(spr);
-        AppMain.amDrawMakeTask(new AppMain.TaskProc(AppMain.aoActDrawTask), (ushort)AppMain.g_ao_act_sys_draw_prio, aos_ACT_DRAW);
+        AppMain.amDrawMakeTask(AppMain.aoActDrawTask, (ushort)AppMain.g_ao_act_sys_draw_prio, aos_ACT_DRAW);
     }
 
     // Token: 0x0600165E RID: 5726 RVA: 0x000C1DB6 File Offset: 0x000BFFB6

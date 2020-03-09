@@ -85,7 +85,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PULLEY_WORK(), "GMK_PULLEY_BASE");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         ( ( AppMain.GMS_GMK_PULLEY_WORK )obs_OBJECT_WORK ).se_handle = null;
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkPulleyBaseExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkPulleyBaseExit );
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_pulley_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, false, AppMain.ObjDataGet( 821 ), null, 0, null );
         AppMain.ObjDrawObjectActionSet( obs_OBJECT_WORK, 0 );
@@ -96,7 +96,7 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
         obs_RECT_WORK.ppHit = null;
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkPulleyDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkPulleyDefFunc;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -4, 9, 4, 24 );
@@ -110,7 +110,7 @@ public partial class AppMain
         obs_OBJECT_WORK2.disp_flag |= 4194304U;
         obs_OBJECT_WORK2.disp_flag &= 4294967039U;
         obs_OBJECT_WORK2.flag |= 16U;
-        obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyRotMain );
+        obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkPulleyRotMain;
         ( ( AppMain.GMS_GMK_PULLEY_WORK )obs_OBJECT_WORK ).efct_work = null;
         return obs_OBJECT_WORK;
     }
@@ -128,7 +128,7 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.flag |= 134217728U;
         obs_OBJECT_WORK.pos.z = -131072;
         obs_OBJECT_WORK.ppFunc = null;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyDrawSetPoleL );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkPulleyDrawSetPoleL;
         return obs_OBJECT_WORK;
     }
 
@@ -145,7 +145,7 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.flag |= 134217728U;
         obs_OBJECT_WORK.pos.z = -131072;
         obs_OBJECT_WORK.ppFunc = null;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyDrawSetPoleR );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkPulleyDrawSetPoleR;
         return obs_OBJECT_WORK;
     }
 
@@ -162,7 +162,7 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.flag |= 134217728U;
         obs_OBJECT_WORK.pos.z = -131072;
         obs_OBJECT_WORK.ppFunc = null;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyDrawSetRopeN );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkPulleyDrawSetRopeN;
         return obs_OBJECT_WORK;
     }
 
@@ -185,11 +185,11 @@ public partial class AppMain
         obs_OBJECT_WORK.ppFunc = null;
         if ( eve_rec.id == 95 )
         {
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyDrawSetRopeTL );
+            obs_OBJECT_WORK.ppOut = AppMain.gmGmkPulleyDrawSetRopeTL;
         }
         else
         {
-            obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyDrawSetRopeTR );
+            obs_OBJECT_WORK.ppOut = AppMain.gmGmkPulleyDrawSetRopeTR;
         }
         return obs_OBJECT_WORK;
     }
@@ -332,7 +332,7 @@ public partial class AppMain
             gms_ENEMY_COM_WORK.obj_work.dir.y = 0;
         }
         gms_ENEMY_COM_WORK.obj_work.user_flag = ( uint )( ( ulong )gms_ENEMY_COM_WORK.obj_work.user_flag & 18446744073709518847UL );
-        ( ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK ).ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyMove );
+        ( ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK ).ppFunc = AppMain.gmGmkPulleyMove;
         AppMain.ObjRectWorkSet( gms_ENEMY_COM_WORK.rect_work[2], -32, 9, 32, 24 );
     }
 
@@ -453,7 +453,7 @@ public partial class AppMain
             AppMain.gmGmkPulleySecedeSet( obj_work, num5 );
             obj_work.user_timer = 0;
         }
-        if ( obj_work.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleyMove ) && AppMain.MTM_MATH_ABS( obj_work.spd.x ) > 4096 )
+        if ( obj_work.ppFunc == AppMain.gmGmkPulleyMove && AppMain.MTM_MATH_ABS( obj_work.spd.x ) > 4096 )
         {
             AppMain.gmGmkPulleySparkInit( obj_work );
         }
@@ -517,7 +517,7 @@ public partial class AppMain
         obj_work.dir.z = 0;
         gms_ENEMY_3D_WORK.ene_com.target_dp_dir.z = obj_work.dir.z;
         AppMain.ObjDrawObjectActionSet3DNN( obj_work, 5, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPulleySecede );
+        obj_work.ppFunc = AppMain.gmGmkPulleySecede;
         AppMain.ObjRectWorkSet( gms_ENEMY_3D_WORK.ene_com.rect_work[2], -4, 9, 4, 24 );
         AppMain.gmGmkPulleySparkKill( obj_work );
         AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK = (AppMain.GMS_GMK_PULLEY_WORK)obj_work;

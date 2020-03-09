@@ -204,7 +204,7 @@ public partial class AppMain
         AppMain.OBS_CAMERA_SYS obs_CAMERA_SYS = new AppMain.OBS_CAMERA_SYS();
         if ( AppMain.obj_camera_tcb == null )
         {
-            AppMain.obj_camera_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.objCameraMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.objCameraDest ), 0U, pause_level, ( uint )prio, group, () => new AppMain.OBS_CAMERA_SYS(), "objCamera" );
+            AppMain.obj_camera_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.objCameraMain, AppMain.objCameraDest, 0U, pause_level, ( uint )prio, group, () => new AppMain.OBS_CAMERA_SYS(), "objCamera" );
             obs_CAMERA_SYS = ( AppMain.OBS_CAMERA_SYS )AppMain.obj_camera_tcb.work;
             obs_CAMERA_SYS.Clear();
             AppMain.obj_camera_sys = obs_CAMERA_SYS;

@@ -425,7 +425,7 @@ public partial class AppMain
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = (AppMain.GMS_EFFECT_3DES_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.obj_3des = gms_EFFECT_3DES_WORK.obj_3des;
         obs_OBJECT_WORK.ppOut = null;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+        obs_OBJECT_WORK.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         return gms_EFFECT_3DES_WORK;
     }
 
@@ -442,8 +442,8 @@ public partial class AppMain
             efct_com.rect_work[i].parent_obj = obj_work;
             efct_com.rect_work[i].flag &= 4294967291U;
         }
-        efct_com.rect_work[0].ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.GmEffectDefaultDefFunc );
-        efct_com.rect_work[1].ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.GmEffectDefaultAtkFunc );
+        efct_com.rect_work[0].ppDef = AppMain.GmEffectDefaultDefFunc;
+        efct_com.rect_work[1].ppHit = AppMain.GmEffectDefaultAtkFunc;
     }
 
     // Token: 0x0600141D RID: 5149 RVA: 0x000B271E File Offset: 0x000B091E

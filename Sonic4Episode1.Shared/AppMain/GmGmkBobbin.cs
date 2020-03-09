@@ -67,7 +67,7 @@ public partial class AppMain
         }
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBobbinDrawFunc );
+        obj_work.ppOut = AppMain.gmGmkBobbinDrawFunc;
         AppMain.gmGmkBobbinChangeModeWait( obj_work );
     }
 
@@ -84,7 +84,7 @@ public partial class AppMain
         obs_RECT_WORK.flag |= 1024U;
         AppMain.ObjRectGroupSet( obs_RECT_WORK, 1, 1 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkBobbinDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkBobbinDefFunc;
         if ( AppMain.GSM_MAIN_STAGE_IS_SPSTAGE() )
         {
             AppMain.OBS_COLLISION_WORK col_work = ((AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK).ene_com.col_work;
@@ -237,7 +237,7 @@ public partial class AppMain
     private static void gmGmkBobbinChangeModeWait( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNN( obj_work, 0, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBobbinMainWait );
+        obj_work.ppFunc = AppMain.gmGmkBobbinMainWait;
     }
 
     // Token: 0x06001411 RID: 5137 RVA: 0x000B2326 File Offset: 0x000B0526
@@ -245,7 +245,7 @@ public partial class AppMain
     {
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obj_work, 0 );
         AppMain.ObjDrawObjectActionSet3DNN( obj_work, 1, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBobbinMainHit );
+        obj_work.ppFunc = AppMain.gmGmkBobbinMainHit;
     }
 
     // Token: 0x06001412 RID: 5138 RVA: 0x000B2349 File Offset: 0x000B0549

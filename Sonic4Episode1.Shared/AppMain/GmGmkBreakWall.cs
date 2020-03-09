@@ -154,14 +154,14 @@ public partial class AppMain
         gms_GMK_BWALL_WORK.gmk_work.ene_com.rect_work[0].flag &= 4294967291U;
         gms_GMK_BWALL_WORK.gmk_work.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_BWALL_WORK.gmk_work.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkBreakWallHit );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkBreakWallHit;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, AppMain.tbl_gm_gmk_bwall_col_rect[gms_GMK_BWALL_WORK.obj_type][4], AppMain.tbl_gm_gmk_bwall_col_rect[gms_GMK_BWALL_WORK.obj_type][5], AppMain.tbl_gm_gmk_bwall_col_rect[gms_GMK_BWALL_WORK.obj_type][6], AppMain.tbl_gm_gmk_bwall_col_rect[gms_GMK_BWALL_WORK.obj_type][7] );
         gms_GMK_BWALL_WORK.hitpass = 0;
         gms_GMK_BWALL_WORK.hitcheck = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBreakWallStay );
+        obj_work.ppFunc = AppMain.gmGmkBreakWallStay;
     }
 
     // Token: 0x0600158D RID: 5517 RVA: 0x000BB390 File Offset: 0x000B9590
@@ -485,7 +485,7 @@ public partial class AppMain
             {
                 gms_GMK_BWALL_PARTS.falltimer = 120;
             }
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBreakLandParts_Main );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkBreakLandParts_Main;
             obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
             obs_OBJECT_WORK.obj_3d.use_light_flag |= 2U;
             obs_OBJECT_WORK.obj_3d.use_light_flag |= 65536U;

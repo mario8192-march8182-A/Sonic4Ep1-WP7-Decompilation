@@ -72,7 +72,7 @@ public partial class AppMain
             AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 1 );
             obj_work.disp_flag |= 4U;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGabuJumpMain );
+        obj_work.ppFunc = AppMain.gmEneGabuJumpMain;
         obj_work.spd.y = obj_work.user_timer;
     }
 
@@ -105,7 +105,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 1 );
         obj_work.disp_flag |= 4U;
         obj_work.user_flag = 61440U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGabuJumpWaitMain );
+        obj_work.ppFunc = AppMain.gmEneGabuJumpWaitMain;
         obj_work.spd.y = 0;
         obj_work.move_flag &= 4294967167U;
     }

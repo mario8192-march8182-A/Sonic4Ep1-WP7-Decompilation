@@ -86,7 +86,7 @@ public partial class AppMain
     // Token: 0x060002B5 RID: 693 RVA: 0x00016CE4 File Offset: 0x00014EE4
     private AppMain.MTS_TASK_TCB DmLogoComLoadFileCreate( AppMain.Reference<AppMain.MTS_TASK_TCB> load_tcb_addr )
     {
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(null, new AppMain.GSF_TASK_PROCEDURE(this.dmLogoComDataLoadDest), 0U, ushort.MaxValue, 4096U, 0, () => new AppMain.DMS_LOGO_COM_LOAD_WORK(), "DM_LC_LOAD");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(null, this.dmLogoComDataLoadDest, 0U, ushort.MaxValue, 4096U, 0, () => new AppMain.DMS_LOGO_COM_LOAD_WORK(), "DM_LC_LOAD");
         AppMain.DMS_LOGO_COM_LOAD_WORK dms_LOGO_COM_LOAD_WORK = (AppMain.DMS_LOGO_COM_LOAD_WORK)mts_TASK_TCB.work;
         load_tcb_addr.Target = mts_TASK_TCB;
         dms_LOGO_COM_LOAD_WORK.load_tcb_addr = load_tcb_addr;
@@ -113,7 +113,7 @@ public partial class AppMain
     // Token: 0x060002B7 RID: 695 RVA: 0x00016DD8 File Offset: 0x00014FD8
     private void DmLogoComLoadFileStart( AppMain.Reference<AppMain.MTS_TASK_TCB> tcb )
     {
-        AppMain.mtTaskChangeTcbProcedure( tcb.Target, new AppMain.GSF_TASK_PROCEDURE( this.dmLogoComDataLoadMain ) );
+        AppMain.mtTaskChangeTcbProcedure( tcb.Target, this.dmLogoComDataLoadMain );
     }
 
     // Token: 0x060002B8 RID: 696 RVA: 0x00016DF4 File Offset: 0x00014FF4

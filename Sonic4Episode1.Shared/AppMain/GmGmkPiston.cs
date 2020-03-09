@@ -158,7 +158,7 @@ public partial class AppMain
         {
             gms_GMK_PISTON_WORK.timer_set_move = ( int )( eve_rec.top * 2 ) << 12;
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonStart );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPistonStart;
         return obs_OBJECT_WORK;
     }
 
@@ -179,7 +179,7 @@ public partial class AppMain
         {
             gms_GMK_PISTON_WORK.timer_set_move = ( int )( -eve_rec.top * 2 ) << 12;
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonStart );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPistonStart;
         return obs_OBJECT_WORK;
     }
 
@@ -266,7 +266,7 @@ public partial class AppMain
     private static void gmGmkPistonStay( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.spd.y = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonStay_100 );
+        obj_work.ppFunc = AppMain.gmGmkPistonStay_100;
         AppMain.gmGmkPistonStay_100( obj_work );
     }
 
@@ -277,7 +277,7 @@ public partial class AppMain
         gms_GMK_PISTON_WORK.timer_dec--;
         if ( gms_GMK_PISTON_WORK.timer_dec <= 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonStay_200 );
+            obj_work.ppFunc = AppMain.gmGmkPistonStay_200;
         }
     }
 
@@ -286,7 +286,7 @@ public partial class AppMain
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.timer_dec = gms_GMK_PISTON_WORK.timer_set_move;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonStroke );
+        obj_work.ppFunc = AppMain.gmGmkPistonStroke;
         AppMain.gmGmkPistonStroke( obj_work );
     }
 
@@ -296,7 +296,7 @@ public partial class AppMain
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         obj_work.spd.y = ( ( gms_GMK_PISTON_WORK.piston_vect == 0 ) ? gms_GMK_PISTON_WORK.stroke_spd : ( -gms_GMK_PISTON_WORK.stroke_spd ) );
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonStroke_100 );
+        obj_work.ppFunc = AppMain.gmGmkPistonStroke_100;
         AppMain.gmGmkPistonStroke_100( obj_work );
         AppMain.GmSoundPlaySE( "Piston1" );
     }
@@ -317,7 +317,7 @@ public partial class AppMain
                     obj_work.spd.y = -obj_work.spd.y;
                 }
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonStroke_200 );
+            obj_work.ppFunc = AppMain.gmGmkPistonStroke_200;
         }
     }
 
@@ -354,7 +354,7 @@ public partial class AppMain
             AppMain.GmSoundPlaySE( "Piston2" );
         }
         obj_work.spd.y = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonTopDeadWait_100 );
+        obj_work.ppFunc = AppMain.gmGmkPistonTopDeadWait_100;
         AppMain.gmGmkPistonTopDeadWait_100( obj_work );
     }
 
@@ -365,7 +365,7 @@ public partial class AppMain
         gms_GMK_PISTON_WORK.timer_dec--;
         if ( gms_GMK_PISTON_WORK.timer_dec <= 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonTopDeadWait_200 );
+            obj_work.ppFunc = AppMain.gmGmkPistonTopDeadWait_200;
         }
     }
 
@@ -383,7 +383,7 @@ public partial class AppMain
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         obj_work.spd.y = ( ( gms_GMK_PISTON_WORK.piston_vect == 0 ) ? ( -gms_GMK_PISTON_WORK.stroke_spd ) : gms_GMK_PISTON_WORK.stroke_spd );
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonShrink_100 );
+        obj_work.ppFunc = AppMain.gmGmkPistonShrink_100;
         AppMain.gmGmkPistonShrink_100( obj_work );
         AppMain.GmSoundPlaySE( "Piston1" );
     }
@@ -404,7 +404,7 @@ public partial class AppMain
                     obj_work.spd.y = -obj_work.spd.y;
                 }
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonShrink_200 );
+            obj_work.ppFunc = AppMain.gmGmkPistonShrink_200;
         }
     }
 
@@ -453,7 +453,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.disp_flag &= 4294967039U;
         obs_OBJECT_WORK.flag |= 2U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPistonRodStay );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPistonRodStay;
         gms_GMK_PISTONROD_WORK.fulcrum = parent_obj.pos.y + obs_OBJECT_WORK.parent_ofst.y;
     }
 

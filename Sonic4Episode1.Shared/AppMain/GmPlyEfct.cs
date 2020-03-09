@@ -11,7 +11,7 @@ public partial class AppMain
     {
         if ( AppMain.gm_ply_efct_trail_sys_tcb == null )
         {
-            AppMain.gm_ply_efct_trail_sys_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmPlyEfctTrailSysMain ), null, 0U, 0, 8448U, 3, null, "GM_PLY_EF_TRAIL" );
+            AppMain.gm_ply_efct_trail_sys_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmPlyEfctTrailSysMain, null, 0U, 0, 8448U, 3, null, "GM_PLY_EF_TRAIL" );
         }
     }
 
@@ -34,11 +34,11 @@ public partial class AppMain
     private static void GmPlyEfctCreateBarrier( AppMain.GMS_PLAYER_WORK ply_work )
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 4);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctBarrierMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctBarrierMain;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.user_work = 4U;
         AppMain.GmComEfctAddDispOffset( gms_EFFECT_3DES_WORK, 0, 0, 61440 );
         gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate( ply_work.obj_work, 5 );
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctBarrierMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctBarrierMain;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.user_work = 5U;
         AppMain.GmComEfctAddDispOffset( gms_EFFECT_3DES_WORK, 0, 0, 61440 );
         if ( ( ply_work.gmk_flag2 & 2U ) != 0U )
@@ -53,7 +53,7 @@ public partial class AppMain
         AppMain.gmPlyEfctCreateInvincibleCircle( ply_work );
         AppMain.gmPlyEfctCreateInvincibleTail( ply_work );
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_COM_WORK(), ply_work.obj_work, 0, "GM_PLY_INV_MGR");
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctInvincibleMgrMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmPlyEfctInvincibleMgrMain;
     }
 
     // Token: 0x06001AB3 RID: 6835 RVA: 0x000F329C File Offset: 0x000F149C
@@ -76,14 +76,14 @@ public partial class AppMain
             AppMain.GmComEfctSetDispOffsetF( gms_EFFECT_3DES_WORK, -1.5f, 5f, 16f );
             gms_EFFECT_3DES_WORK.obj_3des.ecb.drawObjState = 0U;
         }
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctRollDashMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctRollDashMain;
     }
 
     // Token: 0x06001AB4 RID: 6836 RVA: 0x000F3350 File Offset: 0x000F1550
     private static void GmPlyEfctCreateSweat( AppMain.GMS_PLAYER_WORK ply_work )
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 93);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSweatMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSweatMain;
         AppMain.GmComEfctSetDispOffsetF( gms_EFFECT_3DES_WORK, -5f, -10f, 16f );
     }
 
@@ -110,7 +110,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 51);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctDash2ImpactMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctDash2ImpactMain;
         AppMain.GmComEfctSetDispOffsetF( gms_EFFECT_3DES_WORK, -8f, 16f, 0f );
         gms_EFFECT_3DES_WORK.efct_com.obj_work.parent_ofst.z = AppMain.FXM_FLOAT_TO_FX32( 16f );
     }
@@ -127,7 +127,7 @@ public partial class AppMain
         {
             gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate( ply_work.obj_work, 71 );
         }
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSpinDustMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSpinDustMain;
         AppMain.GmComEfctSetDispOffsetF( gms_EFFECT_3DES_WORK, -8f, 16f, 0f );
         gms_EFFECT_3DES_WORK.efct_com.obj_work.parent_ofst.z = AppMain.FXM_FLOAT_TO_FX32( 16f );
     }
@@ -165,7 +165,7 @@ public partial class AppMain
             gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate( ply_work.obj_work, 73 );
             gms_EFFECT_3DES_WORK.efct_com.obj_work.user_timer = 73;
         }
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSpinDashCircleBlurMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSpinDashCircleBlurMain;
         if ( ( ply_work.player_flag & 131072U ) != 0U || AppMain.GSM_MAIN_STAGE_IS_SPSTAGE_NOT_RETRY() )
         {
             AppMain.GmComEfctSetDispOffset( gms_EFFECT_3DES_WORK, 0, 0, 0 );
@@ -175,7 +175,7 @@ public partial class AppMain
             AppMain.GmComEfctSetDispOffset( gms_EFFECT_3DES_WORK, 0, 0, 0 );
         }
         gms_EFFECT_3DES_WORK.efct_com.obj_work.obj_3des.speed = ply_work.obj_work.obj_3d.speed[0];
-        AppMain.mtTaskChangeTcbDestructor( gms_EFFECT_3DES_WORK.efct_com.obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmPlyEfctSpinDashBlurDest ) );
+        AppMain.mtTaskChangeTcbDestructor( gms_EFFECT_3DES_WORK.efct_com.obj_work.tcb, AppMain.gmPlyEfctSpinDashBlurDest );
         ply_work.efct_spin_dash_cir_blur = gms_EFFECT_3DES_WORK.efct_com.obj_work;
         return gms_EFFECT_3DES_WORK;
     }
@@ -208,7 +208,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 41);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctJumpDustMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctJumpDustMain;
         AppMain.GmComEfctSetDispOffsetF( gms_EFFECT_3DES_WORK, 0f, 16f, 16f );
     }
 
@@ -233,7 +233,7 @@ public partial class AppMain
     private static void GmPlyEfctWaterCount( AppMain.GMS_PLAYER_WORK ply_work, uint no )
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, (int)(24U + no));
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctWaterCountMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctWaterCountMain;
         gms_EFFECT_3DES_WORK.obj_3des.command_state = 10U;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.user_timer = 487424;
         AppMain.GmComEfctAddDispOffset( gms_EFFECT_3DES_WORK, 0, -65536, 1179648 );
@@ -265,9 +265,9 @@ public partial class AppMain
         }
         gms_EFFECT_3DES_WORK.efct_com.obj_work.flag &= 4294966271U;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.pos.y = ( int )AppMain.g_gm_main_system.water_level << 12;
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctRunSprayMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctRunSprayMain;
         ply_work.efct_run_spray = gms_EFFECT_3DES_WORK.efct_com.obj_work;
-        AppMain.mtTaskChangeTcbDestructor( gms_EFFECT_3DES_WORK.efct_com.obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmPlyEfctRunSprayDest ) );
+        AppMain.mtTaskChangeTcbDestructor( gms_EFFECT_3DES_WORK.efct_com.obj_work.tcb, AppMain.gmPlyEfctRunSprayDest );
     }
 
     // Token: 0x06001AC8 RID: 6856 RVA: 0x000F3841 File Offset: 0x000F1A41
@@ -288,7 +288,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(gms_ENEMY_COM_WORK.obj_work, 95);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctHomingCursolMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctHomingCursolMain;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_COM_WORK.rect_work[2];
         gms_EFFECT_3DES_WORK.efct_com.obj_work.user_timer = obs_RECT_WORK.rect.left + obs_RECT_WORK.rect.right >> 1 << 12;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.user_work = ( uint )( ( uint )( obs_RECT_WORK.rect.top + obs_RECT_WORK.rect.bottom >> 1 ) << 12 );
@@ -351,7 +351,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 0);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSuperAuraMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSuperAuraMain;
         if ( ( ply_work.player_flag & 262144U ) != 0U )
         {
             gms_EFFECT_3DES_WORK.efct_com.obj_work.flag &= 4294966271U;
@@ -366,7 +366,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 1);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSuperAuraMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSuperAuraMain;
         if ( ( ply_work.player_flag & 262144U ) != 0U )
         {
             gms_EFFECT_3DES_WORK.efct_com.obj_work.flag &= 4294966271U;
@@ -381,7 +381,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 2);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSuperAuraSpinMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSuperAuraSpinMain;
         if ( ( ply_work.player_flag & 262144U ) != 0U )
         {
             gms_EFFECT_3DES_WORK.efct_com.obj_work.flag &= 4294966271U;
@@ -396,7 +396,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 3);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSuperAuraDashMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSuperAuraDashMain;
         if ( ( ply_work.player_flag & 262144U ) != 0U )
         {
             gms_EFFECT_3DES_WORK.efct_com.obj_work.flag &= 4294966271U;
@@ -413,7 +413,7 @@ public partial class AppMain
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, efct_cmn_idx);
         AppMain.GmComEfctSetDispOffset( gms_EFFECT_3DES_WORK, 0, 0, 40960 );
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctSteamPipeMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctSteamPipeMain;
     }
 
     // Token: 0x06001AD4 RID: 6868 RVA: 0x000F3CE8 File Offset: 0x000F1EE8
@@ -454,7 +454,7 @@ public partial class AppMain
             {
                 AppMain.gmPlyEfctCreateBarrierLost( gms_PLAYER_WORK );
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         }
         if ( ( gms_PLAYER_WORK.gmk_flag2 & 2U ) != 0U )
         {
@@ -503,7 +503,7 @@ public partial class AppMain
     private static void gmPlyEfctCreateInvincibleCircle( AppMain.GMS_PLAYER_WORK ply_work )
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 42);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctInvincibleCircleMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctInvincibleCircleMain;
         AppMain.GmComEfctAddDispOffsetF( gms_EFFECT_3DES_WORK, 0f, 0f, 16f );
         if ( ply_work != null && ( ply_work.gmk_flag2 & 4U ) != 0U )
         {
@@ -522,7 +522,7 @@ public partial class AppMain
     private static void gmPlyEfctCreateInvincibleTail( AppMain.GMS_PLAYER_WORK ply_work )
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(ply_work.obj_work, 43);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmPlyEfctInvincibleTailMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmPlyEfctInvincibleTailMain;
         AppMain.GmComEfctAddDispOffsetF( gms_EFFECT_3DES_WORK, 0f, 0f, 16f );
         if ( ply_work != null && ( ply_work.gmk_flag2 & 4U ) != 0U )
         {
@@ -544,7 +544,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.genocide_timer == 0 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         if ( ( gms_PLAYER_WORK.gmk_flag2 & 4U ) != 0U )
         {
@@ -564,7 +564,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.act_state != 22 )
         {
             obj_work.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
             return;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
@@ -577,7 +577,7 @@ public partial class AppMain
         if ( 13 > gms_PLAYER_WORK.seq_state || gms_PLAYER_WORK.seq_state > 15 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEnd( obj_work );
     }
@@ -589,7 +589,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.act_state != 20 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -601,7 +601,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.act_state != 21 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -613,7 +613,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.act_state != 22 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -625,7 +625,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.act_state != 22 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -637,7 +637,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 12 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -649,7 +649,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 11 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -662,12 +662,12 @@ public partial class AppMain
         if ( obj_work.user_timer == 0 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         else if ( gms_PLAYER_WORK.seq_state != 10 )
         {
             obj_work.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -679,7 +679,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 10 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -699,7 +699,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 10 && gms_PLAYER_WORK.seq_state != 34 && gms_PLAYER_WORK.seq_state != 44 && gms_PLAYER_WORK.seq_state != 37 && !AppMain.GSM_MAIN_STAGE_IS_SPSTAGE_NOT_RETRY() )
         {
             obj_work.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
         if ( ( obj_work.flag & 12U ) == 0U && gms_EFFECT_3DES_WORK.efct_com.obj_work.user_timer == 82 && ( gms_PLAYER_WORK.player_flag & 16384U ) == 0U )
@@ -730,7 +730,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 10 && gms_PLAYER_WORK.seq_state != 34 && gms_PLAYER_WORK.seq_state != 37 && gms_PLAYER_WORK.seq_state != 44 && gms_PLAYER_WORK.seq_state != 51 && gms_PLAYER_WORK.seq_state != 52 && gms_PLAYER_WORK.seq_state != 53 && gms_PLAYER_WORK.seq_state != 48 && gms_PLAYER_WORK.seq_state != 57 && !AppMain.GSM_MAIN_STAGE_IS_SPSTAGE_NOT_RETRY() )
         {
             obj_work.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
         if ( ( obj_work.flag & 12U ) == 0U && ( gms_EFFECT_3DES_WORK.efct_com.obj_work.user_timer == 83 || gms_EFFECT_3DES_WORK.efct_com.obj_work.user_timer == 81 ) && ( gms_PLAYER_WORK.player_flag & 16384U ) == 0U )
@@ -779,7 +779,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 9 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -791,7 +791,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 17 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
     }
@@ -869,7 +869,7 @@ public partial class AppMain
             if ( flag || flag2 )
             {
                 AppMain.ObjDrawKillAction3DES( obj_work );
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+                obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
                 if ( !flag2 && AppMain.MTM_MATH_ABS( parent_obj.spd_m ) >= 4096 )
                 {
                     ( ( AppMain.GMS_PLAYER_WORK )parent_obj ).efct_run_spray = null;
@@ -910,7 +910,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.seq_state != 19 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEnd( obj_work );
     }
@@ -928,7 +928,7 @@ public partial class AppMain
             }
             AppMain.GmComEfctSetDispOffset( gms_EFFECT_3DES_WORK, obj_work.user_timer, ( int )Convert.ToUInt32( obj_work.user_work ), 131072 );
             obj_work.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         }
         AppMain.GmEffectDefaultMainFuncDeleteAtEnd( obj_work );
     }
@@ -951,7 +951,7 @@ public partial class AppMain
         if ( obj_work.user_timer == 0 || gms_PLAYER_WORK.act_state != 28 )
         {
             obj_work.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
         }
         if ( AppMain.GSM_MAIN_STAGE_IS_SPSTAGE_NOT_RETRY() )
         {
@@ -1006,7 +1006,7 @@ public partial class AppMain
         if ( ( ( gms_PLAYER_WORK.player_flag & 131072U ) != 0U && gms_PLAYER_WORK.seq_state != 0 && gms_PLAYER_WORK.seq_state != 1 && gms_PLAYER_WORK.seq_state != 17 && gms_PLAYER_WORK.seq_state != 16 && gms_PLAYER_WORK.seq_state != 21 && gms_PLAYER_WORK.seq_state != 19 && gms_PLAYER_WORK.seq_state != 66 && gms_PLAYER_WORK.seq_state != 45 && gms_PLAYER_WORK.seq_state != 46 && gms_PLAYER_WORK.seq_state != 49 && gms_PLAYER_WORK.seq_state != 50 && gms_PLAYER_WORK.seq_state != 47 ) || ( ( gms_PLAYER_WORK.player_flag & 131072U ) == 0U && ( ( gms_PLAYER_WORK.seq_state != 17 && gms_PLAYER_WORK.seq_state != 66 && gms_PLAYER_WORK.seq_state != 45 && gms_PLAYER_WORK.seq_state != 46 && gms_PLAYER_WORK.seq_state != 49 && gms_PLAYER_WORK.seq_state != 50 && gms_PLAYER_WORK.seq_state != 42 && gms_PLAYER_WORK.seq_state != 47 ) || ( gms_PLAYER_WORK.act_state != 39 && gms_PLAYER_WORK.act_state != 26 && gms_PLAYER_WORK.act_state != 67 && gms_PLAYER_WORK.act_state != 27 ) ) && !AppMain.GSM_MAIN_STAGE_IS_SPSTAGE_NOT_RETRY() ) )
         {
             obj_work.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
             AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
             return;
         }
@@ -1093,7 +1093,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK == null || ( gms_PLAYER_WORK.player_flag & 16384U ) == 0U || ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U || gms_PLAYER_WORK.act_state == 84 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
             AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
             return;
         }
@@ -1125,7 +1125,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK == null || ( ( ( ( gms_PLAYER_WORK.player_flag & 131072U ) != 0U && gms_PLAYER_WORK.seq_state != 0 && gms_PLAYER_WORK.seq_state != 1 && gms_PLAYER_WORK.seq_state != 17 && gms_PLAYER_WORK.seq_state != 16 && gms_PLAYER_WORK.seq_state != 21 && gms_PLAYER_WORK.seq_state != 19 && gms_PLAYER_WORK.seq_state != 45 && gms_PLAYER_WORK.seq_state != 46 && gms_PLAYER_WORK.seq_state != 47 ) || ( ( gms_PLAYER_WORK.player_flag & 131072U ) == 0U && ( ( gms_PLAYER_WORK.seq_state != 17 && gms_PLAYER_WORK.seq_state != 45 && gms_PLAYER_WORK.seq_state != 46 && gms_PLAYER_WORK.seq_state != 47 ) || ( gms_PLAYER_WORK.act_state != 39 && gms_PLAYER_WORK.act_state != 26 && gms_PLAYER_WORK.act_state != 27 ) ) ) ) && !AppMain.GSM_MAIN_STAGE_IS_SPSTAGE_NOT_RETRY() ) )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
             AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
             return;
         }
@@ -1147,7 +1147,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK == null || gms_PLAYER_WORK.act_state != 22 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ;
             AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
             return;
         }
@@ -1169,7 +1169,7 @@ public partial class AppMain
         if ( gms_PLAYER_WORK.obj_work.spd.x != 0 )
         {
             AppMain.ObjDrawKillAction3DES( obj_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+            obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         }
     }
 }

@@ -892,7 +892,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 8448U;
         gms_BOSS5_MGR_WORK.ene_3d.ene_com.enemy_flag |= 32768U;
         gms_BOSS5_MGR_WORK.life = AppMain.GMD_BOSS5_LIFE;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5MgrWaitLoad );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5MgrWaitLoad;
         return obs_OBJECT_WORK;
     }
 
@@ -919,11 +919,11 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.move_flag |= 1024U;
         gms_BOSS5_BODY_WORK.ene_3d.ene_com.enemy_flag |= 32768U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5BodyWaitSetup );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5BodyWaitSetup;
         AppMain.gmBoss5BodyChangeState( gms_BOSS5_BODY_WORK, 0, 0 );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5BodyOutFunc );
-        obs_OBJECT_WORK.ppRec = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5BodyRecFunc );
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss5BodyExit ) );
+        obs_OBJECT_WORK.ppOut = AppMain.gmBoss5BodyOutFunc;
+        obs_OBJECT_WORK.ppRec = AppMain.gmBoss5BodyRecFunc;
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmBoss5BodyExit );
         AppMain.gmBoss5BodyAllocSeHandles( gms_BOSS5_BODY_WORK );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 64U;
@@ -937,7 +937,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.flag |= 18U;
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5CoreWaitSetup );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5CoreWaitSetup;
         return obs_OBJECT_WORK;
     }
 
@@ -1143,7 +1143,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4128U;
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.user_timer = AppMain.GMD_BOSS5_CAM_SCR_LIMIT_RELEASE_GNTL_SPD_X_INIT;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5CamScrLimitReleaseGentlyProcMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5CamScrLimitReleaseGentlyProcMain;
     }
 
     // Token: 0x06000B4F RID: 2895 RVA: 0x00065D9C File Offset: 0x00063F9C
@@ -1203,7 +1203,7 @@ public partial class AppMain
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.user_work = ( uint )vib_idx;
         obs_OBJECT_WORK.user_timer = ( int )delay;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5DelayedVibrationProcMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5DelayedVibrationProcMain;
     }
 
     // Token: 0x06000B54 RID: 2900 RVA: 0x00065F34 File Offset: 0x00064134
@@ -1229,7 +1229,7 @@ public partial class AppMain
         if ( ( ulong )obs_OBJECT_WORK.user_work != 18446744073709551615UL )
         {
             obs_OBJECT_WORK.user_timer = ( int )delay;
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5DelayedSePlaybackProcMain );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5DelayedSePlaybackProcMain;
         }
     }
 
@@ -1303,7 +1303,7 @@ public partial class AppMain
             obs_OBJECT_WORK2.parent_obj = obs_OBJECT_WORK;
             gms_BOSS5_BODY_WORK.parts_objs[0] = obs_OBJECT_WORK;
             gms_BOSS5_BODY_WORK.part_obj_core = obs_OBJECT_WORK2;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5MgrWaitSetup );
+            obj_work.ppFunc = AppMain.gmBoss5MgrWaitSetup;
         }
     }
 
@@ -1327,7 +1327,7 @@ public partial class AppMain
         if ( num != 0 )
         {
             gms_BOSS5_MGR_WORK.flag |= 1U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5MgrMain );
+            obj_work.ppFunc = AppMain.gmBoss5MgrMain;
             AppMain.gmBoss5MgrProcInit( gms_BOSS5_MGR_WORK );
         }
     }
@@ -1350,7 +1350,7 @@ public partial class AppMain
     // Token: 0x06000B5E RID: 2910 RVA: 0x000662FD File Offset: 0x000644FD
     private static void gmBoss5MgrProcInit( AppMain.GMS_BOSS5_MGR_WORK mgr_work )
     {
-        mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateWaitOpeningDemoBegin );
+        mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateWaitOpeningDemoBegin;
     }
 
     // Token: 0x06000B5F RID: 2911 RVA: 0x00066314 File Offset: 0x00064514
@@ -1362,7 +1362,7 @@ public partial class AppMain
             AppMain.g_gm_main_system.game_flag &= 4294966271U;
             AppMain.GmSoundChangeFinalBossBGM();
             AppMain.GmPlySeqChangeBoss5Demo( ply_work, mgr_work.ply_demo_run_dest_x, false );
-            mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateOpeningDemo );
+            mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateOpeningDemo;
             AppMain.GmMapSetMapDrawSize( 8 );
         }
     }
@@ -1375,7 +1375,7 @@ public partial class AppMain
             AppMain.GMS_PLAYER_WORK ply_work = (AppMain.GMS_PLAYER_WORK)AppMain.GmBsCmnGetPlayerObj();
             AppMain.g_gm_main_system.game_flag |= 1024U;
             AppMain.GmPlySeqChangeBoss5DemoEnd( ply_work );
-            mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateIdle );
+            mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateIdle;
         }
     }
 
@@ -1387,7 +1387,7 @@ public partial class AppMain
             AppMain.GmBoss5LandCreate( mgr_work );
             AppMain.gmBoss5TransferPlayerToASide();
             AppMain.gmBoss5HideMapBSide();
-            mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateWaitDefeat );
+            mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateWaitDefeat;
         }
     }
 
@@ -1400,7 +1400,7 @@ public partial class AppMain
             AppMain.g_gm_main_system.game_flag |= 1048576U;
             mgr_work.wait_timer = AppMain.GMD_BOSS5_MGR_WAIT_EXPLODE_TIME;
             AppMain.GmPadVibSet( 1, -1f, 16384, 16384, -1f, 0f, 0f, 32768U );
-            mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateWaitExplode );
+            mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateWaitExplode;
         }
     }
 
@@ -1414,7 +1414,7 @@ public partial class AppMain
         }
         mgr_work.wait_timer = AppMain.GMD_BOSS5_MGR_CLOSING_DEMO_WAIT_BEGIN_TIME_MAX;
         AppMain.gmBoss5CamScrLimitReleaseGently();
-        mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateWaitClosingDemoBegin );
+        mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateWaitClosingDemoBegin;
     }
 
     // Token: 0x06000B64 RID: 2916 RVA: 0x000664D8 File Offset: 0x000646D8
@@ -1428,7 +1428,7 @@ public partial class AppMain
         {
             AppMain.GMS_PLAYER_WORK ply_work = (AppMain.GMS_PLAYER_WORK)AppMain.GmBsCmnGetPlayerObj();
             AppMain.GmPlySeqChangeBoss5Demo( ply_work, AppMain.g_gm_main_system.map_size[0] << 12, true );
-            mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateClosingDemoLeaveBody );
+            mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateClosingDemoLeaveBody;
         }
     }
 
@@ -1439,7 +1439,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5InitChasingExpl( mgr_work );
             mgr_work.wait_timer = AppMain.GMD_BOSS5_MGR_CLOSING_DEMO_DURATION_TIME;
-            mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateClosingDemoEscape );
+            mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateClosingDemoEscape;
         }
     }
 
@@ -1453,7 +1453,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmBoss5InitLastFadeOut( mgr_work );
-        mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateClosingDemoWaitFadeEnd );
+        mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateClosingDemoWaitFadeEnd;
     }
 
     // Token: 0x06000B67 RID: 2919 RVA: 0x000665AE File Offset: 0x000647AE
@@ -1464,7 +1464,7 @@ public partial class AppMain
         {
             AppMain.GMM_PAD_VIB_STOP();
             mgr_work.wait_timer = AppMain.GMD_BOSS5_MGR_CLOSING_DEMO_WHITEOUT_TIME;
-            mgr_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_MGR_WORK( AppMain.gmBoss5MgrProcUpdateClosingDemoWaitFinish );
+            mgr_work.proc_update = AppMain.gmBoss5MgrProcUpdateClosingDemoWaitFinish;
         }
     }
 
@@ -1752,13 +1752,13 @@ public partial class AppMain
                 body_work.sub_rect_work[i][j].parent_obj = parent_obj;
                 body_work.sub_rect_work[i][j].flag &= 4294967291U;
             }
-            body_work.sub_rect_work[i][0].ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.GmEnemyDefaultDefFunc );
-            body_work.sub_rect_work[i][1].ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.GmEnemyDefaultAtkFunc );
+            body_work.sub_rect_work[i][0].ppDef = AppMain.GmEnemyDefaultDefFunc;
+            body_work.sub_rect_work[i][1].ppHit = AppMain.GmEnemyDefaultAtkFunc;
             body_work.sub_rect_work[i][2].flag |= 1048800U;
         }
         for ( int k = 0; k < 3; k++ )
         {
-            array[k][0].ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmBoss5BodyDamageDefFunc );
+            array[k][0].ppDef = AppMain.gmBoss5BodyDamageDefFunc;
         }
         AppMain.gmBoss5BodyChangeRectSetting( body_work, 0 );
     }
@@ -3283,7 +3283,7 @@ public partial class AppMain
             AppMain.gmBoss5BodyInitCallbacks( gms_BOSS5_BODY_WORK );
             AppMain.GmBoss5RocketSpawnConnected( gms_BOSS5_BODY_WORK, 0 );
             AppMain.GmBoss5RocketSpawnConnected( gms_BOSS5_BODY_WORK, 1 );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5BodyMain );
+            obj_work.ppFunc = AppMain.gmBoss5BodyMain;
             AppMain.gmBoss5BodyChangeState( gms_BOSS5_BODY_WORK, 1, 1 );
         }
     }
@@ -3345,7 +3345,7 @@ public partial class AppMain
         obs_OBJECT_WORK.pos.z = AppMain.GMD_BOSS5_BG_FARSIDE_POS_Z;
         AppMain.gmBoss5BodyChangeRectSetting( body_work, 2 );
         AppMain.GmBoss5EggCreate( body_work, obs_OBJECT_WORK.pos.x, obs_OBJECT_WORK.pos.y );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStartWithPlacement );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStartWithPlacement;
     }
 
     // Token: 0x06000BD6 RID: 3030 RVA: 0x0006926C File Offset: 0x0006746C
@@ -3377,7 +3377,7 @@ public partial class AppMain
             AppMain.gmBoss5MgrSetDemoRunDestPos( body_work.mgr_work, obs_OBJECT_WORK.pos.x + AppMain.GMD_BOSS5_PLY_OP_DEMO_RUN_DEST_X_OFST_FROM_BODY );
             AppMain.gmBoss5BodyInitCanopyPartsPose( body_work );
             AppMain.gmBoss5BodyInitCloseCanopy( body_work );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStartWithWaitEggRide );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStartWithWaitEggRide;
         }
     }
 
@@ -3394,7 +3394,7 @@ public partial class AppMain
         {
             body_work.flag &= 4278190079U;
             AppMain.gmBoss5BodyRecordGapAdjustmentDest( body_work );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStartWithCockpitClose );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStartWithCockpitClose;
         }
     }
 
@@ -3406,7 +3406,7 @@ public partial class AppMain
             AppMain.GmSoundPlaySE( "FinalBoss01" );
             body_work.mgr_work.flag |= 33554432U;
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_START_WAIT_RISE_TIME;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStartWithWaitRise );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStartWithWaitRise;
         }
     }
 
@@ -3421,7 +3421,7 @@ public partial class AppMain
         }
         obs_OBJECT_WORK.spd.y = AppMain.GMD_BOSS5_BODY_START_RISE_SPD_Y;
         AppMain.gmBoss5BodyInitStartRiseVib( body_work );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStartWithRise );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStartWithRise;
     }
 
     // Token: 0x06000BDB RID: 3035 RVA: 0x000694E4 File Offset: 0x000676E4
@@ -3436,7 +3436,7 @@ public partial class AppMain
             obs_OBJECT_WORK.move_flag &= 4294967039U;
             obs_OBJECT_WORK.move_flag |= 128U;
             mgr_work.flag |= 8388608U;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStartWithWaitCtplt );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStartWithWaitCtplt;
         }
     }
 
@@ -3448,7 +3448,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5RestoreCameraSlideForNarrowScreen( body_work.mgr_work );
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_START_WAIT_END_TIME;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStartWithWaitEnd );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStartWithWaitEnd;
         }
     }
 
@@ -3474,12 +3474,12 @@ public partial class AppMain
         AppMain.gmBoss5BodyChangeRectSettingDefault( body_work );
         obs_OBJECT_WORK.move_flag &= 4294966271U;
         obs_OBJECT_WORK.move_flag |= 524288U;
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveNmlWithLoop );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveNmlWithLoop;
         if ( AppMain.gmBoss5BodyIsPlayerBehind( body_work ) != 0 )
         {
             AppMain.gmBoss5BodySetActionWhole( body_work, 3 );
             AppMain.gmBoss5BodyInitWalkAbortRecovery( body_work, body_work.cur_move_phase_type );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveNmlWithAbort );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveNmlWithAbort;
         }
     }
 
@@ -3514,7 +3514,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5BodySetActionWhole( body_work, 3 );
             AppMain.gmBoss5BodyInitWalkAbortRecoveryByLegType( body_work, leg_type );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveNmlWithAbort );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveNmlWithAbort;
             return;
         }
         if ( ( body_work.flag & 8388608U ) != 0U )
@@ -3549,7 +3549,7 @@ public partial class AppMain
             AppMain.gmBoss5BodyInitAdjustMtnBlendHGap( body_work, body_work.whole_act_id, 0 );
             AppMain.gmBoss5BodyUpdateAdjustMtnBlendHGap( body_work );
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_RUN_RECOVER_TIMEOUT_FRAME;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithRecover );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithRecover;
             return;
         }
         if ( body_work.prev_state == 10 )
@@ -3577,7 +3577,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag &= 4294966271U;
         obs_OBJECT_WORK.move_flag |= 524288U;
         body_work.cur_run_type = 1;
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithPrep );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithPrep;
     }
 
     // Token: 0x06000BE3 RID: 3043 RVA: 0x00069894 File Offset: 0x00067A94
@@ -3621,7 +3621,7 @@ public partial class AppMain
                 AppMain.gmBoss5BodySetActionWhole( body_work, 12 );
             }
             AppMain.gmBoss5BodySwitchEnableLegRectOneSide( body_work, 1 );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithJump );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithJump;
         }
     }
 
@@ -3663,7 +3663,7 @@ public partial class AppMain
             }
             obs_OBJECT_WORK.move_flag |= 144U;
             obs_OBJECT_WORK.move_flag &= 4294967294U;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithAir );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithAir;
         }
     }
 
@@ -3699,11 +3699,11 @@ public partial class AppMain
                 }
                 if ( AppMain.gmBoss5BodyIsMoveFastEnd( body_work ) != 0 )
                 {
-                    body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithPreRecover );
+                    body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithPreRecover;
                     body_work.wait_timer = AppMain.GMD_BOSS5_BODY_RUN_PRE_RECOVER_TIMEOUT_FRAME;
                     return;
                 }
-                body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithLand );
+                body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithLand;
             }
         }
     }
@@ -3751,7 +3751,7 @@ public partial class AppMain
             {
                 obs_OBJECT_WORK.spd.x = AppMain.FX_Mul( -obs_OBJECT_WORK.spd.x, AppMain.GMD_BOSS5_BODY_RUN_BWD_SPD_X_FACTOR );
             }
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithJump );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithJump;
         }
     }
 
@@ -3783,7 +3783,7 @@ public partial class AppMain
             }
             AppMain.gmBoss5BodyUpdateAdjustMtnBlendHGap( body_work );
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_RUN_RECOVER_TIMEOUT_FRAME;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateMoveFastWithRecover );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateMoveFastWithRecover;
         }
     }
 
@@ -3817,7 +3817,7 @@ public partial class AppMain
         AppMain.gmBoss5BodyChangeRectSettingDefault( body_work );
         AppMain.GmBoss5EfctStartJet( body_work );
         AppMain.GmBoss5EfctStartJetSmoke( body_work );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStompWithPrep );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStompWithPrep;
     }
 
     // Token: 0x06000BEB RID: 3051 RVA: 0x00069D70 File Offset: 0x00067F70
@@ -3840,7 +3840,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmBoss5BodySetActionWhole( body_work, 22 );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStompWithHover );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStompWithHover;
     }
 
     // Token: 0x06000BED RID: 3053 RVA: 0x00069DF0 File Offset: 0x00067FF0
@@ -3851,7 +3851,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5BodySetActionWhole( body_work, 23 );
             AppMain.gmBoss5BodyInitStompFlyUp( body_work );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStompWithFlyUp );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStompWithFlyUp;
         }
     }
 
@@ -3871,7 +3871,7 @@ public partial class AppMain
             AppMain.gmBoss5BodyInitPlySearch( body_work, ( int )AppMain.GMD_BOSS5_BODY_STOMP_SEARCH_DELAY );
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_STOMP_WAIT_TIME;
             AppMain.gmBoss5BodyInitPlayTargetSe( body_work, ( float )AppMain.GMD_BOSS5_BODY_SE_TARGET_INIT_INTERVAL );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStompWithWait );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStompWithWait;
         }
     }
 
@@ -3904,7 +3904,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5BodyChangeRectSetting( body_work, 3 );
         }
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStompWithFall );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStompWithFall;
     }
 
     // Token: 0x06000BF0 RID: 3056 RVA: 0x00069F64 File Offset: 0x00068164
@@ -3920,7 +3920,7 @@ public partial class AppMain
             AppMain.gmBoss5BodyChangeRectSettingDefault( body_work );
             AppMain.GmBoss5EfctCreateLandingShockwave( body_work );
             AppMain.gmBoss5Vibration( 3 );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateStompWithLand );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateStompWithLand;
         }
     }
 
@@ -3948,7 +3948,7 @@ public partial class AppMain
         AppMain.gmBoss5BodyChangeRectSettingDefault( body_work );
         AppMain.GmBoss5EfctStartJet( body_work );
         AppMain.GmBoss5EfctStartJetSmoke( body_work );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithPrep );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithPrep;
     }
 
     // Token: 0x06000BF3 RID: 3059 RVA: 0x0006A060 File Offset: 0x00068260
@@ -3974,7 +3974,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5BodyDecideCrashFallPosX( body_work );
             AppMain.gmBoss5BodySetActionWhole( body_work, 27 );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithStartFly );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithStartFly;
         }
     }
 
@@ -3987,7 +3987,7 @@ public partial class AppMain
             AppMain.gmBoss5BodySetActionWhole( body_work, 28 );
             AppMain.gmBoss5BodyInitCrashFlyUp( body_work );
             AppMain.gmBoss5SetCameraLift( body_work.mgr_work );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithFlyUp );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithFlyUp;
         }
     }
 
@@ -4006,7 +4006,7 @@ public partial class AppMain
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_CRASH_WAIT_TIME;
             AppMain.GmBoss5EfctCrashCursorInit( body_work, AppMain.gmBoss5BodyGetCrashFallPosX( body_work ), AppMain.GMD_BOSS5_BODY_CRASH_WAIT_TIME - AppMain.GMD_BOSS5_BODY_CRASH_CURSOR_SPAWN_TIME_TRHESHOLD );
             body_work.flag |= 2U;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithWait );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithWait;
         }
     }
 
@@ -4026,7 +4026,7 @@ public partial class AppMain
         AppMain.gmBoss5BodyChangeRectSetting( body_work, 5 );
         AppMain.GmSoundPlaySE( "FinalBoss17" );
         AppMain.gmBoss5RestoreCameraLift( body_work.mgr_work );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithFall );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithFall;
     }
 
     // Token: 0x06000BF8 RID: 3064 RVA: 0x0006A26C File Offset: 0x0006846C
@@ -4049,7 +4049,7 @@ public partial class AppMain
             AppMain.gmBoss5Vibration( 4 );
             AppMain.GmPadVibSet( 1, -1f, 32768, 32768, -1f, 0f, 0f, 32768U );
             AppMain.gmBoss5DelayedSePlayback( "FinalBoss18", AppMain.GMD_BOSS5_BODY_CRASH_STRIKE_SE_START_DELAY );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithLand );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithLand;
         }
     }
 
@@ -4061,7 +4061,7 @@ public partial class AppMain
         {
             body_work.mgr_work.flag |= 536870912U;
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_CRASH_LANDED_IDLE_TIME;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithIdle );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithIdle;
         }
     }
 
@@ -4084,7 +4084,7 @@ public partial class AppMain
         body_work.flag |= 131072U;
         body_work.mgr_work.flag |= 1073741824U;
         AppMain.GmGmkCamScrLimitRelease( 8 );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateCrashWithSink );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateCrashWithSink;
     }
 
     // Token: 0x06000BFB RID: 3067 RVA: 0x0006A44A File Offset: 0x0006864A
@@ -4098,7 +4098,7 @@ public partial class AppMain
     {
         AppMain.gmBoss5BodySetActionWhole( body_work, 32 );
         AppMain.gmBoss5BodyChangeRectSettingDefault( body_work );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateRpcWithPrep );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateRpcWithPrep;
     }
 
     // Token: 0x06000BFD RID: 3069 RVA: 0x0006A475 File Offset: 0x00068675
@@ -4131,7 +4131,7 @@ public partial class AppMain
             {
                 body_work.wait_timer = AppMain.gmBoss5BodySeqGetRpcNmlSearchTime( body_work );
             }
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateRpcWithSearch );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateRpcWithSearch;
         }
     }
 
@@ -4144,7 +4144,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmBoss5BodySetActionWhole( body_work, 33 );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateRpcWithLaunchFirst );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateRpcWithLaunchFirst;
     }
 
     // Token: 0x06000C00 RID: 3072 RVA: 0x0006A550 File Offset: 0x00068750
@@ -4154,7 +4154,7 @@ public partial class AppMain
         if ( obs_OBJECT_WORK.obj_3d.frame[0] >= AppMain.GMD_BOSS5_BODY_RPUNCH_LAUNCH_TIMING_DELAY )
         {
             body_work.flag |= 268435456U;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateRpcWithWaitReturnFirst );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateRpcWithWaitReturnFirst;
         }
     }
 
@@ -4172,7 +4172,7 @@ public partial class AppMain
             num = 1;
             body_work.flag &= 4294967291U;
             AppMain.gmBoss5BodySetActionWhole( body_work, 34 );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateRpcWithLaunchSecond );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateRpcWithLaunchSecond;
         }
         if ( num != 0 && ( body_work.flag & 8U ) == 0U )
         {
@@ -4193,7 +4193,7 @@ public partial class AppMain
         if ( obs_OBJECT_WORK.obj_3d.frame[0] >= AppMain.GMD_BOSS5_BODY_RPUNCH_LAUNCH_TIMING_DELAY )
         {
             body_work.flag |= 134217728U;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateRpcWithWaitReturnSecond );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateRpcWithWaitReturnSecond;
         }
     }
 
@@ -4205,7 +4205,7 @@ public partial class AppMain
             body_work.flag &= 4261412863U;
             body_work.flag &= 4294967287U;
             AppMain.gmBoss5BodySetActionWhole( body_work, 35 );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateRpcWithRecover );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateRpcWithRecover;
         }
     }
 
@@ -4231,7 +4231,7 @@ public partial class AppMain
         AppMain.GmBoss5EfctBreakdownSmokesInit( body_work, AppMain.GMD_BOSS5_BODY_BERSERK_BREAKDOWN_TIME );
         AppMain.GmBoss5EfctBodySmallSmokesInit( body_work );
         body_work.wait_timer = AppMain.GMD_BOSS5_BODY_BERSERK_BREAKDOWN_TIME;
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithBreakdown );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithBreakdown;
     }
 
     // Token: 0x06000C06 RID: 3078 RVA: 0x0006A744 File Offset: 0x00068944
@@ -4253,7 +4253,7 @@ public partial class AppMain
         AppMain.gmBoss5BodyInitShakeAccelerate( body_work );
         AppMain.GmBoss5EfctStartPrelimLeakage( body_work );
         body_work.wait_timer = AppMain.GMD_BOSS5_BODY_BERSERK_SHAKE_STAY_TIME;
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithShake );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithShake;
     }
 
     // Token: 0x06000C08 RID: 3080 RVA: 0x0006A7AC File Offset: 0x000689AC
@@ -4274,7 +4274,7 @@ public partial class AppMain
             AppMain.gmBoss5BodyInitBerserkTurn( body_work, 0 );
             AppMain.GmBoss5EfctEndPrelimLeakage( body_work );
             AppMain.gmBoss5BodyChangeRectSettingDefault( body_work );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithTurnFront );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithTurnFront;
         }
     }
 
@@ -4285,7 +4285,7 @@ public partial class AppMain
         {
             AppMain.GmBoss5EfctBerserkSteamInit( body_work, 1U );
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_BERSERK_ROAR_PREP_TIME;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithRoarPrep );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithRoarPrep;
         }
     }
 
@@ -4298,7 +4298,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmBoss5BodySetActionWhole( body_work, 42 );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithRoarStart );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithRoarStart;
     }
 
     // Token: 0x06000C0B RID: 3083 RVA: 0x0006A88C File Offset: 0x00068A8C
@@ -4309,7 +4309,7 @@ public partial class AppMain
             AppMain.GmBoss5EfctBerserkSteamInit( body_work, 1U );
             AppMain.gmBoss5BodySetActionWhole( body_work, 43 );
             body_work.wait_timer = AppMain.GMD_BOSS5_BODY_BERSERK_ROAR_LOOP_TIME;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithRoarLoop );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithRoarLoop;
         }
     }
 
@@ -4327,7 +4327,7 @@ public partial class AppMain
         AppMain.gmBoss5DelayedSePlayback( "FinalBoss03", AppMain.GMD_BOSS5_BODY_BERSERK_STAMP_SE_START_DELAY );
         AppMain.gmBoss5BodyInitBerserkTurn( body_work, 1 );
         AppMain.gmBoss5BodyInitGroundingMove( body_work, body_work.rfoot_snm_reg_id );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithTurnSide );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithTurnSide;
     }
 
     // Token: 0x06000C0D RID: 3085 RVA: 0x0006A93F File Offset: 0x00068B3F
@@ -4337,7 +4337,7 @@ public partial class AppMain
         if ( AppMain.gmBoss5BodyUpdateBerserkTurn( body_work ) != 0 )
         {
             AppMain.gmBoss5BodyClearBerserkTurn( body_work );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithStamp );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithStamp;
         }
     }
 
@@ -4350,7 +4350,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5BodySetActionWhole( body_work, 45 );
             AppMain.gmBoss5BodyInitGroundingMove( body_work, body_work.lfoot_snm_reg_id );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateBerserkWithKickUp );
+            body_work.proc_update = AppMain.gmBoss5BodyStateUpdateBerserkWithKickUp;
         }
     }
 
@@ -4375,7 +4375,7 @@ public partial class AppMain
         AppMain.gmBoss5BodyChangeRectSetting( body_work, 10 );
         AppMain.gmBoss5InitExplCreate( body_work.expl_work, 1, body_work.part_obj_core, AppMain.GMD_BOSS5_EXPL_BODY_OFST_X, AppMain.GMD_BOSS5_EXPL_BODY_OFST_Y, AppMain.GMD_BOSS5_EXPL_BODY_WIDTH, AppMain.GMD_BOSS5_EXPL_BODY_HEIGHT, AppMain.GMD_BOSS5_EXPL_BODY_INTERVAL_MIN, AppMain.GMD_BOSS5_EXPL_BODY_INTERVAL_MAX, AppMain.GMD_BOSS5_EXPL_BODY_SE_FREQUENCY );
         body_work.wait_timer = AppMain.GMD_BOSS5_BODY_DEFEAT_WAIT_START_TIME;
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateDefeatWithWaitStart );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateDefeatWithWaitStart;
     }
 
     // Token: 0x06000C11 RID: 3089 RVA: 0x0006AA8E File Offset: 0x00068C8E
@@ -4397,7 +4397,7 @@ public partial class AppMain
         AppMain.gmBoss5BodyRegisterScatterPartsCNM( body_work );
         AppMain.gmBoss5InitScatter( body_work );
         body_work.wait_timer = AppMain.MTM_MATH_MAX( 80U, 90U );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodyStateUpdateDefeatWithExplode );
+        body_work.proc_update = AppMain.gmBoss5BodyStateUpdateDefeatWithExplode;
     }
 
     // Token: 0x06000C13 RID: 3091 RVA: 0x0006AB10 File Offset: 0x00068D10
@@ -4448,7 +4448,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5BodySetActionWhole( body_work, 19 );
         }
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodySubSeqUpdateMoveFastCrashWithStagger );
+        body_work.proc_update = AppMain.gmBoss5BodySubSeqUpdateMoveFastCrashWithStagger;
     }
 
     // Token: 0x06000C15 RID: 3093 RVA: 0x0006AC58 File Offset: 0x00068E58
@@ -4466,7 +4466,7 @@ public partial class AppMain
     {
         AppMain.gmBoss5BodySetActionWhole( body_work, 36 );
         AppMain.gmBoss5BodyChangeRectSetting( body_work, 8 );
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithBend );
+        body_work.proc_update = AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithBend;
     }
 
     // Token: 0x06000C17 RID: 3095 RVA: 0x0006ACA7 File Offset: 0x00068EA7
@@ -4476,7 +4476,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5BodySetActionWhole( body_work, 37 );
             body_work.wait_timer = 240U;
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithSwing );
+            body_work.proc_update = AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithSwing;
         }
     }
 
@@ -4489,7 +4489,7 @@ public partial class AppMain
             return;
         }
         body_work.flag |= 1610612736U;
-        body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithWaitReturn );
+        body_work.proc_update = AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithWaitReturn;
     }
 
     // Token: 0x06000C19 RID: 3097 RVA: 0x0006AD18 File Offset: 0x00068F18
@@ -4499,7 +4499,7 @@ public partial class AppMain
         {
             body_work.flag &= 4294967283U;
             AppMain.gmBoss5BodySetActionWhole( body_work, 38 );
-            body_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_BODY_WORK( AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithRecover );
+            body_work.proc_update = AppMain.gmBoss5BodySubSeqUpdateRpcStrDmgWithRecover;
         }
     }
 
@@ -4520,7 +4520,7 @@ public partial class AppMain
         AppMain.GMS_BOSS5_CORE_WORK core_work = (AppMain.GMS_BOSS5_CORE_WORK)obj_work;
         if ( ( gms_BOSS5_BODY_WORK.mgr_work.flag & 1U ) != 0U )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5CoreMain );
+            obj_work.ppFunc = AppMain.gmBoss5CoreMain;
             AppMain.gmBoss5CoreProcInit( core_work );
         }
     }
@@ -4538,7 +4538,7 @@ public partial class AppMain
     // Token: 0x06000C1D RID: 3101 RVA: 0x0006ADD8 File Offset: 0x00068FD8
     private static void gmBoss5CoreProcInit( AppMain.GMS_BOSS5_CORE_WORK core_work )
     {
-        core_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_CORE_WORK( AppMain.gmBoss5CoreProcUpdateLoop );
+        core_work.proc_update = AppMain.gmBoss5CoreProcUpdateLoop;
     }
 
     // Token: 0x06000C1E RID: 3102 RVA: 0x0006ADEC File Offset: 0x00068FEC
@@ -4570,7 +4570,7 @@ public partial class AppMain
         obs_OBJECT_WORK.parent_obj = AppMain.GMM_BS_OBJ( mgr_work );
         gms_BOSS5_ALARM_FADE_WORK.mgr_work = mgr_work;
         AppMain.GmFadeSetFade( gms_BOSS5_ALARM_FADE_WORK.fade_obj, 0U, 0, 0, 0, 0, 0, 0, 0, 0, 1f, 0, 0 );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5AlarmFadeMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5AlarmFadeMain;
         AppMain.gmBoss5AlarmFadeProcInit( gms_BOSS5_ALARM_FADE_WORK );
     }
 
@@ -4674,7 +4674,7 @@ public partial class AppMain
         AppMain.GMS_BOSS5_MGR_WORK mgr_work = alarm_fade.mgr_work;
         AppMain.gmBoss5AlarmFadeInitFade( alarm_fade, mgr_work.alarm_level );
         AppMain.gmBoss5AlarmFadeInitAlertSe( alarm_fade );
-        alarm_fade.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_ALARM_FADE_WORK( AppMain.gmBoss5AlarmFadeProcUpdateLoop );
+        alarm_fade.proc_update = AppMain.gmBoss5AlarmFadeProcUpdateLoop;
     }
 
     // Token: 0x06000C27 RID: 3111 RVA: 0x0006B194 File Offset: 0x00069394
@@ -4696,7 +4696,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4128U;
         obs_OBJECT_WORK.flag |= 16U;
         AppMain.GmBsCmnInitFlashScreen( gms_BOSS5_FLASH_SCREEN_WORK.flash_work, ( float )AppMain.GMD_BOSS5_FLASH_SCREEN_FADEOUT_TIME, 5f, 30f );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5FlashScreenMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5FlashScreenMain;
     }
 
     // Token: 0x06000C29 RID: 3113 RVA: 0x0006B258 File Offset: 0x00069458
@@ -4717,7 +4717,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_FADE_OBJ_WORK;
         obs_OBJECT_WORK.parent_obj = AppMain.GMM_BS_OBJ( mgr_work );
         AppMain.GmFadeSetFade( gms_FADE_OBJ_WORK, 0U, 0, 0, 0, 0, byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue, 300f, 0, 0 );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5LastFadeOutMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5LastFadeOutMain;
     }
 
     // Token: 0x06000C2B RID: 3115 RVA: 0x0006B324 File Offset: 0x00069524
@@ -4729,7 +4729,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5RequestClearAlarmFade( mgr_work );
             AppMain.GmFixSetDisp( false );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5LastFadeOutEnd );
+            obj_work.ppFunc = AppMain.gmBoss5LastFadeOutEnd;
         }
     }
 
@@ -4777,7 +4777,7 @@ public partial class AppMain
             AppMain.gmBoss5ScatterSetPartParam( sct_part_ndc );
             AppMain.GMM_BS_OBJ( gms_BS_CMN_NODE_CTRL_OBJECT ).move_flag |= 4608U;
             AppMain.nnMakeUnitQuaternion( ref gms_BS_CMN_NODE_CTRL_OBJECT.user_quat );
-            gms_BS_CMN_NODE_CTRL_OBJECT.proc_update = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5ScatterProcWait );
+            gms_BS_CMN_NODE_CTRL_OBJECT.proc_update = AppMain.gmBoss5ScatterProcWait;
         }
         body_work.flag |= 262144U;
     }
@@ -4814,7 +4814,7 @@ public partial class AppMain
         gms_BS_CMN_NODE_CTRL_OBJECT.is_enable = 1;
         gms_BS_CMN_NODE_CTRL_OBJECT.user_timer = 180U;
         AppMain.GmBoss5EfctCreateSmallExplosion( obj_work.pos.x, obj_work.pos.y, obj_work.pos.z + AppMain.GMD_BOSS5_EXPL_OFST_Z );
-        gms_BS_CMN_NODE_CTRL_OBJECT.proc_update = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5ScatterProcFly );
+        gms_BS_CMN_NODE_CTRL_OBJECT.proc_update = AppMain.gmBoss5ScatterProcFly;
     }
 
     // Token: 0x06000C30 RID: 3120 RVA: 0x0006B6C4 File Offset: 0x000698C4

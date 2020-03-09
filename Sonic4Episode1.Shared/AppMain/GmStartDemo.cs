@@ -214,10 +214,10 @@ public partial class AppMain
     {
         AppMain.g_start_demo_mgr_real.Clear();
         AppMain.g_start_demo_mgr = AppMain.g_start_demo_mgr_real;
-        AppMain.g_start_demo_mgr.main_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmStartDemoProcMain ), null, 0U, 0, 18448U, 5, () => new AppMain.GMS_START_DEMO_WORK(), "START_DEMO_MAIN" );
+        AppMain.g_start_demo_mgr.main_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmStartDemoProcMain, null, 0U, 0, 18448U, 5, () => new AppMain.GMS_START_DEMO_WORK(), "START_DEMO_MAIN" );
         AppMain.GMS_START_DEMO_WORK gms_START_DEMO_WORK = (AppMain.GMS_START_DEMO_WORK)AppMain.g_start_demo_mgr.main_tcb.work;
         gms_START_DEMO_WORK.counter = 0U;
-        gms_START_DEMO_WORK.update = new AppMain.GMS_START_DEMO_WORK._update_( AppMain.gmStartDemoProcFade );
+        gms_START_DEMO_WORK.update = AppMain.gmStartDemoProcFade;
         AppMain.gmStartDemo2DActionCreate( gms_START_DEMO_WORK );
         AppMain.GMS_PLAYER_WORK ply_work = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         AppMain.GmPlySeqInitDemoFw( ply_work );
@@ -354,7 +354,7 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.IzFadeExit();
-            work.update = new AppMain.GMS_START_DEMO_WORK._update_( AppMain.gmStartDemoProcIn );
+            work.update = AppMain.gmStartDemoProcIn;
             work.counter = 0U;
             int num = 0;
             while ( 4 > num )
@@ -403,7 +403,7 @@ public partial class AppMain
     {
         if ( work.counter >= 39U )
         {
-            work.update = new AppMain.GMS_START_DEMO_WORK._update_( AppMain.gmStartDemoProcWait );
+            work.update = AppMain.gmStartDemoProcWait;
             int num = 0;
             while ( 4 > num )
             {
@@ -551,7 +551,7 @@ public partial class AppMain
     {
         if ( work.counter >= 160U )
         {
-            work.update = new AppMain.GMS_START_DEMO_WORK._update_( AppMain.gmStartDemoProcOut );
+            work.update = AppMain.gmStartDemoProcOut;
             if (AppMain.GmStartMsgIsExe())
             {
                 AppMain.GmStartMsgInit();
@@ -606,7 +606,7 @@ public partial class AppMain
     {
         if ( work.counter > 230U )
         {
-            work.update = new AppMain.GMS_START_DEMO_WORK._update_( AppMain.gmStartDemoProcEnd );
+            work.update = AppMain.gmStartDemoProcEnd;
         }
     }
 

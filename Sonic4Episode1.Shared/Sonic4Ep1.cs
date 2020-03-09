@@ -22,14 +22,14 @@ public class Sonic4Ep1 : Game
         //this.graphics.PreferredBackBufferWidth = 480;
         //this.graphics.PreferredBackBufferHeight = 288;
         this.graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
-        this.graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(this.graphics_PreparingDeviceSettings);
+        this.graphics.PreparingDeviceSettings += this.graphics_PreparingDeviceSettings;
         this.graphics.SynchronizeWithVerticalRetrace = true;
         this.graphics.IsFullScreen = false;
         base.IsMouseVisible = true;
         base.Content.RootDirectory = "Content";
         base.TargetElapsedTime = TimeSpan.FromTicks(TimeSpan.TicksPerSecond / 30);
-        base.Activated += new EventHandler<EventArgs>(this.OnActivated);
-        base.Deactivated += new EventHandler<EventArgs>(this.OnDeactivated);
+        base.Activated += this.OnActivated;
+        base.Deactivated += this.OnDeactivated;
     }
 
     public void SetControllerSource(IControllerSource controllerSource)

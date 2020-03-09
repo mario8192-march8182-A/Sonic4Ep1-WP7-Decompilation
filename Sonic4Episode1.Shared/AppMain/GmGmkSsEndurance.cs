@@ -21,9 +21,9 @@ public partial class AppMain
         obs_OBJECT_WORK.user_flag = ( uint )( ( ~eve_rec.flag & 3 ) + 1 - ( ushort )eve_rec.byte_param[1] );
         obs_OBJECT_WORK.user_work = AppMain.gmGmkSsEnduranceColorSet( obs_OBJECT_WORK.user_flag );
         AppMain.gmGmkSsEnduranceScaleSet( obs_OBJECT_WORK );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsEnduranceWait );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsEnduranceWait;
         obs_OBJECT_WORK.user_timer = 0;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsEnduranceDrawFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkSsEnduranceDrawFunc;
         AppMain.OBS_COLLISION_WORK col_work = gms_ENEMY_3D_WORK.ene_com.col_work;
         col_work.obj_col.obj = obs_OBJECT_WORK;
         col_work.obj_col.diff_data = AppMain.g_gm_default_col;
@@ -64,7 +64,7 @@ public partial class AppMain
         }
         if ( obj_col.toucher_obj == gms_PLAYER_WORK.obj_work )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsEnduranceDamage );
+            obj_work.ppFunc = AppMain.gmGmkSsEnduranceDamage;
             obj_work.user_timer |= 30;
             AppMain.GmSoundPlaySE( "Special3" );
         }
@@ -93,7 +93,7 @@ public partial class AppMain
             {
                 AppMain.gmGmkSsEnduranceScaleSet( obj_work );
                 obj_work.user_work = AppMain.gmGmkSsEnduranceColorSet( obj_work.user_flag & 2147483647U );
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsEnduranceWait );
+                obj_work.ppFunc = AppMain.gmGmkSsEnduranceWait;
             }
             else
             {

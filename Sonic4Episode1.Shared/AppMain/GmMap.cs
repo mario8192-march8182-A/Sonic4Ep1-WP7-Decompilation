@@ -662,7 +662,7 @@ public partial class AppMain
         {
             AppMain.gmMapTransX = 0f;
         }
-        AppMain.gm_map_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMapMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.gmMapDest ), 0U, 0, 12288U, 5, () => new AppMain.GMS_MAP_SYS_WORK(), "GM_MAP_MAIN" );
+        AppMain.gm_map_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmMapMain, AppMain.gmMapDest, 0U, 0, 12288U, 5, () => new AppMain.GMS_MAP_SYS_WORK(), "GM_MAP_MAIN" );
         AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = new AppMain.GMS_MAP_SYS_WORK();
         AppMain.gm_map_tcb.work = gms_MAP_SYS_WORK;
         AppMain.gm_map_draw_command_state = 0U;

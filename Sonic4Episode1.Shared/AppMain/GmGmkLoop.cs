@@ -29,7 +29,7 @@ public partial class AppMain
     {
         AppMain.gmGmkLoopSetRect( obj_work );
         obj_work.move_flag |= 8448U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkLoopMainFunc );
+        obj_work.ppFunc = AppMain.gmGmkLoopMainFunc;
     }
 
     // Token: 0x0600155C RID: 5468 RVA: 0x000B98A4 File Offset: 0x000B7AA4
@@ -44,7 +44,7 @@ public partial class AppMain
         AppMain.ObjRectWorkZSet( obs_RECT_WORK, cLeft, cTop, -500, cRight, cBottom, 500 );
         obs_RECT_WORK.flag |= 1024U;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkLoopDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkLoopDefFunc;
     }
 
     // Token: 0x0600155D RID: 5469 RVA: 0x000B9970 File Offset: 0x000B7B70

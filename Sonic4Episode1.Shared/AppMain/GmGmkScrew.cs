@@ -16,7 +16,7 @@ public partial class AppMain
         gms_ENEMY_COM_WORK.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_COM_WORK.rect_work[2];
         obs_RECT_WORK.ppHit = null;
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkScrewDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkScrewDefFunc;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         if ( ( ( int )eve_rec.flag & AppMain.GMD_GMK_SCREW_EVE_FLAG_LEFT ) != 0 )
@@ -27,7 +27,7 @@ public partial class AppMain
         {
             AppMain.ObjRectWorkSet( obs_RECT_WORK, 4, -8, 16, 0 );
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkScrewMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkScrewMain;
         return obs_OBJECT_WORK;
     }
 

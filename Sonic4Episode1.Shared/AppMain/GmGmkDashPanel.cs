@@ -23,7 +23,7 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
         obs_RECT_WORK.ppHit = null;
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkDashPanelDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkDashPanelDefFunc;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         if ( AppMain.g_gs_main_sys_info.stage_id == 9 && ( eve_rec.id == 109 || eve_rec.id == 110 ) )

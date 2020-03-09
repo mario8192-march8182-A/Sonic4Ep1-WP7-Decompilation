@@ -101,13 +101,13 @@ public partial class AppMain
         gms_GMK_SPCTPLT_WORK.gmk_work.ene_com.rect_work[2].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_SPCTPLT_WORK.gmk_work.ene_com.rect_work[2];
         obs_RECT_WORK.ppDef = null;
-        obs_RECT_WORK.ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSpCtplt_PlayerHit );
+        obs_RECT_WORK.ppHit = AppMain.gmGmkSpCtplt_PlayerHit;
         AppMain.ObjRectWorkSet( obs_RECT_WORK, AppMain.tbl_gm_gmk_spctplt_rect[( int )gms_GMK_SPCTPLT_WORK.ctplt_id][0], AppMain.tbl_gm_gmk_spctplt_rect[( int )gms_GMK_SPCTPLT_WORK.ctplt_id][1], AppMain.tbl_gm_gmk_spctplt_rect[( int )gms_GMK_SPCTPLT_WORK.ctplt_id][2], AppMain.tbl_gm_gmk_spctplt_rect[( int )gms_GMK_SPCTPLT_WORK.ctplt_id][3] );
         obj_work.flag &= 4294967293U;
         obj_work.dir.z = gms_GMK_SPCTPLT_WORK.ctplt_tilt;
         gms_GMK_SPCTPLT_WORK.ply_work = null;
         gms_GMK_SPCTPLT_WORK.ctplt_height = 319488;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpCtpltStay );
+        obj_work.ppFunc = AppMain.gmGmkSpCtpltStay;
     }
 
     // Token: 0x06000271 RID: 625 RVA: 0x000141F8 File Offset: 0x000123F8
@@ -117,7 +117,7 @@ public partial class AppMain
         AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( gms_GMK_SPCTPLT_WORK.ply_work == gms_PLAYER_WORK )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpCtplt_PlayerHold );
+            obj_work.ppFunc = AppMain.gmGmkSpCtplt_PlayerHold;
             AppMain.gmGmkSpCtplt_PlayerHold( obj_work );
         }
     }
@@ -161,7 +161,7 @@ public partial class AppMain
                 ply_work.obj_work.dir.z = ( ushort )( gms_GMK_SPCTPLT_WORK.ctplt_tilt + 49152 );
                 AppMain.GmPlySeqInitPinballCtplt( ply_work, num, -num2 );
                 AppMain.GMM_PAD_VIB_SMALL();
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpCtplt_PlayerHold_100 );
+                obj_work.ppFunc = AppMain.gmGmkSpCtplt_PlayerHold_100;
                 gms_GMK_SPCTPLT_WORK.ctplt_return_timer = 4;
                 gms_GMK_SPCTPLT_WORK.ply_work = null;
                 AppMain.gmGmkSpCtpltSeStop( obj_work );
@@ -213,7 +213,7 @@ public partial class AppMain
         if ( gms_GMK_SPCTPLT_WORK.ctplt_return_timer <= 0 )
         {
             obj_work.flag &= 4294967293U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpCtpltStay );
+            obj_work.ppFunc = AppMain.gmGmkSpCtpltStay;
             AppMain.gmGmkSpCtpltStay( obj_work );
         }
     }
@@ -268,7 +268,7 @@ public partial class AppMain
         obs_OBJECT_WORK.pos.z = -4096;
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkSpCtpltExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkSpCtpltExit );
         gms_GMK_SPCTPLT_WORK.se_handle = null;
         return obs_OBJECT_WORK;
     }

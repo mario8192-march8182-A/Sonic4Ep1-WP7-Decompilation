@@ -29,7 +29,7 @@ public partial class AppMain
         obs_OBJECT_WORK.pos.z = 1179648;
         obs_OBJECT_WORK.flag |= 18U;
         obs_OBJECT_WORK.move_flag |= 256U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmScoreMainFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmScoreMainFunc;
         gms_SCORE_DISP_WORK.vib_level = vib_level;
         gms_SCORE_DISP_WORK.base_pos.Assign( obs_OBJECT_WORK.pos );
         gms_SCORE_DISP_WORK.scale = scale;

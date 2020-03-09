@@ -55,7 +55,7 @@ public partial class AppMain
         {
             AppMain.ObjObjectFieldRectSet( obs_OBJECT_WORK, ( short )( -AppMain.GMD_GMK_PPIL_COL_WIDTH / 2 + 2 ), ( short )( -AppMain.GMD_GMK_PPIL_COL_HEIGHT ), ( short )( AppMain.GMD_GMK_PPIL_COL_WIDTH / 2 - 2 ), -1 );
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarTopWait );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPPillarTopWait;
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_P_PIL_BODY");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK2;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK2, AppMain.gm_gmk_press_pillar_obj_3d_list[( int )( ( UIntPtr )num )], gms_EFFECT_3DNN_WORK.obj_3d );
@@ -64,14 +64,14 @@ public partial class AppMain
         obs_OBJECT_WORK2.pos.z = -131072;
         obs_OBJECT_WORK2.move_flag |= 256U;
         obs_OBJECT_WORK2.disp_flag |= 4194308U;
-        obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarBodyFollow );
+        obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkPPillarBodyFollow;
         obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK( () => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_P_PIL_SPRING" );
         gms_EFFECT_3DNN_WORK = ( AppMain.GMS_EFFECT_3DNN_WORK )obs_OBJECT_WORK2;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK2, AppMain.gm_gmk_press_pillar_obj_3d_list[4], gms_EFFECT_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK2.pos.z = -131072;
         obs_OBJECT_WORK2.move_flag |= 256U;
         obs_OBJECT_WORK2.disp_flag |= 4194304U;
-        obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarSpringFollow );
+        obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkPPillarSpringFollow;
         return obs_OBJECT_WORK;
     }
 
@@ -109,7 +109,7 @@ public partial class AppMain
             {
                 obj_work.spd.y = num;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarTopMove );
+            obj_work.ppFunc = AppMain.gmGmkPPillarTopMove;
         }
     }
 
@@ -190,7 +190,7 @@ public partial class AppMain
             return;
         }
         obj_work.spd.y = obj_work.user_timer;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarBodyMove );
+        obj_work.ppFunc = AppMain.gmGmkPPillarBodyMove;
         obj_work.user_flag = 0U;
     }
 
@@ -214,7 +214,7 @@ public partial class AppMain
             {
                 obj_work.spd.y = -obj_work.user_timer / 32;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarBodyMoveEx );
+            obj_work.ppFunc = AppMain.gmGmkPPillarBodyMoveEx;
         }
         if ( eve_rec.id == 284 )
         {
@@ -222,14 +222,14 @@ public partial class AppMain
             {
                 obj_work.pos.y = parent_obj.pos.y + AppMain.GMD_GMK_PPIL_PIL_OFS_MIN;
                 obj_work.spd.y = 32;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarBodyMoveEx );
+                obj_work.ppFunc = AppMain.gmGmkPPillarBodyMoveEx;
             }
         }
         else if ( obj_work.pos.y >= parent_obj.pos.y - AppMain.GMD_GMK_PPIL_PIL_OFS_MIN )
         {
             obj_work.pos.y = parent_obj.pos.y - AppMain.GMD_GMK_PPIL_PIL_OFS_MIN;
             obj_work.spd.y = -32;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarBodyMoveEx );
+            obj_work.ppFunc = AppMain.gmGmkPPillarBodyMoveEx;
         }
         parent_obj.user_work = ( uint )obj_work.pos.y;
     }
@@ -295,7 +295,7 @@ public partial class AppMain
             }
             else
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPPillarSpringMove );
+                obj_work.ppFunc = AppMain.gmGmkPPillarSpringMove;
             }
             obj_work.spd.y = 0;
         }

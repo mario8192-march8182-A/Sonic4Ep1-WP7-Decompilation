@@ -48,7 +48,7 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.gs_task_mt_system_tcb = AppMain.mtTaskMake( new AppMain.GSF_TASK_PROCEDURE( AppMain.mtTaskSystemMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.mtTaskSystemDest ), 2147483648U, ushort.MaxValue, 0U, 15, null, "GS_TASKMT_SYS" );
+        AppMain.gs_task_mt_system_tcb = AppMain.mtTaskMake( AppMain.mtTaskSystemMain, AppMain.mtTaskSystemDest, 2147483648U, ushort.MaxValue, 0U, 15, null, "GS_TASKMT_SYS" );
         AppMain.gs_task_mtsys = default( AppMain.GSS_TASK_SYS );
         AppMain.gs_task_mtsys.pause_level = -1;
         AppMain.gs_task_mtsys.pause_level_set = -1;

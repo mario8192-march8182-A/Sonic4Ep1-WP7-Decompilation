@@ -20,8 +20,8 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 2U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsGoalMain );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsGoalDrawFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsGoalMain;
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkSsGoalDrawFunc;
         AppMain.OBS_COLLISION_WORK col_work = gms_ENEMY_3D_WORK.ene_com.col_work;
         col_work.obj_col.obj = obs_OBJECT_WORK;
         col_work.obj_col.diff_data = AppMain.g_gm_default_col;

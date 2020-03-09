@@ -176,7 +176,7 @@ public partial class AppMain
         }
         gms_GMK_BOSS3_PILLAR_MANAGER_WORK.pattern_no = pattern_no;
         obj_work.user_timer = ( int )( ( float )AppMain.g_gm_gmk_boss3_pillar_frame_change_hurry[gms_GMK_BOSS3_PILLAR_MANAGER_WORK.pattern_no] * num );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarManagerMainFuncWaitHurry );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarManagerMainFuncWaitHurry;
     }
 
     // Token: 0x060013D1 RID: 5073 RVA: 0x000AFDA8 File Offset: 0x000ADFA8
@@ -210,7 +210,7 @@ public partial class AppMain
             num++;
         }
         obj_work.user_timer = 30;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarManagerMainFuncWaitReturn );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarManagerMainFuncWaitReturn;
     }
 
     // Token: 0x060013D3 RID: 5075 RVA: 0x000AFE30 File Offset: 0x000AE030
@@ -228,7 +228,7 @@ public partial class AppMain
             }
             num++;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarManagerMainFuncFw );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarManagerMainFuncFw;
     }
 
     // Token: 0x060013D4 RID: 5076 RVA: 0x000AFE88 File Offset: 0x000AE088
@@ -308,7 +308,7 @@ public partial class AppMain
         obj_work.move_flag |= 256U;
         obj_work.ppMove = null;
         obj_work.ppOut = null;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarManagerMainFuncFw );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarManagerMainFuncFw;
     }
 
     // Token: 0x060013DB RID: 5083 RVA: 0x000B0096 File Offset: 0x000AE296
@@ -321,7 +321,7 @@ public partial class AppMain
             return;
         }
         AppMain.GmGmkBoss3PillarChangeModeHurry( obj_work );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarManagerMainFuncWaitHurryEnd );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarManagerMainFuncWaitHurryEnd;
         obj_work.user_timer = 50;
     }
 
@@ -335,7 +335,7 @@ public partial class AppMain
             return;
         }
         AppMain.GmCameraVibrationSet( 0, 12288, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarManagerMainFuncFw );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarManagerMainFuncFw;
     }
 
     // Token: 0x060013DD RID: 5085 RVA: 0x000B0114 File Offset: 0x000AE314
@@ -348,7 +348,7 @@ public partial class AppMain
             return;
         }
         AppMain.GmGmkBoss3PillarChangeModeDelete( obj_work );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarManagerMainFuncFw );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarManagerMainFuncFw;
     }
 
     // Token: 0x060013DE RID: 5086 RVA: 0x000B014C File Offset: 0x000AE34C
@@ -577,8 +577,8 @@ public partial class AppMain
         gms_GMK_BOSS3_PILLAR_MAIN_WORK.target_pos.Assign( gms_GMK_BOSS3_PILLAR_MAIN_WORK.default_pos );
         gms_GMK_BOSS3_PILLAR_MAIN_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
         AppMain.gmGmkBoss3PillarPartsChangeModeWait( obj_work );
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3PillarOutFunc );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss3PillarDestFunc ) );
+        obj_work.ppOut = AppMain.gmBoss3PillarOutFunc;
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmBoss3PillarDestFunc );
     }
 
     // Token: 0x060013E8 RID: 5096 RVA: 0x000B08D0 File Offset: 0x000AEAD0
@@ -588,7 +588,7 @@ public partial class AppMain
         obj_work.pos.Assign( gms_GMK_BOSS3_PILLAR_MAIN_WORK.target_pos );
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarPartsMainWait );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarPartsMainWait;
         if ( gms_GMK_BOSS3_PILLAR_MAIN_WORK.effect_work != null )
         {
             AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )gms_GMK_BOSS3_PILLAR_MAIN_WORK.effect_work );
@@ -613,7 +613,7 @@ public partial class AppMain
         AppMain.gm_gmk_boss3_pillar_global_flag |= 4;
         obj_work.user_timer = wait_time;
         obj_work.move_flag |= 8192U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarPartsMainReady );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarPartsMainReady;
     }
 
     // Token: 0x060013EA RID: 5098 RVA: 0x000B09E7 File Offset: 0x000AEBE7
@@ -622,7 +622,7 @@ public partial class AppMain
         AppMain.gmGmkBoss3PillarSetMoveHurry( obj_work, move_frame );
         obj_work.user_timer = 0;
         obj_work.move_flag &= 4294959103U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarPartsMainActive );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarPartsMainActive;
     }
 
     // Token: 0x060013EB RID: 5099 RVA: 0x000B0A1C File Offset: 0x000AEC1C
@@ -639,7 +639,7 @@ public partial class AppMain
         AppMain.gm_gmk_boss3_pillar_global_flag = ( int )( ( long )AppMain.gm_gmk_boss3_pillar_global_flag & -9 );
         obj_work.user_timer = wait_time;
         obj_work.move_flag |= 8192U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarPartsMainReady );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarPartsMainReady;
     }
 
     // Token: 0x060013EC RID: 5100 RVA: 0x000B0AC8 File Offset: 0x000AECC8
@@ -656,7 +656,7 @@ public partial class AppMain
             return;
         }
         obj_work.move_flag &= 4294959103U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarPartsMainActive );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarPartsMainActive;
         AppMain.gmGmkBoss3PillarEffectCreatePillarAppear( obj_work );
         obj_work.user_timer = 45;
         if ( ( ( ulong )obj_work.user_flag & ( ulong )( ( long )AppMain.gm_gmk_boss3_pillar_global_flag ) & 4UL ) != 0UL )
@@ -765,16 +765,16 @@ public partial class AppMain
         gms_GMK_BOSS3_PILLAR_WALL_WORK.target_pos.Assign( gms_GMK_BOSS3_PILLAR_WALL_WORK.default_pos );
         gms_GMK_BOSS3_PILLAR_WALL_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
         obj_work.user_flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarWallMainWait );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss3PillarWallDestFunc ) );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarWallMainWait;
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmBoss3PillarWallDestFunc );
         if ( num == 2 )
         {
-            obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3PillarWallOutFunc );
+            obj_work.ppOut = AppMain.gmBoss3PillarWallOutFunc;
             return;
         }
         if ( num == 4 )
         {
-            obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3PillarWallOutFuncForFinalZone );
+            obj_work.ppOut = AppMain.gmBoss3PillarWallOutFuncForFinalZone;
         }
     }
 
@@ -843,7 +843,7 @@ public partial class AppMain
     {
         AppMain.GMS_GMK_BOSS3_PILLAR_WALL_WORK gms_GMK_BOSS3_PILLAR_WALL_WORK = (AppMain.GMS_GMK_BOSS3_PILLAR_WALL_WORK)obj_work;
         obj_work.spd.y = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarWallMainWait );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarWallMainWait;
         if ( gms_GMK_BOSS3_PILLAR_WALL_WORK.effect_work != null )
         {
             AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )gms_GMK_BOSS3_PILLAR_WALL_WORK.effect_work );
@@ -858,7 +858,7 @@ public partial class AppMain
         int num = 917504;
         gms_GMK_BOSS3_PILLAR_WALL_WORK.target_pos.y = gms_GMK_BOSS3_PILLAR_WALL_WORK.default_pos.y - num;
         obj_work.spd.y = -12288;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarWallMainActive );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarWallMainActive;
         AppMain.gmGmkBoss3PillarEffectCreateWallAppear( obj_work );
         if ( ( obj_work.user_flag & 4U ) != 0U )
         {
@@ -886,7 +886,7 @@ public partial class AppMain
         AppMain.GMS_GMK_BOSS3_PILLAR_WALL_WORK gms_GMK_BOSS3_PILLAR_WALL_WORK = (AppMain.GMS_GMK_BOSS3_PILLAR_WALL_WORK)obj_work;
         gms_GMK_BOSS3_PILLAR_WALL_WORK.target_pos.Assign( gms_GMK_BOSS3_PILLAR_WALL_WORK.default_pos );
         obj_work.spd.y = 12288;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3PillarWallMainActive );
+        obj_work.ppFunc = AppMain.gmGmkBoss3PillarWallMainActive;
         obj_work.user_flag &= 4294967279U;
         AppMain.gmGmkBoss3PillarEffectCreateWallAppear( obj_work );
         if ( gms_GMK_BOSS3_PILLAR_WALL_WORK.se_handle != null )
@@ -1021,13 +1021,13 @@ public partial class AppMain
     // Token: 0x060013FC RID: 5116 RVA: 0x000B1671 File Offset: 0x000AF871
     private static void gmGmkBoss3PillarWallMatrixPush( uint command_state )
     {
-        AppMain.ObjDraw3DNNUserFunc( new AppMain.OBF_DRAW_USER_DT_FUNC( AppMain.gmGmkBoss3PillarWallUserFuncMatrixPush ), null, 0, command_state );
+        AppMain.ObjDraw3DNNUserFunc( AppMain.gmGmkBoss3PillarWallUserFuncMatrixPush, null, 0, command_state );
     }
 
     // Token: 0x060013FD RID: 5117 RVA: 0x000B1687 File Offset: 0x000AF887
     private static void gmGmkBoss3PillarWallMatrixPop( uint command_state )
     {
-        AppMain.ObjDraw3DNNUserFunc( new AppMain.OBF_DRAW_USER_DT_FUNC( AppMain.gmGmkBoss3PillarWallUserFuncPop ), null, 0, command_state );
+        AppMain.ObjDraw3DNNUserFunc( AppMain.gmGmkBoss3PillarWallUserFuncPop, null, 0, command_state );
     }
 
     // Token: 0x060013FE RID: 5118 RVA: 0x000B16A0 File Offset: 0x000AF8A0

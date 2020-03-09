@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -808,9 +809,9 @@ public partial class AppMain
             char_id = 0;
         }
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(4352, 1, 0, 0, () => new AppMain.GMS_PLAYER_WORK(), "PLAYER OBJ");
-        AppMain.mtTaskChangeTcbDestructor(obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gmPlayerExit));
-        obs_OBJECT_WORK.ppUserRelease = new AppMain.OBS_OBJECT_WORK_Delegate4(AppMain.gmPlayerObjRelease);
-        obs_OBJECT_WORK.ppUserReleaseWait = new AppMain.OBS_OBJECT_WORK_Delegate4(AppMain.gmPlayerObjReleaseWait);
+        AppMain.mtTaskChangeTcbDestructor(obs_OBJECT_WORK.tcb, AppMain.gmPlayerExit);
+        obs_OBJECT_WORK.ppUserRelease = AppMain.gmPlayerObjRelease;
+        obs_OBJECT_WORK.ppUserReleaseWait = AppMain.gmPlayerObjReleaseWait;
         AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)obs_OBJECT_WORK;
         gms_PLAYER_WORK.player_id = (byte)player_id;
         gms_PLAYER_WORK.camera_no = (byte)camera_id;
@@ -833,17 +834,17 @@ public partial class AppMain
         obs_OBJECT_WORK.obj_type = 1;
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.flag |= 1U;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmPlayerDispFunc);
+        obs_OBJECT_WORK.ppOut = AppMain.gmPlayerDispFunc;
         if (!AppMain.GSM_MAIN_STAGE_IS_SPSTAGE())
         {
-            obs_OBJECT_WORK.ppIn = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmPlayerDefaultInFunc);
+            obs_OBJECT_WORK.ppIn = AppMain.gmPlayerDefaultInFunc;
         }
         else
         {
-            obs_OBJECT_WORK.ppIn = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmPlayerSplStgInFunc);
+            obs_OBJECT_WORK.ppIn = AppMain.gmPlayerSplStgInFunc;
         }
-        obs_OBJECT_WORK.ppLast = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmPlayerDefaultLastFunc);
-        obs_OBJECT_WORK.ppMove = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.GmPlySeqMoveFunc);
+        obs_OBJECT_WORK.ppLast = AppMain.gmPlayerDefaultLastFunc;
+        obs_OBJECT_WORK.ppMove = AppMain.GmPlySeqMoveFunc;
         obs_OBJECT_WORK.disp_flag |= 2048U;
         AppMain.GmPlySeqSetSeqState(gms_PLAYER_WORK);
         AppMain.GmPlayerStateInit(gms_PLAYER_WORK);
@@ -859,8 +860,8 @@ public partial class AppMain
             gms_PLAYER_WORK.rect_work[i].rect.back = -16;
             gms_PLAYER_WORK.rect_work[i].rect.front = 16;
         }
-        gms_PLAYER_WORK.rect_work[0].ppDef = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmPlayerDefFunc);
-        gms_PLAYER_WORK.rect_work[1].ppHit = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmPlayerAtkFunc);
+        gms_PLAYER_WORK.rect_work[0].ppDef = AppMain.gmPlayerDefFunc;
+        gms_PLAYER_WORK.rect_work[1].ppHit = AppMain.gmPlayerAtkFunc;
         gms_PLAYER_WORK.rect_work[0].flag |= 128U;
         gms_PLAYER_WORK.rect_work[1].flag |= 32U;
         gms_PLAYER_WORK.rect_work[2].flag |= 224U;
@@ -905,7 +906,7 @@ public partial class AppMain
             AppMain.gm_pos_y = gms_PLAYER_WORK.obj_work.pos.y >> 12;
             AppMain.gm_pos_z = gms_PLAYER_WORK.obj_work.pos.z >> 12;
         }
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmPlayerMain);
+        obs_OBJECT_WORK.ppFunc = AppMain.gmPlayerMain;
         AppMain.GmPlySeqChangeFw(gms_PLAYER_WORK);
         if (!SaveState.resumePlayer_2(gms_PLAYER_WORK))
         {
@@ -1350,13 +1351,13 @@ public partial class AppMain
         ply_work.obj_work.move_flag &= 4294705151U;
         ply_work.gmk_flag2 &= 4294967294U;
         ply_work.truck_obj = truck_obj;
-        ply_work.obj_work.ppRec = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmPlayerRectTruckFunc);
-        ply_work.obj_work.ppCol = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmPlayerTruckCollisionFunc);
+        ply_work.obj_work.ppRec = AppMain.gmPlayerRectTruckFunc;
+        ply_work.obj_work.ppCol = AppMain.gmPlayerTruckCollisionFunc;
         AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK> pointer = new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>(ply_work.obj_3d_work);
         int i = 0;
         while (i < 8)
         {
-            (~pointer).mtn_cb_func = new AppMain.mtn_cb_func_delegate(AppMain.gmGmkPlayerMotionCallbackTruck);
+            (~pointer).mtn_cb_func = AppMain.gmGmkPlayerMotionCallbackTruck;
             (~pointer).mtn_cb_param = ply_work;
             i++;
             pointer = ++pointer;
@@ -1386,7 +1387,7 @@ public partial class AppMain
         AppMain.ObjRectWorkSet(ply_work.rect_work[1], -16, (short)((short)-48 + field_bottom), 16, (short)((short)-16 + field_bottom));
         ply_work.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
-        obs_CAMERA.user_func = new AppMain.OBJF_CAMERA_USER_FUNC(AppMain.GmCameraTruckFunc);
+        obs_CAMERA.user_func = AppMain.GmCameraTruckFunc;
         if ((ply_work.obj_work.disp_flag & 1U) != 0U)
         {
             AppMain.GmPlayerSetReverse(ply_work);
@@ -1453,7 +1454,7 @@ public partial class AppMain
         ply_work.obj_work.dir_fall = 0;
         AppMain.g_gm_main_system.pseudofall_dir = 0;
         AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
-        obs_CAMERA.user_func = new AppMain.OBJF_CAMERA_USER_FUNC(AppMain.GmCameraFunc);
+        obs_CAMERA.user_func = AppMain.GmCameraFunc;
     }
 
     // Token: 0x06000AC0 RID: 2752 RVA: 0x0005F9B8 File Offset: 0x0005DBB8
@@ -1640,6 +1641,12 @@ public partial class AppMain
     // Token: 0x06000ACD RID: 2765 RVA: 0x0005FD80 File Offset: 0x0005DF80
     private static void GmPlayerActionChange(AppMain.GMS_PLAYER_WORK ply_work, int act_state)
     {
+        Debug.WriteLine($"Sonic transition to action: {act_state}");
+        if (act_state == 26 || act_state == 27 || act_state == 21)
+        {
+            Debug.WriteLine(new StackTrace());
+        }
+        
         ply_work.prev_act_state = ply_work.act_state;
         ply_work.act_state = act_state;
         ply_work.obj_work.obj_3d = ply_work.obj_3d[(int)AppMain.g_gm_player_model_tbl[(int)ply_work.char_id][act_state]];

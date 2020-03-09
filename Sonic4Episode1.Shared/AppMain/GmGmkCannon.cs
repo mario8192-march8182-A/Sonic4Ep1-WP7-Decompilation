@@ -173,7 +173,7 @@ public partial class AppMain
         gms_GMK_CANNON_WORK.gmk_work.ene_com.rect_work[0].flag &= 4294967291U;
         gms_GMK_CANNON_WORK.gmk_work.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_CANNON_WORK.gmk_work.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmGmkCannonHit);
+        obs_RECT_WORK.ppDef = AppMain.gmGmkCannonHit;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet(obs_RECT_WORK, 0, 0);
         AppMain.ObjRectDefSet(obs_RECT_WORK, 65534, 0);
@@ -183,7 +183,7 @@ public partial class AppMain
         gms_GMK_CANNON_WORK.angle_set = 0;
         gms_GMK_CANNON_WORK.angle_now = 0;
         gms_GMK_CANNON_WORK.gmk_work.ene_com.enemy_flag &= 4294934527U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCannonStay);
+        obj_work.ppFunc = AppMain.gmGmkCannonStay;
     }
 
     // Token: 0x0600124D RID: 4685 RVA: 0x0009FE98 File Offset: 0x0009E098
@@ -215,7 +215,7 @@ public partial class AppMain
 
             if (obj_work.pos.y <= gms_GMK_CANNON_WORK.ply_work.obj_work.pos.y)
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCannonReady);
+                obj_work.ppFunc = AppMain.gmGmkCannonReady;
             }
         }
     }
@@ -324,7 +324,7 @@ public partial class AppMain
             AppMain.gmGmkCannonFieldColOff(obj_work);
             gms_GMK_CANNON_WORK.gmk_work.ene_com.enemy_flag |= 32768U;
             gms_GMK_CANNON_WORK.shoot_after = 0;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCannonShoot);
+            obj_work.ppFunc = AppMain.gmGmkCannonShoot;
             AppMain.gmGmkCannonShoot(obj_work);
             AppMain.GmSoundPlaySE("Cannon2");
             AppMain.GMM_PAD_VIB_SMALL();
@@ -352,7 +352,7 @@ public partial class AppMain
         {
             gms_GMK_CANNON_WORK.ply_work = null;
             gms_GMK_CANNON_WORK.angle_set = 0;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCannonShootEnd);
+            obj_work.ppFunc = AppMain.gmGmkCannonShootEnd;
         }
     }
 

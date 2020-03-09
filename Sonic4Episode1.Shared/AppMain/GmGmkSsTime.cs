@@ -24,10 +24,10 @@ public partial class AppMain
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 2U;
         obs_OBJECT_WORK.scale.x = ( obs_OBJECT_WORK.scale.y = ( obs_OBJECT_WORK.scale.z = 6144 ) );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsTimeMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsTimeMain;
         gms_ENEMY_3D_WORK.ene_com.rect_work[0].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSsTimeDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkSsTimeDefFunc;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -6, -6, 6, 6 );
         return obs_OBJECT_WORK;
@@ -76,10 +76,10 @@ public partial class AppMain
         }
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate(gms_ENEMY_COM_WORK.obj_work, 5, 17);
         gms_EFFECT_3DES_WORK.efct_com.obj_work.flag |= 512U;
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsTimeEfctMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkSsTimeEfctMain;
         gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate( gms_ENEMY_COM_WORK.obj_work, 5, AppMain.gm_gmk_ss_time_add_msg[AppMain.GsEnvGetLanguage()] );
         gms_EFFECT_3DES_WORK.efct_com.obj_work.flag |= 512U;
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsTimeEfctMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkSsTimeEfctMain;
         gms_EFFECT_3DES_WORK.obj_3des.command_state = 10U;
         gms_ENEMY_COM_WORK.enemy_flag |= 65536U;
         AppMain.GmSoundPlaySE( "Special6" );

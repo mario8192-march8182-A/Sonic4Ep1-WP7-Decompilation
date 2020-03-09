@@ -137,7 +137,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
         gms_GMK_PMARKER_WORK.markerdist = 0;
         gms_GMK_PMARKER_WORK.hitcounter = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPointMarkerStay_100 );
+        obj_work.ppFunc = AppMain.gmGmkPointMarkerStay_100;
     }
 
     // Token: 0x06000B31 RID: 2865 RVA: 0x00064FE4 File Offset: 0x000631E4
@@ -163,7 +163,7 @@ public partial class AppMain
     private static void gmGmkPointMarkerStay_200( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet( obj_work, 1 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPointMarkerStay_210 );
+        obj_work.ppFunc = AppMain.gmGmkPointMarkerStay_210;
     }
 
     // Token: 0x06000B33 RID: 2867 RVA: 0x00065060 File Offset: 0x00063260
@@ -176,7 +176,7 @@ public partial class AppMain
             if ( gms_GMK_PMARKER_WORK.hitcounter == 0 )
             {
                 AppMain.ObjDrawObjectActionSet( obj_work, 0 );
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPointMarkerStay_300 );
+                obj_work.ppFunc = AppMain.gmGmkPointMarkerStay_300;
                 return;
             }
             AppMain.gmGmkPointMarkerStay_200( obj_work );
@@ -224,7 +224,7 @@ public partial class AppMain
             gms_GMK_PMARKER_WORK.COMWORK.rect_work[0].flag &= 4294967291U;
             gms_GMK_PMARKER_WORK.COMWORK.rect_work[1].flag &= 4294967291U;
             AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_PMARKER_WORK.COMWORK.rect_work[2];
-            obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkPointMarkerHit );
+            obs_RECT_WORK.ppDef = AppMain.gmGmkPointMarkerHit;
             obs_RECT_WORK.ppHit = null;
             AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
             AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );

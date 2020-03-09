@@ -54,7 +54,7 @@ public partial class AppMain
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
         gms_GMK_NEEDLE_WORK.needle_type = AppMain.GmGmkNeedleGetType( eve_rec.id );
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_needle_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleDrawFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkNeedleDrawFunc;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.obj = obs_OBJECT_WORK;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.width = ( ushort )AppMain.gm_gmk_col_rect_tbl[( int )gms_GMK_NEEDLE_WORK.needle_type][0];
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.height = ( ushort )AppMain.gm_gmk_col_rect_tbl[( int )gms_GMK_NEEDLE_WORK.needle_type][1];
@@ -110,7 +110,7 @@ public partial class AppMain
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
         gms_GMK_NEEDLE_WORK.needle_type = AppMain.GmGmkNeedleGetType( eve_rec.id );
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_needle_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleDrawFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkNeedleDrawFunc;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.obj = obs_OBJECT_WORK;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.width = ( ushort )AppMain.gm_gmk_col_rect_tbl[( int )gms_GMK_NEEDLE_WORK.needle_type][0];
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.height = ( ushort )AppMain.gm_gmk_col_rect_tbl[( int )gms_GMK_NEEDLE_WORK.needle_type][1];
@@ -131,7 +131,7 @@ public partial class AppMain
         gms_GMK_NEEDLE_WORK.state = 0U;
         gms_GMK_NEEDLE_WORK.is_first_disp = 1;
         gms_GMK_NEEDLE_WORK.timer = -30;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkActNeedleFwMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkActNeedleFwMain;
         if ( AppMain.g_gs_main_sys_info.stage_id == 14 )
         {
             AppMain.ObjDrawObjectActionSet( obs_OBJECT_WORK, 0 );
@@ -185,7 +185,7 @@ public partial class AppMain
     private static void gmGmkNeedleFwInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK work = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkNeedleFwMain );
+        obj_work.ppFunc = AppMain.gmGmkNeedleFwMain;
     }
 
     // Token: 0x060008C7 RID: 2247 RVA: 0x0004F758 File Offset: 0x0004D958
@@ -225,7 +225,7 @@ public partial class AppMain
         {
             AppMain.amFlagOn( ref obj_work.flag, 2U );
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkActNeedleFwMain );
+        obj_work.ppFunc = AppMain.gmGmkActNeedleFwMain;
     }
 
     // Token: 0x060008C9 RID: 2249 RVA: 0x0004F83C File Offset: 0x0004DA3C
@@ -310,7 +310,7 @@ public partial class AppMain
                 AppMain.amFlagOn( ref obj_work.flag, 2U );
             }
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkActNeedleScalingMain );
+        obj_work.ppFunc = AppMain.gmGmkActNeedleScalingMain;
     }
 
     // Token: 0x060008CB RID: 2251 RVA: 0x0004FA74 File Offset: 0x0004DC74
@@ -369,7 +369,7 @@ public partial class AppMain
     private static void gmGmkActNeedleRectWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK work = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkActNeedleRectWaitMain );
+        obj_work.ppFunc = AppMain.gmGmkActNeedleRectWaitMain;
     }
 
     // Token: 0x060008CD RID: 2253 RVA: 0x0004FC14 File Offset: 0x0004DE14

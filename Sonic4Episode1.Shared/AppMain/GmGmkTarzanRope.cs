@@ -89,7 +89,7 @@ public partial class AppMain
         int num2 = AppMain.g_gm_gmk_tarzan_rope_model_id[num];
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.g_gm_gmk_tarzan_rope_obj_3d_list[num2], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obj_work, 0, false, AppMain.ObjDataGet( 831 ), null, 0, null );
-        obj_work.obj_3d.mtn_cb_func = new AppMain.mtn_cb_func_delegate( AppMain.gmGmkTarzanRopeMotionCallback );
+        obj_work.obj_3d.mtn_cb_func = AppMain.gmGmkTarzanRopeMotionCallback;
         obj_work.obj_3d.mtn_cb_param = obj_work;
         AppMain.NNS_OBJECT @object = obj_work.obj_3d._object;
         float num3 = @object.pNodeList[0].Translation.y;
@@ -129,7 +129,7 @@ public partial class AppMain
         AppMain.gmGmkTarzanRopeeSetUserFlagType( obj_work, type );
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTarzanRopeDrawFunc );
+        obj_work.ppOut = AppMain.gmGmkTarzanRopeDrawFunc;
     }
 
     // Token: 0x06000538 RID: 1336 RVA: 0x0002C17C File Offset: 0x0002A37C
@@ -152,7 +152,7 @@ public partial class AppMain
         }
         obs_RECT_WORK.flag |= 1024U;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkTarzanRopeDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkTarzanRopeDefFunc;
     }
 
     // Token: 0x06000539 RID: 1337 RVA: 0x0002C254 File Offset: 0x0002A454
@@ -208,7 +208,7 @@ public partial class AppMain
             AppMain.GMM_PAD_VIB_SMALL();
         }
         AppMain.GmPlySeqInitTarzanRope( gms_PLAYER_WORK, gms_ENEMY_3D_WORK.ene_com );
-        parent_obj.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTarzanRopeMainWait );
+        parent_obj.ppFunc = AppMain.gmGmkTarzanRopeMainWait;
         gms_ENEMY_3D_WORK.ene_com.target_obj = parent_obj2;
         int num = AppMain.gmGmkTarzanRopeGetUserFlagType(parent_obj);
         int num2;
@@ -553,7 +553,7 @@ public partial class AppMain
             }
             AppMain.GmPlySeqGmkInitGmkJump( ply_work, num2, -num3 );
             AppMain.GmPlySeqChangeSequenceState( ply_work, 17 );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTarzanRopeMainEnd );
+            obj_work.ppFunc = AppMain.gmGmkTarzanRopeMainEnd;
             gms_ENEMY_3D_WORK.ene_com.target_obj = null;
             return true;
         }
@@ -606,7 +606,7 @@ public partial class AppMain
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U || gms_PLAYER_WORK.seq_state == 22 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTarzanRopeMainEnd );
+            obj_work.ppFunc = AppMain.gmGmkTarzanRopeMainEnd;
             gms_ENEMY_3D_WORK.ene_com.target_obj = null;
             gms_PLAYER_WORK.gmk_flag &= 4294934527U;
             return;
@@ -622,7 +622,7 @@ public partial class AppMain
         angle_target = AppMain.gmGmkTarzanRopeUpdateAngleTarget( obj_work, angle_target, angle_current, true );
         AppMain.gmGmkTarzanRopeCheckStop( obj_work, angle_target, angle_current );
         AppMain.gmGmkTarzanRopeUpdatePlayerPos( obj_work );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTarzanRopeMainKey );
+        obj_work.ppFunc = AppMain.gmGmkTarzanRopeMainKey;
     }
 
     // Token: 0x06000546 RID: 1350 RVA: 0x0002CDA8 File Offset: 0x0002AFA8
@@ -632,7 +632,7 @@ public partial class AppMain
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U || gms_PLAYER_WORK.seq_state == 22 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTarzanRopeMainEnd );
+            obj_work.ppFunc = AppMain.gmGmkTarzanRopeMainEnd;
             gms_ENEMY_3D_WORK.ene_com.target_obj = null;
             gms_PLAYER_WORK.gmk_flag &= 4294934527U;
             return;

@@ -105,7 +105,7 @@ public partial class AppMain
         obs_OBJECT_WORK.user_flag = ( uint )( obs_OBJECT_WORK.pos.x + ( ( int )( eve_rec.left + ( sbyte )eve_rec.width ) << 12 ) );
         AppMain.gmEneTStarWaitInit( obs_OBJECT_WORK );
         AppMain.GmEneUtilInitNodeMatrix( gms_ENE_T_STAR_WORK.node_work, obs_OBJECT_WORK, 10 );
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmEneTStarExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmEneTStarExit );
         AppMain.GmEneUtilGetNodeMatrix( gms_ENE_T_STAR_WORK.node_work, 4 );
         AppMain.GmEneUtilGetNodeMatrix( gms_ENE_T_STAR_WORK.node_work, 5 );
         AppMain.GmEneUtilGetNodeMatrix( gms_ENE_T_STAR_WORK.node_work, 6 );
@@ -142,7 +142,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.user_work = ( uint )( obs_OBJECT_WORK.pos.x + ( ( int )eve_rec.left << 12 ) );
         obs_OBJECT_WORK.user_flag = ( uint )( obs_OBJECT_WORK.pos.x + ( ( int )( eve_rec.left + ( sbyte )eve_rec.width ) << 12 ) );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarNeedleMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmEneTStarNeedleMain;
         obs_OBJECT_WORK.scale.x = AppMain.FX_F32_TO_FX32( 1.25f );
         obs_OBJECT_WORK.scale.y = AppMain.FX_F32_TO_FX32( 1.25f );
         obs_OBJECT_WORK.scale.z = AppMain.FX_F32_TO_FX32( 1.25f );
@@ -208,7 +208,7 @@ public partial class AppMain
     public static void gmEneTStarWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarWaitMain );
+        obj_work.ppFunc = AppMain.gmEneTStarWaitMain;
         obj_work.move_flag &= 4294967291U;
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
@@ -219,7 +219,7 @@ public partial class AppMain
     {
         if ( AppMain.gmEneTStarGetLength2N( obj_work ) < 16384 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarWalkInit );
+            obj_work.ppFunc = AppMain.gmEneTStarWalkInit;
         }
     }
 
@@ -228,7 +228,7 @@ public partial class AppMain
     {
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obj_work;
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarWalkMain );
+        obj_work.ppFunc = AppMain.gmEneTStarWalkMain;
         obj_work.move_flag &= 4294967291U;
         AppMain.VecFx32 vecFx = AppMain.gmEneTStarGetPlayerVectorFx(obj_work);
         obj_work.spd.x = ( int )( ( float )vecFx.x * 0.5f * gms_ENE_T_STAR_WORK.fSpd );
@@ -265,7 +265,7 @@ public partial class AppMain
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
         gms_ENE_T_STAR_WORK.timer = 15;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarStopMain );
+        obj_work.ppFunc = AppMain.gmEneTStarStopMain;
     }
 
     // Token: 0x06000790 RID: 1936 RVA: 0x00043140 File Offset: 0x00041340
@@ -278,7 +278,7 @@ public partial class AppMain
             gms_ENE_T_STAR_WORK.timer--;
             return;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarAttackInit );
+        obj_work.ppFunc = AppMain.gmEneTStarAttackInit;
         AppMain.GmEfctEneEsCreate( obj_work, 11 );
     }
 
@@ -316,7 +316,7 @@ public partial class AppMain
         AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
         obj_work.disp_flag |= 32U;
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarAttackMain );
+        obj_work.ppFunc = AppMain.gmEneTStarAttackMain;
         obj_work.move_flag &= 4294967291U;
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
@@ -362,7 +362,7 @@ public partial class AppMain
     // Token: 0x06000795 RID: 1941 RVA: 0x00043498 File Offset: 0x00041698
     public static void gmEneTStarFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneTStarFlipMain );
+        obj_work.ppFunc = AppMain.gmEneTStarFlipMain;
     }
 
     // Token: 0x06000796 RID: 1942 RVA: 0x000434B3 File Offset: 0x000416B3

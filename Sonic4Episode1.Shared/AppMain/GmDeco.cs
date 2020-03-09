@@ -866,7 +866,7 @@ public partial class AppMain
         int num = 0;
         for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 4 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 4 ) )
         {
-            if ( obs_OBJECT_WORK.ppFunc == new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmDecoMainFuncLoop ) )
+            if ( obs_OBJECT_WORK.ppFunc == AppMain.gmDecoMainFuncLoop )
             {
                 if ( num < 2 )
                 {
@@ -1193,7 +1193,7 @@ public partial class AppMain
     private static AppMain.MTS_TASK_TCB gmDecoCreateTcbPost()
     {
         AppMain.GMS_DECO_MGR gms_DECO_MGR = AppMain.gmDecoGetMgr();
-        gms_DECO_MGR.tcb_post = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmDecoTcbProcPost ), null, 0U, 0, 5376U, 5, null, "GM DECO POST" );
+        gms_DECO_MGR.tcb_post = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmDecoTcbProcPost, null, 0U, 0, 5376U, 5, null, "GM DECO POST" );
         return gms_DECO_MGR.tcb_post;
     }
 
@@ -1488,7 +1488,7 @@ public partial class AppMain
         obj_work.ppMove = move_func;
         obj_work.ppOut = out_func;
         obj_work.view_out_ofst = ( short )( AppMain.g_gm_decorate_size_tbl[( int )dec_rec.id] + 16 + 32 + 16 );
-        obj_work.ppViewCheck = new AppMain.OBS_OBJECT_WORK_Delegate3( AppMain.ObjObjectViewOutCheck );
+        obj_work.ppViewCheck = AppMain.ObjObjectViewOutCheck;
         gms_DECO_WORK.event_record = dec_rec;
         gms_DECO_WORK.event_x = dec_rec.pos_x;
         dec_rec.pos_x = byte.MaxValue;
@@ -1789,7 +1789,7 @@ public partial class AppMain
         float num3 = (num2 - num) * (float)Convert.ToInt32(parent_obj.user_work);
         parent_obj.obj_3d.speed[0] = num3 / ( float )parent_obj.user_timer;
         parent_obj.disp_flag &= 4294967279U;
-        parent_obj.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmDecoMainFuncMotionCount );
+        parent_obj.ppFunc = AppMain.gmDecoMainFuncMotionCount;
     }
 
     // Token: 0x0600044A RID: 1098 RVA: 0x00023394 File Offset: 0x00021594
@@ -1812,7 +1812,7 @@ public partial class AppMain
         {
             parent_obj.obj_3d.speed[0] = AppMain.MTM_MATH_ABS( parent_obj.obj_3d.speed[0] );
         }
-        parent_obj.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmDecoMainFuncDecreaseMotionSpeed );
+        parent_obj.ppFunc = AppMain.gmDecoMainFuncDecreaseMotionSpeed;
         AppMain.GMS_DECO_WORK gms_DECO_WORK = (AppMain.GMS_DECO_WORK)parent_obj;
         uint id = (uint)gms_DECO_WORK.event_record.id;
         parent_obj.user_timer = AppMain.g_gm_deco_user_timer[( int )( ( UIntPtr )id )];
@@ -1822,7 +1822,7 @@ public partial class AppMain
     private static void gmDecoRectFuncChangeMotionCommonFrame( AppMain.OBS_RECT_WORK own_rect_work, AppMain.OBS_RECT_WORK target_rect_work )
     {
         AppMain.OBS_OBJECT_WORK parent_obj = own_rect_work.parent_obj;
-        parent_obj.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmDecoMainFuncMotionCheckCommonFrame );
+        parent_obj.ppFunc = AppMain.gmDecoMainFuncMotionCheckCommonFrame;
         parent_obj.flag |= 2U;
     }
 

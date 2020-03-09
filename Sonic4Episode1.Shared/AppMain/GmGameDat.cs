@@ -262,7 +262,7 @@ public partial class AppMain
     // Token: 0x060005AE RID: 1454 RVA: 0x00032F5C File Offset: 0x0003115C
     public static void GmGameDatLoadInit( int proc_type, ushort stage_id, short[] char_id_list )
     {
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDataLoadMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDataLoadDest), 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmDataLoadMain, AppMain.gmDataLoadDest, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD");
         AppMain.gm_gamedat_load_tcb = mts_TASK_TCB;
         AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK)mts_TASK_TCB.work;
         AppMain.gm_gamedat_load_work = gms_GAMEDAT_LOAD_WORK;
@@ -490,7 +490,7 @@ public partial class AppMain
     private static void GmGameDatLoadBoosBattleInit( int boss_type )
     {
         ushort num = (ushort)AppMain.g_gm_gamedat_bossbattle_stage_id_tbl[boss_type];
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDataLoadMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmDataLoadDest), 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD_BB");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmDataLoadMain, AppMain.gmDataLoadDest, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD_BB");
         AppMain.gm_gamedat_load_tcb = mts_TASK_TCB;
         AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK)mts_TASK_TCB.work;
         AppMain.gm_gamedat_load_work = gms_GAMEDAT_LOAD_WORK;
@@ -554,7 +554,7 @@ public partial class AppMain
         gms_GAMEDAT_LOAD_WORK.load_finish = true;
         if ( gms_GAMEDAT_LOAD_WORK.proc_type == 1 )
         {
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmDataLoadMainPostWait ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmDataLoadMainPostWait );
             return;
         }
         gms_GAMEDAT_LOAD_WORK.post_finish = true;
@@ -567,7 +567,7 @@ public partial class AppMain
         AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK)tcb.work;
         if ( gms_GAMEDAT_LOAD_WORK.proc_type == 0 )
         {
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmDataLoadMain ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmDataLoadMain );
             AppMain.gmDataLoadMain( tcb );
         }
     }

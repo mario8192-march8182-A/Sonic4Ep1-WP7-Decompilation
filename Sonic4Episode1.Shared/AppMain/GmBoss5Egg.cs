@@ -55,7 +55,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 1152U;
         obs_OBJECT_WORK.move_flag &= 4294967039U;
         gms_BOSS5_EGG_WORK.ene_3d.ene_com.enemy_flag |= 32768U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5EggMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5EggMain;
         AppMain.gmBoss5EggProcInit( gms_BOSS5_EGG_WORK );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 64U;
@@ -146,7 +146,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obj_work = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.GmBsCmnSetAction( obj_work, 0, 1, 0 );
         AppMain.GmBoss5EfctStartEggSweat( egg_work );
-        egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_EGG_WORK( AppMain.gmBoss5EggProcUpdateStandby );
+        egg_work.proc_update = AppMain.gmBoss5EggProcUpdateStandby;
     }
 
     // Token: 0x06000978 RID: 2424 RVA: 0x0005561C File Offset: 0x0005381C
@@ -157,7 +157,7 @@ public partial class AppMain
         if ( ( mgr_work.flag & 4194304U ) != 0U )
         {
             AppMain.gmBoss5EggInitEscapeRun( egg_work );
-            egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_EGG_WORK( AppMain.gmBoss5EggProcUpdateRun );
+            egg_work.proc_update = AppMain.gmBoss5EggProcUpdateRun;
         }
     }
 
@@ -172,7 +172,7 @@ public partial class AppMain
         {
             obs_OBJECT_WORK.spd.x = AppMain.GMD_BOSS5_EGG_JUMP_RUNUP_SPD_X;
             AppMain.GmBsCmnSetAction( obs_OBJECT_WORK, 1, 0, 1 );
-            egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_EGG_WORK( AppMain.gmBoss5EggProcUpdateStartJump );
+            egg_work.proc_update = AppMain.gmBoss5EggProcUpdateStartJump;
         }
     }
 
@@ -189,7 +189,7 @@ public partial class AppMain
             AppMain.gmBoss5EggGetBodyNodePos( egg_work, out vecFx );
             AppMain.gmBoss5EggInitJump( egg_work, vecFx.x );
             AppMain.GmBsCmnSetAction( obs_OBJECT_WORK, 2, 0, 0 );
-            egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_EGG_WORK( AppMain.gmBoss5EggProcUpdateJump );
+            egg_work.proc_update = AppMain.gmBoss5EggProcUpdateJump;
         }
     }
 
@@ -201,7 +201,7 @@ public partial class AppMain
         if ( obs_OBJECT_WORK.spd.y > 0 )
         {
             AppMain.GmBsCmnSetAction( obs_OBJECT_WORK, 3, 0, 0 );
-            egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_EGG_WORK( AppMain.gmBoss5EggProcUpdateFall );
+            egg_work.proc_update = AppMain.gmBoss5EggProcUpdateFall;
         }
     }
 
@@ -216,7 +216,7 @@ public partial class AppMain
             obs_OBJECT_WORK.pos.Assign( vecFx );
             AppMain.GmBsCmnSetAction( obs_OBJECT_WORK, 4, 0, 0 );
             obs_OBJECT_WORK.disp_flag |= 1U;
-            egg_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_EGG_WORK( AppMain.gmBoss5EggProcUpdateAnger );
+            egg_work.proc_update = AppMain.gmBoss5EggProcUpdateAnger;
         }
     }
 

@@ -134,7 +134,7 @@ public partial class AppMain
             gms_GMK_SPEAR_WORK.timer_set_move = -( ( int )eve_rec.top << 12 );
         }
         AppMain.gmGmkSpear_CreateParts( gms_GMK_SPEAR_WORK );
-        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStart );
+        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = AppMain.gmGmkSpearStart;
         return gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work;
     }
 
@@ -158,7 +158,7 @@ public partial class AppMain
             gms_GMK_SPEAR_WORK.timer_set_move = ( int )eve_rec.top << 12;
         }
         AppMain.gmGmkSpear_CreateParts( gms_GMK_SPEAR_WORK );
-        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStart );
+        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = AppMain.gmGmkSpearStart;
         return gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work;
     }
 
@@ -182,7 +182,7 @@ public partial class AppMain
             gms_GMK_SPEAR_WORK.timer_set_move = -( ( int )eve_rec.left << 12 );
         }
         AppMain.gmGmkSpear_CreateParts( gms_GMK_SPEAR_WORK );
-        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStart );
+        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = AppMain.gmGmkSpearStart;
         return gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work;
     }
 
@@ -206,7 +206,7 @@ public partial class AppMain
             gms_GMK_SPEAR_WORK.timer_set_move = ( int )eve_rec.left << 12;
         }
         AppMain.gmGmkSpear_CreateParts( gms_GMK_SPEAR_WORK );
-        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStart );
+        gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work.ppFunc = AppMain.gmGmkSpearStart;
         return gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work;
     }
 
@@ -314,7 +314,7 @@ public partial class AppMain
     // Token: 0x0600055C RID: 1372 RVA: 0x0002D6BB File Offset: 0x0002B8BB
     private static void gmGmkSpearStay( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStay_100 );
+        obj_work.ppFunc = AppMain.gmGmkSpearStay_100;
         AppMain.gmGmkSpearStay_100( obj_work );
     }
 
@@ -325,7 +325,7 @@ public partial class AppMain
         gms_GMK_SPEAR_WORK.timer_dec--;
         if ( gms_GMK_SPEAR_WORK.timer_dec <= 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStay_200 );
+            obj_work.ppFunc = AppMain.gmGmkSpearStay_200;
         }
     }
 
@@ -347,7 +347,7 @@ public partial class AppMain
     {
         obj_work.pos.x = obj_work.pos.x + obj_work.spd.x;
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStroke_100 );
+        obj_work.ppFunc = AppMain.gmGmkSpearStroke_100;
         AppMain.gmGmkSpearStroke_100( obj_work );
     }
 
@@ -370,7 +370,7 @@ public partial class AppMain
                 obj_work.spd.x = 0;
                 obj_work.spd.y = 0;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearStroke_200 );
+            obj_work.ppFunc = AppMain.gmGmkSpearStroke_200;
         }
     }
 
@@ -398,7 +398,7 @@ public partial class AppMain
     // Token: 0x06000562 RID: 1378 RVA: 0x0002D96A File Offset: 0x0002BB6A
     private static void gmGmkSpearWait( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearWait_100 );
+        obj_work.ppFunc = AppMain.gmGmkSpearWait_100;
         AppMain.gmGmkSpearWait_100( obj_work );
     }
 
@@ -409,7 +409,7 @@ public partial class AppMain
         gms_GMK_SPEAR_WORK.timer_dec--;
         if ( gms_GMK_SPEAR_WORK.timer_dec <= 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearWait_200 );
+            obj_work.ppFunc = AppMain.gmGmkSpearWait_200;
         }
     }
 
@@ -428,7 +428,7 @@ public partial class AppMain
     {
         obj_work.pos.x = obj_work.pos.x + obj_work.spd.x;
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearShrink_100 );
+        obj_work.ppFunc = AppMain.gmGmkSpearShrink_100;
         AppMain.gmGmkSpearShrink_100( obj_work );
     }
 
@@ -451,7 +451,7 @@ public partial class AppMain
                 obj_work.spd.x = 0;
                 obj_work.spd.y = 0;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearShrink_200 );
+            obj_work.ppFunc = AppMain.gmGmkSpearShrink_200;
         }
     }
 
@@ -572,7 +572,7 @@ public partial class AppMain
         gms_GMK_SPEARPARTS_WORK.parent_connect = obj_work;
         gms_GMK_SPEARPARTS_WORK.obj_type = pwork.obj_type;
         gms_GMK_SPEARPARTS_WORK.fulcrum = gms_GMK_SPEARPARTS_WORK.connect;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSpearRod );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSpearRod;
     }
 
     // Token: 0x0600056A RID: 1386 RVA: 0x0002DFA4 File Offset: 0x0002C1A4

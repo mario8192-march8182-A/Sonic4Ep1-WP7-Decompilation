@@ -37,14 +37,14 @@ public partial class AppMain
         obs_OBJECT_WORK.user_flag = 0U;
         if ( eve_rec.id == 194 )
         {
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsOnewayMain );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsOnewayMain;
             obs_OBJECT_WORK.disp_flag |= 134217728U;
             obs_OBJECT_WORK.obj_3d.drawflag |= 8388608U;
             obs_OBJECT_WORK.obj_3d.draw_state.alpha.alpha = 0.5f;
         }
         else
         {
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsCircleMain );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsCircleMain;
             AppMain.OBS_COLLISION_WORK col_work = gms_ENEMY_3D_WORK.ene_com.col_work;
             col_work.obj_col.obj = obs_OBJECT_WORK;
             col_work.obj_col.diff_data = AppMain.g_gm_default_col;
@@ -55,7 +55,7 @@ public partial class AppMain
             col_work.obj_col.attr = 2;
             col_work.obj_col.flag |= 134217760U;
         }
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsCircleDrawFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkSsCircleDrawFunc;
         return obs_OBJECT_WORK;
     }
 
@@ -91,7 +91,7 @@ public partial class AppMain
         }
         if ( AppMain.GmSplStageSwCheck( ( uint )gms_ENEMY_3D_WORK.ene_com.eve_rec.flag ) )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsCircleMain );
+            obj_work.ppFunc = AppMain.gmGmkSsCircleMain;
             AppMain.OBS_COLLISION_WORK col_work = gms_ENEMY_3D_WORK.ene_com.col_work;
             col_work.obj_col.obj = obj_work;
             col_work.obj_col.diff_data = AppMain.g_gm_default_col;

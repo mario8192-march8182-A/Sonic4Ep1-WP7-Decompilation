@@ -406,7 +406,7 @@ public partial class AppMain
     // Token: 0x06000D12 RID: 3346 RVA: 0x00074A91 File Offset: 0x00072C91
     private static void GsMainSysSystemInitEvent(object obj)
     {
-        AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gsMainSysSystemInitMain), null, 0U, ushort.MaxValue, 4096U, 0, null, "GS_SYS_INIT");
+        AppMain.MTM_TASK_MAKE_TCB(AppMain.gsMainSysSystemInitMain, null, 0U, ushort.MaxValue, 4096U, 0, null, "GS_SYS_INIT");
     }
 
     // Token: 0x06000D13 RID: 3347 RVA: 0x00074AB8 File Offset: 0x00072CB8
@@ -417,7 +417,7 @@ public partial class AppMain
             return;
         }
         AppMain.GsInitOtherStart();
-        AppMain.mtTaskChangeTcbProcedure(tcb, new AppMain.GSF_TASK_PROCEDURE(AppMain.gsMainSysSystemInitMain2));
+        AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gsMainSysSystemInitMain2);
     }
 
     // Token: 0x06000D14 RID: 3348 RVA: 0x00074AD9 File Offset: 0x00072CD9

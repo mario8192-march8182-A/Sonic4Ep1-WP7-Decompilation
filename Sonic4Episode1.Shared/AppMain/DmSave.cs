@@ -192,7 +192,7 @@ public partial class AppMain
     // Token: 0x06000983 RID: 2435 RVA: 0x00055978 File Offset: 0x00053B78
     private static void dmSaveInit()
     {
-        AppMain.dm_save_mgr_p.tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.dmSaveProcMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.dmSaveDest), 0U, 32767, 8192U, 0, () => new AppMain.DMS_SAVE_MAIN_WORK(), "SAVE_TASK");
+        AppMain.dm_save_mgr_p.tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.dmSaveProcMain, AppMain.dmSaveDest, 0U, 32767, 8192U, 0, () => new AppMain.DMS_SAVE_MAIN_WORK(), "SAVE_TASK");
         AppMain.DMS_SAVE_MAIN_WORK dms_SAVE_MAIN_WORK = (AppMain.DMS_SAVE_MAIN_WORK)AppMain.dm_save_mgr_p.tcb.work;
         AppMain.dm_save_disp_flag = 0U;
         AppMain.dm_save_is_draw_state = 0U;
@@ -222,7 +222,7 @@ public partial class AppMain
             AppMain.dm_save_cmn_tex[k] = null;
         }
         AppMain.dm_save_is_draw_state = dms_SAVE_MAIN_WORK.draw_state;
-        dms_SAVE_MAIN_WORK.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveLoadFontData);
+        dms_SAVE_MAIN_WORK.proc_menu_update = AppMain.dmSaveLoadFontData;
     }
 
     // Token: 0x06000984 RID: 2436 RVA: 0x00055AA4 File Offset: 0x00053CA4
@@ -292,7 +292,7 @@ public partial class AppMain
         }
         if ((dms_SAVE_MAIN_WORK.flag & 2147483648U) != 0U && !AppMain.AoAccountIsCurrentEnable())
         {
-            dms_SAVE_MAIN_WORK.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcStopDraw);
+            dms_SAVE_MAIN_WORK.proc_menu_update = AppMain.dmSaveProcStopDraw;
             dms_SAVE_MAIN_WORK.proc_input = null;
             dms_SAVE_MAIN_WORK.proc_draw = null;
             AppMain.dm_save_draw_reserve = false;
@@ -326,7 +326,7 @@ public partial class AppMain
         {
             AppMain.GsFontBuild();
         }
-        main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveIsLoadFontData);
+        main_work.proc_menu_update = AppMain.dmSaveIsLoadFontData;
     }
 
     // Token: 0x06000989 RID: 2441 RVA: 0x00055D04 File Offset: 0x00053F04
@@ -334,7 +334,7 @@ public partial class AppMain
     {
         if (AppMain.GsFontIsBuilded())
         {
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveLoadRequest);
+            main_work.proc_menu_update = AppMain.dmSaveLoadRequest;
         }
     }
 
@@ -343,7 +343,7 @@ public partial class AppMain
     {
         main_work.arc_cmn_amb_fs[0] = AppMain.amFsReadBackground("DEMO/CMN/D_CMN_WIN.AMB");
         main_work.arc_cmn_amb_fs[1] = AppMain.amFsReadBackground(AppMain.dm_save_menu_cmn_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
-        main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcLoadWait);
+        main_work.proc_menu_update = AppMain.dmSaveProcLoadWait;
     }
 
     // Token: 0x0600098B RID: 2443 RVA: 0x00055D60 File Offset: 0x00053F60
@@ -368,7 +368,7 @@ public partial class AppMain
             {
                 AppMain.DmSoundBuild();
             }
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcTexBuildWait);
+            main_work.proc_menu_update = AppMain.dmSaveProcTexBuildWait;
         }
     }
 
@@ -381,7 +381,7 @@ public partial class AppMain
             {
                 AppMain.dm_save_cmn_tex[i] = main_work.cmn_tex[i];
             }
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcCreateAct);
+            main_work.proc_menu_update = AppMain.dmSaveProcCreateAct;
         }
     }
 
@@ -410,7 +410,7 @@ public partial class AppMain
         {
             main_work.flag |= 2147483648U;
         }
-        main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowNodispIdle);
+        main_work.proc_menu_update = AppMain.dmSaveProcWindowNodispIdle;
     }
 
     // Token: 0x0600098E RID: 2446 RVA: 0x00055F2C File Offset: 0x0005412C
@@ -431,13 +431,13 @@ public partial class AppMain
             {
                 AppMain.DmCmnBackupLoad();
                 main_work.proc_input = null;
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowOpenWaitLoadIdle);
+                main_work.proc_menu_update = AppMain.dmSaveProcWindowOpenWaitLoadIdle;
             }
             else if (main_work.win_mode == 1)
             {
-                main_work.proc_input = new AppMain._saveproc_input_update(AppMain.dmSaveInputProcWindow);
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowOpenEfct);
-                main_work.proc_draw = new AppMain._saveproc_draw(AppMain.DmSaveWinSelectDraw);
+                main_work.proc_input = AppMain.dmSaveInputProcWindow;
+                main_work.proc_menu_update = AppMain.dmSaveProcWindowOpenEfct;
+                main_work.proc_draw = AppMain.DmSaveWinSelectDraw;
                 AppMain.dm_save_draw_reserve = true;
                 AppMain.DmSoundPlaySE("Window");
             }
@@ -445,7 +445,7 @@ public partial class AppMain
             {
                 AppMain.DmCmnBackupSave(AppMain.dm_save_first_save, false, false);
                 main_work.proc_input = null;
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowOpenWaitIdle);
+                main_work.proc_menu_update = AppMain.dmSaveProcWindowOpenWaitIdle;
                 main_work.proc_draw = null;
                 AppMain.dm_save_draw_reserve = false;
             }
@@ -453,14 +453,14 @@ public partial class AppMain
             {
                 AppMain.DmCmnBackupSave(AppMain.dm_save_first_save, true, false);
                 main_work.proc_input = null;
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowOpenWaitIdle);
+                main_work.proc_menu_update = AppMain.dmSaveProcWindowOpenWaitIdle;
                 main_work.proc_draw = null;
                 AppMain.dm_save_draw_reserve = false;
             }
             main_work.flag &= 4294967287U;
             return;
         }
-        main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcStopDraw);
+        main_work.proc_menu_update = AppMain.dmSaveProcStopDraw;
         AppMain.dm_save_draw_reserve = false;
     }
 
@@ -469,8 +469,8 @@ public partial class AppMain
     {
         if (AppMain.AoStorageIsExecuteReal())
         {
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowOpenEfct);
-            main_work.proc_draw = new AppMain._saveproc_draw(AppMain.DmSaveWinSelectDraw);
+            main_work.proc_menu_update = AppMain.dmSaveProcWindowOpenEfct;
+            main_work.proc_draw = AppMain.DmSaveWinSelectDraw;
             AppMain.DmSoundPlaySE("Window");
             AppMain.dm_save_draw_reserve = true;
         }
@@ -481,8 +481,8 @@ public partial class AppMain
     {
         if (AppMain.AoStorageSaveFreeSpaceIsEnough())
         {
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowOpenEfct);
-            main_work.proc_draw = new AppMain._saveproc_draw(AppMain.DmSaveWinSelectDraw);
+            main_work.proc_menu_update = AppMain.dmSaveProcWindowOpenEfct;
+            main_work.proc_draw = AppMain.DmSaveWinSelectDraw;
             AppMain.DmSoundPlaySE("Window");
             AppMain.dm_save_draw_reserve = true;
         }
@@ -493,7 +493,7 @@ public partial class AppMain
     {
         if ((main_work.flag & 16U) != 0U)
         {
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowAnnounceIdle);
+            main_work.proc_menu_update = AppMain.dmSaveProcWindowAnnounceIdle;
             main_work.disp_flag |= 1U;
             AppMain.dm_save_disp_flag = main_work.disp_flag;
             main_work.flag &= 4294967279U;
@@ -518,7 +518,7 @@ public partial class AppMain
                 {
                     main_work.disp_flag &= 4294967294U;
                     AppMain.dm_save_disp_flag = main_work.disp_flag;
-                    main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowCloseEfct);
+                    main_work.proc_menu_update = AppMain.dmSaveProcWindowCloseEfct;
                     main_work.timer = 0;
                 }
             }
@@ -527,7 +527,7 @@ public partial class AppMain
                 main_work.win_timer = 8;
                 main_work.disp_flag &= 4294967294U;
                 AppMain.dm_save_disp_flag = main_work.disp_flag;
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowCloseEfct);
+                main_work.proc_menu_update = AppMain.dmSaveProcWindowCloseEfct;
                 main_work.timer = 0;
             }
             else if (!AppMain.AoStorageIsExecuteReal())
@@ -540,7 +540,7 @@ public partial class AppMain
             if ((main_work.flag & 4U) != 0U)
             {
                 main_work.proc_input = null;
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowCloseEfct);
+                main_work.proc_menu_update = AppMain.dmSaveProcWindowCloseEfct;
                 main_work.win_timer = 8;
                 main_work.disp_flag &= 4294967294U;
                 AppMain.DmSoundPlaySE("Ok");
@@ -557,7 +557,7 @@ public partial class AppMain
                 {
                     main_work.proc_input = null;
                     main_work.disp_flag &= 4294967294U;
-                    main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowCloseEfct);
+                    main_work.proc_menu_update = AppMain.dmSaveProcWindowCloseEfct;
                     main_work.timer = 0;
                 }
             }
@@ -575,7 +575,7 @@ public partial class AppMain
                 {
                     main_work.proc_input = null;
                     main_work.disp_flag &= 4294967294U;
-                    main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowCloseEfct);
+                    main_work.proc_menu_update = AppMain.dmSaveProcWindowCloseEfct;
                     main_work.timer = 0;
                 }
             }
@@ -586,7 +586,7 @@ public partial class AppMain
         }
         else
         {
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowCloseEfct);
+            main_work.proc_menu_update = AppMain.dmSaveProcWindowCloseEfct;
             main_work.disp_flag &= 4294967294U;
         }
         AppMain.dm_save_disp_flag = main_work.disp_flag;
@@ -600,15 +600,15 @@ public partial class AppMain
         {
             if (main_work.win_mode == 1)
             {
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWaitSeStop);
+                main_work.proc_menu_update = AppMain.dmSaveProcWaitSeStop;
             }
             else if (main_work.win_mode == 0)
             {
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWaitLoadEnd);
+                main_work.proc_menu_update = AppMain.dmSaveProcWaitLoadEnd;
             }
             else
             {
-                main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowNodispIdle);
+                main_work.proc_menu_update = AppMain.dmSaveProcWindowNodispIdle;
             }
             main_work.announce_flag &= ~(1U << main_work.win_mode);
             main_work.flag &= 4294967279U;
@@ -623,7 +623,7 @@ public partial class AppMain
     {
         if (main_work.timer > 60)
         {
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowNodispIdle);
+            main_work.proc_menu_update = AppMain.dmSaveProcWindowNodispIdle;
             main_work.timer = 0;
             return;
         }
@@ -635,7 +635,7 @@ public partial class AppMain
     {
         if (AppMain.DmCmnBackupIsLoadFinished())
         {
-            main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcWindowNodispIdle);
+            main_work.proc_menu_update = AppMain.dmSaveProcWindowNodispIdle;
             main_work.timer = 0;
         }
     }
@@ -643,7 +643,7 @@ public partial class AppMain
     // Token: 0x06000996 RID: 2454 RVA: 0x000564BB File Offset: 0x000546BB
     private static void dmSaveProcStopDraw(AppMain.DMS_SAVE_MAIN_WORK main_work)
     {
-        main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcDataRelease);
+        main_work.proc_menu_update = AppMain.dmSaveProcDataRelease;
     }
 
     // Token: 0x06000997 RID: 2455 RVA: 0x000564D0 File Offset: 0x000546D0
@@ -658,7 +658,7 @@ public partial class AppMain
             AppMain.DmSoundExit();
             AppMain.DmSoundFlush();
         }
-        main_work.proc_menu_update = new AppMain._saveproc_input_update(AppMain.dmSaveProcFinish);
+        main_work.proc_menu_update = AppMain.dmSaveProcFinish;
     }
 
     // Token: 0x06000998 RID: 2456 RVA: 0x0005651C File Offset: 0x0005471C
@@ -824,7 +824,7 @@ public partial class AppMain
         }
         if (AppMain.dm_save_is_draw_state != 0U && AppMain.dm_save_is_task_draw)
         {
-            AppMain.amDrawMakeTask(new AppMain.TaskProc(AppMain.dmSaveTaskDraw), 61439, 0U);
+            AppMain.amDrawMakeTask(AppMain.dmSaveTaskDraw, 61439, 0U);
         }
     }
 

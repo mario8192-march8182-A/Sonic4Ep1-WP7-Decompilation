@@ -95,7 +95,7 @@ public partial class AppMain
             return null;
         }
         obs_OBJECT_WORK.obj_type = 6;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjDrawActionSummary );
+        obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
         obs_OBJECT_WORK.ppOutSub = null;
         obs_OBJECT_WORK.ppIn = null;
         obs_OBJECT_WORK.ppMove = null;

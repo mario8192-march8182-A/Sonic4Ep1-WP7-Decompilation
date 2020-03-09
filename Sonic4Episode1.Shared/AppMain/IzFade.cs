@@ -137,7 +137,7 @@ public partial class AppMain
         AppMain.IZS_FADE_WORK fade_work;
         if ( AppMain.iz_fade_tcb == null )
         {
-            AppMain.iz_fade_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.izFadeMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.izFadeDest ), 2U, pause_level, 4096U, group, () => new AppMain.IZS_FADE_WORK(), "IZ_FADE_SYS" );
+            AppMain.iz_fade_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.izFadeMain, AppMain.izFadeDest, 2U, pause_level, 4096U, group, () => new AppMain.IZS_FADE_WORK(), "IZ_FADE_SYS" );
             fade_work = ( AppMain.IZS_FADE_WORK )AppMain.iz_fade_tcb.work;
         }
         else
@@ -154,7 +154,7 @@ public partial class AppMain
         if ( AppMain.iz_fade_tcb != null )
         {
             AppMain.IZS_FADE_WORK izs_FADE_WORK = (AppMain.IZS_FADE_WORK)AppMain.iz_fade_tcb.work;
-            AppMain.mtTaskChangeTcbProcedure( AppMain.iz_fade_tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.izFadeEndWaitMain ) );
+            AppMain.mtTaskChangeTcbProcedure( AppMain.iz_fade_tcb, AppMain.izFadeEndWaitMain );
             izs_FADE_WORK.count = 0f;
             AppMain.iz_fade_tcb = null;
         }
@@ -318,7 +318,7 @@ public partial class AppMain
             AppMain.IZS_FADE_DT_WORK izs_FADE_DT_WORK = new AppMain.IZS_FADE_DT_WORK();
             izs_FADE_DT_WORK.draw_state = fade_work.draw_state;
             izs_FADE_DT_WORK.drawflag = 0U;
-            AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain.izFadeDrawStart_DT ), fade_work.dt_prio, izs_FADE_DT_WORK );
+            AppMain.amDrawMakeTask( AppMain.izFadeDrawStart_DT, fade_work.dt_prio, izs_FADE_DT_WORK );
         }
     }
 

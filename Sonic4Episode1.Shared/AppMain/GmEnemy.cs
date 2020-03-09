@@ -64,7 +64,7 @@ public partial class AppMain
             return null;
         }
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.GmEnemyDefaultExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.GmEnemyDefaultExit );
         if ( eve_rec != null )
         {
             gms_ENEMY_COM_WORK.eve_rec = eve_rec;
@@ -85,7 +85,7 @@ public partial class AppMain
             }
             else
             {
-                obs_OBJECT_WORK.ppViewCheck = new AppMain.OBS_OBJECT_WORK_Delegate3( AppMain.ObjObjectViewOutCheck );
+                obs_OBJECT_WORK.ppViewCheck = AppMain.ObjObjectViewOutCheck;
             }
         }
         else

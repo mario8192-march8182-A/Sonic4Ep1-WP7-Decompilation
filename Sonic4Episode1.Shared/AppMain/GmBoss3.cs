@@ -282,7 +282,7 @@ public partial class AppMain
         obj_work.disp_flag |= 32U;
         obj_work.move_flag |= 8448U;
         gms_BOSS3_MGR_WORK.ene_3d.ene_com.enemy_flag |= 32768U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3MgrMainFuncWaitLoad );
+        obj_work.ppFunc = AppMain.gmBoss3MgrMainFuncWaitLoad;
         if ( AppMain.GmBsCmnIsFinalZoneType( obj_work ) != 0 )
         {
             gms_BOSS3_MGR_WORK.life = 4;
@@ -309,7 +309,7 @@ public partial class AppMain
         ene_3d.ene_com.rect_work[2].flag |= 1024U;
         gms_BOSS3_BODY_WORK.ene_3d.ene_com.rect_work[1].flag |= 1024U;
         AppMain.ObjRectWorkSet( ene_3d.ene_com.rect_work[0], -28, -28, 28, 24 );
-        ene_3d.ene_com.rect_work[0].ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmBoss3BodyDefFunc );
+        ene_3d.ene_com.rect_work[0].ppDef = AppMain.gmBoss3BodyDefFunc;
         ene_3d.ene_com.rect_work[0].flag |= 1024U;
         AppMain.gmBoss3BodySetRectNormal( gms_BOSS3_BODY_WORK );
         obj_work.pos.z = 655360;
@@ -321,9 +321,9 @@ public partial class AppMain
         obj_work.obj_3d.blend_spd = 0.125f;
         AppMain.ObjDrawObjectSetToon( obj_work );
         obj_work.disp_flag |= 134217728U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3BodyMainFuncWaitSetup );
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3BodyOutFunc );
-        obj_work.ppMove = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3BodyChaseMoveFunc );
+        obj_work.ppFunc = AppMain.gmBoss3BodyMainFuncWaitSetup;
+        obj_work.ppOut = AppMain.gmBoss3BodyOutFunc;
+        obj_work.ppMove = AppMain.gmBoss3BodyChaseMoveFunc;
         AppMain.gmBoss3BodyChangeState( gms_BOSS3_BODY_WORK, 0 );
         obj_work.obj_3d.use_light_flag &= 4294967294U;
         obj_work.obj_3d.use_light_flag |= 64U;
@@ -349,7 +349,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectSetToon( obj_work );
         obj_work.disp_flag |= 134217728U;
         ene_3d.ene_com.enemy_flag |= 32768U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3EggmanMainFuncWaitSetup );
+        obj_work.ppFunc = AppMain.gmBoss3EggmanMainFuncWaitSetup;
         obj_work.obj_3d.use_light_flag &= 4294967294U;
         obj_work.obj_3d.use_light_flag |= 64U;
         return obj_work;
@@ -416,14 +416,14 @@ public partial class AppMain
         gms_BOSS3_BODY_WORK.parts_objs[0] = obj_work2;
         gms_BOSS3_MGR_WORK.body_work = gms_BOSS3_BODY_WORK;
         AppMain.gmBoss3MgrAddObject( gms_BOSS3_MGR_WORK, obj_work2 );
-        AppMain.mtTaskChangeTcbDestructor( obj_work2.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss3BodyExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obj_work2.tcb, AppMain.gmBoss3BodyExit );
         AppMain.GMS_BOSS3_EGG_WORK gms_BOSS3_EGG_WORK = (AppMain.GMS_BOSS3_EGG_WORK)AppMain.GmEventMgrLocalEventBirth(320, obj_work.pos.x, obj_work.pos.y, 0, 0, 0, 0, 0, 0);
         AppMain.OBS_OBJECT_WORK obj_work3 = gms_BOSS3_EGG_WORK.ene_3d.ene_com.obj_work;
         obj_work3.parent_obj = obj_work2;
         AppMain.gmBoss3MgrAddObject( gms_BOSS3_MGR_WORK, obj_work3 );
-        AppMain.mtTaskChangeTcbDestructor( obj_work3.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss3ExitFunc ) );
+        AppMain.mtTaskChangeTcbDestructor( obj_work3.tcb, AppMain.gmBoss3ExitFunc );
         gms_BOSS3_BODY_WORK.parts_objs[1] = obj_work3;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3MgrMainFuncWaitSetup );
+        obj_work.ppFunc = AppMain.gmBoss3MgrMainFuncWaitSetup;
     }
 
     // Token: 0x060010BF RID: 4287 RVA: 0x000933F0 File Offset: 0x000915F0
@@ -441,7 +441,7 @@ public partial class AppMain
             num++;
         }
         gms_BOSS3_MGR_WORK.flag |= 1U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3MgrMainFunc );
+        obj_work.ppFunc = AppMain.gmBoss3MgrMainFunc;
     }
 
     // Token: 0x060010C0 RID: 4288 RVA: 0x00093444 File Offset: 0x00091644
@@ -453,7 +453,7 @@ public partial class AppMain
             AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(gms_BOSS3_MGR_WORK.body_work);
             obs_OBJECT_WORK.flag |= 8U;
             gms_BOSS3_MGR_WORK.body_work = null;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3MgrMainFuncWaitRelease );
+            obj_work.ppFunc = AppMain.gmBoss3MgrMainFuncWaitRelease;
         }
     }
 
@@ -959,11 +959,11 @@ public partial class AppMain
         AppMain.gmBoss3BodySetDirectionNormal( body_work );
         if ( AppMain.GmBsCmnIsFinalZoneType( obs_OBJECT_WORK ) != 0 )
         {
-            body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateStartUpdateWait );
+            body_work.proc_update = AppMain.gmBoss3BodyStateStartUpdateWait;
         }
         else
         {
-            body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateStartUpdateWaitScrLimit );
+            body_work.proc_update = AppMain.gmBoss3BodyStateStartUpdateWaitScrLimit;
         }
         obs_OBJECT_WORK.user_timer = 180;
         body_work.ene_3d.ene_com.enemy_flag |= 32768U;
@@ -985,7 +985,7 @@ public partial class AppMain
         {
             return;
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateStartUpdateWait );
+        body_work.proc_update = AppMain.gmBoss3BodyStateStartUpdateWait;
     }
 
     // Token: 0x060010E3 RID: 4323 RVA: 0x000941D0 File Offset: 0x000923D0
@@ -1003,7 +1003,7 @@ public partial class AppMain
         AppMain.gmBoss3EffAfterburnerRequestCreate( body_work );
         obs_OBJECT_WORK.disp_flag &= 4294967294U;
         AppMain.gmBoss3BodyInitTurn( body_work, AppMain.GMD_BOSS3_ANGLE_RIGHT, 60f, 1 );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateStartUpdateEnd );
+        body_work.proc_update = AppMain.gmBoss3BodyStateStartUpdateEnd;
     }
 
     // Token: 0x060010E4 RID: 4324 RVA: 0x00094248 File Offset: 0x00092448
@@ -1023,7 +1023,7 @@ public partial class AppMain
     private static void gmBoss3BodyStateChaseMoveEnter( AppMain.GMS_BOSS3_BODY_WORK body_work )
     {
         AppMain.gmBoss3BodySetActionAllParts( body_work, 1 );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateChaseMoveUpdate );
+        body_work.proc_update = AppMain.gmBoss3BodyStateChaseMoveUpdate;
         AppMain.gmBoss3EffAfterburnerRequestCreate( body_work );
     }
 
@@ -1067,9 +1067,9 @@ public partial class AppMain
     {
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(body_work);
         AppMain.gmBoss3BodySetActionAllParts( body_work, 1 );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStatePreBattleUpdateStart );
+        body_work.proc_update = AppMain.gmBoss3BodyStatePreBattleUpdateStart;
         obs_OBJECT_WORK.user_timer = 120;
-        obs_OBJECT_WORK.ppMove = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjObjectMove );
+        obs_OBJECT_WORK.ppMove = AppMain.ObjObjectMove;
         AppMain.gmBoss3EffAfterburnerRequestDelete( body_work );
     }
 
@@ -1100,7 +1100,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 1U;
         AppMain.gmBoss3BodyInitTurn( body_work, AppMain.GMD_BOSS3_ANGLE_LEFT, 60f, 0 );
         AppMain.gmBoss3BodySetActionAllParts( body_work, 1 );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStatePreBattleUpdateTurn );
+        body_work.proc_update = AppMain.gmBoss3BodyStatePreBattleUpdateTurn;
         if ( AppMain.GmBsCmnIsFinalZoneType( obs_OBJECT_WORK ) == 0 )
         {
             AppMain.GmSoundChangeAngryBossBGM();
@@ -1116,7 +1116,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmBoss3BodySetActionAllParts( body_work, 2 );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStatePreBattleUpdateLaugh );
+        body_work.proc_update = AppMain.gmBoss3BodyStatePreBattleUpdateLaugh;
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmBoss3BodyBattleSearchPillar();
         if ( obs_OBJECT_WORK != null )
         {
@@ -1172,7 +1172,7 @@ public partial class AppMain
             }
             AppMain.gmBoss3BodyInitTurn( body_work, dest_angle, 60f, flag_positive );
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateMoveCenter );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateMoveCenter;
         AppMain.gmBoss3EffAfterburnerRequestCreate( body_work );
     }
 
@@ -1200,7 +1200,7 @@ public partial class AppMain
         {
             AppMain.gmBoss3BodySetActionAllParts( body_work, 4 );
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateSearch );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateSearch;
         AppMain.gmBoss3EffAfterburnerRequestDelete( body_work );
     }
 
@@ -1233,13 +1233,13 @@ public partial class AppMain
                 }
                 AppMain.gmBoss3BodyInitTurn( body_work, dest_angle, 60f, flag_positive );
             }
-            body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateMoveFirst );
+            body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateMoveFirst;
             AppMain.gmBoss3EffAfterburnerRequestCreate( body_work );
             AppMain.gmBoss3BodySetActionAllParts( body_work, 1 );
             return;
         }
         AppMain.gmBoss3BodySetActionAllParts( body_work, 5 );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateSign );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateSign;
     }
 
     // Token: 0x060010F1 RID: 4337 RVA: 0x00094710 File Offset: 0x00092910
@@ -1252,7 +1252,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmBoss3BodySetActionAllParts( body_work, 5 );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateSign );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateSign;
         AppMain.gmBoss3EffAfterburnerRequestDelete( body_work );
     }
 
@@ -1269,7 +1269,7 @@ public partial class AppMain
         {
             AppMain.GmGmkBoss3PillarChangeModeActive( obs_OBJECT_WORK2, body_work.pattern_no );
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateWaitPillar );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateWaitPillar;
         if ( AppMain.GmBsCmnIsFinalZoneType( obs_OBJECT_WORK ) != 0 )
         {
             obs_OBJECT_WORK.user_timer = 150;
@@ -1318,11 +1318,11 @@ public partial class AppMain
                 AppMain.gmBoss3BodyInitTurn( body_work, dest_angle, 60f, flag_positive );
             }
             AppMain.gmBoss3EffAfterburnerRequestCreate( body_work );
-            body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateMoveSecond );
+            body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateMoveSecond;
             AppMain.gmBoss3BodySetActionAllParts( body_work, 1 );
             return;
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateWaitActive );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateWaitActive;
         obs_OBJECT_WORK.user_timer = AppMain.GmGmkBoss3PillarGetActiveTime( body_work.pattern_no ) - 240 + 120;
         if ( ( obs_OBJECT_WORK.disp_flag & 1U ) != 0U )
         {
@@ -1350,7 +1350,7 @@ public partial class AppMain
         {
             AppMain.gmBoss3BodySetActionAllParts( body_work, 7 );
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateWaitActive );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateWaitActive;
         int num3 = 240;
         if ( AppMain.GmBsCmnIsFinalZoneType( obs_OBJECT_WORK ) != 0 )
         {
@@ -1369,7 +1369,7 @@ public partial class AppMain
             obs_OBJECT_WORK.user_timer--;
             return;
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateBattleUpdateWaitReturn );
+        body_work.proc_update = AppMain.gmBoss3BodyStateBattleUpdateWaitReturn;
         obs_OBJECT_WORK.user_timer = 30;
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.gmBoss3BodyBattleSearchPillar();
         if ( obs_OBJECT_WORK2 != null )
@@ -1403,7 +1403,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 16U;
         body_work.ene_3d.ene_com.enemy_flag |= 32768U;
         AppMain.GmBsCmnSetObjSpdZero( obs_OBJECT_WORK );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateDefeatUpdateStart );
+        body_work.proc_update = AppMain.gmBoss3BodyStateDefeatUpdateStart;
         obs_OBJECT_WORK.user_timer = 40;
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.gmBoss3BodyBattleSearchPillar();
         if ( obs_OBJECT_WORK2 != null )
@@ -1437,7 +1437,7 @@ public partial class AppMain
         }
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_BS_OBJ(body_work);
         AppMain.gmBoss3EffBombsInit( body_work.bomb_work, obs_OBJECT_WORK2, obs_OBJECT_WORK2.pos.x, obs_OBJECT_WORK2.pos.y, 327680, 327680, 10U, 30U );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateDefeatUpdateFall );
+        body_work.proc_update = AppMain.gmBoss3BodyStateDefeatUpdateFall;
         obs_OBJECT_WORK.user_timer = 120;
     }
 
@@ -1451,7 +1451,7 @@ public partial class AppMain
             AppMain.gmBoss3EffBombsUpdate( body_work.bomb_work );
             return;
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateDefeatUpdateExplode );
+        body_work.proc_update = AppMain.gmBoss3BodyStateDefeatUpdateExplode;
     }
 
     // Token: 0x060010FB RID: 4347 RVA: 0x00094BA0 File Offset: 0x00092DA0
@@ -1465,7 +1465,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_BS_OBJ(body_work);
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctCmnEsCreate(obs_OBJECT_WORK2, 8);
         obs_OBJECT_WORK3.pos.z = obs_OBJECT_WORK2.pos.z + 131072;
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateDefeatUpdateScatter );
+        body_work.proc_update = AppMain.gmBoss3BodyStateDefeatUpdateScatter;
         AppMain.GmPlayerAddScoreNoDisp( ( AppMain.GMS_PLAYER_WORK )AppMain.GmBsCmnGetPlayerObj(), 1000 );
         obs_OBJECT_WORK.user_timer = 40;
     }
@@ -1484,7 +1484,7 @@ public partial class AppMain
         body_work.flag |= 16777216U;
         AppMain.gmBoss3EffAfterburnerSmokeInit( body_work );
         AppMain.gmBoss3EffBodySmokeInit( body_work );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateDefeatUpdateEnd );
+        body_work.proc_update = AppMain.gmBoss3BodyStateDefeatUpdateEnd;
         obs_OBJECT_WORK.user_timer = 120;
     }
 
@@ -1521,10 +1521,10 @@ public partial class AppMain
         AppMain.GmMapSetMapDrawSize( 1 );
         if ( AppMain.GmBsCmnIsFinalZoneType( obs_OBJECT_WORK ) != 0 )
         {
-            body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateEscapeUpdateFinalZone );
+            body_work.proc_update = AppMain.gmBoss3BodyStateEscapeUpdateFinalZone;
             return;
         }
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateEscapeUpdateScrollLock );
+        body_work.proc_update = AppMain.gmBoss3BodyStateEscapeUpdateScrollLock;
     }
 
     // Token: 0x060010FF RID: 4351 RVA: 0x00094DE8 File Offset: 0x00092FE8
@@ -1550,7 +1550,7 @@ public partial class AppMain
             AppMain.GmGmkBoss3PillarWallChangeModeReturn( obs_OBJECT_WORK );
         }
         AppMain.GmEfctBossCmnEsCreate( AppMain.GMM_BS_OBJ( body_work ), 1U );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateEscapeUpdateWaitScreenOut );
+        body_work.proc_update = AppMain.gmBoss3BodyStateEscapeUpdateWaitScreenOut;
     }
 
     // Token: 0x06001101 RID: 4353 RVA: 0x00094E64 File Offset: 0x00093064
@@ -1576,7 +1576,7 @@ public partial class AppMain
             return;
         }
         AppMain.GmEfctBossCmnEsCreate( AppMain.GMM_BS_OBJ( body_work ), 1U );
-        body_work.proc_update = new AppMain.GMF_BOSS3_BODY_STATE_FUNC( AppMain.gmBoss3BodyStateEscapeUpdateWaitScreenOut );
+        body_work.proc_update = AppMain.gmBoss3BodyStateEscapeUpdateWaitScreenOut;
     }
 
     // Token: 0x06001103 RID: 4355 RVA: 0x00094EE8 File Offset: 0x000930E8
@@ -1597,7 +1597,7 @@ public partial class AppMain
             gms_BOSS3_BODY_WORK.snm_reg_id[num] = AppMain.GmBsCmnRegisterSNMNode( gms_BOSS3_BODY_WORK.snm_work, AppMain.g_boss3_node_index_list[num] );
             num++;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3BodyMainFunc );
+        obj_work.ppFunc = AppMain.gmBoss3BodyMainFunc;
         AppMain.gmBoss3BodyChangeState( gms_BOSS3_BODY_WORK, 1 );
     }
 
@@ -1678,7 +1678,7 @@ public partial class AppMain
     // Token: 0x06001108 RID: 4360 RVA: 0x0009516A File Offset: 0x0009336A
     private static void gmBoss3EggStateIdleInit( AppMain.GMS_BOSS3_EGG_WORK egg_work )
     {
-        egg_work.proc_update = new AppMain.GMF_BOSS3_EGG_STATE_FUNC( AppMain.gmBoss3EggStateIdleUpdate );
+        egg_work.proc_update = AppMain.gmBoss3EggStateIdleUpdate;
     }
 
     // Token: 0x06001109 RID: 4361 RVA: 0x00095180 File Offset: 0x00093380
@@ -1706,7 +1706,7 @@ public partial class AppMain
         {
             AppMain.gmBoss3EggChangeAction( egg_work, 1 );
         }
-        egg_work.proc_update = new AppMain.GMF_BOSS3_EGG_STATE_FUNC( AppMain.gmBoss3EggStateLaughUpdate );
+        egg_work.proc_update = AppMain.gmBoss3EggStateLaughUpdate;
     }
 
     // Token: 0x0600110B RID: 4363 RVA: 0x00095210 File Offset: 0x00093410
@@ -1726,7 +1726,7 @@ public partial class AppMain
     {
         AppMain.gmBoss3EggChangeAction( egg_work, 2 );
         AppMain.gmBoss3EffSweatInit( egg_work );
-        egg_work.proc_update = new AppMain.GMF_BOSS3_EGG_STATE_FUNC( AppMain.gmBoss3EggStateDamageUpdate );
+        egg_work.proc_update = AppMain.gmBoss3EggStateDamageUpdate;
     }
 
     // Token: 0x0600110D RID: 4365 RVA: 0x0009525C File Offset: 0x0009345C
@@ -1749,7 +1749,7 @@ public partial class AppMain
         {
             AppMain.gmBoss3EffSweatInit( egg_work );
         }
-        egg_work.proc_update = new AppMain.GMF_BOSS3_EGG_STATE_FUNC( AppMain.gmBoss3EggStateEscapeUpdate );
+        egg_work.proc_update = AppMain.gmBoss3EggStateEscapeUpdate;
     }
 
     // Token: 0x0600110F RID: 4367 RVA: 0x000952B8 File Offset: 0x000934B8
@@ -1768,7 +1768,7 @@ public partial class AppMain
         {
             return;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3EggmanMainFunc );
+        obj_work.ppFunc = AppMain.gmBoss3EggmanMainFunc;
         AppMain.GMS_BOSS3_EGG_WORK egg_work = (AppMain.GMS_BOSS3_EGG_WORK)obj_work;
         AppMain.gmBoss3EggStateIdleInit( egg_work );
     }
@@ -1881,7 +1881,7 @@ public partial class AppMain
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctBossCmnEsCreate(parent_obj, 4U);
         AppMain.GmEffect3DESAddDispOffset( gms_EFFECT_3DES_WORK, 0f, 0f, -30f );
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(gms_EFFECT_3DES_WORK);
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3EffAfterburnerMainFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss3EffAfterburnerMainFunc;
     }
 
     // Token: 0x06001118 RID: 4376 RVA: 0x00095634 File Offset: 0x00093834
@@ -1906,7 +1906,7 @@ public partial class AppMain
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctBossCmnEsCreate(parent_obj, 5U);
         AppMain.GmEffect3DESAddDispOffset( gms_EFFECT_3DES_WORK, 0f, 0f, -32f );
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(gms_EFFECT_3DES_WORK);
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3EffAfterburnerSmokeMainFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss3EffAfterburnerSmokeMainFunc;
     }
 
     // Token: 0x0600111A RID: 4378 RVA: 0x000956D8 File Offset: 0x000938D8
@@ -1923,7 +1923,7 @@ public partial class AppMain
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctBossCmnEsCreate(parent_obj, 3U);
         AppMain.GmEffect3DESAddDispOffset( gms_EFFECT_3DES_WORK, 0f, 0f, -32f );
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(gms_EFFECT_3DES_WORK);
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3EffBodySmokeMainFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss3EffBodySmokeMainFunc;
     }
 
     // Token: 0x0600111C RID: 4380 RVA: 0x00095754 File Offset: 0x00093954
@@ -1940,7 +1940,7 @@ public partial class AppMain
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(parent_obj, 93);
         AppMain.GmEffect3DESAddDispOffset( gms_EFFECT_3DES_WORK, 0f, 32f, 0f );
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(gms_EFFECT_3DES_WORK);
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss3EffSweatMainFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss3EffSweatMainFunc;
         egg_work.flag |= 2U;
     }
 

@@ -29,7 +29,7 @@ public partial class AppMain
             AppMain.gmBoss5LandCreateLdPart( land_work, AppMain.gm_boss5_land_place_pattern_tbl[( int )( ( UIntPtr )num )], i );
         }
         AppMain.gmBoss5LandSetObjCollisionRect( land_work, gms_BOSS5_LAND_PLACEMENT_INFO.part_num );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5LandMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5LandMain;
         AppMain.gmBoss5LandProcInit( land_work );
         return obs_OBJECT_WORK;
     }
@@ -109,7 +109,7 @@ public partial class AppMain
     // Token: 0x060004FD RID: 1277 RVA: 0x0002AE28 File Offset: 0x00029028
     private static void gmBoss5LandProcInit( AppMain.GMS_BOSS5_LAND_WORK land_work )
     {
-        land_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_LAND_WORK( AppMain.gmBoss5LandProcUpdateIdle );
+        land_work.proc_update = AppMain.gmBoss5LandProcUpdateIdle;
     }
 
     // Token: 0x060004FE RID: 1278 RVA: 0x0002AE3C File Offset: 0x0002903C
@@ -118,7 +118,7 @@ public partial class AppMain
         if ( ( land_work.mgr_work.flag & 536870912U ) != 0U )
         {
             land_work.flag |= AppMain.GMD_BOSS5_LAND_FLAG_SHAKE_ACTIVE;
-            land_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_LAND_WORK( AppMain.gmBoss5LandProcUpdateShake );
+            land_work.proc_update = AppMain.gmBoss5LandProcUpdateShake;
         }
     }
 
@@ -156,7 +156,7 @@ public partial class AppMain
         obs_OBJECT_WORK.parent_ofst.z = 0;
         gms_BOSS5_LDPART_WORK.pivot_parent_ofst[0] = obs_OBJECT_WORK.parent_ofst.x;
         gms_BOSS5_LDPART_WORK.pivot_parent_ofst[1] = obs_OBJECT_WORK.parent_ofst.y;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5LdPartMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5LdPartMain;
         AppMain.gmBoss5LdPartProcInit( gms_BOSS5_LDPART_WORK );
         return gms_BOSS5_LDPART_WORK;
     }
@@ -248,7 +248,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.disp_flag |= 4U;
-        ldpart_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_LDPART_WORK( AppMain.gmBoss5LdPartProcUpdateIdle );
+        ldpart_work.proc_update = AppMain.gmBoss5LdPartProcUpdateIdle;
     }
 
     // Token: 0x06000509 RID: 1289 RVA: 0x0002B37C File Offset: 0x0002957C
@@ -259,7 +259,7 @@ public partial class AppMain
         if ( ( gms_BOSS5_LAND_WORK.flag & AppMain.GMD_BOSS5_LAND_FLAG_SHAKE_ACTIVE ) != 0U )
         {
             AppMain.gmBoss5LdPartInitVib( ldpart_work );
-            ldpart_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_LDPART_WORK( AppMain.gmBoss5LdPartProcUpdateShake );
+            ldpart_work.proc_update = AppMain.gmBoss5LdPartProcUpdateShake;
         }
     }
 
@@ -275,7 +275,7 @@ public partial class AppMain
             AppMain.gmBoss5LdPartInitSpin( ldpart_work );
             AppMain.gmBoss5LdPartInitFall( ldpart_work );
             ldpart_work.wait_timer = ( uint )( ldpart_work.part_index & 1 );
-            ldpart_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_LDPART_WORK( AppMain.gmBoss5LdPartProcUpdateFall );
+            ldpart_work.proc_update = AppMain.gmBoss5LdPartProcUpdateFall;
         }
     }
 

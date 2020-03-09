@@ -14,10 +14,10 @@ public partial class AppMain
     private class _ObjDiffCollision
     {
         // Token: 0x04004A34 RID: 18996
-        public static AppMain.ObjDiffCollision_pFunc_delegate objGetColDataXPtr = new AppMain.ObjDiffCollision_pFunc_delegate(AppMain.objGetColDataX);
+        public static AppMain.ObjDiffCollision_pFunc_delegate objGetColDataXPtr = AppMain.objGetColDataX;
 
         // Token: 0x04004A35 RID: 18997
-        public static AppMain.ObjDiffCollision_pFunc_delegate objGetColDataYPtr = new AppMain.ObjDiffCollision_pFunc_delegate(AppMain.objGetColDataY);
+        public static AppMain.ObjDiffCollision_pFunc_delegate objGetColDataYPtr = AppMain.objGetColDataY;
     }
 
     // Token: 0x0200008A RID: 138

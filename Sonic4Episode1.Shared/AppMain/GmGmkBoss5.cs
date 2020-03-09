@@ -14,7 +14,7 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
         obs_OBJECT_WORK.move_flag |= 8448U;
         obs_OBJECT_WORK.move_flag &= 4294967167U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss5TriggerMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkBoss5TriggerMain;
         return obs_OBJECT_WORK;
     }
 

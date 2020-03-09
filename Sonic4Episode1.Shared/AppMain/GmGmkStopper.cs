@@ -96,15 +96,15 @@ public partial class AppMain
         gms_GMK_STOPPER_WORK.gmk_work.ene_com.rect_work[0].flag &= 4294967291U;
         gms_GMK_STOPPER_WORK.gmk_work.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_STOPPER_WORK.gmk_work.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkStopperHit );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkStopperHit;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, AppMain.tbl_gm_gmk_piston_col_rect[4], AppMain.tbl_gm_gmk_piston_col_rect[5], AppMain.tbl_gm_gmk_piston_col_rect[6], AppMain.tbl_gm_gmk_piston_col_rect[7] );
         obj_work.flag &= 4294967293U;
         gms_GMK_STOPPER_WORK.se_handle = null;
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkStopperExit ) );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay );
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkStopperExit );
+        obj_work.ppFunc = AppMain.gmGmkStopperStay;
     }
 
     // Token: 0x06000260 RID: 608 RVA: 0x000136A0 File Offset: 0x000118A0
@@ -140,7 +140,7 @@ public partial class AppMain
         obj_work.disp_flag &= 4294967279U;
         obj_work.disp_flag |= 4U;
         gms_GMK_STOPPER_WORK.player_pass_timer = 143;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay_Norm_100 );
+        obj_work.ppFunc = AppMain.gmGmkStopperStay_Norm_100;
         AppMain.GmCameraAllowSet( 15f, 32f, 0f );
     }
 
@@ -184,7 +184,7 @@ public partial class AppMain
         gms_GMK_STOPPER_WORK.player_pass_timer = 0;
         gms_GMK_STOPPER_WORK.gmk_work.obj_3d.mat_frame = 0f;
         obj_work.disp_flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay_100 );
+        obj_work.ppFunc = AppMain.gmGmkStopperStay_100;
         if ( gms_PLAYER_WORK.seq_state == 40 )
         {
             AppMain.GmPlySeqInitStopperEnd( gms_GMK_STOPPER_WORK.ply_work );
@@ -197,7 +197,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obj_work, 0 );
         obj_work.disp_flag &= 4294967279U;
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay_Slot_100 );
+        obj_work.ppFunc = AppMain.gmGmkStopperStay_Slot_100;
         AppMain.GmCameraAllowSet( 15f, 56f, 0f );
     }
 
@@ -215,7 +215,7 @@ public partial class AppMain
         if ( AppMain.GmGmkSlotIsStatus( gms_GMK_STOPPER_WORK.call_slot_id ) != 0 )
         {
             obj_work.disp_flag &= 4294967291U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay_Slot_110 );
+            obj_work.ppFunc = AppMain.gmGmkStopperStay_Slot_110;
             AppMain.gmGmkStopperStay_Slot_110( obj_work );
         }
     }
@@ -227,7 +227,7 @@ public partial class AppMain
         AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         gms_GMK_STOPPER_WORK.gmk_work.obj_3d.mat_frame = 0f;
         obj_work.disp_flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay_100 );
+        obj_work.ppFunc = AppMain.gmGmkStopperStay_100;
         if ( gms_PLAYER_WORK.seq_state == 40 )
         {
             AppMain.GmPlySeqInitStopperEnd( gms_GMK_STOPPER_WORK.ply_work );
@@ -244,7 +244,7 @@ public partial class AppMain
         gms_GMK_STOPPER_WORK.ply_work = null;
         gms_GMK_STOPPER_WORK.gmk_work.obj_3d.mat_frame = 0f;
         obj_work.disp_flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay );
+        obj_work.ppFunc = AppMain.gmGmkStopperStay;
         if ( gms_GMK_STOPPER_WORK.se_handle != null )
         {
             AppMain.GmSoundStopSE( gms_GMK_STOPPER_WORK.se_handle );
@@ -268,11 +268,11 @@ public partial class AppMain
             if ( gms_GMK_STOPPER_WORK.call_slot_id >= 0 )
             {
                 AppMain.GmGmkSlotStartRequest( gms_GMK_STOPPER_WORK.call_slot_id, ply_work );
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay_Slot );
+                obj_work.ppFunc = AppMain.gmGmkStopperStay_Slot;
                 AppMain.GmSoundPlaySE( "Casino3" );
                 return;
             }
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperStay_Norm );
+            obj_work.ppFunc = AppMain.gmGmkStopperStay_Norm;
             if ( gms_GMK_STOPPER_WORK.se_handle != null )
             {
                 AppMain.GmSoundStopSE( gms_GMK_STOPPER_WORK.se_handle );
@@ -311,7 +311,7 @@ public partial class AppMain
                 parent_obj.flag |= 2U;
                 gms_GMK_STOPPER_WORK.ply_work = gms_PLAYER_WORK;
                 parent_obj.user_timer = ( parent_obj.pos.y >> 12 ) + ( int )gms_GMK_STOPPER_WORK.gmk_work.ene_com.col_work.obj_col.height + ( int )gms_GMK_STOPPER_WORK.gmk_work.ene_com.col_work.obj_col.ofst_y - ( int )gms_PLAYER_WORK.rect_work[0].rect.top;
-                parent_obj.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkStopperLockWait );
+                parent_obj.ppFunc = AppMain.gmGmkStopperLockWait;
                 return;
             }
             mine_rect.flag &= 4294573823U;

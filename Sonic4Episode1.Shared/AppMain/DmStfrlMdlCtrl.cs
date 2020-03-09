@@ -42,8 +42,8 @@ public partial class AppMain
         obs_OBJECT_WORK.obj_3d.draw_state.alpha.alpha = 1f;
         dms_STFRL_SONIC_WORK.alpha = 1f;
         AppMain.ObjDrawObjectActionSet( obs_OBJECT_WORK, 21 );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlSonicDrawFunc );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlSonicProcWaitSetup );
+        obs_OBJECT_WORK.ppOut = AppMain.dmStfrlMdlCtrlSonicDrawFunc;
+        obs_OBJECT_WORK.ppFunc = AppMain.dmStfrlMdlCtrlSonicProcWaitSetup;
         return dms_STFRL_SONIC_WORK;
     }
 
@@ -72,7 +72,7 @@ public partial class AppMain
     {
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(24576, 0, 0, 0, () => new AppMain.DMS_STFRL_BOSS_BODY_WORK(), "BOSS1_BODY");
         AppMain.DMS_STFRL_BOSS_BODY_WORK result = (AppMain.DMS_STFRL_BOSS_BODY_WORK)obs_OBJECT_WORK;
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.dmStfrlMdlCtrlBoss1BodyExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.dmStfrlMdlCtrlBoss1BodyExit );
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.disp_flag |= 4194309U;
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
@@ -80,8 +80,8 @@ public partial class AppMain
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, true, AppMain.ObjDataGet( 728 ), null, 0, null );
         AppMain.ObjDrawObjectSetToon( obs_OBJECT_WORK );
         obs_OBJECT_WORK.obj_3d.blend_spd = 0.125f;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjDrawActionSummary );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcWaitSetup );
+        obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
+        obs_OBJECT_WORK.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcWaitSetup;
         return result;
     }
 
@@ -96,8 +96,8 @@ public partial class AppMain
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, true, AppMain.ObjDataGet( 729 ), null, 0, null );
         AppMain.ObjDrawObjectSetToon( obs_OBJECT_WORK );
         obs_OBJECT_WORK.disp_flag |= 134217728U;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjDrawActionSummary );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlEggProcWaitSetup );
+        obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
+        obs_OBJECT_WORK.ppFunc = AppMain.dmStfrlMdlCtrlEggProcWaitSetup;
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.disp_flag |= 4U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
@@ -134,8 +134,8 @@ public partial class AppMain
         obs_OBJECT_WORK.disp_flag |= 150995456U;
         obs_OBJECT_WORK.obj_3d.drawflag |= 8388608U;
         obs_OBJECT_WORK.obj_3d.draw_state.alpha.alpha = 0f;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlRingDrawFunc );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlRingProcStartWait );
+        obs_OBJECT_WORK.ppOut = AppMain.dmStfrlMdlCtrlRingDrawFunc;
+        obs_OBJECT_WORK.ppFunc = AppMain.dmStfrlMdlCtrlRingProcStartWait;
         dms_STFRL_RING_WORK.disp_ring_pos_no = ( int )type;
         dms_STFRL_RING_WORK.start_pos.x = AppMain.dm_stfrl_ring_disp_pos_tbl[dms_STFRL_RING_WORK.disp_ring_pos_no][0];
         dms_STFRL_RING_WORK.start_pos.y = AppMain.dm_stfrl_ring_disp_pos_tbl[dms_STFRL_RING_WORK.disp_ring_pos_no][1];
@@ -156,7 +156,7 @@ public partial class AppMain
             if ( dms_STFRL_SONIC_WORK.timer > 300 )
             {
                 AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 42 );
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlSonicProcWaitChngDash2 );
+                obj_work.ppFunc = AppMain.dmStfrlMdlCtrlSonicProcWaitChngDash2;
                 dms_STFRL_SONIC_WORK.timer = 0;
                 return;
             }
@@ -180,7 +180,7 @@ public partial class AppMain
                 AppMain.GmComEfctSetDispOffsetF( gms_EFFECT_3DES_WORK, -1.5f, 0f, 9f );
                 gms_EFFECT_3DES_WORK.obj_3des.ecb.drawObjState = 0U;
                 AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlSonicProcWaitMtnEnd );
+                obj_work.ppFunc = AppMain.dmStfrlMdlCtrlSonicProcWaitMtnEnd;
                 dms_STFRL_SONIC_WORK.timer = 0;
                 return;
             }
@@ -204,7 +204,7 @@ public partial class AppMain
             AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
             if ( dms_STFRL_SONIC_WORK.timer > 60 )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlSonicProcWaitFadeEnd );
+                obj_work.ppFunc = AppMain.dmStfrlMdlCtrlSonicProcWaitFadeEnd;
                 AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 9 );
                 AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
                 dms_STFRL_SONIC_WORK.timer = 120;
@@ -223,7 +223,7 @@ public partial class AppMain
         {
             if ( dms_STFRL_SONIC_WORK.timer <= 0 )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlSonicProcIdle );
+                obj_work.ppFunc = AppMain.dmStfrlMdlCtrlSonicProcIdle;
                 dms_STFRL_SONIC_WORK.timer = 0;
                 AppMain.DMS_STFRL_SONIC_WORK dms_STFRL_SONIC_WORK3 = dms_STFRL_SONIC_WORK;
                 dms_STFRL_SONIC_WORK3.flag |= 1;
@@ -269,11 +269,11 @@ public partial class AppMain
         if ( ( dms_STFRL_BOSS_BODY_WORK.flag & 1U ) != 0U )
         {
             dms_STFRL_BOSS_BODY_WORK.timer = 0;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcBodyCompInitStart );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcBodyCompInitStart;
             return;
         }
         dms_STFRL_BOSS_BODY_WORK.timer = 120;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcBodyMain );
+        obj_work.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcBodyMain;
     }
 
     // Token: 0x06000603 RID: 1539 RVA: 0x00035424 File Offset: 0x00033624
@@ -302,7 +302,7 @@ public partial class AppMain
         obj_work.dir.y = ( ushort )AppMain.AKM_DEGtoA16( 300 );
         if ( ( dms_STFRL_BOSS_BODY_WORK.flag & 2U ) != 0U )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcBodyCompStartWait );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcBodyCompStartWait;
             dms_STFRL_BOSS_BODY_WORK.flag &= 4294967293U;
         }
     }
@@ -314,7 +314,7 @@ public partial class AppMain
         dms_STFRL_BOSS_BODY_WORK.timer++;
         if ( dms_STFRL_BOSS_BODY_WORK.timer > 60 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcBodyCompMoveDown );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcBodyCompMoveDown;
             dms_STFRL_BOSS_BODY_WORK.timer = 0;
         }
     }
@@ -328,7 +328,7 @@ public partial class AppMain
         {
             obj_work.pos.y = -163840;
             dms_STFRL_BOSS_BODY_WORK.flag |= 2097152U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcBodyCompLaughWait );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcBodyCompLaughWait;
         }
     }
 
@@ -340,7 +340,7 @@ public partial class AppMain
         if ( dms_STFRL_BOSS_BODY_WORK.timer >= 180 )
         {
             dms_STFRL_BOSS_BODY_WORK.timer = 0;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcBodyCompMoveUpWait );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcBodyCompMoveUpWait;
             dms_STFRL_BOSS_BODY_WORK.flag &= 4294967291U;
         }
     }
@@ -362,7 +362,7 @@ public partial class AppMain
         {
             obj_work.pos.y = -737280;
             dms_STFRL_BOSS_BODY_WORK.flag |= 8U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlBodyProcBodyCompEndWaitIdle );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlBodyProcBodyCompEndWaitIdle;
             dms_STFRL_BOSS_BODY_WORK.timer = 0;
         }
     }
@@ -376,7 +376,7 @@ public partial class AppMain
     private static void dmStfrlMdlCtrlEggProcWaitSetup( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.obj_3d.blend_spd = 0.025f;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlEggProcMain );
+        obj_work.ppFunc = AppMain.dmStfrlMdlCtrlEggProcMain;
     }
 
     // Token: 0x0600060B RID: 1547 RVA: 0x00035708 File Offset: 0x00033908
@@ -391,7 +391,7 @@ public partial class AppMain
             obj_work.obj_3d.frame[0] = 0f;
             obj_work.obj_3d.blend_spd = 0.025f;
             dms_STFRL_BOSS_EGG_WORK.flag |= 1U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlEggProcMainIdle );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlEggProcMainIdle;
         }
     }
 
@@ -417,7 +417,7 @@ public partial class AppMain
             dms_STFRL_RING_WORK.timer++;
             if ( dms_STFRL_RING_WORK.timer >= dms_STFRL_RING_WORK.efct_start_time )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlRingProcInitSetup );
+                obj_work.ppFunc = AppMain.dmStfrlMdlCtrlRingProcInitSetup;
                 AppMain.dmStfrlMdlCtrlCreateRingEfct( dms_STFRL_RING_WORK.start_pos.x + AppMain.dm_stfrl_ring_efct_disp_offset_tbl[dms_STFRL_RING_WORK.disp_efct_pos_no][0], dms_STFRL_RING_WORK.start_pos.y + AppMain.dm_stfrl_ring_efct_disp_offset_tbl[dms_STFRL_RING_WORK.disp_efct_pos_no][1] );
                 AppMain.dmStfrlMdlCtrlCreateRingEfct( dms_STFRL_RING_WORK.start_pos.x + AppMain.dm_stfrl_ring_efct_disp_offset_tbl[dms_STFRL_RING_WORK.disp_efct_pos_no + 1][0], dms_STFRL_RING_WORK.start_pos.y + AppMain.dm_stfrl_ring_efct_disp_offset_tbl[dms_STFRL_RING_WORK.disp_efct_pos_no + 1][1] );
                 AppMain.dmStfrlMdlCtrlCreateRingEfct( dms_STFRL_RING_WORK.start_pos.x + AppMain.dm_stfrl_ring_efct_disp_offset_tbl[dms_STFRL_RING_WORK.disp_efct_pos_no + 2][0], dms_STFRL_RING_WORK.start_pos.y + AppMain.dm_stfrl_ring_efct_disp_offset_tbl[dms_STFRL_RING_WORK.disp_efct_pos_no + 2][1] );
@@ -444,7 +444,7 @@ public partial class AppMain
             dms_STFRL_RING_WORK.spd_y[i] += 512;
         }
         dms_STFRL_RING_WORK.alpha_spd = 0.1f;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlRingProcDispIdle );
+        obj_work.ppFunc = AppMain.dmStfrlMdlCtrlRingProcDispIdle;
     }
 
     // Token: 0x0600060F RID: 1551 RVA: 0x00035A18 File Offset: 0x00033C18
@@ -458,7 +458,7 @@ public partial class AppMain
         dms_STFRL_RING_WORK.timer++;
         if ( dms_STFRL_RING_WORK.timer >= 10 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlRingProcNoDispIdle );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlRingProcNoDispIdle;
             dms_STFRL_RING_WORK.timer = 60;
             dms_STFRL_RING_WORK.alpha_spd = 0.016666668f;
         }
@@ -481,7 +481,7 @@ public partial class AppMain
         dms_STFRL_RING_WORK.timer--;
         if ( dms_STFRL_RING_WORK.timer <= 0 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.dmStfrlMdlCtrlRingProcStartWait );
+            obj_work.ppFunc = AppMain.dmStfrlMdlCtrlRingProcStartWait;
             dms_STFRL_RING_WORK.timer = 0;
             dms_STFRL_RING_WORK.disp_ring_pos_no++;
             if ( dms_STFRL_RING_WORK.disp_ring_pos_no > 12 )

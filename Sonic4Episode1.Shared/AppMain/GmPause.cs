@@ -39,7 +39,7 @@ public partial class AppMain
         AppMain.g_gm_main_system.game_flag &= 4294967167U;
         uint time_count_flag_save = AppMain.g_gm_main_system.game_flag & 3072U;
         AppMain.g_gm_main_system.game_flag &= 4294964223U;
-        AppMain.gm_pause_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmPauseMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.gmPauseDest ), 0U, 3, 28928U, 6, () => new AppMain.GMS_PAUSE_WORK(), "GM_PAUSE" );
+        AppMain.gm_pause_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmPauseMain, AppMain.gmPauseDest, 0U, 3, 28928U, 6, () => new AppMain.GMS_PAUSE_WORK(), "GM_PAUSE" );
         AppMain.GMS_PAUSE_WORK gms_PAUSE_WORK = (AppMain.GMS_PAUSE_WORK)AppMain.gm_pause_tcb.work;
         gms_PAUSE_WORK.Clear();
         gms_PAUSE_WORK.time_count_flag_save = time_count_flag_save;
@@ -103,14 +103,14 @@ public partial class AppMain
     // Token: 0x06000045 RID: 69 RVA: 0x000046F6 File Offset: 0x000028F6
     private static void gmPauseProcUpdateInit( AppMain.GMS_PAUSE_WORK pause_work )
     {
-        pause_work.proc_update = new AppMain.GMS_PAUSE_WORK._proc_update_( AppMain.gmPauseProcUpdatePauseMenuStart );
+        pause_work.proc_update = AppMain.gmPauseProcUpdatePauseMenuStart;
     }
 
     // Token: 0x06000046 RID: 70 RVA: 0x0000470A File Offset: 0x0000290A
     private static void gmPauseProcUpdateReinit( AppMain.GMS_PAUSE_WORK pause_work )
     {
         AppMain.GmPauseMenuStart( 28928U );
-        pause_work.proc_update = new AppMain.GMS_PAUSE_WORK._proc_update_( AppMain.gmPauseProcUpdateWaitDecision );
+        pause_work.proc_update = AppMain.gmPauseProcUpdateWaitDecision;
     }
 
     // Token: 0x06000047 RID: 71 RVA: 0x00004728 File Offset: 0x00002928
@@ -118,7 +118,7 @@ public partial class AppMain
     {
         AppMain.GmSoundAllPause();
         AppMain.GmPauseMenuStart( 28928U );
-        pause_work.proc_update = new AppMain.GMS_PAUSE_WORK._proc_update_( AppMain.gmPauseProcUpdateWaitDecision );
+        pause_work.proc_update = AppMain.gmPauseProcUpdateWaitDecision;
     }
 
     // Token: 0x06000048 RID: 72 RVA: 0x0000474C File Offset: 0x0000294C
@@ -135,11 +135,11 @@ public partial class AppMain
                 case 3:
                     SaveState.deleteSave();
                     flag = true;
-                    pause_work.proc_update = new AppMain.GMS_PAUSE_WORK._proc_update_( AppMain.gmPauseProcUpdateFadeOutToExitGame );
+                    pause_work.proc_update = AppMain.gmPauseProcUpdateFadeOutToExitGame;
                     goto IL_77;
                 case 1:
                     flag = true;
-                    pause_work.proc_update = new AppMain.GMS_PAUSE_WORK._proc_update_( AppMain.gmPauseProcUpdateFadeOutToOption );
+                    pause_work.proc_update = AppMain.gmPauseProcUpdateFadeOutToOption;
                     goto IL_77;
             }
             AppMain.gmPauseExecRecoverRoutine( pause_work, true );
@@ -158,7 +158,7 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.DmOptionStart( null );
-            pause_work.proc_update = new AppMain.GMS_PAUSE_WORK._proc_update_( AppMain.gmPauseProcUpdateWaitRecover );
+            pause_work.proc_update = AppMain.gmPauseProcUpdateWaitRecover;
         }
     }
 
@@ -173,7 +173,7 @@ public partial class AppMain
         if ( flag )
         {
             AppMain.IzFadeInitEasyColor( 0, 32767, 61439, 18U, 1U, 0U, 20f, true );
-            pause_work.proc_update = new AppMain.GMS_PAUSE_WORK._proc_update_( AppMain.gmPauseProcUpdateFadeInFromDemo );
+            pause_work.proc_update = AppMain.gmPauseProcUpdateFadeInFromDemo;
         }
     }
 

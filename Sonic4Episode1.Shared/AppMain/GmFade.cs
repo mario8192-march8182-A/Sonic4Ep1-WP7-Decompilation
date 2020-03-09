@@ -77,7 +77,7 @@ public partial class AppMain
         gms_FADE_OBJ_WORK.fade_work.dt_prio = dt_prio;
         gms_FADE_OBJ_WORK.fade_work.draw_state = draw_state;
         gms_FADE_OBJ_WORK.fade_work.time = 1f;
-        gms_FADE_OBJ_WORK.obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmFadeDispFunc );
+        gms_FADE_OBJ_WORK.obj_work.ppOut = AppMain.gmFadeDispFunc;
         return gms_FADE_OBJ_WORK;
     }
 

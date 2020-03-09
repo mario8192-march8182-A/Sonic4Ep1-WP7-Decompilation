@@ -43,8 +43,8 @@ public partial class AppMain
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 2U;
         obs_OBJECT_WORK.user_flag = ( obs_OBJECT_WORK.user_work = ( uint )( ( eve_rec.flag & 3 ) + 1 ) );
         obs_OBJECT_WORK.user_timer = AppMain.MTM_MATH_CLIP( ( int )eve_rec.left, 0, 8 );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsSquareMain );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSsSquareDrawFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkSsSquareMain;
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkSsSquareDrawFunc;
         AppMain.OBS_COLLISION_WORK col_work = gms_ENEMY_3D_WORK.ene_com.col_work;
         col_work.obj_col.obj = obs_OBJECT_WORK;
         col_work.obj_col.diff_data = AppMain.g_gm_default_col;

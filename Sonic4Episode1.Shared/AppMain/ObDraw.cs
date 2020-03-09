@@ -334,7 +334,7 @@ public partial class AppMain
     // Token: 0x06000466 RID: 1126 RVA: 0x00024A30 File Offset: 0x00022C30
     public static void ObjDrawInit()
     {
-        AppMain.amDrawSetDrawCommandFunc(new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNModelCommandFunc), new AppMain._am_draw_command_delegate(AppMain.objDraw3DNNModelCommandSortFunc));
+        AppMain.amDrawSetDrawCommandFunc(AppMain.objDraw3DNNModelCommandFunc, AppMain.objDraw3DNNModelCommandSortFunc);
         AppMain.ObjDrawClearNNCommandStateTbl();
         AppMain.g_obj_draw_3dnn_draw_state.drawflag = 0U;
         AppMain.g_obj_draw_3dnn_draw_state.diffuse.mode = 3;
@@ -389,7 +389,7 @@ public partial class AppMain
     public static void ObjDrawESEffectSystemInit(ushort pause_level, uint task_prio, uint group)
     {
         AppMain.amEffectSystemInit();
-        AppMain.obj_draw_effect_server_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.objDraw3DESEffectServerMain), null, 0U, pause_level, task_prio, (int)group, null, "ES_EFFECT_SERVER");
+        AppMain.obj_draw_effect_server_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.objDraw3DESEffectServerMain, null, 0U, pause_level, task_prio, (int)group, null, "ES_EFFECT_SERVER");
     }
 
     // Token: 0x06000468 RID: 1128 RVA: 0x00024D43 File Offset: 0x00022F43

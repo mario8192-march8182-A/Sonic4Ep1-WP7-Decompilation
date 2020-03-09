@@ -71,7 +71,7 @@ public partial class AppMain
         obs_RECT_WORK.flag |= 1024U;
         obs_RECT_WORK.flag |= 4U;
         obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[0];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmEneGardonDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmEneGardonDefFunc;
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -24, -32, 24, 0 );
         obs_RECT_WORK.flag |= 1024U;
         obs_RECT_WORK.flag |= 4U;
@@ -253,7 +253,7 @@ public partial class AppMain
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 0, 1 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWalkMain );
+        obj_work.ppFunc = AppMain.gmEneGardonWalkMain;
         obj_work.move_flag &= 4294967291U;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -282,7 +282,7 @@ public partial class AppMain
                 }
                 AppMain.gmEneGardonAtkRectOn( obj_work );
                 gms_ENE_GARDON_WORK.shield = 0;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWalkWait );
+                obj_work.ppFunc = AppMain.gmEneGardonWalkWait;
             }
             return;
         }
@@ -304,7 +304,7 @@ public partial class AppMain
         }
         if ( AppMain.gmEneGardonGetLength2N( obj_work ) <= 4 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWaitToWalkInit );
+            obj_work.ppFunc = AppMain.gmEneGardonWaitToWalkInit;
             return;
         }
         if ( ( obj_work.move_flag & 4U ) != 0U || AppMain.GmEneComCheckMoveLimit( obj_work, ( int )obj_work.user_work, ( int )obj_work.user_flag ) == 0 )
@@ -318,14 +318,14 @@ public partial class AppMain
     {
         if ( ( obj_work.disp_flag & 8U ) != 0U )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWaitToWalkInit );
+            obj_work.ppFunc = AppMain.gmEneGardonWaitToWalkInit;
         }
     }
 
     // Token: 0x06001B60 RID: 7008 RVA: 0x000FA8E4 File Offset: 0x000F8AE4
     private static void gmEneGardonWaitToFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWaitToFlipMain );
+        obj_work.ppFunc = AppMain.gmEneGardonWaitToFlipMain;
         obj_work.spd.x = 0;
         AppMain.GMS_ENE_GARDON_WORK gms_ENE_GARDON_WORK = (AppMain.GMS_ENE_GARDON_WORK)obj_work;
         gms_ENE_GARDON_WORK.timer = 1;
@@ -347,7 +347,7 @@ public partial class AppMain
     // Token: 0x06001B62 RID: 7010 RVA: 0x000FA960 File Offset: 0x000F8B60
     private static void gmEneGardonWaitToWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWaitToWalkMain );
+        obj_work.ppFunc = AppMain.gmEneGardonWaitToWalkMain;
         obj_work.spd.x = 0;
         AppMain.GMS_ENE_GARDON_WORK gms_ENE_GARDON_WORK = (AppMain.GMS_ENE_GARDON_WORK)obj_work;
         gms_ENE_GARDON_WORK.timer = 60;
@@ -376,13 +376,13 @@ public partial class AppMain
                 }
                 AppMain.gmEneGardonAtkRectOn( obj_work );
                 gms_ENE_GARDON_WORK.shield = 0;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWalkWait );
+                obj_work.ppFunc = AppMain.gmEneGardonWalkWait;
             }
             return;
         }
         if ( AppMain.gmEneGardonGetLength2N( obj_work ) > 4 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWalkInit );
+            obj_work.ppFunc = AppMain.gmEneGardonWalkInit;
         }
     }
 
@@ -390,7 +390,7 @@ public partial class AppMain
     private static void gmEneGardonFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 2, 3 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonFlipMain );
+        obj_work.ppFunc = AppMain.gmEneGardonFlipMain;
     }
 
     // Token: 0x06001B65 RID: 7013 RVA: 0x000FAA74 File Offset: 0x000F8C74
@@ -400,7 +400,7 @@ public partial class AppMain
         if ( gms_ENE_GARDON_WORK.shield != 0 )
         {
             obj_work.disp_flag ^= 1U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneGardonWalkMain );
+            obj_work.ppFunc = AppMain.gmEneGardonWalkMain;
             return;
         }
         AppMain.gmEneGardonSetWalkSpeed( ( AppMain.GMS_ENE_GARDON_WORK )obj_work );

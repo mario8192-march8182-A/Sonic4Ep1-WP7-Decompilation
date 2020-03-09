@@ -103,7 +103,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 256U;
         gms_ENEMY_3D_WORK.ene_com.enemy_flag |= 32768U;
         AppMain.gmBoss5TurretInitDispRot( trt_work );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss5TurretMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss5TurretMain;
         AppMain.gmBoss5TurretProcInit( trt_work );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 64U;
@@ -408,7 +408,7 @@ public partial class AppMain
     // Token: 0x06000E7C RID: 3708 RVA: 0x0008174F File Offset: 0x0007F94F
     public static void gmBoss5TurretProcInit( AppMain.GMS_BOSS5_TURRET_WORK trt_work )
     {
-        trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateStandby );
+        trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateStandby;
     }
 
     // Token: 0x06000E7D RID: 3709 RVA: 0x00081764 File Offset: 0x0007F964
@@ -427,7 +427,7 @@ public partial class AppMain
         AppMain.gmBoss5TurretInitPartsPose( trt_work );
         AppMain.gmBoss5TurretInitSlideCover( trt_work, 0 );
         AppMain.gmBoss5TurretUpdateDirFollowingPos( trt_work, ref AppMain.GmBsCmnGetPlayerObj().pos, 360f );
-        trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateOpen );
+        trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateOpen;
     }
 
     // Token: 0x06000E7E RID: 3710 RVA: 0x000817E5 File Offset: 0x0007F9E5
@@ -436,7 +436,7 @@ public partial class AppMain
         if ( AppMain.gmBoss5TurretUpdateSlideCover( trt_work ) != 0 )
         {
             AppMain.gmBoss5TurretInitSlideTurret( trt_work, 0 );
-            trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateAppear );
+            trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateAppear;
         }
     }
 
@@ -447,7 +447,7 @@ public partial class AppMain
         if ( AppMain.gmBoss5TurretUpdateSlideTurret( trt_work ) != 0 )
         {
             trt_work.wait_timer = AppMain.GMD_BOSS5_TURRET_FACE_TIME;
-            trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateFace );
+            trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateFace;
         }
     }
 
@@ -459,7 +459,7 @@ public partial class AppMain
         if ( ( gms_BOSS5_BODY_WORK.flag & 512U ) != 0U )
         {
             trt_work.wait_timer = 0U;
-            trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateDisappear );
+            trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateDisappear;
             return;
         }
         if ( trt_work.wait_timer != 0U )
@@ -468,7 +468,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmBoss5TurretInitVulcanBurstShot( trt_work, AppMain.gmBoss5TurretSeqGetVulcanShotNum( trt_work ) );
-        trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateFire );
+        trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateFire;
     }
 
     // Token: 0x06000E81 RID: 3713 RVA: 0x000818BC File Offset: 0x0007FABC
@@ -479,7 +479,7 @@ public partial class AppMain
         {
             AppMain.gmBoss5TurretClearVulcanBurstShot( trt_work );
             AppMain.gmBoss5TurretInitSlideTurret( trt_work, 1 );
-            trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateDisappear );
+            trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateDisappear;
         }
     }
 
@@ -490,7 +490,7 @@ public partial class AppMain
         {
             trt_work.wait_timer = AppMain.gmBoss5TurretSeqGetVulcanWaitTime( trt_work );
             AppMain.gmBoss5TurretInitSlideCover( trt_work, 1 );
-            trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateClose );
+            trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateClose;
         }
     }
 
@@ -500,7 +500,7 @@ public partial class AppMain
         if ( AppMain.gmBoss5TurretUpdateSlideCover( trt_work ) != 0 )
         {
             AppMain.gmBoss5TurretEndPartsPose( trt_work );
-            trt_work.proc_update = new AppMain.MPP_VOID_GMS_BOSS5_TURRET_WORK( AppMain.gmBoss5TurretProcUpdateStandby );
+            trt_work.proc_update = AppMain.gmBoss5TurretProcUpdateStandby;
         }
     }
 

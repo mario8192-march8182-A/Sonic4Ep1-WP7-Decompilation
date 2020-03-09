@@ -52,7 +52,7 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.rect_work[0].flag &= 4294967291U;
         gms_ENEMY_3D_WORK.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[0];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1(AppMain.gmGmkSpringDefFunc);
+        obs_RECT_WORK.ppDef = AppMain.gmGmkSpringDefFunc;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet(obs_RECT_WORK, 0, 0);
         AppMain.ObjRectDefSet(obs_RECT_WORK, 65534, 0);
@@ -129,11 +129,11 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet(obj_work, obj_work.user_timer);
         if ((gms_ENEMY_3D_WORK.ene_com.eve_rec.flag & 16) != 0)
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkSpringSwitchOnMain);
+            obj_work.ppFunc = AppMain.gmGmkSpringSwitchOnMain;
         }
         else
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkSpringFwMain);
+            obj_work.ppFunc = AppMain.gmGmkSpringFwMain;
         }
         if ((gms_ENEMY_3D_WORK.ene_com.eve_rec.flag & 5) != 0)
         {
@@ -151,7 +151,7 @@ public partial class AppMain
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.ObjDrawObjectActionSet(obj_work, (int)obj_work.user_work);
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkSpringActMain);
+        obj_work.ppFunc = AppMain.gmGmkSpringActMain;
         if ((gms_ENEMY_3D_WORK.ene_com.eve_rec.flag & 4) != 0)
         {
             obj_work.disp_flag |= 32U;
@@ -235,7 +235,7 @@ public partial class AppMain
     private static void gmGmkSpringSwitchOffInit(AppMain.OBS_OBJECT_WORK obj_work)
     {
         AppMain.ObjDrawObjectActionSet(obj_work, obj_work.user_timer);
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkSpringSwitchOffMain);
+        obj_work.ppFunc = AppMain.gmGmkSpringSwitchOffMain;
         obj_work.disp_flag |= 32U;
         obj_work.flag |= 2U;
     }

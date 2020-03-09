@@ -645,14 +645,14 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 128U;
         gms_ENEMY_3D_WORK.ene_com.enemy_flag |= 32768U;
         AppMain.ObjObjectFieldRectSet( obs_OBJECT_WORK, -20, -44, 20, -4 );
-        AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4ChibiWaitLoad ), obs_OBJECT_WORK );
+        AppMain.T_FUNC( AppMain.gmBoss4ChibiWaitLoad, obs_OBJECT_WORK );
         AppMain.gm_chibi_exp_flag = false;
         AppMain.RESET_FLAG( 536870912U, gms_BOSS4_CHIBI_WORK );
         if ( gms_BOSS4_CHIBI_WORK.type != 0 )
         {
             AppMain.SET_FLAG( 536870912U, gms_BOSS4_CHIBI_WORK );
         }
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss4ChibiExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmBoss4ChibiExit );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 64U;
         return obs_OBJECT_WORK;
@@ -738,7 +738,7 @@ public partial class AppMain
         AppMain.GMS_BOSS4_CHIBI_WORK gms_BOSS4_CHIBI_WORK = (AppMain.GMS_BOSS4_CHIBI_WORK)obj_work;
         if ( AppMain.GmBoss4IsBuilded() )
         {
-            AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4ChibiMain ), obj_work );
+            AppMain.T_FUNC( AppMain.gmBoss4ChibiMain, obj_work );
             AppMain.GmBoss4UtilInit1ShotTimer( gms_BOSS4_CHIBI_WORK.timer, AppMain.GMD_BOSS4_CHIBI_LIFE_TIME );
             AppMain.GmBoss4UtilInitFlicker( obj_work, gms_BOSS4_CHIBI_WORK.flk_work, 1, 180, 4, ( int )( gms_BOSS4_CHIBI_WORK.timer.timer / 20U * 3U ), AppMain.gm_boss4_color_red );
             gms_BOSS4_CHIBI_WORK.count = -1;
@@ -793,10 +793,10 @@ public partial class AppMain
         {
             AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
             AppMain.ObjRectWorkSet( gms_ENEMY_3D_WORK.ene_com.rect_work[1], -10, -22, 10, -2 );
-            gms_ENEMY_3D_WORK.ene_com.rect_work[1].ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmBoss4ChibiAtkHitFunc );
+            gms_ENEMY_3D_WORK.ene_com.rect_work[1].ppHit = AppMain.gmBoss4ChibiAtkHitFunc;
             gms_ENEMY_3D_WORK.ene_com.rect_work[1].flag |= 33554432U;
             AppMain.ObjRectWorkSet( gms_ENEMY_3D_WORK.ene_com.rect_work[2], -14, -26, 18, 2 );
-            gms_ENEMY_3D_WORK.ene_com.rect_work[2].ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmBoss4ChibiDefHitFunc );
+            gms_ENEMY_3D_WORK.ene_com.rect_work[2].ppHit = AppMain.gmBoss4ChibiDefHitFunc;
             AppMain.ObjRectGroupSet( gms_ENEMY_3D_WORK.ene_com.rect_work[2], 2, 4 );
             gms_ENEMY_3D_WORK.ene_com.rect_work[2].flag &= 4294965247U;
             gms_ENEMY_3D_WORK.ene_com.rect_work[2].flag |= 4U;
@@ -1001,7 +1001,7 @@ public partial class AppMain
             obj_work.move_flag |= 256U;
             obj_work.move_flag |= 256U;
             gms_BOSS4_CHIBI_WORK.wait = 0;
-            AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4ChibiBomb ), obj_work );
+            AppMain.T_FUNC( AppMain.gmBoss4ChibiBomb, obj_work );
             AppMain.GmSoundPlaySE( "Boss4_04" );
         }
         AppMain.GmBoss4UtilUpdateDirection( gms_BOSS4_CHIBI_WORK.dir, obj_work, true );
@@ -1280,7 +1280,7 @@ public partial class AppMain
         gms_BOSS4_MGR_WORK.life = AppMain.GMD_BOSS4_LIFE;
         obs_OBJECT_WORK.pos.x = pos_x;
         obs_OBJECT_WORK.pos.y = pos_y;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4MgrWaitLoad );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmBoss4MgrWaitLoad;
         AppMain.GmBoss4ScrollOff();
         AppMain.gm_boss4_is_2nd = false;
         if ( AppMain.g_gs_main_sys_info.stage_id != 16 )
@@ -1372,7 +1372,7 @@ public partial class AppMain
         if ( flag )
         {
             gms_BOSS4_MGR_WORK.flag |= 1U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4MgrMain );
+            obj_work.ppFunc = AppMain.gmBoss4MgrMain;
         }
     }
 
@@ -1406,7 +1406,7 @@ public partial class AppMain
             }
             if ( AppMain.GmBsCmnIsFinalZoneType( obj_work ) != 0 )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4MgrWaitRelease );
+                obj_work.ppFunc = AppMain.gmBoss4MgrWaitRelease;
             }
         }
         AppMain.GmBoss4CapsuleUpdateRol( AppMain.GMD_BOSS4_CAP_ROTATE_SPD );
@@ -1548,7 +1548,7 @@ public partial class AppMain
         {
             AppMain.g_gm_main_system.map_fcol.left = 0;
             AppMain.g_gm_main_system.map_fcol.right = ( int )( AppMain.g_gm_main_system.map_fcol.map_block_num_x * 64 );
-            AppMain.ObjCameraSetUserFunc( 0, new AppMain.OBJF_CAMERA_USER_FUNC( AppMain.GmCameraFunc ) );
+            AppMain.ObjCameraSetUserFunc( 0, AppMain.GmCameraFunc );
             AppMain.GmGmkCamScrLimitRelease( 14 );
             AppMain.GmBoss4UtilPlayerStop( false );
             return;
@@ -1691,7 +1691,7 @@ public partial class AppMain
         AppMain.gm_boss4_f_scroll_spd = AppMain.GMD_BOSS4_SCROLL_SPD_START;
         AppMain.gm_boss4_f_scroll_spd = -100f;
         AppMain.gm_boss4_n_scroll_pt_x = 0;
-        AppMain.ObjCameraSetUserFunc( 0, new AppMain.OBJF_CAMERA_USER_FUNC( AppMain.gmCameraForceScrollFunc ) );
+        AppMain.ObjCameraSetUserFunc( 0, AppMain.gmCameraForceScrollFunc );
         AppMain.gm_boss4_is_2nd = true;
         return null;
     }

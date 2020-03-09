@@ -49,7 +49,7 @@ public partial class AppMain
         public void AttachTask( string name, uint priority, uint user, uint attribute, int group, uint stall_mask, uint run_mask )
         {
             this.DetachTask();
-            this.m_task_tcb = AppMain.amTaskMake( new AppMain.TaskProc( AppMain.ITaskLink.procedure ), new AppMain.TaskProc( AppMain.ITaskLink.destructor ), priority, user, attribute, name, stall_mask, group, run_mask );
+            this.m_task_tcb = AppMain.amTaskMake( AppMain.ITaskLink.procedure, AppMain.ITaskLink.destructor, priority, user, attribute, name, stall_mask, group, run_mask );
             this.m_task_tcb.work = new AppMain.ITaskLink.SWork();
             AppMain.ITaskLink.SWork swork = (AppMain.ITaskLink.SWork)AppMain.amTaskGetWork(this.m_task_tcb);
             swork.owner = this;

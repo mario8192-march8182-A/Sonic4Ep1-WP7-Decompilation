@@ -78,7 +78,7 @@ public partial class AppMain
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_sting_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, false, AppMain.ObjDataGet( 669 ), null, 0, null );
         AppMain.ObjDrawObjectSetToon( obs_OBJECT_WORK );
-        gms_ENEMY_3D_WORK.obj_3d.mtn_cb_func = new AppMain.mtn_cb_func_delegate( AppMain.gmEneStingMotionCallback );
+        gms_ENEMY_3D_WORK.obj_3d.mtn_cb_func = AppMain.gmEneStingMotionCallback;
         gms_ENEMY_3D_WORK.obj_3d.mtn_cb_param = gms_ENE_STING_WORK;
         obs_OBJECT_WORK.pos.z = 0;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
@@ -91,14 +91,14 @@ public partial class AppMain
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -18, -16, 28, 16 );
         obs_RECT_WORK.flag &= 4294967291U;
         obs_RECT_WORK = gms_ENE_STING_WORK.search_rect_work;
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmEneStingSearchDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmEneStingSearchDefFunc;
         AppMain.ObjRectGroupSet( obs_RECT_WORK, 1, 1 );
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         obs_RECT_WORK.parent_obj = obs_OBJECT_WORK;
         AppMain.ObjRectWorkSet( obs_RECT_WORK, 0, 0, 128, 128 );
         obs_RECT_WORK.flag |= 1048804U;
-        obs_OBJECT_WORK.ppRec = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneStingRegRectFunc );
+        obs_OBJECT_WORK.ppRec = AppMain.gmEneStingRegRectFunc;
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.move_flag &= 4294967167U;
         if ( ( eve_rec.flag & ( ushort )AppMain.GMD_ENE_STING_EVE_FLAG_RIGHT ) == 0 )
@@ -242,7 +242,7 @@ public partial class AppMain
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 0, 1 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneStingWalkMain );
+        obj_work.ppFunc = AppMain.gmEneStingWalkMain;
     }
 
     // Token: 0x060015A3 RID: 5539 RVA: 0x000BCE1C File Offset: 0x000BB01C
@@ -261,7 +261,7 @@ public partial class AppMain
     {
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)obj_work;
         AppMain.GmEneComActionSetDependHFlip( obj_work, 2, 3 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneStingFlipMain );
+        obj_work.ppFunc = AppMain.gmEneStingFlipMain;
         gms_ENE_STING_WORK.search_rect_work.flag &= 4294967291U;
         AppMain.gmEneStingClearJetEfct( gms_ENE_STING_WORK );
     }
@@ -275,7 +275,7 @@ public partial class AppMain
             AppMain.GmComEfctAddDispOffsetF( sting_work.efct_r_jet, -11f, -9f, 0f );
             sting_work.efct_r_jet.efct_com.obj_work.flag |= 524304U;
             sting_work.efct_r_jet.efct_com.obj_work.user_work_OBJECT = sting_work.jet_r_mtx;
-            sting_work.efct_r_jet.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneStingJetEfctMain );
+            sting_work.efct_r_jet.efct_com.obj_work.ppFunc = AppMain.gmEneStingJetEfctMain;
         }
         if ( sting_work.efct_l_jet == null )
         {
@@ -283,7 +283,7 @@ public partial class AppMain
             AppMain.GmComEfctAddDispOffsetF( sting_work.efct_l_jet, -11f, -9f, 0f );
             sting_work.efct_l_jet.efct_com.obj_work.flag |= 524304U;
             sting_work.efct_l_jet.efct_com.obj_work.user_work_OBJECT = sting_work.jet_l_mtx;
-            sting_work.efct_l_jet.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneStingJetEfctMain );
+            sting_work.efct_l_jet.efct_com.obj_work.ppFunc = AppMain.gmEneStingJetEfctMain;
         }
     }
 
@@ -321,7 +321,7 @@ public partial class AppMain
     public static void gmEneStingAtkInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 4, 7 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneStingAtkMain );
+        obj_work.ppFunc = AppMain.gmEneStingAtkMain;
         obj_work.spd.x = 0;
     }
 

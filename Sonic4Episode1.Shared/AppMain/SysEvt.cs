@@ -110,7 +110,7 @@ public partial class AppMain
     {
         if ( tcb_use )
         {
-            AppMain.sy_evt_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.syEvtSys ), null, 3U, 0, ( uint )pri, ( int )group, null, "SY_EVT_SYS" );
+            AppMain.sy_evt_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.syEvtSys, null, 3U, 0, ( uint )pri, ( int )group, null, "SY_EVT_SYS" );
         }
         AppMain.sy_evt_info = new AppMain.SYS_EVT_INFO();
         AppMain.sy_evt_info.evt_data = evt_data;

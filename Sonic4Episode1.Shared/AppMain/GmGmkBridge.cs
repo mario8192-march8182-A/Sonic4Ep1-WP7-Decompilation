@@ -38,8 +38,8 @@ public partial class AppMain
         obs_OBJECT_WORK.pos.z = -131072;
         obs_OBJECT_WORK.move_flag |= 8448U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBridgeMain );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBridgeDrawFunc );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkBridgeMain;
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkBridgeDrawFunc;
         AppMain.OBS_COLLISION_WORK col_work = gms_ENEMY_3D_WORK.ene_com.col_work;
         col_work.obj_col.obj = obs_OBJECT_WORK;
         col_work.obj_col.diff_data = AppMain.g_gm_default_col;
@@ -56,7 +56,7 @@ public partial class AppMain
         obs_OBJECT_WORK2.pos.z = -131072;
         obs_OBJECT_WORK2.move_flag |= 8448U;
         obs_OBJECT_WORK2.disp_flag |= 4194304U;
-        obs_OBJECT_WORK2.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBridgeDecoDrawFunc );
+        obs_OBJECT_WORK2.ppOut = AppMain.gmGmkBridgeDecoDrawFunc;
         obs_OBJECT_WORK2.obj_3d.drawflag |= 32U;
         return obs_OBJECT_WORK;
     }

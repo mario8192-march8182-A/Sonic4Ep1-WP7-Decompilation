@@ -116,10 +116,10 @@ public partial class AppMain
         obj_work.user_work = ( uint )AppMain.mtMathRand();
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)obj_work;
         gms_GMK_ROCK_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideWaitMain );
+        obj_work.ppFunc = AppMain.gmGmkRockRideWaitMain;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideDrawFunc );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkRockRideTcbDest ) );
+        obj_work.ppOut = AppMain.gmGmkRockRideDrawFunc;
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkRockRideTcbDest );
     }
 
     // Token: 0x060008B3 RID: 2227 RVA: 0x0004E8BC File Offset: 0x0004CABC
@@ -183,7 +183,7 @@ public partial class AppMain
         AppMain.ObjRectWorkZSet( obs_RECT_WORK, -48, -56, -500, 48, 56, 500 );
         obs_RECT_WORK.flag &= 4294966271U;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkRockRideWaitDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkRockRideWaitDefFunc;
     }
 
     // Token: 0x060008B6 RID: 2230 RVA: 0x0004EA7C File Offset: 0x0004CC7C
@@ -199,9 +199,9 @@ public partial class AppMain
         obj_work.spd_m = 0;
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)obj_work;
         AppMain.GmSoundPlaySE( "BigRock3", gms_GMK_ROCK_WORK.se_handle );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideStartMain );
-        obj_work.ppMove = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideMoveFunc );
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideDrawFunc );
+        obj_work.ppFunc = AppMain.gmGmkRockRideStartMain;
+        obj_work.ppMove = AppMain.gmGmkRockRideMoveFunc;
+        obj_work.ppOut = AppMain.gmGmkRockRideDrawFunc;
     }
 
     // Token: 0x060008B7 RID: 2231 RVA: 0x0004EB40 File Offset: 0x0004CD40
@@ -252,9 +252,9 @@ public partial class AppMain
         obj_work.spd_slope = 192;
         obj_work.spd_slope_max = 61440;
         obj_work.pos.z = 131072;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideRollMainNoPlayer );
-        obj_work.ppMove = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideMoveFunc );
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideDrawFunc );
+        obj_work.ppFunc = AppMain.gmGmkRockRideRollMainNoPlayer;
+        obj_work.ppMove = AppMain.gmGmkRockRideMoveFunc;
+        obj_work.ppOut = AppMain.gmGmkRockRideDrawFunc;
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)obj_work;
         if ( gms_GMK_ROCK_WORK.effect_work == null )
         {
@@ -292,7 +292,7 @@ public partial class AppMain
         AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( gms_PLAYER_WORK.seq_state != 31 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideRollMainNoPlayer );
+            obj_work.ppFunc = AppMain.gmGmkRockRideRollMainNoPlayer;
             AppMain.GMM_PAD_VIB_STOP();
             gms_GMK_ROCK_WORK.vib_timer = 0;
             obj_work.pos.z = -262144;
@@ -332,8 +332,8 @@ public partial class AppMain
         }
         AppMain.GMS_PLAYER_WORK ply_work = (AppMain.GMS_PLAYER_WORK)parent_obj2;
         AppMain.GmPlySeqInitRockRide( ply_work, ene_com );
-        own_rect.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkRockRideRollDefFunc );
-        parent_obj.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockRideRollMain );
+        own_rect.ppDef = AppMain.gmGmkRockRideRollDefFunc;
+        parent_obj.ppFunc = AppMain.gmGmkRockRideRollMain;
         parent_obj.pos.z = 131072;
     }
 
@@ -344,7 +344,7 @@ public partial class AppMain
         AppMain.ObjRectWorkZSet( obs_RECT_WORK, -48, -48, -500, 48, 48, 500 );
         obs_RECT_WORK.flag |= 1024U;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkRockRideRollDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkRockRideRollDefFunc;
     }
 
     // Token: 0x060008BE RID: 2238 RVA: 0x0004EF9C File Offset: 0x0004D19C

@@ -178,7 +178,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_SMSG_MGR_WORK gms_SMSG_MGR_WORK = (AppMain.GMS_SMSG_MGR_WORK)AppMain.gm_start_msg_tcb.work;
-        AppMain.ObjDraw3DNNUserFunc( new AppMain.OBF_DRAW_USER_DT_FUNC( AppMain.gmStartMsgDrawWindowPre_DT ), null, 0, 14U );
+        AppMain.ObjDraw3DNNUserFunc( AppMain.gmStartMsgDrawWindowPre_DT, null, 0, 14U );
         AppMain.AoActSysSetDrawState( 14U );
         for ( int i = 0; i < ( int )AppMain.gm_start_msg_ama_act_num_tbl[gms_SMSG_MGR_WORK.msg_type]; i++ )
         {
@@ -236,7 +236,7 @@ public partial class AppMain
         }
         if ( ( gms_SMSG_MGR_WORK.flag & AppMain.GMD_SMSG_FLAG_WIN_DISP ) != 0U )
         {
-            AppMain.ObjDraw3DNNUserFunc( new AppMain.OBF_DRAW_USER_DT_FUNC( AppMain.gmStartMsgDrawWindowPre_DT ), null, 0, 13U );
+            AppMain.ObjDraw3DNNUserFunc( AppMain.gmStartMsgDrawWindowPre_DT, null, 0, 13U );
             AppMain.AoWinSysDrawState( 0, AppMain.AoTexGetTexList( AppMain.gm_start_msg_aos_tex[1] ), 0U, AppMain.gm_start_msg_win_size_tbl[gms_SMSG_MGR_WORK.msg_type][num][0], AppMain.gm_start_msg_win_size_tbl[gms_SMSG_MGR_WORK.msg_type][num][1], ( AppMain.gm_start_msg_win_size_tbl[gms_SMSG_MGR_WORK.msg_type][num][2] + -32f ) * gms_SMSG_MGR_WORK.win_per, ( AppMain.gm_start_msg_win_size_tbl[gms_SMSG_MGR_WORK.msg_type][num][3] + -32f ) * gms_SMSG_MGR_WORK.win_per * 0.9f - 16f, 13U );
         }
     }
@@ -248,12 +248,12 @@ public partial class AppMain
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
         AppMain.g_gm_main_system.game_flag |= 16777216U;
         AppMain.gm_start_msg_end_state = false;
-        AppMain.gm_start_msg_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmStartMsgMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.gmStartMsgDest ), 0U, 3, 18502U, 5, () => new AppMain.GMS_SMSG_MGR_WORK(), "GM_S_MSG_MGR" );
+        AppMain.gm_start_msg_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmStartMsgMain, AppMain.gmStartMsgDest, 0U, 3, 18502U, 5, () => new AppMain.GMS_SMSG_MGR_WORK(), "GM_S_MSG_MGR" );
         AppMain.GMS_SMSG_MGR_WORK gms_SMSG_MGR_WORK = (AppMain.GMS_SMSG_MGR_WORK)AppMain.gm_start_msg_tcb.work;
         gms_SMSG_MGR_WORK.Clear();
         AppMain.ObjDrawSetNNCommandStateTbl( 16U, 13U, true );
         AppMain.ObjDrawSetNNCommandStateTbl( 17U, 14U, true );
-        AppMain.g_obj.ppPost = new AppMain.OBJECT_Delegate( AppMain.gmStartMsgObjPost );
+        AppMain.g_obj.ppPost = AppMain.gmStartMsgObjPost;
         ushort stage_id = AppMain.g_gs_main_sys_info.stage_id;
         if ( stage_id != 5 )
         {
@@ -303,7 +303,7 @@ public partial class AppMain
             }
             AppMain.ObjObjectAction2dAMALoadSetTexlist( gms_SMSG_MGR_WORK.ama_2d_work[i].obj_work, gms_SMSG_MGR_WORK.ama_2d_work[i].obj_2d, null, null, num * 2, ams_AMB_HEADER, texlist, num2, 0 );
             gms_SMSG_MGR_WORK.ama_2d_work[i].obj_work.ppOut = null;
-            gms_SMSG_MGR_WORK.ama_2d_work[i].obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmStartMsgObjMain );
+            gms_SMSG_MGR_WORK.ama_2d_work[i].obj_work.ppFunc = AppMain.gmStartMsgObjMain;
             gms_SMSG_MGR_WORK.ama_2d_work[i].obj_work.disp_flag |= 32U;
             gms_SMSG_MGR_WORK.ama_2d_work[i].obj_work.flag |= 18U;
             gms_SMSG_MGR_WORK.ama_2d_work[i].obj_work.move_flag |= 8448U;
@@ -347,14 +347,14 @@ public partial class AppMain
                 texlist = AppMain.AoTexGetTexList( AppMain.gm_start_msg_aos_tex[2] );
                 AppMain.ObjObjectAction2dAMALoadSetTexlist( gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work, gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_2d, null, null, ams_AMB_HEADER.file_num - 2, ams_AMB_HEADER, texlist, ( uint )num3, 0 );
                 gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work.ppOut = null;
-                gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmStartMsgObjMain );
+                gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work.ppFunc = AppMain.gmStartMsgObjMain;
                 gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work.disp_flag |= 32U;
                 gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work.flag |= 18U;
                 gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work.move_flag |= 8448U;
                 gms_SMSG_MGR_WORK.ama_2d_work_act[i].obj_work.disp_flag |= 1048960U;
             }
         }
-        gms_SMSG_MGR_WORK.func = new AppMain.pfnGMS_SMSG_MGR_WORK( AppMain.gmStartMsgMain_StartWait );
+        gms_SMSG_MGR_WORK.func = AppMain.gmStartMsgMain_StartWait;
         AppMain.gmStartMsgMain_StartWait( gms_SMSG_MGR_WORK );
     }
 
@@ -378,7 +378,7 @@ public partial class AppMain
         mgr_work.win_per = 0f;
         AppMain.GmSoundPlaySE( "Window" );
         mgr_work.timer = 0;
-        mgr_work.func = new AppMain.pfnGMS_SMSG_MGR_WORK( AppMain.gmStartMsgMain_WindowOpen );
+        mgr_work.func = AppMain.gmStartMsgMain_WindowOpen;
     }
 
     // Token: 0x06000A9E RID: 2718 RVA: 0x0005DA58 File Offset: 0x0005BC58
@@ -400,7 +400,7 @@ public partial class AppMain
                 }
             }
             mgr_work.timer = AppMain.GMD_SMSG_KEY_WAIT;
-            mgr_work.func = new AppMain.pfnGMS_SMSG_MGR_WORK( AppMain.gmStartMsgMain_KeyWait );
+            mgr_work.func = AppMain.gmStartMsgMain_KeyWait;
             return;
         }
         mgr_work.win_per = ( float )mgr_work.timer / 8f;
@@ -428,7 +428,7 @@ public partial class AppMain
                 }
             }
             mgr_work.timer = 8;
-            mgr_work.func = new AppMain.pfnGMS_SMSG_MGR_WORK( AppMain.gmStartMsgMain_WindowClose );
+            mgr_work.func = AppMain.gmStartMsgMain_WindowClose;
         }
     }
 

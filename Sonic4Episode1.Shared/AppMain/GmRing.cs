@@ -312,7 +312,7 @@ public partial class AppMain
     // Token: 0x06000D95 RID: 3477 RVA: 0x00076A90 File Offset: 0x00074C90
     public static void GmRingInit()
     {
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmRingMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmRingDest), 0U, 0, 7680U, 5, () => new AppMain.GMS_RING_SYS_WORK(), "GM RING MAIN");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmRingMain, AppMain.gmRingDest, 0U, 0, 7680U, 5, () => new AppMain.GMS_RING_SYS_WORK(), "GM RING MAIN");
         if ( mts_TASK_TCB == null )
         {
             return;
@@ -343,10 +343,10 @@ public partial class AppMain
             AppMain.g_gm_ring_size = 20;
             AppMain.gm_ring_die_offset = 72;
         }
-        AppMain.gm_ring_sys_work.rec_func = new AppMain._rec_func_( AppMain.gmRingHitFuncNormal );
-        AppMain.gm_ring_sys_work.col_func = new AppMain._ring_work_func_delegate_( AppMain.gmRingMoveCollsion );
+        AppMain.gm_ring_sys_work.rec_func = AppMain.gmRingHitFuncNormal;
+        AppMain.gm_ring_sys_work.col_func = AppMain.gmRingMoveCollsion;
         AppMain.gm_ring_sys_work.ref_spd_base = 8192;
-        AppMain.gm_ring_sys_work.ring_draw_func = new AppMain._ring_work_func_delegate_( AppMain.gmRingDrawFuncRing3D );
+        AppMain.gm_ring_sys_work.ring_draw_func = AppMain.gmRingDrawFuncRing3D;
         AppMain.gm_ring_sys_work.se_wait = 0;
         AppMain.gm_ring_sys_work.color = uint.MaxValue;
         if ( AppMain.g_gs_main_sys_info.stage_id == 2 || AppMain.g_gs_main_sys_info.stage_id == 3 )

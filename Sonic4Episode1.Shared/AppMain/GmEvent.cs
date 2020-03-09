@@ -531,7 +531,7 @@ public partial class AppMain
     // Token: 0x0600007E RID: 126 RVA: 0x000073A0 File Offset: 0x000055A0
     private static void GmEventMgrInit()
     {
-        AppMain.gm_eve_mgr_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmEveMgrMain ), new AppMain.GSF_TASK_PROCEDURE( AppMain.gmEveMgrDest ), 0U, 0, 4240U, 5, () => new AppMain.GMS_EVE_MGR_WORK(), "GM_EVT_MGR" );
+        AppMain.gm_eve_mgr_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmEveMgrMain, AppMain.gmEveMgrDest, 0U, 0, 4240U, 5, () => new AppMain.GMS_EVE_MGR_WORK(), "GM_EVT_MGR" );
         AppMain.GMS_EVE_MGR_WORK gms_EVE_MGR_WORK = (AppMain.GMS_EVE_MGR_WORK)AppMain.gm_eve_mgr_tcb.work;
         gms_EVE_MGR_WORK.Clear();
         AppMain.g_gm_eve_mgr_work = gms_EVE_MGR_WORK;
@@ -543,7 +543,7 @@ public partial class AppMain
     private static void GmEventMgrStart()
     {
         AppMain.GmEventMgrCreateEventEnforce();
-        AppMain.g_gm_eve_mgr_work.sts_proc = new AppMain._sts_proc_( AppMain.gmEveMgrStateFuncSingleScr );
+        AppMain.g_gm_eve_mgr_work.sts_proc = AppMain.gmEveMgrStateFuncSingleScr;
     }
 
     // Token: 0x06000080 RID: 128 RVA: 0x00007464 File Offset: 0x00005664

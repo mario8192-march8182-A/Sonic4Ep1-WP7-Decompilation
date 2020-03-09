@@ -428,7 +428,7 @@ public partial class AppMain
     // Token: 0x060002C6 RID: 710 RVA: 0x000176E0 File Offset: 0x000158E0
     private static void GsSoundInit()
     {
-        XnaMediaPlayer.MediaStateChanged += new EventHandler<EventArgs>( AppMain.MediaPlayer_MediaStateChanged );
+        XnaMediaPlayer.MediaStateChanged += AppMain.MediaPlayer_MediaStateChanged;
         if ( AppMain.sound_fx_list == null )
         {
             AppMain.sound_fx_list = new Dictionary<string, AppMain.SOUND_TABLE>( 130 );
@@ -571,7 +571,7 @@ public partial class AppMain
     private static void GsSoundBegin( ushort task_pause_level, uint task_prio, int task_group )
     {
         AppMain.GsSoundSetVolumeFromMainSysInfo();
-        AppMain.gs_sound_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gsSoundProcMain ), null, 0U, task_pause_level, task_prio, task_group, null, "GS_SND_MAIN" );
+        AppMain.gs_sound_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gsSoundProcMain, null, 0U, task_pause_level, task_prio, task_group, null, "GS_SND_MAIN" );
     }
 
     // Token: 0x060002CF RID: 719 RVA: 0x00017A7D File Offset: 0x00015C7D

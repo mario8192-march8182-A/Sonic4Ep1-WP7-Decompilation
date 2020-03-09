@@ -27,21 +27,21 @@ public partial class AppMain
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_item_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         }
         obs_OBJECT_WORK.pos.z = -131072;
-        gms_ENEMY_3D_WORK.obj_3d.material_cb_func = new AppMain.MPP_BOOL_NNSDRAWCALLBACKVAL_OBJECT_DELEGATE( AppMain.gmGmkItemMaterialCallback );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkItemOut );
+        gms_ENEMY_3D_WORK.obj_3d.material_cb_func = AppMain.gmGmkItemMaterialCallback;
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkItemOut;
         obs_OBJECT_WORK.user_work = AppMain.gm_gmk_item_matrial_user_data_tbl[( int )( AppMain.gmGmkItemConvEvtId( eve_rec.id ) - 63 )];
         obs_OBJECT_WORK.disp_flag |= 16777216U;
         AppMain.nnMakeUnitMatrix( obs_OBJECT_WORK.obj_3d.user_obj_mtx_r );
         AppMain.nnTranslateMatrix( obs_OBJECT_WORK.obj_3d.user_obj_mtx_r, obs_OBJECT_WORK.obj_3d.user_obj_mtx_r, 0f, -1f / AppMain.FXM_FX32_TO_FLOAT( AppMain.g_obj.draw_scale.y ), 0f );
         gms_ENEMY_3D_WORK.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkItemBodyDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkItemBodyDefFunc;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -30, -50, 30, 10 );
         obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[0];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkItemDamageDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkItemDamageDefFunc;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -30, -48, 30, 0 );
@@ -64,11 +64,11 @@ public partial class AppMain
             {
                 obs_OBJECT_WORK.move_flag |= 8448U;
             }
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkItemFallCheckMain );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkItemFallCheckMain;
         }
         else
         {
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkItemMain );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkItemMain;
             AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(obs_OBJECT_WORK, 40);
             AppMain.GmComEfctAddDispOffsetF( gms_EFFECT_3DES_WORK, 0f, -12.5f, 10f );
             gms_EFFECT_3DES_WORK.efct_com.obj_work.flag |= 16U;
@@ -128,7 +128,7 @@ public partial class AppMain
                 AppMain.GmEfctCmnEsCreate( obj_work, 39 );
             }
             AppMain.gmGmkItemCreatePopUpEffect( obj_work, ( int )obj_work.user_work );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkItemEffectWatiMain );
+            obj_work.ppFunc = AppMain.gmGmkItemEffectWatiMain;
             obj_work.user_timer = 245760;
             if ( AppMain.gmGmkItemConvEvtId( gms_ENEMY_3D_WORK.ene_com.eve_rec.id ) == 67 )
             {
@@ -179,7 +179,7 @@ public partial class AppMain
             }
             gms_ENEMY_COM_WORK.target_obj = null;
             obj_work.flag &= 4294967279U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkItemFallCheckMain );
+            obj_work.ppFunc = AppMain.gmGmkItemFallCheckMain;
         }
         AppMain.gmGmkItemFallCheckMain( obj_work );
     }
@@ -304,14 +304,14 @@ public partial class AppMain
         obs_OBJECT_WORK.pos.x = parent_obj.pos.x;
         obs_OBJECT_WORK.pos.y = parent_obj.pos.y + -86016;
         obs_OBJECT_WORK.pos.z = -524288;
-        gms_EFFECT_3DNN_WORK.obj_3d.material_cb_func = new AppMain.MPP_BOOL_NNSDRAWCALLBACKVAL_OBJECT_DELEGATE( AppMain.gmGmkItemMaterialCallback );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkItemOut );
+        gms_EFFECT_3DNN_WORK.obj_3d.material_cb_func = AppMain.gmGmkItemMaterialCallback;
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkItemOut;
         obs_OBJECT_WORK.user_work = ( uint )mat_id;
         obs_OBJECT_WORK.flag |= 18U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.move_flag &= 4294967167U;
         obs_OBJECT_WORK.scale.x = ( obs_OBJECT_WORK.scale.y = 6144 );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkItemPopUpEffectMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkItemPopUpEffectMain;
         obs_OBJECT_WORK.spd.y = -10240;
         obs_OBJECT_WORK.spd_add.y = 320;
     }

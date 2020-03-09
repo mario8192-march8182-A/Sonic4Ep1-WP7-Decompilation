@@ -172,7 +172,7 @@ public partial class AppMain
     {
         AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK = (AppMain.GMS_ENE_UNIUNI_WORK)obj_work;
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUniuniWalkMain );
+        obj_work.ppFunc = AppMain.gmEneUniuniWalkMain;
         obj_work.move_flag &= 4294967291U;
         gms_ENE_UNIUNI_WORK.timer = 1;
     }
@@ -267,7 +267,7 @@ public partial class AppMain
     // Token: 0x0600102C RID: 4140 RVA: 0x0008CC4E File Offset: 0x0008AE4E
     private static void gmEneUniuniFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUniuniFlipMain );
+        obj_work.ppFunc = AppMain.gmEneUniuniFlipMain;
     }
 
     // Token: 0x0600102D RID: 4141 RVA: 0x0008CC69 File Offset: 0x0008AE69
@@ -291,7 +291,7 @@ public partial class AppMain
     private static void gmEneUniuniNeedleWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUniuniNeedleWaitMain );
+        obj_work.ppFunc = AppMain.gmEneUniuniNeedleWaitMain;
         obj_work.move_flag &= 4294967291U;
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
@@ -323,7 +323,7 @@ public partial class AppMain
         obj_work.pos.z = 655360;
         if ( gms_ENE_UNIUNI_WORK2.attack != 0 && ( double )snns_VECTOR.y >= ( double )len * 0.98 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUniuniNeedleAttackInit );
+            obj_work.ppFunc = AppMain.gmEneUniuniNeedleAttackInit;
         }
     }
 
@@ -341,7 +341,7 @@ public partial class AppMain
             obj_work.spd.x = AppMain.FX_F32_TO_FX32( 1f );
         }
         obj_work.parent_obj = null;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUniuniNeedleAttackMain );
+        obj_work.ppFunc = AppMain.gmEneUniuniNeedleAttackMain;
     }
 
     // Token: 0x06001032 RID: 4146 RVA: 0x0008CEDE File Offset: 0x0008B0DE

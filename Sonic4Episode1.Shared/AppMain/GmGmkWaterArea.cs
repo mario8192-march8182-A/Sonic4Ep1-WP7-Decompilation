@@ -127,7 +127,7 @@ public partial class AppMain
             case 3U:
             case 4U:
                 obs_RECT_WORK.flag |= 1024U;
-                obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkWaterAreaDefFuncDelay );
+                obs_RECT_WORK.ppDef = AppMain.gmGmkWaterAreaDefFuncDelay;
                 break;
             default:
                 return;
@@ -206,7 +206,7 @@ public partial class AppMain
     private static void gmGmkWaterAreaModeChangeLady( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.flag &= 4294967279U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkWaterAreaMainLady );
+        obj_work.ppFunc = AppMain.gmGmkWaterAreaMainLady;
     }
 
     // Token: 0x0600120E RID: 4622 RVA: 0x0009E3B4 File Offset: 0x0009C5B4
@@ -214,7 +214,7 @@ public partial class AppMain
     {
         AppMain.gmGmkWaterAreaRequestChangeWatarLevel( obj_work );
         obj_work.flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkWaterAreaMainActive );
+        obj_work.ppFunc = AppMain.gmGmkWaterAreaMainActive;
         AppMain.gmGmkWaterAreaUserTimerSetCounter( obj_work, 0 );
         AppMain.gmGmkWaterAreaRequestChangeWatarLevel( obj_work );
         AppMain.GmWaterSurfaceSetFlagDraw( true );

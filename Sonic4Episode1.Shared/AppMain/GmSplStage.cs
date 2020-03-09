@@ -32,7 +32,7 @@ public partial class AppMain
     private static void GmSplStageStart()
     {
         ushort num = (ushort)(g_gs_main_sys_info.stage_id - 21);
-        AppMain.gm_spl_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSplStageFadeInWait ), null, 0U, 0, 4176U, 5, () => new AppMain.GMS_SPL_STG_WORK(), "SPL_STG_CTRL" );
+        AppMain.gm_spl_tcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmSplStageFadeInWait, null, 0U, 0, 4176U, 5, () => new AppMain.GMS_SPL_STG_WORK(), "SPL_STG_CTRL" );
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = (AppMain.GMS_SPL_STG_WORK)AppMain.gm_spl_tcb.work;
         gms_SPL_STG_WORK.counter = 0U;
         gms_SPL_STG_WORK.light_vec.x = -1f;
@@ -104,7 +104,7 @@ public partial class AppMain
         if ( gms_SPL_STG_WORK.counter > 30U )
         {
             gms_SPL_STG_WORK.counter = 0U;
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSplStageFadeInWait2 ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmSplStageFadeInWait2 );
             AppMain.IzFadeInitEasy( 0U, 2U, 30f );
         }
     }
@@ -133,7 +133,7 @@ public partial class AppMain
 
            
 
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSplStagePlayEndChk ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmSplStagePlayEndChk );
         }
     }
 
@@ -165,7 +165,7 @@ public partial class AppMain
             gms_SPL_STG_WORK.roll = obs_CAMERA.roll;
             gms_SPL_STG_WORK.roll_spd = 256;
             gms_SPL_STG_WORK.counter = 0U;
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSplStageRolling ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmSplStageRolling );
         }
     }
 
@@ -199,7 +199,7 @@ public partial class AppMain
             AppMain.GmFixSetDisp( false );
             gms_SPL_STG_WORK.flag |= 4U;
             gms_SPL_STG_WORK.counter = 1U;
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSplStageGotoEnd ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmSplStageGotoEnd );
             obs_CAMERA.roll = 0;
             AppMain.g_gm_main_system.pseudofall_dir = 0;
         }
@@ -215,7 +215,7 @@ public partial class AppMain
             return;
         }
         AppMain.g_gm_main_system.game_flag |= 4U;
-        AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmSplStageEnd ) );
+        AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmSplStageEnd );
     }
 
     // Token: 0x06000D87 RID: 3463 RVA: 0x00076590 File Offset: 0x00074790

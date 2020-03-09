@@ -139,7 +139,7 @@ public partial class AppMain
             this.dmLogoSegaStart();
             return;
         }
-        AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( this.dmLogoSegaLoadWait ), null, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSEGA_LW" );
+        AppMain.MTM_TASK_MAKE_TCB( this.dmLogoSegaLoadWait, null, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSEGA_LW" );
         this.DmLogoSegaLoad();
     }
 
@@ -163,7 +163,7 @@ public partial class AppMain
     private void DmLogoSegaBuild()
     {
         AppMain.AMS_AMB_HEADER[] array = new AppMain.AMS_AMB_HEADER[2];
-        AppMain.dm_logo_sega_build_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( this.dmLogoSegaDataBuildMain ), new AppMain.GSF_TASK_PROCEDURE( this.dmLogoSegaDataBuildDest ), 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSEGA_BUILD" );
+        AppMain.dm_logo_sega_build_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmLogoSegaDataBuildMain, this.dmLogoSegaDataBuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSEGA_BUILD" );
         AppMain.g_obj.def_user_light_flag = 1U;
         AppMain.GmGameDBuildModelBuildInit();
         this.dm_logo_sega_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.dm_logo_sega_data[0], AppMain.dm_logo_sega_data[1], 0U );
@@ -197,7 +197,7 @@ public partial class AppMain
     // Token: 0x060007A6 RID: 1958 RVA: 0x00043A1C File Offset: 0x00041C1C
     private void DmLogoSegaFlush()
     {
-        AppMain.dm_logo_sega_flush_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( this.dmLogoSegaDataFlushMain ), new AppMain.GSF_TASK_PROCEDURE( this.dmLogoSegaDataFlushDest ), 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_FLUSH" );
+        AppMain.dm_logo_sega_flush_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmLogoSegaDataFlushMain, this.dmLogoSegaDataFlushDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_FLUSH" );
         AppMain.GmGameDBuildModelFlushInit();
         AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.dm_logo_sega_data[0];
         AppMain.GmGameDBuildRegFlushModel( this.dm_logo_sega_obj_3d_list, ams_AMB_HEADER.file_num );
@@ -245,14 +245,14 @@ public partial class AppMain
         this.dmLogoSegaObjSysytemInit();
         AppMain.GsSoundReset();
         AppMain.GsSoundBegin( 3, 32767U, 0 );
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(this.dmLogoSegaMainFunc), null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SEGA_WORK(), "DM_LSEGA_MAIN");
+        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSegaMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SEGA_WORK(), "DM_LSEGA_MAIN");
         AppMain.DMS_LOGO_SEGA_WORK dms_LOGO_SEGA_WORK = (AppMain.DMS_LOGO_SEGA_WORK)mts_TASK_TCB.work;
         AppMain.nnSetPrimitive3DMaterial( ref nns_RGBA, ref nns_RGB, 1f );
         AppMain.AoActSysSetDrawStateEnable( false );
         this.dmLogoSegaActionCreate( dms_LOGO_SEGA_WORK );
         dms_LOGO_SEGA_WORK.ply_obj = this.dmLogoSegaCreatePlayer();
         dms_LOGO_SEGA_WORK.timer = 0;
-        dms_LOGO_SEGA_WORK.func = new AppMain.DMS_LOGO_SEGA_WORK_Delegate( this.dmLogoSegaStartWaitFunc );
+        dms_LOGO_SEGA_WORK.func = this.dmLogoSegaStartWaitFunc;
         dms_LOGO_SEGA_WORK.h_se = AppMain.GsSoundAllocSeHandle();
     }
 
@@ -291,7 +291,7 @@ public partial class AppMain
         AppMain.g_obj.glb_camera_id = 0;
         AppMain.g_obj.glb_camera_type = 1;
         AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
-        obs_CAMERA.user_func = new AppMain.OBJF_CAMERA_USER_FUNC( this.dmLogoSegaCamera );
+        obs_CAMERA.user_func = this.dmLogoSegaCamera;
         obs_CAMERA.command_state = 0U;
         obs_CAMERA.scale = 0.9f;
         obs_CAMERA.ofst.z = 1000f;
@@ -352,7 +352,7 @@ public partial class AppMain
             if ( ( dms_LOGO_SEGA_WORK.flag & 1U ) != 0U )
             {
                 this.dmLogoSegaPreEnd( dms_LOGO_SEGA_WORK );
-                AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( this.gmLogoSegaPreEndWaitFunc ) );
+                AppMain.mtTaskChangeTcbProcedure( tcb, this.gmLogoSegaPreEndWaitFunc );
                 dms_LOGO_SEGA_WORK.timer = 0;
                 return;
             }
@@ -400,7 +400,7 @@ public partial class AppMain
         if ( dms_LOGO_SEGA_WORK.timer > 2 )
         {
             this.dmLogoSegaEnd( dms_LOGO_SEGA_WORK );
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( this.gmLogoSegaEndWaitFunc ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, this.gmLogoSegaEndWaitFunc );
         }
     }
 
@@ -416,7 +416,7 @@ public partial class AppMain
             return;
         }
         this.DmLogoSegaFlush();
-        AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( this.gmLogoSegaFlushWaitFunc ) );
+        AppMain.mtTaskChangeTcbProcedure( tcb, this.gmLogoSegaFlushWaitFunc );
     }
 
     // Token: 0x060007B1 RID: 1969 RVA: 0x00044163 File Offset: 0x00042363
@@ -427,7 +427,7 @@ public partial class AppMain
             return;
         }
         this.DmLogoSegaRelease();
-        AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( this.gmLogoSegaRelesehWaitFunc ) );
+        AppMain.mtTaskChangeTcbProcedure( tcb, this.gmLogoSegaRelesehWaitFunc );
     }
 
     // Token: 0x060007B2 RID: 1970 RVA: 0x00044186 File Offset: 0x00042386
@@ -460,7 +460,7 @@ public partial class AppMain
         {
             AppMain.IzFadeExit();
             logo_work.timer = 4;
-            logo_work.func = new AppMain.DMS_LOGO_SEGA_WORK_Delegate( this.dmLogoSegaRunLeftFunc );
+            logo_work.func = this.dmLogoSegaRunLeftFunc;
             this.dmLogoSegaPlayerInitSeqRunLeft( logo_work.ply_obj );
             logo_work.flag |= 2U;
             logo_work.efct_obj = this.dmLogoSegaCreateDashEffect( logo_work.ply_obj, 0 );
@@ -474,7 +474,7 @@ public partial class AppMain
         if ( logo_work.timer > 10 )
         {
             logo_work.timer = 0;
-            logo_work.func = new AppMain.DMS_LOGO_SEGA_WORK_Delegate( this.dmLogoSegaRunRightWaitFunc );
+            logo_work.func = this.dmLogoSegaRunRightWaitFunc;
             logo_work.efct_obj.flag |= 8U;
             logo_work.efct_obj = null;
         }
@@ -487,7 +487,7 @@ public partial class AppMain
         if ( logo_work.timer > 25 )
         {
             logo_work.timer = 0;
-            logo_work.func = new AppMain.DMS_LOGO_SEGA_WORK_Delegate( this.dmLogoSegaRunRightFunc );
+            logo_work.func = this.dmLogoSegaRunRightFunc;
             this.dmLogoSegaPlayerInitSeqRunRight( logo_work.ply_obj );
             logo_work.efct_obj = this.dmLogoSegaCreateDashEffect( logo_work.ply_obj, 1 );
         }
@@ -500,7 +500,7 @@ public partial class AppMain
         if ( logo_work.timer > 10 )
         {
             logo_work.timer = 0;
-            logo_work.func = new AppMain.DMS_LOGO_SEGA_WORK_Delegate( this.dmLogoSegaDispWaitFunc );
+            logo_work.func = this.dmLogoSegaDispWaitFunc;
             AppMain.GsSoundPlaySe( "Sega_Logo", logo_work.h_se );
             if ( AppMain.GsSystemBgmIsPlay() )
             {
@@ -515,7 +515,7 @@ public partial class AppMain
         logo_work.timer++;
         if ( logo_work.timer >= 180 )
         {
-            logo_work.func = new AppMain.DMS_LOGO_SEGA_WORK_Delegate( this.dmLogoSegaFadeOutWaitFunc );
+            logo_work.func = this.dmLogoSegaFadeOutWaitFunc;
             AppMain.IzFadeInitEasy( 0U, 3U, 60f, true );
         }
     }
@@ -535,7 +535,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(8192, 0, 0, 0, () => new AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK(), "DM_LSEGA_PLY");
         AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK dms_LOGO_SEGA_OBJ_3DNN_WORK = (AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.obj_type = 1;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjDrawActionSummary );
+        obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
         obs_OBJECT_WORK.ppOutSub = null;
         obs_OBJECT_WORK.ppIn = null;
         obs_OBJECT_WORK.ppMove = null;
@@ -568,7 +568,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet( obj_work, 77 );
         obj_work.disp_flag |= 5U;
         this.dmLogoSegaCreateTrail( obj_work );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( this.dmLogoSegaPlayerSeqRunLeft );
+        obj_work.ppFunc = this.dmLogoSegaPlayerSeqRunLeft;
     }
 
     // Token: 0x060007BC RID: 1980 RVA: 0x00044588 File Offset: 0x00042788
@@ -591,7 +591,7 @@ public partial class AppMain
         obj_work.disp_flag &= 4294967294U;
         obj_work.disp_flag |= 4U;
         this.dmLogoSegaCreateTrail( obj_work );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( this.dmLogoSegaPlayerSeqRunRight );
+        obj_work.ppFunc = this.dmLogoSegaPlayerSeqRunRight;
     }
 
     // Token: 0x060007BE RID: 1982 RVA: 0x00044634 File Offset: 0x00042834
@@ -612,14 +612,14 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(12288, 0, 0, 0, () => new AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK(), "DM_LSEGA_EFCT");
         AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK dms_LOGO_SEGA_OBJ_ES_WORK = (AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.obj_type = 2;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.ObjDrawActionSummary );
+        obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
         obs_OBJECT_WORK.ppOutSub = null;
         obs_OBJECT_WORK.ppIn = null;
         obs_OBJECT_WORK.ppMove = null;
         obs_OBJECT_WORK.ppActCall = null;
         obs_OBJECT_WORK.ppRec = null;
         obs_OBJECT_WORK.ppLast = null;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( this.dmLogoSegaEffectMain );
+        obs_OBJECT_WORK.ppFunc = this.dmLogoSegaEffectMain;
         obs_OBJECT_WORK.parent_obj = parent_obj;
         obs_OBJECT_WORK.pos.Assign( parent_obj.pos );
         int index;
@@ -821,7 +821,7 @@ public partial class AppMain
         if ( this.DmLogoSegaLoadCheck() )
         {
             this.DmLogoSegaBuild();
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( this.dmLogoSegaBuildWait ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, this.dmLogoSegaBuildWait );
         }
     }
 

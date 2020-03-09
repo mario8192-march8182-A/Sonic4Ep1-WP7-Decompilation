@@ -98,8 +98,8 @@ public partial class AppMain
         gms_GMK_BUMPER_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBumperDrawFunc );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkBumperDestFunc ) );
+        obj_work.ppOut = AppMain.gmGmkBumperDrawFunc;
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkBumperDestFunc );
     }
 
     // Token: 0x06000076 RID: 118 RVA: 0x00006298 File Offset: 0x00004498
@@ -112,7 +112,7 @@ public partial class AppMain
         short cBottom = AppMain.g_gmk_bumper_rect[bumper_type][3];
         AppMain.ObjRectWorkZSet( obs_RECT_WORK, cLeft, cTop, -500, cRight, cBottom, 500 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkBumperDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkBumperDefFunc;
     }
 
     // Token: 0x06000077 RID: 119 RVA: 0x00006310 File Offset: 0x00004510

@@ -194,7 +194,7 @@ public partial class AppMain
         gms_GMK_SLOT_WORK.prob[2] = AppMain.GMD_GMK_SLOT_PROB_SSS;
         gms_GMK_SLOT_WORK.prob[4] = AppMain.GMD_GMK_SLOT_PROB_BBB;
         gms_GMK_SLOT_WORK.prob[3] = AppMain.GMD_GMK_SLOT_PROB_RRR;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotStay );
+        obj_work.ppFunc = AppMain.gmGmkSlotStay;
     }
 
     // Token: 0x0600005F RID: 95 RVA: 0x00004DF0 File Offset: 0x00002FF0
@@ -325,7 +325,7 @@ public partial class AppMain
         }
         gms_GMK_SLOT_WORK.freestop = 0;
         AppMain.gmGmkSlotGameStart_100( obj_work );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameStart_100 );
+        obj_work.ppFunc = AppMain.gmGmkSlotGameStart_100;
     }
 
     // Token: 0x06000062 RID: 98 RVA: 0x00005164 File Offset: 0x00003364
@@ -576,10 +576,10 @@ public partial class AppMain
                         }
                         if ( gms_GMK_SLOT_WORK.lotresult < 0 || gms_GMK_SLOT_WORK.lotresult == 9 )
                         {
-                            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameLose );
+                            obj_work.ppFunc = AppMain.gmGmkSlotGameLose;
                             goto IL_825;
                         }
-                        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameHit );
+                        obj_work.ppFunc = AppMain.gmGmkSlotGameHit;
                         goto IL_825;
                 }
                 if ( gms_GMK_SLOT_REEL_STATUS_WORK.reel_spd <= ( int )AppMain.GMD_GMK_SLOT_REEL_EGG_SPEED + gms_GMK_SLOT_REEL_STATUS_WORK.reel_acc )
@@ -652,11 +652,11 @@ public partial class AppMain
                         }
                         if ( gms_GMK_SLOT_WORK.lotresult < 0 || gms_GMK_SLOT_WORK.lotresult == 9 )
                         {
-                            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameLose );
+                            obj_work.ppFunc = AppMain.gmGmkSlotGameLose;
                         }
                         else
                         {
-                            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameHit );
+                            obj_work.ppFunc = AppMain.gmGmkSlotGameHit;
                         }
                     }
                 }
@@ -697,11 +697,11 @@ public partial class AppMain
         if ( gms_GMK_SLOT_WORK.lotresult != 1 )
         {
             AppMain.GmRingSlotSetNum( AppMain.slot_start_player, AppMain.tbl_slot_bonus_ring[( int )gms_GMK_SLOT_WORK.lotresult] );
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameHit_100 );
+            obj_work.ppFunc = AppMain.gmGmkSlotGameHit_100;
             return;
         }
         AppMain.GmEfctCmnEsCreate( AppMain.slot_start_player.obj_work, 96 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameHit_200 );
+        obj_work.ppFunc = AppMain.gmGmkSlotGameHit_200;
         gms_GMK_SLOT_WORK.timer = 30;
     }
 
@@ -715,7 +715,7 @@ public partial class AppMain
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         AppMain.GmPlayerAddScore( AppMain.slot_start_player, AppMain.tbl_slot_bonus_score[( int )gms_GMK_SLOT_WORK.lotresult], AppMain.slot_start_player.obj_work.pos.x, AppMain.slot_start_player.obj_work.pos.y );
         AppMain.slot_start_call = -1;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotStay );
+        obj_work.ppFunc = AppMain.gmGmkSlotStay;
     }
 
     // Token: 0x06000065 RID: 101 RVA: 0x00005B48 File Offset: 0x00003D48
@@ -728,7 +728,7 @@ public partial class AppMain
             gms_GMK_SLOT_WORK.ppos_x = AppMain.slot_start_player.obj_work.pos.x;
             gms_GMK_SLOT_WORK.ppos_y = AppMain.slot_start_player.obj_work.pos.y;
             gms_GMK_SLOT_WORK.timer = 100;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotGameHit_210 );
+            obj_work.ppFunc = AppMain.gmGmkSlotGameHit_210;
         }
     }
 
@@ -749,7 +749,7 @@ public partial class AppMain
             AppMain.slot_start_player.obj_work.pos.x = gms_GMK_SLOT_WORK.ppos_x;
             AppMain.slot_start_player.obj_work.pos.y = gms_GMK_SLOT_WORK.ppos_y;
             AppMain.slot_start_call = -1;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotStay );
+            obj_work.ppFunc = AppMain.gmGmkSlotStay;
         }
     }
 
@@ -758,7 +758,7 @@ public partial class AppMain
     {
         //(AppMain.GMS_GMK_SLOT_WORK)obj_work;
         AppMain.slot_start_call = -1;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotStay );
+        obj_work.ppFunc = AppMain.gmGmkSlotStay;
     }
 
     // Token: 0x06000068 RID: 104 RVA: 0x00005CE0 File Offset: 0x00003EE0
@@ -780,7 +780,7 @@ public partial class AppMain
             obs_OBJECT_WORK2.move_flag |= 256U;
             obs_OBJECT_WORK2.disp_flag &= 4294967039U;
             obs_OBJECT_WORK2.disp_flag |= 138412032U;
-            obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSlotReel );
+            obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkSlotReel;
             gms_GMK_SLOTPARTS_WORK.reel_id = i;
             gms_GMK_SLOTPARTS_WORK.slot_work = pwork;
         }

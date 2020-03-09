@@ -136,18 +136,18 @@ public partial class AppMain
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         AppMain.ObjRectWorkSet( gms_ENEMY_3D_WORK.ene_com.rect_work[0], -14, -30, 14, -2 );
-        gms_ENEMY_3D_WORK.ene_com.rect_work[0].ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmBoss4CapsuleDamageDefFunc );
+        gms_ENEMY_3D_WORK.ene_com.rect_work[0].ppDef = AppMain.gmBoss4CapsuleDamageDefFunc;
         AppMain.ObjRectWorkSet( gms_ENEMY_3D_WORK.ene_com.rect_work[1], -1, -9, 1, -7 );
-        gms_ENEMY_3D_WORK.ene_com.rect_work[1].ppHit = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmBoss4CapsuleAtkHitFunc );
+        gms_ENEMY_3D_WORK.ene_com.rect_work[1].ppHit = AppMain.gmBoss4CapsuleAtkHitFunc;
         gms_ENEMY_3D_WORK.ene_com.rect_work[1].flag |= 4U;
         gms_ENEMY_3D_WORK.ene_com.rect_work[2].flag &= 4294967291U;
         gms_ENEMY_3D_WORK.ene_com.enemy_flag |= 32768U;
-        AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4CapsuleWaitLoad ), obs_OBJECT_WORK );
+        AppMain.T_FUNC( AppMain.gmBoss4CapsuleWaitLoad, obs_OBJECT_WORK );
         if ( gms_BOSS4_CAP_WORK.chibi_type == 4 )
         {
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmBoss4CapsuleExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmBoss4CapsuleExit );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
         obs_OBJECT_WORK.obj_3d.use_light_flag |= 64U;
         return obs_OBJECT_WORK;
@@ -231,7 +231,7 @@ public partial class AppMain
         {
             if ( gms_BOSS4_CAP_WORK.type == 0 )
             {
-                AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4CapsuleMain ), obj_work );
+                AppMain.T_FUNC( AppMain.gmBoss4CapsuleMain, obj_work );
             }
             else
             {
@@ -240,7 +240,7 @@ public partial class AppMain
                 AppMain.ObjObjectFieldRectSet( obj_work, -20, -40, 20, 0 );
                 obj_work.dir.y = 0;
                 gms_BOSS4_CAP_WORK.chibi_type = AppMain.gmBoss4ChibiGetAttackType( AppMain.GmBoss4GetLife() );
-                AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4CapsuleMain2nd ), obj_work );
+                AppMain.T_FUNC( AppMain.gmBoss4CapsuleMain2nd, obj_work );
                 if ( gms_BOSS4_CAP_WORK.chibi_type == 4 )
                 {
                     AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GmEventMgrLocalEventBirth(329, obj_work.pos.x, obj_work.pos.y, 0, 0, 0, 0, 0, 0);
@@ -280,7 +280,7 @@ public partial class AppMain
                 AppMain.VecFx32 pos = obj_work.pos;
                 pos.z = 135168;
                 AppMain.GmBoss4EffCommonInit( 735, new AppMain.VecFx32?( pos ) );
-                AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4CapsuleBomb ), obj_work );
+                AppMain.T_FUNC( AppMain.gmBoss4CapsuleBomb, obj_work );
             }
         }
         else
@@ -308,7 +308,7 @@ public partial class AppMain
             pos2.z = 135168;
             AppMain.GmBoss4EffCommonInit( 735, new AppMain.VecFx32?( pos2 ) );
             gms_BOSS4_CAP_WORK.wait = 30;
-            AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4CapsuleBomb ), obj_work );
+            AppMain.T_FUNC( AppMain.gmBoss4CapsuleBomb, obj_work );
             AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX3 );
             AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX2 );
             AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX );
@@ -385,7 +385,7 @@ public partial class AppMain
             AppMain.GmBoss4IncObjCreateCount();
             obs_OBJECT_WORK.spd.y = AppMain.FX_F32_TO_FX32( -4f );
             obs_OBJECT_WORK.spd.x = AppMain.FX_F32_TO_FX32( -1f );
-            AppMain.T_FUNC( new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmBoss4CapsuleBomb2nd ), obj_work );
+            AppMain.T_FUNC( AppMain.gmBoss4CapsuleBomb2nd, obj_work );
         }
     }
 

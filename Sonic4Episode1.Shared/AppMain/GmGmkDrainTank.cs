@@ -164,8 +164,8 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.height = 32;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.ofst_x = -16;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.ofst_y = -32;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankDrawFuncIn );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankInMainReady );
+        obj_work.ppOut = AppMain.gmGmkDrainTankDrawFuncIn;
+        obj_work.ppFunc = AppMain.gmGmkDrainTankInMainReady;
         obj_work.disp_flag |= 4194304U;
         gms_ENEMY_3D_WORK.obj_3d.command_state = 8U;
         obj_work.pos.z = 1441792;
@@ -176,7 +176,7 @@ public partial class AppMain
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.ObjObjectFieldRectSet( obj_work, 0, 0, 32, 16 );
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankDrawFuncOut );
+        obj_work.ppOut = AppMain.gmGmkDrainTankDrawFuncOut;
         AppMain.gmGmkDrainTankOutChangeModeReady( obj_work );
         obj_work.disp_flag |= 4194304U;
         obj_work.move_flag |= 128U;
@@ -185,7 +185,7 @@ public partial class AppMain
         obj_work.pos.z = 1441792;
         AppMain.GmWaterSurfaceRequestChangeWaterLevel( ( ushort )AppMain.FX_FX32_TO_F32( obj_work.pos.y - 196608 ), 0, false );
         AppMain.GmWaterSurfaceSetFlagEnableRef( false );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkDrainTankTcbDestOut ) );
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkDrainTankTcbDestOut );
     }
 
     // Token: 0x06001226 RID: 4646 RVA: 0x0009EA64 File Offset: 0x0009CC64
@@ -199,10 +199,10 @@ public partial class AppMain
         obj_work.obj_3d.drawflag |= 8388608U;
         obj_work.obj_3d.draw_state.alpha.alpha = 1f;
         obj_work.user_timer = 60;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankSplashMainFunc );
+        obj_work.ppFunc = AppMain.gmGmkDrainTankSplashMainFunc;
         obj_work.ppMove = null;
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate(obj_work, 2, 34);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankSplashEffectMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkDrainTankSplashEffectMain;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.move_flag = 384U;
         AppMain.OBS_OBJECT_WORK obj_work2 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
         obj_work2.pos.y = obj_work2.pos.y + -131072;
@@ -291,7 +291,7 @@ public partial class AppMain
         if ( obj_work.pos.x + 65536 < obj_work2.pos.x )
         {
             obj_work.pos.y = obj_work.pos.y + 32768;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankInMainWait );
+            obj_work.ppFunc = AppMain.gmGmkDrainTankInMainWait;
             obj_work.move_flag |= 128U;
         }
     }
@@ -328,14 +328,14 @@ public partial class AppMain
         AppMain.GmPlayerCameraOffsetSet( ply_work, 0, 0 );
         AppMain.GmCameraAllowReset();
         AppMain.GmWaterSurfaceRequestChangeWaterLevel( ushort.MaxValue, 0, false );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankOutMainWaitDelete );
+        obj_work.ppFunc = AppMain.gmGmkDrainTankOutMainWaitDelete;
     }
 
     // Token: 0x06001230 RID: 4656 RVA: 0x0009F026 File Offset: 0x0009D226
     private static void gmGmkDrainTankOutChangeModeReady( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.spd.x = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankOutMainReady );
+        obj_work.ppFunc = AppMain.gmGmkDrainTankOutMainReady;
     }
 
     // Token: 0x06001231 RID: 4657 RVA: 0x0009F048 File Offset: 0x0009D248
@@ -348,14 +348,14 @@ public partial class AppMain
         gms_GMK_DRAIN_TANK_OUT_WORK.player_offset_y = obj_work2.pos.y - gms_GMK_DRAIN_TANK_OUT_WORK.base_pos_y;
         obj_work.spd.x = 0;
         gms_GMK_DRAIN_TANK_OUT_WORK.counter_roll_key = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankOutMainWait );
+        obj_work.ppFunc = AppMain.gmGmkDrainTankOutMainWait;
     }
 
     // Token: 0x06001232 RID: 4658 RVA: 0x0009F0C6 File Offset: 0x0009D2C6
     private static void gmGmkDrainTankOutChangeModeDamage( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.spd.x = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankOutMainDamage );
+        obj_work.ppFunc = AppMain.gmGmkDrainTankOutMainDamage;
     }
 
     // Token: 0x06001233 RID: 4659 RVA: 0x0009F0E8 File Offset: 0x0009D2E8
@@ -383,13 +383,13 @@ public partial class AppMain
         AppMain.GMM_PAD_VIB_SMALL();
         AppMain.GmPlayerCameraOffsetSet( gms_PLAYER_WORK, 0, 0 );
         AppMain.GmCameraAllowReset();
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankOutMainSplash );
+        obj_work.ppFunc = AppMain.gmGmkDrainTankOutMainSplash;
     }
 
     // Token: 0x06001234 RID: 4660 RVA: 0x0009F23E File Offset: 0x0009D43E
     private static void gmGmkDrainTankOutChangeModeEnd( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDrainTankOutMainEnd );
+        obj_work.ppFunc = AppMain.gmGmkDrainTankOutMainEnd;
     }
 
     // Token: 0x06001235 RID: 4661 RVA: 0x0009F254 File Offset: 0x0009D454

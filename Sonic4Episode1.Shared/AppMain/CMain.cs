@@ -165,7 +165,7 @@ public partial class AppMain
             this.m_fs[1] = AppMain.amFsReadBackground(AppMain.c_lang[num]);
             this.m_flag[3] = true;
             this.m_pTaskLink.AttachTask("dmBuyScreen::Load", AppMain.c_priority, AppMain.c_user, AppMain.c_attribute);
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.fileLoading));
+            base.SetProc(this.fileLoading);
         }
 
         // Token: 0x06002059 RID: 8281 RVA: 0x0013E030 File Offset: 0x0013C230
@@ -234,7 +234,7 @@ public partial class AppMain
             }
             this.m_flag[5] = true;
             this.m_pTaskLink.AttachTask("dmBuyScreen::Build", AppMain.c_priority, AppMain.c_user, AppMain.c_attribute);
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.creating));
+            base.SetProc(this.creating);
         }
 
         // Token: 0x0600205C RID: 8284 RVA: 0x0013E1C1 File Offset: 0x0013C3C1
@@ -288,7 +288,7 @@ public partial class AppMain
             AppMain.IzFadeInitEasy(0U, 0U, 30f);
             this.m_flag[7] = true;
             this.m_pTaskLink.AttachTask("dmBuyScreen::Execute", AppMain.c_priority, AppMain.c_user, AppMain.c_attribute);
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.fadeIn));
+            base.SetProc(this.fadeIn);
         }
 
         // Token: 0x0600205F RID: 8287 RVA: 0x0013E333 File Offset: 0x0013C533
@@ -304,7 +304,7 @@ public partial class AppMain
         // Token: 0x06002060 RID: 8288 RVA: 0x0013E347 File Offset: 0x0013C547
         private void waitStart()
         {
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.wait));
+            base.SetProc(this.wait);
         }
 
         // Token: 0x06002061 RID: 8289 RVA: 0x0013E35C File Offset: 0x0013C55C
@@ -331,7 +331,7 @@ public partial class AppMain
         // Token: 0x06002062 RID: 8290 RVA: 0x0013E39F File Offset: 0x0013C59F
         private void selectStart()
         {
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.select));
+            base.SetProc(this.@select);
         }
 
         // Token: 0x06002063 RID: 8291 RVA: 0x0013E3B4 File Offset: 0x0013C5B4
@@ -379,7 +379,7 @@ public partial class AppMain
         // Token: 0x06002064 RID: 8292 RVA: 0x0013E4B6 File Offset: 0x0013C6B6
         private void enterEfctStart()
         {
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.enterEfct));
+            base.SetProc(this.enterEfct);
         }
 
         // Token: 0x06002065 RID: 8293 RVA: 0x0013E4CA File Offset: 0x0013C6CA
@@ -395,7 +395,7 @@ public partial class AppMain
         private void fadeOutStart()
         {
             AppMain.IzFadeInitEasy(0U, 1U, 30f);
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.fadeOut));
+            base.SetProc(this.fadeOut);
         }
 
         // Token: 0x06002067 RID: 8295 RVA: 0x0013E524 File Offset: 0x0013C724
@@ -420,7 +420,7 @@ public partial class AppMain
                 AppMain.AoTexRelease(this.m_tex[i]);
             }
             this.m_pTaskLink.AttachTask("dmBuyScreen::Flush", AppMain.c_priority, AppMain.c_user, AppMain.c_attribute);
-            base.SetProc(new AppMain.CProc<AppMain.CMain>.FProc(this.releasing));
+            base.SetProc(this.releasing);
         }
 
         // Token: 0x06002069 RID: 8297 RVA: 0x0013E5C7 File Offset: 0x0013C7C7

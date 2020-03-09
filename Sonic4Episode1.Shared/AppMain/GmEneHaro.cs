@@ -110,7 +110,7 @@ public partial class AppMain
         gms_ENE_HARO_WORK.angle_add = 0;
         gms_ENE_HARO_WORK.lighton = 0;
         AppMain.GmEneUtilInitNodeMatrix( gms_ENE_HARO_WORK.node_work, obs_OBJECT_WORK, 16 );
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmEneHaroExit ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmEneHaroExit );
         AppMain.GmEneUtilGetNodeMatrix( gms_ENE_HARO_WORK.node_work, 2 );
         AppMain.gmEneHaroWaitInit( obs_OBJECT_WORK );
         obs_OBJECT_WORK.obj_3d.use_light_flag &= 4294967294U;
@@ -205,7 +205,7 @@ public partial class AppMain
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)obj_work;
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHaroWaitMain );
+        obj_work.ppFunc = AppMain.gmEneHaroWaitMain;
         obj_work.move_flag &= 4294967291U;
         int num = AppMain.FX_Sqrt(AppMain.FX_Mul(gms_ENE_HARO_WORK.vec.x, gms_ENE_HARO_WORK.vec.x) + AppMain.FX_Mul(gms_ENE_HARO_WORK.vec.y, gms_ENE_HARO_WORK.vec.y));
         if ( num == 0 )
@@ -227,7 +227,7 @@ public partial class AppMain
             obj_work.obj_3d.blend_spd = 0.05f;
             AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 1 );
             obj_work.disp_flag |= 4U;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHaroWalkInit );
+            obj_work.ppFunc = AppMain.gmEneHaroWalkInit;
         }
     }
 
@@ -236,7 +236,7 @@ public partial class AppMain
     {
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)obj_work;
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHaroWalkMain );
+        obj_work.ppFunc = AppMain.gmEneHaroWalkMain;
         obj_work.move_flag &= 4294967291U;
         int num = AppMain.FX_Sqrt(AppMain.FX_Mul(gms_ENE_HARO_WORK.vec.x, gms_ENE_HARO_WORK.vec.x) + AppMain.FX_Mul(gms_ENE_HARO_WORK.vec.y, gms_ENE_HARO_WORK.vec.y));
         if ( num == 0 )
@@ -253,7 +253,7 @@ public partial class AppMain
         if ( gms_ENE_HARO_WORK.lighton == 0 )
         {
             AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctEneEsCreate(obj_work, 6);
-            gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneEffectMainFuncHarogen );
+            gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmEneEffectMainFuncHarogen;
             gms_ENE_HARO_WORK.lighton = 1;
         }
         if ( AppMain.gmEneHaroGetLength2N( obj_work ) <= 10000 )
@@ -321,7 +321,7 @@ public partial class AppMain
         }
         else
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHaroWalkInit );
+            obj_work.ppFunc = AppMain.gmEneHaroWalkInit;
         }
         if ( gms_ENE_HARO_WORK.vec.x < 0 )
         {
@@ -356,7 +356,7 @@ public partial class AppMain
     // Token: 0x06000298 RID: 664 RVA: 0x00015EF3 File Offset: 0x000140F3
     public static void gmEneHaroFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHaroFlipMain );
+        obj_work.ppFunc = AppMain.gmEneHaroFlipMain;
     }
 
     // Token: 0x06000299 RID: 665 RVA: 0x00015F0E File Offset: 0x0001410E

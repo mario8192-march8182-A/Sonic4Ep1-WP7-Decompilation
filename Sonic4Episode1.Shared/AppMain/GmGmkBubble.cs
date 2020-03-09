@@ -36,9 +36,9 @@ public partial class AppMain
     {
         obj_work.move_flag |= 8448U;
         AppMain.gmGmkBubbleSetUserTimerCounter( obj_work, 0U );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleManagerMainWait );
+        obj_work.ppFunc = AppMain.gmGmkBubbleManagerMainWait;
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate(obj_work, 2, 4);
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleManagerEffectMain );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkBubbleManagerEffectMain;
     }
 
     // Token: 0x06001015 RID: 4117 RVA: 0x0008BF8C File Offset: 0x0008A18C
@@ -53,7 +53,7 @@ public partial class AppMain
         uint num2 = AppMain.gmGmkBubbleGetUserTimerCounter(obj_work);
         if ( ( uint )( gms_ENEMY_3D_WORK.ene_com.eve_rec.top * 60 ) < num2 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleManagerMain );
+            obj_work.ppFunc = AppMain.gmGmkBubbleManagerMain;
         }
         AppMain.gmGmkBubbleAddUserTimerCounter( obj_work, 1 );
     }
@@ -105,9 +105,9 @@ public partial class AppMain
         AppMain.GmEffectRectInit( effect_work.efct_com, AppMain.gm_gmk_bubble_table_atk, AppMain.gm_gmk_bubble_table_def, 1, 1 );
         AppMain.ObjRectWorkSet( rect_work[0], -8, 7, 8, 8 );
         rect_work[0].flag |= 1028U;
-        rect_work[0].ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkBubbleDefFunc );
+        rect_work[0].ppDef = AppMain.gmGmkBubbleDefFunc;
         rect_work[1].flag |= 3072U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleMainMoveLeft );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkBubbleMainMoveLeft;
     }
 
     // Token: 0x06001019 RID: 4121 RVA: 0x0008C17C File Offset: 0x0008A37C
@@ -128,7 +128,7 @@ public partial class AppMain
         gms_EFFECT_3DES_WORK.efct_com.obj_work.pos.y = parent_obj.pos.y;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.pos.z = parent_obj.pos.z;
         AppMain.GMM_PAD_VIB_SMALL();
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleMainHit );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkBubbleMainHit;
     }
 
     // Token: 0x0600101A RID: 4122 RVA: 0x0008C24C File Offset: 0x0008A44C
@@ -137,12 +137,12 @@ public partial class AppMain
         obj_work.spd.x = AppMain.gmGmkBubbleAddUserWorkSpeedX( obj_work, ( int )( -( int )AppMain.GMD_GMK_BUBBLE_SPEED_X_ADD ) );
         if ( ( long )obj_work.spd.x < -AppMain.GMD_GMK_BUBBLE_SPEED_X_MAX )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleMainMoveRight );
+            obj_work.ppFunc = AppMain.gmGmkBubbleMainMoveRight;
         }
         int num = (int)(AppMain.gmGmkBubbleGameSystemGetWaterLevel() * 4096);
         if ( num > obj_work.pos.y )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleMainEnd );
+            obj_work.ppFunc = AppMain.gmGmkBubbleMainEnd;
         }
     }
 
@@ -152,12 +152,12 @@ public partial class AppMain
         obj_work.spd.x = AppMain.gmGmkBubbleAddUserWorkSpeedX( obj_work, ( int )AppMain.GMD_GMK_BUBBLE_SPEED_X_ADD );
         if ( ( long )obj_work.spd.x > AppMain.GMD_GMK_BUBBLE_SPEED_X_MAX )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleMainMoveLeft );
+            obj_work.ppFunc = AppMain.gmGmkBubbleMainMoveLeft;
         }
         int num = (int)(AppMain.gmGmkBubbleGameSystemGetWaterLevel() * 4096);
         if ( num > obj_work.pos.y )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBubbleMainEnd );
+            obj_work.ppFunc = AppMain.gmGmkBubbleMainEnd;
         }
     }
 

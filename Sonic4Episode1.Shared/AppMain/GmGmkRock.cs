@@ -344,7 +344,7 @@ public partial class AppMain
         obs_RECT_WORK.flag |= 1024U;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkRockWaitDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkRockWaitDefFunc;
     }
 
     // Token: 0x06000FEA RID: 4074 RVA: 0x0008AC68 File Offset: 0x00088E68
@@ -362,9 +362,9 @@ public partial class AppMain
         obj_work.user_work = ( uint )AppMain.mtMathRand();
         gms_GMK_ROCK_CHASE_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
         obj_work.ppFunc = null;
-        obj_work.ppMove = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockMoveFunc );
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockChaseDrawFunc );
-        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkRockChaseTcbDest ) );
+        obj_work.ppMove = AppMain.gmGmkRockMoveFunc;
+        obj_work.ppOut = AppMain.gmGmkRockChaseDrawFunc;
+        AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, AppMain.gmGmkRockChaseTcbDest );
     }
 
     // Token: 0x06000FEB RID: 4075 RVA: 0x0008AD3C File Offset: 0x00088F3C
@@ -389,7 +389,7 @@ public partial class AppMain
             AppMain.GMM_PAD_VIB_STOP();
             gms_GMK_ROCK_CHASE_WORK.flag_vib = false;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockChaseMainFall );
+        obj_work.ppFunc = AppMain.gmGmkRockChaseMainFall;
     }
 
     // Token: 0x06000FEC RID: 4076 RVA: 0x0008ADF4 File Offset: 0x00088FF4
@@ -400,7 +400,7 @@ public partial class AppMain
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
         AppMain.gmGmkRockChaseSetDirType( gms_GMK_ROCK_CHASE_WORK, 0U );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockChaseMainChase );
+        obj_work.ppFunc = AppMain.gmGmkRockChaseMainChase;
         if ( gms_GMK_ROCK_CHASE_WORK.effect_work == null )
         {
             AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate(obj_work, 2, 24);
@@ -587,7 +587,7 @@ public partial class AppMain
     {
         obj_work.move_flag |= 8448U;
         AppMain.gmGmkRockFallMgrSetUserTimer( obj_work, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockManagerMain );
+        obj_work.ppFunc = AppMain.gmGmkRockManagerMain;
     }
 
     // Token: 0x06000FF1 RID: 4081 RVA: 0x0008B268 File Offset: 0x00089468
@@ -630,9 +630,9 @@ public partial class AppMain
         {
             gms_GMK_ROCK_FALL_WORK.roll_d = ( ushort )-gms_GMK_ROCK_FALL_WORK.roll_d;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockFallMainStart );
-        obj_work.ppMove = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockMoveFunc );
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockFallDrawFunc );
+        obj_work.ppFunc = AppMain.gmGmkRockFallMainStart;
+        obj_work.ppMove = AppMain.gmGmkRockMoveFunc;
+        obj_work.ppOut = AppMain.gmGmkRockFallDrawFunc;
     }
 
     // Token: 0x06000FF3 RID: 4083 RVA: 0x0008B430 File Offset: 0x00089630
@@ -651,7 +651,7 @@ public partial class AppMain
         AppMain.GmCameraVibrationSet( 0, 4096, 0 );
         obj_work.move_flag &= 4294967167U;
         obj_work.spd.y = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockFallMainWait );
+        obj_work.ppFunc = AppMain.gmGmkRockFallMainWait;
     }
 
     // Token: 0x06000FF4 RID: 4084 RVA: 0x0008B4F8 File Offset: 0x000896F8
@@ -669,7 +669,7 @@ public partial class AppMain
         AppMain.gmGmkRockHookkChangeModeActive( obj_work2 );
         gms_GMK_ROCK_FALL_WORK.hook_work = null;
         AppMain.GmSoundPlaySE( "BigRock5" );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockFallMainFallWaitEffect );
+        obj_work.ppFunc = AppMain.gmGmkRockFallMainFallWaitEffect;
     }
 
     // Token: 0x06000FF5 RID: 4085 RVA: 0x0008B578 File Offset: 0x00089778
@@ -691,7 +691,7 @@ public partial class AppMain
         gms_EFFECT_3DES_WORK.efct_com.obj_work.pos.z = 131072;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.parent_ofst.y = 204800;
         gms_GMK_ROCK_FALL_WORK.effect_work = gms_EFFECT_3DES_WORK;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockFallMainFall );
+        obj_work.ppFunc = AppMain.gmGmkRockFallMainFall;
     }
 
     // Token: 0x06000FF6 RID: 4086 RVA: 0x0008B64C File Offset: 0x0008984C
@@ -723,7 +723,7 @@ public partial class AppMain
     private static void gmGmkRockHookkChangeModeActive( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNN( obj_work, 1, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkRockHookMainActive );
+        obj_work.ppFunc = AppMain.gmGmkRockHookMainActive;
     }
 
     // Token: 0x06000FFA RID: 4090 RVA: 0x0008B6EB File Offset: 0x000898EB

@@ -169,13 +169,13 @@ public partial class AppMain
         gms_GMK_UPBUMPER_WORK.gmk_work.ene_com.rect_work[0].flag &= 4294967291U;
         gms_GMK_UPBUMPER_WORK.gmk_work.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_UPBUMPER_WORK.gmk_work.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkUpBumperHit );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkUpBumperHit;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, AppMain.GmkUpBumperData.tbl_gm_gmk_upbumper_rect[gms_GMK_UPBUMPER_WORK.obj_type][0], AppMain.GmkUpBumperData.tbl_gm_gmk_upbumper_rect[gms_GMK_UPBUMPER_WORK.obj_type][1], AppMain.GmkUpBumperData.tbl_gm_gmk_upbumper_rect[gms_GMK_UPBUMPER_WORK.obj_type][2], AppMain.GmkUpBumperData.tbl_gm_gmk_upbumper_rect[gms_GMK_UPBUMPER_WORK.obj_type][3] );
         obj_work.flag &= 4294967293U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkUpBumperStay );
+        obj_work.ppFunc = AppMain.gmGmkUpBumperStay;
     }
 
     // Token: 0x060004EC RID: 1260 RVA: 0x0002A1B8 File Offset: 0x000283B8

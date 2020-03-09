@@ -83,7 +83,7 @@ public partial class AppMain
         obj_work.pos.z = -122880;
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkEnBmprDrawFunc );
+        obj_work.ppOut = AppMain.gmGmkEnBmprDrawFunc;
         AppMain.gmGmkEnBmprChangeModeWait( obj_work );
     }
 
@@ -98,7 +98,7 @@ public partial class AppMain
         AppMain.ObjRectWorkZSet( obs_RECT_WORK, cLeft, cTop, -500, cRight, cBottom, 500 );
         obs_RECT_WORK.flag |= 1024U;
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkEnBmprDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkEnBmprDefFunc;
     }
 
     // Token: 0x0600068A RID: 1674 RVA: 0x0003ADEC File Offset: 0x00038FEC
@@ -293,7 +293,7 @@ public partial class AppMain
     private static void gmGmkEnBmprChangeModeWait( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNN( obj_work, 0, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkEnBmprMainWait );
+        obj_work.ppFunc = AppMain.gmGmkEnBmprMainWait;
     }
 
     // Token: 0x06000690 RID: 1680 RVA: 0x0003B38C File Offset: 0x0003958C
@@ -312,14 +312,14 @@ public partial class AppMain
         }
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obj_work, AppMain.g_gm_gmk_en_bmpr_mat_motion_id[num2] );
         AppMain.ObjDrawObjectActionSet3DNN( obj_work, 1, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkEnBmprMainHit );
+        obj_work.ppFunc = AppMain.gmGmkEnBmprMainHit;
     }
 
     // Token: 0x06000691 RID: 1681 RVA: 0x0003B408 File Offset: 0x00039608
     private static void gmGmkEnBmprChangeModeLost( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNN( obj_work, 0, 0 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkEnBmprMainLost );
+        obj_work.ppFunc = AppMain.gmGmkEnBmprMainLost;
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(null, 19);
         gms_EFFECT_3DES_WORK.efct_com.obj_work.pos.x = obj_work.pos.x;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.pos.y = obj_work.pos.y;

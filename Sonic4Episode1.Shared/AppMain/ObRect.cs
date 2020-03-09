@@ -810,7 +810,7 @@ public partial class AppMain
     // Token: 0x06000F2A RID: 3882 RVA: 0x000854F5 File Offset: 0x000836F5
     private static ushort ObjRectFlagCheck(uint ulAtkFlag, uint usDefFlag, int lAtkPower, int lDefPower)
     {
-        Debug.WriteLine($"ulAtkFlag: {ulAtkFlag}, usDefFlag: {usDefFlag}, lAtkPower: {lAtkPower}, lDefPower: {lDefPower}");
+        // Debug.WriteLine($"ulAtkFlag: {ulAtkFlag}, usDefFlag: {usDefFlag}, lAtkPower: {lAtkPower}, lDefPower: {lDefPower}");
 
         if ((ulAtkFlag & ~(usDefFlag)) != 0U && lAtkPower >= lDefPower)
         {

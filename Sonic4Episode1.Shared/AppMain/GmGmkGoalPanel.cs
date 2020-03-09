@@ -19,7 +19,7 @@ public partial class AppMain
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.dir.y = 32768;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.flag |= 134217728U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGoalPanelMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkGoalPanelMain;
         AppMain.GmGmkSplRingMake( pos_x + 393216, pos_y - 393216 );
         return obs_OBJECT_WORK;
     }
@@ -58,7 +58,7 @@ public partial class AppMain
             AppMain.g_gm_main_system.game_flag |= 1048576U;
             obj_work.user_work = 4096U;
             obj_work.user_timer = 120;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGoalPanelPass );
+            obj_work.ppFunc = AppMain.gmGmkGoalPanelPass;
             AppMain.GmGmkCamScrLimitSet( new AppMain.GMS_EVE_RECORD_EVENT
             {
                 flag = 5,
@@ -91,7 +91,7 @@ public partial class AppMain
             obj_work.user_work = 0U;
             obj_work.dir.y = 0;
             obj_work.user_timer = 120;
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkGoalPanelWait );
+            obj_work.ppFunc = AppMain.gmGmkGoalPanelWait;
             AppMain.gmGmkGoalPanelEfctKill();
             AppMain.GmPlySeqChangeActGoal( AppMain.g_gm_main_system.ply_work[( int )( ( UIntPtr )0 )] );
         }

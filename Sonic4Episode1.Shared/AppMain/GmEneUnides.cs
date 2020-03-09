@@ -180,7 +180,7 @@ public partial class AppMain
     private static void gmEneUnidesWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesWaitMain );
+        obj_work.ppFunc = AppMain.gmEneUnidesWaitMain;
         obj_work.move_flag &= 4294967291U;
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
@@ -192,7 +192,7 @@ public partial class AppMain
         AppMain.GMS_ENE_UNIDES_WORK gms_ENE_UNIDES_WORK = (AppMain.GMS_ENE_UNIDES_WORK)obj_work;
         if ( AppMain.gmEneUnidesGetLength2N( obj_work ) < 9216 )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesAttackInit );
+            obj_work.ppFunc = AppMain.gmEneUnidesAttackInit;
         }
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -207,7 +207,7 @@ public partial class AppMain
     {
         AppMain.GMS_ENE_UNIDES_WORK gms_ENE_UNIDES_WORK = (AppMain.GMS_ENE_UNIDES_WORK)obj_work;
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesWalkMain );
+        obj_work.ppFunc = AppMain.gmEneUnidesWalkMain;
         obj_work.move_flag &= 4294967291U;
         gms_ENE_UNIDES_WORK.timer = 60;
     }
@@ -242,7 +242,7 @@ public partial class AppMain
     // Token: 0x06000DF7 RID: 3575 RVA: 0x0007B125 File Offset: 0x00079325
     private static void gmEneUnidesFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesFlipMain );
+        obj_work.ppFunc = AppMain.gmEneUnidesFlipMain;
     }
 
     // Token: 0x06000DF8 RID: 3576 RVA: 0x0007B140 File Offset: 0x00079340
@@ -260,7 +260,7 @@ public partial class AppMain
     private static void gmEneUnidesAttackInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesAttackMain );
+        obj_work.ppFunc = AppMain.gmEneUnidesAttackMain;
         obj_work.move_flag &= 4294967291U;
     }
 
@@ -313,7 +313,7 @@ public partial class AppMain
         obj_work.scale.z = AppMain.FX_F32_TO_FX32( gms_ENE_UNIDES_WORK.zoom );
         if ( gms_ENE_UNIDES_WORK.num == 0 && gms_ENE_UNIDES_WORK.zoom == 1f )
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesWalkInit );
+            obj_work.ppFunc = AppMain.gmEneUnidesWalkInit;
         }
     }
 
@@ -327,7 +327,7 @@ public partial class AppMain
     private static void gmEneUnidesNeedleWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesNeedleWaitMain );
+        obj_work.ppFunc = AppMain.gmEneUnidesNeedleWaitMain;
         obj_work.move_flag &= 4294967291U;
         obj_work.spd.x = 0;
         obj_work.spd.y = 0;
@@ -361,7 +361,7 @@ public partial class AppMain
         {
             if ( gms_ENE_UNIDES_WORK2.attack_first != 0 )
             {
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesNeedleAttackInit );
+                obj_work.ppFunc = AppMain.gmEneUnidesNeedleAttackInit;
             }
             else
             {
@@ -389,7 +389,7 @@ public partial class AppMain
             obj_work.spd.x = AppMain.FX_F32_TO_FX32( 1f );
         }
         obj_work.parent_obj = null;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneUnidesNeedleAttackMain );
+        obj_work.ppFunc = AppMain.gmEneUnidesNeedleAttackMain;
     }
 
     // Token: 0x06000DFF RID: 3583 RVA: 0x0007B5D6 File Offset: 0x000797D6

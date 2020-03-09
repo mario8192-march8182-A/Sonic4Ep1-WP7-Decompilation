@@ -211,7 +211,7 @@ public partial class AppMain
     {
         AppMain.DMAP_PARAM_WATER dmap_PARAM_WATER = AppMain.amDrawAlloc_DMAP_PARAM_WATER();
         AppMain.dwaterGetParam( dmap_PARAM_WATER );
-        AppMain.amDrawMakeTask( new AppMain.TaskProc( AppMain._dwaterSetParam ), 0, dmap_PARAM_WATER );
+        AppMain.amDrawMakeTask( AppMain._dwaterSetParam, 0, dmap_PARAM_WATER );
     }
 
     // Token: 0x06001197 RID: 4503 RVA: 0x0009A250 File Offset: 0x00098450

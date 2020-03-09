@@ -174,7 +174,7 @@ public partial class AppMain
         gms_GMK_BOBJ_WORK.breakrect_top = ( short )( gms_GMK_BOBJ_WORK.gmk_work.ene_com.col_work.obj_col.ofst_y - 4 );
         gms_GMK_BOBJ_WORK.gmk_work.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_BOBJ_WORK.gmk_work.ene_com.rect_work[0];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkBreakObjHit );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkBreakObjHit;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
@@ -187,7 +187,7 @@ public partial class AppMain
         AppMain.ObjRectWorkSet( obs_RECT_WORK, gms_GMK_BOBJ_WORK.breakrect_left, gms_GMK_BOBJ_WORK.breakrect_top, gms_GMK_BOBJ_WORK.breakrect_right, 0 );
         gms_GMK_BOBJ_WORK.hitpass = false;
         gms_GMK_BOBJ_WORK.hitcheck = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBreakObjStay );
+        obj_work.ppFunc = AppMain.gmGmkBreakObjStay;
     }
 
     // Token: 0x060008E4 RID: 2276 RVA: 0x000512B8 File Offset: 0x0004F4B8
@@ -324,7 +324,7 @@ public partial class AppMain
             obs_OBJECT_WORK.flag |= 2U;
             gms_GMK_BOBJ_PARTS.falltimer = 60;
             num++;
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBreakObjParts_Main );
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkBreakObjParts_Main;
         }
     }
 

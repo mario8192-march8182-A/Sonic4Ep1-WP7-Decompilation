@@ -429,7 +429,7 @@ public partial class AppMain
     private static AppMain.MTS_TASK_TCB gmWaterSurfaceCreateTcb()
     {
         AppMain.GMS_WATER_SURFACE_MGR gms_WATER_SURFACE_MGR = AppMain.gmWaterSurfaceGetMgr();
-        gms_WATER_SURFACE_MGR.tcb_water = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( AppMain.gmWaterSurfaceProc ), null, 0U, 0, 8202U, 5, () => new AppMain.GMS_WATER_SURFACE_INFO(), "GM WATER SURFACE" );
+        gms_WATER_SURFACE_MGR.tcb_water = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmWaterSurfaceProc, null, 0U, 0, 8202U, 5, () => new AppMain.GMS_WATER_SURFACE_INFO(), "GM WATER SURFACE" );
         AppMain.GMS_WATER_SURFACE_INFO gms_WATER_SURFACE_INFO = (AppMain.GMS_WATER_SURFACE_INFO)gms_WATER_SURFACE_MGR.tcb_water.work;
         gms_WATER_SURFACE_INFO.now_water_level = ( float )AppMain.gmWaterSurfaceGameSystemGetWaterLevel();
         gms_WATER_SURFACE_INFO.next_water_level = 65535f;
@@ -659,7 +659,7 @@ public partial class AppMain
             AppMain.dwaterDrawSurface( 4U, drawflag );
         }
         AppMain.ObjDraw3DNNSetCameraEx( AppMain.g_obj.glb_camera_id, 1, 4U );
-        AppMain.ObjDraw3DNNUserFunc( new AppMain.OBF_DRAW_USER_DT_FUNC( AppMain.gmWaterSurfaceTcbProcPostDrawDT ), null, 0, 8U );
+        AppMain.ObjDraw3DNNUserFunc( AppMain.gmWaterSurfaceTcbProcPostDrawDT, null, 0, 8U );
         AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 

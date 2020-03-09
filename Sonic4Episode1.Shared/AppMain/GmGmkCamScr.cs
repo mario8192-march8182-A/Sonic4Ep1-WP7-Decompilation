@@ -69,12 +69,12 @@ public partial class AppMain
         limit_setting.limit_rect[3] = (obs_OBJECT_WORK.pos.y >> 12) + (int)(eve_rec.top * 2) + (int)(eve_rec.height * 2);
         if (eve_rec.id == 302)
         {
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCamScrLimitSetting);
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkCamScrLimitSetting;
             AppMain.g_gm_main_system.game_flag |= 32768U;
         }
         else
         {
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCamScrLimitMain);
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkCamScrLimitMain;
         }
         return obs_OBJECT_WORK;
     }
@@ -85,7 +85,7 @@ public partial class AppMain
         AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if (obj_work.pos.x <= gms_PLAYER_WORK.obj_work.pos.x)
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCamScrLimitSetting);
+            obj_work.ppFunc = AppMain.gmGmkCamScrLimitSetting;
             AppMain.g_gm_main_system.game_flag |= 32768U;
         }
     }
@@ -100,12 +100,12 @@ public partial class AppMain
         obs_OBJECT_WORK.flag |= 16U;
         if (eve_rec.id == 303)
         {
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCamScrLimitRelease);
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkCamScrLimitRelease;
             AppMain.g_gm_main_system.game_flag |= 32768U;
         }
         else
         {
-            obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCamScrLimitReleaseMain);
+            obs_OBJECT_WORK.ppFunc = AppMain.gmGmkCamScrLimitReleaseMain;
         }
         obs_OBJECT_WORK.user_work = 3U;
         return obs_OBJECT_WORK;
@@ -200,7 +200,7 @@ public partial class AppMain
         AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if (obj_work.pos.x <= gms_PLAYER_WORK.obj_work.pos.x)
         {
-            obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK(AppMain.gmGmkCamScrLimitRelease);
+            obj_work.ppFunc = AppMain.gmGmkCamScrLimitRelease;
             AppMain.g_gm_main_system.game_flag |= 32768U;
         }
     }

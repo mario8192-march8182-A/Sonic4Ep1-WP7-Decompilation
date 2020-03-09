@@ -23,7 +23,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectSetToon( obs_OBJECT_WORK );
         AppMain.ObjDrawObjectActionSet( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.pos.z = 655360;
-        gms_ENEMY_3D_WORK.obj_3d.mtn_cb_func = new AppMain.mtn_cb_func_delegate( AppMain.gmEneHariMotionCallback );
+        gms_ENEMY_3D_WORK.obj_3d.mtn_cb_func = AppMain.gmEneHariMotionCallback;
         gms_ENEMY_3D_WORK.obj_3d.mtn_cb_param = obs_OBJECT_WORK;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -12, -12, 12, 12 );
@@ -89,7 +89,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 0 );
         obj_work.disp_flag |= 4U;
         obj_work.user_timer = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHarisenboRedAtkWaitMain );
+        obj_work.ppFunc = AppMain.gmEneHarisenboRedAtkWaitMain;
     }
 
     // Token: 0x060003F4 RID: 1012 RVA: 0x00020428 File Offset: 0x0001E628
@@ -108,7 +108,7 @@ public partial class AppMain
         AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 2 );
         obj_work.disp_flag |= 4U;
         obj_work.user_timer = 245760;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHarisenboRedAtkMain );
+        obj_work.ppFunc = AppMain.gmEneHarisenboRedAtkMain;
     }
 
     // Token: 0x060003F6 RID: 1014 RVA: 0x000204A0 File Offset: 0x0001E6A0
@@ -158,7 +158,7 @@ public partial class AppMain
     {
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHarisenboFwMain );
+        obj_work.ppFunc = AppMain.gmEneHarisenboFwMain;
     }
 
     // Token: 0x060003F8 RID: 1016 RVA: 0x00020604 File Offset: 0x0001E804
@@ -186,7 +186,7 @@ public partial class AppMain
             hari_work.efct_jet = AppMain.GmEfctEneEsCreate( ( AppMain.OBS_OBJECT_WORK )hari_work, 12 );
             hari_work.efct_jet.efct_com.obj_work.flag |= 524304U;
             hari_work.efct_jet.efct_com.obj_work.user_work_OBJECT = hari_work.jet_mtx;
-            hari_work.efct_jet.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneHariJetEfctMain );
+            hari_work.efct_jet.efct_com.obj_work.ppFunc = AppMain.gmEneHariJetEfctMain;
         }
     }
 

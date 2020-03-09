@@ -119,7 +119,7 @@ public partial class AppMain
     private void DmTitleOpBuild()
     {
         AppMain.AMS_AMB_HEADER[] array = new AppMain.AMS_AMB_HEADER[1];
-        AppMain.dm_titleop_build_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpDataBuildMain ), new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpDataBuildDest ), 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_BUILD" );
+        AppMain.dm_titleop_build_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmTitleOpDataBuildMain, this.dmTitleOpDataBuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_BUILD" );
         AppMain.dm_titleop_aos_tex = AppMain.New<AppMain.AOS_TEXTURE>( 1 );
         string dir = null;
         array[0] = AppMain.readAMBFile( AppMain.amBindGet( AppMain.dm_titleop_data[1], 1, out dir ) );
@@ -153,7 +153,7 @@ public partial class AppMain
     // Token: 0x060018BC RID: 6332 RVA: 0x000E1BE4 File Offset: 0x000DFDE4
     private void DmTitleOpFlush()
     {
-        AppMain.dm_titleop_flush_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpDataFlushMain ), new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpDataFlushDest ), 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_FLUSH" );
+        AppMain.dm_titleop_flush_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmTitleOpDataFlushMain, this.dmTitleOpDataFlushDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_FLUSH" );
         AppMain.AOS_TEXTURE[] array = AppMain.dm_titleop_aos_tex;
         for ( int i = 0; i < 1; i++ )
         {
@@ -221,7 +221,7 @@ public partial class AppMain
         AppMain.g_obj.glb_camera_id = 0;
         AppMain.g_obj.glb_camera_type = 0;
         AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
-        obs_CAMERA.user_func = new AppMain.OBJF_CAMERA_USER_FUNC( this.dmTitleOpCamera );
+        obs_CAMERA.user_func = this.dmTitleOpCamera;
         obs_CAMERA.command_state = 0U;
         obs_CAMERA.fovy = AppMain.NNM_DEGtoA32( 40f );
         obs_CAMERA.znear = 0.1f;
@@ -439,7 +439,7 @@ public partial class AppMain
     // Token: 0x060018CD RID: 6349 RVA: 0x000E2330 File Offset: 0x000E0530
     private void dmTitleOpMgrInit()
     {
-        AppMain.dm_titleop_mgr_tcb = AppMain.MTM_TASK_MAKE_TCB( new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpMgrMain ), new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpMgrDest ), 0U, ushort.MaxValue, 12288U, 0, () => new AppMain.DMS_TITLEOP_MGR_WORK(), "DM_TOP_MGR" );
+        AppMain.dm_titleop_mgr_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmTitleOpMgrMain, this.dmTitleOpMgrDest, 0U, ushort.MaxValue, 12288U, 0, () => new AppMain.DMS_TITLEOP_MGR_WORK(), "DM_TOP_MGR" );
         AppMain.DMS_TITLEOP_MGR_WORK dms_TITLEOP_MGR_WORK = (AppMain.DMS_TITLEOP_MGR_WORK)AppMain.dm_titleop_mgr_tcb.work;
         dms_TITLEOP_MGR_WORK.Clear();
         this.dmTitleOpCreateObjFarSky();
@@ -505,7 +505,7 @@ public partial class AppMain
         AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.disp_flag |= 13697028U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( this.dmTitleOpFarSkyFunc );
+        obs_OBJECT_WORK.ppFunc = this.dmTitleOpFarSkyFunc;
         dms_TITLEOP_OBJ_3DNN_WORK = this.DMM_TITLEOP_CREATE_3D_OBJ( 16384, 0, () => new AppMain.DMS_TITLEOP_OBJ_3DNN_WORK(), "DM_TOP_SKYB" );
         obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )dms_TITLEOP_OBJ_3DNN_WORK;
         obs_OBJECT_WORK.obj_type = 1;
@@ -514,7 +514,7 @@ public partial class AppMain
         AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.disp_flag |= 13697028U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( this.dmTitleOpFarSkyFunc );
+        obs_OBJECT_WORK.ppFunc = this.dmTitleOpFarSkyFunc;
     }
 
     // Token: 0x060018D1 RID: 6353 RVA: 0x000E2664 File Offset: 0x000E0864
@@ -540,7 +540,7 @@ public partial class AppMain
         obs_OBJECT_WORK.obj_3d.command_state = 3U;
         obs_OBJECT_WORK.disp_flag |= 5242880U;
         obs_OBJECT_WORK.disp_flag |= 268435456U;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( this.dmTitleOpObjRockDraw );
+        obs_OBJECT_WORK.ppOut = this.dmTitleOpObjRockDraw;
         dms_TITLEOP_OBJ_3DNN_WORK.rock_setting = AppMain.dm_titleop_rock_setting[( int )( ( UIntPtr )type )];
         dms_TITLEOP_OBJ_3DNN_WORK.rock_setting_num = AppMain.dm_titleop_rock_setting_num[( int )( ( UIntPtr )type )];
     }
@@ -565,7 +565,7 @@ public partial class AppMain
     {
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, group, 0, 0, work_size, null);
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK result = (AppMain.DMS_TITLEOP_OBJ_3DNN_WORK)obs_OBJECT_WORK;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( this.dmTitleOpObjDraw );
+        obs_OBJECT_WORK.ppOut = this.dmTitleOpObjDraw;
         obs_OBJECT_WORK.ppOutSub = null;
         obs_OBJECT_WORK.ppIn = null;
         obs_OBJECT_WORK.ppMove = null;
@@ -604,7 +604,7 @@ public partial class AppMain
         AppMain.DMS_TITLEOP_MGR_WORK dms_TITLEOP_MGR_WORK = (AppMain.DMS_TITLEOP_MGR_WORK)tcb.work;
         this.dmTitleOpPreEnd( ref dms_TITLEOP_MGR_WORK );
         dms_TITLEOP_MGR_WORK.frame = 0;
-        AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpPreEndWait ) );
+        AppMain.mtTaskChangeTcbProcedure( tcb, this.dmTitleOpPreEndWait );
     }
 
     // Token: 0x060018D8 RID: 6360 RVA: 0x000E29A0 File Offset: 0x000E0BA0
@@ -624,7 +624,7 @@ public partial class AppMain
         if ( dms_TITLEOP_MGR_WORK.frame > 2 )
         {
             this.dmTitleOpEnd( ref dms_TITLEOP_MGR_WORK );
-            AppMain.mtTaskChangeTcbProcedure( tcb, new AppMain.GSF_TASK_PROCEDURE( this.dmTitleOpEndWait ) );
+            AppMain.mtTaskChangeTcbProcedure( tcb, this.dmTitleOpEndWait );
         }
     }
 

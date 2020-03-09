@@ -102,7 +102,7 @@ public partial class AppMain
     private static void GmOverStart(int type)
     {
         SaveState.deleteSave();
-        AppMain.gm_over_tcb = AppMain.MTM_TASK_MAKE_TCB(new AppMain.GSF_TASK_PROCEDURE(AppMain.gmOverMain), new AppMain.GSF_TASK_PROCEDURE(AppMain.gmOverDest), 0U, 0, 18464U, 5, () => new AppMain.GMS_OVER_MGR_WORK(), "GM_OVER_MGR");
+        AppMain.gm_over_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmOverMain, AppMain.gmOverDest, 0U, 0, 18464U, 5, () => new AppMain.GMS_OVER_MGR_WORK(), "GM_OVER_MGR");
         AppMain.GMS_OVER_MGR_WORK gms_OVER_MGR_WORK = (AppMain.GMS_OVER_MGR_WORK)AppMain.gm_over_tcb.work;
         gms_OVER_MGR_WORK.Clear();
         for (int i = 0; i < 4; i++)
@@ -132,7 +132,7 @@ public partial class AppMain
                 AppMain.gmOverProcUpdateTOInit(gms_OVER_MGR_WORK);
                 break;
         }
-        gms_OVER_MGR_WORK.proc_disp = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcDispLoop);
+        gms_OVER_MGR_WORK.proc_disp = AppMain.gmOverProcDispLoop;
     }
 
     // Token: 0x06000B06 RID: 2822 RVA: 0x00063539 File Offset: 0x00061739
@@ -201,7 +201,7 @@ public partial class AppMain
     private static void gmOverProcUpdateGOInit(AppMain.GMS_OVER_MGR_WORK mgr_work)
     {
         mgr_work.wait_timer = 30U;
-        mgr_work.proc_update = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcUpdateGOWaitStart);
+        mgr_work.proc_update = AppMain.gmOverProcUpdateGOWaitStart;
     }
 
     // Token: 0x06000B0E RID: 2830 RVA: 0x0006365C File Offset: 0x0006185C
@@ -215,7 +215,7 @@ public partial class AppMain
         AppMain.gmOverSetActionPlay(mgr_work.string_sub_parts[0]);
         AppMain.gmOverSetActionPlay(mgr_work.string_sub_parts[1]);
         mgr_work.wait_timer = 480U;
-        mgr_work.proc_update = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcUpdateGOLoop);
+        mgr_work.proc_update = AppMain.gmOverProcUpdateGOLoop;
     }
 
     // Token: 0x06000B0F RID: 2831 RVA: 0x000636B8 File Offset: 0x000618B8
@@ -231,7 +231,7 @@ public partial class AppMain
             return;
         }
         AppMain.gmOverSetActionPlay(mgr_work.fadeout_sub_parts[0]);
-        mgr_work.proc_update = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcUpdateGOWaitFadeEnd);
+        mgr_work.proc_update = AppMain.gmOverProcUpdateGOWaitFadeEnd;
     }
 
     // Token: 0x06000B10 RID: 2832 RVA: 0x0006370C File Offset: 0x0006190C
@@ -241,7 +241,7 @@ public partial class AppMain
         if ((obs_OBJECT_WORK.disp_flag & 8U) != 0U)
         {
             AppMain.IzFadeInitEasy(0U, 1U, 1f);
-            mgr_work.proc_update = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcUpdateGOWaitFinalizeFade);
+            mgr_work.proc_update = AppMain.gmOverProcUpdateGOWaitFinalizeFade;
         }
     }
 
@@ -259,7 +259,7 @@ public partial class AppMain
     private static void gmOverProcUpdateTOInit(AppMain.GMS_OVER_MGR_WORK mgr_work)
     {
         mgr_work.wait_timer = 30U;
-        mgr_work.proc_update = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcUpdateTOWaitStart);
+        mgr_work.proc_update = AppMain.gmOverProcUpdateTOWaitStart;
     }
 
     // Token: 0x06000B13 RID: 2835 RVA: 0x00063794 File Offset: 0x00061994
@@ -273,7 +273,7 @@ public partial class AppMain
         AppMain.gmOverSetActionPlay(mgr_work.string_sub_parts[2]);
         AppMain.gmOverSetActionPlay(mgr_work.string_sub_parts[3]);
         AppMain.gmOverSetActionPlay(mgr_work.fadeout_sub_parts[1]);
-        mgr_work.proc_update = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcUpdateTOWaitFadeEnd);
+        mgr_work.proc_update = AppMain.gmOverProcUpdateTOWaitFadeEnd;
     }
 
     // Token: 0x06000B14 RID: 2836 RVA: 0x000637F4 File Offset: 0x000619F4
@@ -283,7 +283,7 @@ public partial class AppMain
         if ((obs_OBJECT_WORK.disp_flag & 8U) != 0U)
         {
             AppMain.IzFadeInitEasy(0U, 1U, 1f);
-            mgr_work.proc_update = new AppMain._GMS_OVER_MGR_WORK_UD_(AppMain.gmOverProcUpdateTOWaitFinalizeFade);
+            mgr_work.proc_update = AppMain.gmOverProcUpdateTOWaitFinalizeFade;
         }
     }
 

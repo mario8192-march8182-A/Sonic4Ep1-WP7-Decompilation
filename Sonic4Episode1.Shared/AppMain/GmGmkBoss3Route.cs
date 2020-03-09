@@ -29,7 +29,7 @@ public partial class AppMain
     {
         obj_work.move_flag |= 8448U;
         obj_work.flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBoss3RouteMainFunc );
+        obj_work.ppFunc = AppMain.gmGmkBoss3RouteMainFunc;
         obj_work.ppOut = null;
         obj_work.ppMove = null;
     }

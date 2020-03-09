@@ -197,7 +197,7 @@ public partial class AppMain
             this.m_flag[0] = true;
             this.m_flag[3] = true;
             base.AttachTask( "gmPauseMenu.Load", 28928U, 0U, 0U );
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.fileLoading ) );
+            this.m_procCount.SetProc( this.fileLoading );
         }
 
         // Token: 0x06002550 RID: 9552 RVA: 0x0014C5C0 File Offset: 0x0014A7C0
@@ -229,7 +229,7 @@ public partial class AppMain
             }
             this.m_flag[5] = true;
             base.AttachTask( "gmPauseMenu.Build", 28928U, 0U, 0U );
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.creating ) );
+            this.m_procCount.SetProc( this.creating );
         }
 
         // Token: 0x06002552 RID: 9554 RVA: 0x0014C6A4 File Offset: 0x0014A8A4
@@ -301,7 +301,7 @@ public partial class AppMain
             this.m_se_handle = AppMain.GsSoundAllocSeHandle();
             base.AttachTask( "gmPauseMenu.Execute", ( uint )prio, 0U, 0U );
             this.playSe( 0 );
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.fadeIn ) );
+            this.m_procCount.SetProc( this.fadeIn );
         }
 
         // Token: 0x06002555 RID: 9557 RVA: 0x0014C880 File Offset: 0x0014AA80
@@ -310,7 +310,7 @@ public partial class AppMain
             if ( 15U < this.m_procCount.GetCount() )
             {
                 this.playSe( 3 );
-                this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.fadeIn2 ) );
+                this.m_procCount.SetProc( this.fadeIn2 );
             }
         }
 
@@ -332,7 +332,7 @@ public partial class AppMain
             {
                 this.m_act[i].flag[1] = false;
             }
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.wait ) );
+            this.m_procCount.SetProc( this.wait );
         }
 
         // Token: 0x06002558 RID: 9560 RVA: 0x0014C93C File Offset: 0x0014AB3C
@@ -371,7 +371,7 @@ public partial class AppMain
                 this.m_act[k].flag[1] = true;
             }
             this.m_return = 6;
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.select ) );
+            this.m_procCount.SetProc( this.@select );
         }
 
         // Token: 0x0600255A RID: 9562 RVA: 0x0014CA48 File Offset: 0x0014AC48
@@ -497,7 +497,7 @@ public partial class AppMain
                     break;
             }
             this.m_really = 6;
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.really ) );
+            this.m_procCount.SetProc( this.really );
         }
 
         // Token: 0x0600255C RID: 9564 RVA: 0x0014CE70 File Offset: 0x0014B070
@@ -571,7 +571,7 @@ public partial class AppMain
         // Token: 0x0600255D RID: 9565 RVA: 0x0014CFE4 File Offset: 0x0014B1E4
         private void enterEfctStart()
         {
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.enterEfct ) );
+            this.m_procCount.SetProc( this.enterEfct );
         }
 
         // Token: 0x0600255E RID: 9566 RVA: 0x0014CFFD File Offset: 0x0014B1FD
@@ -587,7 +587,7 @@ public partial class AppMain
         private void pauseBtnCancelStart()
         {
             this.playSe( 0 );
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.pauseBtnCancel ) );
+            this.m_procCount.SetProc( this.pauseBtnCancel );
         }
 
         // Token: 0x06002560 RID: 9568 RVA: 0x0014D034 File Offset: 0x0014B234
@@ -610,7 +610,7 @@ public partial class AppMain
             this.m_act[0].flag[0] = false;
             this.m_act[0].flag[1] = false;
             this.playSe( 3 );
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.fadeOut ) );
+            this.m_procCount.SetProc( this.fadeOut );
         }
 
         // Token: 0x06002562 RID: 9570 RVA: 0x0014D0C4 File Offset: 0x0014B2C4
@@ -638,7 +638,7 @@ public partial class AppMain
                 AppMain.AoTexRelease( tex2 );
             }
             base.AttachTask( "gmPauseMenu.Flush", 28928U, 0U, 0U );
-            this.m_procCount.SetProc( new AppMain.ITaskAsv.FProc( this.releasing ) );
+            this.m_procCount.SetProc( this.releasing );
         }
 
         // Token: 0x06002564 RID: 9572 RVA: 0x0014D1A0 File Offset: 0x0014B3A0

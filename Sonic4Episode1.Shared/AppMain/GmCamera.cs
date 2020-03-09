@@ -40,7 +40,7 @@ public partial class AppMain
         AppMain.g_obj.glb_camera_type = 1;
         AppMain.GmCameraDelayReset();
         AppMain.GmCameraAllowReset();
-        AppMain.ObjCameraSetUserFunc( 0, new AppMain.OBJF_CAMERA_USER_FUNC( AppMain.GmCameraFunc ) );
+        AppMain.ObjCameraSetUserFunc( 0, AppMain.GmCameraFunc );
         AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
         obs_CAMERA.scale = 0.67438334f;
         obs_CAMERA.ofst.z = 1000f;
@@ -59,7 +59,7 @@ public partial class AppMain
             AppMain.NNS_VECTOR pos = new AppMain.NNS_VECTOR(0f, 0f, 60f);
             AppMain.ObjCameraInit( 1, pos, 4, 0, 8192 );
             AppMain.ObjCamera3dInit( 1 );
-            AppMain.ObjCameraSetUserFunc( 1, new AppMain.OBJF_CAMERA_USER_FUNC( AppMain.gmCameraFuncMapFar ) );
+            AppMain.ObjCameraSetUserFunc( 1, AppMain.gmCameraFuncMapFar );
             obs_CAMERA = AppMain.ObjCameraGet( 1 );
             obs_CAMERA.command_state = 1U;
             if ( 2 == num )
@@ -97,7 +97,7 @@ public partial class AppMain
             {
                 AppMain.ObjCameraInit( array[i], pos2, 4, 0, 8192 );
                 AppMain.ObjCamera3dInit( array[i] );
-                AppMain.ObjCameraSetUserFunc( array[i], new AppMain.OBJF_CAMERA_USER_FUNC( AppMain.gmCameraFuncAddMap ) );
+                AppMain.ObjCameraSetUserFunc( array[i], AppMain.gmCameraFuncAddMap );
                 AppMain.OBS_CAMERA obs_CAMERA2 = AppMain.ObjCameraGet(array[i]);
                 obs_CAMERA2.scale = 0.67438334f;
                 obs_CAMERA2.ofst.z = 1000f;
@@ -107,7 +107,7 @@ public partial class AppMain
         AppMain.NNS_VECTOR pos3 = new AppMain.NNS_VECTOR(nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z);
         AppMain.ObjCameraInit( 6, pos3, 4, 0, 8192 );
         AppMain.ObjCamera3dInit( 6 );
-        AppMain.ObjCameraSetUserFunc( 6, new AppMain.OBJF_CAMERA_USER_FUNC( AppMain.gmCameraFuncWater ) );
+        AppMain.ObjCameraSetUserFunc( 6, AppMain.gmCameraFuncWater );
         obs_CAMERA = AppMain.ObjCameraGet( 6 );
         obs_CAMERA.command_state = 9U;
         obs_CAMERA.scale = 0.67438334f;

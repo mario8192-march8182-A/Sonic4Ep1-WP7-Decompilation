@@ -76,7 +76,7 @@ public partial class AppMain
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -4, -80, 4, -72 );
         obs_OBJECT_WORK.user_flag = ( uint )( ( ulong )obs_OBJECT_WORK.user_flag & 18446744073709551614UL );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkCapsuleSwitchMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkCapsuleSwitchMain;
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GmEventMgrLocalEventBirth(301, pos_x, pos_y, gms_ENEMY_3D_WORK.ene_com.eve_rec.flag, gms_ENEMY_3D_WORK.ene_com.eve_rec.left, gms_ENEMY_3D_WORK.ene_com.eve_rec.top, gms_ENEMY_3D_WORK.ene_com.eve_rec.width, gms_ENEMY_3D_WORK.ene_com.eve_rec.height, 0);
         obs_OBJECT_WORK2.parent_obj = obs_OBJECT_WORK;
         obs_OBJECT_WORK2.view_out_ofst = obs_OBJECT_WORK.view_out_ofst;
@@ -87,7 +87,7 @@ public partial class AppMain
         obs_OBJECT_WORK2.pos.z = -131072;
         obs_OBJECT_WORK2.move_flag |= 8448U;
         obs_OBJECT_WORK2.disp_flag |= 4194304U;
-        obs_OBJECT_WORK2.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkCapsuleKeyMain );
+        obs_OBJECT_WORK2.ppFunc = AppMain.gmGmkCapsuleKeyMain;
         return obs_OBJECT_WORK;
     }
 
@@ -109,7 +109,7 @@ public partial class AppMain
         col_work.obj_col.height = 60;
         col_work.obj_col.ofst_x = ( short )( -col_work.obj_col.width / 2 );
         col_work.obj_col.ofst_y = ( short )( -( short )col_work.obj_col.height );
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkCapsuleBodyMain );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkCapsuleBodyMain;
         return obs_OBJECT_WORK;
     }
 

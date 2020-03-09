@@ -141,7 +141,7 @@ public partial class AppMain
         aos_STORAGE.save_buf = data;
         aos_STORAGE.save_size = size;
         AppMain.aoStorageSaveThread();
-        aos_STORAGE.tcb = AppMain.amTaskMake( new AppMain.TaskProc( AppMain.aoStorageSaveTaskProcedure ), null, 0U, 0U, 0U, "aoStorage::Save" );
+        aos_STORAGE.tcb = AppMain.amTaskMake( AppMain.aoStorageSaveTaskProcedure, null, 0U, 0U, 0U, "aoStorage::Save" );
         AppMain.amTaskStart( aos_STORAGE.tcb );
     }
 
@@ -179,7 +179,7 @@ public partial class AppMain
         aos_STORAGE.load_buf = data;
         aos_STORAGE.load_size = load_size;
         AppMain.aoStorageLoadThread();
-        aos_STORAGE.tcb = AppMain.amTaskMake( new AppMain.TaskProc( AppMain.aoStorageLoadTaskProcedure ), null, 0U, 0U, 0U, "aoStorage::Load" );
+        aos_STORAGE.tcb = AppMain.amTaskMake( AppMain.aoStorageLoadTaskProcedure, null, 0U, 0U, 0U, "aoStorage::Load" );
         AppMain.amTaskStart( aos_STORAGE.tcb );
     }
 

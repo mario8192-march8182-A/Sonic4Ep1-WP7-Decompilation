@@ -46,7 +46,7 @@ public partial class AppMain
         obj_work.disp_flag |= 32U;
         obj_work.move_flag |= 8448U;
         obj_work.flag |= 16U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkDecoFrameMgrMainFunc );
+        obj_work.ppFunc = AppMain.gmGmkDecoFrameMgrMainFunc;
         obj_work.ppOut = null;
         obj_work.ppMove = null;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;

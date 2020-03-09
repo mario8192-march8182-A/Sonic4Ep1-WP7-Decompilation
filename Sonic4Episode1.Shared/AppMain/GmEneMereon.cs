@@ -68,7 +68,7 @@ public partial class AppMain
         }
         AppMain.gmEneMereonCheckFwFlip( obj_work );
         obj_work.disp_flag |= 32U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMereonHideSearchMain );
+        obj_work.ppFunc = AppMain.gmEneMereonHideSearchMain;
     }
 
     // Token: 0x060003E5 RID: 997 RVA: 0x0001F81C File Offset: 0x0001DA1C
@@ -117,7 +117,7 @@ public partial class AppMain
         obj_work.disp_flag |= 134217728U;
         obj_work.obj_3d.draw_state.alpha.alpha = 0f;
         obj_work.user_timer = 0;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMereonAppearMain );
+        obj_work.ppFunc = AppMain.gmEneMereonAppearMain;
     }
 
     // Token: 0x060003E7 RID: 999 RVA: 0x0001FA40 File Offset: 0x0001DC40
@@ -153,7 +153,7 @@ public partial class AppMain
     {
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 3, 4 );
         obj_work.flag &= 4294967293U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMereonAtkMain );
+        obj_work.ppFunc = AppMain.gmEneMereonAtkMain;
         obj_work.user_timer = 0;
     }
 
@@ -187,7 +187,7 @@ public partial class AppMain
     // Token: 0x060003EA RID: 1002 RVA: 0x0001FBC8 File Offset: 0x0001DDC8
     private static void gmEneMereonHideInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMereonHideMain );
+        obj_work.ppFunc = AppMain.gmEneMereonHideMain;
         obj_work.disp_flag |= 134217728U;
         obj_work.obj_3d.draw_state.alpha.alpha = 1f;
         obj_work.user_timer = 122880;
@@ -221,7 +221,7 @@ public partial class AppMain
             obj_work.user_timer = 4096;
         }
         obj_work.user_work = 0U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMereonRocketFallMain );
+        obj_work.ppFunc = AppMain.gmEneMereonRocketFallMain;
     }
 
     // Token: 0x060003ED RID: 1005 RVA: 0x0001FD50 File Offset: 0x0001DF50
@@ -269,7 +269,7 @@ public partial class AppMain
                     obj_work.spd_m = 8192;
                 }
                 obj_work.move_flag |= 1024U;
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMereonRocketMain );
+                obj_work.ppFunc = AppMain.gmEneMereonRocketMain;
                 obj_work.user_flag = 0U;
                 obj_work.user_timer = 0;
                 AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctEneEsCreate(obj_work, 1);

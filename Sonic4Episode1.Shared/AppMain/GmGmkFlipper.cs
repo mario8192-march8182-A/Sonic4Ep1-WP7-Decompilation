@@ -114,7 +114,7 @@ public partial class AppMain
         obj_work.pos.z = -122880;
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
-        obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkFlipperDrawFunc );
+        obj_work.ppOut = AppMain.gmGmkFlipperDrawFunc;
         AppMain.gmGmkFlipperChangeModeWait( obj_work );
     }
 
@@ -125,13 +125,13 @@ public partial class AppMain
         switch ( flipper_type )
         {
             case 0:
-                obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkFlipperDefFuncU );
+                obs_RECT_WORK.ppDef = AppMain.gmGmkFlipperDefFuncU;
                 break;
             case 1:
-                obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkFlipperDefFuncU );
+                obs_RECT_WORK.ppDef = AppMain.gmGmkFlipperDefFuncU;
                 break;
             case 2:
-                obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkFlipperDefFuncLR );
+                obs_RECT_WORK.ppDef = AppMain.gmGmkFlipperDefFuncLR;
                 break;
         }
         AppMain.ObjRectWorkZSet( obs_RECT_WORK, AppMain.g_gmk_flipper_rect[flipper_type][0], AppMain.g_gmk_flipper_rect[flipper_type][1], -500, AppMain.g_gmk_flipper_rect[flipper_type][2], AppMain.g_gmk_flipper_rect[flipper_type][3], 500 );
@@ -312,7 +312,7 @@ public partial class AppMain
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         int num = AppMain.gmGmkFlipperCalcType((int)gms_ENEMY_3D_WORK.ene_com.eve_rec.id);
         obj_work.user_work = ( uint )AppMain.g_gm_gmk_flipper_angle_z[num];
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkFlipperMainWait );
+        obj_work.ppFunc = AppMain.gmGmkFlipperMainWait;
     }
 
     // Token: 0x06001578 RID: 5496 RVA: 0x000BA868 File Offset: 0x000B8A68
@@ -321,7 +321,7 @@ public partial class AppMain
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         int num = AppMain.gmGmkFlipperCalcType((int)gms_ENEMY_3D_WORK.ene_com.eve_rec.id);
         obj_work.user_work = ( uint )AppMain.g_gm_gmk_flipper_angle_z[num];
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkFlipperMainReady );
+        obj_work.ppFunc = AppMain.gmGmkFlipperMainReady;
     }
 
     // Token: 0x06001579 RID: 5497 RVA: 0x000BA8B4 File Offset: 0x000B8AB4
@@ -339,7 +339,7 @@ public partial class AppMain
             num2 += ( ushort )AppMain.NNM_DEGtoA16( 70f );
         }
         obj_work.user_work = ( uint )num2;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkFlipperMainHit );
+        obj_work.ppFunc = AppMain.gmGmkFlipperMainHit;
         AppMain.GmSoundPlaySE( "Casino2" );
     }
 
@@ -358,7 +358,7 @@ public partial class AppMain
             num2 += ( ushort )AppMain.NNM_DEGtoA16( 70f );
         }
         obj_work.user_work = ( uint )num2;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkFlipperMainHook );
+        obj_work.ppFunc = AppMain.gmGmkFlipperMainHook;
     }
 
     // Token: 0x0600157B RID: 5499 RVA: 0x000BA9A8 File Offset: 0x000B8BA8

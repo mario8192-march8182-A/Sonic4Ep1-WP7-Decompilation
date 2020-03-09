@@ -119,7 +119,7 @@ public partial class AppMain
     private static AppMain.OBS_OBJECT_WORK GmGmkPopSteamUInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPopSteamInit(eve_rec, pos_x, pos_y, type, 0);
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamStart );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPopSteamStart;
         return obs_OBJECT_WORK;
     }
 
@@ -128,7 +128,7 @@ public partial class AppMain
     {
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPopSteamInit(eve_rec, pos_x, pos_y, type, 1);
         obs_OBJECT_WORK.dir.z = 16384;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamStart );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPopSteamStart;
         return obs_OBJECT_WORK;
     }
 
@@ -137,7 +137,7 @@ public partial class AppMain
     {
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPopSteamInit(eve_rec, pos_x, pos_y, type, 2);
         obs_OBJECT_WORK.dir.z = 32768;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamStart );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPopSteamStart;
         return obs_OBJECT_WORK;
     }
 
@@ -146,7 +146,7 @@ public partial class AppMain
     {
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPopSteamInit(eve_rec, pos_x, pos_y, type, 3);
         obs_OBJECT_WORK.dir.z = 49152;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamStart );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPopSteamStart;
         return obs_OBJECT_WORK;
     }
 
@@ -222,7 +222,7 @@ public partial class AppMain
     // Token: 0x06001B3A RID: 6970 RVA: 0x000F891D File Offset: 0x000F6B1D
     private static void gmGmkPopSteamStay( AppMain.OBS_OBJECT_WORK obj_work )
     {
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamStay_100 );
+        obj_work.ppFunc = AppMain.gmGmkPopSteamStay_100;
         AppMain.gmGmkPopSteamStay_100( obj_work );
     }
 
@@ -240,7 +240,7 @@ public partial class AppMain
         obj_work.flag &= 4294967293U;
         gms_GMK_P_STEAM_WORK.opt_steam = ( AppMain.OBS_OBJECT_WORK )AppMain.GmEfctCmnEsCreate( obj_work, ( int )AppMain.tbl_popsteam_effct[0][( int )gms_GMK_P_STEAM_WORK.steamsize] );
         gms_GMK_P_STEAM_WORK.opt_steam.dir.z = obj_work.dir.z;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamInterval_100 );
+        obj_work.ppFunc = AppMain.gmGmkPopSteamInterval_100;
         AppMain.gmGmkPopSteamInterval_100( obj_work );
     }
 
@@ -273,7 +273,7 @@ public partial class AppMain
             gms_GMK_P_STEAM_WORK.opt_steam_int[i] = null;
         }
         obj_work.flag |= 2U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamWait_100 );
+        obj_work.ppFunc = AppMain.gmGmkPopSteamWait_100;
         AppMain.gmGmkPopSteamWait_100( obj_work );
     }
 
@@ -332,7 +332,7 @@ public partial class AppMain
         gms_GMK_P_STEAM_WORK.gmk_work.ene_com.rect_work[0].flag &= 4294967291U;
         gms_GMK_P_STEAM_WORK.gmk_work.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_GMK_P_STEAM_WORK.gmk_work.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkPopSteamHit );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkPopSteamHit;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
@@ -415,7 +415,7 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_POPSTEAMPARTS_WORK(), null, 0, "Gmk_PopSteamPipe");
         AppMain.GMS_GMK_POPSTEAMPARTS_WORK gms_GMK_POPSTEAMPARTS_WORK = (AppMain.GMS_GMK_POPSTEAMPARTS_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_popsteam_obj_3d_list[AppMain.tbl_popsteam_pipe_model_id[obj_type]], gms_GMK_POPSTEAMPARTS_WORK.eff_work.obj_3d );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBeltPopSteam_ppOutUseDirModel );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkBeltPopSteam_ppOutUseDirModel;
         obs_OBJECT_WORK.parent_obj = parent_obj;
         obs_OBJECT_WORK.pos.x = parent_obj.pos.x + AppMain.tbl_popsteam_pipe_off[obj_type][0];
         obs_OBJECT_WORK.pos.y = parent_obj.pos.y + AppMain.tbl_popsteam_pipe_off[obj_type][1];
@@ -459,7 +459,7 @@ public partial class AppMain
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;
         obs_OBJECT_WORK.disp_flag &= 4294967039U;
-        obs_OBJECT_WORK.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkPopSteamTimer );
+        obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPopSteamTimer;
         return obs_OBJECT_WORK;
     }
 
@@ -475,7 +475,7 @@ public partial class AppMain
             num = AppMain.tbl_popsteam_model_id[obj_type][1];
         }
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_popsteam_obj_3d_list[num], gms_ENEMY_3D_WORK.obj_3d );
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkBeltPopSteam_ppOutUseDirModel );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkBeltPopSteam_ppOutUseDirModel;
         obs_OBJECT_WORK.pos.z = 622592;
         obs_OBJECT_WORK.move_flag |= 256U;
         obs_OBJECT_WORK.disp_flag |= 4194304U;

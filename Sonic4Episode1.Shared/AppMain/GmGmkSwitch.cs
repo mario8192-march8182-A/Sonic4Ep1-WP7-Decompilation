@@ -109,7 +109,7 @@ public partial class AppMain
         }
         AppMain.ObjCopyAction3dNNModel( AppMain.gm_gmk_switch_obj_3d_list[0], gms_GMK_SW_WORK.obj_3d_base );
         obs_OBJECT_WORK.pos.z = -262144;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSwDispFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkSwDispFunc;
         AppMain.OBS_COLLISION_WORK col_work = gms_ENEMY_3D_WORK.ene_com.col_work;
         col_work.obj_col.obj = obs_OBJECT_WORK;
         col_work.obj_col.width = 32;
@@ -120,7 +120,7 @@ public partial class AppMain
         {
             col_work.obj_col.obj = null;
             AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-            obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkSwitchDefFunc );
+            obs_RECT_WORK.ppDef = AppMain.gmGmkSwitchDefFunc;
             obs_RECT_WORK.ppHit = null;
             AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
             AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
@@ -195,7 +195,7 @@ public partial class AppMain
         {
             gms_GMK_SW_WORK.top_pos_y = -14;
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSwOffMain );
+        obj_work.ppFunc = AppMain.gmGmkSwOffMain;
     }
 
     // Token: 0x06000766 RID: 1894 RVA: 0x00041464 File Offset: 0x0003F664
@@ -238,7 +238,7 @@ public partial class AppMain
             AppMain.GMM_PAD_VIB_SMALL();
             AppMain.GmComEfctCreateSpring( obj_work, 0, -32768, -obj_work.pos.z );
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkSwOnMain );
+        obj_work.ppFunc = AppMain.gmGmkSwOnMain;
     }
 
     // Token: 0x06000768 RID: 1896 RVA: 0x000415D4 File Offset: 0x0003F7D4

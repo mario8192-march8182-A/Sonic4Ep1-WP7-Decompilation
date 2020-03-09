@@ -102,14 +102,14 @@ public partial class AppMain
         AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_TRUCK_WORK(), "GMK_TRUCK");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obs_OBJECT_WORK;
-        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, new AppMain.GSF_TASK_PROCEDURE( AppMain.gmGmkTruckDest ) );
+        AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkTruckDest );
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_truck_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, true, AppMain.ObjDataGet( 930 ), null, 0, null );
         AppMain.ObjDrawObjectActionSet( obs_OBJECT_WORK, 0 );
         AppMain.ObjCopyAction3dNNModel( AppMain.gm_gmk_truck_obj_3d_list[1], gms_GMK_TRUCK_WORK.obj_3d_tire );
-        gms_ENEMY_3D_WORK.obj_3d.mtn_cb_func = new AppMain.mtn_cb_func_delegate( AppMain.gmGmkTruckMotionCallback );
+        gms_ENEMY_3D_WORK.obj_3d.mtn_cb_func = AppMain.gmGmkTruckMotionCallback;
         gms_ENEMY_3D_WORK.obj_3d.mtn_cb_param = gms_GMK_TRUCK_WORK;
-        obs_OBJECT_WORK.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckDispFunc );
+        obs_OBJECT_WORK.ppOut = AppMain.gmGmkTruckDispFunc;
         obs_OBJECT_WORK.flag |= 1U;
         obs_OBJECT_WORK.move_flag |= 128U;
         obs_OBJECT_WORK.disp_flag |= 16777220U;
@@ -124,7 +124,7 @@ public partial class AppMain
         gms_ENEMY_3D_WORK.ene_com.rect_work[0].flag &= 4294967291U;
         gms_ENEMY_3D_WORK.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkTruckBodyDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkTruckBodyDefFunc;
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -64, -64, 64, 64 );
@@ -177,11 +177,11 @@ public partial class AppMain
         obs_RECT_WORK.flag |= 192U;
         if ( 268 <= eve_rec.id && eve_rec.id <= 271 )
         {
-            obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkTGravityForceChangeDefFunc );
+            obs_RECT_WORK.ppDef = AppMain.gmGmkTGravityForceChangeDefFunc;
         }
         else
         {
-            obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkTGravityChangeDefFunc );
+            obs_RECT_WORK.ppDef = AppMain.gmGmkTGravityChangeDefFunc;
         }
         gms_ENEMY_COM_WORK.rect_work[1].flag &= 4294967291U;
         gms_ENEMY_COM_WORK.rect_work[0].flag &= 4294967291U;
@@ -201,7 +201,7 @@ public partial class AppMain
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 1 );
         AppMain.ObjRectDefSet( obs_RECT_WORK, 65534, 0 );
         AppMain.ObjRectSet( obs_RECT_WORK.rect, ( short )( eve_rec.left << 1 ), ( short )( eve_rec.top << 1 ), ( short )( eve_rec.width + ( byte )eve_rec.left << 1 ), ( short )( eve_rec.height + ( byte )eve_rec.top << 1 ) );
-        obs_RECT_WORK.ppDef = new AppMain.OBS_RECT_WORK_Delegate1( AppMain.gmGmkTNoLandingDefFunc );
+        obs_RECT_WORK.ppDef = AppMain.gmGmkTNoLandingDefFunc;
         obs_RECT_WORK.parent_obj = obs_OBJECT_WORK;
         obs_RECT_WORK.flag |= 192U;
         gms_ENEMY_COM_WORK.rect_work[1].flag &= 4294967291U;
@@ -229,7 +229,7 @@ public partial class AppMain
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work;
         obj_work.flag |= 2U;
         obj_work.move_flag |= 8448U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckMain );
+        obj_work.ppFunc = AppMain.gmGmkTruckMain;
         AppMain.gmGmkTruckCreateSparkEfct( gms_GMK_TRUCK_WORK, 27 );
         gms_GMK_TRUCK_WORK.h_snd_lorry = AppMain.GsSoundAllocSeHandle();
     }
@@ -420,7 +420,7 @@ public partial class AppMain
                 obj_work.disp_flag |= 4U;
             }
         }
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckFreeMain );
+        obj_work.ppFunc = AppMain.gmGmkTruckFreeMain;
     }
 
     // Token: 0x06000672 RID: 1650 RVA: 0x00039960 File Offset: 0x00037B60
@@ -494,7 +494,7 @@ public partial class AppMain
         obj_work.move_flag |= 272U;
         obj_work.move_flag &= 4294958975U;
         obj_work.pos.z = 983040;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckDeathFallMain );
+        obj_work.ppFunc = AppMain.gmGmkTruckDeathFallMain;
     }
 
     // Token: 0x06000674 RID: 1652 RVA: 0x00039C44 File Offset: 0x00037E44
@@ -836,8 +836,8 @@ public partial class AppMain
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate((AppMain.OBS_OBJECT_WORK)truck_work, 2, 10);
         gms_EFFECT_3DES_WORK.efct_com.obj_work.user_work_OBJECT = truck_work.light_pos;
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckLightEfctMain );
-        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckLightEfctDispFunc );
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkTruckLightEfctMain;
+        gms_EFFECT_3DES_WORK.efct_com.obj_work.ppOut = AppMain.gmGmkTruckLightEfctDispFunc;
     }
 
     // Token: 0x0600067D RID: 1661 RVA: 0x0003A62C File Offset: 0x0003882C
@@ -880,8 +880,8 @@ public partial class AppMain
             truck_work.efct_f_spark.efct_com.obj_work.user_work_OBJECT = truck_work.tire_pos_f;
             truck_work.efct_f_spark.efct_com.obj_work.user_timer = efct_type;
             truck_work.efct_f_spark.efct_com.obj_work.user_flag = 0U;
-            truck_work.efct_f_spark.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckSparkEfctMain );
-            truck_work.efct_f_spark.efct_com.obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckSparkEfctDispFunc );
+            truck_work.efct_f_spark.efct_com.obj_work.ppFunc = AppMain.gmGmkTruckSparkEfctMain;
+            truck_work.efct_f_spark.efct_com.obj_work.ppOut = AppMain.gmGmkTruckSparkEfctDispFunc;
         }
         if ( truck_work.efct_b_spark == null )
         {
@@ -890,8 +890,8 @@ public partial class AppMain
             truck_work.efct_b_spark.efct_com.obj_work.user_work_OBJECT = truck_work.tire_pos_b;
             truck_work.efct_b_spark.efct_com.obj_work.user_timer = efct_type;
             truck_work.efct_b_spark.efct_com.obj_work.user_flag = 1U;
-            truck_work.efct_b_spark.efct_com.obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckSparkEfctMain );
-            truck_work.efct_b_spark.efct_com.obj_work.ppOut = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmGmkTruckSparkEfctDispFunc );
+            truck_work.efct_b_spark.efct_com.obj_work.ppFunc = AppMain.gmGmkTruckSparkEfctMain;
+            truck_work.efct_b_spark.efct_com.obj_work.ppOut = AppMain.gmGmkTruckSparkEfctDispFunc;
         }
     }
 
@@ -925,7 +925,7 @@ public partial class AppMain
             else
             {
                 AppMain.ObjDrawKillAction3DES( obj_work );
-                obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.GmEffectDefaultMainFuncDeleteAtEnd );
+                obj_work.ppFunc = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
             }
             if ( obj_work.user_flag == 0U )
             {

@@ -91,7 +91,7 @@ public partial class AppMain
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 1, 2 );
         obj_work.disp_flag |= 4U;
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMotoraWalkMain );
+        obj_work.ppFunc = AppMain.gmEneMotoraWalkMain;
         obj_work.move_flag &= 4294967291U;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -169,7 +169,7 @@ public partial class AppMain
     private static void gmEneMotoraFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 3, 4 );
-        obj_work.ppFunc = new AppMain.MPP_VOID_OBS_OBJECT_WORK( AppMain.gmEneMotoraFlipMain );
+        obj_work.ppFunc = AppMain.gmEneMotoraFlipMain;
     }
 
     // Token: 0x060003E0 RID: 992 RVA: 0x0001F4F7 File Offset: 0x0001D6F7
