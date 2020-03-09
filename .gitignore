@@ -1,4 +1,4 @@
-!Sonic4 ep I\gs\backup
+!Sonic4Episode1.Shared\gs\backup
 
 **/[Cc]ontent/DEMO/
 **/[Cc]ontent/G_COM/
@@ -18,6 +18,8 @@
 **/[Cc]ontent/large.xnb
 **/[Cc]ontent/medium.xnb
 **/[Cc]ontent/small.xnb
+
+XAP/
 
 # macOS what the fuck
 ._*
@@ -273,7 +275,6 @@ Generated_Code/
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)
 _UpgradeReport_Files/
-Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 ServiceFabricBackup/
