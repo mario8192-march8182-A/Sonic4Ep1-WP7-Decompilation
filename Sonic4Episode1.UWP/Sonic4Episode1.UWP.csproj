@@ -113,6 +113,117 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Content\SOUND\S4EP1_00_Z1A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_01_Z1A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_02_Z1A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_03_Z2A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_04_Z2A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_05_Z2A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_06_Z3A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_07_Z3A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_08_Z3A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_09_Z4A1_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_10_Z4A2_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_11_Z4A3_Normal_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_12_Title_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_13_Menu_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_14_SpecialStage_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_15_Boss1_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_16_Boss2_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_17_Final_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_18_Ending_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_19_Clear_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_20_Clear_Final_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_22_Obore_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_23_Invincible_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_24_1up_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_25_New_Record_4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_26_Gameover_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_27_Z1A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_28_Z1A2_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_29_Z1A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_30_Z2A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_32_Z2A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_33_Z3A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_35_Z3A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_36_Z4A1_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_37_Z4A2_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_38_Z4A3_Speedup_Mixed4816.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\SNG_EMERALD.xnb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Sonic4EpisodeUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +286,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\SOUND\S4EP1_17_Final_Mixed4816.wma">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SOUND\S4EP1_18_Ending_Mixed4816.wma">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\SOUND\S4EP1_19_Clear_Mixed4816.wma">
