@@ -92,7 +92,9 @@ public class Sonic4Ep1 : Game
         this.fnts[1] = base.Content.Load<SpriteFont>("medium");
         this.fnts[2] = base.Content.Load<SpriteFont>("large");
 
-        //this.benchmarkObject = new BenchmarkObject(this, fntKootenay, new Vector2(0, 0), Color.White);
+//#if DEBUG
+        this.benchmarkObject = new BenchmarkObject(this, fntKootenay, new Vector2(0, 0), Color.Red);
+//#endif
         try
         {
             this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
@@ -177,7 +179,7 @@ public class Sonic4Ep1 : Game
             }
         }
 
-        //benchmarkObject.Update(gameTime);
+        benchmarkObject?.Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -200,9 +202,14 @@ public class Sonic4Ep1 : Game
         OpenGL.drawPrimitives_Count = 0;
         OpenGL.drawVertexBuffer_Count = 0;
         this.appMain.AppMainLoop();
-        this.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
-        // benchmarkObject.Draw(gameTime, this.spriteBatch);
-        this.spriteBatch.End();
+
+        if (benchmarkObject != null)
+        {
+            // no point initing a sprite batch if no cunt uses it
+            this.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            benchmarkObject.Draw(gameTime, this.spriteBatch);
+            this.spriteBatch.End();
+        }
 
         base.Draw(gameTime);
     }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Graphics;
-using System.IO;
+using Microsoft.Xna.Framework.Media;
 
 public partial class AppMain
 {
@@ -47,15 +47,8 @@ public partial class AppMain
                 }
                 else
                 {
-                    using (MemoryStream memoryStream = new MemoryStream(amb.data, amb.offsets[num], amb.data.Length - amb.offsets[num]))
+                    using (var memoryStream = new MemoryStream(amb.data, amb.offsets[num], amb.data.Length - amb.offsets[num]))
                     {
-                        if(Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "texdmp")))
-                        {
-                            using (var file = File.Create(Path.Combine(Directory.GetCurrentDirectory(), "texdmp", fileName), 8192, FileOptions.None))
-                                memoryStream.CopyTo(file);
-                            memoryStream.Seek(0, SeekOrigin.Begin);
-                        }
-
                         texture2D = Texture2D.FromStream(AppMain.m_game.GraphicsDevice, memoryStream);
                         amb.buf[num] = texture2D;
                     }

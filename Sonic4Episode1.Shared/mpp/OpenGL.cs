@@ -19,7 +19,7 @@ namespace mpp
 			case 33985U:
 				OpenGL.m_activeTextureUnit = texture - 33984U;
 				return;
-			default:
+			default: 
 				throw new NotImplementedException();
 			}
 		}

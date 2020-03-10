@@ -27,7 +27,7 @@ namespace gs.backup
 		// Token: 0x06002A2E RID: 10798 RVA: 0x00159DB5 File Offset: 0x00157FB5
 		public SOption GetOption(uint save_index)
 		{
-			return this.m_option[(int)((UIntPtr)save_index)];
+			return this.m_option[(int)(save_index)];
 		}
 
 		// Token: 0x06002A2F RID: 10799 RVA: 0x00159DC0 File Offset: 0x00157FC0
@@ -39,7 +39,7 @@ namespace gs.backup
 		// Token: 0x06002A30 RID: 10800 RVA: 0x00159DCE File Offset: 0x00157FCE
 		public SStage GetStage(uint save_index)
 		{
-			return this.m_stage[(int)((UIntPtr)save_index)];
+			return this.m_stage[(int)(save_index)];
 		}
 
 		// Token: 0x06002A31 RID: 10801 RVA: 0x00159DD9 File Offset: 0x00157FD9
@@ -51,7 +51,7 @@ namespace gs.backup
 		// Token: 0x06002A32 RID: 10802 RVA: 0x00159DE7 File Offset: 0x00157FE7
 		public SSpecial GetSpecial(uint save_index)
 		{
-			return this.m_special[(int)((UIntPtr)save_index)];
+			return this.m_special[(int)(save_index)];
 		}
 
 		// Token: 0x06002A33 RID: 10803 RVA: 0x00159DF2 File Offset: 0x00157FF2
