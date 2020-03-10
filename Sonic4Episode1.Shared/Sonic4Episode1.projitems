@@ -339,7 +339,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)setting\main.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ShortBuffer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sonic4Ep1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)StreamExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Stubs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TripleType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UIntBuffer.cs" />

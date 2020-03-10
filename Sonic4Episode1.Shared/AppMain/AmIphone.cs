@@ -153,7 +153,6 @@ public partial class AppMain
     {
         // PATCH
         var state = new List<TouchLocation>();
-
         if (TouchPanel.GetCapabilities().IsConnected)
         {
             state.AddRange(TouchPanel.GetState());

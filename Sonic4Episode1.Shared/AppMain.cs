@@ -529,6 +529,11 @@ public partial class AppMain
         AppMain.objDrawResetCache();
         AppMain.amDrawResetCache();
         AppMain.amFsExecuteBackgroundRead();
+
+        AppMain.amKeyGetData();
+        AppMain.onTouchEvents();
+        AppMain.controllerSource?.Update();
+
         AppMain.amDrawBeginScene();
         if (this.amDrawBegin())
         {
@@ -545,30 +550,9 @@ public partial class AppMain
                     AppMain._am_sample_end_suspended = false;
                 }
 
-                int num = am_sample_count - 1;
-                if (num < 0)
-                {
-                    num = 0;
-                }
-
-                for (int i = 0; i < am_sample_count; i++)
-                {
-                    // if (i == num)
-                    // {
-                    //     AppMain._am_sample_draw_enable = true;
-                    // }
-                    // else
-                    // {
-                    //     AppMain._am_sample_draw_enable = false;
-                    // }
-                    
-                    AppMain._am_sample_draw_enable = true;
-                    AppMain.amKeyGetData();
-                    controllerSource?.Update();
-                    this.amTpExecute();
-                    AppMain.amTaskExecute();
-                    AppMain.amDrawCloseDisplayList();
-                }
+                AppMain._am_sample_draw_enable = true;
+                this.amTpExecute();
+                AppMain.amTaskExecute();
 
                 AppMain.amDrawCloseDisplayList();
                 AppMain.amDrawGetDisplayList();

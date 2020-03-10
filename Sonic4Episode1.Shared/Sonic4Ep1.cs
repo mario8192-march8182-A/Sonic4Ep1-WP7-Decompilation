@@ -92,9 +92,9 @@ public class Sonic4Ep1 : Game
         this.fnts[1] = base.Content.Load<SpriteFont>("medium");
         this.fnts[2] = base.Content.Load<SpriteFont>("large");
 
-//#if DEBUG
+        //#if DEBUG
         this.benchmarkObject = new BenchmarkObject(this, fntKootenay, new Vector2(0, 0), Color.Red);
-//#endif
+        //#endif
         try
         {
             this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
@@ -114,24 +114,20 @@ public class Sonic4Ep1 : Game
             SaveState._saveFile(SaveState.save);
         }
 
-        //if (!Guide.IsVisible)
-        //{
-        //	this.storeSystemVolume = true;
-        //	try
-        //	{
-        //		if (!AppMain.g_ao_sys_global.is_playing_device_bgm_music)
-        //		{
-        //			MediaPlayer.Pause();
-        //		}
-        //		MediaPlayer.Volume = this.deviceMusicVolume;
-        //		return;
-        //	}
-        //	catch (Exception)
-        //	{
-        //		return;
-        //	}
-        //}                                   
-        //this.storeSystemVolume = false;
+        this.storeSystemVolume = true;
+        try
+        {
+            if (!AppMain.g_ao_sys_global.is_playing_device_bgm_music)
+            {
+                XnaMediaPlayer.Pause();
+            }
+            XnaMediaPlayer.Volume = this.deviceMusicVolume;
+            return;
+        }
+        catch (Exception)
+        {
+            return;
+        }
     }
 
     // Token: 0x0600287E RID: 10366 RVA: 0x00153128 File Offset: 0x00151328
@@ -152,9 +148,9 @@ public class Sonic4Ep1 : Game
     // Token: 0x0600287F RID: 10367 RVA: 0x00153158 File Offset: 0x00151358
     private void accelerometer_ReadingChanged(object sender, AccelerometerChangeEventArgs e)
     {
-        this.accel.X = (float) e.X;
-        this.accel.Y = (float) e.Y;
-        this.accel.Z = (float) e.Z;
+        this.accel.X = (float)e.X;
+        this.accel.Y = (float)e.Y;
+        this.accel.Z = (float)e.Z;
     }
 
     // Token: 0x06002880 RID: 10368 RVA: 0x00153190 File Offset: 0x00151390
@@ -166,17 +162,10 @@ public class Sonic4Ep1 : Game
     protected override void Update(GameTime gameTime)
     {
         AppMain.lastGameTime = gameTime;
-        if (Sonic4Ep1.inputDataRead)
+        AppMain.amIPhoneAccelerate(ref this.accel);
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
         {
-            Sonic4Ep1.inputDataRead = false;
-
-
-            AppMain.onTouchEvents();
-            AppMain.amIPhoneAccelerate(ref this.accel);
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            {
-                AppMain.back_key_is_pressed = true;
-            }
+            AppMain.back_key_is_pressed = true;
         }
 
         benchmarkObject?.Update(gameTime);
@@ -198,7 +187,6 @@ public class Sonic4Ep1 : Game
             _resizePending = false;
         }
 
-        Sonic4Ep1.inputDataRead = true;
         OpenGL.drawPrimitives_Count = 0;
         OpenGL.drawVertexBuffer_Count = 0;
         this.appMain.AppMainLoop();
@@ -226,14 +214,8 @@ public class Sonic4Ep1 : Game
     // Token: 0x040062AC RID: 25260
     public SpriteFont[] fnts = new SpriteFont[3];
 
-    // Token: 0x040062AD RID: 25261
-    private int GCCount;
-
     // Token: 0x040062AE RID: 25262
     private WeakReference wr = new WeakReference(new object());
-
-    // Token: 0x040062AF RID: 25263
-    private double _lastUpdateMilliseconds;
 
     // Token: 0x040062B0 RID: 25264
     public static bool cheat = false;
