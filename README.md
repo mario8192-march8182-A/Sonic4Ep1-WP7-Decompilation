@@ -1,5 +1,5 @@
 # Sonic4Ep1-WP7-Decompilation
-Decompilation of Sonic 4 Episode 1 for Windows Phone 7, and subsequent port to Windows, macOS, Linux, Windows Phone and iOS
+Decompilation of Sonic 4 Episode 1 for Windows Phone 7, and subsequent port to Windows, macOS, Linux, Windows Phone, iOS and Android
 
 # Features
  - Basic controller/keyboard support in the game itself (menus still depend on touch/mouse)
