@@ -14,7 +14,7 @@ using XnaMediaPlayer = Microsoft.Xna.Framework.Media.MediaPlayer;
 // Token: 0x020003E1 RID: 993
 public class Sonic4Ep1 : Game
 {
-    private bool _resizePending;
+    private bool _resizePending = true;
 
     // Token: 0x06002879 RID: 10361 RVA: 0x00152E78 File Offset: 0x00151078
     public Sonic4Ep1()
@@ -23,8 +23,8 @@ public class Sonic4Ep1 : Game
         this.graphics = new GraphicsDeviceManager(this);
         Window.AllowUserResizing = true;
         Window.ClientSizeChanged += OnClientSizeChange;
-        //this.graphics.PreferredBackBufferWidth = 480;
-        //this.graphics.PreferredBackBufferHeight = 288;
+        this.graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
+        this.graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
         this.graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
         this.graphics.PreparingDeviceSettings += this.graphics_PreparingDeviceSettings;
         this.graphics.SynchronizeWithVerticalRetrace = true;
@@ -35,7 +35,7 @@ public class Sonic4Ep1 : Game
 #endif
         base.IsMouseVisible = true;
         base.Content.RootDirectory = "Content";
-        base.TargetElapsedTime = TimeSpan.FromTicks(TimeSpan.TicksPerSecond / 30);
+        base.TargetElapsedTime = TimeSpan.FromTicks(TimeSpan.TicksPerSecond / 60);
         base.Activated += this.OnActivated;
         base.Deactivated += this.OnDeactivated;
     }
@@ -96,7 +96,7 @@ public class Sonic4Ep1 : Game
         try
         {
             this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
-            this.appMain.AppInit(saveContentPath, this.controllerSource, base.GraphicsDevice.Viewport);
+            this.appMain.AppInit(saveContentPath, this.controllerSource, Window.ClientBounds);
         }
         catch (Exception)
         {
@@ -187,11 +187,13 @@ public class Sonic4Ep1 : Game
     {
         if (_resizePending)
         {
-            graphics.PreferredBackBufferWidth = base.GraphicsDevice.Viewport.Width;
-            graphics.PreferredBackBufferHeight = base.GraphicsDevice.Viewport.Height;
+            graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
+            graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
             graphics.ApplyChanges();
 
-            appMain?.amIPhoneInitNN(base.GraphicsDevice.Viewport);
+            appMain?.amIPhoneInitNN(Window.ClientBounds);
+
+            _resizePending = false;
         }
 
         Sonic4Ep1.inputDataRead = true;

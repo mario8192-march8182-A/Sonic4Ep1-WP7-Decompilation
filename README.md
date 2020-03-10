@@ -6,6 +6,8 @@ Decompilation of Sonic 4 Episode 1 for Windows Phone 7, and subsequent port to W
  - Toggleable loop camera [🦀🦀](https://twitter.com/da_wamwoowam/status/1236706830962905089)
  - Discord rich presence
  - Accelerometer support on iOS and Windows Phone (emulation soon)
+ - 60 FPS support
+ - Vastly better loading times than literally any other version of the game
 
 # Issues
 

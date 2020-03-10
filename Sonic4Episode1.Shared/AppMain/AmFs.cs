@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System.IO;
+using Microsoft.Xna.Framework.Graphics;
 
 public partial class AppMain
 {
@@ -75,6 +75,8 @@ public partial class AppMain
         // Token: 0x04005512 RID: 21778
         public Stream stream;
 
+        public Task loadTask;
+
         // Token: 0x04005513 RID: 21779
         public AppMain.FsBackgroundReadComplete callback;
 
@@ -96,14 +98,12 @@ public partial class AppMain
     // Token: 0x06000A79 RID: 2681 RVA: 0x0005C9AD File Offset: 0x0005ABAD
     public static AppMain.AMS_FS amFsReadBackground(string file_name)
     {
-        AppMain.FsReadSpeedBytesPerFrame = 32768;
         return AppMain.amFsReadBackground(file_name, null);
     }
 
     // Token: 0x06000A7A RID: 2682 RVA: 0x0005C9C0 File Offset: 0x0005ABC0
     public static AppMain.AMS_FS amFsReadBackground(string file_name, int BytesPerFrame)
     {
-        AppMain.FsReadSpeedBytesPerFrame = BytesPerFrame;
         return AppMain.amFsReadBackground(file_name, null);
     }
 
@@ -146,16 +146,16 @@ public partial class AppMain
     {
         if (data is AppMain.AMS_AMB_HEADER)
         {
-            return (AppMain.AMS_AMB_HEADER) data;
+            return (AppMain.AMS_AMB_HEADER)data;
         }
 
         if (data is AppMain.AmbChunk)
         {
-            AppMain.AmbChunk ambChunk = (AppMain.AmbChunk) data;
+            AppMain.AmbChunk ambChunk = (AppMain.AmbChunk)data;
             return AppMain.readAMBFile(data);
         }
 
-        return AppMain.readAMBFile((AppMain.AMS_FS) data);
+        return AppMain.readAMBFile((AppMain.AMS_FS)data);
     }
 
     // Token: 0x06000A7E RID: 2686 RVA: 0x0005CA90 File Offset: 0x0005AC90
@@ -257,7 +257,7 @@ public partial class AppMain
         {
             if (amb.offsets[i] == offset && amb.buf[i] != null)
             {
-                return (AppMain.AMS_AMB_HEADER) amb.buf[i];
+                return (AppMain.AMS_AMB_HEADER)amb.buf[i];
             }
         }
 
@@ -266,7 +266,7 @@ public partial class AppMain
             if (amb.buf[j] is AppMain.AMS_AMB_HEADER)
             {
                 AppMain.AMS_AMB_HEADER ams_AMB_HEADER =
-                    AppMain.searchPreloadedAmb((AppMain.AMS_AMB_HEADER) amb.buf[j], offset);
+                    AppMain.searchPreloadedAmb((AppMain.AMS_AMB_HEADER)amb.buf[j], offset);
                 if (ams_AMB_HEADER != null)
                 {
                     return ams_AMB_HEADER;
@@ -295,7 +295,7 @@ public partial class AppMain
             else if (extension == ".AMB")
             {
                 amb.buf[i] = AppMain.readAMBFile(ambChunk);
-                AppMain.amPreLoadAmbItems((AppMain.AMS_AMB_HEADER) amb.buf[i]);
+                AppMain.amPreLoadAmbItems((AppMain.AMS_AMB_HEADER)amb.buf[i]);
             }
             else if (extension == ".AME")
             {
@@ -312,88 +312,85 @@ public partial class AppMain
             AppMain.AMS_FS value = AppMain.ams_fsList.First.Value;
             if (value.stream == null)
             {
-                var tempStream = new MemoryStream();
-                value.stream = TitleContainer.OpenStream("Content\\" + value.file_name);
-                value.stream.CopyTo(tempStream);
-                tempStream.Position = 0;
-                value.stream = tempStream;
-                value.data = tempStream.ToArray();
+                var stream = TitleContainer.OpenStream("Content\\" + value.file_name);
+                value.stream = new MemoryStream();
+                value.loadTask = stream.CopyToAsync(value.stream);
+            }
+
+            if (value.loadTask != null && !value.loadTask.IsCompleted)
+            {
                 return;
             }
 
-            int num = Math.Min(AppMain.FsReadSpeedBytesPerFrame,
-                (int) value.stream.Length - (int) value.stream.Position);
-            value.stream.Read(value.data, (int) value.stream.Position, num);
-            if (value.stream.Position == value.stream.Length)
+            value.data = (value.stream as MemoryStream).ToArray();
+            value.stream.Position = 0L;
+
+            using (BinaryReader binaryReader = new BinaryReader(value.stream))
             {
-                value.stream.Position = 0L;
-                using (BinaryReader binaryReader = new BinaryReader(value.stream))
+                //23 41 4D 42
+                var tmp = binaryReader.ReadInt32();
+                if (tmp == 0x424d4123)
                 {
-                    //23 41 4D 42
-                    var tmp = binaryReader.ReadInt32();
-                    if (tmp == 0x424d4123)
+                    binaryReader.BaseStream.Seek(12, SeekOrigin.Current);
+                    value.count = binaryReader.ReadInt32();
+                    var entryTableOffset = binaryReader.ReadInt32();
+                    binaryReader.BaseStream.Seek(4, SeekOrigin.Current);
+                    var stringTableOffset = binaryReader.ReadInt32();
+
+                    value.files = new string[value.count];
+                    value.types = new sbyte[value.count];
+                    value.offsets = new int[value.count];
+                    value.lengths = new int[value.count];
+                    value.flag = new sbyte[0];
+                    for (int i = 0; i < value.count; i++)
                     {
-                        binaryReader.BaseStream.Seek(12, SeekOrigin.Current);
-                        value.count = binaryReader.ReadInt32();
-                        var entryTableOffset = binaryReader.ReadInt32();
-                        binaryReader.BaseStream.Seek(4, SeekOrigin.Current);
-                        var stringTableOffset = binaryReader.ReadInt32();
+                        binaryReader.BaseStream.Seek(entryTableOffset + (i * 0x10), SeekOrigin.Begin);
+                        value.offsets[i] = binaryReader.ReadInt32();
+                        value.lengths[i] = binaryReader.ReadInt32();
 
-                        value.files = new string[value.count];
-                        value.types = new sbyte[value.count];
-                        value.offsets = new int[value.count];
-                        value.lengths = new int[value.count];
-                        value.flag = new sbyte[0];
-                        for (int i = 0; i < value.count; i++)
-                        {
-                            binaryReader.BaseStream.Seek(entryTableOffset + (i * 0x10), SeekOrigin.Begin);
-                            value.offsets[i] = binaryReader.ReadInt32();
-                            value.lengths[i] = binaryReader.ReadInt32();
-
-                            binaryReader.BaseStream.Seek(stringTableOffset + (i * 0x20), SeekOrigin.Begin);
-                            value.files[i] = readChars(binaryReader);
-                        }
-                    }
-                    else
-                    {
-                        value.count = tmp;
-                        value.files = new string[value.count];
-                        value.types = new sbyte[value.count];
-                        value.offsets = new int[value.count];
-                        value.lengths = new int[value.count];
-                        int num2 = binaryReader.ReadInt32();
-                        value.flag = new sbyte[num2];
-                        for (int i = 0; i < num2; i++)
-                        {
-                            value.flag[i] = binaryReader.ReadSByte();
-                        }
-
-                        for (int j = 0; j < value.count; j++)
-                        {
-                            value.files[j] = binaryReader.ReadString();
-                            value.types[j] = binaryReader.ReadSByte();
-                        }
-
-                        for (int k = 0; k < value.count; k++)
-                        {
-                            value.offsets[k] = binaryReader.ReadInt32();
-                        }
-
-                        for (int l = 0; l < value.count; l++)
-                        {
-                            value.lengths[l] = binaryReader.ReadInt32();
-                        }
+                        binaryReader.BaseStream.Seek(stringTableOffset + (i * 0x20), SeekOrigin.Begin);
+                        value.files[i] = readChars(binaryReader);
                     }
                 }
-
-                value.makeAmbHeader();
-                value.stat = 3;
-                value.stream = null;
-                AppMain.ams_fsList.RemoveFirst();
-                if (value.callback != null)
+                else
                 {
-                    value.callback(value);
+                    value.count = tmp;
+                    value.files = new string[value.count];
+                    value.types = new sbyte[value.count];
+                    value.offsets = new int[value.count];
+                    value.lengths = new int[value.count];
+                    int num2 = binaryReader.ReadInt32();
+                    value.flag = new sbyte[num2];
+                    for (int i = 0; i < num2; i++)
+                    {
+                        value.flag[i] = binaryReader.ReadSByte();
+                    }
+
+                    for (int j = 0; j < value.count; j++)
+                    {
+                        value.files[j] = binaryReader.ReadString();
+                        value.types[j] = binaryReader.ReadSByte();
+                    }
+
+                    for (int k = 0; k < value.count; k++)
+                    {
+                        value.offsets[k] = binaryReader.ReadInt32();
+                    }
+
+                    for (int l = 0; l < value.count; l++)
+                    {
+                        value.lengths[l] = binaryReader.ReadInt32();
+                    }
                 }
+            }
+
+            value.makeAmbHeader();
+            value.stat = 3;
+            value.stream = null;
+            AppMain.ams_fsList.RemoveFirst();
+            if (value.callback != null)
+            {
+                value.callback(value);
             }
         }
     }

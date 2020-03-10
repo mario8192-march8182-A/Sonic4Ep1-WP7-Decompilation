@@ -508,7 +508,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009DD RID: 2525 RVA: 0x0005979F File Offset: 0x0005799F
-    public int AppInit(string pDocPath, IControllerSource controllerSource, Viewport port)
+    public int AppInit(string pDocPath, IControllerSource controllerSource, Rectangle port)
     {
         // PATCH: // AppMain.store = IsolatedStorageFile.GetUserStoreForApplication();
         PresentationParameters presentationParameters = AppMain.m_graphicsDevice.PresentationParameters;
@@ -553,15 +553,16 @@ public partial class AppMain
 
                 for (int i = 0; i < am_sample_count; i++)
                 {
-                    if (i == num)
-                    {
-                        AppMain._am_sample_draw_enable = true;
-                    }
-                    else
-                    {
-                        AppMain._am_sample_draw_enable = false;
-                    }
-
+                    // if (i == num)
+                    // {
+                    //     AppMain._am_sample_draw_enable = true;
+                    // }
+                    // else
+                    // {
+                    //     AppMain._am_sample_draw_enable = false;
+                    // }
+                    
+                    AppMain._am_sample_draw_enable = true;
                     AppMain.amKeyGetData();
                     controllerSource?.Update();
                     this.amTpExecute();
@@ -21994,7 +21995,7 @@ public partial class AppMain
         AppMain._am_debug_flag = new uint[4];
         AppMain._am_draw_counter = 0U;
         AppMain._am_default_stack = new AppMain.NNS_MATRIXSTACK(16U);
-        AppMain._am_sample_count = 2;
+        AppMain._am_sample_count = 1;
         AppMain._am_sample_draw_enable = false;
         AppMain._am_sample_is_suspended = false;
         AppMain._am_sample_is_ignore_audio_interruption = false;
@@ -23357,7 +23358,6 @@ public partial class AppMain
         AppMain._am_tlist_cline = 0;
         AppMain._am_tlist_dline = 0;
         AppMain.ams_fsList = new LinkedList<AppMain.AMS_FS>();
-        AppMain.FsReadSpeedBytesPerFrame = 32768;
         AppMain.lastReadAMS_FS = null;
         AppMain.GMD_SMSG_FLAG_WIN_DISP = 1U;
         AppMain.GMD_SMSG_FLAG_OK_DISP = 2U;
@@ -88887,9 +88887,6 @@ public partial class AppMain
 
     // Token: 0x04004173 RID: 16755
     private static LinkedList<AppMain.AMS_FS> ams_fsList;
-
-    // Token: 0x04004174 RID: 16756
-    public static int FsReadSpeedBytesPerFrame;
 
     // Token: 0x04004175 RID: 16757
     public static AppMain.AMS_FS lastReadAMS_FS;

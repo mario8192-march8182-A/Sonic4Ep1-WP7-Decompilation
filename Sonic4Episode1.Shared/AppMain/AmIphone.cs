@@ -313,7 +313,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001543 RID: 5443 RVA: 0x000B90C8 File Offset: 0x000B72C8
-    public void amIPhoneInitNN(Viewport port)
+    public void amIPhoneInitNN(Rectangle port)
     {
         OpenGL.init(m_game, m_graphicsDevice);
 
