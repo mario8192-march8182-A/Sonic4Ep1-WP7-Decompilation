@@ -1,0 +1,1 @@
+Because Android is dumb, this folder must contain a full tree of assets as would appear in the PC build of the game. 

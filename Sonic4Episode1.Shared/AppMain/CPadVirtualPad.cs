@@ -31,10 +31,10 @@ public partial class AppMain
         // Token: 0x06002327 RID: 8999 RVA: 0x001480D4 File Offset: 0x001462D4
         public bool Create()
         {
-            this.m_area.left = 16f;
-            this.m_area.top = 16f;
-            this.m_area.right = AMD_SCREEN_2D_WIDTH - 32;
-            this.m_area.bottom = AMD_SCREEN_2D_HEIGHT - 32;
+            this.m_area.left = 32f;
+            this.m_area.top = 32f;
+            this.m_area.right = AMD_SCREEN_2D_WIDTH - 64;
+            this.m_area.bottom = AMD_SCREEN_2D_HEIGHT - 64;
             return this.create();
         }
 
