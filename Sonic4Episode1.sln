@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stubs", "Stubs\Stubs.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonic4Episode1.UWP", "Sonic4Episode1.UWP\Sonic4Episode1.UWP.csproj", "{49CF0131-8B9C-4E60-84AE-6FC5EFC4B813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonic4Episode1", "Sonic4Episode1\Sonic4Episode1.csproj", "{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sonic4Episode1", "Sonic4Episode1\Sonic4Episode1.csproj", "{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sonic4Episode1.Shared", "Sonic4Episode1.Shared\Sonic4Episode1.Shared.shproj", "{B76D7017-DE12-460C-9861-5432A8065644}"
 EndProject
@@ -90,10 +90,10 @@ Global
 		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x64.ActiveCfg = Debug|x64
-		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x64.Build.0 = Debug|x64
-		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x86.ActiveCfg = Debug|x86
-		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x86.Build.0 = Debug|x86
+		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x64.Build.0 = Debug|Any CPU
+		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Debug|x86.Build.0 = Debug|Any CPU
 		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Release|ARM.ActiveCfg = Release|Any CPU
 		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Release|ARM.Build.0 = Release|Any CPU
 		{2D35A83E-B8C8-49CB-9DCF-6D130CBE3832}.Release|iPhone.ActiveCfg = Release|Any CPU

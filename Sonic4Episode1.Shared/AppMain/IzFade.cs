@@ -36,16 +36,16 @@ public partial class AppMain
         public readonly AppMain.NNS_PRIM2D_PC[][] vtx = AppMain.New<AppMain.NNS_PRIM2D_PC>(2, 4);
 
         // Token: 0x04005A53 RID: 23123
-        public readonly AppMain.NNS_MATRIX mtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005A54 RID: 23124
-        public AppMain.NNS_RGBA start_col;
+        public NNS_RGBA start_col;
 
         // Token: 0x04005A55 RID: 23125
-        public AppMain.NNS_RGBA end_col;
+        public NNS_RGBA end_col;
 
         // Token: 0x04005A56 RID: 23126
-        public AppMain.NNS_RGBA now_col;
+        public NNS_RGBA now_col;
 
         // Token: 0x04005A57 RID: 23127
         public float time;
@@ -202,7 +202,7 @@ public partial class AppMain
     // Token: 0x06001161 RID: 4449 RVA: 0x00098858 File Offset: 0x00096A58
     private static void IzFadeSetWork( AppMain.IZS_FADE_WORK fade_work, ushort dt_prio, uint draw_state, uint fade_set_type, byte start_col_r, byte start_col_g, byte start_col_b, byte start_col_a, byte end_col_r, byte end_col_g, byte end_col_b, byte end_col_a, float time, bool draw_start, bool conti_state )
     {
-        AppMain.NNS_RGBA start_col = default(AppMain.NNS_RGBA);
+        NNS_RGBA start_col = default(NNS_RGBA);
         ushort vtx_no = 1;
         if ( !conti_state )
         {

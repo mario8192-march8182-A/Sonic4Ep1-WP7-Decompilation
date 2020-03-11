@@ -12,7 +12,7 @@ public partial class AppMain
 
     // Token: 0x02000355 RID: 853
     // (Invoke) Token: 0x060025F0 RID: 9712
-    public delegate void OBJECT_WORK_Delegate( AppMain.OBS_OBJECT_WORK work );
+    public delegate void OBJECT_WORK_Delegate( OBS_OBJECT_WORK work );
 
     // Token: 0x02000356 RID: 854
     public class OBS_OBJECT
@@ -84,7 +84,7 @@ public partial class AppMain
         public uint drawflag;
 
         // Token: 0x04005F02 RID: 24322
-        public AppMain.NNS_RGB ambient_color = new AppMain.NNS_RGB();
+        public NNS_RGB ambient_color = new NNS_RGB();
 
         // Token: 0x04005F03 RID: 24323
         public readonly AppMain.OBS_LIGHT[] light = AppMain.New<AppMain.OBS_LIGHT>(AppMain.NNE_LIGHT_MAX);
@@ -102,16 +102,16 @@ public partial class AppMain
         public int data_max;
 
         // Token: 0x04005F08 RID: 24328
-        public AppMain.OBS_OBJECT_WORK obj_list_head;
+        public OBS_OBJECT_WORK obj_list_head;
 
         // Token: 0x04005F09 RID: 24329
-        public AppMain.OBS_OBJECT_WORK obj_list_tail;
+        public OBS_OBJECT_WORK obj_list_tail;
 
         // Token: 0x04005F0A RID: 24330
-        public AppMain.OBS_OBJECT_WORK obj_draw_list_head;
+        public OBS_OBJECT_WORK obj_draw_list_head;
 
         // Token: 0x04005F0B RID: 24331
-        public AppMain.OBS_OBJECT_WORK obj_draw_list_tail;
+        public OBS_OBJECT_WORK obj_draw_list_tail;
 
         // Token: 0x04005F0C RID: 24332
         public AppMain.OBJECT_Delegate ppPre;
@@ -177,7 +177,7 @@ public partial class AppMain
         public int index;
 
         // Token: 0x04005F1C RID: 24348
-        public AppMain.AMS_AMB_HEADER archive;
+        public AMS_AMB_HEADER archive;
     }
 
     // Token: 0x02000358 RID: 856
@@ -186,7 +186,7 @@ public partial class AppMain
 
     // Token: 0x02000359 RID: 857
     // (Invoke) Token: 0x060025FB RID: 9723
-    public delegate void mplt_cb_func_delegate( ref AppMain.NNS_MATRIX m, AppMain.NNS_OBJECT nnso, object o );
+    public delegate void mplt_cb_func_delegate( ref NNS_MATRIX m, AppMain.NNS_OBJECT nnso, object o );
 
     // Token: 0x0200035A RID: 858
     // (Invoke) Token: 0x060025FF RID: 9727
@@ -316,10 +316,10 @@ public partial class AppMain
         public float mat_speed;
 
         // Token: 0x04005F31 RID: 24369
-        public readonly AppMain.NNS_MATRIX user_obj_mtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX user_obj_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005F32 RID: 24370
-        public readonly AppMain.NNS_MATRIX user_obj_mtx_r = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX user_obj_mtx_r = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005F33 RID: 24371
         public float blend_spd;
@@ -411,7 +411,7 @@ public partial class AppMain
         }
 
         // Token: 0x04005F45 RID: 24389
-        public AppMain.AMS_AME_ECB ecb;
+        public AMS_AME_ECB ecb;
 
         // Token: 0x04005F46 RID: 24390
         public AppMain.NNS_TEXLIST texlist;
@@ -456,13 +456,13 @@ public partial class AppMain
         public AppMain.VecU16 disp_rot = default(AppMain.VecU16);
 
         // Token: 0x04005F54 RID: 24404
-        public readonly AppMain.NNS_VECTOR4D disp_ofst = new AppMain.NNS_VECTOR4D();
+        public readonly NNS_VECTOR4D disp_ofst = new NNS_VECTOR4D();
 
         // Token: 0x04005F55 RID: 24405
-        public readonly AppMain.NNS_VECTOR4D dup_draw_ofst = new AppMain.NNS_VECTOR4D();
+        public readonly NNS_VECTOR4D dup_draw_ofst = new NNS_VECTOR4D();
 
         // Token: 0x04005F56 RID: 24406
-        public AppMain.NNS_QUATERNION user_dir_quat = default(AppMain.NNS_QUATERNION);
+        public NNS_QUATERNION user_dir_quat = default(NNS_QUATERNION);
 
         // Token: 0x04005F57 RID: 24407
         public int user_attr;
@@ -478,7 +478,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200035F RID: 863
-    public class OBS_ACTION2D_AMA_WORK : AppMain.IClearable
+    public class OBS_ACTION2D_AMA_WORK : IClearable
     {
         // Token: 0x0600260B RID: 9739 RVA: 0x0014E9C0 File Offset: 0x0014CBC0
         public void Clear()
@@ -510,7 +510,7 @@ public partial class AppMain
         public AppMain.NNS_TEXLIST texlist;
 
         // Token: 0x04005F5F RID: 24415
-        public AppMain.A2S_AMA_HEADER ama;
+        public A2S_AMA_HEADER ama;
 
         // Token: 0x04005F60 RID: 24416
         public AppMain.OBS_DATA_WORK ama_data_work;
@@ -535,20 +535,20 @@ public partial class AppMain
     }
 
     // Token: 0x060017D6 RID: 6102 RVA: 0x000D4829 File Offset: 0x000D2A29
-    private static void ObjDispSRand( uint seed )
+    public static void ObjDispSRand( uint seed )
     {
         AppMain._obj_disp_rand = seed;
     }
 
     // Token: 0x060017D7 RID: 6103 RVA: 0x000D4831 File Offset: 0x000D2A31
-    private static ushort ObjDispRand()
+    public static ushort ObjDispRand()
     {
         AppMain._obj_disp_rand = 1663525U * AppMain._obj_disp_rand + 1013904223U;
         return ( ushort )( AppMain._obj_disp_rand >> 16 );
     }
 
     // Token: 0x060017D8 RID: 6104 RVA: 0x000D4852 File Offset: 0x000D2A52
-    private static int ObjSpdUpSet( int lSpd, int sSpd, int sMaxSpd )
+    public static int ObjSpdUpSet( int lSpd, int sSpd, int sMaxSpd )
     {
         lSpd += AppMain.FX_Mul( sSpd, AppMain.g_obj.speed );
         if ( sMaxSpd == 0 )
@@ -570,7 +570,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017D9 RID: 6105 RVA: 0x000D4884 File Offset: 0x000D2A84
-    private static int ObjSpdDownSet( int lSpd, int sSpd )
+    public static int ObjSpdDownSet( int lSpd, int sSpd )
     {
         if ( lSpd > 0 )
         {
@@ -592,7 +592,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017DA RID: 6106 RVA: 0x000D48C4 File Offset: 0x000D2AC4
-    private static int ObjShiftSet( int lPos, int sTag, ushort usShift, int usMax, int usMin )
+    public static int ObjShiftSet( int lPos, int sTag, ushort usShift, int usMax, int usMin )
     {
         if ( lPos == sTag )
         {
@@ -658,7 +658,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017DB RID: 6107 RVA: 0x000D4958 File Offset: 0x000D2B58
-    private static int ObjDiffSet( int lPos, int sTag, int sSrc, ushort usShift, int usMax, int usMin )
+    public static int ObjDiffSet( int lPos, int sTag, int sSrc, ushort usShift, int usMax, int usMin )
     {
         if ( lPos == sTag )
         {
@@ -733,7 +733,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017DC RID: 6108 RVA: 0x000D4A08 File Offset: 0x000D2C08
-    private static int ObjAlphaSet( int sTag, int sSrc, ushort usAlpha )
+    public static int ObjAlphaSet( int sTag, int sSrc, ushort usAlpha )
     {
         if ( usAlpha == 0 )
         {
@@ -748,7 +748,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017DD RID: 6109 RVA: 0x000D4A34 File Offset: 0x000D2C34
-    private static byte ObjRoopMove8( byte ucDir, byte ucTag, sbyte cSpd )
+    public static byte ObjRoopMove8( byte ucDir, byte ucTag, sbyte cSpd )
     {
         if ( ucTag == ucDir )
         {
@@ -815,7 +815,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017DE RID: 6110 RVA: 0x000D4ADC File Offset: 0x000D2CDC
-    private static ushort ObjRoopMove16( ushort ucDir, ushort ucTag, short cSpd )
+    public static ushort ObjRoopMove16( ushort ucDir, ushort ucTag, short cSpd )
     {
         if ( ucTag == ucDir )
         {
@@ -882,7 +882,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017DF RID: 6111 RVA: 0x000D4B84 File Offset: 0x000D2D84
-    private static short ObjRoopDiff16( ushort usDir1, ushort usDir2 )
+    public static short ObjRoopDiff16( ushort usDir1, ushort usDir2 )
     {
         if ( usDir2 == usDir1 )
         {
@@ -906,7 +906,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E0 RID: 6112 RVA: 0x000D4BCC File Offset: 0x000D2DCC
-    private static int ObjSwingEndMove( AppMain.OBS_OBJECT_WORK pWork, int lSwingWork, int sSpdAdd, int sSpdDow, int sSpdMax )
+    public static int ObjSwingEndMove( OBS_OBJECT_WORK pWork, int lSwingWork, int sSpdAdd, int sSpdDow, int sSpdMax )
     {
         if ( Math.Abs( lSwingWork ) < 4096 && Math.Abs( pWork.spd_m ) < 2048 )
         {
@@ -938,7 +938,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E1 RID: 6113 RVA: 0x000D4C8C File Offset: 0x000D2E8C
-    private static void ObjNumCodeSet( ref uint pNum, uint sNum, uint ulMax )
+    public static void ObjNumCodeSet( ref uint pNum, uint sNum, uint ulMax )
     {
         short num = 0;
         if ( sNum >= ulMax )
@@ -986,7 +986,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E2 RID: 6114 RVA: 0x000D4D74 File Offset: 0x000D2F74
-    private static ushort ObjObjectTouchCheck( AppMain.OBS_OBJECT_WORK pObj, ushort index )
+    public static ushort ObjObjectTouchCheck( OBS_OBJECT_WORK pObj, ushort index )
     {
         AppMain.OBS_RECT_WORK obs_RECT_WORK = AppMain.ObjObjectRectGet(pObj, index);
         if ( obs_RECT_WORK != null )
@@ -997,7 +997,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E3 RID: 6115 RVA: 0x000D4D98 File Offset: 0x000D2F98
-    private static ushort ObjObjectTouchCheckPush( AppMain.OBS_OBJECT_WORK pObj, ushort index )
+    public static ushort ObjObjectTouchCheckPush( OBS_OBJECT_WORK pObj, ushort index )
     {
         AppMain.OBS_RECT_WORK obs_RECT_WORK = AppMain.ObjObjectRectGet(pObj, index);
         if ( obs_RECT_WORK != null )
@@ -1008,7 +1008,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E4 RID: 6116 RVA: 0x000D4DBC File Offset: 0x000D2FBC
-    private static ushort ObjTouchCheck( AppMain.OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK pRect )
+    public static ushort ObjTouchCheck( OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK pRect )
     {
         if ( AppMain.amTpIsTouchOn( 0 ) )
         {
@@ -1031,7 +1031,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E5 RID: 6117 RVA: 0x000D4E8C File Offset: 0x000D308C
-    private static ushort ObjTouchCheckPush( AppMain.OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK pRect )
+    public static ushort ObjTouchCheckPush( OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK pRect )
     {
         if ( AppMain.amTpIsTouchPush( 0 ) )
         {
@@ -1054,7 +1054,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E6 RID: 6118 RVA: 0x000D4F5C File Offset: 0x000D315C
-    private static void ObjUtilGetRotPosXY( int pos_x, int pos_y, ref int dest_x, ref int dest_y, ushort dir )
+    public static void ObjUtilGetRotPosXY( int pos_x, int pos_y, ref int dest_x, ref int dest_y, ushort dir )
     {
         int num = AppMain.FX_Mul(pos_x, AppMain.mtMathSin((int)dir));
         int num2 = AppMain.FX_Mul(pos_x, AppMain.mtMathCos((int)dir));
@@ -1065,7 +1065,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E7 RID: 6119 RVA: 0x000D4FAB File Offset: 0x000D31AB
-    private static float ObjSpdUpSetF( float spd, float add_apd, float max_spd )
+    public static float ObjSpdUpSetF( float spd, float add_apd, float max_spd )
     {
         spd += add_apd * AppMain.FXM_FX32_TO_FLOAT( AppMain.g_obj.speed );
         if ( AppMain.amIsZerof( max_spd ) )
@@ -1087,7 +1087,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E8 RID: 6120 RVA: 0x000D4FE8 File Offset: 0x000D31E8
-    private static float ObjSpdDownSetF( float spd, float spd_dec )
+    public static float ObjSpdDownSetF( float spd, float spd_dec )
     {
         if ( spd > 0f )
         {
@@ -1109,7 +1109,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017E9 RID: 6121 RVA: 0x000D5048 File Offset: 0x000D3248
-    private static float ObjShiftSetF( float pos, float tag, int shift, float max, float min )
+    public static float ObjShiftSetF( float pos, float tag, int shift, float max, float min )
     {
         if ( pos == tag )
         {
@@ -1215,7 +1215,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017EE RID: 6126 RVA: 0x000D5140 File Offset: 0x000D3340
-    public static AppMain.OBS_OBJECT_WORK OBM_OBJECT_TASK_DETAIL_INIT( ushort priority, byte group, byte pause_level, byte obj_pause_level, AppMain.TaskWorkFactoryDelegate work_size, string name )
+    public static OBS_OBJECT_WORK OBM_OBJECT_TASK_DETAIL_INIT( ushort priority, byte group, byte pause_level, byte obj_pause_level, AppMain.TaskWorkFactoryDelegate work_size, string name )
     {
         return AppMain.ObjObjectTaskDetailInit( priority, group, pause_level, obj_pause_level, work_size, name );
     }
@@ -1250,7 +1250,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017F3 RID: 6131 RVA: 0x000D5174 File Offset: 0x000D3374
-    private static void ObjInit( byte group, ushort prio, byte pause_level, short lcd_size_x, short lcd_size_y, float disp_width, float disp_height )
+    public static void ObjInit( byte group, ushort prio, byte pause_level, short lcd_size_x, short lcd_size_y, float disp_width, float disp_height )
     {
         if ( AppMain.obj_ptcb != null )
         {
@@ -1304,11 +1304,11 @@ public partial class AppMain
     }
 
     // Token: 0x060017F4 RID: 6132 RVA: 0x000D5434 File Offset: 0x000D3634
-    private static void ObjExit()
+    public static void ObjExit()
     {
         if ( AppMain.obj_ptcb != null )
         {
-            for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
+            for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
             {
                 obs_OBJECT_WORK.flag |= 4U;
             }
@@ -1318,40 +1318,40 @@ public partial class AppMain
     }
 
     // Token: 0x060017F5 RID: 6133 RVA: 0x000D549F File Offset: 0x000D369F
-    private static void ObjPreExit()
+    public static void ObjPreExit()
     {
-        AppMain.ObjCameraExit();
+        ObjCamera.Exit();
         AppMain.g_obj.glb_camera_id = -1;
     }
 
     // Token: 0x060017F6 RID: 6134 RVA: 0x000D54B1 File Offset: 0x000D36B1
-    private static bool ObjIsInit()
+    public static bool ObjIsInit()
     {
         return null != AppMain.obj_ptcb;
     }
 
     // Token: 0x060017F7 RID: 6135 RVA: 0x000D54BE File Offset: 0x000D36BE
-    private static bool ObjIsExitWait()
+    public static bool ObjIsExitWait()
     {
         return AppMain.obj_ptcb != null && ( AppMain.g_obj.flag & 2147483648U ) != 0U;
     }
 
     // Token: 0x060017F8 RID: 6136 RVA: 0x000D54DC File Offset: 0x000D36DC
-    private static void ObjObjectPause( ushort pause_level )
+    public static void ObjObjectPause( ushort pause_level )
     {
         AppMain.g_obj.flag |= 2U;
         AppMain.g_obj.pause_level = ( int )pause_level;
     }
 
     // Token: 0x060017F9 RID: 6137 RVA: 0x000D54FB File Offset: 0x000D36FB
-    private static void ObjObjectPauseOut()
+    public static void ObjObjectPauseOut()
     {
         AppMain.g_obj.flag &= 4294967293U;
         AppMain.g_obj.pause_level = -1;
     }
 
     // Token: 0x060017FA RID: 6138 RVA: 0x000D551B File Offset: 0x000D371B
-    private static uint ObjObjectPauseCheck( uint ulFlag )
+    public static uint ObjObjectPauseCheck( uint ulFlag )
     {
         if ( ( AppMain._g_obj.flag & 1U ) == 0U || ( ulFlag & 32U ) != 0U )
         {
@@ -1361,7 +1361,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017FB RID: 6139 RVA: 0x000D5534 File Offset: 0x000D3734
-    private static void ObjDataAlloc( int num )
+    public static void ObjDataAlloc( int num )
     {
         if ( AppMain.obj_data_work_save != null )
         {
@@ -1376,7 +1376,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017FC RID: 6140 RVA: 0x000D558E File Offset: 0x000D378E
-    private static AppMain.OBS_DATA_WORK ObjDataGet( int index )
+    public static AppMain.OBS_DATA_WORK ObjDataGet( int index )
     {
         if ( AppMain.g_obj.data_max <= index )
         {
@@ -1386,7 +1386,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017FD RID: 6141 RVA: 0x000D55AB File Offset: 0x000D37AB
-    private static void ObjDataFree()
+    public static void ObjDataFree()
     {
         AppMain.g_obj.data_max = 0;
         if ( AppMain.g_obj.pData != null )
@@ -1396,58 +1396,58 @@ public partial class AppMain
     }
 
     // Token: 0x060017FE RID: 6142 RVA: 0x000D55CF File Offset: 0x000D37CF
-    private static void ObjObjectClipLCDSet( short size_x, short size_y )
+    public static void ObjObjectClipLCDSet( short size_x, short size_y )
     {
         AppMain.g_obj.clip_lcd_size[0] = size_x;
         AppMain.g_obj.clip_lcd_size[1] = size_y;
     }
 
     // Token: 0x060017FF RID: 6143 RVA: 0x000D55EB File Offset: 0x000D37EB
-    private static void ObjObjectOffsetSet( short sX, short sY )
+    public static void ObjObjectOffsetSet( short sX, short sY )
     {
         AppMain.g_obj.offset[0] = sX;
         AppMain.g_obj.offset[1] = sY;
     }
 
     // Token: 0x06001800 RID: 6144 RVA: 0x000D5607 File Offset: 0x000D3807
-    private static void ObjObjectSpeedSet( int sSpd )
+    public static void ObjObjectSpeedSet( int sSpd )
     {
         AppMain.g_obj.speed = sSpd;
     }
 
     // Token: 0x06001801 RID: 6145 RVA: 0x000D5614 File Offset: 0x000D3814
-    private static int ObjObjectSpeedGet()
+    public static int ObjObjectSpeedGet()
     {
         return AppMain.g_obj.speed;
     }
 
     // Token: 0x06001802 RID: 6146 RVA: 0x000D5620 File Offset: 0x000D3820
-    private void ObjObjectScrollSet( int spd_x, int spd_y )
+    public void ObjObjectScrollSet( int spd_x, int spd_y )
     {
         AppMain.g_obj.scroll[0] = spd_x;
         AppMain.g_obj.scroll[1] = spd_y;
     }
 
     // Token: 0x06001803 RID: 6147 RVA: 0x000D563C File Offset: 0x000D383C
-    private static int ObjObjectScrollGetX()
+    public static int ObjObjectScrollGetX()
     {
         return AppMain.g_obj.scroll[0];
     }
 
     // Token: 0x06001804 RID: 6148 RVA: 0x000D564A File Offset: 0x000D384A
-    private static int ObjObjectScrollGetY()
+    public static int ObjObjectScrollGetY()
     {
         return AppMain.g_obj.scroll[1];
     }
 
     // Token: 0x06001805 RID: 6149 RVA: 0x000D5658 File Offset: 0x000D3858
-    private static void ObjObjectBeltSetDepth( int depth )
+    public static void ObjObjectBeltSetDepth( int depth )
     {
         AppMain.g_obj.depth = depth;
     }
 
     // Token: 0x06001806 RID: 6150 RVA: 0x000D5665 File Offset: 0x000D3865
-    private static int ObjObjectBeltGetDepth()
+    public static int ObjObjectBeltGetDepth()
     {
         return AppMain.g_obj.depth;
     }
@@ -1462,14 +1462,14 @@ public partial class AppMain
     }
 
     // Token: 0x06001808 RID: 6152 RVA: 0x000D56AF File Offset: 0x000D38AF
-    private static void ObjObjectClipCameraSet( int x, int y )
+    public static void ObjObjectClipCameraSet( int x, int y )
     {
         AppMain.g_obj.clip_camera[0] = x;
         AppMain.g_obj.clip_camera[1] = y;
     }
 
     // Token: 0x06001809 RID: 6153 RVA: 0x000D56CC File Offset: 0x000D38CC
-    private static void ObjObjectCameraZSet( int z )
+    public static void ObjObjectCameraZSet( int z )
     {
         if ( z > 0 )
         {
@@ -1485,16 +1485,16 @@ public partial class AppMain
     }
 
     // Token: 0x0600180A RID: 6154 RVA: 0x000D5756 File Offset: 0x000D3956
-    private static AppMain.OBS_OBJECT_WORK ObjObjectTaskInit()
+    public static OBS_OBJECT_WORK ObjObjectTaskInit()
     {
-        return AppMain.OBM_OBJECT_TASK_DETAIL_INIT( 4096, 1, 0, 0, () => AppMain.OBS_OBJECT_WORK.Create(), "object" );
+        return AppMain.OBM_OBJECT_TASK_DETAIL_INIT( 4096, 1, 0, 0, () => OBS_OBJECT_WORK.Create(), "object" );
     }
 
     // Token: 0x0600180B RID: 6155 RVA: 0x000D5788 File Offset: 0x000D3988
-    private static AppMain.OBS_OBJECT_WORK ObjObjectTaskDetailInit( ushort prio, byte group, byte pause_level, byte obj_pause_level, AppMain.TaskWorkFactoryDelegate work_size, string name )
+    public static OBS_OBJECT_WORK ObjObjectTaskDetailInit( ushort prio, byte group, byte pause_level, byte obj_pause_level, AppMain.TaskWorkFactoryDelegate work_size, string name )
     {
         AppMain.MTS_TASK_TCB tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain._ObjObjectMain, AppMain._ObjObjectExit, 0U, (ushort)pause_level, (uint)prio, (int)group, work_size, (name == null) ? "" : name);
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         obs_OBJECT_WORK.tcb = tcb;
         obs_OBJECT_WORK.pause_level = ( int )obj_pause_level;
         obs_OBJECT_WORK.scale.x = 4096;
@@ -1537,7 +1537,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600180C RID: 6156 RVA: 0x000D58EC File Offset: 0x000D3AEC
-    public static void ObjObjectRegistObject( AppMain.OBS_OBJECT_WORK pWork )
+    public static void ObjObjectRegistObject( OBS_OBJECT_WORK pWork )
     {
         pWork.prev = AppMain.g_obj.obj_list_tail;
         pWork.next = null;
@@ -1553,7 +1553,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600180D RID: 6157 RVA: 0x000D593C File Offset: 0x000D3B3C
-    private static void ObjObjectRevokeObject( AppMain.OBS_OBJECT_WORK pWork )
+    public static void ObjObjectRevokeObject( OBS_OBJECT_WORK pWork )
     {
         if ( pWork.prev != null )
         {
@@ -1572,10 +1572,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600180E RID: 6158 RVA: 0x000D59A0 File Offset: 0x000D3BA0
-    private static void ObjObjectClearAllObject()
+    public static void ObjObjectClearAllObject()
     {
-        AppMain.OBS_OBJECT_WORK next;
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.g_obj.obj_list_head; obs_OBJECT_WORK != null; obs_OBJECT_WORK = next )
+        OBS_OBJECT_WORK next;
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.g_obj.obj_list_head; obs_OBJECT_WORK != null; obs_OBJECT_WORK = next )
         {
             next = obs_OBJECT_WORK.next;
             obs_OBJECT_WORK.flag |= 4U;
@@ -1583,15 +1583,15 @@ public partial class AppMain
     }
 
     // Token: 0x0600180F RID: 6159 RVA: 0x000D59D4 File Offset: 0x000D3BD4
-    private static bool ObjObjectCheckClearAllObject()
+    public static bool ObjObjectCheckClearAllObject()
     {
         return AppMain.g_obj.obj_list_head == null;
     }
 
     // Token: 0x06001810 RID: 6160 RVA: 0x000D59E8 File Offset: 0x000D3BE8
-    private static AppMain.OBS_OBJECT_WORK ObjObjectSearchRegistObject( AppMain.OBS_OBJECT_WORK obj_work, ushort obj_type )
+    public static OBS_OBJECT_WORK ObjObjectSearchRegistObject( OBS_OBJECT_WORK obj_work, ushort obj_type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK;
         if ( obj_work == null )
         {
             obs_OBJECT_WORK = AppMain.g_obj.obj_list_head;
@@ -1608,13 +1608,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001811 RID: 6161 RVA: 0x000D5A2A File Offset: 0x000D3C2A
-    private static void ObjObjectTypeSet( AppMain.OBS_OBJECT_WORK pObj, ushort usType )
+    public static void ObjObjectTypeSet( OBS_OBJECT_WORK pObj, ushort usType )
     {
         pObj.obj_type = usType;
     }
 
     // Token: 0x06001812 RID: 6162 RVA: 0x000D5A33 File Offset: 0x000D3C33
-    private static void ObjObjectParentSet( AppMain.OBS_OBJECT_WORK pObj, AppMain.OBS_OBJECT_WORK pParent, uint ulFlag )
+    public static void ObjObjectParentSet( OBS_OBJECT_WORK pObj, OBS_OBJECT_WORK pParent, uint ulFlag )
     {
         pObj.parent_obj = pParent;
         pObj.flag &= 4294963711U;
@@ -1622,7 +1622,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001813 RID: 6163 RVA: 0x000D5A62 File Offset: 0x000D3C62
-    private static object ObjObjecExWorkAlloc( AppMain.OBS_OBJECT_WORK pObj, uint ulSize )
+    public static object ObjObjecExWorkAlloc( OBS_OBJECT_WORK pObj, uint ulSize )
     {
         if ( pObj.ex_work != null )
         {
@@ -1639,7 +1639,7 @@ public partial class AppMain
     // Token: 0x06001814 RID: 6164 RVA: 0x000D5A9C File Offset: 0x000D3C9C
     public static void ObjObjectMain( AppMain.MTS_TASK_TCB tcb )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         if ( ( obs_OBJECT_WORK.flag & 4U ) != 0U )
         {
             AppMain.objObjectExitDataRelease( tcb );
@@ -1675,11 +1675,11 @@ public partial class AppMain
             AppMain._g_obj.ppObjPre( obs_OBJECT_WORK );
         }
         AppMain.objObjectColRideTouchCheck( obs_OBJECT_WORK );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
         obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x - obs_OBJECT_WORK.prev_temp_ofst.x;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
         obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y - obs_OBJECT_WORK.prev_temp_ofst.y;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
         obs_OBJECT_WORK4.pos.z = obs_OBJECT_WORK4.pos.z - obs_OBJECT_WORK.prev_temp_ofst.z;
         uint num = AppMain.ObjObjectPauseCheck(obs_OBJECT_WORK.flag);
         if ( ( num == 0U || ( obs_OBJECT_WORK.flag & 64U ) != 0U ) && obs_OBJECT_WORK.ppIn != null )
@@ -1740,11 +1740,11 @@ public partial class AppMain
                 }
             }
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK5 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK5 = obs_OBJECT_WORK;
         obs_OBJECT_WORK5.pos.x = obs_OBJECT_WORK5.pos.x + obs_OBJECT_WORK.temp_ofst.x;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK6 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK6 = obs_OBJECT_WORK;
         obs_OBJECT_WORK6.pos.y = obs_OBJECT_WORK6.pos.y + obs_OBJECT_WORK.temp_ofst.y;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK7 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK7 = obs_OBJECT_WORK;
         obs_OBJECT_WORK7.pos.z = obs_OBJECT_WORK7.pos.z + obs_OBJECT_WORK.temp_ofst.z;
         obs_OBJECT_WORK.prev_temp_ofst.x = obs_OBJECT_WORK.temp_ofst.x;
         obs_OBJECT_WORK.prev_temp_ofst.y = obs_OBJECT_WORK.temp_ofst.y;
@@ -1753,9 +1753,9 @@ public partial class AppMain
         {
             if ( num == 0U && obs_OBJECT_WORK.vib_timer != 0 && ( obs_OBJECT_WORK.flag & 16384U ) == 0U )
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK8 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK8 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK8.ofst.x = obs_OBJECT_WORK8.ofst.x + ( int )AppMain.g_object_vib_tbl[obs_OBJECT_WORK.vib_timer >> 13 & 15];
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK9 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK9 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK9.ofst.y = obs_OBJECT_WORK9.ofst.y + ( int )AppMain.g_object_vib_tbl[( obs_OBJECT_WORK.vib_timer >> 13 ) + 1 & 15];
             }
             if ( ( num == 0U || ( obs_OBJECT_WORK.flag & 65536U ) != 0U ) && ( AppMain._g_obj.flag & 64U ) != 0U )
@@ -1781,9 +1781,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001815 RID: 6165 RVA: 0x000D5F48 File Offset: 0x000D4148
-    private static void ObjObjectExit( AppMain.MTS_TASK_TCB pTcb )
+    public static void ObjObjectExit( AppMain.MTS_TASK_TCB pTcb )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(pTcb);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(pTcb);
         if ( obs_OBJECT_WORK.obj_3d != null )
         {
             AppMain.ObjAction3dNNMotionRelease( obs_OBJECT_WORK.obj_3d );
@@ -1909,13 +1909,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001816 RID: 6166 RVA: 0x000D62C8 File Offset: 0x000D44C8
-    private static int ObjObjectViewOutCheck( AppMain.OBS_OBJECT_WORK pWork )
+    public static int ObjObjectViewOutCheck( OBS_OBJECT_WORK pWork )
     {
         return AppMain.ObjViewOutCheck( pWork.pos.x, pWork.pos.y, pWork.view_out_ofst, pWork.view_out_ofst_plus[0], pWork.view_out_ofst_plus[1], pWork.view_out_ofst_plus[2], pWork.view_out_ofst_plus[3] );
     }
 
     // Token: 0x06001817 RID: 6167 RVA: 0x000D6318 File Offset: 0x000D4518
-    private static void ObjObjectRectRegist( AppMain.OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK pRec )
+    public static void ObjObjectRectRegist( OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK pRec )
     {
         if ( ( pWork.flag & 12U ) != 0U )
         {
@@ -1940,7 +1940,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001818 RID: 6168 RVA: 0x000D6394 File Offset: 0x000D4594
-    private static void ObjObjectGetRectBuf( AppMain.OBS_OBJECT_WORK pWork, AppMain.ArrayPointer<AppMain.OBS_RECT_WORK> rect_work, ushort rect_num )
+    public static void ObjObjectGetRectBuf( OBS_OBJECT_WORK pWork, AppMain.ArrayPointer<AppMain.OBS_RECT_WORK> rect_work, ushort rect_num )
     {
         if ( rect_num - 1 > 31 )
         {
@@ -1966,7 +1966,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001819 RID: 6169 RVA: 0x000D641C File Offset: 0x000D461C
-    private static void ObjObjectReleaseRectBuf( AppMain.OBS_OBJECT_WORK pWork )
+    public static void ObjObjectReleaseRectBuf( OBS_OBJECT_WORK pWork )
     {
         if ( ( pWork.flag & 33554432U ) != 0U && null != pWork.rect_work )
         {
@@ -1976,7 +1976,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600181A RID: 6170 RVA: 0x000D6468 File Offset: 0x000D4668
-    private static void ObjObjectSetRectWork( AppMain.OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK rect_work )
+    public static void ObjObjectSetRectWork( OBS_OBJECT_WORK pWork, AppMain.OBS_RECT_WORK rect_work )
     {
         rect_work.parent_obj = pWork;
         rect_work.group_no = 0;
@@ -1988,13 +1988,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600181B RID: 6171 RVA: 0x000D649D File Offset: 0x000D469D
-    private static AppMain.OBS_RECT_WORK ObjObjectRectGet( AppMain.OBS_OBJECT_WORK pWork, ushort usIndex )
+    public static AppMain.OBS_RECT_WORK ObjObjectRectGet( OBS_OBJECT_WORK pWork, ushort usIndex )
     {
         return pWork.rect_work[( int )usIndex];
     }
 
     // Token: 0x0600181C RID: 6172 RVA: 0x000D64AC File Offset: 0x000D46AC
-    private static int ObjViewOutCheck( int lPosX, int lPosY, short sOfst, short sLeft, short sTop, short sRight, short sBottom )
+    public static int ObjViewOutCheck( int lPosX, int lPosY, short sOfst, short sLeft, short sTop, short sRight, short sBottom )
     {
         short num = AppMain.g_obj.clip_lcd_size[0];
         short num2 = AppMain._g_obj.clip_lcd_size[1];
@@ -2026,7 +2026,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600181D RID: 6173 RVA: 0x000D65C0 File Offset: 0x000D47C0
-    private static void ObjObjectSpdDirFall( ref int sSpdX, ref int sSpdY, ushort ucDirFall )
+    public static void ObjObjectSpdDirFall( ref int sSpdX, ref int sSpdY, ushort ucDirFall )
     {
         int num = sSpdX;
         int num2 = sSpdY;
@@ -2041,7 +2041,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600181E RID: 6174 RVA: 0x000D6617 File Offset: 0x000D4817
-    private static uint ObjObjectDirFallReverseCheck( ushort ucDirFall )
+    public static uint ObjObjectDirFallReverseCheck( ushort ucDirFall )
     {
         if ( ucDirFall > 24576 && ucDirFall < 40960 )
         {
@@ -2051,7 +2051,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600181F RID: 6175 RVA: 0x000D662C File Offset: 0x000D482C
-    private static int ObjTimeCountGet( int count )
+    public static int ObjTimeCountGet( int count )
     {
         if ( AppMain.g_obj.speed != 4096 )
         {
@@ -2061,7 +2061,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001820 RID: 6176 RVA: 0x000D6651 File Offset: 0x000D4851
-    private static int ObjTimeCountDown( int timer )
+    public static int ObjTimeCountDown( int timer )
     {
         if ( AppMain.g_obj.speed == 4096 )
         {
@@ -2079,7 +2079,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001821 RID: 6177 RVA: 0x000D668F File Offset: 0x000D488F
-    private static int ObjTimeCountUp( int timer )
+    public static int ObjTimeCountUp( int timer )
     {
         if ( AppMain.g_obj.speed == 4096 )
         {
@@ -2097,7 +2097,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001822 RID: 6178 RVA: 0x000D66D0 File Offset: 0x000D48D0
-    private static float ObjTimeCountDownF( float timer )
+    public static float ObjTimeCountDownF( float timer )
     {
         if ( AppMain.g_obj.speed == 4096 )
         {
@@ -2115,7 +2115,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001823 RID: 6179 RVA: 0x000D6724 File Offset: 0x000D4924
-    private static float ObjTimeCountUpF( float timer )
+    public static float ObjTimeCountUpF( float timer )
     {
         if ( AppMain.g_obj.speed == 4096 )
         {
@@ -2133,13 +2133,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001824 RID: 6180 RVA: 0x000D6778 File Offset: 0x000D4978
-    private static int ObjObjectMapOutCheck( AppMain.OBS_OBJECT_WORK pWork )
+    public static int ObjObjectMapOutCheck( OBS_OBJECT_WORK pWork )
     {
         return AppMain.ObjMapOutCheck( pWork.pos.x, pWork.pos.y, pWork.view_out_ofst, pWork.view_out_ofst_plus[0], pWork.view_out_ofst_plus[1], pWork.view_out_ofst_plus[2], pWork.view_out_ofst_plus[3] );
     }
 
     // Token: 0x06001825 RID: 6181 RVA: 0x000D67C8 File Offset: 0x000D49C8
-    private static int ObjMapOutCheck( int lPosX, int lPosY, short sOfst, short sLeft, short sTop, short sRight, short sBottom )
+    public static int ObjMapOutCheck( int lPosX, int lPosY, short sOfst, short sLeft, short sTop, short sRight, short sBottom )
     {
         int num;
         int num2;
@@ -2177,7 +2177,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001826 RID: 6182 RVA: 0x000D689C File Offset: 0x000D4A9C
-    private static void objMain( AppMain.MTS_TASK_TCB tcb )
+    public static void objMain( AppMain.MTS_TASK_TCB tcb )
     {
         AppMain.g_obj.scale.x = AppMain.FX_Mul( AppMain.g_obj.glb_scale.x, AppMain.g_obj.draw_scale.x );
         AppMain.g_obj.scale.y = AppMain.FX_Mul( AppMain.g_obj.glb_scale.y, AppMain.g_obj.draw_scale.y );
@@ -2201,14 +2201,14 @@ public partial class AppMain
         if ( AppMain.g_obj.ppDrawSort != null )
         {
             AppMain.g_obj.ppDrawSort();
-            for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.g_obj.obj_draw_list_head; obs_OBJECT_WORK != null; obs_OBJECT_WORK = obs_OBJECT_WORK.draw_next )
+            for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.g_obj.obj_draw_list_head; obs_OBJECT_WORK != null; obs_OBJECT_WORK = obs_OBJECT_WORK.draw_next )
             {
                 AppMain.objObjectDraw( obs_OBJECT_WORK );
             }
         }
         else
         {
-            for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.g_obj.obj_list_head; obs_OBJECT_WORK != null; obs_OBJECT_WORK = obs_OBJECT_WORK.next )
+            for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.g_obj.obj_list_head; obs_OBJECT_WORK != null; obs_OBJECT_WORK = obs_OBJECT_WORK.next )
             {
                 AppMain.objObjectDraw( obs_OBJECT_WORK );
             }
@@ -2244,7 +2244,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001827 RID: 6183 RVA: 0x000D6B74 File Offset: 0x000D4D74
-    private static void objObjectDraw( AppMain.OBS_OBJECT_WORK pWork )
+    public static void objObjectDraw( OBS_OBJECT_WORK pWork )
     {
         uint num = 0U;
         uint num2 = AppMain.ObjObjectPauseCheck(pWork.flag);
@@ -2281,7 +2281,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001828 RID: 6184 RVA: 0x000D6C98 File Offset: 0x000D4E98
-    private static void objDestructor( AppMain.MTS_TASK_TCB pTcb )
+    public static void objDestructor( AppMain.MTS_TASK_TCB pTcb )
     {
         AppMain.obj_ptcb = null;
         AppMain.ObjSetBlockCollision( null );
@@ -2298,9 +2298,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001829 RID: 6185 RVA: 0x000D6D04 File Offset: 0x000D4F04
-    private static void objExitWait( AppMain.MTS_TASK_TCB pTcb )
+    public static void objExitWait( AppMain.MTS_TASK_TCB pTcb )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject(null, ushort.MaxValue);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject(null, ushort.MaxValue);
         if ( obs_OBJECT_WORK == null )
         {
             AppMain.mtTaskClearTcb( AppMain.obj_ptcb );
@@ -2315,10 +2315,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600182A RID: 6186 RVA: 0x000D6D54 File Offset: 0x000D4F54
-    private static void objObjectExitDataRelease( AppMain.MTS_TASK_TCB tcb )
+    public static void objObjectExitDataRelease( AppMain.MTS_TASK_TCB tcb )
     {
         bool flag = false;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         if ( obs_OBJECT_WORK.ppUserRelease != null && obs_OBJECT_WORK.ppUserRelease( obs_OBJECT_WORK ) )
         {
             flag = true;
@@ -2355,13 +2355,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600182B RID: 6187 RVA: 0x000D6E24 File Offset: 0x000D5024
-    private static void objObjectDataReleaseCheck( AppMain.MTS_TASK_TCB tcb )
+    public static void objObjectDataReleaseCheck( AppMain.MTS_TASK_TCB tcb )
     {
         bool flag = true;
         bool flag2 = true;
         bool flag3 = true;
         bool flag4 = true;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         if ( obs_OBJECT_WORK.ppUserReleaseWait != null && obs_OBJECT_WORK.ppUserReleaseWait( obs_OBJECT_WORK ) )
         {
             flag = false;
@@ -2405,9 +2405,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600182C RID: 6188 RVA: 0x000D6F10 File Offset: 0x000D5110
-    private static ushort objObjectParent( AppMain.OBS_OBJECT_WORK pWork )
+    public static ushort objObjectParent( OBS_OBJECT_WORK pWork )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = pWork.parent_obj;
+        OBS_OBJECT_WORK parent_obj = pWork.parent_obj;
         if ( parent_obj != null )
         {
             if ( ( parent_obj.flag & 4U ) != 0U )
@@ -2465,7 +2465,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600182D RID: 6189 RVA: 0x000D7148 File Offset: 0x000D5348
-    private static void ObjObjectCollision( AppMain.OBS_OBJECT_WORK pWork )
+    public static void ObjObjectCollision( OBS_OBJECT_WORK pWork )
     {
         int x = pWork.pos.x;
         int y = pWork.pos.y;
@@ -2561,7 +2561,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600182E RID: 6190 RVA: 0x000D747C File Offset: 0x000D567C
-    private static void ObjObjectMove( AppMain.OBS_OBJECT_WORK pWork )
+    public static void ObjObjectMove( OBS_OBJECT_WORK pWork )
     {
         int num = 0;
         int num2 = 0;
@@ -2652,7 +2652,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600182F RID: 6191 RVA: 0x000D790C File Offset: 0x000D5B0C
-    private static void objObjectColRideTouchCheck( AppMain.OBS_OBJECT_WORK pWork )
+    public static void objObjectColRideTouchCheck( OBS_OBJECT_WORK pWork )
     {
         if ( pWork.col_work != null )
         {
@@ -2727,7 +2727,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001830 RID: 6192 RVA: 0x000D7D57 File Offset: 0x000D5F57
-    private static void ObjObjectFieldRectSet( AppMain.OBS_OBJECT_WORK pObj, short cLeft, short cTop, short cRight, short cBottom )
+    public static void ObjObjectFieldRectSet( OBS_OBJECT_WORK pObj, short cLeft, short cTop, short cRight, short cBottom )
     {
         pObj.field_rect[0] = cLeft;
         pObj.field_rect[1] = cTop;
@@ -2737,7 +2737,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001831 RID: 6193 RVA: 0x000D7D90 File Offset: 0x000D5F90
-    private static void ObjObjectFallSet( AppMain.OBS_OBJECT_WORK pObj, int fSpdFall, int fSpdFallMax )
+    public static void ObjObjectFallSet( OBS_OBJECT_WORK pObj, int fSpdFall, int fSpdFallMax )
     {
         pObj.spd_fall = fSpdFall;
         pObj.spd_fall_max = fSpdFallMax;

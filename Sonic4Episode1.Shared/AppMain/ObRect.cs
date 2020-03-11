@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0200025A RID: 602
-    public class OBS_RECT : AppMain.IClearable
+    public class OBS_RECT : IClearable
     {
         // Token: 0x060023D1 RID: 9169 RVA: 0x00149B2C File Offset: 0x00147D2C
         public void Clear()
@@ -99,7 +99,7 @@ public partial class AppMain
     public delegate uint OBS_RECT_WORK_Delegate2(AppMain.OBS_RECT_WORK rectWork1, AppMain.OBS_RECT_WORK rectWork2);
 
     // Token: 0x0200025D RID: 605
-    public class OBS_RECT_WORK : AppMain.IClearable
+    public class OBS_RECT_WORK : IClearable
     {
         // Token: 0x060023E1 RID: 9185 RVA: 0x00149BD0 File Offset: 0x00147DD0
         public void Clear()
@@ -123,7 +123,7 @@ public partial class AppMain
         public uint flag;
 
         // Token: 0x040058CB RID: 22731
-        public AppMain.OBS_OBJECT_WORK parent_obj;
+        public OBS_OBJECT_WORK parent_obj;
 
         // Token: 0x040058CC RID: 22732
         public AppMain.OBS_RECT_WORK_Delegate1 ppHit;

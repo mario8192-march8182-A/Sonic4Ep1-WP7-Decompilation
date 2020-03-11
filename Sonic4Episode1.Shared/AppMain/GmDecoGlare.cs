@@ -32,7 +32,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000110 RID: 272
-    public class GMDECO_GLARE_INTERFACE : AppMain.IClearable
+    public class GMDECO_GLARE_INTERFACE : IClearable
     {
         // Token: 0x06001FCC RID: 8140 RVA: 0x0013D47C File Offset: 0x0013B67C
         public void Clear()
@@ -45,7 +45,7 @@ public partial class AppMain
         }
 
         // Token: 0x04004C70 RID: 19568
-        public AppMain.AMS_AMB_HEADER amb_header;
+        public AMS_AMB_HEADER amb_header;
 
         // Token: 0x04004C71 RID: 19569
         public AppMain.NNS_TEXFILELIST tex_buf;
@@ -67,13 +67,13 @@ public partial class AppMain
     }
 
     // Token: 0x060004F3 RID: 1267 RVA: 0x0002A5F4 File Offset: 0x000287F4
-    public static void GmDecoGlareSetData( AppMain.AMS_AMB_HEADER amb_header )
+    public static void GmDecoGlareSetData( AMS_AMB_HEADER amb_header )
     {
         AppMain.pIF.Clear();
         string dir;
-        AppMain.pIF.amb_header = AppMain.readAMBFile( AppMain.amBindGet( amb_header, 1, out dir ) );
+        AppMain.pIF.amb_header = AmFs.readAMBFile( AmBind.Get( amb_header, 1, out dir ) );
         AppMain.pIF.amb_header.dir = dir;
-        AppMain.TXB_HEADER txb = AppMain.readTXBfile(AppMain.amBindGet(AppMain.pIF.amb_header, 0));
+        AppMain.TXB_HEADER txb = AppMain.readTXBfile(AmBind.Get(AppMain.pIF.amb_header, 0));
         AppMain.pIF.tex_buf = AppMain.amTxbGetTexFileList( txb );
         AppMain.mppAssertNotImpl();
         AppMain.nnSetUpTexlist( out AppMain.pIF.texlist, AppMain.pIF.tex_buf.nTex, ref AppMain.pIF.texlistbuf );
@@ -83,7 +83,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004F4 RID: 1268 RVA: 0x0002A6CC File Offset: 0x000288CC
-    public static void GmDecoGlareDraw( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void GmDecoGlareDraw( OBS_OBJECT_WORK obj_work )
     {
         int user_work = (int)obj_work.user_work;
         if ( user_work < 14 )

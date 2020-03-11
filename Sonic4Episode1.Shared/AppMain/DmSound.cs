@@ -25,36 +25,36 @@ public partial class AppMain
     // Token: 0x06000EE7 RID: 3815 RVA: 0x00083F89 File Offset: 0x00082189
     private static void DmSoundInit()
     {
-        AppMain.GsSoundReset();
-        AppMain.dm_sound_bgm_scb = AppMain.GsSoundAssignScb( 0 );
-        AppMain.dm_sound_jingle_scb = AppMain.GsSoundAssignScb( 0 );
-        AppMain.GsSoundBegin( 4096, 1U, 3 );
+        GsSound.Reset();
+        AppMain.dm_sound_bgm_scb = GsSound.AssignScb( 0 );
+        AppMain.dm_sound_jingle_scb = GsSound.AssignScb( 0 );
+        GsSound.Begin( 4096, 1U, 3 );
     }
 
     // Token: 0x06000EE8 RID: 3816 RVA: 0x00083FB4 File Offset: 0x000821B4
     private static void DmSoundExit()
     {
-        AppMain.GsSoundHalt();
-        AppMain.GsSoundEnd();
+        GsSound.Halt();
+        GsSound.End();
         if ( AppMain.dm_sound_jingle_scb != null )
         {
-            AppMain.GsSoundStopBgm( AppMain.dm_sound_jingle_scb, 0 );
-            AppMain.GsSoundResignScb( AppMain.dm_sound_jingle_scb );
+            GsSound.StopBgm( AppMain.dm_sound_jingle_scb, 0 );
+            GsSound.ResignScb( AppMain.dm_sound_jingle_scb );
             AppMain.dm_sound_jingle_scb = null;
         }
         if ( AppMain.dm_sound_bgm_scb != null )
         {
-            AppMain.GsSoundStopBgm( AppMain.dm_sound_bgm_scb, 0 );
-            AppMain.GsSoundResignScb( AppMain.dm_sound_bgm_scb );
+            GsSound.StopBgm( AppMain.dm_sound_bgm_scb, 0 );
+            GsSound.ResignScb( AppMain.dm_sound_bgm_scb );
             AppMain.dm_sound_bgm_scb = null;
         }
-        AppMain.GsSoundReset();
+        GsSound.Reset();
     }
 
     // Token: 0x06000EE9 RID: 3817 RVA: 0x00084014 File Offset: 0x00082214
     private static void DmSoundPlaySE( string cue_name )
     {
-        AppMain.GsSoundPlaySe( cue_name );
+        GsSound.PlaySe( cue_name );
     }
 
     // Token: 0x06000EEA RID: 3818 RVA: 0x0008401C File Offset: 0x0008221C
@@ -62,7 +62,7 @@ public partial class AppMain
     {
         if ( AppMain.dm_sound_bgm_scb != null )
         {
-            AppMain.GsSoundPlayBgm( AppMain.dm_sound_bgm_scb, cue_name, fade_frame );
+            GsSound.PlayBgm( AppMain.dm_sound_bgm_scb, cue_name, fade_frame );
         }
         AppMain.dm_sound_bgm_scb.flag |= 2147483648U;
     }
@@ -78,7 +78,7 @@ public partial class AppMain
     {
         if ( AppMain.dm_sound_bgm_scb != null )
         {
-            AppMain.GsSoundPlayBgm( AppMain.dm_sound_bgm_scb, AppMain.dm_sound_bgm_name_list[idx], fade_frame );
+            GsSound.PlayBgm( AppMain.dm_sound_bgm_scb, AppMain.dm_sound_bgm_name_list[idx], fade_frame );
         }
         AppMain.dm_sound_bgm_scb.flag |= 2147483648U;
     }
@@ -88,7 +88,7 @@ public partial class AppMain
     {
         if ( AppMain.dm_sound_bgm_scb != null )
         {
-            AppMain.GsSoundStopBgm( AppMain.dm_sound_bgm_scb, fade_frame );
+            GsSound.StopBgm( AppMain.dm_sound_bgm_scb, fade_frame );
         }
     }
 
@@ -97,7 +97,7 @@ public partial class AppMain
     {
         if ( AppMain.dm_sound_bgm_scb != null )
         {
-            AppMain.GsSoundPauseBgm( AppMain.dm_sound_bgm_scb, fade_frame );
+            GsSound.PauseBgm( AppMain.dm_sound_bgm_scb, fade_frame );
         }
     }
 
@@ -106,22 +106,22 @@ public partial class AppMain
     {
         if ( AppMain.dm_sound_bgm_scb != null )
         {
-            AppMain.GsSoundResumeBgm( AppMain.dm_sound_bgm_scb, fade_frame );
+            GsSound.ResumeBgm( AppMain.dm_sound_bgm_scb, fade_frame );
         }
     }
 
     // Token: 0x06000EF0 RID: 3824 RVA: 0x000840BC File Offset: 0x000822BC
     private static void DmSoundPlayJingle( int jngl_idx, int fade_frame )
     {
-        AppMain.GsSoundStopBgm( AppMain.dm_sound_jingle_scb );
-        AppMain.GsSoundPlayBgm( AppMain.dm_sound_jingle_scb, AppMain.dm_sound_jingle_name_list[jngl_idx], fade_frame );
+        GsSound.StopBgm( AppMain.dm_sound_jingle_scb );
+        GsSound.PlayBgm( AppMain.dm_sound_jingle_scb, AppMain.dm_sound_jingle_name_list[jngl_idx], fade_frame );
         AppMain.dm_sound_jingle_scb.flag |= 2147483648U;
     }
 
     // Token: 0x06000EF1 RID: 3825 RVA: 0x000840F0 File Offset: 0x000822F0
     private static void DmSoundStopJingle( int fade_frame )
     {
-        AppMain.GsSoundStopBgm( AppMain.dm_sound_jingle_scb, fade_frame );
+        GsSound.StopBgm( AppMain.dm_sound_jingle_scb, fade_frame );
     }
 
     // Token: 0x06000EF2 RID: 3826 RVA: 0x00084100 File Offset: 0x00082300
@@ -138,7 +138,7 @@ public partial class AppMain
             num = 0f;
         }
         gss_MAIN_SYS_INFO.se_volume = num;
-        AppMain.GsSoundSetVolume( 1, num );
+        GsSound.SetVolume( 1, num );
     }
 
     // Token: 0x06000EF3 RID: 3827 RVA: 0x00084140 File Offset: 0x00082340
@@ -155,18 +155,18 @@ public partial class AppMain
             num = 0f;
         }
         gss_MAIN_SYS_INFO.bgm_volume = num;
-        AppMain.GsSoundSetVolume( 0, num );
+        GsSound.SetVolume( 0, num );
     }
 
     // Token: 0x06000EF4 RID: 3828 RVA: 0x0008417F File Offset: 0x0008237F
     private static bool DmSoundIsStopStageBGM()
     {
-        return AppMain.GsSoundIsBgmStop( AppMain.dm_sound_bgm_scb );
+        return GsSound.IsBgmStop( AppMain.dm_sound_bgm_scb );
     }
 
     // Token: 0x06000EF5 RID: 3829 RVA: 0x00084190 File Offset: 0x00082390
     private static bool DmSoundIsStopJingle()
     {
-        return AppMain.GsSoundIsBgmStop( AppMain.dm_sound_jingle_scb );
+        return GsSound.IsBgmStop( AppMain.dm_sound_jingle_scb );
     }
 }

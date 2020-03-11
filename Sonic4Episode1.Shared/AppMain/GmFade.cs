@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000075 RID: 117
-    public class GMS_FADE_OBJ_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_FADE_OBJ_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001E2B RID: 7723 RVA: 0x001396C8 File Offset: 0x001378C8
         public GMS_FADE_OBJ_WORK( object _obj ) : this()
@@ -18,17 +18,17 @@ public partial class AppMain
         // Token: 0x06001E2C RID: 7724 RVA: 0x001396D7 File Offset: 0x001378D7
         public GMS_FADE_OBJ_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x06001E2D RID: 7725 RVA: 0x001396F6 File Offset: 0x001378F6
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x06001E2E RID: 7726 RVA: 0x001396FE File Offset: 0x001378FE
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_FADE_OBJ_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_FADE_OBJ_WORK work )
         {
             return work.obj_work;
         }
@@ -43,7 +43,7 @@ public partial class AppMain
         public object m_pHolder;
 
         // Token: 0x0400498A RID: 18826
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x0400498B RID: 18827
         public readonly AppMain.IZS_FADE_WORK fade_work = new AppMain.IZS_FADE_WORK();
@@ -69,7 +69,7 @@ public partial class AppMain
     // Token: 0x06000289 RID: 649 RVA: 0x000151B0 File Offset: 0x000133B0
     private static AppMain.GMS_FADE_OBJ_WORK GmFadeCreateFadeObj( ushort prio, byte group, byte pause_level, AppMain.TaskWorkFactoryDelegate work_size, ushort dt_prio, uint draw_state )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, group, pause_level, 0, work_size, "FADE_OBJ");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, group, pause_level, 0, work_size, "FADE_OBJ");
         AppMain.GMS_FADE_OBJ_WORK gms_FADE_OBJ_WORK = (AppMain.GMS_FADE_OBJ_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.obj_type = 7;
         obs_OBJECT_WORK.flag |= 18U;
@@ -82,7 +82,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600028A RID: 650 RVA: 0x00015240 File Offset: 0x00013440
-    private static void gmFadeDispFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmFadeDispFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_FADE_OBJ_WORK gms_FADE_OBJ_WORK = (AppMain.GMS_FADE_OBJ_WORK)obj_work;
         if ( ( obj_work.disp_flag & 4112U ) == 0U )

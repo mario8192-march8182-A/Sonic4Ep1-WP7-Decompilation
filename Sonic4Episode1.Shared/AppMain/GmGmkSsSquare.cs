@@ -17,22 +17,22 @@ public partial class AppMain
     private static void GmGmkSsSquareBuild()
     {
         AppMain.gm_gmk_ss_square_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.GmGameDatGetGimmickData( 896 ), AppMain.GmGameDatGetGimmickData( 897 ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(899);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(899);
         AppMain.gm_gmk_ss_square_obj_tvx_list = ams_AMB_HEADER;
     }
 
     // Token: 0x06000DCA RID: 3530 RVA: 0x00079968 File Offset: 0x00077B68
     private static void GmGmkSsSquareFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(896);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(896);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_square_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_ss_square_obj_tvx_list = null;
     }
 
     // Token: 0x06000DCB RID: 3531 RVA: 0x000799A0 File Offset: 0x00077BA0
-    private static AppMain.OBS_OBJECT_WORK GmGmkSsSquareInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSsSquareInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_SQUARE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_SQUARE");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst -= 128;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_ss_square_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -58,10 +58,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000DCC RID: 3532 RVA: 0x00079B4C File Offset: 0x00077D4C
-    private static void GmGmkSsSquareBounce( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmGmkSsSquareBounce( OBS_OBJECT_WORK obj_work )
     {
         AppMain.OBS_COLLISION_OBJ obj_col = obj_work.col_work.obj_col;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = AppMain.GmSplStageGetWork();
         if ( obj_col.toucher_obj == gms_PLAYER_WORK.obj_work )
         {
@@ -73,7 +73,7 @@ public partial class AppMain
             }
             else if ( ( obj_work.user_flag & 2147483648U ) == 0U && ( gms_SPL_STG_WORK.flag & 1U ) == 0U && ( AppMain.MTM_MATH_ABS( gms_PLAYER_WORK.obj_work.spd.x ) > 4096 || AppMain.MTM_MATH_ABS( gms_PLAYER_WORK.obj_work.spd.y ) > 4096 ) )
             {
-                AppMain.OBS_OBJECT_WORK obj_work2 = gms_PLAYER_WORK.obj_work;
+                OBS_OBJECT_WORK obj_work2 = gms_PLAYER_WORK.obj_work;
                 AppMain.VecFx32 vecFx = AppMain.gmGmkSsSquareNormalizeVectorXY(new AppMain.VecFx32
                 {
                     x = obj_work2.prev_pos.x - obj_work.pos.x,
@@ -97,7 +97,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DCD RID: 3533 RVA: 0x00079D30 File Offset: 0x00077F30
-    private static void gmGmkSsSquareMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsSquareMain( OBS_OBJECT_WORK obj_work )
     {
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
         {
@@ -154,7 +154,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DCF RID: 3535 RVA: 0x00079EB4 File Offset: 0x000780B4
-    private static void gmGmkSsSquareDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsSquareDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -167,7 +167,7 @@ public partial class AppMain
         AppMain.TVX_FILE tvx_FILE;
         if ( AppMain.gm_gmk_ss_square_obj_tvx_list.buf[0] == null )
         {
-            tvx_FILE = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_ss_square_obj_tvx_list, 0 ) );
+            tvx_FILE = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_ss_square_obj_tvx_list, 0 ) );
             AppMain.gm_gmk_ss_square_obj_tvx_list.buf[0] = tvx_FILE;
         }
         else

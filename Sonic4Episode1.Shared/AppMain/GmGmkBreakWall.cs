@@ -38,7 +38,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200031C RID: 796
-    public class GMS_GMK_BWALL_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BWALL_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002579 RID: 9593 RVA: 0x0014D849 File Offset: 0x0014BA49
         public static explicit operator AppMain.GMS_ENEMY_3D_WORK( AppMain.GMS_GMK_BWALL_WORK p )
@@ -47,13 +47,13 @@ public partial class AppMain
         }
 
         // Token: 0x0600257A RID: 9594 RVA: 0x0014D851 File Offset: 0x0014BA51
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x0600257B RID: 9595 RVA: 0x0014D863 File Offset: 0x0014BA63
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_BWALL_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_BWALL_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -87,7 +87,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200031D RID: 797
-    public class GMS_GMK_BWALL_PARTS : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BWALL_PARTS : IOBS_OBJECT_WORK
     {
         // Token: 0x0600257D RID: 9597 RVA: 0x0014D889 File Offset: 0x0014BA89
         public GMS_GMK_BWALL_PARTS()
@@ -96,13 +96,13 @@ public partial class AppMain
         }
 
         // Token: 0x0600257E RID: 9598 RVA: 0x0014D89D File Offset: 0x0014BA9D
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
 
         // Token: 0x0600257F RID: 9599 RVA: 0x0014D8AF File Offset: 0x0014BAAF
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_BWALL_PARTS work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_BWALL_PARTS work )
         {
             return work.eff_work.efct_com.obj_work;
         }
@@ -142,7 +142,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600158C RID: 5516 RVA: 0x000BB1C4 File Offset: 0x000B93C4
-    private static void gmGmkBreakWallStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBreakWallStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)obj_work;
         gms_GMK_BWALL_WORK.gmk_work.ene_com.col_work.obj_col.obj = obj_work;
@@ -165,15 +165,15 @@ public partial class AppMain
     }
 
     // Token: 0x0600158D RID: 5517 RVA: 0x000BB390 File Offset: 0x000B9590
-    private static void gmGmkBreakWallStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBreakWallStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)obj_work;
         if ( gms_GMK_BWALL_WORK.hitcheck < 0 )
         {
             ushort num = ( ushort )(((gms_GMK_BWALL_WORK.hitcheck & 1) != 0) ? 0 : 32768);
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = null;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = null;
             obj_work.flag |= 10U;
-            AppMain.GmSoundPlaySE( "BreakWall" );
+            GmSound.PlaySE( "BreakWall" );
             AppMain.GMM_PAD_VIB_SMALL();
             AppMain.gmGmkBreakWall_CreateParts( obj_work, gms_GMK_BWALL_WORK.wall_type, gms_GMK_BWALL_WORK.obj_type, num );
             if ( AppMain.gmk_bwall_effect_y > 196608 )
@@ -187,13 +187,13 @@ public partial class AppMain
             switch ( AppMain.g_gm_gamedat_zone_type_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] )
             {
                 case 0:
-                    obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 0, 8 );
+                    obs_OBJECT_WORK = ( OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 0, 8 );
                     break;
                 case 1:
-                    obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 1, 1 );
+                    obs_OBJECT_WORK = ( OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 1, 1 );
                     break;
                 case 2:
-                    obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 2, 33 );
+                    obs_OBJECT_WORK = ( OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 2, 33 );
                     if ( AppMain.g_gs_main_sys_info.stage_id == 9 )
                     {
                         z = 655360;
@@ -201,7 +201,7 @@ public partial class AppMain
                     }
                     break;
                 case 3:
-                    obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 3, 3 );
+                    obs_OBJECT_WORK = ( OBS_OBJECT_WORK )AppMain.GmEfctZoneEsCreate( null, 3, 3 );
                     break;
             }
             if ( obs_OBJECT_WORK != null )
@@ -225,8 +225,8 @@ public partial class AppMain
     // Token: 0x0600158E RID: 5518 RVA: 0x000BB54C File Offset: 0x000B974C
     private static void gmGmkBreakWallHit( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_PLAYER_WORK == AppMain.g_gm_main_system.ply_work[( int )( ( UIntPtr )0 )] )
         {
             AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)parent_obj;
@@ -253,7 +253,7 @@ public partial class AppMain
                             gms_GMK_BWALL_WORK.hitcheck = 1;
                             gms_GMK_BWALL_WORK.hitpass = 1;
                         }
-                        else if ( AppMain.MTM_MATH_ABS( gms_PLAYER_WORK.obj_work.spd_m ) < AppMain.g_gm_player_parameter[( int )( ( UIntPtr )0 )].spd_max_spin / 4 )
+                        else if ( AppMain.MTM_MATH_ABS( gms_PLAYER_WORK.obj_work.spd_m ) < GmPlayer.g_gm_player_parameter[( int )( ( UIntPtr )0 )].spd_max_spin / 4 )
                         {
                             return;
                         }
@@ -373,7 +373,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600158F RID: 5519 RVA: 0x000BBB54 File Offset: 0x000B9D54
-    private static void gmGmkBreakLandParts_Main( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBreakLandParts_Main( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BWALL_PARTS gms_GMK_BWALL_PARTS = (AppMain.GMS_GMK_BWALL_PARTS)obj_work;
         if ( gms_GMK_BWALL_PARTS.vect > 32768 )
@@ -395,16 +395,16 @@ public partial class AppMain
     }
 
     // Token: 0x06001590 RID: 5520 RVA: 0x000BBC04 File Offset: 0x000B9E04
-    private static void gmGmkBreakWall_CreateParts( AppMain.OBS_OBJECT_WORK parent_obj, int type, int obj_type, ushort vect )
+    private static void gmGmkBreakWall_CreateParts( OBS_OBJECT_WORK parent_obj, int type, int obj_type, ushort vect )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         ushort num = (ushort)AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         ushort num2 = ( ushort )(AppMain.mtMathRand() % 8192);
         for ( int i = 0; i < ( int )AppMain.tbl_gmk_bwall_parts[( int )num][type].num; i++ )
         {
             ushort[] array = AppMain.tbl_gmk_bwall_parts[(int)num][type]._params[i];
             AppMain.GMS_GMK_BWALL_PARTS gms_GMK_BWALL_PARTS = (AppMain.GMS_GMK_BWALL_PARTS)AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_BWALL_PARTS(), null, 0, "BreakWall_Parts");
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_BWALL_PARTS;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_BWALL_PARTS;
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_breakwall_obj_3d_list[( int )array[0]], gms_GMK_BWALL_PARTS.eff_work.obj_3d );
             ushort num3 = array[5];
             ushort num4 = array[3];
@@ -438,7 +438,7 @@ public partial class AppMain
                 obs_OBJECT_WORK.spd.x = AppMain.mtMathCos( ( int )angle2 ) * num5 >> 12;
                 obs_OBJECT_WORK.spd.z = -( AppMain.mtMathSin( ( int )angle2 ) * AppMain.MTM_MATH_ABS( num5 ) >> 12 );
                 obs_OBJECT_WORK.pos.z = parent_obj.pos.z + AppMain.mtMathSin( ( int )angle2 ) * 8;
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK2.spd.x = obs_OBJECT_WORK2.spd.x + ( gms_PLAYER_WORK.obj_work.move.x >> 1 );
             }
             else
@@ -493,10 +493,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001591 RID: 5521 RVA: 0x000BC070 File Offset: 0x000BA270
-    private static AppMain.OBS_OBJECT_WORK gmGmkBreakWallInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type, int wall )
+    private static OBS_OBJECT_WORK gmGmkBreakWallInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type, int wall )
     {
         AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_BWALL_WORK(), "GMK_BREAK_LAND_MAIN");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_BWALL_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_BWALL_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_BWALL_WORK;
         ushort num = AppMain.tbl_breakwall_mdl[AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id]][wall];
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_breakwall_obj_3d_list[( int )num], gms_ENEMY_3D_WORK.obj_3d );
@@ -530,80 +530,80 @@ public partial class AppMain
     }
 
     // Token: 0x06001592 RID: 5522 RVA: 0x000BC200 File Offset: 0x000BA400
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakWall_L1Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakWall_L1Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK work = (AppMain.GMS_GMK_BWALL_WORK)AppMain.gmGmkBreakWallInit(eve_rec, pos_x, pos_y, type, 0);
-        AppMain.gmGmkBreakWallStart( ( AppMain.OBS_OBJECT_WORK )work );
-        return ( AppMain.OBS_OBJECT_WORK )work;
+        AppMain.gmGmkBreakWallStart( ( OBS_OBJECT_WORK )work );
+        return ( OBS_OBJECT_WORK )work;
     }
 
     // Token: 0x06001593 RID: 5523 RVA: 0x000BC230 File Offset: 0x000BA430
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakWall_L2Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakWall_L2Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK work = (AppMain.GMS_GMK_BWALL_WORK)AppMain.gmGmkBreakWallInit(eve_rec, pos_x, pos_y, type, 1);
-        AppMain.gmGmkBreakWallStart( ( AppMain.OBS_OBJECT_WORK )work );
-        return ( AppMain.OBS_OBJECT_WORK )work;
+        AppMain.gmGmkBreakWallStart( ( OBS_OBJECT_WORK )work );
+        return ( OBS_OBJECT_WORK )work;
     }
 
     // Token: 0x06001594 RID: 5524 RVA: 0x000BC260 File Offset: 0x000BA460
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakWall_R1Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakWall_R1Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK work = (AppMain.GMS_GMK_BWALL_WORK)AppMain.gmGmkBreakWallInit(eve_rec, pos_x, pos_y, type, 2);
-        AppMain.gmGmkBreakWallStart( ( AppMain.OBS_OBJECT_WORK )work );
-        return ( AppMain.OBS_OBJECT_WORK )work;
+        AppMain.gmGmkBreakWallStart( ( OBS_OBJECT_WORK )work );
+        return ( OBS_OBJECT_WORK )work;
     }
 
     // Token: 0x06001595 RID: 5525 RVA: 0x000BC290 File Offset: 0x000BA490
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakWall_R2Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakWall_R2Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK work = (AppMain.GMS_GMK_BWALL_WORK)AppMain.gmGmkBreakWallInit(eve_rec, pos_x, pos_y, type, 3);
-        AppMain.gmGmkBreakWallStart( ( AppMain.OBS_OBJECT_WORK )work );
-        return ( AppMain.OBS_OBJECT_WORK )work;
+        AppMain.gmGmkBreakWallStart( ( OBS_OBJECT_WORK )work );
+        return ( OBS_OBJECT_WORK )work;
     }
 
     // Token: 0x06001596 RID: 5526 RVA: 0x000BC2C0 File Offset: 0x000BA4C0
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakWall_C1Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakWall_C1Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)AppMain.gmGmkBreakWallInit(eve_rec, pos_x, pos_y, type, 4);
-        AppMain.gmGmkBreakWallStart( ( AppMain.OBS_OBJECT_WORK )gms_GMK_BWALL_WORK );
+        AppMain.gmGmkBreakWallStart( ( OBS_OBJECT_WORK )gms_GMK_BWALL_WORK );
         gms_GMK_BWALL_WORK.gmk_work.ene_com.obj_work.disp_flag |= 4194304U;
-        return ( AppMain.OBS_OBJECT_WORK )gms_GMK_BWALL_WORK;
+        return ( OBS_OBJECT_WORK )gms_GMK_BWALL_WORK;
     }
 
     // Token: 0x06001597 RID: 5527 RVA: 0x000BC310 File Offset: 0x000BA510
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakWall_C2Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakWall_C2Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)AppMain.gmGmkBreakWallInit(eve_rec, pos_x, pos_y, type, 5);
-        AppMain.gmGmkBreakWallStart( ( AppMain.OBS_OBJECT_WORK )gms_GMK_BWALL_WORK );
+        AppMain.gmGmkBreakWallStart( ( OBS_OBJECT_WORK )gms_GMK_BWALL_WORK );
         gms_GMK_BWALL_WORK.gmk_work.ene_com.obj_work.disp_flag |= 4194304U;
         gms_GMK_BWALL_WORK.gmk_work.ene_com.obj_work.obj_3d.drawflag |= 32U;
-        return ( AppMain.OBS_OBJECT_WORK )gms_GMK_BWALL_WORK;
+        return ( OBS_OBJECT_WORK )gms_GMK_BWALL_WORK;
     }
 
     // Token: 0x06001598 RID: 5528 RVA: 0x000BC384 File Offset: 0x000BA584
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakWall_C1_H_Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakWall_C1_H_Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)AppMain.gmGmkBreakWallInit(eve_rec, pos_x, pos_y, type, 7);
-        AppMain.gmGmkBreakWallStart( ( AppMain.OBS_OBJECT_WORK )gms_GMK_BWALL_WORK );
+        AppMain.gmGmkBreakWallStart( ( OBS_OBJECT_WORK )gms_GMK_BWALL_WORK );
         gms_GMK_BWALL_WORK.gmk_work.ene_com.obj_work.disp_flag |= 4194304U;
         gms_GMK_BWALL_WORK.gmk_work.ene_com.obj_work.disp_flag &= 4294967039U;
         gms_GMK_BWALL_WORK.gmk_work.ene_com.obj_work.dir.z = 49152;
         gms_GMK_BWALL_WORK.gmk_work.ene_com.col_work.obj_col.flag |= 32U;
-        return ( AppMain.OBS_OBJECT_WORK )gms_GMK_BWALL_WORK;
+        return ( OBS_OBJECT_WORK )gms_GMK_BWALL_WORK;
     }
 
     // Token: 0x06001599 RID: 5529 RVA: 0x000BC440 File Offset: 0x000BA640
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakFloorInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakFloorInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BWALL_WORK gms_GMK_BWALL_WORK = (AppMain.GMS_GMK_BWALL_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_BWALL_WORK(), "GMK_BREAK_LAND_MAIN");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_BWALL_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_BWALL_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_BWALL_WORK;
         ushort num = AppMain.tbl_breakwall_mdl[AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id]][6];
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_breakwall_obj_3d_list[( int )num], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -131072;
         if ( ( eve_rec.flag & 2 ) != 0 )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
             obs_OBJECT_WORK2.pos.z = obs_OBJECT_WORK2.pos.z - 4096;
         }
         obs_OBJECT_WORK.move_flag |= 8448U;
@@ -629,7 +629,7 @@ public partial class AppMain
     // Token: 0x0600159B RID: 5531 RVA: 0x000BC594 File Offset: 0x000BA794
     private static void GmGmkBreakWallFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(797));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(797));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_breakwall_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 }

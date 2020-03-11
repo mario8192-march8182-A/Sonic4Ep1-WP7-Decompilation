@@ -15,7 +15,7 @@ public partial class AppMain
     public delegate ushort _rec_func_( AppMain.OBS_RECT obs_rect1, AppMain.OBS_RECT obs_rect2 );
 
     // Token: 0x02000244 RID: 580
-    public class GMS_RING_SYS_WORK : AppMain.IClearable
+    public class GMS_RING_SYS_WORK : IClearable
     {
         // Token: 0x060023AC RID: 9132 RVA: 0x0014930C File Offset: 0x0014750C
         public void Clear()
@@ -116,7 +116,7 @@ public partial class AppMain
         public ushort slot_ring_create_dir;
 
         // Token: 0x04005812 RID: 22546
-        public AppMain.OBS_OBJECT_WORK slot_target_obj;
+        public OBS_OBJECT_WORK slot_target_obj;
 
         // Token: 0x04005813 RID: 22547
         public int slot_ring_timer;
@@ -131,7 +131,7 @@ public partial class AppMain
         public AppMain.VecFx32[] draw_ring_pos = AppMain.New<AppMain.VecFx32>(96);
 
         // Token: 0x04005817 RID: 22551
-        public AppMain.GSS_SND_SE_HANDLE[] h_snd_ring = new AppMain.GSS_SND_SE_HANDLE[2];
+        public GSS_SND_SE_HANDLE[] h_snd_ring = new GSS_SND_SE_HANDLE[2];
 
         // Token: 0x04005818 RID: 22552
         public int ring_se_cnt;
@@ -144,7 +144,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000245 RID: 581
-    public class GMS_RING_WORK : AppMain.IClearable
+    public class GMS_RING_WORK : IClearable
     {
         // Token: 0x060023AE RID: 9134 RVA: 0x0014945C File Offset: 0x0014765C
         public void Clear()
@@ -189,14 +189,14 @@ public partial class AppMain
         public AppMain.GMS_RING_WORK post_ring;
 
         // Token: 0x04005824 RID: 22564
-        public AppMain.OBS_OBJECT_WORK duct_obj;
+        public OBS_OBJECT_WORK duct_obj;
     }
 
     // Token: 0x06000D8C RID: 3468 RVA: 0x0007683C File Offset: 0x00074A3C
     public static void GmRingBuild()
     {
         AppMain.gm_ring_obj_3d = new AppMain.OBS_ACTION3D_NN_WORK();
-        AppMain.ObjAction3dNNModelLoad( AppMain.gm_ring_obj_3d, null, null, 0, AppMain.readAMBFile( ( AppMain.AMS_FS )AppMain.ObjDataGet( 2 ).pData ), null, AppMain.readAMBFile( ( AppMain.AMS_FS )AppMain.ObjDataGet( 3 ).pData ), 0U );
+        AppMain.ObjAction3dNNModelLoad( AppMain.gm_ring_obj_3d, null, null, 0, AmFs.readAMBFile( ( AMS_FS )AppMain.ObjDataGet( 2 ).pData ), null, AmFs.readAMBFile( ( AMS_FS )AppMain.ObjDataGet( 3 ).pData ), 0U );
     }
 
     // Token: 0x06000D8D RID: 3469 RVA: 0x0007688C File Offset: 0x00074A8C
@@ -234,7 +234,7 @@ public partial class AppMain
         {
             if ( AppMain.gm_ring_obj_3d.mat_mtn[0] == null )
             {
-                AppMain.ObjAction3dNNMaterialMotionLoad( AppMain.gm_ring_obj_3d, 0, null, null, 0, AppMain.readAMBFile( AppMain.ObjDataGet( 4 ).pData ) );
+                AppMain.ObjAction3dNNMaterialMotionLoad( AppMain.gm_ring_obj_3d, 0, null, null, 0, AmFs.readAMBFile( AppMain.ObjDataGet( 4 ).pData ) );
             }
             return 1;
         }
@@ -320,8 +320,8 @@ public partial class AppMain
         AppMain.gm_ring_tcb = mts_TASK_TCB;
         AppMain.gm_ring_sys_work = ( AppMain.GMS_RING_SYS_WORK )mts_TASK_TCB.work;
         AppMain.gm_ring_sys_work.Clear();
-        AppMain.gm_ring_sys_work.h_snd_ring[0] = AppMain.GsSoundAllocSeHandle();
-        AppMain.gm_ring_sys_work.h_snd_ring[1] = AppMain.GsSoundAllocSeHandle();
+        AppMain.gm_ring_sys_work.h_snd_ring[0] = GsSound.AllocSeHandle();
+        AppMain.gm_ring_sys_work.h_snd_ring[1] = GsSound.AllocSeHandle();
         AppMain.gm_ring_sys_work.h_snd_ring[0].flag |= 2147483648U;
         AppMain.gm_ring_sys_work.h_snd_ring[1].flag |= 2147483648U;
         AppMain.gm_ring_sys_work.player_num = 1;
@@ -362,7 +362,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D96 RID: 3478 RVA: 0x00076CF4 File Offset: 0x00074EF4
-    private static void gmRingMain( AppMain.MTS_TASK_TCB tcb )
+    public static void gmRingMain( AppMain.MTS_TASK_TCB tcb )
     {
         if ( ( AppMain.gm_ring_sys_work.flag & 1U ) != 0U )
         {
@@ -411,7 +411,7 @@ public partial class AppMain
         }
         for ( int i = 0; i < ( int )AppMain.gm_ring_sys_work.player_num; i++ )
         {
-            AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
+            GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
             AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_PLAYER_WORK.rect_work[2];
             AppMain.ply_rect[i].pos.x = gms_PLAYER_WORK.obj_work.pos.x;
             AppMain.ply_rect[i].pos.y = gms_PLAYER_WORK.obj_work.pos.y;
@@ -514,7 +514,7 @@ public partial class AppMain
                 int num3 = 0;
                 while ( i < ( int )AppMain.gm_ring_sys_work.player_num )
                 {
-                    AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
+                    GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
                     if ( ( gms_PLAYER_WORK.player_flag & 1024U ) == 0U )
                     {
                         AppMain.ring_rect.pos.x = gms_RING_WORK2.pos.x;
@@ -522,7 +522,7 @@ public partial class AppMain
                         if ( AppMain.gm_ring_sys_work.rec_func( AppMain.ply_rect[i], AppMain.ring_rect ) != 0 )
                         {
                             num3 = 1;
-                            AppMain.GmPlayerRingGet( gms_PLAYER_WORK, 1 );
+                            GmPlayer.RingGet( gms_PLAYER_WORK, 1 );
                             AppMain.GmComEfctCreateRing( AppMain.ring_rect.pos.x, AppMain.ring_rect.pos.y );
                         }
                     }
@@ -579,7 +579,7 @@ public partial class AppMain
                         int num3 = 0;
                         while ( i < ( int )AppMain.gm_ring_sys_work.player_num )
                         {
-                            AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
+                            GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
                             if ( ( gms_PLAYER_WORK.player_flag & 1024U ) == 0U )
                             {
                                 AppMain.ring_rect.pos.x = gms_RING_WORK2.pos.x;
@@ -588,10 +588,10 @@ public partial class AppMain
                                 {
                                     num3 = 1;
                                     short ring_stage_num = gms_PLAYER_WORK.ring_stage_num;
-                                    AppMain.GmPlayerRingGet( gms_PLAYER_WORK, 1 );
+                                    GmPlayer.RingGet( gms_PLAYER_WORK, 1 );
                                     if ( ring_stage_num < 999 )
                                     {
-                                        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK2 = gms_PLAYER_WORK;
+                                        GMS_PLAYER_WORK gms_PLAYER_WORK2 = gms_PLAYER_WORK;
                                         gms_PLAYER_WORK2.ring_stage_num -= 1;
                                     }
                                     AppMain.GmComEfctCreateRing( AppMain.ring_rect.pos.x, AppMain.ring_rect.pos.y );
@@ -650,7 +650,7 @@ public partial class AppMain
                 int num3 = 0;
                 while ( i < ( int )AppMain.gm_ring_sys_work.player_num )
                 {
-                    AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
+                    GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[i];
                     if ( ( gms_PLAYER_WORK.player_flag & 1024U ) == 0U )
                     {
                         AppMain.ring_rect.pos.x = gms_RING_WORK2.pos.x;
@@ -658,7 +658,7 @@ public partial class AppMain
                         if ( AppMain.gm_ring_sys_work.rec_func( AppMain.ply_rect[i], AppMain.ring_rect ) != 0 )
                         {
                             num3 = 1;
-                            AppMain.GmPlayerRingGet( gms_PLAYER_WORK, 1 );
+                            GmPlayer.RingGet( gms_PLAYER_WORK, 1 );
                             AppMain.GmComEfctCreateRing( AppMain.ring_rect.pos.x, AppMain.ring_rect.pos.y );
                         }
                     }
@@ -677,26 +677,26 @@ public partial class AppMain
     }
 
     // Token: 0x06000D97 RID: 3479 RVA: 0x000777DC File Offset: 0x000759DC
-    private static void gmRingFreeRingWork( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingFreeRingWork( AppMain.GMS_RING_WORK ring_work )
     {
         AppMain.gm_ring_sys_work.ring_list_cnt--;
         AppMain.gm_ring_sys_work.ring_list[AppMain.gm_ring_sys_work.ring_list_cnt] = ring_work;
     }
 
     // Token: 0x06000D98 RID: 3480 RVA: 0x00077806 File Offset: 0x00075A06
-    private static ushort gmRingHitFuncNormal( AppMain.OBS_RECT ply_rect, AppMain.OBS_RECT ring_rect )
+    public static ushort gmRingHitFuncNormal( AppMain.OBS_RECT ply_rect, AppMain.OBS_RECT ring_rect )
     {
         return AppMain.ObjRectCheck( ply_rect, ring_rect );
     }
 
     // Token: 0x06000D99 RID: 3481 RVA: 0x0007780F File Offset: 0x00075A0F
-    private static void gmRingDrawBegin()
+    public static void gmRingDrawBegin()
     {
         AppMain.gm_ring_sys_work.draw_ring_count = 0;
     }
 
     // Token: 0x06000D9A RID: 3482 RVA: 0x0007781C File Offset: 0x00075A1C
-    private static void gmRingDrawEnd()
+    public static void gmRingDrawEnd()
     {
         if ( AppMain.gm_ring_sys_work.draw_ring_count <= 0 )
         {
@@ -712,8 +712,8 @@ public partial class AppMain
         vecU.z = AppMain.GmMainGetObjectRotation();
         AppMain.GMS_RING_SYS_WORK gms_RING_SYS_WORK = AppMain.gm_ring_sys_work;
         uint draw_ring_count = (uint)AppMain.gm_ring_sys_work.draw_ring_count;
-        AppMain.SNNS_VECTOR snns_VECTOR;
-        AppMain.ObjCameraDispPosGet( 0, out snns_VECTOR );
+        SNNS_VECTOR snns_VECTOR;
+        ObjCamera.DispPosGet( 0, out snns_VECTOR );
         float num;
         float num2;
         AppMain.nnSinCos( ( int )vecU.z + -8192, out num, out num2 );
@@ -725,7 +725,7 @@ public partial class AppMain
         num3 *= 13.576385f;
         num4 *= 13.576385f;
         AppMain.VecFx32 vecFx = new AppMain.VecFx32(gms_RING_SYS_WORK.draw_ring_pos[0]);
-        AppMain.SNNS_MATRIX snns_MATRIX = default(AppMain.SNNS_MATRIX);
+        SNNS_MATRIX snns_MATRIX = default(SNNS_MATRIX);
         AppMain.nnMakeUnitMatrix( ref snns_MATRIX );
         AppMain.nnTranslateMatrix( ref snns_MATRIX, ref snns_MATRIX, AppMain.FX_FX32_TO_F32( vecFx.x ), -AppMain.FX_FX32_TO_F32( vecFx.y ), AppMain.FX_FX32_TO_F32( vecFx.z ) );
         AppMain._AMS_PARAM_DRAW_PRIMITIVE.type = 1;
@@ -784,7 +784,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D9B RID: 3483 RVA: 0x00077E68 File Offset: 0x00076068
-    private static void gmRingDest( AppMain.MTS_TASK_TCB tcb )
+    public static void gmRingDest( AppMain.MTS_TASK_TCB tcb )
     {
         for ( AppMain.GMS_RING_WORK gms_RING_WORK = AppMain.gm_ring_sys_work.ring_list_start; gms_RING_WORK != null; gms_RING_WORK = gms_RING_WORK.post_ring )
         {
@@ -797,8 +797,8 @@ public partial class AppMain
         {
             if ( AppMain.gm_ring_sys_work.h_snd_ring[i] != null )
             {
-                AppMain.GmSoundStopSE( AppMain.gm_ring_sys_work.h_snd_ring[i] );
-                AppMain.GsSoundFreeSeHandle( AppMain.gm_ring_sys_work.h_snd_ring[i] );
+                GsSound.StopSE( AppMain.gm_ring_sys_work.h_snd_ring[i] );
+                GsSound.FreeSeHandle( AppMain.gm_ring_sys_work.h_snd_ring[i] );
                 AppMain.gm_ring_sys_work.h_snd_ring[i] = null;
             }
         }
@@ -807,7 +807,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D9C RID: 3484 RVA: 0x00077F0C File Offset: 0x0007610C
-    private static void gmRingMoveCollsion( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingMoveCollsion( AppMain.GMS_RING_WORK ring_work )
     {
         int num = 0;
         int num2 = ring_work.spd_y;
@@ -898,7 +898,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D9D RID: 3485 RVA: 0x00078138 File Offset: 0x00076338
-    private static void gmRingDetachSlotRingList( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingDetachSlotRingList( AppMain.GMS_RING_WORK ring_work )
     {
         if ( ring_work.pre_ring == null )
         {
@@ -917,7 +917,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D9E RID: 3486 RVA: 0x0007819C File Offset: 0x0007639C
-    private static void gmRingDetachRingList( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingDetachRingList( AppMain.GMS_RING_WORK ring_work )
     {
         if ( ring_work.pre_ring == null )
         {
@@ -936,7 +936,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D9F RID: 3487 RVA: 0x00078200 File Offset: 0x00076400
-    private static AppMain.GMS_RING_WORK GmRingCreateSlotRing( AppMain.OBS_OBJECT_WORK target_obj, int dist, ushort dir )
+    public static AppMain.GMS_RING_WORK GmRingCreateSlotRing( OBS_OBJECT_WORK target_obj, int dist, ushort dir )
     {
         if ( AppMain.gm_ring_sys_work == null )
         {
@@ -962,7 +962,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DA0 RID: 3488 RVA: 0x00078308 File Offset: 0x00076508
-    private static void gmRingDetachDamageRingList( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingDetachDamageRingList( AppMain.GMS_RING_WORK ring_work )
     {
         if ( ring_work.pre_ring == null )
         {
@@ -981,7 +981,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DA1 RID: 3489 RVA: 0x0007836C File Offset: 0x0007656C
-    private static void gmRingAttachSlotRingList( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingAttachSlotRingList( AppMain.GMS_RING_WORK ring_work )
     {
         if ( AppMain.gm_ring_sys_work.slot_ring_list_end != null )
         {
@@ -998,12 +998,12 @@ public partial class AppMain
     }
 
     // Token: 0x06000DA2 RID: 3490 RVA: 0x000783E0 File Offset: 0x000765E0
-    private static void gmRingDrawFuncRing3D( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingDrawFuncRing3D( AppMain.GMS_RING_WORK ring_work )
     {
         AppMain.VecU16 vecU = default(AppMain.VecU16);
         vecU.x = 0;
         vecU.y = AppMain.gm_ring_sys_work.dir;
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
         vecU.z = ( ushort )( -( ushort )obs_CAMERA.roll );
         int draw_ring_count = (int)AppMain.gm_ring_sys_work.draw_ring_count;
         AppMain.gm_ring_sys_work.draw_ring_pos[draw_ring_count].x = ring_work.pos.x;
@@ -1014,7 +1014,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DA3 RID: 3491 RVA: 0x000784AC File Offset: 0x000766AC
-    private static void GmRingGetSE()
+    public static void GmRingGetSE()
     {
         bool flag = true;
         if ( AppMain.gm_ring_sys_work.ring_se_cnt >= 1 )
@@ -1036,23 +1036,23 @@ public partial class AppMain
         }
         if ( flag )
         {
-            AppMain.GmSoundPlaySE( "Ring1L", AppMain.gm_ring_sys_work.h_snd_ring[0] );
+            GmSound.PlaySE( "Ring1L", AppMain.gm_ring_sys_work.h_snd_ring[0] );
         }
         else
         {
-            AppMain.GmSoundPlaySE( "Ring1R", AppMain.gm_ring_sys_work.h_snd_ring[1] );
+            GmSound.PlaySE( "Ring1R", AppMain.gm_ring_sys_work.h_snd_ring[1] );
         }
         AppMain.gm_ring_sys_work.ring_se_cnt++;
     }
 
     // Token: 0x06000DA4 RID: 3492 RVA: 0x0007854E File Offset: 0x0007674E
-    private static void GmRingDamageSet( AppMain.GMS_PLAYER_WORK ply_obj )
+    public static void GmRingDamageSet( GMS_PLAYER_WORK ply_obj )
     {
         AppMain.GmRingDamageSetNum( ply_obj, ply_obj.ring_num );
     }
 
     // Token: 0x06000DA5 RID: 3493 RVA: 0x0007855C File Offset: 0x0007675C
-    private static void GmRingDamageSetNum( AppMain.GMS_PLAYER_WORK ply_work, short ring_num )
+    public static void GmRingDamageSetNum( GMS_PLAYER_WORK ply_work, short ring_num )
     {
         int num = 0;
         int num2 = 0;
@@ -1113,7 +1113,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DA6 RID: 3494 RVA: 0x00078708 File Offset: 0x00076908
-    private static AppMain.GMS_RING_WORK GmRingCreateDamageRing( int pos_x, int pos_y, int pos_z, int spd_x, int spd_y, ushort flag )
+    public static AppMain.GMS_RING_WORK GmRingCreateDamageRing( int pos_x, int pos_y, int pos_z, int spd_x, int spd_y, ushort flag )
     {
         if ( AppMain.gm_ring_sys_work == null )
         {
@@ -1139,7 +1139,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DA7 RID: 3495 RVA: 0x000787BC File Offset: 0x000769BC
-    private static void gmRingAttachDamageRingList( AppMain.GMS_RING_WORK ring_work )
+    public static void gmRingAttachDamageRingList( AppMain.GMS_RING_WORK ring_work )
     {
         if ( AppMain.gm_ring_sys_work.damage_ring_list_end != null )
         {
@@ -1156,7 +1156,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000DA8 RID: 3496 RVA: 0x00078830 File Offset: 0x00076A30
-    private static void GmRingSlotSetNum( AppMain.GMS_PLAYER_WORK ply_work, int ring_num )
+    public static void GmRingSlotSetNum( GMS_PLAYER_WORK ply_work, int ring_num )
     {
         if ( AppMain.gm_ring_sys_work == null || ring_num <= 0 )
         {
@@ -1164,11 +1164,11 @@ public partial class AppMain
         }
         AppMain.gm_ring_sys_work.wait_slot_ring_num = ring_num;
         AppMain.gm_ring_sys_work.slot_ring_create_dir = 0;
-        AppMain.gm_ring_sys_work.slot_target_obj = ( AppMain.OBS_OBJECT_WORK )ply_work;
+        AppMain.gm_ring_sys_work.slot_target_obj = ( OBS_OBJECT_WORK )ply_work;
     }
 
     // Token: 0x06000DA9 RID: 3497 RVA: 0x00078864 File Offset: 0x00076A64
-    private static int GmRingCheckRestSlotRing()
+    public static int GmRingCheckRestSlotRing()
     {
         if ( AppMain.gm_ring_sys_work == null )
         {

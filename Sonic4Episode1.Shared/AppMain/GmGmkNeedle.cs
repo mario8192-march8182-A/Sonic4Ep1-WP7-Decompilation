@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020001B2 RID: 434
-    public class GMS_GMK_NEEDLE_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_NEEDLE_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002210 RID: 8720 RVA: 0x001422DB File Offset: 0x001404DB
         public GMS_GMK_NEEDLE_WORK()
@@ -16,7 +16,7 @@ public partial class AppMain
         }
 
         // Token: 0x06002211 RID: 8721 RVA: 0x001422EF File Offset: 0x001404EF
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -47,9 +47,9 @@ public partial class AppMain
     }
 
     // Token: 0x060008C0 RID: 2240 RVA: 0x0004F090 File Offset: 0x0004D290
-    private static AppMain.OBS_OBJECT_WORK GmGmkNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_NEEDLE_WORK(), "GMK_NEEDLE_MAIN");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_NEEDLE_WORK(), "GMK_NEEDLE_MAIN");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
         gms_GMK_NEEDLE_WORK.needle_type = AppMain.GmGmkNeedleGetType( eve_rec.id );
@@ -103,9 +103,9 @@ public partial class AppMain
     }
 
     // Token: 0x060008C1 RID: 2241 RVA: 0x0004F37C File Offset: 0x0004D57C
-    private static AppMain.OBS_OBJECT_WORK GmGmkActNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkActNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_NEEDLE_WORK(), "GMK_NEEDLE_ACT_MAIN");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_NEEDLE_WORK(), "GMK_NEEDLE_ACT_MAIN");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
         gms_GMK_NEEDLE_WORK.needle_type = AppMain.GmGmkNeedleGetType( eve_rec.id );
@@ -151,13 +151,13 @@ public partial class AppMain
     }
 
     // Token: 0x060008C2 RID: 2242 RVA: 0x0004F66F File Offset: 0x0004D86F
-    private static AppMain.OBS_OBJECT_WORK GmGmkBackNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBackNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         return null;
     }
 
     // Token: 0x060008C3 RID: 2243 RVA: 0x0004F672 File Offset: 0x0004D872
-    private static AppMain.OBS_OBJECT_WORK GmGmkStandNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkStandNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         return null;
     }
@@ -166,38 +166,38 @@ public partial class AppMain
     public static void GmGmkNeedleBuild()
     {
         AppMain.gm_gmk_needle_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.GmGameDatGetGimmickData( 822 ), AppMain.GmGameDatGetGimmickData( 823 ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(824);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(824);
         AppMain.gm_gmk_needle_obj_tvx_list = ams_AMB_HEADER;
-        AppMain.tvx_needle = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_needle_obj_tvx_list, 0 ) );
-        AppMain.tvx_stand = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_needle_obj_tvx_list, 1 ) );
+        AppMain.tvx_needle = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_needle_obj_tvx_list, 0 ) );
+        AppMain.tvx_stand = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_needle_obj_tvx_list, 1 ) );
     }
 
     // Token: 0x060008C5 RID: 2245 RVA: 0x0004F6EC File Offset: 0x0004D8EC
     public static void GmGmkNeedleFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(822));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(822));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_needle_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_needle_obj_3d_list = null;
         AppMain.gm_gmk_needle_obj_tvx_list = null;
     }
 
     // Token: 0x060008C6 RID: 2246 RVA: 0x0004F728 File Offset: 0x0004D928
-    private static void gmGmkNeedleFwInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkNeedleFwInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK work = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         obj_work.ppFunc = AppMain.gmGmkNeedleFwMain;
     }
 
     // Token: 0x060008C7 RID: 2247 RVA: 0x0004F758 File Offset: 0x0004D958
-    private static void gmGmkNeedleFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkNeedleFwMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
         if ( gms_GMK_NEEDLE_WORK.needle_type == 0 )
         {
-            AppMain.OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
-            if ( rider_obj != null && rider_obj.ride_obj == ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
+            OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
+            if ( rider_obj != null && rider_obj.ride_obj == ( OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
             {
                 if ( rider_obj.obj_type == 1 )
                 {
@@ -213,7 +213,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008C8 RID: 2248 RVA: 0x0004F7D8 File Offset: 0x0004D9D8
-    private static void gmGmkActNeedleFwInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkActNeedleFwInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
@@ -229,15 +229,15 @@ public partial class AppMain
     }
 
     // Token: 0x060008C9 RID: 2249 RVA: 0x0004F83C File Offset: 0x0004DA3C
-    private static void gmGmkActNeedleFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkActNeedleFwMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
         if ( gms_GMK_NEEDLE_WORK.needle_type == 4 )
         {
-            AppMain.OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
-            if ( rider_obj != null && rider_obj.ride_obj == ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
+            OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
+            if ( rider_obj != null && rider_obj.ride_obj == ( OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
             {
                 if ( rider_obj.obj_type == 1 )
                 {
@@ -265,7 +265,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008CA RID: 2250 RVA: 0x0004F8F0 File Offset: 0x0004DAF0
-    private static void gmGmkActNeedleScalingInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkActNeedleScalingInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
@@ -297,8 +297,8 @@ public partial class AppMain
         AppMain.amFlagOff( ref gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.flag, 256U );
         if ( gms_GMK_NEEDLE_WORK.needle_type == 4 )
         {
-            AppMain.OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
-            if ( rider_obj != null && rider_obj.ride_obj == ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
+            OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
+            if ( rider_obj != null && rider_obj.ride_obj == ( OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
             {
                 if ( rider_obj.obj_type == 1 )
                 {
@@ -314,7 +314,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008CB RID: 2251 RVA: 0x0004FA74 File Offset: 0x0004DC74
-    private static void gmGmkActNeedleScalingMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkActNeedleScalingMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
@@ -349,8 +349,8 @@ public partial class AppMain
         }
         if ( gms_GMK_NEEDLE_WORK.needle_type == 4 )
         {
-            AppMain.OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
-            if ( rider_obj != null && rider_obj.ride_obj == ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
+            OBS_OBJECT_WORK rider_obj = gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj;
+            if ( rider_obj != null && rider_obj.ride_obj == ( OBS_OBJECT_WORK )gms_ENEMY_3D_WORK )
             {
                 if ( rider_obj.obj_type == 1 )
                 {
@@ -366,14 +366,14 @@ public partial class AppMain
     }
 
     // Token: 0x060008CC RID: 2252 RVA: 0x0004FBE4 File Offset: 0x0004DDE4
-    private static void gmGmkActNeedleRectWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkActNeedleRectWaitInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK work = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         obj_work.ppFunc = AppMain.gmGmkActNeedleRectWaitMain;
     }
 
     // Token: 0x060008CD RID: 2253 RVA: 0x0004FC14 File Offset: 0x0004DE14
-    private static void gmGmkActNeedleRectWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkActNeedleRectWaitMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
@@ -383,7 +383,7 @@ public partial class AppMain
         gms_GMK_NEEDLE_WORK.state ^= 1U;
         if ( gms_GMK_NEEDLE_WORK.state == 1U )
         {
-            AppMain.GmSoundPlaySE( "Spine" );
+            GmSound.PlaySE( "Spine" );
         }
         if ( ( gms_GMK_NEEDLE_WORK.scale_flag & 1U ) != 0U )
         {
@@ -410,7 +410,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008CF RID: 2255 RVA: 0x0004FCD0 File Offset: 0x0004DED0
-    private static void gmGmkActNeedleSetScaleColRect( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkActNeedleSetScaleColRect( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_NEEDLE_WORK gms_GMK_NEEDLE_WORK = (AppMain.GMS_GMK_NEEDLE_WORK)gms_ENEMY_3D_WORK;
@@ -445,7 +445,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008D0 RID: 2256 RVA: 0x0004FE28 File Offset: 0x0004E028
-    private static void gmGmkNeedleDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkNeedleDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -508,8 +508,8 @@ public partial class AppMain
     // Token: 0x060008D1 RID: 2257 RVA: 0x000500A4 File Offset: 0x0004E2A4
     public static void GmGmkNeedleSetLight()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         if ( AppMain.g_gs_main_sys_info.stage_id == 14 )
         {
             nns_VECTOR.x = -0.1f;
@@ -536,6 +536,6 @@ public partial class AppMain
             intensity = 1f;
         }
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_2, ref nns_RGBA, intensity, nns_VECTOR );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

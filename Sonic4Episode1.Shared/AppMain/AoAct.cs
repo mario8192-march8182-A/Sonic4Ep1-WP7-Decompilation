@@ -56,7 +56,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200032C RID: 812
-    public struct AOS_ACT_COL : AppMain.IClearable
+    public struct AOS_ACT_COL : IClearable
     {
         // Token: 0x0600259A RID: 9626 RVA: 0x0014DC68 File Offset: 0x0014BE68
         public void Clear()
@@ -99,7 +99,7 @@ public partial class AppMain
     public struct AOS_ACT_RECT
     {
         // Token: 0x0600259D RID: 9629 RVA: 0x0014DD0B File Offset: 0x0014BF0B
-        public void Assign(ref AppMain.A2S_SUB_RECT rect)
+        public void Assign(ref A2S_SUB_RECT rect)
         {
             this.left = rect.left;
             this.top = rect.top;
@@ -130,7 +130,7 @@ public partial class AppMain
     public struct AOS_ACT_CIRCLE
     {
         // Token: 0x0600259F RID: 9631 RVA: 0x0014DD73 File Offset: 0x0014BF73
-        public void Assign(ref AppMain.A2S_SUB_CIRCLE c)
+        public void Assign(ref A2S_SUB_CIRCLE c)
         {
             this.center_x = c.center_x;
             this.center_y = c.center_y;
@@ -182,7 +182,7 @@ public partial class AppMain
         }
 
         // Token: 0x060025A4 RID: 9636 RVA: 0x0014DE70 File Offset: 0x0014C070
-        public void SetCircle(ref AppMain.A2S_SUB_CIRCLE circle)
+        public void SetCircle(ref A2S_SUB_CIRCLE circle)
         {
             this.rect.left = circle.center_x;
             this.rect.top = circle.center_y;
@@ -888,7 +888,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600165A RID: 5722 RVA: 0x000C199C File Offset: 0x000BFB9C
-    public static AppMain.AOS_SPRITE AoActSprCreate(AppMain.A2S_AMA_HEADER ama, uint id, float frame)
+    public static AppMain.AOS_SPRITE AoActSprCreate(A2S_AMA_HEADER ama, uint id, float frame)
     {
         AppMain.AOS_SPRITE aos_SPRITE = AppMain.aoActAllocSprite();
         if (aos_SPRITE == null)
@@ -906,9 +906,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600165C RID: 5724 RVA: 0x000C19C8 File Offset: 0x000BFBC8
-    public static void AoActSprApply(AppMain.AOS_SPRITE spr, AppMain.A2S_AMA_HEADER ama, uint id, float frame)
+    public static void AoActSprApply(AppMain.AOS_SPRITE spr, A2S_AMA_HEADER ama, uint id, float frame)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = ama.act_tbl[(int)((UIntPtr)id)];
+        A2S_AMA_ACT a2S_AMA_ACT = ama.act_tbl[(int)((UIntPtr)id)];
         while (a2S_AMA_ACT.next != null && a2S_AMA_ACT.frm_num <= frame)
         {
             frame -= a2S_AMA_ACT.frm_num;
@@ -998,19 +998,19 @@ public partial class AppMain
     }
 
     // Token: 0x0600165E RID: 5726 RVA: 0x000C1DB6 File Offset: 0x000BFFB6
-    public static AppMain.AOS_ACTION AoActCreate(AppMain.A2S_AMA_HEADER ama, uint id)
+    public static AppMain.AOS_ACTION AoActCreate(A2S_AMA_HEADER ama, uint id)
     {
         return AppMain.AoActCreate(ama, id, 0f);
     }
 
     // Token: 0x0600165F RID: 5727 RVA: 0x000C1DC4 File Offset: 0x000BFFC4
-    public static AppMain.AOS_ACTION AoActCreate(AppMain.A2S_AMA_HEADER ama, uint id, float frame)
+    public static AppMain.AOS_ACTION AoActCreate(A2S_AMA_HEADER ama, uint id, float frame)
     {
         if (id >= ama.act_num)
         {
             return null;
         }
-        AppMain.A2S_AMA_ACT data = ama.act_tbl[(int)((UIntPtr)id)];
+        A2S_AMA_ACT data = ama.act_tbl[(int)((UIntPtr)id)];
         AppMain.AOS_ACTION aos_ACTION = AppMain.aoActAllocAction();
         if (aos_ACTION == null)
         {
@@ -1048,19 +1048,19 @@ public partial class AppMain
     }
 
     // Token: 0x06001660 RID: 5728 RVA: 0x000C1ED1 File Offset: 0x000C00D1
-    public static AppMain.AOS_ACTION AoActCreateNode(AppMain.A2S_AMA_HEADER ama, uint id, float frame)
+    public static AppMain.AOS_ACTION AoActCreateNode(A2S_AMA_HEADER ama, uint id, float frame)
     {
         return AppMain.AoActCreateNodeSub(ama, id, frame, false);
     }
 
     // Token: 0x06001661 RID: 5729 RVA: 0x000C1EDC File Offset: 0x000C00DC
-    public static AppMain.AOS_ACTION AoActCreateNodeSub(AppMain.A2S_AMA_HEADER ama, uint id, float frame, bool sib)
+    public static AppMain.AOS_ACTION AoActCreateNodeSub(A2S_AMA_HEADER ama, uint id, float frame, bool sib)
     {
         if (id >= ama.node_num)
         {
             return null;
         }
-        AppMain.A2S_AMA_NODE a2S_AMA_NODE = ama.node_tbl[(int)((UIntPtr)id)];
+        A2S_AMA_NODE a2S_AMA_NODE = ama.node_tbl[(int)((UIntPtr)id)];
         AppMain.AOS_ACTION aos_ACTION = AppMain.aoActAllocAction();
         if (aos_ACTION == null)
         {
@@ -1240,63 +1240,63 @@ public partial class AppMain
     // Token: 0x0600166A RID: 5738 RVA: 0x000C2274 File Offset: 0x000C0474
     public static bool AoActIsEndTrs(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaTrsEnd(a2S_AMA_ACT.mtn, act.frame);
     }
 
     // Token: 0x0600166B RID: 5739 RVA: 0x000C22A0 File Offset: 0x000C04A0
     public static bool AoActIsEndMtn(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaMtnEnd(a2S_AMA_ACT.mtn, act.frame);
     }
 
     // Token: 0x0600166C RID: 5740 RVA: 0x000C22CC File Offset: 0x000C04CC
     public static bool AoActIsEndAnm(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaAnmEnd(a2S_AMA_ACT.anm, act.frame);
     }
 
     // Token: 0x0600166D RID: 5741 RVA: 0x000C22F8 File Offset: 0x000C04F8
     public static bool AoActIsEndMat(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaMatEnd(a2S_AMA_ACT.anm, act.frame);
     }
 
     // Token: 0x0600166E RID: 5742 RVA: 0x000C2324 File Offset: 0x000C0524
     public static bool AoActIsEndAcmTrs(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaAcmTrsEnd(a2S_AMA_ACT.acm, act.frame);
     }
 
     // Token: 0x0600166F RID: 5743 RVA: 0x000C2350 File Offset: 0x000C0550
     public static bool AoActIsEndAcmMtn(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaAcmMtnEnd(a2S_AMA_ACT.acm, act.frame);
     }
 
     // Token: 0x06001670 RID: 5744 RVA: 0x000C237C File Offset: 0x000C057C
     public static bool AoActIsEndAcmMat(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaAcmMatEnd(a2S_AMA_ACT.acm, act.frame);
     }
 
     // Token: 0x06001671 RID: 5745 RVA: 0x000C23A8 File Offset: 0x000C05A8
     public static bool AoActIsEndUsr(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaUsrEnd(a2S_AMA_ACT.usr, act.frame);
     }
 
     // Token: 0x06001672 RID: 5746 RVA: 0x000C23D4 File Offset: 0x000C05D4
     public static bool AoActIsEndHit(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         return a2S_AMA_ACT == null || AppMain.aoActIsAmaHitEnd(a2S_AMA_ACT.hit, act.frame);
     }
 
@@ -1910,7 +1910,7 @@ public partial class AppMain
     public static AppMain.AOS_ACTION AoActUtilGetActFromId(AppMain.AOS_ACTION act, uint id)
     {
         AppMain.AOS_ACTION aos_ACTION = null;
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         if (a2S_AMA_ACT.id == id)
         {
             aos_ACTION = act;
@@ -2207,7 +2207,7 @@ public partial class AppMain
     // Token: 0x060016A5 RID: 5797 RVA: 0x000C36A4 File Offset: 0x000C18A4
     public static void AoActDrawPre()
     {
-        AppMain.NNS_MATRIX aoActDrawPre_mtx = AppMain.AoActDrawPre_mtx;
+        NNS_MATRIX aoActDrawPre_mtx = AppMain.AoActDrawPre_mtx;
         aoActDrawPre_mtx.Clear();
         AppMain.nnMakeOrthoMatrix(aoActDrawPre_mtx, 0f, 720f, 1080f, 0f, 1f, 3f);
         AppMain.amDrawSetProjection(aoActDrawPre_mtx, 1);
@@ -2300,7 +2300,7 @@ public partial class AppMain
     // Token: 0x060016A7 RID: 5799 RVA: 0x000C3A64 File Offset: 0x000C1C64
     public static void aoActApply(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
+        A2S_AMA_ACT a2S_AMA_ACT = AppMain.aoActGetAmaAct(act);
         AppMain.AoActAcmPush();
         if (a2S_AMA_ACT != null && (act.flag & 1U) != 0U)
         {
@@ -2436,7 +2436,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016A8 RID: 5800 RVA: 0x000C40E0 File Offset: 0x000C22E0
-    public static void aoActSearchTrsKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchTrsKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.mtn == null || act.mtn.trs_key_tbl == null || act.mtn.trs_frm_num == 0U)
         {
@@ -2444,7 +2444,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_MTN mtn = act.mtn;
+        A2S_AMA_MTN mtn = act.mtn;
         if ((mtn.flag & 2U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, mtn.trs_frm_num);
@@ -2457,7 +2457,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016A9 RID: 5801 RVA: 0x000C4168 File Offset: 0x000C2368
-    public static void aoActSearchMtnKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchMtnKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.mtn == null || act.mtn.mtn_key_tbl == null || act.mtn.mtn_frm_num == 0U)
         {
@@ -2465,7 +2465,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_MTN mtn = act.mtn;
+        A2S_AMA_MTN mtn = act.mtn;
         if ((mtn.flag & 1U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, mtn.mtn_frm_num);
@@ -2478,7 +2478,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016AA RID: 5802 RVA: 0x000C41F0 File Offset: 0x000C23F0
-    public static void aoActSearchAnmKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchAnmKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.anm == null || act.anm.anm_key_tbl == null || act.anm.anm_frm_num == 0U)
         {
@@ -2486,7 +2486,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_ANM anm = act.anm;
+        A2S_AMA_ANM anm = act.anm;
         if ((anm.flag & 1U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, anm.anm_frm_num);
@@ -2499,7 +2499,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016AB RID: 5803 RVA: 0x000C4278 File Offset: 0x000C2478
-    public static void aoActSearchMatKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchMatKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.anm == null || act.anm.mat_key_tbl == null || act.anm.mat_frm_num == 0U)
         {
@@ -2507,7 +2507,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_ANM anm = act.anm;
+        A2S_AMA_ANM anm = act.anm;
         if ((anm.flag & 2U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, anm.mat_frm_num);
@@ -2520,7 +2520,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016AC RID: 5804 RVA: 0x000C4300 File Offset: 0x000C2500
-    public static void aoActSearchAcmTrsKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchAcmTrsKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.acm == null || act.acm.trs_key_tbl == null || act.acm.trs_frm_num == 0U || (act.acm.flag & 16U) != 0U)
         {
@@ -2528,7 +2528,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_ACM acm = act.acm;
+        A2S_AMA_ACM acm = act.acm;
         if ((acm.flag & 2U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, acm.trs_frm_num);
@@ -2541,7 +2541,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016AD RID: 5805 RVA: 0x000C4398 File Offset: 0x000C2598
-    public static void aoActSearchAcmMtnKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchAcmMtnKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.acm == null || act.acm.acm_key_tbl == null || act.acm.acm_frm_num == 0U || (act.acm.flag & 8U) != 0U)
         {
@@ -2549,7 +2549,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_ACM acm = act.acm;
+        A2S_AMA_ACM acm = act.acm;
         if ((acm.flag & 1U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, acm.acm_frm_num);
@@ -2562,7 +2562,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016AE RID: 5806 RVA: 0x000C4430 File Offset: 0x000C2630
-    public static void aoActSearchAcmMatKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchAcmMatKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.acm == null || act.acm.mat_key_tbl == null || act.acm.mat_frm_num == 0U || (act.acm.flag & 32U) != 0U)
         {
@@ -2570,7 +2570,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_ACM acm = act.acm;
+        A2S_AMA_ACM acm = act.acm;
         if ((acm.flag & 4U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, acm.mat_frm_num);
@@ -2583,7 +2583,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016AF RID: 5807 RVA: 0x000C44C8 File Offset: 0x000C26C8
-    public static void aoActSearchHitKey(AppMain.A2S_AMA_ACT act, ref float frame, ref int key)
+    public static void aoActSearchHitKey(A2S_AMA_ACT act, ref float frame, ref int key)
     {
         if (act == null || act.hit == null || act.hit.hit_key_tbl == null || act.hit.hit_frm_num == 0U)
         {
@@ -2591,7 +2591,7 @@ public partial class AppMain
             key = -1;
             return;
         }
-        AppMain.A2S_AMA_HIT hit = act.hit;
+        A2S_AMA_HIT hit = act.hit;
         if ((hit.flag & 1U) != 0U)
         {
             frame = AppMain.aoActGetLoopFrame(frame, hit.hit_frm_num);
@@ -2604,7 +2604,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B0 RID: 5808 RVA: 0x000C4550 File Offset: 0x000C2750
-    public static void aoActMakeTrs(uint key_num, uint frm_num, AppMain.A2S_SUB_KEY[] key_tbl, AppMain.A2S_SUB_TRS[] trs_tbl, int key, float frame, ref float trans_x, ref float trans_y, ref float trans_z)
+    public static void aoActMakeTrs(uint key_num, uint frm_num, A2S_SUB_KEY[] key_tbl, A2S_SUB_TRS[] trs_tbl, int key, float frame, ref float trans_x, ref float trans_y, ref float trans_z)
     {
         if (key < 0 || key_num == 0U)
         {
@@ -2617,14 +2617,14 @@ public partial class AppMain
         float rate;
         if (!AppMain.aoActGetInterpolInfo(key_tbl, key_num, frm_num, frame, (uint)key, ref num, out rate))
         {
-            AppMain.A2S_SUB_TRS a2S_SUB_TRS = trs_tbl[(int)((UIntPtr)key)];
+            A2S_SUB_TRS a2S_SUB_TRS = trs_tbl[(int)((UIntPtr)key)];
             trans_x = a2S_SUB_TRS.trs_x;
             trans_y = a2S_SUB_TRS.trs_y;
             trans_z = a2S_SUB_TRS.trs_z;
             return;
         }
-        AppMain.A2S_SUB_TRS a2S_SUB_TRS2 = trs_tbl[(int)((UIntPtr)key)];
-        AppMain.A2S_SUB_TRS a2S_SUB_TRS3 = trs_tbl[(int)((UIntPtr)num)];
+        A2S_SUB_TRS a2S_SUB_TRS2 = trs_tbl[(int)((UIntPtr)key)];
+        A2S_SUB_TRS a2S_SUB_TRS3 = trs_tbl[(int)((UIntPtr)num)];
         rate = AppMain.aoActGetAcceleRate(rate, a2S_SUB_TRS2.trs_accele);
         if (key_tbl[(int)((UIntPtr)key)].interpol == 2U && key_num >= 4U)
         {
@@ -2638,8 +2638,8 @@ public partial class AppMain
             {
                 num3 = 0;
             }
-            AppMain.A2S_SUB_TRS t = trs_tbl[num2];
-            AppMain.A2S_SUB_TRS t2 = trs_tbl[num3];
+            A2S_SUB_TRS t = trs_tbl[num2];
+            A2S_SUB_TRS t2 = trs_tbl[num3];
             AppMain.aoActGetInterpolSpline(t, a2S_SUB_TRS2, a2S_SUB_TRS3, t2, rate, ref trans_x, ref trans_y, ref trans_z);
             return;
         }
@@ -2649,7 +2649,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B1 RID: 5809 RVA: 0x000C4668 File Offset: 0x000C2868
-    public static void aoActMakeMtn(uint key_num, uint frm_num, AppMain.A2S_SUB_KEY[] key_tbl, AppMain.A2S_SUB_MTN[] mtn_tbl, int key, float frame, out float scale_x, out float scale_y, out float rotate)
+    public static void aoActMakeMtn(uint key_num, uint frm_num, A2S_SUB_KEY[] key_tbl, A2S_SUB_MTN[] mtn_tbl, int key, float frame, out float scale_x, out float scale_y, out float rotate)
     {
         if (key < 0 || key_num == 0U)
         {
@@ -2662,14 +2662,14 @@ public partial class AppMain
         float rate;
         if (!AppMain.aoActGetInterpolInfo(key_tbl, key_num, frm_num, frame, (uint)key, ref num, out rate))
         {
-            AppMain.A2S_SUB_MTN a2S_SUB_MTN = mtn_tbl[(int)((UIntPtr)key)];
+            A2S_SUB_MTN a2S_SUB_MTN = mtn_tbl[(int)((UIntPtr)key)];
             scale_x = a2S_SUB_MTN.scl_x;
             scale_y = a2S_SUB_MTN.scl_y;
             rotate = a2S_SUB_MTN.rot;
             return;
         }
-        AppMain.A2S_SUB_MTN a2S_SUB_MTN2 = mtn_tbl[(int)((UIntPtr)key)];
-        AppMain.A2S_SUB_MTN a2S_SUB_MTN3 = mtn_tbl[(int)((UIntPtr)num)];
+        A2S_SUB_MTN a2S_SUB_MTN2 = mtn_tbl[(int)((UIntPtr)key)];
+        A2S_SUB_MTN a2S_SUB_MTN3 = mtn_tbl[(int)((UIntPtr)num)];
         float rate2 = AppMain.aoActGetAcceleRate(rate, a2S_SUB_MTN2.scl_accele);
         float rate3 = AppMain.aoActGetAcceleRate(rate, a2S_SUB_MTN2.rot_accele);
         scale_x = AppMain.aoActInterpolF32(a2S_SUB_MTN2.scl_x, a2S_SUB_MTN3.scl_x, rate2);
@@ -2678,7 +2678,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B2 RID: 5810 RVA: 0x000C4740 File Offset: 0x000C2940
-    public static void aoActMakeAnm(uint key_num, uint frm_num, AppMain.A2S_SUB_KEY[] key_tbl, AppMain.A2S_SUB_ANM[] anm_tbl, int key, float frame, ref int tex_id, ref AppMain.AOS_ACT_RECT rect, ref uint clamp)
+    public static void aoActMakeAnm(uint key_num, uint frm_num, A2S_SUB_KEY[] key_tbl, A2S_SUB_ANM[] anm_tbl, int key, float frame, ref int tex_id, ref AppMain.AOS_ACT_RECT rect, ref uint clamp)
     {
         if (key < 0 || key_num == 0U)
         {
@@ -2689,7 +2689,7 @@ public partial class AppMain
         float rate;
         if (!AppMain.aoActGetInterpolInfo(key_tbl, key_num, frm_num, frame, (uint)key, ref num, out rate))
         {
-            AppMain.A2S_SUB_ANM a2S_SUB_ANM = anm_tbl[(int)((UIntPtr)key)];
+            A2S_SUB_ANM a2S_SUB_ANM = anm_tbl[(int)((UIntPtr)key)];
             tex_id = a2S_SUB_ANM.tex_id;
             rect.left = a2S_SUB_ANM.texel.left;
             rect.top = a2S_SUB_ANM.texel.top;
@@ -2698,8 +2698,8 @@ public partial class AppMain
             clamp = a2S_SUB_ANM.clamp;
             return;
         }
-        AppMain.A2S_SUB_ANM a2S_SUB_ANM2 = anm_tbl[(int)((UIntPtr)key)];
-        AppMain.A2S_SUB_ANM a2S_SUB_ANM3 = anm_tbl[(int)((UIntPtr)num)];
+        A2S_SUB_ANM a2S_SUB_ANM2 = anm_tbl[(int)((UIntPtr)key)];
+        A2S_SUB_ANM a2S_SUB_ANM3 = anm_tbl[(int)((UIntPtr)num)];
         rate = AppMain.aoActGetAcceleRate(rate, a2S_SUB_ANM2.texel_accele);
         tex_id = a2S_SUB_ANM2.tex_id;
         rect.left = AppMain.aoActInterpolF32(a2S_SUB_ANM2.texel.left, a2S_SUB_ANM3.texel.left, rate);
@@ -2710,7 +2710,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B3 RID: 5811 RVA: 0x000C4894 File Offset: 0x000C2A94
-    public static void aoActMakeMat(uint key_num, uint frm_num, AppMain.A2S_SUB_KEY[] key_tbl, AppMain.A2S_SUB_MAT[] mat_tbl, int key, float frame, ref AppMain.AOS_ACT_COL color, ref AppMain.AOS_ACT_COL fade, out uint blend)
+    public static void aoActMakeMat(uint key_num, uint frm_num, A2S_SUB_KEY[] key_tbl, A2S_SUB_MAT[] mat_tbl, int key, float frame, ref AppMain.AOS_ACT_COL color, ref AppMain.AOS_ACT_COL fade, out uint blend)
     {
         if (key < 0 || key_num == 0U)
         {
@@ -2729,7 +2729,7 @@ public partial class AppMain
         float rate;
         if (!AppMain.aoActGetInterpolInfo(key_tbl, key_num, frm_num, frame, (uint)key, ref num, out rate))
         {
-            AppMain.A2S_SUB_MAT a2S_SUB_MAT = mat_tbl[(int)((UIntPtr)key)];
+            A2S_SUB_MAT a2S_SUB_MAT = mat_tbl[(int)((UIntPtr)key)];
             color.r = a2S_SUB_MAT.base_.r;
             color.g = a2S_SUB_MAT.base_.g;
             color.b = a2S_SUB_MAT.base_.b;
@@ -2741,8 +2741,8 @@ public partial class AppMain
             blend = a2S_SUB_MAT.blend;
             return;
         }
-        AppMain.A2S_SUB_MAT a2S_SUB_MAT2 = mat_tbl[(int)((UIntPtr)key)];
-        AppMain.A2S_SUB_MAT a2S_SUB_MAT3 = mat_tbl[(int)((UIntPtr)num)];
+        A2S_SUB_MAT a2S_SUB_MAT2 = mat_tbl[(int)((UIntPtr)key)];
+        A2S_SUB_MAT a2S_SUB_MAT3 = mat_tbl[(int)((UIntPtr)num)];
         float rate2 = AppMain.aoActGetAcceleRate(rate, a2S_SUB_MAT2.base_accele);
         float rate3 = AppMain.aoActGetAcceleRate(rate, a2S_SUB_MAT2.fade_accele);
         color = AppMain.aoActInterpolCol(a2S_SUB_MAT2.base_, a2S_SUB_MAT3.base_, rate2);
@@ -2751,7 +2751,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B4 RID: 5812 RVA: 0x000C4A24 File Offset: 0x000C2C24
-    public static void aoActMakeAcm(uint key_num, uint frm_num, AppMain.A2S_SUB_KEY[] key_tbl, AppMain.A2S_SUB_ACM[] acm_tbl, int key, float frame, ref float tscale_x, ref float tscale_y, ref float scale_x, ref float scale_y, ref float rotate)
+    public static void aoActMakeAcm(uint key_num, uint frm_num, A2S_SUB_KEY[] key_tbl, A2S_SUB_ACM[] acm_tbl, int key, float frame, ref float tscale_x, ref float tscale_y, ref float scale_x, ref float scale_y, ref float rotate)
     {
         if (key < 0 || key_num == 0U)
         {
@@ -2766,7 +2766,7 @@ public partial class AppMain
         float rate;
         if (!AppMain.aoActGetInterpolInfo(key_tbl, key_num, frm_num, frame, (uint)key, ref num, out rate))
         {
-            AppMain.A2S_SUB_ACM a2S_SUB_ACM = acm_tbl[(int)((UIntPtr)key)];
+            A2S_SUB_ACM a2S_SUB_ACM = acm_tbl[(int)((UIntPtr)key)];
             tscale_x = a2S_SUB_ACM.trs_scl_x;
             tscale_y = a2S_SUB_ACM.trs_scl_y;
             scale_x = a2S_SUB_ACM.scl_x;
@@ -2774,8 +2774,8 @@ public partial class AppMain
             rotate = a2S_SUB_ACM.rot;
             return;
         }
-        AppMain.A2S_SUB_ACM a2S_SUB_ACM2 = acm_tbl[(int)((UIntPtr)key)];
-        AppMain.A2S_SUB_ACM a2S_SUB_ACM3 = acm_tbl[(int)((UIntPtr)num)];
+        A2S_SUB_ACM a2S_SUB_ACM2 = acm_tbl[(int)((UIntPtr)key)];
+        A2S_SUB_ACM a2S_SUB_ACM3 = acm_tbl[(int)((UIntPtr)num)];
         float rate2 = AppMain.aoActGetAcceleRate(rate, a2S_SUB_ACM2.trs_scl_accele);
         float rate3 = AppMain.aoActGetAcceleRate(rate, a2S_SUB_ACM2.scl_accele);
         float rate4 = AppMain.aoActGetAcceleRate(rate, a2S_SUB_ACM2.rot_accele);
@@ -2787,7 +2787,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B5 RID: 5813 RVA: 0x000C4B7C File Offset: 0x000C2D7C
-    public static void aoActMakeHit(uint key_num, uint frm_num, AppMain.A2S_SUB_KEY[] key_tbl, AppMain.A2S_SUB_HIT[] hit_tbl, int key, float frame, AppMain.AOS_ACT_HITP hit)
+    public static void aoActMakeHit(uint key_num, uint frm_num, A2S_SUB_KEY[] key_tbl, A2S_SUB_HIT[] hit_tbl, int key, float frame, AppMain.AOS_ACT_HITP hit)
     {
         hit.scale_x = 1f;
         hit.scale_y = 1f;
@@ -2800,7 +2800,7 @@ public partial class AppMain
         float rate;
         if (!AppMain.aoActGetInterpolInfo(key_tbl, key_num, frm_num, frame, (uint)key, ref num, out rate))
         {
-            AppMain.A2S_SUB_HIT a2S_SUB_HIT = hit_tbl[(int)((UIntPtr)key)];
+            A2S_SUB_HIT a2S_SUB_HIT = hit_tbl[(int)((UIntPtr)key)];
             hit.flag = a2S_SUB_HIT.flag;
             switch (a2S_SUB_HIT.type)
             {
@@ -2819,8 +2819,8 @@ public partial class AppMain
         }
         else
         {
-            AppMain.A2S_SUB_HIT a2S_SUB_HIT2 = hit_tbl[(int)((UIntPtr)key)];
-            AppMain.A2S_SUB_HIT a2S_SUB_HIT3 = hit_tbl[(int)((UIntPtr)num)];
+            A2S_SUB_HIT a2S_SUB_HIT2 = hit_tbl[(int)((UIntPtr)key)];
+            A2S_SUB_HIT a2S_SUB_HIT3 = hit_tbl[(int)((UIntPtr)num)];
             if (a2S_SUB_HIT2.type != a2S_SUB_HIT3.type)
             {
                 hit.flag = a2S_SUB_HIT2.flag;
@@ -2874,7 +2874,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B6 RID: 5814 RVA: 0x000C4E30 File Offset: 0x000C3030
-    public static void aoActSerachKey(AppMain.A2S_SUB_KEY[] key, uint key_num, ref float frame, ref int last)
+    public static void aoActSerachKey(A2S_SUB_KEY[] key, uint key_num, ref float frame, ref int last)
     {
         if (frame < 1f)
         {
@@ -2948,9 +2948,9 @@ public partial class AppMain
     }
 
     // Token: 0x060016B8 RID: 5816 RVA: 0x000C4F1C File Offset: 0x000C311C
-    public static bool aoActGetInterpolInfo(AppMain.A2S_SUB_KEY[] key_tbl, uint key_num, uint frm_num, float frame, uint key1, ref uint key2, out float rate)
+    public static bool aoActGetInterpolInfo(A2S_SUB_KEY[] key_tbl, uint key_num, uint frm_num, float frame, uint key1, ref uint key2, out float rate)
     {
-        AppMain.A2S_SUB_KEY a2S_SUB_KEY = key_tbl[(int)key1];
+        A2S_SUB_KEY a2S_SUB_KEY = key_tbl[(int)key1];
         if ((a2S_SUB_KEY.interpol != 1U && a2S_SUB_KEY.interpol != 2U) || key_num <= 1U)
         {
             rate = 0f;
@@ -2959,7 +2959,7 @@ public partial class AppMain
         if (key1 + 1U < key_num)
         {
             key2 = key1 + 1U;
-            AppMain.A2S_SUB_KEY a2S_SUB_KEY2 = key_tbl[(int)(key1 + 1U)];
+            A2S_SUB_KEY a2S_SUB_KEY2 = key_tbl[(int)(key1 + 1U)];
             rate = frame / (a2S_SUB_KEY2.frm - a2S_SUB_KEY.frm);
         }
         else
@@ -2971,7 +2971,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016B9 RID: 5817 RVA: 0x000C4FA4 File Offset: 0x000C31A4
-    public static void aoActGetInterpolSpline(AppMain.A2S_SUB_TRS t0, AppMain.A2S_SUB_TRS t1, AppMain.A2S_SUB_TRS t2, AppMain.A2S_SUB_TRS t3, float rate, ref float trans_x, ref float trans_y, ref float trans_z)
+    public static void aoActGetInterpolSpline(A2S_SUB_TRS t0, A2S_SUB_TRS t1, A2S_SUB_TRS t2, A2S_SUB_TRS t3, float rate, ref float trans_x, ref float trans_y, ref float trans_z)
     {
         float num = rate * rate;
         float num2 = num * rate;
@@ -3079,7 +3079,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016BF RID: 5823 RVA: 0x000C5248 File Offset: 0x000C3448
-    public static uint aoActGetAmaActState(AppMain.A2S_AMA_ACT act, float frame)
+    public static uint aoActGetAmaActState(A2S_AMA_ACT act, float frame)
     {
         uint num = 0U;
         if (act != null)
@@ -3163,13 +3163,13 @@ public partial class AppMain
     }
 
     // Token: 0x060016C0 RID: 5824 RVA: 0x000C53BC File Offset: 0x000C35BC
-    public static bool aoActIsAmaActEnd(AppMain.A2S_AMA_ACT act, float frame)
+    public static bool aoActIsAmaActEnd(A2S_AMA_ACT act, float frame)
     {
         return act == null || act.frm_num <= frame;
     }
 
     // Token: 0x060016C1 RID: 5825 RVA: 0x000C53CF File Offset: 0x000C35CF
-    public static bool aoActIsAmaTrsEnd(AppMain.A2S_AMA_MTN mtn, float frame)
+    public static bool aoActIsAmaTrsEnd(A2S_AMA_MTN mtn, float frame)
     {
         if (mtn != null && mtn.trs_key_tbl != null)
         {
@@ -3186,7 +3186,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C2 RID: 5826 RVA: 0x000C53F6 File Offset: 0x000C35F6
-    public static bool aoActIsAmaMtnEnd(AppMain.A2S_AMA_MTN mtn, float frame)
+    public static bool aoActIsAmaMtnEnd(A2S_AMA_MTN mtn, float frame)
     {
         if (mtn != null && mtn.mtn_key_tbl != null)
         {
@@ -3203,7 +3203,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C3 RID: 5827 RVA: 0x000C541D File Offset: 0x000C361D
-    public static bool aoActIsAmaAnmEnd(AppMain.A2S_AMA_ANM anm, float frame)
+    public static bool aoActIsAmaAnmEnd(A2S_AMA_ANM anm, float frame)
     {
         if (anm != null && anm.anm_key_tbl != null)
         {
@@ -3220,7 +3220,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C4 RID: 5828 RVA: 0x000C5444 File Offset: 0x000C3644
-    public static bool aoActIsAmaMatEnd(AppMain.A2S_AMA_ANM anm, float frame)
+    public static bool aoActIsAmaMatEnd(A2S_AMA_ANM anm, float frame)
     {
         if (anm != null && anm.mat_key_tbl != null)
         {
@@ -3237,7 +3237,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C5 RID: 5829 RVA: 0x000C546B File Offset: 0x000C366B
-    public static bool aoActIsAmaAcmTrsEnd(AppMain.A2S_AMA_ACM acm, float frame)
+    public static bool aoActIsAmaAcmTrsEnd(A2S_AMA_ACM acm, float frame)
     {
         if (acm != null && acm.trs_key_tbl != null)
         {
@@ -3254,7 +3254,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C6 RID: 5830 RVA: 0x000C5492 File Offset: 0x000C3692
-    public static bool aoActIsAmaAcmMtnEnd(AppMain.A2S_AMA_ACM acm, float frame)
+    public static bool aoActIsAmaAcmMtnEnd(A2S_AMA_ACM acm, float frame)
     {
         if (acm != null && acm.acm_key_tbl != null)
         {
@@ -3271,7 +3271,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C7 RID: 5831 RVA: 0x000C54B9 File Offset: 0x000C36B9
-    public static bool aoActIsAmaAcmMatEnd(AppMain.A2S_AMA_ACM acm, float frame)
+    public static bool aoActIsAmaAcmMatEnd(A2S_AMA_ACM acm, float frame)
     {
         if (acm != null && acm.mat_key_tbl != null)
         {
@@ -3288,7 +3288,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C8 RID: 5832 RVA: 0x000C54E0 File Offset: 0x000C36E0
-    public static bool aoActIsAmaUsrEnd(AppMain.A2S_AMA_USR usr, float frame)
+    public static bool aoActIsAmaUsrEnd(A2S_AMA_USR usr, float frame)
     {
         if (usr != null && usr.usr_key_tbl != null)
         {
@@ -3305,7 +3305,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016C9 RID: 5833 RVA: 0x000C5507 File Offset: 0x000C3707
-    public static bool aoActIsAmaHitEnd(AppMain.A2S_AMA_HIT hit, float frame)
+    public static bool aoActIsAmaHitEnd(A2S_AMA_HIT hit, float frame)
     {
         if (hit != null && hit.hit_key_tbl != null)
         {
@@ -3322,9 +3322,9 @@ public partial class AppMain
     }
 
     // Token: 0x060016CA RID: 5834 RVA: 0x000C5530 File Offset: 0x000C3730
-    public static AppMain.A2S_AMA_ACT aoActGetAmaAct(AppMain.AOS_ACTION act)
+    public static A2S_AMA_ACT aoActGetAmaAct(AppMain.AOS_ACTION act)
     {
-        AppMain.A2S_AMA_ACT result = null;
+        A2S_AMA_ACT result = null;
         if (act == null)
         {
             return null;
@@ -3332,10 +3332,10 @@ public partial class AppMain
         switch (act.type)
         {
             case AppMain.AOE_ACT_TYPE.AOD_ACT_TYPE_ACTION:
-                result = (AppMain.A2S_AMA_ACT)act.data;
+                result = (A2S_AMA_ACT)act.data;
                 break;
             case AppMain.AOE_ACT_TYPE.AOD_ACT_TYPE_NODE:
-                result = ((AppMain.A2S_AMA_NODE)act.data).act;
+                result = ((A2S_AMA_NODE)act.data).act;
                 break;
         }
         return result;
@@ -3348,7 +3348,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016CC RID: 5836 RVA: 0x000C558C File Offset: 0x000C378C
-    public static AppMain.AOS_ACT_COL aoActInterpolCol(AppMain.A2S_SUB_COL d1, AppMain.A2S_SUB_COL d2, float rate)
+    public static AppMain.AOS_ACT_COL aoActInterpolCol(A2S_SUB_COL d1, A2S_SUB_COL d2, float rate)
     {
         AppMain.AOS_ACT_COL result = default(AppMain.AOS_ACT_COL);
         int num = (int)(255f * rate);

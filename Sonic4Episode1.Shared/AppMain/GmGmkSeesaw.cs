@@ -51,7 +51,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000344 RID: 836
-    public class GMS_GMK_SEESAW_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SEESAW_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060025C1 RID: 9665 RVA: 0x0014E2E9 File Offset: 0x0014C4E9
         public GMS_GMK_SEESAW_WORK()
@@ -60,13 +60,13 @@ public partial class AppMain
         }
 
         // Token: 0x060025C2 RID: 9666 RVA: 0x0014E2FD File Offset: 0x0014C4FD
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x060025C3 RID: 9667 RVA: 0x0014E30F File Offset: 0x0014C50F
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_SEESAW_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_SEESAW_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -114,11 +114,11 @@ public partial class AppMain
         public int player_speed;
 
         // Token: 0x04005EB6 RID: 24246
-        public AppMain.GMS_PLAYER_WORK ply_work;
+        public GMS_PLAYER_WORK ply_work;
     }
 
     // Token: 0x02000345 RID: 837
-    public class GMS_GMK_SEESAWPARTS_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SEESAWPARTS_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060025C5 RID: 9669 RVA: 0x0014E329 File Offset: 0x0014C529
         public GMS_GMK_SEESAWPARTS_WORK()
@@ -127,13 +127,13 @@ public partial class AppMain
         }
 
         // Token: 0x060025C6 RID: 9670 RVA: 0x0014E33D File Offset: 0x0014C53D
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
 
         // Token: 0x060025C7 RID: 9671 RVA: 0x0014E34F File Offset: 0x0014C54F
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_SEESAWPARTS_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_SEESAWPARTS_WORK work )
         {
             return work.eff_work.efct_com.obj_work;
         }
@@ -143,7 +143,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017A5 RID: 6053 RVA: 0x000D1484 File Offset: 0x000CF684
-    private static AppMain.OBS_OBJECT_WORK GmGmkSeesaw0Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSeesaw0Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = AppMain.gmGmkSeesawInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SEESAW_WORK.tilt = 0;
@@ -152,7 +152,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017A6 RID: 6054 RVA: 0x000D14C8 File Offset: 0x000CF6C8
-    private static AppMain.OBS_OBJECT_WORK GmGmkSeesaw30Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSeesaw30Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = AppMain.gmGmkSeesawInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SEESAW_WORK.tilt = 4608;
@@ -161,7 +161,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017A7 RID: 6055 RVA: 0x000D1510 File Offset: 0x000CF710
-    private static AppMain.OBS_OBJECT_WORK GmGmkSeesaw330Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSeesaw330Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = AppMain.gmGmkSeesawInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SEESAW_WORK.tilt = -4608;
@@ -183,7 +183,7 @@ public partial class AppMain
     // Token: 0x060017A9 RID: 6057 RVA: 0x000D15A0 File Offset: 0x000CF7A0
     public static void GmGmkSeesawFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(876);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(876);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_seesaw_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
@@ -203,7 +203,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017AB RID: 6059 RVA: 0x000D161C File Offset: 0x000CF81C
-    private static void gmGmkSeesawStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSeesawStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = (AppMain.GMS_GMK_SEESAW_WORK)obj_work;
         gms_GMK_SEESAW_WORK.gmk_work.ene_com.rect_work[1].flag &= 4294967291U;
@@ -239,10 +239,10 @@ public partial class AppMain
     }
 
     // Token: 0x060017AC RID: 6060 RVA: 0x000D1788 File Offset: 0x000CF988
-    private static void gmGmkSeesawStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSeesawStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = (AppMain.GMS_GMK_SEESAW_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( AppMain.lock_seesaw_id == gms_GMK_SEESAW_WORK.seesaw_id )
         {
             gms_GMK_SEESAW_WORK.tilt = AppMain.seesaw_tilt[( int )gms_GMK_SEESAW_WORK.seesaw_id];
@@ -387,10 +387,10 @@ public partial class AppMain
     }
 
     // Token: 0x060017AD RID: 6061 RVA: 0x000D1C9C File Offset: 0x000CFE9C
-    private static void gmGmkSeesaw_PlayerHold( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSeesaw_PlayerHold( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = (AppMain.GMS_GMK_SEESAW_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK ply_work = gms_GMK_SEESAW_WORK.ply_work;
+        GMS_PLAYER_WORK ply_work = gms_GMK_SEESAW_WORK.ply_work;
         if ( AppMain.control_right != null )
         {
             if ( ( AppMain.control_right.gmk_work.ene_com.obj_work.pos.x >= obj_work.pos.x && ply_work.obj_work.spd.x >= 0 ) || ( AppMain.control_right.gmk_work.ene_com.obj_work.pos.x <= obj_work.pos.x && ply_work.obj_work.spd.x <= 0 ) )
@@ -415,10 +415,10 @@ public partial class AppMain
     }
 
     // Token: 0x060017AE RID: 6062 RVA: 0x000D1DDC File Offset: 0x000CFFDC
-    private static void gmGmkSeesaw_PlayerHold_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSeesaw_PlayerHold_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = (AppMain.GMS_GMK_SEESAW_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK ply_work = gms_GMK_SEESAW_WORK.ply_work;
+        GMS_PLAYER_WORK ply_work = gms_GMK_SEESAW_WORK.ply_work;
         AppMain.lock_seesaw_id = 0;
         if ( ply_work.seq_state != 44 || AppMain.control_right != gms_GMK_SEESAW_WORK || ( ply_work.obj_work.move_flag & 256U ) != 0U )
         {
@@ -435,7 +435,7 @@ public partial class AppMain
         AppMain.lock_seesaw_id = gms_GMK_SEESAW_WORK.seesaw_id;
         gms_GMK_SEESAW_WORK.tilt_timer = 60;
         AppMain.control_right = gms_GMK_SEESAW_WORK;
-        int num = AppMain.GmPlayerKeyGetGimmickRotZ(gms_GMK_SEESAW_WORK.ply_work);
+        int num = GmPlayer.KeyGetGimmickRotZ(gms_GMK_SEESAW_WORK.ply_work);
         if ( num > 256 )
         {
             num = 256;
@@ -451,7 +451,7 @@ public partial class AppMain
             gms_GMK_SEESAW_WORK2.tilt += gms_GMK_SEESAW_WORK.tilt_d;
             if ( gms_GMK_SEESAW_WORK.tilt_se_timer == 0 )
             {
-                AppMain.GmSoundPlaySE( "Seesaw" );
+                GmSound.PlaySE( "Seesaw" );
                 gms_GMK_SEESAW_WORK.tilt_se_timer = 8;
             }
             AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK3 = gms_GMK_SEESAW_WORK;
@@ -531,8 +531,8 @@ public partial class AppMain
     // Token: 0x060017AF RID: 6063 RVA: 0x000D21F4 File Offset: 0x000D03F4
     private static void gmGmkSeesaw_CreateParts( AppMain.GMS_GMK_SEESAW_WORK pwork )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)pwork;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_SEESAWPARTS_WORK(), null, 0, "Gmk_SeesawParts");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)pwork;
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_SEESAWPARTS_WORK(), null, 0, "Gmk_SeesawParts");
         AppMain.GMS_GMK_SEESAWPARTS_WORK gms_GMK_SEESAWPARTS_WORK = (AppMain.GMS_GMK_SEESAWPARTS_WORK)obs_OBJECT_WORK2;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK2, AppMain.gm_gmk_seesaw_obj_3d_list[1], gms_GMK_SEESAWPARTS_WORK.eff_work.obj_3d );
         obs_OBJECT_WORK2.parent_obj = obs_OBJECT_WORK;
@@ -551,7 +551,7 @@ public partial class AppMain
     {
         AppMain.UNREFERENCED_PARAMETER( type );
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = (AppMain.GMS_GMK_SEESAW_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_SEESAW_WORK(), "Gmk_Seesaw");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_SEESAW_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_SEESAW_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_SEESAW_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_seesaw_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -4096;

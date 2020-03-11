@@ -64,16 +64,16 @@ public partial class AppMain
         public uint fFlag;
 
         // Token: 0x04004A9F RID: 19103
-        public AppMain.NNS_RGBA Ambient;
+        public NNS_RGBA Ambient;
 
         // Token: 0x04004AA0 RID: 19104
-        public AppMain.NNS_RGBA Diffuse;
+        public NNS_RGBA Diffuse;
 
         // Token: 0x04004AA1 RID: 19105
-        public AppMain.NNS_RGBA Specular;
+        public NNS_RGBA Specular;
 
         // Token: 0x04004AA2 RID: 19106
-        public AppMain.NNS_RGBA Emission;
+        public NNS_RGBA Emission;
 
         // Token: 0x04004AA3 RID: 19107
         public float Shininess;
@@ -118,7 +118,7 @@ public partial class AppMain
         public ushort DstFactorA;
 
         // Token: 0x04004AAA RID: 19114
-        public AppMain.NNS_RGBA BlendColor;
+        public NNS_RGBA BlendColor;
 
         // Token: 0x04004AAB RID: 19115
         public ushort BlendOp;
@@ -312,13 +312,13 @@ public partial class AppMain
         public AppMain.NNS_TEXTURE_COMBINE pCombine;
 
         // Token: 0x04004ACA RID: 19146
-        public AppMain.NNS_RGBA EnvColor;
+        public NNS_RGBA EnvColor;
 
         // Token: 0x04004ACB RID: 19147
-        public AppMain.NNS_TEXCOORD Offset;
+        public NNS_TEXCOORD Offset;
 
         // Token: 0x04004ACC RID: 19148
-        public AppMain.NNS_TEXCOORD Scale;
+        public NNS_TEXCOORD Scale;
 
         // Token: 0x04004ACD RID: 19149
         public int WrapS;
@@ -327,7 +327,7 @@ public partial class AppMain
         public int WrapT;
 
         // Token: 0x04004ACF RID: 19151
-        public AppMain.NNS_RGBA? pBorderColor = default(AppMain.NNS_RGBA?);
+        public NNS_RGBA? pBorderColor = default(NNS_RGBA?);
 
         // Token: 0x04004AD0 RID: 19152
         public AppMain.NNS_TEXTURE_FILTERMODE pFilterMode;
@@ -487,16 +487,16 @@ public partial class AppMain
         public uint fFlag;
 
         // Token: 0x04004ADD RID: 19165
-        public AppMain.NNS_RGBA Ambient;
+        public NNS_RGBA Ambient;
 
         // Token: 0x04004ADE RID: 19166
-        public AppMain.NNS_RGBA Diffuse;
+        public NNS_RGBA Diffuse;
 
         // Token: 0x04004ADF RID: 19167
-        public AppMain.NNS_RGBA Specular;
+        public NNS_RGBA Specular;
 
         // Token: 0x04004AE0 RID: 19168
-        public AppMain.NNS_RGBA Emission;
+        public NNS_RGBA Emission;
 
         // Token: 0x04004AE1 RID: 19169
         public float Shininess;
@@ -551,10 +551,10 @@ public partial class AppMain
         public float Blend;
 
         // Token: 0x04004AE7 RID: 19175
-        public AppMain.NNS_TEXCOORD Offset;
+        public NNS_TEXCOORD Offset;
 
         // Token: 0x04004AE8 RID: 19176
-        public AppMain.NNS_TEXCOORD Scale;
+        public NNS_TEXCOORD Scale;
 
         // Token: 0x04004AE9 RID: 19177
         public int WrapS;
@@ -563,7 +563,7 @@ public partial class AppMain
         public int WrapT;
 
         // Token: 0x04004AEB RID: 19179
-        public AppMain.NNS_RGBA? pBorderColor = default(AppMain.NNS_RGBA?);
+        public NNS_RGBA? pBorderColor = default(NNS_RGBA?);
 
         // Token: 0x04004AEC RID: 19180
         public AppMain.NNS_TEXTURE_FILTERMODE pFilterMode;
@@ -664,7 +664,7 @@ public partial class AppMain
 
 
     // Token: 0x020000B8 RID: 184
-    private class nnmaterialcore
+    public class nnmaterialcore
     {
         // Token: 0x04004B38 RID: 19256
         public static uint nngPreMatFlag = uint.MaxValue;
@@ -697,7 +697,7 @@ public partial class AppMain
         public int mode;
 
         // Token: 0x04004C0B RID: 19467
-        public readonly AppMain.NNS_RGB col = new AppMain.NNS_RGB();
+        public readonly NNS_RGB col = new NNS_RGB();
     }
 
     // Token: 0x020000FC RID: 252
@@ -742,7 +742,7 @@ public partial class AppMain
         public int mode;
 
         // Token: 0x04004C0F RID: 19471
-        public AppMain.NNS_TEXCOORD offset = default(AppMain.NNS_TEXCOORD);
+        public NNS_TEXCOORD offset = default(NNS_TEXCOORD);
     }
 
     // Token: 0x020000FE RID: 254
@@ -754,7 +754,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001FAE RID: 8110 RVA: 0x0013D001 File Offset: 0x0013B201
-        public NNS_MATCTRL_ENVTEXMATRIX( int _texcoordsrc, AppMain.NNS_MATRIX _texmtx )
+        public NNS_MATCTRL_ENVTEXMATRIX( int _texcoordsrc, NNS_MATRIX _texmtx )
         {
             this.texcoordsrc = _texcoordsrc;
             this.texmtx.Assign( _texmtx );
@@ -764,7 +764,7 @@ public partial class AppMain
         public int texcoordsrc;
 
         // Token: 0x04004C11 RID: 19473
-        public readonly AppMain.NNS_MATRIX texmtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX texmtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
     }
 
     // Token: 0x020000FF RID: 255
@@ -790,7 +790,7 @@ public partial class AppMain
     public delegate int NNS_MATERIALCALLBACK_FUNC( AppMain.NNS_DRAWCALLBACK_VAL val );
 
     // Token: 0x020001A6 RID: 422
-    private enum NNE_TEXTURETYPE_GL
+    public enum NNE_TEXTURETYPE_GL
     {
         // Token: 0x04004F77 RID: 20343
         NNE_TEXTURETYPE_NORMAL,
@@ -837,7 +837,7 @@ public partial class AppMain
     }
 
     // Token: 0x020001A7 RID: 423
-    private enum NNE_SHADOWMAP
+    public enum NNE_SHADOWMAP
     {
         // Token: 0x04004F8D RID: 20365
         NNE_SHADOWMAP_1,
@@ -848,7 +848,7 @@ public partial class AppMain
     }
 
     // Token: 0x020001A8 RID: 424
-    private enum NNE_USER_SAMPLER
+    public enum NNE_USER_SAMPLER
     {
         // Token: 0x04004F91 RID: 20369
         NNE_USER_SAMPLER_2D_1,
@@ -867,33 +867,33 @@ public partial class AppMain
     }
 
     // Token: 0x020001A9 RID: 425
-    private struct NNS_MATCTRL_TEXLODBIAS
+    public struct NNS_MATCTRL_TEXLODBIAS
     {
         // Token: 0x04004F98 RID: 20376
-        private int mode;
+        public int mode;
 
         // Token: 0x04004F99 RID: 20377
-        private float bias;
+        public float bias;
     }
 
     // Token: 0x020001AA RID: 426
-    private class NNS_MATCTRL_SHADOWMAP
+    public class NNS_MATCTRL_SHADOWMAP
     {
         // Token: 0x04004F9A RID: 20378
-        private uint texname;
+        public uint texname;
 
         // Token: 0x04004F9B RID: 20379
-        private AppMain.NNS_MATRIX mtx;
+        public NNS_MATRIX mtx;
 
         // Token: 0x04004F9C RID: 20380
-        private AppMain.NNS_RGB col;
+        public NNS_RGB col;
     }
 
     // Token: 0x020001AB RID: 427
-    private struct NNS_MATCTRL_USERSAMPLER
+    public struct NNS_MATCTRL_USERSAMPLER
     {
         // Token: 0x04004F9D RID: 20381
-        private uint texname;
+        public uint texname;
     }
 
     // Token: 0x020001E0 RID: 480

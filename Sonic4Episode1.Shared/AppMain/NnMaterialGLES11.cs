@@ -162,7 +162,7 @@ public partial class AppMain
         public ushort Operand2Alpha;
 
         // Token: 0x04004B0F RID: 19215
-        public AppMain.NNS_RGBA EnvColor;
+        public NNS_RGBA EnvColor;
     }
 
     // Token: 0x020000B1 RID: 177
@@ -254,10 +254,10 @@ public partial class AppMain
         public AppMain.NNS_TEXTURE_GLES11_COMBINE pCombine;
 
         // Token: 0x04004B14 RID: 19220
-        public AppMain.NNS_TEXCOORD Offset;
+        public NNS_TEXCOORD Offset;
 
         // Token: 0x04004B15 RID: 19221
-        public AppMain.NNS_TEXCOORD Scale;
+        public NNS_TEXCOORD Scale;
 
         // Token: 0x04004B16 RID: 19222
         public int WrapS;

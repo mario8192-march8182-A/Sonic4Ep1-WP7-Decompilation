@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x06001942 RID: 6466 RVA: 0x000E455C File Offset: 0x000E275C
-    private static bool ObjLoadInitDraw()
+    public static bool ObjLoadInitDraw()
     {
         AppMain.OBS_LOAD_INITIAL_WORK obs_LOAD_INITIAL_WORK = AppMain.obj_load_initial_work;
         for ( int i = 0; i < obs_LOAD_INITIAL_WORK.obj_num; i++ )
@@ -24,21 +24,21 @@ public partial class AppMain
     }
 
     // Token: 0x06001943 RID: 6467 RVA: 0x000E45FC File Offset: 0x000E27FC
-    private static void ObjLoadClearDraw()
+    public static void ObjLoadClearDraw()
     {
         AppMain.obj_load_initial_work.obj_num = 0;
         AppMain.obj_load_initial_work.es_num = 0;
     }
 
     // Token: 0x06001944 RID: 6468 RVA: 0x000E4614 File Offset: 0x000E2814
-    private static void ObjLoadSetInitDrawFlag( bool flag )
+    public static void ObjLoadSetInitDrawFlag( bool flag )
     {
         AppMain.obj_load_initial_set_flag = flag;
         AppMain.ObjLoadClearDraw();
     }
 
     // Token: 0x06001945 RID: 6469 RVA: 0x000E4624 File Offset: 0x000E2824
-    private static object ObjDataLoadAmbIndex( AppMain.OBS_DATA_WORK data_work, int index, AppMain.AMS_AMB_HEADER amb )
+    public static object ObjDataLoadAmbIndex( AppMain.OBS_DATA_WORK data_work, int index, AMS_AMB_HEADER amb )
     {
         object obj = null;
         if ( data_work != null )
@@ -54,23 +54,23 @@ public partial class AppMain
                     else if ( amb.files[index].IndexOf( ".amb", StringComparison.OrdinalIgnoreCase) != -1 )
                     {
                         string dir;
-                        data_work.pData = AppMain.readAMBFile( AppMain.amBindGet( amb, index, out dir ) );
-                        ( ( AppMain.AMS_AMB_HEADER )data_work.pData ).dir = dir;
+                        data_work.pData = AmFs.readAMBFile( AmBind.Get( amb, index, out dir ) );
+                        ( ( AMS_AMB_HEADER )data_work.pData ).dir = dir;
                     }
                     else if ( amb.files[index].IndexOf( ".ame", StringComparison.OrdinalIgnoreCase ) != -1 )
                     {
                         string dir;
-                        data_work.pData = AppMain.readAMEfile( AppMain.amBindGet( amb, index, out dir ) );
+                        data_work.pData = AmAme.readAMEfile( AmBind.Get( amb, index, out dir ) );
                     }
                     else if ( amb.files[index].IndexOf( ".ama", StringComparison.OrdinalIgnoreCase) != -1 )
                     {
                         string dir;
-                        data_work.pData = AppMain.readAMAFile( AppMain.amBindGet( amb, index, out dir ) );
+                        data_work.pData = A2S.readAMAFile( AmBind.Get( amb, index, out dir ) );
                     }
                     else
                     {
                         string dir;
-                        data_work.pData = AppMain.amBindGet( amb, index, out dir );
+                        data_work.pData = AmBind.Get( amb, index, out dir );
                     }
                     amb.buf[index] = data_work.pData;
                     data_work.num = 32768;
@@ -92,23 +92,23 @@ public partial class AppMain
             else if ( amb.files[index].IndexOf( ".amb", StringComparison.OrdinalIgnoreCase) != -1 )
             {
                 string dir2;
-                obj = AppMain.readAMBFile( AppMain.amBindGet( amb, index, out dir2 ) );
-                ( ( AppMain.AMS_AMB_HEADER )obj ).dir = dir2;
+                obj = AmFs.readAMBFile( AmBind.Get( amb, index, out dir2 ) );
+                ( ( AMS_AMB_HEADER )obj ).dir = dir2;
             }
             else if ( amb.files[index].IndexOf( ".ame", StringComparison.OrdinalIgnoreCase) != -1 )
             {
                 string dir2;
-                obj = AppMain.readAMEfile( AppMain.amBindGet( amb, index, out dir2 ) );
+                obj = AmAme.readAMEfile( AmBind.Get( amb, index, out dir2 ) );
             }
             else if ( amb.files[index].IndexOf( ".ama", StringComparison.OrdinalIgnoreCase) != -1 )
             {
                 string dir2;
-                obj = AppMain.readAMAFile( AppMain.amBindGet( amb, index, out dir2 ) );
+                obj = A2S.readAMAFile( AmBind.Get( amb, index, out dir2 ) );
             }
             else
             {
                 string dir2;
-                obj = AppMain.amBindGet( amb, index, out dir2 );
+                obj = AmBind.Get( amb, index, out dir2 );
             }
             amb.buf[index] = obj;
         }
@@ -116,7 +116,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001946 RID: 6470 RVA: 0x000E47FE File Offset: 0x000E29FE
-    private static object ObjDataSet( AppMain.OBS_DATA_WORK pWork, object pData )
+    public static object ObjDataSet( AppMain.OBS_DATA_WORK pWork, object pData )
     {
         pWork.pData = pData;
         pWork.num += 1;
@@ -124,7 +124,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001947 RID: 6471 RVA: 0x000E481C File Offset: 0x000E2A1C
-    private static object ObjDataGetInc( AppMain.OBS_DATA_WORK pWork )
+    public static object ObjDataGetInc( AppMain.OBS_DATA_WORK pWork )
     {
         if ( pWork.pData != null )
         {
@@ -134,7 +134,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001948 RID: 6472 RVA: 0x000E483C File Offset: 0x000E2A3C
-    private static byte[] ObjDataLoad( AppMain.OBS_DATA_WORK data_work, string filename, object archive )
+    public static byte[] ObjDataLoad( AppMain.OBS_DATA_WORK data_work, string filename, object archive )
     {
         byte[] array = null;
         AppMain.sFile = filename;
@@ -144,7 +144,7 @@ public partial class AppMain
             {
                 if ( archive != null )
                 {
-                    AppMain.AmbChunk ambChunk = AppMain.amBindSearch((AppMain.AMS_AMB_HEADER)archive, AppMain.sFile);
+                    AmbChunk ambChunk = AmBind.Search((AMS_AMB_HEADER)archive, AppMain.sFile);
                     array = new byte[ambChunk.length];
                     Buffer.BlockCopy( ambChunk.array, ambChunk.offset, array, 0, ambChunk.length );
                     data_work.pData = array;
@@ -154,7 +154,7 @@ public partial class AppMain
                 else
                 {
                     byte[] pData;
-                    AppMain.amFsRead( AppMain.sFile, out pData );
+                    AmFs.amFsRead( AppMain.sFile, out pData );
                     data_work.pData = pData;
                     if ( data_work.pData != null )
                     {
@@ -170,19 +170,19 @@ public partial class AppMain
         }
         if ( archive != null )
         {
-            AppMain.AmbChunk ambChunk2 = AppMain.amBindSearch((AppMain.AMS_AMB_HEADER)archive, AppMain.sFile);
+            AmbChunk ambChunk2 = AmBind.Search((AMS_AMB_HEADER)archive, AppMain.sFile);
             array = new byte[ambChunk2.length];
             Buffer.BlockCopy( ambChunk2.array, ambChunk2.offset, array, 0, ambChunk2.length );
         }
         else
         {
-            AppMain.amFsRead( AppMain.sFile, out array );
+            AmFs.amFsRead( AppMain.sFile, out array );
         }
         return array;
     }
 
     // Token: 0x06001949 RID: 6473 RVA: 0x000E4950 File Offset: 0x000E2B50
-    private static void ObjDataRelease( AppMain.OBS_DATA_WORK pWork )
+    public static void ObjDataRelease( AppMain.OBS_DATA_WORK pWork )
     {
         if ( pWork.num != 0 && pWork.pData != null )
         {

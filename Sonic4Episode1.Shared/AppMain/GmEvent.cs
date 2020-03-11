@@ -125,7 +125,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001D50 RID: 7504 RVA: 0x001373B8 File Offset: 0x001355B8
-        public GMS_EVE_DATA_EV_HEADER( AppMain.AmbChunk data )
+        public GMS_EVE_DATA_EV_HEADER( AmbChunk data )
         {
             using ( MemoryStream memoryStream = new MemoryStream( data.array, data.offset, data.array.Length - data.offset ) )
             {
@@ -278,7 +278,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001D56 RID: 7510 RVA: 0x001379A8 File Offset: 0x00135BA8
-        public GMS_EVE_DATA_RG_HEADER( AppMain.AmbChunk data )
+        public GMS_EVE_DATA_RG_HEADER( AmbChunk data )
         {
             using ( MemoryStream memoryStream = new MemoryStream( data.array, data.offset, data.array.Length - data.offset ) )
             {
@@ -409,7 +409,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001D5C RID: 7516 RVA: 0x00137D98 File Offset: 0x00135F98
-        public GMS_EVE_DATA_DC_HEADER( AppMain.AmbChunk data )
+        public GMS_EVE_DATA_DC_HEADER( AmbChunk data )
         {
             using ( MemoryStream memoryStream = new MemoryStream( data.array, data.offset, data.array.Length - data.offset ) )
             {
@@ -580,7 +580,7 @@ public partial class AppMain
         {
             gms_EVE_MGR_WORK.sts_proc();
         }
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
         if ( obs_CAMERA != null )
         {
             gms_EVE_MGR_WORK.prev_pos[0] = obs_CAMERA.disp_pos.x;
@@ -637,7 +637,7 @@ public partial class AppMain
     // Token: 0x06000085 RID: 133 RVA: 0x00007738 File Offset: 0x00005938
     private static void gmEveMgrStateFuncSingleScr()
     {
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
         if ( obs_CAMERA != null && ( obs_CAMERA.disp_pos.x != AppMain.g_gm_eve_mgr_work.prev_pos[0] || obs_CAMERA.disp_pos.y != AppMain.g_gm_eve_mgr_work.prev_pos[1] ) )
         {
             AppMain.GmEveMgrCreateEventLcd( 3U );
@@ -757,13 +757,13 @@ public partial class AppMain
     // Token: 0x06000089 RID: 137 RVA: 0x00007CA0 File Offset: 0x00005EA0
     private static void GmEventDataBuild()
     {
-        AppMain.AMS_AMB_HEADER header = (AppMain.AMS_AMB_HEADER)AppMain.g_gm_gamedat_map[0];
-        object obj = AppMain.amBindGet(header, 6);
-        AppMain.gm_eve_data = new AppMain.GMS_EVE_DATA_EV_HEADER( ( AppMain.AmbChunk )obj );
-        obj = AppMain.amBindGet( header, 8 );
-        AppMain.gm_ring_data = new AppMain.GMS_EVE_DATA_RG_HEADER( ( AppMain.AmbChunk )obj );
-        obj = AppMain.amBindGet( header, 7 );
-        AppMain.gm_deco_data = new AppMain.GMS_EVE_DATA_DC_HEADER( ( AppMain.AmbChunk )obj );
+        AMS_AMB_HEADER header = (AMS_AMB_HEADER)AppMain.g_gm_gamedat_map[0];
+        object obj = AmBind.Get(header, 6);
+        AppMain.gm_eve_data = new AppMain.GMS_EVE_DATA_EV_HEADER( ( AmbChunk )obj );
+        obj = AmBind.Get( header, 8 );
+        AppMain.gm_ring_data = new AppMain.GMS_EVE_DATA_RG_HEADER( ( AmbChunk )obj );
+        obj = AmBind.Get( header, 7 );
+        AppMain.gm_deco_data = new AppMain.GMS_EVE_DATA_DC_HEADER( ( AmbChunk )obj );
     }
 
     // Token: 0x0600008A RID: 138 RVA: 0x00007D02 File Offset: 0x00005F02
@@ -853,9 +853,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600008E RID: 142 RVA: 0x00007F00 File Offset: 0x00006100
-    private static AppMain.OBS_OBJECT_WORK GmEventMgrLocalEventBirth( ushort id, int pos_x, int pos_y, ushort flag, sbyte left, sbyte top, byte width, byte height, byte type )
+    private static OBS_OBJECT_WORK GmEventMgrLocalEventBirth( ushort id, int pos_x, int pos_y, ushort flag, sbyte left, sbyte top, byte width, byte height, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = null;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = null;
         short num = AppMain.gmEventMgrLocalEventNoGet(0);
         if ( num != -1 )
         {
@@ -890,9 +890,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000090 RID: 144 RVA: 0x00008014 File Offset: 0x00006214
-    private static AppMain.OBS_OBJECT_WORK GmEventMgrLocalDecoBirth( ushort id, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEventMgrLocalDecoBirth( ushort id, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = null;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = null;
         short num = AppMain.gmEventMgrLocalEventNoGet(2);
         if ( num != -1 )
         {

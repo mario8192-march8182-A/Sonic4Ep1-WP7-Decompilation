@@ -116,7 +116,7 @@ public partial class AppMain
     public class TVX_FILE
     {
         // Token: 0x06002599 RID: 9625 RVA: 0x0014DB3C File Offset: 0x0014BD3C
-        public TVX_FILE( AppMain.AmbChunk data )
+        public TVX_FILE( AmbChunk data )
         {
             this.header = new AppMain.TVXS_HEADER( data.array, data.offset );
             this.textures = new AppMain.TVXS_TEXTURE[this.header.tex_num];

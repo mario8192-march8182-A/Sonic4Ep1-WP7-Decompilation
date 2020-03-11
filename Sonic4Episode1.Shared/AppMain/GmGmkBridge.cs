@@ -15,14 +15,14 @@ public partial class AppMain
     // Token: 0x060008DB RID: 2267 RVA: 0x00050594 File Offset: 0x0004E794
     public static void GmGmkBridgeFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(878));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(878));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_bridge_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060008DC RID: 2268 RVA: 0x000505D0 File Offset: 0x0004E7D0
-    public static AppMain.OBS_OBJECT_WORK GmGmkBridgeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkBridgeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_BRIDGE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_BRIDGE");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_bridge_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         if ( ( eve_rec.flag & 1 ) != 0 )
@@ -49,7 +49,7 @@ public partial class AppMain
         col_work.obj_col.ofst_x = -96;
         col_work.obj_col.ofst_y = 0;
         col_work.obj_col.attr = 1;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_SPILE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_SPILE");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK2;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK2, AppMain.gm_gmk_bridge_obj_3d_list[2], gms_EFFECT_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK2.user_work = obs_OBJECT_WORK.user_work;
@@ -62,9 +62,9 @@ public partial class AppMain
     }
 
     // Token: 0x060008DD RID: 2269 RVA: 0x000507D8 File Offset: 0x0004E9D8
-    public static void gmGmkBridgeMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkBridgeMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if ( gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.rider_obj == gms_PLAYER_WORK.obj_work )
         {
@@ -94,7 +94,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008DE RID: 2270 RVA: 0x00050904 File Offset: 0x0004EB04
-    public static void gmGmkBridgeDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkBridgeDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         int num = (int)(obj_work.user_work * 53248U * 5U);
@@ -114,7 +114,7 @@ public partial class AppMain
         vecFx.x = obj_work.pos.x + obj_work.ofst.x;
         vecFx.y = -( obj_work.pos.y + obj_work.ofst.y );
         vecFx.z = obj_work.pos.z + obj_work.ofst.z;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX );
         AppMain.nnTranslateMatrix( nns_MATRIX, nns_MATRIX, AppMain.FX_FX32_TO_F32( vecFx.x ), AppMain.FX_FX32_TO_F32( vecFx.y ), AppMain.FX_FX32_TO_F32( vecFx.z ) );
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
@@ -183,11 +183,11 @@ public partial class AppMain
         AppMain.ObjDraw3DNNDrawPrimitive( ams_PARAM_DRAW_PRIMITIVE );
         AppMain.amMatrixPop();
         AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX );
+        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x060008DF RID: 2271 RVA: 0x00050EB8 File Offset: 0x0004F0B8
-    public static void gmGmkBridgeDecoDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkBridgeDecoDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         obj_work.scale.x = -AppMain.MTM_MATH_ABS( obj_work.scale.x );
         obj_work.ofst.x = -393216;

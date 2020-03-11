@@ -46,7 +46,7 @@ public partial class AppMain
     public class DMS_LOADING_MAIN_WORK
     {
         // Token: 0x04005038 RID: 20536
-        public AppMain.AMS_FS arc_amb;
+        public AMS_FS arc_amb;
 
         // Token: 0x04005039 RID: 20537
         public byte[] ama;
@@ -113,7 +113,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009BB RID: 2491 RVA: 0x00057148 File Offset: 0x00055348
-    private static void DmLoadingBuild( AppMain.AMS_FS arc_amb )
+    private static void DmLoadingBuild( AMS_FS arc_amb )
     {
         AppMain.dm_loading_mgr_p = new AppMain.DMS_LOADING_MGR();
         AppMain.dm_loading_tex = new AppMain.AOS_TEXTURE[1];
@@ -124,9 +124,9 @@ public partial class AppMain
         for ( int i = 0; i < 1; i++ )
         {
             string dir = null;
-            AppMain.dm_loading_ama[i] = AppMain.readAMAFile( AppMain.amBindGet( arc_amb, 0, out dir ) );
+            AppMain.dm_loading_ama[i] = A2S.readAMAFile( AmBind.Get( arc_amb, 0, out dir ) );
             dir = null;
-            AppMain.dm_loading_amb[i] = AppMain.readAMBFile( AppMain.amBindGet( arc_amb, 1, out dir ) );
+            AppMain.dm_loading_amb[i] = AmFs.readAMBFile( AmBind.Get( arc_amb, 1, out dir ) );
             AppMain.dm_loading_amb[i].dir = dir;
         }
         for ( int i = 0; i < 1; i++ )
@@ -260,7 +260,7 @@ public partial class AppMain
     {
         for ( uint num = 0U; num < 8U; num += 1U )
         {
-            AppMain.A2S_AMA_HEADER ama = AppMain.dm_loading_ama[0];
+            A2S_AMA_HEADER ama = AppMain.dm_loading_ama[0];
             AppMain.AOS_TEXTURE tex = AppMain.dm_loading_tex[0];
             AppMain.AoActSetTexture( AppMain.AoTexGetTexList( tex ) );
             main_work.act[( int )( ( UIntPtr )num )] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_loading[( int )( ( UIntPtr )num )] );

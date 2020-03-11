@@ -24,22 +24,22 @@ public partial class AppMain
     }
 
     // Token: 0x0200039E RID: 926
-    public class DMS_TITLEOP_OBJ_3DNN_WORK : AppMain.IOBS_OBJECT_WORK
+    public class DMS_TITLEOP_OBJ_3DNN_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060026EC RID: 9964 RVA: 0x00150D44 File Offset: 0x0014EF44
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x060026ED RID: 9965 RVA: 0x00150D4C File Offset: 0x0014EF4C
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.DMS_TITLEOP_OBJ_3DNN_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.DMS_TITLEOP_OBJ_3DNN_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x060026EE RID: 9966 RVA: 0x00150D54 File Offset: 0x0014EF54
-        public static explicit operator AppMain.DMS_TITLEOP_OBJ_3DNN_WORK( AppMain.OBS_OBJECT_WORK work )
+        public static explicit operator AppMain.DMS_TITLEOP_OBJ_3DNN_WORK( OBS_OBJECT_WORK work )
         {
             return ( AppMain.DMS_TITLEOP_OBJ_3DNN_WORK )work.holder;
         }
@@ -47,11 +47,11 @@ public partial class AppMain
         // Token: 0x060026EF RID: 9967 RVA: 0x00150D61 File Offset: 0x0014EF61
         public DMS_TITLEOP_OBJ_3DNN_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x04006139 RID: 24889
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x0400613A RID: 24890
         public AppMain.OBS_ACTION3D_NN_WORK obj_3d = new AppMain.OBS_ACTION3D_NN_WORK();
@@ -86,7 +86,7 @@ public partial class AppMain
         public uint flag;
 
         // Token: 0x04006140 RID: 24896
-        public AppMain.OBS_OBJECT_WORK[] obj_work = new AppMain.OBS_OBJECT_WORK[5];
+        public OBS_OBJECT_WORK[] obj_work = new OBS_OBJECT_WORK[5];
 
         // Token: 0x04006141 RID: 24897
         public AppMain.AOS_ACTION[] act = new AppMain.AOS_ACTION[7];
@@ -118,11 +118,11 @@ public partial class AppMain
     // Token: 0x060018BA RID: 6330 RVA: 0x000E1A90 File Offset: 0x000DFC90
     private void DmTitleOpBuild()
     {
-        AppMain.AMS_AMB_HEADER[] array = new AppMain.AMS_AMB_HEADER[1];
+        AMS_AMB_HEADER[] array = new AMS_AMB_HEADER[1];
         AppMain.dm_titleop_build_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmTitleOpDataBuildMain, this.dmTitleOpDataBuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_BUILD" );
         AppMain.dm_titleop_aos_tex = AppMain.New<AppMain.AOS_TEXTURE>( 1 );
         string dir = null;
-        array[0] = AppMain.readAMBFile( AppMain.amBindGet( AppMain.dm_titleop_data[1], 1, out dir ) );
+        array[0] = AmFs.readAMBFile( AmBind.Get( AppMain.dm_titleop_data[1], 1, out dir ) );
         array[0].dir = dir;
         AppMain.AOS_TEXTURE[] array2 = AppMain.dm_titleop_aos_tex;
         for ( int i = 0; i < 1; i++ )
@@ -140,8 +140,8 @@ public partial class AppMain
         AppMain.ObjDrawSetNNCommandStateTbl( 5U, 5U, true );
         AppMain.AoActSysClearPeak();
         AppMain.GmGameDBuildModelBuildInit();
-        this.dm_titleop_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[0], ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[1], 0U );
-        this.dm_titleop_water_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[3], ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[1], 0U );
+        this.dm_titleop_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[0], ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[1], 0U );
+        this.dm_titleop_water_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[3], ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[1], 0U );
     }
 
     // Token: 0x060018BB RID: 6331 RVA: 0x000E1BD5 File Offset: 0x000DFDD5
@@ -160,9 +160,9 @@ public partial class AppMain
             AppMain.AoTexRelease( array[i] );
         }
         AppMain.GmGameDBuildModelFlushInit();
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = (AppMain.AMS_AMB_HEADER)AppMain.dm_titleop_mapfar_data[0];
+        AMS_AMB_HEADER ams_AMB_HEADER = (AMS_AMB_HEADER)AppMain.dm_titleop_mapfar_data[0];
         AppMain.GmGameDBuildRegFlushModel( this.dm_titleop_obj_3d_list, ams_AMB_HEADER.file_num );
-        ams_AMB_HEADER = ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[3];
+        ams_AMB_HEADER = ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[3];
         AppMain.GmGameDBuildRegFlushModel( this.dm_titleop_water_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
@@ -194,10 +194,10 @@ public partial class AppMain
     // Token: 0x060018C0 RID: 6336 RVA: 0x000E1CDC File Offset: 0x000DFEDC
     private void DmTitleOpInit()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.Clear();
-        AppMain.NNS_VECTOR pos = new AppMain.NNS_VECTOR(0f, 0f, 50f);
+        NNS_VECTOR pos = new NNS_VECTOR(0f, 0f, 50f);
         AppMain.g_obj.flag = 4259848U;
         AppMain.g_obj.ppPre = null;
         AppMain.g_obj.ppPost = null;
@@ -216,18 +216,18 @@ public partial class AppMain
         nns_VECTOR.z = -1f;
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_0, ref nns_RGBA, 1f, nns_VECTOR );
-        AppMain.ObjCameraInit( 0, pos, 0, 0, 12288 );
-        AppMain.ObjCamera3dInit( 0 );
+        ObjCamera.Init( 0, pos, 0, 0, 12288 );
+        ObjCamera.Init3d( 0 );
         AppMain.g_obj.glb_camera_id = 0;
         AppMain.g_obj.glb_camera_type = 0;
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         obs_CAMERA.user_func = this.dmTitleOpCamera;
         obs_CAMERA.command_state = 0U;
         obs_CAMERA.fovy = AppMain.NNM_DEGtoA32( 40f );
         obs_CAMERA.znear = 0.1f;
         obs_CAMERA.zfar = 32768f;
         this.dmTitleOpMgrInit();
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x060018C1 RID: 6337 RVA: 0x000E1F0C File Offset: 0x000E010C
@@ -351,12 +351,12 @@ public partial class AppMain
     private static void dmTitleOpLoadPostFuncMapFar( AppMain.DMS_LOGO_COM_LOAD_CONTEXT context )
     {
         AppMain.dm_titleop_data[context.no] = context.fs_req;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.dm_titleop_data[context.no]);
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.dm_titleop_data[context.no]);
         for ( int i = 0; i < ams_AMB_HEADER.file_num; i++ )
         {
             string dir;
-            AppMain.AmbChunk buf = AppMain.amBindGet(ams_AMB_HEADER, i, out dir);
-            AppMain.AMS_AMB_HEADER ams_AMB_HEADER2 = AppMain.readAMBFile(buf);
+            AmbChunk buf = AmBind.Get(ams_AMB_HEADER, i, out dir);
+            AMS_AMB_HEADER ams_AMB_HEADER2 = AmFs.readAMBFile(buf);
             ams_AMB_HEADER2.dir = dir;
             AppMain.dm_titleop_mapfar_data[i] = ams_AMB_HEADER2;
         }
@@ -498,27 +498,27 @@ public partial class AppMain
     private void dmTitleOpCreateObjFarSky()
     {
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK dms_TITLEOP_OBJ_3DNN_WORK = this.DMM_TITLEOP_CREATE_3D_OBJ(24576, 0, () => new AppMain.DMS_TITLEOP_OBJ_3DNN_WORK(), "DM_TOP_SKYT");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)dms_TITLEOP_OBJ_3DNN_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)dms_TITLEOP_OBJ_3DNN_WORK;
         obs_OBJECT_WORK.obj_type = 1;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, this.dm_titleop_obj_3d_list[0], dms_TITLEOP_OBJ_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK.obj_3d.command_state = 3U;
-        AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
+        AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 0, ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.disp_flag |= 13697028U;
         obs_OBJECT_WORK.ppFunc = this.dmTitleOpFarSkyFunc;
         dms_TITLEOP_OBJ_3DNN_WORK = this.DMM_TITLEOP_CREATE_3D_OBJ( 16384, 0, () => new AppMain.DMS_TITLEOP_OBJ_3DNN_WORK(), "DM_TOP_SKYB" );
-        obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )dms_TITLEOP_OBJ_3DNN_WORK;
+        obs_OBJECT_WORK = ( OBS_OBJECT_WORK )dms_TITLEOP_OBJ_3DNN_WORK;
         obs_OBJECT_WORK.obj_type = 1;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, this.dm_titleop_obj_3d_list[0], dms_TITLEOP_OBJ_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK.obj_3d.command_state = 1U;
-        AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
+        AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 0, ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.disp_flag |= 13697028U;
         obs_OBJECT_WORK.ppFunc = this.dmTitleOpFarSkyFunc;
     }
 
     // Token: 0x060018D1 RID: 6353 RVA: 0x000E2664 File Offset: 0x000E0864
-    private void dmTitleOpFarSkyFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmTitleOpFarSkyFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK dms_TITLEOP_OBJ_3DNN_WORK = (AppMain.DMS_TITLEOP_OBJ_3DNN_WORK)obj_work;
         dms_TITLEOP_OBJ_3DNN_WORK.sky_rot += 0.01f;
@@ -534,7 +534,7 @@ public partial class AppMain
     private void dmTitleOpCreateObjFarRock( uint type )
     {
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK dms_TITLEOP_OBJ_3DNN_WORK = this.DMM_TITLEOP_CREATE_3D_OBJ(24832, 0, () => new AppMain.DMS_TITLEOP_OBJ_3DNN_WORK(), "DM_TOP_ROCKT");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)dms_TITLEOP_OBJ_3DNN_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)dms_TITLEOP_OBJ_3DNN_WORK;
         obs_OBJECT_WORK.obj_type = 1;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, this.dm_titleop_obj_3d_list[( int )( ( UIntPtr )( 1U + type ) )], dms_TITLEOP_OBJ_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK.obj_3d.command_state = 3U;
@@ -549,11 +549,11 @@ public partial class AppMain
     private void dmTitleOpCreateObjFarSea()
     {
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK dms_TITLEOP_OBJ_3DNN_WORK = this.DMM_TITLEOP_CREATE_3D_OBJ(20480, 0, () => new AppMain.DMS_TITLEOP_OBJ_3DNN_WORK(), "DM_TOP_SEA");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)dms_TITLEOP_OBJ_3DNN_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)dms_TITLEOP_OBJ_3DNN_WORK;
         obs_OBJECT_WORK.obj_type = 1;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, this.dm_titleop_water_obj_3d_list[0], dms_TITLEOP_OBJ_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK.obj_3d.command_state = 2U;
-        AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 1, ( AppMain.AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
+        AppMain.ObjAction3dNNMaterialMotionLoad( dms_TITLEOP_OBJ_3DNN_WORK.obj_3d, 0, null, null, 1, ( AMS_AMB_HEADER )AppMain.dm_titleop_mapfar_data[2] );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.obj_3d.mat_speed = 0.2f;
         obs_OBJECT_WORK.dir.y = 49152;
@@ -563,7 +563,7 @@ public partial class AppMain
     // Token: 0x060018D4 RID: 6356 RVA: 0x000E2870 File Offset: 0x000E0A70
     private AppMain.DMS_TITLEOP_OBJ_3DNN_WORK dmTitleOpCreate3DObj( ushort prio, byte group, AppMain.TaskWorkFactoryDelegate work_size )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, group, 0, 0, work_size, null);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, group, 0, 0, work_size, null);
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK result = (AppMain.DMS_TITLEOP_OBJ_3DNN_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.ppOut = this.dmTitleOpObjDraw;
         obs_OBJECT_WORK.ppOutSub = null;
@@ -580,7 +580,7 @@ public partial class AppMain
     private void dmTitleOpCreateAction( AppMain.DMS_TITLEOP_MGR_WORK top_mgr_work )
     {
         string text = null;
-        AppMain.A2S_AMA_HEADER ama = AppMain.readAMAFile(AppMain.amBindGet(AppMain.dm_titleop_data[1], 0, out text));
+        A2S_AMA_HEADER ama = A2S.readAMAFile(AmBind.Get(AppMain.dm_titleop_data[1], 0, out text));
         for ( uint num = 0U; num < 7U; num += 1U )
         {
             AppMain.AoActSetTexture( AppMain.AoTexGetTexList( AppMain.dm_titleop_aos_tex[0] ) );
@@ -610,7 +610,7 @@ public partial class AppMain
     // Token: 0x060018D8 RID: 6360 RVA: 0x000E29A0 File Offset: 0x000E0BA0
     private void dmTitleOpPreEnd( ref AppMain.DMS_TITLEOP_MGR_WORK top_mgr_work )
     {
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
         {
             obs_OBJECT_WORK.ppOut = null;
         }
@@ -659,13 +659,13 @@ public partial class AppMain
     }
 
     // Token: 0x060018DD RID: 6365 RVA: 0x000E2A65 File Offset: 0x000E0C65
-    private void dmTitleOpObjDraw( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmTitleOpObjDraw( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawActionSummary( obj_work );
     }
 
     // Token: 0x060018DE RID: 6366 RVA: 0x000E2A70 File Offset: 0x000E0C70
-    private void dmTitleOpObjRockDraw( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmTitleOpObjRockDraw( OBS_OBJECT_WORK obj_work )
     {
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK dms_TITLEOP_OBJ_3DNN_WORK = (AppMain.DMS_TITLEOP_OBJ_3DNN_WORK)obj_work;
         for ( int i = 0; i < dms_TITLEOP_OBJ_3DNN_WORK.rock_setting_num; i++ )
@@ -691,7 +691,7 @@ public partial class AppMain
     // Token: 0x060018DF RID: 6367 RVA: 0x000E2B60 File Offset: 0x000E0D60
     private static void dmTitleOpFallShaderPreRenderUserFunc( object data )
     {
-        AppMain.NNS_RGBA_U8 color = new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
+        NNS_RGBA_U8 color = new NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
         AppMain.AMS_RENDER_TARGET ams_RENDER_TARGET = AppMain._am_render_manager.targetp;
         if ( ams_RENDER_TARGET == AppMain._gm_mapFar_render_work )
         {
@@ -728,7 +728,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018E1 RID: 6369 RVA: 0x000E2BEC File Offset: 0x000E0DEC
-    private void dmTitleOpCamera( AppMain.OBS_CAMERA camera )
+    private void dmTitleOpCamera( OBS_CAMERA camera )
     {
         camera.disp_pos.x = 0f;
         camera.disp_pos.y = 5f;

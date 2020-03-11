@@ -74,7 +74,7 @@ public partial class AppMain
         public AppMain.NNS_OBJECT pObject;
 
         // Token: 0x04004C04 RID: 19460
-        public AppMain.NNS_MATRIX[] pMatrixPalette;
+        public NNS_MATRIX[] pMatrixPalette;
 
         // Token: 0x04004C05 RID: 19461
         public uint[] pNodeStatusList;
@@ -138,7 +138,7 @@ public partial class AppMain
         };
 
         // Token: 0x04004C43 RID: 19523
-        public static readonly AppMain.NNS_MATRIX nnsPrim3DMatrix = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public static readonly NNS_MATRIX nnsPrim3DMatrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04004C44 RID: 19524
         public static uint nnsAlphaFunc = 516U;
@@ -195,20 +195,20 @@ public partial class AppMain
         public static int nnsSubMotIdx;
 
         // Token: 0x04004F5D RID: 20317
-        public static readonly AppMain.NNS_RGBA[] nnsMsstCircumCol = new AppMain.NNS_RGBA[]
+        public static readonly NNS_RGBA[] nnsMsstCircumCol = new NNS_RGBA[]
         {
-            new AppMain.NNS_RGBA(0f, 1f, 0f, 0.3f),
-            new AppMain.NNS_RGBA(1f, 0f, 1f, 0.3f),
-            new AppMain.NNS_RGBA(1f, 1f, 0f, 0.3f),
-            new AppMain.NNS_RGBA(1f, 1f, 1f, 0.3f),
-            new AppMain.NNS_RGBA(0f, 1f, 1f, 0.3f),
-            new AppMain.NNS_RGBA(1f, 0f, 0f, 0.3f),
-            new AppMain.NNS_RGBA(0f, 0f, 0f, 0.3f),
-            default(AppMain.NNS_RGBA)
+            new NNS_RGBA(0f, 1f, 0f, 0.3f),
+            new NNS_RGBA(1f, 0f, 1f, 0.3f),
+            new NNS_RGBA(1f, 1f, 0f, 0.3f),
+            new NNS_RGBA(1f, 1f, 1f, 0.3f),
+            new NNS_RGBA(0f, 1f, 1f, 0.3f),
+            new NNS_RGBA(1f, 0f, 0f, 0.3f),
+            new NNS_RGBA(0f, 0f, 0f, 0.3f),
+            default(NNS_RGBA)
         };
 
         // Token: 0x04004F5E RID: 20318
-        public static AppMain.NNS_MATRIX nnsBaseMtx;
+        public static NNS_MATRIX nnsBaseMtx;
 
         // Token: 0x04004F5F RID: 20319
         public static AppMain.NNS_OBJECT nnsObj;

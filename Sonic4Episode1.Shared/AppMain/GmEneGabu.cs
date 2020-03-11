@@ -9,20 +9,20 @@ public partial class AppMain
     // Token: 0x06000959 RID: 2393 RVA: 0x00054712 File Offset: 0x00052912
     private static void GmEneGabuBuild()
     {
-        AppMain.gm_ene_gabu_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 664 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 665 ) ), 0U );
+        AppMain.gm_ene_gabu_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 664 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 665 ) ), 0U );
     }
 
     // Token: 0x0600095A RID: 2394 RVA: 0x00054740 File Offset: 0x00052940
     private static void GmEneGabuFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(664));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(664));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_gabu_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x0600095B RID: 2395 RVA: 0x00054774 File Offset: 0x00052974
-    private static AppMain.OBS_OBJECT_WORK GmEneGabuInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneGabuInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "ENE_GABU");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "ENE_GABU");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_gabu_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, true, AppMain.ObjDataGet( 666 ), null, 0, null );
@@ -65,7 +65,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600095C RID: 2396 RVA: 0x00054958 File Offset: 0x00052B58
-    private static void gmEneGabuJumpInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneGabuJumpInit( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.obj_3d.act_id[0] != 1 )
         {
@@ -77,7 +77,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600095D RID: 2397 RVA: 0x000549B4 File Offset: 0x00052BB4
-    private static void gmEneGabuJumpMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneGabuJumpMain( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.obj_3d.act_id[0] != 2 && obj_work.spd.y < 0 && -obj_work.spd.y / obj_work.spd_fall <= 20 )
         {
@@ -100,7 +100,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600095E RID: 2398 RVA: 0x00054A64 File Offset: 0x00052C64
-    private static void gmEneGabuJumpWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneGabuJumpWaitInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 1 );
         obj_work.disp_flag |= 4U;
@@ -111,7 +111,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600095F RID: 2399 RVA: 0x00054AC8 File Offset: 0x00052CC8
-    private static void gmEneGabuJumpWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneGabuJumpWaitMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_flag = ( uint )AppMain.ObjTimeCountDown( ( int )obj_work.user_flag );
         if ( obj_work.user_flag == 0U )

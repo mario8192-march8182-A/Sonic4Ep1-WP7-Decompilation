@@ -13,7 +13,7 @@ public partial class AppMain
         AppMain.gm_gmk_land_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.GmGameDatGetGimmickData( AppMain.gm_gmk_land_obj_data[num][0] ), AppMain.GmGameDatGetGimmickData( AppMain.gm_gmk_land_obj_data[num][1] ), 0U );
         if ( num == 2 )
         {
-            AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(810);
+            AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(810);
             AppMain.gm_gmk_land_3_obj_tvx_list = ams_AMB_HEADER;
         }
     }
@@ -22,17 +22,17 @@ public partial class AppMain
     public static void GmGmkLandFlush()
     {
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(AppMain.gm_gmk_land_obj_data[num][0]);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(AppMain.gm_gmk_land_obj_data[num][0]);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_land_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_land_3_obj_tvx_list = null;
     }
 
     // Token: 0x0600056D RID: 1389 RVA: 0x0002E150 File Offset: 0x0002C350
-    public static AppMain.OBS_OBJECT_WORK GmGmkLandInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkLandInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_LAND");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_LAND");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         int num2;
         ushort num3;
@@ -59,14 +59,14 @@ public partial class AppMain
             int index = num4;
             AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, false, AppMain.ObjDataGet( 805 ), null, 0, null );
             AppMain.ObjDrawObjectActionSet( obs_OBJECT_WORK, id );
-            AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, index, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 806 ).pData );
+            AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, index, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 806 ).pData );
             AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
             obs_OBJECT_WORK.disp_flag |= 4U;
         }
         else if ( num == 4 )
         {
             int index2 = num4;
-            AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, index2, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 815 ).pData );
+            AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, index2, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 815 ).pData );
             AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
             obs_OBJECT_WORK.disp_flag |= 16U;
             ( ( AppMain.NNS_MOTION_KEY_Class5[] )obs_OBJECT_WORK.obj_3d.motion.mmtn[0].pSubmotion[0].pKeyList )[0].Value.y = 1f;
@@ -151,10 +151,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600056E RID: 1390 RVA: 0x0002E764 File Offset: 0x0002C964
-    public static AppMain.OBS_OBJECT_WORK GmGmkZ3LandPulleyInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkZ3LandPulleyInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_LAND_PULLEY");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_LAND_PULLEY");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_land_obj_3d_list[2], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -163840;
@@ -167,10 +167,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600056F RID: 1391 RVA: 0x0002E830 File Offset: 0x0002CA30
-    public static AppMain.OBS_OBJECT_WORK GmGmkZ3LandRopeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkZ3LandRopeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_LAND_ROPE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_LAND_ROPE");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_land_obj_3d_list[3], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -196608;
@@ -183,7 +183,7 @@ public partial class AppMain
         }
         if ( ( eve_rec.flag & 1 ) != 0 )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
             obs_OBJECT_WORK2.dir.z = ( ushort )( obs_OBJECT_WORK2.dir.z + 32768 );
         }
         if ( eve_rec.left != 0 )
@@ -199,7 +199,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000570 RID: 1392 RVA: 0x0002E988 File Offset: 0x0002CB88
-    public static void gmGmkLandMoveInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLandMoveInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         obj_work.prev_pos.x = ( obj_work.pos.x >> 12 ) + ( int )gms_ENEMY_3D_WORK.ene_com.eve_rec.left + ( gms_ENEMY_3D_WORK.ene_com.eve_rec.width >> 1 );
@@ -274,7 +274,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000571 RID: 1393 RVA: 0x0002EC7C File Offset: 0x0002CE7C
-    public static void gmGmkLandMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLandMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.OBS_COLLISION_OBJ obj_col = obj_work.col_work.obj_col;
@@ -326,7 +326,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000572 RID: 1394 RVA: 0x0002EE14 File Offset: 0x0002D014
-    public static void gmGmkLandMove( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLandMove( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         byte b = AppMain.gm_gmk_land_spd_tbl[(int)((byte)(gms_ENEMY_3D_WORK.ene_com.eve_rec.flag & 3))];
@@ -430,7 +430,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000573 RID: 1395 RVA: 0x0002F26F File Offset: 0x0002D46F
-    public static void gmGmkLandColFall( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLandColFall( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.move_flag & 1U ) != 0U )
         {
@@ -440,13 +440,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000574 RID: 1396 RVA: 0x0002F294 File Offset: 0x0002D494
-    public static void gmGmkZ3LandPulleyMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkZ3LandPulleyMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.dir.z = ( ushort )( obj_work.dir.z + ( ushort )obj_work.user_work );
     }
 
     // Token: 0x06000575 RID: 1397 RVA: 0x0002F2B0 File Offset: 0x0002D4B0
-    public static void gmGmkLand3TvxRopeMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLand3TvxRopeMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = obj_work.obj_3d;
         obj_3d.mat_frame += obj_3d.mat_speed;
@@ -457,7 +457,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000576 RID: 1398 RVA: 0x0002F2F8 File Offset: 0x0002D4F8
-    public static void gmGmkLand3TvxDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLand3TvxDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -467,12 +467,12 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.NNS_TEXCOORD nns_TEXCOORD = new AppMain.NNS_TEXCOORD(0f, 0f);
+        NNS_TEXCOORD nns_TEXCOORD = new NNS_TEXCOORD(0f, 0f);
         AppMain.gmGmkLand3TvxDrawFuncEx( 0U, obj_work.obj_3d.texlist, ref obj_work.pos, ref obj_work.scale, AppMain.GMD_TVX_DISP_LIGHT_DISABLE, 0, ref nns_TEXCOORD );
     }
 
     // Token: 0x06000577 RID: 1399 RVA: 0x0002F354 File Offset: 0x0002D554
-    public static void gmGmkLand3TvxRDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLand3TvxRDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -482,12 +482,12 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.NNS_TEXCOORD nns_TEXCOORD = new AppMain.NNS_TEXCOORD(0f, 0f);
+        NNS_TEXCOORD nns_TEXCOORD = new NNS_TEXCOORD(0f, 0f);
         AppMain.gmGmkLand3TvxDrawFuncEx( 1U, obj_work.obj_3d.texlist, ref obj_work.pos, ref obj_work.scale, AppMain.GMD_TVX_DISP_LIGHT_DISABLE, 0, ref nns_TEXCOORD );
     }
 
     // Token: 0x06000578 RID: 1400 RVA: 0x0002F3B0 File Offset: 0x0002D5B0
-    public static void gmGmkLand3TvxPulleyDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLand3TvxPulleyDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -497,12 +497,12 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.NNS_TEXCOORD nns_TEXCOORD = new AppMain.NNS_TEXCOORD(0f, 0f);
+        NNS_TEXCOORD nns_TEXCOORD = new NNS_TEXCOORD(0f, 0f);
         AppMain.gmGmkLand3TvxDrawFuncEx( 2U, obj_work.obj_3d.texlist, ref obj_work.pos, ref obj_work.scale, AppMain.GMD_TVX_DISP_LIGHT_DISABLE | AppMain.GMD_TVX_DISP_ROTATE, ( short )( -( short )obj_work.dir.z ), ref nns_TEXCOORD );
     }
 
     // Token: 0x06000579 RID: 1401 RVA: 0x0002F420 File Offset: 0x0002D620
-    public static void gmGmkLand3TvxRopeDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkLand3TvxRopeDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -512,18 +512,18 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.NNS_TEXCOORD nns_TEXCOORD = new AppMain.NNS_TEXCOORD(0f, 0f);
+        NNS_TEXCOORD nns_TEXCOORD = new NNS_TEXCOORD(0f, 0f);
         nns_TEXCOORD.v = -0.25f * obj_work.obj_3d.mat_frame / 120f;
         AppMain.gmGmkLand3TvxDrawFuncEx( 3U, obj_work.obj_3d.texlist, ref obj_work.pos, ref obj_work.scale, AppMain.GMD_TVX_DISP_LIGHT_DISABLE | AppMain.GMD_TVX_DISP_ROTATE, ( short )( -( short )obj_work.dir.z ), ref nns_TEXCOORD );
     }
 
     // Token: 0x0600057A RID: 1402 RVA: 0x0002F4AC File Offset: 0x0002D6AC
-    public static void gmGmkLand3TvxDrawFuncEx( uint tvx_index, AppMain.NNS_TEXLIST texlist, ref AppMain.VecFx32 pos, ref AppMain.VecFx32 scale, uint disp_flag, short dir_z, ref AppMain.NNS_TEXCOORD uv )
+    public static void gmGmkLand3TvxDrawFuncEx( uint tvx_index, AppMain.NNS_TEXLIST texlist, ref AppMain.VecFx32 pos, ref AppMain.VecFx32 scale, uint disp_flag, short dir_z, ref NNS_TEXCOORD uv )
     {
         AppMain.TVX_FILE tvx_FILE;
         if ( AppMain.gm_gmk_land_3_obj_tvx_list.buf[( int )tvx_index] == null )
         {
-            tvx_FILE = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_land_3_obj_tvx_list, ( int )tvx_index ) );
+            tvx_FILE = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_land_3_obj_tvx_list, ( int )tvx_index ) );
             AppMain.gm_gmk_land_3_obj_tvx_list.buf[( int )tvx_index] = tvx_FILE;
         }
         else

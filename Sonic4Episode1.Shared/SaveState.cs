@@ -128,7 +128,7 @@ public class SaveState
 	}
 
 	// Token: 0x06002895 RID: 10389 RVA: 0x00153928 File Offset: 0x00151B28
-	public static bool resumePlayer_2(AppMain.GMS_PLAYER_WORK ply_work)
+	public static bool resumePlayer_2(GMS_PLAYER_WORK ply_work)
 	{
 		SaveState.beginResume = false;
 		if (SaveState.resumeStarting)
@@ -140,10 +140,10 @@ public class SaveState
 			ply_work.obj_work.pos.y = SaveState.save.player_pos_y;
 			AppMain.g_gm_main_system.resume_pos_x = SaveState.save.resume_pos_x;
 			AppMain.g_gm_main_system.resume_pos_y = SaveState.save.resume_pos_y;
-			AppMain.GmCameraPosSet(AppMain.g_gm_main_system.resume_pos_x, AppMain.g_gm_main_system.resume_pos_y, 0);
-			AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
-			AppMain.ObjObjectCameraSet(AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.disp_pos.x - (float)(AppMain.OBD_LCD_X / 2)), AppMain.FXM_FLOAT_TO_FX32(-obs_CAMERA.disp_pos.y - (float)(AppMain.OBD_LCD_Y / 2)), AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.disp_pos.x - (float)(AppMain.OBD_LCD_X / 2)), AppMain.FXM_FLOAT_TO_FX32(-obs_CAMERA.disp_pos.y - (float)(AppMain.OBD_LCD_Y / 2)));
-			AppMain.GmCameraSetClipCamera(obs_CAMERA);
+			GmCamera.PosSet(AppMain.g_gm_main_system.resume_pos_x, AppMain.g_gm_main_system.resume_pos_y, 0);
+			OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
+			AppMain.ObjObjectCameraSet(AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.disp_pos.x - (float)(AppMain.OBD_LCD_X / 2f)), AppMain.FXM_FLOAT_TO_FX32(-obs_CAMERA.disp_pos.y - (float)(AppMain.OBD_LCD_Y / 2f)), AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.disp_pos.x - (float)(AppMain.OBD_LCD_X / 2)), AppMain.FXM_FLOAT_TO_FX32(-obs_CAMERA.disp_pos.y - (float)(AppMain.OBD_LCD_Y / 2)));
+			GmCamera.SetClipCamera(obs_CAMERA);
 			if ((16384U & SaveState.save.player_flag) != 0U)
 			{
 				ply_work.obj_work.user_timer = 249856;

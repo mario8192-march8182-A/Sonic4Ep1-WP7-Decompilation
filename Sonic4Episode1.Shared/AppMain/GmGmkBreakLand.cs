@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0200039B RID: 923
-    public class GMS_GMK_BLAND_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BLAND_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060026E6 RID: 9958 RVA: 0x00150CA8 File Offset: 0x0014EEA8
         public GMS_GMK_BLAND_WORK()
@@ -22,13 +22,13 @@ public partial class AppMain
         }
 
         // Token: 0x060026E8 RID: 9960 RVA: 0x00150CC4 File Offset: 0x0014EEC4
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x060026E9 RID: 9961 RVA: 0x00150CD6 File Offset: 0x0014EED6
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_BLAND_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_BLAND_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -53,10 +53,10 @@ public partial class AppMain
     }
 
     // Token: 0x060018A6 RID: 6310 RVA: 0x000E0C74 File Offset: 0x000DEE74
-    private static void gmGmkBreakLandStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBreakLandStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BLAND_WORK gms_GMK_BLAND_WORK = (AppMain.GMS_GMK_BLAND_WORK)obj_work;
-        AppMain.OBS_OBJECT_WORK obj_work2 = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)].obj_work;
+        OBS_OBJECT_WORK obj_work2 = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)].obj_work;
         if ( obj_work2.ride_obj == obj_work )
         {
             int num = obj_work.pos.x + gms_GMK_BLAND_WORK.colrect_left;
@@ -70,18 +70,18 @@ public partial class AppMain
                 {
                     ushort num4 = (ushort)-(gms_GMK_BLAND_WORK.gmk_work.ene_com.col_work.obj_col.width * 4096 / 2);
                 }
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(null, 0, 0);
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(null, 0, 0);
                 obs_OBJECT_WORK.pos.x = obj_work.pos.x;
                 obs_OBJECT_WORK.pos.y = obj_work.pos.y;
                 obs_OBJECT_WORK.pos.z = obj_work.pos.z + 131072;
                 if ( gms_GMK_BLAND_WORK.vect == 0 )
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + 262144;
                 }
                 else
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK3.pos.x = obs_OBJECT_WORK3.pos.x - 262144;
                 }
                 gms_GMK_BLAND_WORK.broken_timer = 45;
@@ -92,7 +92,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018A7 RID: 6311 RVA: 0x000E0E28 File Offset: 0x000DF028
-    private static void gmGmkBreakLandStay_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBreakLandStay_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BLAND_WORK gms_GMK_BLAND_WORK = (AppMain.GMS_GMK_BLAND_WORK)obj_work;
         gms_GMK_BLAND_WORK.broken_timer--;
@@ -118,7 +118,7 @@ public partial class AppMain
             obj_work.disp_flag &= 4294967279U;
             obj_work.disp_flag &= 4294967291U;
             gms_GMK_BLAND_WORK.gmk_work.ene_com.col_work.obj_col.obj = null;
-            AppMain.GmSoundPlaySE( "BreakGround" );
+            GmSound.PlaySE( "BreakGround" );
             obj_work.ppFunc = AppMain.gmGmkBreakLandBroken;
             return;
         }
@@ -128,7 +128,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018A8 RID: 6312 RVA: 0x000E0FC3 File Offset: 0x000DF1C3
-    private static void gmGmkBreakLandBroken( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBreakLandBroken( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.disp_flag & 8U ) != 0U )
         {
@@ -137,10 +137,10 @@ public partial class AppMain
     }
 
     // Token: 0x060018A9 RID: 6313 RVA: 0x000E0FE4 File Offset: 0x000DF1E4
-    private static AppMain.OBS_OBJECT_WORK gmGmkBreakLandInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type, ushort vect )
+    private static OBS_OBJECT_WORK gmGmkBreakLandInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type, ushort vect )
     {
         AppMain.GMS_GMK_BLAND_WORK gms_GMK_BLAND_WORK = (AppMain.GMS_GMK_BLAND_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_BLAND_WORK(), "GMK_BREAK_LAND_MAIN");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_BLAND_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_BLAND_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_BLAND_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_breakland_obj_3d_list[( vect == 0 ) ? 0 : 1], gms_ENEMY_3D_WORK.obj_3d );
         if ( AppMain.g_gs_main_sys_info.stage_id == 2 || AppMain.g_gs_main_sys_info.stage_id == 3 )
@@ -180,13 +180,13 @@ public partial class AppMain
     }
 
     // Token: 0x060018AA RID: 6314 RVA: 0x000E1294 File Offset: 0x000DF494
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakLandRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakLandRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         return AppMain.gmGmkBreakLandInit( eve_rec, pos_x, pos_y, type, 0 );
     }
 
     // Token: 0x060018AB RID: 6315 RVA: 0x000E12A0 File Offset: 0x000DF4A0
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakLandLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakLandLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         return AppMain.gmGmkBreakLandInit( eve_rec, pos_x, pos_y, type, 32768 );
     }
@@ -194,21 +194,21 @@ public partial class AppMain
     // Token: 0x060018AC RID: 6316 RVA: 0x000E12B0 File Offset: 0x000DF4B0
     private static void GmGmkBreakLandBuild()
     {
-        AppMain.gm_gmk_breakland_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 794 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 795 ) ), 0U );
+        AppMain.gm_gmk_breakland_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 794 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 795 ) ), 0U );
     }
 
     // Token: 0x060018AD RID: 6317 RVA: 0x000E12DC File Offset: 0x000DF4DC
     private static void GmGmkBreakLandFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(794));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(794));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_breakland_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060018AE RID: 6318 RVA: 0x000E130C File Offset: 0x000DF50C
     private static void GmGmkBreakLandSetLight()
     {
-        AppMain.NNS_RGBA nns_RGBA = default(AppMain.NNS_RGBA);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = default(NNS_RGBA);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = -0.5f;
         nns_VECTOR.y = -0.05f;
         nns_VECTOR.z = -1f;
@@ -225,6 +225,6 @@ public partial class AppMain
         nns_RGBA.b = 0.65f;
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_2, ref nns_RGBA, 1f, nns_VECTOR );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

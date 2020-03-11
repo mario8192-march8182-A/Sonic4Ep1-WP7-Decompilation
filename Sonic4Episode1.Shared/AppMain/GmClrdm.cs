@@ -12,16 +12,16 @@ public partial class AppMain
     private class GMS_CLRDM_MAIN_WORK
     {
         // Token: 0x0400584A RID: 22602
-        public readonly AppMain.AMS_FS[] ama_fs = new AppMain.AMS_FS[2];
+        public readonly AMS_FS[] ama_fs = new AMS_FS[2];
 
         // Token: 0x0400584B RID: 22603
-        public readonly AppMain.AMS_FS[] amb_fs = new AppMain.AMS_FS[2];
+        public readonly AMS_FS[] amb_fs = new AMS_FS[2];
 
         // Token: 0x0400584C RID: 22604
-        public readonly AppMain.A2S_AMA_HEADER[] ama = new AppMain.A2S_AMA_HEADER[2];
+        public readonly A2S_AMA_HEADER[] ama = new A2S_AMA_HEADER[2];
 
         // Token: 0x0400584D RID: 22605
-        public readonly AppMain.AMS_AMB_HEADER[] amb = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x0400584E RID: 22606
         public readonly AppMain.AOS_TEXTURE[] tex = AppMain.New<AppMain.AOS_TEXTURE>(2);

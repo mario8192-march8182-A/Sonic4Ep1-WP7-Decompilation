@@ -13,24 +13,24 @@ public partial class AppMain
         public GMS_COCKPIT_COM_WORK( object holder )
         {
             this.holder = holder;
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x0600245F RID: 9311 RVA: 0x0014A92C File Offset: 0x00148B2C
         public GMS_COCKPIT_COM_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x04005ADC RID: 23260
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04005ADD RID: 23261
         public readonly object holder;
     }
 
     // Token: 0x020002A6 RID: 678
-    public class GMS_COCKPIT_2D_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_COCKPIT_2D_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002460 RID: 9312 RVA: 0x0014A940 File Offset: 0x00148B40
         public GMS_COCKPIT_2D_WORK()
@@ -39,19 +39,19 @@ public partial class AppMain
         }
 
         // Token: 0x06002461 RID: 9313 RVA: 0x0014A95F File Offset: 0x00148B5F
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.cpit_com.obj_work;
         }
 
         // Token: 0x06002462 RID: 9314 RVA: 0x0014A96C File Offset: 0x00148B6C
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_COCKPIT_2D_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_COCKPIT_2D_WORK work )
         {
             return work.cpit_com.obj_work;
         }
 
         // Token: 0x06002463 RID: 9315 RVA: 0x0014A979 File Offset: 0x00148B79
-        public static explicit operator AppMain.GMS_COCKPIT_2D_WORK( AppMain.OBS_OBJECT_WORK work )
+        public static explicit operator AppMain.GMS_COCKPIT_2D_WORK( OBS_OBJECT_WORK work )
         {
             return ( AppMain.GMS_COCKPIT_2D_WORK )( ( AppMain.GMS_COCKPIT_COM_WORK )work.holder ).holder;
         }
@@ -64,10 +64,10 @@ public partial class AppMain
     }
 
     // Token: 0x020002A7 RID: 679
-    public class GMS_COCKPIT_3DNN_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_COCKPIT_3DNN_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002464 RID: 9316 RVA: 0x0014A990 File Offset: 0x00148B90
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.cpit_com.obj_work;
         }
@@ -80,15 +80,15 @@ public partial class AppMain
     }
 
     // Token: 0x06001263 RID: 4707 RVA: 0x000A0DCE File Offset: 0x0009EFCE
-    private static AppMain.OBS_OBJECT_WORK GMM_COCKPIT_CREATE_WORK( AppMain.TaskWorkFactoryDelegate work_size, AppMain.OBS_OBJECT_WORK parent_obj, ushort sort_prio, string name )
+    private static OBS_OBJECT_WORK GMM_COCKPIT_CREATE_WORK( AppMain.TaskWorkFactoryDelegate work_size, OBS_OBJECT_WORK parent_obj, ushort sort_prio, string name )
     {
         return AppMain.GmCockpitCreateWork( work_size, parent_obj, sort_prio, name );
     }
 
     // Token: 0x06001264 RID: 4708 RVA: 0x000A0DDC File Offset: 0x0009EFDC
-    private static AppMain.OBS_OBJECT_WORK GmCockpitCreateWork( AppMain.TaskWorkFactoryDelegate work_size, AppMain.OBS_OBJECT_WORK parent_obj, ushort sort_prio, string name )
+    private static OBS_OBJECT_WORK GmCockpitCreateWork( AppMain.TaskWorkFactoryDelegate work_size, OBS_OBJECT_WORK parent_obj, ushort sort_prio, string name )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT((ushort)(18432 + sort_prio), 5, 0, 0, work_size, name);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT((ushort)(18432 + sort_prio), 5, 0, 0, work_size, name);
         if ( obs_OBJECT_WORK == null )
         {
             AppMain.mppAssertNotImpl();

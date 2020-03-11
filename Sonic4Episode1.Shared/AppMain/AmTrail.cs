@@ -126,13 +126,13 @@ public partial class AppMain
         }
 
         // Token: 0x040047CF RID: 18383
-        public AppMain.NNS_RGBA startColor;
+        public NNS_RGBA startColor;
 
         // Token: 0x040047D0 RID: 18384
-        public AppMain.NNS_RGBA endColor;
+        public NNS_RGBA endColor;
 
         // Token: 0x040047D1 RID: 18385
-        public AppMain.NNS_RGBA ptclColor;
+        public NNS_RGBA ptclColor;
 
         // Token: 0x040047D2 RID: 18386
         public float startSize;
@@ -141,7 +141,7 @@ public partial class AppMain
         public float endSize;
 
         // Token: 0x040047D4 RID: 18388
-        public AppMain.OBS_OBJECT_WORK trail_obj_work;
+        public OBS_OBJECT_WORK trail_obj_work;
 
         // Token: 0x040047D5 RID: 18389
         public AppMain.NNS_TEXLIST texlist;
@@ -219,13 +219,13 @@ public partial class AppMain
         }
 
         // Token: 0x040047E8 RID: 18408
-        public readonly AppMain.NNS_VECTOR pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047E9 RID: 18409
-        public readonly AppMain.NNS_VECTOR sub_pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR sub_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047EA RID: 18410
-        public readonly AppMain.NNS_VECTOR dir = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR dir = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047EB RID: 18411
         public float time;
@@ -311,7 +311,7 @@ public partial class AppMain
         public float[] m_Dz = new float[4];
 
         // Token: 0x040047FF RID: 18431
-        public AppMain.NNS_VECTOR4D m_CalcParam = new AppMain.NNS_VECTOR4D();
+        public NNS_VECTOR4D m_CalcParam = new NNS_VECTOR4D();
 
         // Token: 0x04004800 RID: 18432
         public float m_t;
@@ -416,7 +416,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600002C RID: 44 RVA: 0x00002A70 File Offset: 0x00000C70
-    private static void amTrailEFOffsetPos(ushort handleId, AppMain.NNS_VECTOR offset)
+    private static void amTrailEFOffsetPos(ushort handleId, NNS_VECTOR offset)
     {
         for (AppMain.AMS_TRAIL_EFFECT pNext = AppMain._amTrailEF_head.pNext; pNext != AppMain._amTrailEF_tail; pNext = pNext.pNext)
         {
@@ -635,11 +635,11 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.NNS_RGBA startColor = work.startColor;
-        AppMain.NNS_RGBA ptclColor = work.ptclColor;
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA startColor = work.startColor;
+        NNS_RGBA ptclColor = work.ptclColor;
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         float num = 1f;
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         int ablend = 1;
@@ -785,9 +785,9 @@ public partial class AppMain
             ams_PARAM_DRAW_PRIMITIVE.sortZ = sortZ;
             AppMain.amDrawPrimitive3D(pEffect.drawState, ams_PARAM_DRAW_PRIMITIVE);
         }
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR3);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
     }
 
     // Token: 0x06000037 RID: 55 RVA: 0x000039AC File Offset: 0x00001BAC
@@ -798,14 +798,14 @@ public partial class AppMain
         float num2 = (float)(work.trailPartsNum - work.list_no) / (float)work.trailPartsNum;
         scale = work.startSize * num2 + work.endSize * (1f - num2);
         num2 *= work.vanish_rate;
-        AppMain.NNS_RGBA nns_RGBA;
+        NNS_RGBA nns_RGBA;
         nns_RGBA.r = work.startColor.r * num2 + work.endColor.r * (1f - num2);
         nns_RGBA.g = work.startColor.g * num2 + work.endColor.g * (1f - num2);
         nns_RGBA.b = work.startColor.b * num2 + work.endColor.b * (1f - num2);
         nns_RGBA.a = work.startColor.a * num2 + work.endColor.a * (1f - num2);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.nnDistanceVector(pNow.pos, AppMain._am_ef_camPos);
         AppMain.amVectorSet(nns_VECTOR3, 0f, 0f, 1f);
         AppMain.nnCrossProductVector(nns_VECTOR, nns_VECTOR3, pNow.dir);
@@ -819,9 +819,9 @@ public partial class AppMain
         _pv[pv + 5].Col = AppMain.AMD_FCOLTORGBA8888(nns_RGBA.r, nns_RGBA.g, nns_RGBA.b, nns_RGBA.a);
         _pv[pv + 1].Col = _pv[pv + 5].Col;
         _pv[pv + 3] = _pv[pv + 1];
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR3);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
     }
 
     // Token: 0x06000038 RID: 56 RVA: 0x00003C0C File Offset: 0x00001E0C
@@ -832,14 +832,14 @@ public partial class AppMain
         float num2 = (float)(work.trailPartsNum - work.list_no) / (float)work.trailPartsNum;
         num2 *= work.vanish_rate;
         scale = work.startSize * num2 + work.endSize * (1f - num2);
-        AppMain.NNS_RGBA nns_RGBA;
+        NNS_RGBA nns_RGBA;
         nns_RGBA.r = work.startColor.r * num2 + work.endColor.r * (1f - num2);
         nns_RGBA.g = work.startColor.g * num2 + work.endColor.g * (1f - num2);
         nns_RGBA.b = work.startColor.b * num2 + work.endColor.b * (1f - num2);
         nns_RGBA.a = work.startColor.a * num2 + work.endColor.a * (1f - num2);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.nnDistanceVector(pNow.pos, AppMain._am_ef_camPos);
         AppMain.amVectorSet(nns_VECTOR3, 0f, 0f, 1f);
         AppMain.nnCrossProductVector(nns_VECTOR, nns_VECTOR3, pNow.dir);
@@ -857,9 +857,9 @@ public partial class AppMain
         _pv[pv + 5].Tex.u = num2;
         _pv[pv + 5].Tex.v = 1f;
         _pv[pv + 3] = _pv[pv + 1];
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR3);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
     }
 
     // Token: 0x06000039 RID: 57 RVA: 0x00003EC4 File Offset: 0x000020C4
@@ -884,7 +884,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600003A RID: 58 RVA: 0x00003F70 File Offset: 0x00002170
-    private static void _amTrailAddPosition(AppMain.AMS_TRAIL_EFFECT pEffect, AppMain.NNS_VECTOR offset)
+    private static void _amTrailAddPosition(AppMain.AMS_TRAIL_EFFECT pEffect, NNS_VECTOR offset)
     {
         AppMain.AMS_TRAIL_PARAM work = pEffect.Work;
         AppMain.AMS_TRAIL_PARTSDATA ams_TRAIL_PARTSDATA = AppMain.pTr.trailData[(int)work.trailId];
@@ -907,7 +907,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600003B RID: 59 RVA: 0x00003FEC File Offset: 0x000021EC
-    private static int _amTrailCalcSplinePos(AppMain.NNS_VECTOR[] Pos, AppMain.NNS_VECTOR[] Dir, AppMain.AMS_TRAIL_PARTS pNPP, AppMain.AMS_TRAIL_PARTS pNP, AppMain.AMS_TRAIL_PARTS pNow, AppMain.AMS_TRAIL_PARTS pNext, float len, int MaxComp)
+    private static int _amTrailCalcSplinePos(NNS_VECTOR[] Pos, NNS_VECTOR[] Dir, AppMain.AMS_TRAIL_PARTS pNPP, AppMain.AMS_TRAIL_PARTS pNP, AppMain.AMS_TRAIL_PARTS pNow, AppMain.AMS_TRAIL_PARTS pNext, float len, int MaxComp)
     {
         AppMain.AMTRS_FC_PARAM amtrs_FC_PARAM = new AppMain.AMTRS_FC_PARAM();
         amtrs_FC_PARAM.m_flag = 0U;
@@ -969,7 +969,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600003C RID: 60 RVA: 0x00004258 File Offset: 0x00002458
-    private static int _amTrailCalcSplinePos(AppMain.NNS_VECTOR[] pos, AppMain.NNS_VECTOR[] dir, AppMain.AMTRS_FC_PARAM FcWk, float len, int MaxComp)
+    private static int _amTrailCalcSplinePos(NNS_VECTOR[] pos, NNS_VECTOR[] dir, AppMain.AMTRS_FC_PARAM FcWk, float len, int MaxComp)
     {
         int num = (int)len;
         num = (int)AppMain.amClamp((float)num, 0f, (float)MaxComp);
@@ -1047,7 +1047,7 @@ public partial class AppMain
         {
             return result;
         }
-        AppMain.NNS_VECTOR4D calcParam = param.m_CalcParam;
+        NNS_VECTOR4D calcParam = param.m_CalcParam;
         return t * t * t * calcParam.x + t * t * calcParam.y + t * calcParam.z;
     }
 }

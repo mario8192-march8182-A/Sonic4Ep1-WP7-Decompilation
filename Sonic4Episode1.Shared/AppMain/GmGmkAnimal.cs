@@ -29,9 +29,9 @@ public partial class AppMain
     }
 
     // Token: 0x060018AF RID: 6319 RVA: 0x000E13F4 File Offset: 0x000DF5F4
-    private static AppMain.OBS_OBJECT_WORK GmGmkEndingAnimalInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkEndingAnimalInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_END_ANIMAL");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_END_ANIMAL");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         uint user_work = (uint)(eve_rec.flag & 7);
         obs_OBJECT_WORK.user_work = user_work;
@@ -66,19 +66,19 @@ public partial class AppMain
     // Token: 0x060018B1 RID: 6321 RVA: 0x000E1548 File Offset: 0x000DF748
     public static void GmGmkAnimalFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(870));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(870));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_animal_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060018B2 RID: 6322 RVA: 0x000E157C File Offset: 0x000DF77C
-    public static AppMain.OBS_OBJECT_WORK GmGmkAnimalInit( AppMain.OBS_OBJECT_WORK parent_work, int ofs_x, int ofs_y, int ofs_z, byte type, byte vec, ushort timer )
+    public static OBS_OBJECT_WORK GmGmkAnimalInit( OBS_OBJECT_WORK parent_work, int ofs_x, int ofs_y, int ofs_z, byte type, byte vec, ushort timer )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), parent_work, 0, "GMK_ANIMAL");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), parent_work, 0, "GMK_ANIMAL");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst = 64;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
         obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + ofs_x;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
         obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y + ofs_y;
         obs_OBJECT_WORK.pos.z = -131072 + ofs_z;
         if ( type != 0 )
@@ -104,7 +104,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018B3 RID: 6323 RVA: 0x000E16B6 File Offset: 0x000DF8B6
-    private static void gmGmkAnimalObjSet( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK dest_obj_3d )
+    private static void gmGmkAnimalObjSet( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK dest_obj_3d )
     {
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.gm_gmk_animal_obj_3d_list[( int )( ( UIntPtr )AppMain.g_gm_gmk_animal_obj_id[( int )obj_work.user_work][0] )], dest_obj_3d );
         AppMain.ObjObjectFieldRectSet( obj_work, -2, -8, 2, 0 );
@@ -112,7 +112,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018B4 RID: 6324 RVA: 0x000E16F4 File Offset: 0x000DF8F4
-    private static void gmGmkAnimalWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkAnimalWait( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.user_timer != 0 )
         {
@@ -130,7 +130,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018B5 RID: 6325 RVA: 0x000E17B8 File Offset: 0x000DF9B8
-    private static void gmGmkAnimalJump( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkAnimalJump( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.move_flag & 1U ) != 0U )
         {
@@ -155,7 +155,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018B6 RID: 6326 RVA: 0x000E18C0 File Offset: 0x000DFAC0
-    private static void gmGmkEndingAnimalMove( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkEndingAnimalMove( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.move_flag & 1U ) != 0U )
         {

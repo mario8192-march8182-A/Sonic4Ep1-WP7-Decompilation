@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020003D4 RID: 980
-    public class GMS_ENE_BUKU_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_BUKU_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002851 RID: 10321 RVA: 0x00152B61 File Offset: 0x00150D61
         public GMS_ENE_BUKU_WORK()
@@ -16,13 +16,13 @@ public partial class AppMain
         }
 
         // Token: 0x06002852 RID: 10322 RVA: 0x00152B75 File Offset: 0x00150D75
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
 
         // Token: 0x06002853 RID: 10323 RVA: 0x00152B87 File Offset: 0x00150D87
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_ENE_BUKU_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_ENE_BUKU_WORK work )
         {
             return work.ene_3d_work.ene_com.obj_work;
         }
@@ -43,20 +43,20 @@ public partial class AppMain
     // Token: 0x06001B67 RID: 7015 RVA: 0x000FAD6F File Offset: 0x000F8F6F
     private static void GmEneBukuBuild()
     {
-        AppMain.gm_ene_buku_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 696 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 697 ) ), 0U );
+        AppMain.gm_ene_buku_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 696 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 697 ) ), 0U );
     }
 
     // Token: 0x06001B68 RID: 7016 RVA: 0x000FAD9C File Offset: 0x000F8F9C
     private static void GmEneBukuFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(696));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(696));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_buku_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06001B69 RID: 7017 RVA: 0x000FADD0 File Offset: 0x000F8FD0
-    private static AppMain.OBS_OBJECT_WORK GmEneBukuInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneBukuInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_BUKU_WORK(), "ENE_BUKU");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_BUKU_WORK(), "ENE_BUKU");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_BUKU_WORK gms_ENE_BUKU_WORK = (AppMain.GMS_ENE_BUKU_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_buku_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -92,7 +92,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B6A RID: 7018 RVA: 0x000FAFC8 File Offset: 0x000F91C8
-    private static void gmEneBukuWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneBukuWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 0, 1 );
         obj_work.disp_flag |= 4U;
@@ -107,7 +107,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B6B RID: 7019 RVA: 0x000FB040 File Offset: 0x000F9240
-    private static void gmEneBukuWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneBukuWalkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_BUKU_WORK gms_ENE_BUKU_WORK = (AppMain.GMS_ENE_BUKU_WORK)obj_work;
         int num = AppMain.gmEneBukuSetWalkSpeed(gms_ENE_BUKU_WORK);
@@ -124,7 +124,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B6C RID: 7020 RVA: 0x000FB090 File Offset: 0x000F9290
-    private static void gmEneBukuFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneBukuFwMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountDown( obj_work.user_timer );
         if ( obj_work.user_timer <= 0 )
@@ -134,14 +134,14 @@ public partial class AppMain
     }
 
     // Token: 0x06001B6D RID: 7021 RVA: 0x000FB0B2 File Offset: 0x000F92B2
-    private static void gmEneBukuFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneBukuFlipInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 2, 3 );
         obj_work.ppFunc = AppMain.gmEneBukuFlipMain;
     }
 
     // Token: 0x06001B6E RID: 7022 RVA: 0x000FB0D5 File Offset: 0x000F92D5
-    private static void gmEneBukuFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneBukuFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneBukuSetWalkSpeed( ( AppMain.GMS_ENE_BUKU_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )
@@ -155,7 +155,7 @@ public partial class AppMain
     private static int gmEneBukuSetWalkSpeed( AppMain.GMS_ENE_BUKU_WORK buku_work )
     {
         int result = 0;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)buku_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)buku_work;
         if ( ( obs_OBJECT_WORK.disp_flag & 1U ) != 0U )
         {
             if ( obs_OBJECT_WORK.obj_3d.act_id[0] == 3 && obs_OBJECT_WORK.obj_3d.frame[0] >= 20f )

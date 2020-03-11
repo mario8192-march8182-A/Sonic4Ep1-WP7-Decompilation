@@ -160,9 +160,9 @@ public partial class AppMain
         // Token: 0x06002058 RID: 8280 RVA: 0x0013DFB8 File Offset: 0x0013C1B8
         private void fileLoadingStart()
         {
-            this.m_fs[0] = AppMain.amFsReadBackground(AppMain.c_global);
+            this.m_fs[0] = AmFs.amFsReadBackground(AppMain.c_global);
             int num = AppMain.GsEnvGetLanguage();
-            this.m_fs[1] = AppMain.amFsReadBackground(AppMain.c_lang[num]);
+            this.m_fs[1] = AmFs.amFsReadBackground(AppMain.c_lang[num]);
             this.m_flag[3] = true;
             this.m_pTaskLink.AttachTask("dmBuyScreen::Load", AppMain.c_priority, AppMain.c_user, AppMain.c_attribute);
             base.SetProc(this.fileLoading);
@@ -181,7 +181,7 @@ public partial class AppMain
             bool flag = true;
             for (int i = 0; i < 2; i++)
             {
-                if (!AppMain.amFsIsComplete(this.m_fs[i]))
+                if (!AmFs.amFsIsComplete(this.m_fs[i]))
                 {
                     flag = false;
                     break;
@@ -201,15 +201,15 @@ public partial class AppMain
                     if (file < num2)
                     {
                         string text;
-                        AppMain.AmbChunk ambChunk = AppMain.amBindGet(this.m_fs[(int)slocalUnfoldTable.file], (int)slocalUnfoldTable.index, out text);
+                        AmbChunk ambChunk = AmBind.Get(this.m_fs[(int)slocalUnfoldTable.file], (int)slocalUnfoldTable.index, out text);
                         object obj;
                         if (AppMain.AoActIsAma(ambChunk.array, ambChunk.offset))
                         {
-                            obj = AppMain.readAMAFile(ambChunk);
+                            obj = A2S.readAMAFile(ambChunk);
                         }
                         else
                         {
-                            obj = AppMain.readAMBFile(ambChunk);
+                            obj = AmFs.readAMBFile(ambChunk);
                         }
                         this.m_file[(int)((UIntPtr)num)] = obj;
                     }
@@ -229,7 +229,7 @@ public partial class AppMain
             };
             for (int i = 0; i < 2; i++)
             {
-                AppMain.AoTexBuild(this.m_tex[i], (AppMain.AMS_AMB_HEADER)this.m_file[(int)array[i]]);
+                AppMain.AoTexBuild(this.m_tex[i], (AMS_AMB_HEADER)this.m_file[(int)array[i]]);
                 AppMain.AoTexLoad(this.m_tex[i]);
             }
             this.m_flag[5] = true;
@@ -269,7 +269,7 @@ public partial class AppMain
             while ((ulong)num < (ulong)((long)AppMain.CMain.c_local_create_action_table.Length))
             {
                 AppMain.CMain.SLocalCreateActionTable slocalCreateActionTable = AppMain.CMain.c_local_create_action_table[(int)((UIntPtr)num)];
-                AppMain.A2S_AMA_HEADER ama = AppMain.readAMAFile(this.m_file[(int)slocalCreateActionTable.file]);
+                A2S_AMA_HEADER ama = A2S.readAMAFile(this.m_file[(int)slocalCreateActionTable.file]);
                 AppMain.CMain.SAction saction = this.m_act[(int)((UIntPtr)num)];
                 saction.act = AppMain.AoActCreate(ama, (uint)slocalCreateActionTable.idx);
                 saction.tex = this.m_tex[(int)((UIntPtr)slocalCreateActionTable.tex)];
@@ -469,7 +469,7 @@ public partial class AppMain
         private int[] m_result;
 
         // Token: 0x04004CB0 RID: 19632
-        private readonly AppMain.AMS_FS[] m_fs = new AppMain.AMS_FS[2];
+        private readonly AMS_FS[] m_fs = new AMS_FS[2];
 
         // Token: 0x04004CB1 RID: 19633
         private readonly object[] m_file = new object[6];

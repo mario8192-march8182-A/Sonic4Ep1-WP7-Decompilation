@@ -23,8 +23,8 @@ public partial class AppMain
         {
             AppMain.gm_clrdm_tex[i].Clear();
         }
-        AppMain.gm_clrdm_amb[0] = AppMain.readAMBFile(AppMain.ObjDataLoadAmbIndex(null, 31, AppMain.g_gm_gamedat_cockpit_main_arc));
-        AppMain.gm_clrdm_amb[1] = AppMain.readAMBFile(AppMain.ObjDataLoadAmbIndex(null, AppMain.g_gm_clear_demo_data_amb_id[AppMain.GsEnvGetLanguage()], AppMain.g_gm_gamedat_cockpit_main_arc));
+        AppMain.gm_clrdm_amb[0] = AmFs.readAMBFile(AppMain.ObjDataLoadAmbIndex(null, 31, AppMain.g_gm_gamedat_cockpit_main_arc));
+        AppMain.gm_clrdm_amb[1] = AmFs.readAMBFile(AppMain.ObjDataLoadAmbIndex(null, AppMain.g_gm_clear_demo_data_amb_id[AppMain.GsEnvGetLanguage()], AppMain.g_gm_gamedat_cockpit_main_arc));
         for (int i = 0; i < 2; i++)
         {
             AppMain.AoTexBuild(AppMain.gm_clrdm_tex[i], AppMain.gm_clrdm_amb[i]);
@@ -136,11 +136,11 @@ public partial class AppMain
         }
         if (gss_MAIN_SYS_INFO.stage_id >= 16 && gss_MAIN_SYS_INFO.stage_id <= 20)
         {
-            AppMain.GmSoundPlayClearFinal();
+            GmSound.PlayClearFinal();
         }
         else
         {
-            AppMain.GmSoundPlayClear();
+            GmSound.PlayClear();
         }
         AppMain.gmClearDemoSetMainUpdateProc(gms_CLRDM_MAIN_WORK);
     }
@@ -252,7 +252,7 @@ public partial class AppMain
                 }
                 if ((AppMain.g_gm_main_system.game_flag & 65536U) != 0U && !main_work.is_first_spe_clear)
                 {
-                    AppMain.GmPlayerStockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
+                    GmPlayer.StockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
                 }
                 int index = (int)(main_work.stage_id - 4);
                 bool flag = true;
@@ -271,7 +271,7 @@ public partial class AppMain
             {
                 if ((AppMain.g_gm_main_system.game_flag & 65536U) != 0U && !main_work.is_first_spe_clear)
                 {
-                    AppMain.GmPlayerStockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
+                    GmPlayer.StockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
                 }
                 bool flag2 = false;
                 if ((AppMain.g_gm_main_system.game_flag & 65536U) != 0U)
@@ -381,7 +381,7 @@ public partial class AppMain
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
         main_work.clear_time = (uint)gss_MAIN_SYS_INFO.clear_time;
-        AppMain.AkUtilFrame60ToTime(main_work.clear_time, ref main_work.time_min, ref main_work.time_sec, ref main_work.time_msec);
+        AkUtil.Frame60ToTime(main_work.clear_time, ref main_work.time_min, ref main_work.time_sec, ref main_work.time_msec);
         main_work.record_time_num_act[0].obj_2d.speed = 0f;
         main_work.record_time_num_act[2].obj_2d.speed = 0f;
         main_work.record_time_num_act[3].obj_2d.speed = 0f;
@@ -391,7 +391,7 @@ public partial class AppMain
         main_work.record_time_num_act[4].obj_2d.speed = 0f;
         for (int i = 0; i < 7; i++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i];
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.record_time_num_act[i];
             obs_OBJECT_WORK.disp_flag &= 4294967263U;
         }
     }
@@ -481,7 +481,7 @@ public partial class AppMain
         ushort num = 0;
         ushort num2 = 0;
         ushort num3 = 0;
-        AppMain.AkUtilFrame60ToTime((uint)clear_time, ref num, ref num2, ref num3);
+        AkUtil.Frame60ToTime((uint)clear_time, ref num, ref num2, ref num3);
         int num4 = (int)(num * 60 + num2);
         for (int i = 0; i < 9; i++)
         {
@@ -504,7 +504,7 @@ public partial class AppMain
         ushort num = 0;
         ushort num2 = 0;
         ushort num3 = 0;
-        AppMain.AkUtilFrame60ToTime((uint)clear_time, ref num, ref num2, ref num3);
+        AkUtil.Frame60ToTime((uint)clear_time, ref num, ref num2, ref num3);
         int num4 = (int)(num * 60 + num2);
         uint result = (uint)(num4 * 100);
         if ((AppMain.g_gm_main_system.game_flag & 131072U) != 0U)
@@ -521,27 +521,27 @@ public partial class AppMain
     // Token: 0x06000E26 RID: 3622 RVA: 0x0007CE78 File Offset: 0x0007B078
     private static void gmClearDemoSetInitDispAct(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK;
         for (int i = 0; i < 5; i++)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.time_num_act[i];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.time_num_act[i];
             obs_OBJECT_WORK.disp_flag |= 32U;
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.ring_num_act[i];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.ring_num_act[i];
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
         for (int i = 0; i < 9; i++)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.total_num_act[i];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.total_num_act[i];
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
         for (int i = 0; i < 3; i++)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.line_act[i];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.line_act[i];
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.sonic_icon_act;
         obs_OBJECT_WORK.disp_flag |= 32U;
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act2;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.sonic_icon_act2;
         obs_OBJECT_WORK.disp_flag |= 32U;
     }
 
@@ -673,12 +673,12 @@ public partial class AppMain
         AppMain.gmClearDemoUpdateAct(main_work);
         if (main_work.proc_calc_score == null)
         {
-            AppMain.GmSoundPlaySE("Result2");
+            GmSound.PlaySE("Result2");
             return;
         }
         if (0f == main_work.timer)
         {
-            AppMain.GmSoundPlaySE("Result1");
+            GmSound.PlaySE("Result1");
         }
     }
 
@@ -691,8 +691,8 @@ public partial class AppMain
             main_work.timer = 0f;
             if ((main_work.flag & 16U) != 0U)
             {
-                AppMain.GmSoundPlayJingle(0U);
-                AppMain.GmPlayerStockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
+                GmSound.PlayJingle(0U);
+                GmPlayer.StockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
             }
             return;
         }
@@ -761,9 +761,9 @@ public partial class AppMain
             main_work.proc_update = AppMain.gmClearDemoProcTimeWaitTimeEfct;
             for (int i = 0; i < 7; i++)
             {
-                AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i], main_work.record_time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(49 + i), 0);
-                ((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.x = 4096;
-                ((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.y = 4096;
+                AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.record_time_num_act[i], main_work.record_time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(49 + i), 0);
+                ((OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.x = 4096;
+                ((OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.y = 4096;
             }
             AppMain.gmClearDemoSetClearTimeRecord(main_work);
             AppMain.gmClearDemoSetSortBufTimeAct(main_work);
@@ -808,7 +808,7 @@ public partial class AppMain
         if (AppMain.AoActIsEndTrs(main_work.tex_new_record_act.obj_2d.act))
         {
             main_work.proc_update = AppMain.gmClearDemoProcTimeDispEffect;
-            AppMain.GmSoundPlayJingle(5U);
+            GmSound.PlayJingle(5U);
         }
         AppMain.gmClearDemoSetTimeAtkSortBufAct(main_work);
         AppMain.gmClearDemoUpdateAct(main_work);
@@ -906,7 +906,7 @@ public partial class AppMain
         {
             main_work.flag |= 2U;
             AppMain.setBackKeyRequest(false);
-            AppMain.GmSoundPlaySE("Ok");
+            GmSound.PlaySE("Ok");
             return;
         }
         CTrgAoAction trg_retry = main_work.trg_retry;
@@ -922,7 +922,7 @@ public partial class AppMain
                 main_work.btn_retry[i].obj_2d.speed = 1f;
                 i++;
             }
-            AppMain.GmSoundPlaySE("Ok");
+            GmSound.PlaySE("Ok");
         }
         else if (trg_retry.GetState(0U)[0])
         {
@@ -957,7 +957,7 @@ public partial class AppMain
                 main_work.btn_back[l].obj_2d.speed = 1f;
                 l++;
             }
-            AppMain.GmSoundPlaySE("Ok");
+            GmSound.PlaySE("Ok");
             return;
         }
         if (trg_back.GetState(0U)[2])
@@ -987,11 +987,11 @@ public partial class AppMain
     private static void gmClearDemoSetRetryDispInfo(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
         AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)].player_flag |= 65536U;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
-        AppMain.GmSoundStopStageBGM(64);
-        AppMain.GmSoundStopJingle(64);
-        AppMain.GmSoundStopBGMJingle(64);
-        AppMain.GsSoundStopSe();
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GmSound.StopStageBGM(64);
+        GmSound.StopJingle(64);
+        GmSound.StopBGMJingle(64);
+        GsSound.StopSe();
         AppMain.GmMapSetDisp(false);
         AppMain.GmFixSetDisp(false);
         AppMain.GmObjSetAllObjectNoDisp();
@@ -1001,9 +1001,9 @@ public partial class AppMain
         AppMain.g_gm_main_system.game_flag &= 4294964223U;
         gms_PLAYER_WORK.obj_work.flag &= 4294967167U;
         gms_PLAYER_WORK.obj_work.disp_flag &= 4294967263U;
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
-        AppMain.ObjCameraSetUserFunc(0, AppMain.GmCameraFunc);
-        AppMain.GmCameraScaleSet(1f, 1f);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
+        ObjCamera.SetUserFunc(0, GmCamera.Func);
+        GmCamera.ScaleSet(1f, 1f);
         obs_CAMERA.roll = 0;
         gms_PLAYER_WORK.gmk_flag &= 4294934527U;
         gms_PLAYER_WORK.obj_work.pos.x = AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.pos.x);
@@ -1025,24 +1025,24 @@ public partial class AppMain
         AppMain.GmObjSetObjectNoFunc(128U);
         AppMain.GmObjSetObjectNoFunc(256U);
         AppMain.GMM_PAD_VIB_STOP();
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_retry_act;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_retry_act;
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_back_slct_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_back_slct_act;
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.bg_retry;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.bg_retry;
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
         AppMain.amFlagOff(ref main_work.flag, 1024U);
         main_work.flag &= 4294966271U;
         for (int i = 0; i < AppMain.arrayof(main_work.record_time_num_act); i++)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.record_time_num_act[i];
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
         int j = 0;
         int num = AppMain.arrayof(main_work.btn_retry);
         while (j < num)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.btn_retry[j];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.btn_retry[j];
             obs_OBJECT_WORK.disp_flag &= 4294967263U;
             j++;
         }
@@ -1050,7 +1050,7 @@ public partial class AppMain
         int num2 = AppMain.arrayof(main_work.btn_back);
         while (k < num2)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.btn_back[k];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.btn_back[k];
             obs_OBJECT_WORK.disp_flag &= 4294967263U;
             k++;
         }
@@ -1152,12 +1152,12 @@ public partial class AppMain
         AppMain.gmClearDemoUpdateAct(main_work);
         if (main_work.proc_calc_score == null)
         {
-            AppMain.GmSoundPlaySE("Result2");
+            GmSound.PlaySE("Result2");
             return;
         }
         if (0f == main_work.timer)
         {
-            AppMain.GmSoundPlaySE("Result1");
+            GmSound.PlaySE("Result1");
         }
     }
 
@@ -1170,8 +1170,8 @@ public partial class AppMain
             main_work.timer = 0f;
             if ((main_work.flag & 16U) != 0U)
             {
-                AppMain.GmSoundPlayJingle(0U);
-                AppMain.GmPlayerStockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
+                GmSound.PlayJingle(0U);
+                GmPlayer.StockGet(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)], 1);
             }
             return;
         }
@@ -1233,9 +1233,9 @@ public partial class AppMain
             main_work.proc_update = AppMain.gmClearDemoProcSpeTimeWaitTimeEfct;
             for (int i = 0; i < 7; i++)
             {
-                AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i], main_work.record_time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(49 + i), 0);
-                ((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.x = 4096;
-                ((AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.y = 4096;
+                AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.record_time_num_act[i], main_work.record_time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(49 + i), 0);
+                ((OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.x = 4096;
+                ((OBS_OBJECT_WORK)main_work.record_time_num_act[i]).scale.y = 4096;
             }
             AppMain.gmClearDemoSetClearTimeRecord(main_work);
             AppMain.gmClearDemoSetSortBufTimeAct(main_work);
@@ -1280,7 +1280,7 @@ public partial class AppMain
         if (AppMain.AoActIsEndTrs(main_work.tex_new_record_act.obj_2d.act))
         {
             main_work.proc_update = AppMain.gmClearDemoProcSpeTimeDispEffect;
-            AppMain.GmSoundPlayJingle(5U);
+            GmSound.PlayJingle(5U);
         }
         AppMain.gmClearDemoSetTimeAtkSortBufAct(main_work);
         AppMain.gmClearDemoUpdateAct(main_work);
@@ -1290,7 +1290,7 @@ public partial class AppMain
     private static void gmClearDemoProcSpeTimeDispEffect(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
         main_work.timer += (float)main_work.count;
-        if ((AppMain.AoPadStand() & ControllerConsts.CONFIRM) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.CONFIRM) != 0)
         {
             main_work.flag |= 4U;
         }
@@ -1351,7 +1351,7 @@ public partial class AppMain
     private static void gmClearDemoCreateObjActScore(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
         AppMain.TaskWorkFactoryDelegate work_size = () => new AppMain.GMS_COCKPIT_2D_WORK();
-        AppMain.OBS_OBJECT_WORK work;
+        OBS_OBJECT_WORK work;
         for (int i = 0; i < 5; i++)
         {
             work = AppMain.GMM_COCKPIT_CREATE_WORK(work_size, null, 0, "CLRDM_UPTEXT");
@@ -1387,7 +1387,7 @@ public partial class AppMain
     private static void gmClearDemoCreateObjActTime(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
         AppMain.TaskWorkFactoryDelegate work_size = () => new AppMain.GMS_COCKPIT_2D_WORK();
-        AppMain.OBS_OBJECT_WORK work;
+        OBS_OBJECT_WORK work;
         for (int i = 0; i < 5; i++)
         {
             work = AppMain.GMM_COCKPIT_CREATE_WORK(work_size, null, 0, "CLRDM_UPTEXT");
@@ -1432,7 +1432,7 @@ public partial class AppMain
     private static void gmClearDemoCreateObjSpeScore(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
         AppMain.TaskWorkFactoryDelegate work_size = () => new AppMain.GMS_COCKPIT_2D_WORK();
-        AppMain.OBS_OBJECT_WORK work;
+        OBS_OBJECT_WORK work;
         for (int i = 0; i < 3; i++)
         {
             work = AppMain.GMM_COCKPIT_CREATE_WORK(work_size, null, 0, "CLRDM_UP_SPST_TEXT");
@@ -1484,7 +1484,7 @@ public partial class AppMain
     private static void gmClearDemoCreateObjSpeTime(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
         AppMain.TaskWorkFactoryDelegate work_size = () => new AppMain.GMS_COCKPIT_2D_WORK();
-        AppMain.OBS_OBJECT_WORK work;
+        OBS_OBJECT_WORK work;
         for (int i = 0; i < 3; i++)
         {
             work = AppMain.GMM_COCKPIT_CREATE_WORK(work_size, null, 0, "CLRDM_UP_SPST_TEXT");
@@ -1542,159 +1542,159 @@ public partial class AppMain
         AppMain.gmClearDemoCreateObjActForStage(main_work);
         for (int i = 0; i < 5; i++)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.time_num_act[i], main_work.time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(4 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.y = 4096;
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.ring_num_act[i], main_work.ring_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(9 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.time_num_act[i], main_work.time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(4 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.ring_num_act[i], main_work.ring_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(9 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.y = 4096;
         }
         for (int i = 0; i < 9; i++)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.total_num_act[i], main_work.total_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(18 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.total_num_act[i], main_work.total_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(18 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.y = 4096;
         }
         for (int i = 0; i < 3; i++)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.line_act[i], main_work.line_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(14 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.line_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.line_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.line_act[i], main_work.line_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(14 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.line_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.line_act[i]).scale.y = 4096;
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_time_act, main_work.tex_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 7U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_time_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_time_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_ring_act, main_work.tex_ring_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 8U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_ring_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_ring_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_total_act, main_work.tex_total_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 9U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_total_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_total_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act, main_work.sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 17U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_time_act, main_work.tex_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 7U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_time_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_time_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_ring_act, main_work.tex_ring_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 8U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_ring_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_ring_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_total_act, main_work.tex_total_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 9U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_total_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_total_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.sonic_icon_act, main_work.sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 17U, 0);
+        ((OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.y = 4096;
     }
 
     // Token: 0x06000E4E RID: 3662 RVA: 0x0007F190 File Offset: 0x0007D390
     private static void gmClearDemoCreateObjNormalTimeAtk(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
         AppMain.gmClearDemoCreateObjActForStage(main_work);
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act, main_work.tex_big_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 15U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act, main_work.time_sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 56U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_big_time_act, main_work.tex_big_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 15U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.time_sonic_icon_act, main_work.time_sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 56U, 0);
+        ((OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.y = 4096;
         main_work.time_sonic_icon_act.obj_2d.frame = (AppMain.GMM_MAIN_USE_SUPER_SONIC() ? 1f : 0f);
         main_work.time_sonic_icon_act.obj_2d.speed = 0f;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act, main_work.tex_new_record_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 14U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_new_record_act, main_work.tex_new_record_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 14U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.y = 4096;
     }
 
     // Token: 0x06000E4F RID: 3663 RVA: 0x0007F328 File Offset: 0x0007D528
     private static void gmClearDemoCreateObjSpecialScoreAtk(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[0], main_work.tex_spst_up_act[0].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 11U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_spst_up_act[0], main_work.tex_spst_up_act[0].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 11U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.y = 4096;
         if (main_work.is_get_eme && main_work.is_first_spe_clear)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[1], main_work.tex_spst_up_act[1].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 12U, 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[1]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[1]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_spst_up_act[1], main_work.tex_spst_up_act[1].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 12U, 0);
+            ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[1]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[1]).scale.y = 4096;
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[2], main_work.tex_spst_up_act[2].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 13U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_spst_up_act[2], main_work.tex_spst_up_act[2].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 13U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.y = 4096;
         AppMain.gmClearDemoCreateObjSpeActForStage(main_work);
         for (int i = 0; i < main_work.has_eme_num; i++)
         {
             if (main_work.is_get_eme && main_work.is_first_spe_clear)
             {
-                AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_down_act[i], main_work.icon_emer_down_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(34 + i), 0);
-                ((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_down_act[i]).scale.x = 4096;
-                ((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_down_act[i]).scale.y = 4096;
+                AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.icon_emer_down_act[i], main_work.icon_emer_down_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(34 + i), 0);
+                ((OBS_OBJECT_WORK)main_work.icon_emer_down_act[i]).scale.x = 4096;
+                ((OBS_OBJECT_WORK)main_work.icon_emer_down_act[i]).scale.y = 4096;
             }
             else
             {
-                AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_up_act[i], main_work.icon_emer_up_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(42 + i), 0);
-                ((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.x = 4096;
-                ((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.y = 4096;
+                AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.icon_emer_up_act[i], main_work.icon_emer_up_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(42 + i), 0);
+                ((OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.x = 4096;
+                ((OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.y = 4096;
             }
         }
         for (int i = 0; i < 5; i++)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.time_num_act[i], main_work.time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(57 + i), 0);
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.time_num_act[i], main_work.time_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(57 + i), 0);
             main_work.time_num_act[i].obj_2d.ama.act_tbl[(int)((UIntPtr)main_work.time_num_act[i].obj_2d.act_id)].mtn.trs_tbl[0].trs_y -= 15f;
-            ((AppMain.OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.y = 4096;
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.ring_num_act[i], main_work.ring_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(62 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.y = 4096;
+            ((OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.time_num_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.ring_num_act[i], main_work.ring_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(62 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.ring_num_act[i]).scale.y = 4096;
         }
         for (int i = 0; i < 9; i++)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.total_num_act[i], main_work.total_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(72 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.total_num_act[i], main_work.total_num_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(72 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.total_num_act[i]).scale.y = 4096;
         }
         for (int i = 0; i < 3; i++)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.line_act[i], main_work.line_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(67 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.line_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.line_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.line_act[i], main_work.line_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(67 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.line_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.line_act[i]).scale.y = 4096;
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_time_act, main_work.tex_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 18U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_time_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_time_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_time_act, main_work.tex_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 18U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_time_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_time_act).scale.y = 4096;
         main_work.tex_time_act.obj_2d.ama.act_tbl[(int)((UIntPtr)main_work.tex_time_act.obj_2d.act_id)].mtn.trs_tbl[0].trs_y -= 15f;
         main_work.tex_time_act.obj_2d.ama.act_tbl[(int)((UIntPtr)main_work.tex_time_act.obj_2d.act_id)].mtn.trs_tbl[1].trs_y -= 15f;
         main_work.tex_time_act.obj_2d.ama.act_tbl[(int)((UIntPtr)main_work.tex_time_act.obj_2d.act_id)].mtn.trs_tbl[2].trs_y -= 15f;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_ring_act, main_work.tex_ring_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 19U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_ring_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_ring_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_total_act, main_work.tex_total_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 20U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_total_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_total_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act, main_work.sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 70U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act2, main_work.sonic_icon_act2.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 71U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act2).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act2).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_extend_act, main_work.tex_extend_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 10U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_extend_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_extend_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_ring_act, main_work.tex_ring_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 19U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_ring_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_ring_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_total_act, main_work.tex_total_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 20U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_total_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_total_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.sonic_icon_act, main_work.sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 70U, 0);
+        ((OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.sonic_icon_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.sonic_icon_act2, main_work.sonic_icon_act2.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 71U, 0);
+        ((OBS_OBJECT_WORK)main_work.sonic_icon_act2).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.sonic_icon_act2).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_extend_act, main_work.tex_extend_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 10U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_extend_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_extend_act).scale.y = 4096;
     }
 
     // Token: 0x06000E50 RID: 3664 RVA: 0x0007FB64 File Offset: 0x0007DD64
     private static void gmClearDemoCreateObjSpecialTimeAtk(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[0], main_work.tex_spst_up_act[0].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 11U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[2], main_work.tex_spst_up_act[2].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 13U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_spst_up_act[0], main_work.tex_spst_up_act[0].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 11U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[0]).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_spst_up_act[2], main_work.tex_spst_up_act[2].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 13U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_spst_up_act[2]).scale.y = 4096;
         AppMain.gmClearDemoCreateObjSpeActForStage(main_work);
         for (int i = 0; i < main_work.has_eme_num; i++)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_up_act[i], main_work.icon_emer_up_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(42 + i), 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.icon_emer_up_act[i], main_work.icon_emer_up_act[i].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(42 + i), 0);
+            ((OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.icon_emer_up_act[i]).scale.y = 4096;
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act, main_work.tex_big_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 15U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.y = 4096;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act, main_work.time_sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 56U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_big_time_act, main_work.tex_big_time_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 15U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_big_time_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.time_sonic_icon_act, main_work.time_sonic_icon_act.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 56U, 0);
+        ((OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.time_sonic_icon_act).scale.y = 4096;
         main_work.time_sonic_icon_act.obj_2d.frame = (AppMain.GMM_MAIN_USE_SUPER_SONIC() ? 1f : 0f);
         main_work.time_sonic_icon_act.obj_2d.speed = 0f;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act, main_work.tex_new_record_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 14U, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_new_record_act, main_work.tex_new_record_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 14U, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_new_record_act).scale.y = 4096;
     }
 
     // Token: 0x06000E51 RID: 3665 RVA: 0x0007FE70 File Offset: 0x0007E070
@@ -1716,9 +1716,9 @@ public partial class AppMain
         }
         if (num != 4)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[0], main_work.tex_up_act[0].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)num2, 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[0]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[0]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_up_act[0], main_work.tex_up_act[0].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)num2, 0);
+            ((OBS_OBJECT_WORK)main_work.tex_up_act[0]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.tex_up_act[0]).scale.y = 4096;
         }
         ushort id;
         if (num != 4)
@@ -1729,9 +1729,9 @@ public partial class AppMain
         {
             id = AppMain.dm_clrdm_stage_ge_tex_act_id[(int)main_work.stage_id];
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[1], main_work.tex_up_act[1].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), (uint)id, 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[1]).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[1]).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_up_act[1], main_work.tex_up_act[1].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), (uint)id, 0);
+        ((OBS_OBJECT_WORK)main_work.tex_up_act[1]).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_up_act[1]).scale.y = 4096;
         ushort num3;
         int index;
         if (AppMain.dm_clrdm_stage_text_amb_id[(int)main_work.stage_id] == 0)
@@ -1746,13 +1746,13 @@ public partial class AppMain
         }
         if (num3 == 0 && (num == 0 || num == 1))
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[2], main_work.tex_up_act[2].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 3U, 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[2]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[2]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_up_act[2], main_work.tex_up_act[2].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 3U, 0);
+            ((OBS_OBJECT_WORK)main_work.tex_up_act[2]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.tex_up_act[2]).scale.y = 4096;
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[3], main_work.tex_up_act[3].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), (uint)AppMain.dm_clrdm_stage_text_act_id[(int)main_work.stage_id], 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[3]).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[3]).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_up_act[3], main_work.tex_up_act[3].obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), (uint)AppMain.dm_clrdm_stage_text_act_id[(int)main_work.stage_id], 0);
+        ((OBS_OBJECT_WORK)main_work.tex_up_act[3]).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.tex_up_act[3]).scale.y = 4096;
         if (num == 4)
         {
             num2 = AppMain.dm_clrdm_stage_ge_num_act_id[(int)main_work.stage_id];
@@ -1775,9 +1775,9 @@ public partial class AppMain
         }
         if (num2 != 65535)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[4], main_work.tex_up_act[4].obj_2d, null, null, index, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[(int)num3]), (uint)num2, 0);
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[4]).scale.x = 4096;
-            ((AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[4]).scale.y = 4096;
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_up_act[4], main_work.tex_up_act[4].obj_2d, null, null, index, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[(int)num3]), (uint)num2, 0);
+            ((OBS_OBJECT_WORK)main_work.tex_up_act[4]).scale.x = 4096;
+            ((OBS_OBJECT_WORK)main_work.tex_up_act[4]).scale.y = 4096;
         }
     }
 
@@ -1795,9 +1795,9 @@ public partial class AppMain
         {
             num3 = 86;
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.spst_num_act[num2], main_work.spst_num_act[num2].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(num3 + num2), 0);
-        ((AppMain.OBS_OBJECT_WORK)main_work.spst_num_act[num2]).scale.x = 4096;
-        ((AppMain.OBS_OBJECT_WORK)main_work.spst_num_act[num2]).scale.y = 4096;
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.spst_num_act[num2], main_work.spst_num_act[num2].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(num3 + num2), 0);
+        ((OBS_OBJECT_WORK)main_work.spst_num_act[num2]).scale.x = 4096;
+        ((OBS_OBJECT_WORK)main_work.spst_num_act[num2]).scale.y = 4096;
     }
 
     // Token: 0x06000E53 RID: 3667 RVA: 0x00080250 File Offset: 0x0007E450
@@ -1807,7 +1807,7 @@ public partial class AppMain
         {
             for (int i = 0; i < 3; i++)
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.line_act[i];
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.line_act[i];
                 obs_OBJECT_WORK.disp_flag |= 32U;
             }
         }
@@ -1815,18 +1815,18 @@ public partial class AppMain
         {
             for (int i = 0; i < 3; i++)
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.line_act[i];
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.line_act[i];
                 obs_OBJECT_WORK.disp_flag &= 4294967263U;
             }
         }
         if ((main_work.flag & 64U) == 0U)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.sonic_icon_act;
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
         else
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.sonic_icon_act;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.sonic_icon_act;
             obs_OBJECT_WORK.disp_flag &= 4294967263U;
         }
         AppMain.gmClearDemoSetSortBufScore(main_work);
@@ -1839,7 +1839,7 @@ public partial class AppMain
         {
             for (int i = 0; i < 7; i++)
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[i];
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.record_time_num_act[i];
                 obs_OBJECT_WORK.disp_flag &= 4294967263U;
             }
         }
@@ -1849,22 +1849,22 @@ public partial class AppMain
     // Token: 0x06000E55 RID: 3669 RVA: 0x00080354 File Offset: 0x0007E554
     private static void gmClearDemoSetRetryInitAct(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK;
         for (int i = 0; i < 5; i++)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[i];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_up_act[i];
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
         for (int j = 0; j < 7; j++)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[j];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.record_time_num_act[j];
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_big_time_act;
         obs_OBJECT_WORK.disp_flag |= 32U;
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.time_sonic_icon_act;
         obs_OBJECT_WORK.disp_flag |= 32U;
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_new_record_act;
         obs_OBJECT_WORK.disp_flag |= 32U;
         main_work.tex_retry_act.obj_2d.frame = 0f;
         main_work.tex_retry_act.obj_2d.speed = 0f;
@@ -1891,12 +1891,12 @@ public partial class AppMain
     // Token: 0x06000E56 RID: 3670 RVA: 0x000804F0 File Offset: 0x0007E6F0
     private static void gmClearDemoSetRetrySortBufAct(AppMain.GMS_CLRDM_MAIN_WORK main_work)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK;
         if (main_work.is_clear_spe_stg)
         {
             for (int i = 0; i < 3; i++)
             {
-                obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_spst_up_act[i];
+                obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_spst_up_act[i];
                 obs_OBJECT_WORK.disp_flag |= 32U;
             }
         }
@@ -1904,38 +1904,38 @@ public partial class AppMain
         {
             for (int j = 0; j < 5; j++)
             {
-                obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_up_act[j];
+                obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_up_act[j];
                 obs_OBJECT_WORK.disp_flag |= 32U;
             }
         }
         for (int k = 0; k < 7; k++)
         {
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.record_time_num_act[k];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.record_time_num_act[k];
             obs_OBJECT_WORK.disp_flag |= 32U;
         }
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_big_time_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_big_time_act;
         obs_OBJECT_WORK.disp_flag |= 32U;
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.time_sonic_icon_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.time_sonic_icon_act;
         obs_OBJECT_WORK.disp_flag |= 32U;
-        obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.tex_new_record_act;
+        obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.tex_new_record_act;
         obs_OBJECT_WORK.disp_flag |= 32U;
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.bg_retry, main_work.bg_retry.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 99U, 0);
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.bg_retry, main_work.bg_retry.obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), 99U, 0);
         int l = 0;
         int num = AppMain.arrayof(main_work.btn_retry);
         while (l < num)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.btn_retry[l], main_work.btn_retry[l].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(100 + l), 0);
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.btn_retry[l], main_work.btn_retry[l].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(100 + l), 0);
             l++;
         }
         int m = 0;
         int num2 = AppMain.arrayof(main_work.btn_back);
         while (m < num2)
         {
-            AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.btn_back[m], main_work.btn_back[m].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(103 + m), 0);
+            AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.btn_back[m], main_work.btn_back[m].obj_2d, null, null, 30, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[0]), (uint)(103 + m), 0);
             m++;
         }
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_retry_act, main_work.tex_retry_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 16U, 0);
-        AppMain.ObjObjectAction2dAMALoadSetTexlist((AppMain.OBS_OBJECT_WORK)main_work.tex_back_slct_act, main_work.tex_back_slct_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 17U, 0);
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_retry_act, main_work.tex_retry_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 16U, 0);
+        AppMain.ObjObjectAction2dAMALoadSetTexlist((OBS_OBJECT_WORK)main_work.tex_back_slct_act, main_work.tex_back_slct_act.obj_2d, null, null, AppMain.g_gm_clear_demo_data_ama_id[AppMain.GsEnvGetLanguage()], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(main_work.tex[1]), 17U, 0);
         main_work.tex_retry_act.obj_2d.frame = 0f;
         main_work.tex_retry_act.obj_2d.speed = 0f;
         main_work.tex_back_slct_act.obj_2d.frame = 0f;
@@ -1987,13 +1987,13 @@ public partial class AppMain
         int num = 1;
         if (score < 10U)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK;
             for (int i = 0; i < (int)(digits - 1U); i++)
             {
-                obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)score_act[i];
+                obs_OBJECT_WORK = (OBS_OBJECT_WORK)score_act[i];
                 obs_OBJECT_WORK.disp_flag |= 32U;
             }
-            obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)score_act[(int)((UIntPtr)(digits - 1U))];
+            obs_OBJECT_WORK = (OBS_OBJECT_WORK)score_act[(int)((UIntPtr)(digits - 1U))];
             obs_OBJECT_WORK.disp_flag &= 4294967263U;
             return;
         }
@@ -2007,12 +2007,12 @@ public partial class AppMain
                 }
                 if (score < (uint)num)
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)score_act[i];
+                    OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)score_act[i];
                     obs_OBJECT_WORK.disp_flag |= 32U;
                 }
                 else
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)score_act[i];
+                    OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)score_act[i];
                     obs_OBJECT_WORK.disp_flag &= 4294967263U;
                 }
                 num = 1;
@@ -2230,7 +2230,7 @@ public partial class AppMain
     {
         if (tcb != null)
         {
-            AppMain.NNS_RGBA_U8 bgColor = new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
+            NNS_RGBA_U8 bgColor = new NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
             AppMain.amDrawSetBGColor(bgColor);
             return;
         }

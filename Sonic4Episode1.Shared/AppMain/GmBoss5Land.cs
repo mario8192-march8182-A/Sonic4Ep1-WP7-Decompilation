@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060004F7 RID: 1271 RVA: 0x0002AAE4 File Offset: 0x00028CE4
-    private static AppMain.OBS_OBJECT_WORK GmBoss5LandInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmBoss5LandInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_BOSS5_LAND_PLACEMENT_INFO gms_BOSS5_LAND_PLACEMENT_INFO = new AppMain.GMS_BOSS5_LAND_PLACEMENT_INFO();
         if ( AppMain.gmBoss5LandGetPlacementInfo( gms_BOSS5_LAND_PLACEMENT_INFO ) == 0 )
         {
             return null;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, gms_BOSS5_LAND_PLACEMENT_INFO.pos_x, gms_BOSS5_LAND_PLACEMENT_INFO.pos_y, () => new AppMain.GMS_BOSS5_LAND_WORK(), "BOSS5_LAND");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, gms_BOSS5_LAND_PLACEMENT_INFO.pos_x, gms_BOSS5_LAND_PLACEMENT_INFO.pos_y, () => new AppMain.GMS_BOSS5_LAND_WORK(), "BOSS5_LAND");
         AppMain.GMS_BOSS5_LAND_WORK land_work = (AppMain.GMS_BOSS5_LAND_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.pos.z = -524288;
         obs_OBJECT_WORK.flag |= 16U;
@@ -37,8 +37,8 @@ public partial class AppMain
     // Token: 0x060004F8 RID: 1272 RVA: 0x0002AC0C File Offset: 0x00028E0C
     private static AppMain.GMS_BOSS5_LAND_WORK GmBoss5LandCreate( AppMain.GMS_BOSS5_MGR_WORK mgr_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(mgr_work);
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GmEventMgrLocalEventBirth(344, obs_OBJECT_WORK.pos.x, obs_OBJECT_WORK.pos.y, 0, 0, 0, 0, 0, 0);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(mgr_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GmEventMgrLocalEventBirth(344, obs_OBJECT_WORK.pos.x, obs_OBJECT_WORK.pos.y, 0, 0, 0, 0, 0, 0);
         if ( obs_OBJECT_WORK2 == null )
         {
             return null;
@@ -52,7 +52,7 @@ public partial class AppMain
     private static int gmBoss5LandGetPlacementInfo( AppMain.GMS_BOSS5_LAND_PLACEMENT_INFO place_info )
     {
         AppMain.GMS_EVE_RECORD_EVENT gms_EVE_RECORD_EVENT = null;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK;
         for ( obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 3 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 3 ) )
         {
             AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
@@ -78,7 +78,7 @@ public partial class AppMain
     // Token: 0x060004FA RID: 1274 RVA: 0x0002AD00 File Offset: 0x00028F00
     private static void gmBoss5LandSetObjCollisionRect( AppMain.GMS_BOSS5_LAND_WORK land_work, int part_num )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(land_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(land_work);
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)land_work;
         gms_ENEMY_COM_WORK.col_work.obj_col.obj = AppMain.GMM_BS_OBJ( land_work );
         gms_ENEMY_COM_WORK.col_work.obj_col.width = ( ushort )( ( long )part_num * ( long )( ( ulong )AppMain.GMD_BOSS5_LAND_LDPART_WIDTH_INT ) );
@@ -97,7 +97,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004FC RID: 1276 RVA: 0x0002AE00 File Offset: 0x00029000
-    private static void gmBoss5LandMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmBoss5LandMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_BOSS5_LAND_WORK gms_BOSS5_LAND_WORK = (AppMain.GMS_BOSS5_LAND_WORK)obj_work;
         if ( gms_BOSS5_LAND_WORK.proc_update != null )
@@ -136,8 +136,8 @@ public partial class AppMain
     // Token: 0x06000500 RID: 1280 RVA: 0x0002AEB0 File Offset: 0x000290B0
     private static AppMain.GMS_BOSS5_LDPART_WORK gmBoss5LandCreateLdPart( AppMain.GMS_BOSS5_LAND_WORK land_work, int land_type, int part_index )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = AppMain.GMM_BS_OBJ(land_work);
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_BOSS5_LDPART_WORK(), parent_obj, 0, "BOSS5_LAND_PART");
+        OBS_OBJECT_WORK parent_obj = AppMain.GMM_BS_OBJ(land_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_BOSS5_LDPART_WORK(), parent_obj, 0, "BOSS5_LAND_PART");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK;
         AppMain.GMS_BOSS5_LDPART_WORK gms_BOSS5_LDPART_WORK = (AppMain.GMS_BOSS5_LDPART_WORK)obs_OBJECT_WORK;
         gms_BOSS5_LDPART_WORK.part_index = part_index;
@@ -169,12 +169,12 @@ public partial class AppMain
         int num = 0;
         while ( ( long )num < ( long )( ( ulong )AppMain.GMD_BOSS5_LAND_LDPART_SPIN_ROT_AXIS_NUM ) )
         {
-            AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-            float num2 = AppMain.FX_FX32_TO_F32(AppMain.AkMathRandFx()) * 2f - 1f;
+            NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            float num2 = AppMain.FX_FX32_TO_F32(AkMath.RandFx()) * 2f - 1f;
             num2 = AppMain.MTM_MATH_CLIP( num2, -1f, 1f );
-            short rand_angle = AppMain.AKM_DEGtoA16(360f * AppMain.FX_FX32_TO_F32(AppMain.AkMathRandFx()));
-            AppMain.AkMathGetRandomUnitVector( nns_VECTOR, num2, rand_angle );
-            AppMain.NNS_QUATERNION nns_QUATERNION;
+            short rand_angle = AkMath.DEGtoA16(360f * AppMain.FX_FX32_TO_F32(AkMath.RandFx()));
+            AkMath.GetRandomUnitVector( nns_VECTOR, num2, rand_angle );
+            NNS_QUATERNION nns_QUATERNION;
             AppMain.nnMakeRotateAxisQuaternion( out nns_QUATERNION, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z, AppMain.GMD_BOSS5_LAND_LDPART_SPIN_ROT_SPD_DEG );
             AppMain.nnMultiplyQuaternion( ref ldpart_work.rot_diff_quat, ref nns_QUATERNION, ref ldpart_work.rot_diff_quat );
             num++;
@@ -184,7 +184,7 @@ public partial class AppMain
     // Token: 0x06000502 RID: 1282 RVA: 0x0002B10C File Offset: 0x0002930C
     private static void gmBoss5LdPartUpdateSpin( AppMain.GMS_BOSS5_LDPART_WORK ldpart_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
         AppMain.nnMultiplyQuaternion( ref ldpart_work.cur_rot_quat, ref ldpart_work.rot_diff_quat, ref ldpart_work.cur_rot_quat );
         AppMain.nnMakeQuaternionMatrix( obs_OBJECT_WORK.obj_3d.user_obj_mtx_r, ref ldpart_work.cur_rot_quat );
         obs_OBJECT_WORK.disp_flag |= 16777216U;
@@ -193,10 +193,10 @@ public partial class AppMain
     // Token: 0x06000503 RID: 1283 RVA: 0x0002B160 File Offset: 0x00029360
     private static void gmBoss5LdPartInitFall( AppMain.GMS_BOSS5_LDPART_WORK ldpart_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
         int num = (int)AppMain.mtMathRand() % AppMain.GMD_BOSS5_LAND_LDPART_FALL_XY_DIR_RANGE_DEG;
-        int ang = AppMain.AKM_DEGtoA32(num + (270 - AppMain.GMD_BOSS5_LAND_LDPART_FALL_XY_DIR_RANGE_DEG / 2));
-        int z = AppMain.FX_Mul(AppMain.AkMathRandFx(), AppMain.GMD_BOSS5_LAND_LDPART_FALL_Z_SPD_MAX * 2) - AppMain.GMD_BOSS5_LAND_LDPART_FALL_Z_SPD_MAX;
+        int ang = AkMath.DEGtoA32(num + (270 - AppMain.GMD_BOSS5_LAND_LDPART_FALL_XY_DIR_RANGE_DEG / 2));
+        int z = AppMain.FX_Mul(AkMath.RandFx(), AppMain.GMD_BOSS5_LAND_LDPART_FALL_Z_SPD_MAX * 2) - AppMain.GMD_BOSS5_LAND_LDPART_FALL_Z_SPD_MAX;
         obs_OBJECT_WORK.spd.y = ( int )( 4096f * AppMain.GMD_BOSS5_LAND_LDPART_FALL_XY_SPD_FL * AppMain.nnSin( ang ) );
         obs_OBJECT_WORK.spd.x = ( int )( 4096f * AppMain.GMD_BOSS5_LAND_LDPART_FALL_XY_SPD_FL * AppMain.nnCos( ang ) );
         obs_OBJECT_WORK.spd.z = z;
@@ -231,7 +231,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000507 RID: 1287 RVA: 0x0002B2E0 File Offset: 0x000294E0
-    private static void gmBoss5LdPartMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmBoss5LdPartMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_BOSS5_LDPART_WORK gms_BOSS5_LDPART_WORK = (AppMain.GMS_BOSS5_LDPART_WORK)obj_work;
         obj_work.parent_ofst.x = gms_BOSS5_LDPART_WORK.pivot_parent_ofst[0] + gms_BOSS5_LDPART_WORK.vib_ofst[0];
@@ -245,7 +245,7 @@ public partial class AppMain
     // Token: 0x06000508 RID: 1288 RVA: 0x0002B340 File Offset: 0x00029540
     private static void gmBoss5LdPartProcInit( AppMain.GMS_BOSS5_LDPART_WORK ldpart_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.disp_flag |= 4U;
         ldpart_work.proc_update = AppMain.gmBoss5LdPartProcUpdateIdle;
@@ -254,7 +254,7 @@ public partial class AppMain
     // Token: 0x06000509 RID: 1289 RVA: 0x0002B37C File Offset: 0x0002957C
     private static void gmBoss5LdPartProcUpdateIdle( AppMain.GMS_BOSS5_LDPART_WORK ldpart_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
         AppMain.GMS_BOSS5_LAND_WORK gms_BOSS5_LAND_WORK = (AppMain.GMS_BOSS5_LAND_WORK)obs_OBJECT_WORK.parent_obj;
         if ( ( gms_BOSS5_LAND_WORK.flag & AppMain.GMD_BOSS5_LAND_FLAG_SHAKE_ACTIVE ) != 0U )
         {
@@ -266,7 +266,7 @@ public partial class AppMain
     // Token: 0x0600050A RID: 1290 RVA: 0x0002B3C4 File Offset: 0x000295C4
     private static void gmBoss5LdPartProcUpdateShake( AppMain.GMS_BOSS5_LDPART_WORK ldpart_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(ldpart_work);
         AppMain.GMS_BOSS5_LAND_WORK gms_BOSS5_LAND_WORK = (AppMain.GMS_BOSS5_LAND_WORK)obs_OBJECT_WORK.parent_obj;
         AppMain.gmBoss5LdPartUpdateVib( ldpart_work );
         if ( ( gms_BOSS5_LAND_WORK.flag & AppMain.GMD_BOSS5_LAND_FLAG_BREAK_ACTIVE ) != 0U )
@@ -297,13 +297,13 @@ public partial class AppMain
     // Token: 0x0600050C RID: 1292 RVA: 0x0002B478 File Offset: 0x00029678
     private static void GmBoss5LandSetLight()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = 0f;
         nns_VECTOR.y = -0.2f;
         nns_VECTOR.z = -1f;
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_1, ref nns_RGBA, 1f, nns_VECTOR );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

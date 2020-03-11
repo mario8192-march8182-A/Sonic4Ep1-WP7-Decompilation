@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0600077C RID: 1916 RVA: 0x0004234C File Offset: 0x0004054C
-    private static AppMain.OBS_OBJECT_WORK GmGmkDSignInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkDSignInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_DSIGN");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_DSIGN");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_dsign_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -917504;
@@ -32,7 +32,7 @@ public partial class AppMain
     // Token: 0x0600077E RID: 1918 RVA: 0x00042438 File Offset: 0x00040638
     public static void GmGmkDSignFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(954);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(954);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_dsign_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 }

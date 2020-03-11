@@ -39,7 +39,7 @@ public partial class AppMain
     }
 
     // Token: 0x020001B4 RID: 436
-    public class GMS_GMK_BOBJ_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BOBJ_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002212 RID: 8722 RVA: 0x00142301 File Offset: 0x00140501
         public GMS_GMK_BOBJ_WORK()
@@ -48,13 +48,13 @@ public partial class AppMain
         }
 
         // Token: 0x06002213 RID: 8723 RVA: 0x00142315 File Offset: 0x00140515
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x06002214 RID: 8724 RVA: 0x00142327 File Offset: 0x00140527
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_BOBJ_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_BOBJ_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -94,16 +94,16 @@ public partial class AppMain
     }
 
     // Token: 0x020001B5 RID: 437
-    public class GMS_GMK_BOBJ_PARTS : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BOBJ_PARTS : IOBS_OBJECT_WORK
     {
         // Token: 0x06002216 RID: 8726 RVA: 0x00142341 File Offset: 0x00140541
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
 
         // Token: 0x06002217 RID: 8727 RVA: 0x00142353 File Offset: 0x00140553
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_BOBJ_PARTS work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_BOBJ_PARTS work )
         {
             return work.eff_work.efct_com.obj_work;
         }
@@ -132,10 +132,10 @@ public partial class AppMain
     }
 
     // Token: 0x060008E0 RID: 2272 RVA: 0x00050F40 File Offset: 0x0004F140
-    private static AppMain.OBS_OBJECT_WORK GmGmkBreakObjInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBreakObjInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BOBJ_WORK gms_GMK_BOBJ_WORK = (AppMain.GMS_GMK_BOBJ_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_BOBJ_WORK(), "GMK_BREAK_LAND_MAIN");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_BOBJ_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_BOBJ_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_BOBJ_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_breakobj_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -4096;
@@ -149,18 +149,18 @@ public partial class AppMain
     // Token: 0x060008E1 RID: 2273 RVA: 0x00050FEF File Offset: 0x0004F1EF
     public static void GmGmkBreakObjBuild()
     {
-        AppMain.gm_gmk_breakobj_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 799 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 800 ) ), 0U );
+        AppMain.gm_gmk_breakobj_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 799 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 800 ) ), 0U );
     }
 
     // Token: 0x060008E2 RID: 2274 RVA: 0x0005101C File Offset: 0x0004F21C
     public static void GmGmkBreakObjFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(799));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(799));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_breakobj_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060008E3 RID: 2275 RVA: 0x0005104C File Offset: 0x0004F24C
-    public static void gmGmkBreakObjStart( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkBreakObjStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BOBJ_WORK gms_GMK_BOBJ_WORK = (AppMain.GMS_GMK_BOBJ_WORK)obj_work;
         gms_GMK_BOBJ_WORK.gmk_work.ene_com.col_work.obj_col.obj = obj_work;
@@ -191,7 +191,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008E4 RID: 2276 RVA: 0x000512B8 File Offset: 0x0004F4B8
-    public static void gmGmkBreakObjStay( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkBreakObjStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BOBJ_WORK gms_GMK_BOBJ_WORK = (AppMain.GMS_GMK_BOBJ_WORK)obj_work;
         if ( !gms_GMK_BOBJ_WORK.hitpass && gms_GMK_BOBJ_WORK.hitcheck != 0 )
@@ -204,8 +204,8 @@ public partial class AppMain
     // Token: 0x060008E5 RID: 2277 RVA: 0x000512EC File Offset: 0x0004F4EC
     private static void gmGmkBreakObjHit( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_PLAYER_WORK == AppMain.g_gm_main_system.ply_work[( int )( ( UIntPtr )0 )] )
         {
             AppMain.GMS_GMK_BOBJ_WORK gms_GMK_BOBJ_WORK = (AppMain.GMS_GMK_BOBJ_WORK)parent_obj;
@@ -282,29 +282,29 @@ public partial class AppMain
                             }
                             break;
                     }
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(null, gms_GMK_BOBJ_WORK.zone_type, (int)efct_zone_idx);
+                    OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(null, gms_GMK_BOBJ_WORK.zone_type, (int)efct_zone_idx);
                     obs_OBJECT_WORK.pos.x = parent_obj.pos.x;
                     obs_OBJECT_WORK.pos.y = parent_obj.pos.y;
                     obs_OBJECT_WORK.pos.z = parent_obj.pos.z;
                     AppMain.gmGmkBreakObj_CreateParts( parent_obj, gms_GMK_BOBJ_WORK.zone_type, vect );
                     gms_GMK_BOBJ_WORK.gmk_work.ene_com.obj_work.col_work.obj_col.obj = null;
                     AppMain.GmEnemyDefaultDefFunc( mine_rect, match_rect );
-                    AppMain.GmSoundPlaySE( "BreakOBJ" );
-                    AppMain.GmPlayerAddScore( gms_PLAYER_WORK, 100, parent_obj.pos.x, parent_obj.pos.y );
+                    GmSound.PlaySE( "BreakOBJ" );
+                    GmPlayer.AddScore( gms_PLAYER_WORK, 100, parent_obj.pos.x, parent_obj.pos.y );
                 }
             }
         }
     }
 
     // Token: 0x060008E6 RID: 2278 RVA: 0x00051728 File Offset: 0x0004F928
-    public static void gmGmkBreakObj_CreateParts( AppMain.OBS_OBJECT_WORK parent_obj, int type, ushort vect )
+    public static void gmGmkBreakObj_CreateParts( OBS_OBJECT_WORK parent_obj, int type, ushort vect )
     {
         int num = 0;
         for ( int i = 0; i < ( int )AppMain.GMS_GMK_BOBJ_PARTS_PARAM_TABLE[type].num; i++ )
         {
             ushort[] array = AppMain.GMS_GMK_BOBJ_PARTS_PARAM_TABLE[type].Params[num];
             AppMain.GMS_GMK_BOBJ_PARTS gms_GMK_BOBJ_PARTS = (AppMain.GMS_GMK_BOBJ_PARTS)AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_BOBJ_PARTS(), null, 0, "BreakObj_Parts");
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_BOBJ_PARTS;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_BOBJ_PARTS;
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_breakobj_obj_3d_list[( int )array[0]], gms_GMK_BOBJ_PARTS.eff_work.obj_3d );
             ( ( AppMain.NNS_MATERIAL_GLES11_DESC )obs_OBJECT_WORK.obj_3d._object.pMatPtrList[0].pMaterial ).fFlag = 2U;
             obs_OBJECT_WORK.pos.x = parent_obj.pos.x + ( int )( ( short )array[1] * 4096 );
@@ -329,7 +329,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008E7 RID: 2279 RVA: 0x00051918 File Offset: 0x0004FB18
-    public static void gmGmkBreakObjParts_Main( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkBreakObjParts_Main( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BOBJ_PARTS gms_GMK_BOBJ_PARTS = (AppMain.GMS_GMK_BOBJ_PARTS)obj_work;
         obj_work.dir.z = ( ushort )( obj_work.dir.z + 512 );

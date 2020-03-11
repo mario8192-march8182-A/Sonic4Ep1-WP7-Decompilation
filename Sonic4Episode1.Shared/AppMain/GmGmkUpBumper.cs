@@ -91,7 +91,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200010E RID: 270
-    public class GMS_GMK_UPBUMPER_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_UPBUMPER_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001FC7 RID: 8135 RVA: 0x0013D40C File Offset: 0x0013B60C
         public GMS_GMK_UPBUMPER_WORK()
@@ -106,13 +106,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001FC9 RID: 8137 RVA: 0x0013D433 File Offset: 0x0013B633
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x06001FCA RID: 8138 RVA: 0x0013D445 File Offset: 0x0013B645
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_UPBUMPER_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_UPBUMPER_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -128,7 +128,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004E7 RID: 1255 RVA: 0x00029FC0 File Offset: 0x000281C0
-    public static AppMain.OBS_OBJECT_WORK GmGmkUpBumperLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkUpBumperLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_UPBUMPER_WORK gms_GMK_UPBUMPER_WORK = (AppMain.GMS_GMK_UPBUMPER_WORK)AppMain.gmGmkUpBumperInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_UPBUMPER_WORK.obj_type = 0;
@@ -137,9 +137,9 @@ public partial class AppMain
     }
 
     // Token: 0x060004E8 RID: 1256 RVA: 0x0002A008 File Offset: 0x00028208
-    public static AppMain.OBS_OBJECT_WORK GmGmkUpBumperRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkUpBumperRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkUpBumperInit(eve_rec, pos_x, pos_y, type);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkUpBumperInit(eve_rec, pos_x, pos_y, type);
         AppMain.GMS_GMK_UPBUMPER_WORK gms_GMK_UPBUMPER_WORK = (AppMain.GMS_GMK_UPBUMPER_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.disp_flag &= 4290772991U;
         obs_OBJECT_WORK.obj_3d.drawflag |= 32U;
@@ -158,12 +158,12 @@ public partial class AppMain
     // Token: 0x060004EA RID: 1258 RVA: 0x0002A09C File Offset: 0x0002829C
     public static void GmGmkUpBumperFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(850);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(850);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_upbumper_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060004EB RID: 1259 RVA: 0x0002A0C4 File Offset: 0x000282C4
-    private static void gmGmkUpBumperStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkUpBumperStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_UPBUMPER_WORK gms_GMK_UPBUMPER_WORK = (AppMain.GMS_GMK_UPBUMPER_WORK)obj_work;
         gms_GMK_UPBUMPER_WORK.gmk_work.ene_com.rect_work[0].flag &= 4294967291U;
@@ -179,7 +179,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004EC RID: 1260 RVA: 0x0002A1B8 File Offset: 0x000283B8
-    private static void gmGmkUpBumperStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkUpBumperStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_UPBUMPER_WORK gms_GMK_UPBUMPER_WORK = (AppMain.GMS_GMK_UPBUMPER_WORK)obj_work;
         if ( gms_GMK_UPBUMPER_WORK.player_spd_keep_timer_mine > 0 )
@@ -207,7 +207,7 @@ public partial class AppMain
     private static void gmGmkUpBumperHit( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_GMK_UPBUMPER_WORK gms_GMK_UPBUMPER_WORK = (AppMain.GMS_GMK_UPBUMPER_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_PLAYER_WORK == AppMain.g_gm_main_system.ply_work[( int )( ( UIntPtr )0 )] )
         {
             int spd_y = 0;
@@ -263,10 +263,10 @@ public partial class AppMain
     }
 
     // Token: 0x060004EE RID: 1262 RVA: 0x0002A370 File Offset: 0x00028570
-    private static AppMain.OBS_OBJECT_WORK gmGmkUpBumperInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK gmGmkUpBumperInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_UPBUMPER_WORK gms_GMK_UPBUMPER_WORK = (AppMain.GMS_GMK_UPBUMPER_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_UPBUMPER_WORK(), "Gmk_UpBumper");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_UPBUMPER_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_UPBUMPER_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_UPBUMPER_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_upbumper_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -4096;

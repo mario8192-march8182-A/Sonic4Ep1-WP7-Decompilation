@@ -59,7 +59,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FA4 RID: 4004 RVA: 0x00088BAC File Offset: 0x00086DAC
-    private static void HgTrophyTryAcquisition( int timing )
+    public static void HgTrophyTryAcquisition( int timing )
     {
         AppMain.HGS_TROPHY_CHECK_TIMING_INFO hgs_TROPHY_CHECK_TIMING_INFO = AppMain.hg_trophy_check_timing_info_tbl[timing];
 
@@ -79,7 +79,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FA5 RID: 4005 RVA: 0x00088C04 File Offset: 0x00086E04
-    private static void HgTrophyIncEnemyKillCount( AppMain.OBS_OBJECT_WORK ene_obj )
+    public static void HgTrophyIncEnemyKillCount( OBS_OBJECT_WORK ene_obj )
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
 
@@ -108,7 +108,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FA6 RID: 4006 RVA: 0x00088C94 File Offset: 0x00086E94
-    private static void HgTrophyIncPlayerDamageCount( AppMain.GMS_PLAYER_WORK ply_work )
+    public static void HgTrophyIncPlayerDamageCount( GMS_PLAYER_WORK ply_work )
     { 
         if ( AppMain.g_gm_main_system.ply_dmg_count < 1U )
         {
@@ -119,7 +119,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FA7 RID: 4007 RVA: 0x00088CCC File Offset: 0x00086ECC
-    private static void HgTrophyIncFinalClearCount()
+    public static void HgTrophyIncFinalClearCount()
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
         if ( gss_MAIN_SYS_INFO.final_clear_count < 2U )
@@ -131,7 +131,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FA9 RID: 4009 RVA: 0x00088D05 File Offset: 0x00086F05
-    private static uint hgTrophyGetClearTime()
+    public static uint hgTrophyGetClearTime()
     {
         if ( AppMain.GsGetMainSysInfo().clear_time >= 35999 )
         {
@@ -141,7 +141,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FAA RID: 4010 RVA: 0x00088D28 File Offset: 0x00086F28
-    private static void hgTrophyTryAcquisitionNormal( AppMain.HGS_TROPHY_CHECK_INFO check_info )
+    public static void hgTrophyTryAcquisitionNormal( AppMain.HGS_TROPHY_CHECK_INFO check_info )
     {
         if ( AppMain.GsTrophyIsAcquired( check_info.trophy_id ) )
         {
@@ -154,7 +154,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FAB RID: 4011 RVA: 0x00088D50 File Offset: 0x00086F50
-    private static void hgTrophyTryAcquisitionAvatar( AppMain.HGS_TROPHY_CHECK_INFO check_info )
+    public static void hgTrophyTryAcquisitionAvatar( AppMain.HGS_TROPHY_CHECK_INFO check_info )
     {
         if ( AppMain.GsTrophyAvatarIsAcquired( check_info.trophy_id ) )
         {
@@ -167,14 +167,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000FAC RID: 4012 RVA: 0x00088D78 File Offset: 0x00086F78
-    private static bool hgTrophyCheckAcquireStage11Clear()
+    public static bool hgTrophyCheckAcquireStage11Clear()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         return AppMain.GsGetMainSysInfo().stage_id == 0;
     }
 
     // Token: 0x06000FAD RID: 4013 RVA: 0x00088D9B File Offset: 0x00086F9B
-    private static bool hgTrophyCheckAcquireDefeatBoss1()
+    public static bool hgTrophyCheckAcquireDefeatBoss1()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         if ( AppMain.GMM_MAIN_STAGE_IS_BOSS() )
@@ -186,7 +186,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FAE RID: 4014 RVA: 0x00088DD2 File Offset: 0x00086FD2
-    private static bool hgTrophyCheckAcquireDefeatBoss2()
+    public static bool hgTrophyCheckAcquireDefeatBoss2()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         if ( AppMain.GMM_MAIN_STAGE_IS_BOSS() )
@@ -198,7 +198,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FAF RID: 4015 RVA: 0x00088E09 File Offset: 0x00087009
-    private static bool hgTrophyCheckAcquireDefeatBoss3()
+    public static bool hgTrophyCheckAcquireDefeatBoss3()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         if ( AppMain.GMM_MAIN_STAGE_IS_BOSS() )
@@ -210,7 +210,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FB0 RID: 4016 RVA: 0x00088E41 File Offset: 0x00087041
-    private static bool hgTrophyCheckAcquireDefeatBoss4()
+    public static bool hgTrophyCheckAcquireDefeatBoss4()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         if ( AppMain.GMM_MAIN_STAGE_IS_BOSS() )
@@ -222,21 +222,21 @@ public partial class AppMain
     }
 
     // Token: 0x06000FB1 RID: 4017 RVA: 0x00088E79 File Offset: 0x00087079
-    private static bool hgTrophyCheckAcquireFirstChaosEmerald()
+    public static bool hgTrophyCheckAcquireFirstChaosEmerald()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         return ( AppMain.g_gm_main_system.game_flag & 65536U ) != 0U;
     }
 
     // Token: 0x06000FB2 RID: 4018 RVA: 0x00088EA2 File Offset: 0x000870A2
-    private static bool hgTrophyCheckAcquire1000EnemyKill()
+    public static bool hgTrophyCheckAcquire1000EnemyKill()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         return AppMain.GsGetMainSysInfo().ene_kill_count >= 1000U;
     }
 
     // Token: 0x06000FB3 RID: 4019 RVA: 0x00088ECC File Offset: 0x000870CC
-    private static bool hgTrophyCheckAcquireSsonicInAllAct()
+    public static bool hgTrophyCheckAcquireSsonicInAllAct()
     {
         bool result = true;
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
@@ -266,14 +266,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000FB4 RID: 4020 RVA: 0x00088F5F File Offset: 0x0008715F
-    private static bool hgTrophyCheckAcquireReachEnd()
+    public static bool hgTrophyCheckAcquireReachEnd()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 10 );
         return true;
     }
 
     // Token: 0x06000FB5 RID: 4021 RVA: 0x00088F78 File Offset: 0x00087178
-    private static bool hgTrophyCheckAcquireUploadAllRecords()
+    public static bool hgTrophyCheckAcquireUploadAllRecords()
     {
         bool result = true;
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 7 || AppMain.SyGetEvtInfo().cur_evt_id == 6 );
@@ -289,7 +289,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FB6 RID: 4022 RVA: 0x00088FC8 File Offset: 0x000871C8
-    private static bool hgTrophyCheckAcquireStageS1AllRings()
+    public static bool hgTrophyCheckAcquireStageS1AllRings()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         if ( AppMain.GsGetMainSysInfo().stage_id == 21 && ( AppMain.g_gm_main_system.game_flag & 196608U ) != 0U && AppMain.GsGetMainSysInfo().clear_ring >= AppMain.GmEventMgrGetRingNum() )
@@ -301,28 +301,28 @@ public partial class AppMain
     }
 
     // Token: 0x06000FB7 RID: 4023 RVA: 0x00089031 File Offset: 0x00087231
-    private static bool hgTrophyCheckAcquireStage100Rings()
+    public static bool hgTrophyCheckAcquireStage100Rings()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         return AppMain.GsGetMainSysInfo().clear_ring >= 120U && AppMain.GsGetMainSysInfo().stage_id == 12;
     }
 
     // Token: 0x06000FB8 RID: 4024 RVA: 0x00089064 File Offset: 0x00087264
-    private static bool hgTrophyCheckAcquire99Challenge()
+    public static bool hgTrophyCheckAcquire99Challenge()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         return AppMain.g_gm_main_system.player_rest_num[( int )( ( UIntPtr )0 )] >= 100U;
     }
 
     // Token: 0x06000FB9 RID: 4025 RVA: 0x0008908C File Offset: 0x0008728C
-    private static bool hgTrophyCheckAcquireAllChaosEmeralds()
+    public static bool hgTrophyCheckAcquireAllChaosEmeralds()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         return ( AppMain.g_gm_main_system.game_flag & 65536U ) != 0U && ( AppMain.GsGetMainSysInfo().game_flag & 32U ) != 0U;
     }
 
     // Token: 0x06000FBA RID: 4026 RVA: 0x000890C4 File Offset: 0x000872C4
-    private static bool hgTrophyCheckAcquireStage11ClearIn1Min()
+    public static bool hgTrophyCheckAcquireStage11ClearIn1Min()
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
@@ -335,7 +335,7 @@ public partial class AppMain
             ushort num = 0;
             ushort num2 = 0;
             ushort num3 = 0;
-            AppMain.AkUtilFrame60ToTime( AppMain.hgTrophyGetClearTime(), ref num, ref num2, ref num3 );
+            AkUtil.Frame60ToTime( AppMain.hgTrophyGetClearTime(), ref num, ref num2, ref num3 );
             if ( num == 0 || ( num == 1 && num2 == 0 && num3 == 0 ) )
             {
                 return true;
@@ -345,14 +345,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000FBB RID: 4027 RVA: 0x00089130 File Offset: 0x00087330
-    private static bool hgTrophyCheckAcquireStageFClearNoDamage()
+    public static bool hgTrophyCheckAcquireStageFClearNoDamage()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         return AppMain.GsGetMainSysInfo().stage_id == 16 && AppMain.g_gm_main_system.ply_dmg_count == 0U && ( AppMain.g_gm_main_system.game_flag & 67108864U ) == 0U;
     }
 
     // Token: 0x06000FBC RID: 4028 RVA: 0x00089180 File Offset: 0x00087380
-    private static bool hgTrophyCheckAcquireStageEndingAllRings()
+    public static bool hgTrophyCheckAcquireStageEndingAllRings()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 9 );
         if ( AppMain.GsGetMainSysInfo().stage_id == 28 && AppMain.GsGetMainSysInfo().clear_ring >= AppMain.GmEventMgrGetRingNum() )
@@ -364,7 +364,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FBD RID: 4029 RVA: 0x000891D8 File Offset: 0x000873D8
-    private static bool hgTrophyCheckAcquireStageFClearAllEmeralds()
+    public static bool hgTrophyCheckAcquireStageFClearAllEmeralds()
     {
         AppMain.MTM_ASSERT( AppMain.SyGetEvtInfo().cur_evt_id == 6 );
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();

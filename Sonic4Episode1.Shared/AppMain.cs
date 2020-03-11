@@ -28,12 +28,10 @@ using Sonic4Episode1.Abstraction;
 // Token: 0x02000002 RID: 2
 public partial class AppMain
 {
-    // Token: 0x060004B1 RID: 1201 RVA: 0x0002845D File Offset: 0x0002665D
     public static void UNREFERENCED_PARAMETER(object obj)
     {
     }
 
-    // Token: 0x060009DB RID: 2523 RVA: 0x00057AF8 File Offset: 0x00055CF8
     public static int memcmp(byte[] block1, byte[] block2)
     {
         if (block1.Length != block2.Length)
@@ -512,7 +510,7 @@ public partial class AppMain
     {
         // PATCH: // AppMain.store = IsolatedStorageFile.GetUserStoreForApplication();
         PresentationParameters presentationParameters = AppMain.m_graphicsDevice.PresentationParameters;
-        AppMain.controllerSource = controllerSource;
+        AoPad.controllerSource = controllerSource;
         this.amIPhoneInitNN(port);
         this.init(pDocPath);
         AppMain.nnCalcSinCosTable();
@@ -528,11 +526,11 @@ public partial class AppMain
         AoPresence.AoPresenceUpdate();
         AppMain.objDrawResetCache();
         AppMain.amDrawResetCache();
-        AppMain.amFsExecuteBackgroundRead();
+        AmFs.amFsExecuteBackgroundRead();
 
         AppMain.amKeyGetData();
         AppMain.onTouchEvents();
-        AppMain.controllerSource?.Update();
+        AoPad.controllerSource?.Update();
 
         AppMain.amDrawBeginScene();
         if (this.amDrawBegin())
@@ -606,15 +604,15 @@ public partial class AppMain
     // Token: 0x060009E2 RID: 2530 RVA: 0x00059928 File Offset: 0x00057B28
     private void cri_proc(int arg)
     {
-        AppMain.AMS_ALARM alarm = null;
-        this.amAlarmCreateTimer(alarm);
-        this.amAlarmSetTimer(alarm, 16666U);
+        AMS_ALARM alarm = null;
+        AmAlarm.CreateTimer(ref alarm);
+        AmAlarm.SetTimer(alarm, 16666U);
         while (AppMain.amThreadCheckExit(AppMain._am_cri_thread) == 0)
         {
-            this.amAlarmWaitTimer(ref alarm);
+            AmAlarm.WaitTimer(ref alarm);
         }
 
-        AppMain.amAlarmDelete(alarm);
+        AmAlarm.Delete(alarm);
         AppMain.amThreadQuit(AppMain._am_cri_thread);
     }
 
@@ -711,7 +709,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001123 RID: 4387 RVA: 0x00095908 File Offset: 0x00093B08
-    public static void ClearArray<T>(T[] data) where T : AppMain.IClearable
+    public static void ClearArray<T>(T[] data) where T : IClearable
     {
         int index = 0;
         int length = data.Length;
@@ -719,7 +717,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001124 RID: 4388 RVA: 0x00095924 File Offset: 0x00093B24
-    public static void ClearArray<T>(T[] data, int index, int length) where T : AppMain.IClearable
+    public static void ClearArray<T>(T[] data, int index, int length) where T : IClearable
     {
         for (int i = index; i < length; i++)
         {
@@ -728,33 +726,6 @@ public partial class AppMain
                 data[i].Clear();
             }
         }
-    }
-
-    // Token: 0x0600186B RID: 6251 RVA: 0x000DD9A0 File Offset: 0x000DBBA0
-    private static void skipString(BinaryReader br)
-    {
-        while (br.ReadChar() != '\0')
-        {
-        }
-    }
-
-    // Token: 0x0600186C RID: 6252 RVA: 0x000DD9AC File Offset: 0x000DBBAC
-    private static string readChars(BinaryReader br)
-    {
-        int num = 0;
-        for (;;)
-        {
-            char c = br.ReadChar();
-            if (c == '\0')
-            {
-                break;
-            }
-
-            AppMain.readChars_name[num] = c;
-            num++;
-        }
-
-        return new string(AppMain.readChars_name, 0, num);
     }
 
     // Token: 0x06001CD3 RID: 7379 RVA: 0x00106724 File Offset: 0x00104924
@@ -7238,65 +7209,65 @@ public partial class AppMain
         };
         AppMain.gm_boss5_efct_create_param_tbl = new AppMain.GMS_EFFECT_CREATE_PARAM[]
         {
-            new AppMain.GMS_EFFECT_CREATE_PARAM(11, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(16, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(17, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(18, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 19U, new AppMain.NNS_VECTOR(0f, -6f, 0f),
-                new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-180), 0, 0), 1f,
+            new AppMain.GMS_EFFECT_CREATE_PARAM(11, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 10),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(16, 2U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(17, 2U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(18, 2U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 19U, new NNS_VECTOR(0f, -6f, 0f),
+                new NNS_ROTATE_A16(AkMath.DEGtoA16(-180), 0, 0), 1f,
                 AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, AppMain.AKM_DEGtoA16(-90)), 1f,
+            new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, AkMath.DEGtoA16(-90)), 1f,
                 AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(26, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), AppMain.AKM_DEGtoA16(90), 0), 1f,
+            new AppMain.GMS_EFFECT_CREATE_PARAM(26, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(AkMath.DEGtoA16(90), AkMath.DEGtoA16(90), 0), 1f,
                 AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(27, 0U, 23U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), AppMain.AKM_DEGtoA16(90), 0), 3.2f,
+            new AppMain.GMS_EFFECT_CREATE_PARAM(27, 0U, 23U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), AkMath.DEGtoA16(90), 0), 3.2f,
                 AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 9),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), AppMain.AKM_DEGtoA16(90), 0), 1f,
+            new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(AkMath.DEGtoA16(90), AkMath.DEGtoA16(90), 0), 1f,
                 AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(32, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(35, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(36, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
-            new AppMain.GMS_EFFECT_CREATE_PARAM(37, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1)
+            new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(32, 0U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(35, 0U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(36, 0U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1),
+            new AppMain.GMS_EFFECT_CREATE_PARAM(37, 0U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1)
         };
         AppMain.gm_boss5_efct_breakdown_smoke_disp_ofst_tbl = new float[][]
         {
@@ -7317,15 +7288,15 @@ public partial class AppMain
         {
             new short[]
             {
-                AppMain.AKM_DEGtoA16(-45),
-                AppMain.AKM_DEGtoA16(-45),
-                AppMain.AKM_DEGtoA16(0)
+                AkMath.DEGtoA16(-45),
+                AkMath.DEGtoA16(-45),
+                AkMath.DEGtoA16(0)
             },
             new short[]
             {
-                AppMain.AKM_DEGtoA16(-45),
-                AppMain.AKM_DEGtoA16(45),
-                AppMain.AKM_DEGtoA16(0)
+                AkMath.DEGtoA16(-45),
+                AkMath.DEGtoA16(45),
+                AkMath.DEGtoA16(0)
             }
         };
         AppMain.gm_boss5_efct_body_small_smoke_disp_ofst_tbl = new float[][]
@@ -7353,21 +7324,21 @@ public partial class AppMain
         {
             new short[]
             {
-                AppMain.AKM_DEGtoA16(0),
-                AppMain.AKM_DEGtoA16(0),
-                AppMain.AKM_DEGtoA16(0)
+                AkMath.DEGtoA16(0),
+                AkMath.DEGtoA16(0),
+                AkMath.DEGtoA16(0)
             },
             new short[]
             {
-                AppMain.AKM_DEGtoA16(0),
-                AppMain.AKM_DEGtoA16(180),
-                AppMain.AKM_DEGtoA16(0)
+                AkMath.DEGtoA16(0),
+                AkMath.DEGtoA16(180),
+                AkMath.DEGtoA16(0)
             },
             new short[]
             {
-                AppMain.AKM_DEGtoA16(0),
-                AppMain.AKM_DEGtoA16(180),
-                AppMain.AKM_DEGtoA16(0)
+                AkMath.DEGtoA16(0),
+                AkMath.DEGtoA16(180),
+                AkMath.DEGtoA16(0)
             }
         };
         float[][] array17 = new float[2][];
@@ -7388,18 +7359,18 @@ public partial class AppMain
         {
             new short[]
             {
-                AppMain.AKM_DEGtoA16(-20),
-                AppMain.AKM_DEGtoA16(0),
-                AppMain.AKM_DEGtoA16(0)
+                AkMath.DEGtoA16(-20),
+                AkMath.DEGtoA16(0),
+                AkMath.DEGtoA16(0)
             },
             new short[]
             {
-                AppMain.AKM_DEGtoA16(-20),
-                AppMain.AKM_DEGtoA16(0),
-                AppMain.AKM_DEGtoA16(0)
+                AkMath.DEGtoA16(-20),
+                AkMath.DEGtoA16(0),
+                AkMath.DEGtoA16(0)
             }
         };
-        AppMain.GMD_BOSS5_EFCT_ROCKET_ROLLING_SPARK_DIR_Z = (ushort) AppMain.AKM_DEGtoA16(180);
+        AppMain.GMD_BOSS5_EFCT_ROCKET_ROLLING_SPARK_DIR_Z = (ushort) AkMath.DEGtoA16(180);
         ushort[] array21 = new ushort[1];
         AppMain.objDiffCollisionDirHeightCheck_usDir1 = array21;
         array21 = new ushort[1];
@@ -7408,8 +7379,6 @@ public partial class AppMain
         AppMain.objDiffCollisionDirHeightCheck_usDir3 = array21;
         uint[] array22 = new uint[1];
         AppMain.objDiffCollisionDirHeightCheck_ulAttr = array22;
-        AppMain.obj_camera_tcb = null;
-        AppMain.obj_camera_sys = null;
         AppMain.NNE_LIGHT_0 = 0;
         AppMain.NNE_LIGHT_1 = 1;
         AppMain.NNE_LIGHT_2 = 2;
@@ -7435,11 +7404,11 @@ public partial class AppMain
         AppMain._am_draw_target = new AppMain.AMS_RENDER_TARGET();
         AppMain._am_draw_command_sort = null;
         AppMain._am_draw_command_func = null;
-        AppMain._am_draw_bg_color = new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
+        AppMain._am_draw_bg_color = new NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
         AppMain._am_draw_state = new AppMain.AMS_DRAWSTATE();
         AppMain._am_draw_state_stack_num = 0;
         AppMain._am_draw_state_stack = AppMain.New<AppMain.AMS_DRAWSTATE>(8U);
-        AppMain._am_draw_proj_mtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        AppMain._am_draw_proj_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain._am_draw_proj_type = 0;
         AppMain._am_displaylist_manager = new AppMain.AMS_DISPLAYLIST_MANAGER();
         AppMain._am_draw_sort_system_exec = new AppMain._am_draw_command_delegate[]
@@ -7495,11 +7464,11 @@ public partial class AppMain
             AppMain._amDrawSetFogRange,
             AppMain._amDrawSetZMode
         };
-        AppMain._am_draw_world_view_matrix = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        AppMain._am_draw_world_view_matrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain._am_draw_command_buf = new object[4][];
         AppMain._am_draw_data_buf = new object[4][];
         AppMain.amDraw_AMS_PARAM_DRAW_PRIMITIVE_Pool = new AppMain.Pool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>();
-        AppMain.amDraw_NNS_MATRIX_Pool = new AppMain.Pool<AppMain.NNS_MATRIX>();
+        AppMain.amDraw_NNS_MATRIX_Pool = new AppMain.Pool<NNS_MATRIX>();
         AppMain.amDraw_AMS_PARAM_MAKE_TASK_Pool = new AppMain.Pool<AppMain.AMS_PARAM_MAKE_TASK>();
         AppMain.amDraw_AMS_DRAWSTATE_FOG_Pool = new AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG>();
         AppMain.amDraw_AMS_DRAWSTATE_FOG_COLOR_Pool = new AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG_COLOR>();
@@ -7531,8 +7500,8 @@ public partial class AppMain
         AppMain.amDraw_AOS_ACT_DRAW_Pool = new AppMain.Pool<AppMain.AOS_ACT_DRAW>();
         AppMain.amDraw_NNS_OBJECT_Pool = new AppMain.Pool<AppMain.NNS_OBJECT>();
         AppMain.NNS_PRIM3D_PCT_ALLOC_CNT = 0;
-        AppMain._amDrawSortPrimitive3D_base_mtx = new AppMain.NNS_MATRIX();
-        AppMain._amDrawSortPrimitive2D_mtx = new AppMain.NNS_MATRIX();
+        AppMain._amDrawSortPrimitive3D_base_mtx = new NNS_MATRIX();
+        AppMain._amDrawSortPrimitive2D_mtx = new NNS_MATRIX();
         AppMain.gm_gmk_stopper_obj_3d_list = null;
         AppMain.tbl_gm_gmk_piston_col_rect = new short[]
         {
@@ -7584,60 +7553,60 @@ public partial class AppMain
         AppMain.gm_efct_ene_create_param_tbl = new AppMain.GMS_EFCT_ENE_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -8f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new NNS_VECTOR(0f, 0f, -8f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 7, 590, 607, 2,
                 AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -13f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 18U, new NNS_VECTOR(0f, 0f, -13f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 7, 590, 608, 2,
                 AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1,
                 -1, -1, 0U),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1,
                 -1, -1, 0U),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 8, 592,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 8, 592,
                 611, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(0)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 9, 594,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 9, 594,
                 612, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(1)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 3U, new AppMain.NNS_VECTOR(0f, -0.5f, 8f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 10, 596,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 3U, new NNS_VECTOR(0f, -0.5f, 8f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 10, 596,
                 613, 1, AppMain.GMM_EFCT_ENE_STAGE_FLAG(1)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 11, 598,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 11, 598,
                 614, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 11, 598,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 11, 598,
                 615, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 2U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 2U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 12, 600, 616, 1,
                 AppMain.GMM_EFCT_ENE_STAGE_FLAG(2)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(180), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(180), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 13, 602, 617, 2,
                 AppMain.GMM_EFCT_ENE_STAGE_FLAG(3)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 13, 602,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), 13, 602,
                 618, 2, AppMain.GMM_EFCT_ENE_STAGE_FLAG(3)),
             new AppMain.GMS_EFCT_ENE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(180), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(180), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), 14, 604, 619, 1,
                 AppMain.GMM_EFCT_ENE_STAGE_FLAG(0) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(1) |
                 AppMain.GMM_EFCT_ENE_STAGE_FLAG(2) | AppMain.GMM_EFCT_ENE_STAGE_FLAG(3))
@@ -7659,1512 +7628,17 @@ public partial class AppMain
             65531,
             65531
         };
-        AppMain.gs_sound_tcb = null;
-        AppMain.cacheFxSounds = new Dictionary<string, SoundEffect>();
-        AppMain.sLevel_Common_BGMList = new string[]
-        {
-            "snd_jin_clear",
-            "snd_jin_clear_final",
-            "snd_jin_emerald",
-            "snd_jin_obore",
-            "snd_jin_invincible",
-            "snd_jin_1up",
-            "snd_jin_new_record",
-            "snd_jin_gameover"
-        };
-        AppMain.sLevel_1_BGMList = new string[]
-        {
-            "snd_sng_z1a1",
-            "snd_sng_z1a2",
-            "snd_sng_z1a3",
-            "snd_sng_z1a1_speedup",
-            "snd_sng_z1a2_speedup",
-            "snd_sng_z1a3_speedup"
-        };
-        AppMain.sLevel_2_BGMList = new string[]
-        {
-            "snd_sng_z2a1",
-            "snd_sng_z2a2",
-            "snd_sng_z2a3",
-            "snd_sng_z2a1_speedup",
-            "snd_sng_z2a3_speedup"
-        };
-        AppMain.sLevel_3_BGMList = new string[]
-        {
-            "snd_sng_z3a1",
-            "snd_sng_z3a2",
-            "snd_sng_z3a3",
-            "snd_sng_z3a1_speedup",
-            "snd_sng_z3a3_speedup"
-        };
-        AppMain.sLevel_4_BGMList = new string[]
-        {
-            "snd_sng_z4a1",
-            "snd_sng_z4a2",
-            "snd_sng_z4a3",
-            "snd_sng_z4a1_speedup",
-            "snd_sng_z4a2_speedup",
-            "snd_sng_z4a3_speedup"
-        };
-        AppMain.bgmLists = new string[][]
-        {
-            AppMain.sLevel_Common_BGMList,
-            AppMain.sLevel_1_BGMList,
-            AppMain.sLevel_2_BGMList,
-            AppMain.sLevel_3_BGMList,
-            AppMain.sLevel_4_BGMList
-        };
-        AppMain.m_iBGMPreparedLevel = -1;
-        AppMain.bgmPreloadedList = new Dictionary<string, Song>();
-        AppMain.gs_sound_sys_main_info = new AppMain.GSS_SND_SYS_MAIN_INFO();
-        AppMain.gs_sound_scb_heap = AppMain.New<AppMain.GSS_SND_SCB>(8);
-        AppMain.gs_sound_scb_heap_usage_flag = new byte[1];
-        AppMain.gs_sound_se_handle_heap = AppMain.New<AppMain.GSS_SND_SE_HANDLE>(16);
-        AppMain.gs_sound_se_handle_heap_usage_flag = new byte[2];
-        AppMain.gs_sound_se_handle_error = new AppMain.GSS_SND_SE_HANDLE();
-        AppMain.gs_sound_volume = new float[2];
-        AppMain.g_iCurrentCachedIndex = 0;
-        AppMain.g_bSoundsPrecached = false;
-        AppMain.b_bPrioritySoundsLoaded = false;
+        
         AppMain._obj_fcol = null;
         AppMain.nngClipPlane = new AppMain.NNS_CLIP_PLANE();
         AppMain.nngClipPlaneGs = new AppMain.NNS_CLIP_PLANE();
         AppMain.nngNormalLength = 1f;
         AppMain.nngTangentLength = 1f;
         AppMain.nngBinormalLength = 1f;
-        AppMain.nngNormalColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.nngTangentColor = new AppMain.NNS_RGBA(1f, 0f, 0f, 1f);
-        AppMain.nngBinormalColor = new AppMain.NNS_RGBA(0f, 1f, 0f, 1f);
-        AppMain.nngWireColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.gm_player_motion_list_son_right = new byte[]
-        {
-            12,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            39,
-            41,
-            40,
-            26,
-            27,
-            28,
-            33,
-            34,
-            35,
-            43,
-            44,
-            42,
-            29,
-            8,
-            9,
-            0,
-            1,
-            2,
-            55,
-            56,
-            30,
-            30,
-            30,
-            32,
-            22,
-            38,
-            36,
-            37,
-            7,
-            10,
-            11,
-            54,
-            57,
-            98,
-            59,
-            100,
-            23,
-            24,
-            25,
-            22,
-            57,
-            54,
-            3,
-            4,
-            5,
-            6,
-            20,
-            21,
-            45,
-            47,
-            46,
-            62,
-            48,
-            49,
-            50,
-            51,
-            52,
-            53,
-            61,
-            54,
-            63,
-            67,
-            96,
-            64,
-            95,
-            66,
-            68,
-            69,
-            70,
-            71,
-            72,
-            73,
-            74,
-            75,
-            76,
-            120,
-            121
-        };
-        AppMain.gm_player_motion_list_sson_right = new byte[]
-        {
-            103,
-            13,
-            14,
-            15,
-            104,
-            105,
-            18,
-            19,
-            119,
-            41,
-            40,
-            110,
-            111,
-            112,
-            116,
-            117,
-            118,
-            43,
-            44,
-            42,
-            29,
-            102,
-            102,
-            0,
-            1,
-            2,
-            114,
-            115,
-            30,
-            30,
-            30,
-            32,
-            106,
-            38,
-            36,
-            37,
-            7,
-            10,
-            11,
-            113,
-            57,
-            98,
-            59,
-            100,
-            107,
-            108,
-            109,
-            106,
-            57,
-            54,
-            3,
-            4,
-            5,
-            6,
-            20,
-            21,
-            45,
-            47,
-            46,
-            62,
-            48,
-            49,
-            50,
-            51,
-            52,
-            53,
-            61,
-            113,
-            63,
-            67,
-            96,
-            64,
-            95,
-            66,
-            68,
-            69,
-            70,
-            71,
-            72,
-            73,
-            74,
-            75,
-            76,
-            120,
-            121
-        };
-        AppMain.gm_player_motion_list_pn_son_right = new byte[]
-        {
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            55,
-            56,
-            30,
-            30,
-            30,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            10,
-            11,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54
-        };
-        AppMain.gm_player_motion_list_pn_sson_right = new byte[]
-        {
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            114,
-            115,
-            30,
-            30,
-            30,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            10,
-            11,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            54,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113
-        };
-        AppMain.gm_player_motion_list_tr_son_right = new byte[]
-        {
-            12,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            39,
-            41,
-            40,
-            26,
-            27,
-            28,
-            33,
-            34,
-            35,
-            43,
-            44,
-            64,
-            64,
-            64,
-            64,
-            0,
-            1,
-            2,
-            55,
-            56,
-            30,
-            30,
-            30,
-            32,
-            22,
-            38,
-            36,
-            37,
-            7,
-            10,
-            11,
-            54,
-            65,
-            65,
-            65,
-            65,
-            23,
-            24,
-            25,
-            22,
-            57,
-            54,
-            3,
-            4,
-            5,
-            6,
-            20,
-            21,
-            45,
-            47,
-            46,
-            62,
-            48,
-            49,
-            50,
-            51,
-            52,
-            53,
-            61,
-            54,
-            63,
-            67,
-            96,
-            64,
-            95,
-            66,
-            68,
-            69,
-            70,
-            67,
-            67,
-            67,
-            67,
-            67,
-            67,
-            67,
-            67
-        };
-        AppMain.gm_player_model_list_pn_son = new byte[]
-        {
-            0,
-            0,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            3,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        };
-        AppMain.gm_player_model_list_son = new byte[]
-        {
-            0,
-            0,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            3,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        };
-        AppMain.gm_player_model_list_tr_son = new byte[]
-        {
-            0,
-            0,
-            2,
-            2,
-            2,
-            2,
-            2,
-            2,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            3,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            3,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        };
-        AppMain.gm_player_motion_list_pn_son_left = new byte[]
-        {
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            55,
-            56,
-            30,
-            30,
-            30,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            10,
-            11,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54,
-            54
-        };
-        AppMain.gm_player_motion_list_pn_sson_left = new byte[]
-        {
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            114,
-            115,
-            30,
-            30,
-            30,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            10,
-            11,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113,
-            113
-        };
-        AppMain.gm_player_motion_list_son_left = new byte[]
-        {
-            79,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            80,
-            41,
-            86,
-            87,
-            88,
-            89,
-            33,
-            81,
-            82,
-            43,
-            44,
-            42,
-            29,
-            8,
-            77,
-            83,
-            84,
-            85,
-            55,
-            56,
-            30,
-            30,
-            30,
-            32,
-            22,
-            38,
-            36,
-            37,
-            78,
-            10,
-            11,
-            54,
-            97,
-            58,
-            99,
-            60,
-            23,
-            24,
-            25,
-            22,
-            97,
-            54,
-            91,
-            92,
-            93,
-            94,
-            20,
-            21,
-            45,
-            47,
-            46,
-            62,
-            48,
-            49,
-            90,
-            51,
-            52,
-            53,
-            61,
-            54,
-            101,
-            67,
-            96,
-            64,
-            95,
-            66,
-            68,
-            69,
-            70,
-            71,
-            72,
-            73,
-            74,
-            75,
-            76,
-            120,
-            121
-        };
-        AppMain.gm_player_motion_list_sson_left = new byte[]
-        {
-            123,
-            13,
-            14,
-            15,
-            104,
-            105,
-            18,
-            19,
-            126,
-            41,
-            86,
-            127,
-            128,
-            129,
-            116,
-            124,
-            125,
-            43,
-            44,
-            42,
-            29,
-            122,
-            122,
-            83,
-            84,
-            85,
-            114,
-            115,
-            30,
-            30,
-            30,
-            32,
-            106,
-            38,
-            36,
-            37,
-            78,
-            10,
-            11,
-            113,
-            97,
-            58,
-            99,
-            60,
-            107,
-            108,
-            109,
-            106,
-            97,
-            54,
-            91,
-            92,
-            93,
-            94,
-            20,
-            21,
-            45,
-            47,
-            46,
-            62,
-            48,
-            49,
-            90,
-            51,
-            52,
-            53,
-            61,
-            113,
-            101,
-            67,
-            96,
-            64,
-            95,
-            66,
-            68,
-            69,
-            70,
-            71,
-            72,
-            73,
-            74,
-            75,
-            76,
-            120,
-            121
-        };
-        AppMain.gm_player_motion_list_tr_son_left = new byte[]
-        {
-            79,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            39,
-            41,
-            40,
-            26,
-            27,
-            28,
-            33,
-            34,
-            35,
-            43,
-            44,
-            95,
-            95,
-            95,
-            95,
-            0,
-            1,
-            2,
-            55,
-            56,
-            30,
-            30,
-            30,
-            32,
-            22,
-            38,
-            36,
-            37,
-            7,
-            10,
-            11,
-            54,
-            65,
-            65,
-            65,
-            65,
-            23,
-            24,
-            25,
-            22,
-            97,
-            54,
-            3,
-            4,
-            5,
-            6,
-            20,
-            21,
-            45,
-            47,
-            46,
-            62,
-            48,
-            49,
-            50,
-            51,
-            52,
-            53,
-            61,
-            54,
-            101,
-            67,
-            96,
-            64,
-            95,
-            66,
-            68,
-            69,
-            70,
-            67,
-            67,
-            67,
-            67,
-            67,
-            67,
-            67,
-            67
-        };
-        AppMain._g_gm_player_motion_right_tbl = null;
-        AppMain._g_gm_player_motion_left_tbl = null;
-        AppMain._g_gm_player_model_tbl = null;
-        AppMain._g_gm_player_mtn_blend_setting_tbl = null;
-        AppMain.gm_player_mtn_blend_setting_son = new byte[]
-        {
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            0,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            0,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0
-        };
-        AppMain.gm_player_mtn_blend_setting_tr_son = new byte[]
-        {
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            1,
-            1,
-            0,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            0,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0
-        };
-        AppMain.gm_player_mtn_blend_setting_pn_son = new byte[]
-        {
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            0,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0
-        };
-        AppMain.g_gm_player_parameter = new AppMain.GMS_PLY_PARAMETER[]
-        {
-            new AppMain.GMS_PLY_PARAMETER(145, 36864, 1024, 12288, 8192, 40960, 128, 8192, 1800, 180, 96, 24, 192,
-                53248, 640, 1280, 1280, 23130, 680, 61440, 7168, 256, 36864, 2048, 145, 36864, 128, 12288),
-            new AppMain.GMS_PLY_PARAMETER(435, 61440, 2048, 36864, 24576, 61440, 128, 12288, 1800, 180, 96, 24, 288,
-                61440, 960, 1280, 1280, 32703, 680, 61440, 7168, 768, 61440, 4096, 435, 61440, 128, 18432),
-            new AppMain.GMS_PLY_PARAMETER(145, 36864, 1024, 12288, 8192, 40960, 128, 8192, 1800, 180, 96, 24, 512,
-                20480, 640, 1280, 1280, 16384, 312, 24576, 7168, 256, 36864, 2048, 145, 36864, 128, 12288),
-            new AppMain.GMS_PLY_PARAMETER(145, 36864, 1024, 12288, 8192, 40960, 128, 8192, 1800, 180, 96, 24, 192,
-                53248, 640, 1280, 1280, 23130, 680, 61440, 7168, 256, 36864, 2048, 145, 36864, 128, 12288),
-            new AppMain.GMS_PLY_PARAMETER(435, 61440, 2048, 36864, 24576, 61440, 128, 8192, 1800, 180, 96, 24, 288,
-                61440, 640, 1280, 1280, 32703, 680, 61440, 7168, 768, 61440, 4096, 435, 61440, 128, 18432),
-            new AppMain.GMS_PLY_PARAMETER(145, 24576, 512, 12288, 8192, 40960, 128, 24576, 1800, 180, 96, 240, 512,
-                40960, 512, 512, 512, 19275, 680, 61440, 7168, 256, 36864, 512, 145, 36864, 128, 12288),
-            new AppMain.GMS_PLY_PARAMETER(435, 40960, 512, 36864, 24576, 61440, 128, 30720, 1800, 180, 96, 240, 512,
-                40960, 512, 512, 512, 27252, 680, 61440, 7168, 768, 61440, 1024, 435, 61440, 128, 18432)
-        };
+        AppMain.nngNormalColor = new NNS_RGBA(1f, 1f, 1f, 1f);
+        AppMain.nngTangentColor = new NNS_RGBA(1f, 0f, 0f, 1f);
+        AppMain.nngBinormalColor = new NNS_RGBA(0f, 1f, 0f, 1f);
+        AppMain.nngWireColor = new NNS_RGBA(1f, 1f, 1f, 1f);        
         AppMain.nextDemoLevel = 0;
         AppMain.g_gm_main_system = new AppMain.GMS_MAIN_SYSTEM();
         AppMain.gm_main_load_wait_tcb = null;
@@ -9197,336 +7671,336 @@ public partial class AppMain
         AppMain.gm_ene_mereon_r_obj_3d_list = null;
         AppMain.gm_ene_harisenbo_obj_3d_list = null;
         AppMain.gm_ene_harisenbo_r_obj_3d_list = null;
-        AppMain.gmEneHariMotionCallback_node_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmEneHariMotionCallback_base_mtx = new AppMain.NNS_MATRIX();
+        AppMain.gmEneHariMotionCallback_node_mtx = new NNS_MATRIX();
+        AppMain.gmEneHariMotionCallback_base_mtx = new NNS_MATRIX();
         AppMain.gm_efct_cmn_create_param_tbl = new AppMain.GMS_EFCT_CMN_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 6f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 2U, 19U, new NNS_VECTOR(0f, 0f, 6f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 2U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 2U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 0U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 0U, 3U, new NNS_VECTOR(0f, 6f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 0U, 7U, new AppMain.NNS_VECTOR(0f, 1.875f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 98), 103),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 0U, 7U, new NNS_VECTOR(0f, 1.875f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 98), 103),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 0U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 0U, 3U, new NNS_VECTOR(0f, 6f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(10, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(10, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(11, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 3f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(11, 2U, 18U, new NNS_VECTOR(0f, 0f, 3f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 3f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 18U, new NNS_VECTOR(0f, 0f, 3f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 3U, new AppMain.NNS_VECTOR(0f, 8f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 3U, new NNS_VECTOR(0f, 8f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(15, 2U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(17, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(17, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(18, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(18, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(19, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(19, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(21, 2U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(21, 2U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(23, 1U, 1U, new AppMain.NNS_VECTOR(0f, 6f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(23, 1U, 1U, new NNS_VECTOR(0f, 6f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(24, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(24, 2U, 3U, new NNS_VECTOR(0f, 15f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(25, 2U, 3U, new NNS_VECTOR(0f, 15f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 3U, new NNS_VECTOR(0f, 15f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 3U, new NNS_VECTOR(0f, 15f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(28, 2U, 3U, new NNS_VECTOR(0f, 15f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(29, 2U, 3U, new AppMain.NNS_VECTOR(0f, 15f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(29, 2U, 3U, new NNS_VECTOR(0f, 15f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(30, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new AppMain.NNS_VECTOR(0f, 8f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(31, 1U, 1U, new NNS_VECTOR(0f, 8f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 65U, new AppMain.NNS_VECTOR(0f, 7f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 65U, new NNS_VECTOR(0f, 7f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 20U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 3.2f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(33, 0U, 20U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 3.2f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 99), 104),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(34, 0U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(36, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(36, 1U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(37, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(37, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(38, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(38, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(39, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(39, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(40, 2U, 3U, new AppMain.NNS_VECTOR(0f, 6f, 2f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(40, 2U, 3U, new NNS_VECTOR(0f, 6f, 2f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(41, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(41, 1U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(42, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(42, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(43, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(43, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(44, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(44, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(45, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(45, 1U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(46, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(46, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(47, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(47, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(48, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(48, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(49, 1U, 65U, new AppMain.NNS_VECTOR(0f, 17f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(49, 1U, 65U, new NNS_VECTOR(0f, 17f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(50, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(50, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(51, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(51, 2U, 18U, new NNS_VECTOR(0f, 0f, -3f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(52, 0U, 55U, new AppMain.NNS_VECTOR(0f, -5f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, 100),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(52, 0U, 55U, new NNS_VECTOR(0f, -5f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, 100),
                 105),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(53, 0U, 55U, new AppMain.NNS_VECTOR(0f, -5f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, 101),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(53, 0U, 55U, new NNS_VECTOR(0f, -5f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, 101),
                 105),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(54, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(54, 1U, 18U, new NNS_VECTOR(0f, 0f, -3f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(55, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(55, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(56, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(56, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(57, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(57, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(58, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(58, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(59, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(59, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(60, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(60, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(61, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(61, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(62, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(62, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(63, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(63, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(64, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(64, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(65, 0U, 7U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(65, 0U, 7U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(66, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(66, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(67, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(67, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(68, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(68, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(69, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(69, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(70, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(70, 0U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(71, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(71, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(72, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(72, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(73, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(73, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(74, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(74, 0U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(75, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(75, 0U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(76, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(76, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(77, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(77, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(78, 0U, 5U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 102), 106),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(78, 0U, 5U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 3.2f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, 102), 106),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(79, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(79, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(80, 2U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(80, 2U, 67U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(81, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(81, 0U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(82, 0U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(82, 0U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(83, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(83, 0U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(84, 0U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(84, 0U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(85, 1U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(85, 1U, 67U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(86, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(86, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(87, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(87, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(88, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(88, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(89, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(89, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(90, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(90, 1U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(91, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(91, 1U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(92, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(92, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(93, 2U, 2U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(93, 2U, 2U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(94, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(94, 0U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(95, 0U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(95, 0U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(96, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1)
+                new AppMain.GMS_EFFECT_CREATE_PARAM(96, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1)
         };
         array11 = new int[184][];
         array11[0] = new int[]
@@ -15655,7 +14129,7 @@ public partial class AppMain
         };
         AppMain.g_deco_fall_manager = AppMain.New<AppMain.GMS_DECO_FALL_MANAGER>(16);
         AppMain.g_deco_tvx_work = AppMain.New<AppMain.GMS_DECO_PRIM_DRAW_WORK>(16);
-        AppMain.g_deco_rendaer_target_color = new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
+        AppMain.g_deco_rendaer_target_color = new NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
         AppMain.g_deco_mgr_real = new AppMain.GMS_DECO_MGR();
         AppMain.g_deco_mgr = null;
         AppMain.g_deco_data_real = new AppMain.GMS_DECO_DATA();
@@ -15721,15 +14195,15 @@ public partial class AppMain
         AppMain.obj_draw_material_cb_param = null;
         AppMain.obj_draw_effect_server_tcb = null;
         AppMain._objDrawStart_DT = AppMain.objDrawStart_DT;
-        AppMain.ObjDrawAction3DNN_obj_mtx = new AppMain.NNS_MATRIX();
+        AppMain.ObjDrawAction3DNN_obj_mtx = new NNS_MATRIX();
         AppMain._ObjDraw3DNNModel_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_MODEL>();
         AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE_Pool =
             new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE>();
         AppMain._objDraw3DNNDrawPrimitive_DT = AppMain.objDraw3DNNDrawPrimitive_DT;
-        AppMain.vec_dispObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
-        AppMain.vec_posObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
-        AppMain.vec_scaleObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
-        AppMain.vecObjDrawAction3DES = default(AppMain.SNNS_VECTOR4D);
+        AppMain.vec_dispObjDrawAction3DES = default(SNNS_VECTOR4D);
+        AppMain.vec_posObjDrawAction3DES = default(SNNS_VECTOR4D);
+        AppMain.vec_scaleObjDrawAction3DES = default(SNNS_VECTOR4D);
+        AppMain.vecObjDrawAction3DES = default(SNNS_VECTOR4D);
         AppMain._objDraw3DESMatrixPush_UserFunc = AppMain.objDraw3DESMatrixPush_UserFunc;
         AppMain._objDraw3DESMatrixPop_UserFunc = AppMain.objDraw3DESMatrixPop_UserFunc;
         AppMain.ObjDrawAction2DAMA_acm = new AppMain.AOS_ACT_ACM();
@@ -15737,7 +14211,7 @@ public partial class AppMain
         AppMain._objDraw3DNNSetCamera_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SET_CAMERA>();
         AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL>();
         AppMain._objDraw3DNNMaterialCallback = AppMain.objDraw3DNNMaterialCallback;
-        AppMain.tempSNNS_MATRIX0 = default(AppMain.SNNS_MATRIX);
+        AppMain.tempSNNS_MATRIX0 = default(SNNS_MATRIX);
         AppMain.gm_gmk_upbumper_obj_3d_list = null;
         AppMain.tbl_upbmper_rebound_data = new AppMain.GMS_GMK_UPBUMPER_REBOUND_DATA[]
         {
@@ -15757,7 +14231,7 @@ public partial class AppMain
         AppMain.GMD_BOSS5_LAND_FLAG_SHAKE_ACTIVE = 1U;
         AppMain.GMD_BOSS5_LAND_FLAG_BREAK_ACTIVE = 2U;
         AppMain.GMD_BOSS5_LAND_LDPART_SPIN_ROT_AXIS_NUM = 2U;
-        AppMain.GMD_BOSS5_LAND_LDPART_SPIN_ROT_SPD_DEG = AppMain.AKM_DEGtoA32(1);
+        AppMain.GMD_BOSS5_LAND_LDPART_SPIN_ROT_SPD_DEG = AkMath.DEGtoA32(1);
         AppMain.GMD_BOSS5_LAND_LDPART_WIDTH_INT = 64U;
         AppMain.GMD_BOSS5_LAND_LDPART_HEIGHT_INT = 64;
         AppMain.GMD_BOSS5_LAND_LDPART_WIDTH_FX = (int) (4096U * AppMain.GMD_BOSS5_LAND_LDPART_WIDTH_INT);
@@ -16223,72 +14697,72 @@ public partial class AppMain
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_z4_MID_2_DRM_A_I_DDS,
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_z4_Z4_TANK_02_ACT_I_DDS
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_DRM_A_I_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_DRM_A_I_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.75f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.25f, 0.25f),
+            new NNS_TEXCOORD(0.5f, 0.25f),
+            new NNS_TEXCOORD(0.75f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f),
+            new NNS_TEXCOORD(0f, 0.75f),
+            new NNS_TEXCOORD(0.25f, 0.75f),
+            new NNS_TEXCOORD(0.5f, 0.75f),
+            new NNS_TEXCOORD(0.75f, 0.75f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_PIPE_I_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_PIPE_I_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.125f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.125f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.125f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.125f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.375f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.375f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.375f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.375f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0.625f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.625f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.625f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.625f),
-            new AppMain.NNS_TEXCOORD(0f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0f, 0.875f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.875f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.875f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.875f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.125f),
+            new NNS_TEXCOORD(0.25f, 0.125f),
+            new NNS_TEXCOORD(0.5f, 0.125f),
+            new NNS_TEXCOORD(0.75f, 0.125f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.25f, 0.25f),
+            new NNS_TEXCOORD(0.5f, 0.25f),
+            new NNS_TEXCOORD(0.75f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.375f),
+            new NNS_TEXCOORD(0.25f, 0.375f),
+            new NNS_TEXCOORD(0.5f, 0.375f),
+            new NNS_TEXCOORD(0.75f, 0.375f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f),
+            new NNS_TEXCOORD(0f, 0.625f),
+            new NNS_TEXCOORD(0.25f, 0.625f),
+            new NNS_TEXCOORD(0.5f, 0.625f),
+            new NNS_TEXCOORD(0.75f, 0.625f),
+            new NNS_TEXCOORD(0f, 0.75f),
+            new NNS_TEXCOORD(0.25f, 0.75f),
+            new NNS_TEXCOORD(0.5f, 0.75f),
+            new NNS_TEXCOORD(0.75f, 0.75f),
+            new NNS_TEXCOORD(0f, 0.875f),
+            new NNS_TEXCOORD(0.25f, 0.875f),
+            new NNS_TEXCOORD(0.5f, 0.875f),
+            new NNS_TEXCOORD(0.75f, 0.875f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_Z4_TANK_02_ACT_I_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_Z4_TANK_02_ACT_I_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4 = new AppMain.NNS_TEXCOORD[][]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4 = new NNS_TEXCOORD[][]
         {
             AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_DRM_A_I_DDS,
             AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_PIPE_I_DDS,
@@ -16371,18 +14845,18 @@ public partial class AppMain
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS,
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_zf = new AppMain.NNS_TEXCOORD[][]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_zf = new NNS_TEXCOORD[][]
         {
             AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS,
             AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS,
@@ -16723,166 +15197,166 @@ public partial class AppMain
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_z2_Z2_ROLL_ILM_DDS.Length,
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_z2_Z2_ILM_ASHIBA_DDS.Length
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.25f, 0.25f),
+            new NNS_TEXCOORD(0.5f, 0.25f),
+            new NNS_TEXCOORD(0.75f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PANEL_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PANEL_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.25f, 0.25f),
+            new NNS_TEXCOORD(0.5f, 0.25f),
+            new NNS_TEXCOORD(0.75f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILA_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILA_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILB_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILB_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILMBELT_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILMBELT_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.125f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.375f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0.625f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0f, 0.125f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.375f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0f, 0.625f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_3MARK_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_3MARK_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.33203125f, 0f),
-            new AppMain.NNS_TEXCOORD(0.6640625f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.33203125f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.6640625f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.33203125f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.6640625f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.33203125f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.6640625f, 0.75f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.33203125f, 0f),
+            new NNS_TEXCOORD(0.6640625f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.33203125f, 0.25f),
+            new NNS_TEXCOORD(0.6640625f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.33203125f, 0.5f),
+            new NNS_TEXCOORD(0.6640625f, 0.5f),
+            new NNS_TEXCOORD(0f, 0.75f),
+            new NNS_TEXCOORD(0.33203125f, 0.75f),
+            new NNS_TEXCOORD(0.6640625f, 0.75f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_V_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_V_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.2f, 0f),
-            new AppMain.NNS_TEXCOORD(0.4f, 0f),
-            new AppMain.NNS_TEXCOORD(0.6f, 0f),
-            new AppMain.NNS_TEXCOORD(0.8f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.2f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.4f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.6f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.8f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.2f, 0f),
+            new NNS_TEXCOORD(0.4f, 0f),
+            new NNS_TEXCOORD(0.6f, 0f),
+            new NNS_TEXCOORD(0.8f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.2f, 0.5f),
+            new NNS_TEXCOORD(0.4f, 0.5f),
+            new NNS_TEXCOORD(0.6f, 0.5f),
+            new NNS_TEXCOORD(0.8f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_BALLOON_ILM_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_BALLOON_ILM_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_CODE_ILM_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_CODE_ILM_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.25f, 0.25f),
+            new NNS_TEXCOORD(0.5f, 0.25f),
+            new NNS_TEXCOORD(0.75f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_FLOWER_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_FLOWER_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ROLL_ILM_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ROLL_ILM_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_ASHIBA_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_ASHIBA_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.75f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.5f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0f, 0.75f),
+            new NNS_TEXCOORD(0.5f, 0.75f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z3_Z3_ANIM_B_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z3_Z3_ANIM_B_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f)
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PALM_DDS = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PALM_DDS = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.25f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.75f),
-            new AppMain.NNS_TEXCOORD(0.75f, 0.75f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.25f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.75f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0.25f, 0.25f),
+            new NNS_TEXCOORD(0.5f, 0.25f),
+            new NNS_TEXCOORD(0.75f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0.25f, 0.5f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0.75f, 0.5f),
+            new NNS_TEXCOORD(0f, 0.75f),
+            new NNS_TEXCOORD(0.25f, 0.75f),
+            new NNS_TEXCOORD(0.5f, 0.75f),
+            new NNS_TEXCOORD(0.75f, 0.75f)
         };
         AppMain.gm_map_prim_draw_tvx_mgr_tbl_z3_Z3_ANIM_B_DDS = new AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[]
         {
@@ -16922,7 +15396,7 @@ public partial class AppMain
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_z2_Z2_ROLL_ILM_DDS,
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_z2_Z2_ILM_ASHIBA_DDS
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2 = new AppMain.NNS_TEXCOORD[][]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2 = new NNS_TEXCOORD[][]
         {
             AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PALM_DDS,
             AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_DDS,
@@ -16949,7 +15423,7 @@ public partial class AppMain
         {
             AppMain.gm_map_prim_draw_tvx_mgr_tbl_z3_Z3_ANIM_B_DDS
         };
-        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z3 = new AppMain.NNS_TEXCOORD[][]
+        AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z3 = new NNS_TEXCOORD[][]
         {
             AppMain.gm_map_prim_draw_tvx_uv_mgr_tbl_z3_Z3_ANIM_B_DDS
         };
@@ -16962,7 +15436,7 @@ public partial class AppMain
         array13 = new int[3];
         AppMain.g_gm_gmk_tarzan_rope_motion_id = array13;
         AppMain.g_gm_gmk_tarzan_rope_obj_3d_list = null;
-        AppMain.g_gm_gmk_tarzan_rope_active_matrix = new AppMain.NNS_MATRIX();
+        AppMain.g_gm_gmk_tarzan_rope_active_matrix = new NNS_MATRIX();
         AppMain.gm_gmk_spear_obj_3d_list = null;
         AppMain.tbl_gm_gmk_spear_rect = new short[][]
         {
@@ -17086,7 +15560,7 @@ public partial class AppMain
         AppMain.g_gm_gamedat_map_attr_set = new object[3];
         AppMain.g_gm_gamedat_enemy_arc = null;
         AppMain.g_gm_gamedat_ring = new object[3];
-        AppMain.g_gm_gamedat_gimmick = new AppMain.AMS_AMB_HEADER[204];
+        AppMain.g_gm_gamedat_gimmick = new AMS_AMB_HEADER[204];
         AppMain.g_gm_gamedat_enemy = new object[44];
         AppMain.g_gm_gamedat_effect = new object[11];
         AppMain.g_gm_gamedat_cockpit_main_arc = null;
@@ -20482,15 +18956,15 @@ public partial class AppMain
                 frame = 1f
             }
         };
-        AppMain.GMD_BOSS4_RIGHTWARD_ANGLE = AppMain.AKM_DEGtoA16(60f);
-        AppMain.GMD_BOSS4_LEFTWARD_ANGLE = AppMain.AKM_DEGtoA16(300f);
-        AppMain.gm_boss4_color_white = new AppMain.NNS_RGB(1f, 1f, 1f);
+        AppMain.GMD_BOSS4_RIGHTWARD_ANGLE = AkMath.DEGtoA16(60f);
+        AppMain.GMD_BOSS4_LEFTWARD_ANGLE = AkMath.DEGtoA16(300f);
+        AppMain.gm_boss4_color_white = new NNS_RGB(1f, 1f, 1f);
         AppMain.gm_boss4_util_ring = null;
-        AppMain.GMD_BOSS4_CAP_FALL_ROTATE_SPD = AppMain.AKM_DEGtoA16(3f);
+        AppMain.GMD_BOSS4_CAP_FALL_ROTATE_SPD = AkMath.DEGtoA16(3f);
         AppMain.GMD_BOSS4_CAP_FALL_ANGLE = (int) AppMain.GMD_BOSS4_LEFTWARD_ANGLE;
-        AppMain._cap_rot_y = AppMain.AKM_DEGtoA32(0);
-        AppMain._cap_rot_z = AppMain.AKM_DEGtoA32(0);
-        AppMain._cap_rot_x = AppMain.AKM_DEGtoA32(0);
+        AppMain._cap_rot_y = AkMath.DEGtoA32(0);
+        AppMain._cap_rot_z = AkMath.DEGtoA32(0);
+        AppMain._cap_rot_x = AkMath.DEGtoA32(0);
         AppMain._cap_rot_z_flag = 0;
         AppMain._cap_rot_x_flag = 0;
         AppMain._cap_len = 65f;
@@ -21008,13 +19482,13 @@ public partial class AppMain
             1
         };
         AppMain.gm_gmk_ss_endurance_obj_tvx_list = null;
-        AppMain.gm_gmk_ss_endurance_mat_color = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_gmk_ss_endurance_mat_color = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f)
         };
         AppMain.gm_gmk_ss_endurance_uv_parameter = new byte[]
         {
@@ -21105,113 +19579,12 @@ public partial class AppMain
             100,
             101
         };
-        AppMain.dm_logo_sega_data = new AppMain.AMS_AMB_HEADER[5];
+        AppMain.dm_logo_sega_data = new AMS_AMB_HEADER[5];
         byte[] array245 = new byte[8];
         AppMain.dm_logo_sega_tex_id_tbl = array245;
         AppMain.g_ao_storage = new AppMain.AOS_STORAGE(false, 5, 0);
-        AppMain.nnCalcTRSMotion_tv = new AppMain.NNS_VECTOR();
-        AppMain.nnCalcTRSMotion_sv = new AppMain.NNS_VECTOR();
-        AppMain.gm_sound_bgm_scb = null;
-        AppMain.gm_sound_bgm_sub_scb = null;
-        AppMain.gm_sound_jingle_scb = null;
-        AppMain.gm_sound_jingle_bgm_scb = null;
-        AppMain.gm_sound_flag = 0U;
-        AppMain.gm_sound_1shot_tcb = null;
-        AppMain.gm_sound_bgm_fade_tcb = null;
-        AppMain.gm_sound_bgm_win_boss_tcb = null;
-        AppMain.gm_sound_bgm_name_list = new string[]
-        {
-            "snd_sng_z1a1",
-            "snd_sng_z1a2",
-            "snd_sng_z1a3",
-            "snd_sng_boss1",
-            "snd_sng_z2a1",
-            "snd_sng_z2a2",
-            "snd_sng_z2a3",
-            "snd_sng_boss1",
-            "snd_sng_z3a1",
-            "snd_sng_z3a2",
-            "snd_sng_z3a3",
-            "snd_sng_boss1",
-            "snd_sng_z4a1",
-            "snd_sng_z4a2",
-            "snd_sng_z4a3",
-            "snd_sng_boss1",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_jin_clear_final"
-        };
-        AppMain.gm_sound_speedup_bgm_name_list = new string[]
-        {
-            "snd_sng_z1a1_speedup",
-            "snd_sng_z1a2_speedup",
-            "snd_sng_z1a3_speedup",
-            "snd_sng_boss1",
-            "snd_sng_z2a1_speedup",
-            "snd_sng_z2a2_speedup",
-            "snd_sng_z2a3_speedup",
-            "snd_sng_boss1",
-            "snd_sng_z3a1_speedup",
-            "snd_sng_z3a2_speedup",
-            "snd_sng_z3a3_speedup",
-            "snd_sng_boss1",
-            "snd_sng_z4a1_speedup",
-            "snd_sng_z4a2_speedup",
-            "snd_sng_z4a3_speedup",
-            "snd_sng_boss1",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_boss2",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_sng_special",
-            "snd_jin_clear_final"
-        };
-        AppMain.gm_sound_jingle_name_list = new string[]
-        {
-            "snd_jin_1up",
-            "snd_jin_clear",
-            "snd_jin_clear",
-            "snd_jin_emerald",
-            "snd_jin_invincible",
-            "snd_jin_new_record",
-            "snd_jin_obore",
-            "snd_jin_gameover"
-        };
-        AppMain.gm_sound_bgm_win_boss_name_list = new string[]
-        {
-            "snd_sng_z1a3",
-            "snd_sng_z2a1",
-            "snd_sng_z3a3",
-            "snd_sng_z4a2",
-            "snd_sng_boss2",
-            "snd_sng_special"
-        };
-        AppMain.gm_sound_bgm_win_boss_wait_frame_list = new int[]
-        {
-            180,
-            180,
-            180,
-            180,
-            180,
-            180
-        };
+        AppMain.nnCalcTRSMotion_tv = new NNS_VECTOR();
+        AppMain.nnCalcTRSMotion_sv = new NNS_VECTOR();
         array11 = new int[8][];
         int[][] array246 = array11;
         int num234 = 0;
@@ -21784,65 +20157,65 @@ public partial class AppMain
         AppMain.gm_ene_kama_obj_3d_list = null;
         AppMain.gm_ene_kama_blink_anime_pat = new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT[]
         {
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.02f, 122880),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.05f, 122880),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.1f, 81920),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.15f, 81920),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.15f, 40960),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.2f, 40960),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 1f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 1f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 1f, 16384),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
-            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new AppMain.NNS_RGB(1f, 0f, 0f), 1f, 16384)
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.02f, 122880),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.05f, 122880),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.1f, 81920),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.15f, 81920),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.15f, 40960),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.2f, 40960),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.8f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.3f, 20480),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.9f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 1f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 1f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 1f, 16384),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 0.4f, 8192),
+            new AppMain.GMS_ENE_KAMA_FADE_ANIME_PAT(new NNS_RGB(1f, 0f, 0f), 1f, 16384)
         };
         AppMain.gm_ene_kama_blink_anime =
             new AppMain.GMS_ENE_KAMA_FADE_ANIME((uint) AppMain.gm_ene_kama_blink_anime_pat.Length,
                 AppMain.gm_ene_kama_blink_anime_pat);
-        AppMain.gmEneKamaHandWaitMain_msm = new AppMain.NNS_MATRIX();
-        AppMain.gmEneKamaHandAttackMain_rmat = new AppMain.NNS_MATRIX();
-        AppMain.gmEneKamaHandAttackMain_tmat = new AppMain.NNS_MATRIX();
-        AppMain.gmEneKamaHandAttackMain_mat = new AppMain.NNS_MATRIX();
+        AppMain.gmEneKamaHandWaitMain_msm = new NNS_MATRIX();
+        AppMain.gmEneKamaHandAttackMain_rmat = new NNS_MATRIX();
+        AppMain.gmEneKamaHandAttackMain_tmat = new NNS_MATRIX();
+        AppMain.gmEneKamaHandAttackMain_mat = new NNS_MATRIX();
         AppMain.gm_ene_gabu_obj_3d_list = null;
         AppMain.gm_efct_boss_cmn_create_param_tbl = new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 19U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -8f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-60), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 19U, new NNS_VECTOR(0f, 0f, -8f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-60), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 2U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -14f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 2U, 19U, new NNS_VECTOR(0f, 0f, -14f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1),
             new AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 19U, new AppMain.NNS_VECTOR(0f, 0f, -17f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 19U, new NNS_VECTOR(0f, 0f, -17f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1)
         };
         AppMain.gm_efct_boss_cmn_tex_reg_id = -1;
@@ -21941,7 +20314,7 @@ public partial class AppMain
         AppMain.dm_save_draw_reserve = false;
         AppMain.dm_save_is_task_draw = false;
         AppMain.dm_save_is_snd_build = false;
-        AppMain.dm_logo_sonic_data = new AppMain.AMS_AMB_HEADER[1];
+        AppMain.dm_logo_sonic_data = new AMS_AMB_HEADER[1];
         AppMain.dm_logo_sonic_load_tcb = new AppMain.Reference<AppMain.MTS_TASK_TCB>(null);
         AppMain.dm_logo_sonic_build_tcb = null;
         AppMain.dm_logo_sonic_flush_tcb = null;
@@ -21966,8 +20339,8 @@ public partial class AppMain
             8U
         };
         AppMain.dm_loading_mgr_p = null;
-        AppMain.dm_loading_ama = AppMain.New<AppMain.A2S_AMA_HEADER>(1);
-        AppMain.dm_loading_amb = AppMain.New<AppMain.AMS_AMB_HEADER>(1);
+        AppMain.dm_loading_ama = AppMain.New<A2S_AMA_HEADER>(1);
+        AppMain.dm_loading_amb = AppMain.New<AMS_AMB_HEADER>(1);
         AppMain.dm_loading_check_load_comp = false;
         AppMain.dm_loading_draw_state = 0U;
         AppMain.m_game = null;
@@ -23341,8 +21714,6 @@ public partial class AppMain
         AppMain._am_display_tasklist = 1;
         AppMain._am_tlist_cline = 0;
         AppMain._am_tlist_dline = 0;
-        AppMain.ams_fsList = new LinkedList<AppMain.AMS_FS>();
-        AppMain.lastReadAMS_FS = null;
         AppMain.GMD_SMSG_FLAG_WIN_DISP = 1U;
         AppMain.GMD_SMSG_FLAG_OK_DISP = 2U;
         AppMain.GMD_SMSG_FLAG_END = 4U;
@@ -24180,134 +22551,9 @@ public partial class AppMain
                 6
             }
         };
-        AppMain.gm_ply_touch_rect = AppMain.New<AppMain.OBS_RECT_WORK>(2);
-        ushort[][] array333 = new ushort[3][];
-        array333[0] = new ushort[]
-        {
-            400,
-            228,
-            472,
-            300
-        };
-        array333[1] = new ushort[]
-        {
-            400,
-            228,
-            472,
-            300
-        };
-        ushort[][] array334 = array333;
-        int num319 = 2;
-        array21 = new ushort[4];
-        array334[num319] = array21;
-        AppMain.gm_player_push_jump_key_rect = array333;
-        AppMain.gm_player_push_ssonic_key_rect = new ushort[][]
-        {
-            new ushort[]
-            {
-                320,
-                228,
-                392,
-                300
-            },
-            new ushort[]
-            {
-                320,
-                228,
-                392,
-                300
-            },
-            new ushort[]
-            {
-                400,
-                5,
-                472,
-                85
-            }
-        };
-        AppMain.gm_pos_x = 0;
-        AppMain.gm_pos_y = 0;
-        AppMain.gm_pos_z = 0;
-        AppMain.gm_ply_score_combo_vib_level_tbl = new int[]
-        {
-            0,
-            0,
-            1,
-            2,
-            3
-        };
-        AppMain.g_gm_player_data_work = AppMain.New<AppMain.OBS_DATA_WORK>(1, 5);
-        AppMain.g_gm_ply_son_obj_3d_list = null;
-        AppMain.g_gm_ply_sson_obj_3d_list = null;
-        AppMain.gm_ply_score_combo_scale_tbl = new int[]
-        {
-            4096,
-            4096,
-            4915,
-            6144,
-            8192
-        };
-        AppMain.gm_ply_score_combo_tbl = new int[]
-        {
-            100,
-            200,
-            400,
-            800,
-            1600
-        };
-        AppMain.gm_key_map_key_list = new uint[]
-        {
-            1U,
-            2U,
-            4U,
-            8U,
-            32U,
-            128U,
-            64U,
-            16U
-        };
-        AppMain.gm_ply_obj_3d_list_tbl = new AppMain.OBS_ACTION3D_NN_WORK[][][]
-        {
-            new AppMain.OBS_ACTION3D_NN_WORK[][]
-            {
-                AppMain.g_gm_ply_son_obj_3d_list,
-                AppMain.g_gm_ply_sson_obj_3d_list
-            },
-            new AppMain.OBS_ACTION3D_NN_WORK[][]
-            {
-                AppMain.g_gm_ply_son_obj_3d_list,
-                AppMain.g_gm_ply_sson_obj_3d_list
-            },
-            new AppMain.OBS_ACTION3D_NN_WORK[][]
-            {
-                AppMain.g_gm_ply_son_obj_3d_list,
-                AppMain.g_gm_ply_sson_obj_3d_list
-            },
-            new AppMain.OBS_ACTION3D_NN_WORK[][]
-            {
-                AppMain.g_gm_ply_son_obj_3d_list,
-                AppMain.g_gm_ply_sson_obj_3d_list
-            },
-            new AppMain.OBS_ACTION3D_NN_WORK[][]
-            {
-                AppMain.g_gm_ply_son_obj_3d_list,
-                AppMain.g_gm_ply_sson_obj_3d_list
-            },
-            new AppMain.OBS_ACTION3D_NN_WORK[][]
-            {
-                AppMain.g_gm_ply_son_obj_3d_list,
-                AppMain.g_gm_ply_sson_obj_3d_list
-            },
-            new AppMain.OBS_ACTION3D_NN_WORK[][]
-            {
-                AppMain.g_gm_ply_son_obj_3d_list,
-                AppMain.g_gm_ply_sson_obj_3d_list
-            }
-        };
-        AppMain.fall_rot_buf_gmPlayerDefaultInFunc = 0;
-        AppMain.GMD_PLAYER_NODE_ID_TRUCK_CENTER = 2;
+
         AppMain.gm_over_tcb = null;
-        AppMain.gm_over_texamb_list = new AppMain.AMS_AMB_HEADER[2];
+        AppMain.gm_over_texamb_list = new AMS_AMB_HEADER[2];
         AppMain.gm_over_textures = AppMain.New<AppMain.AOS_TEXTURE>(2);
         AppMain.gm_over_tex_amb_idx_tbl = new int[][]
         {
@@ -24512,12 +22758,12 @@ public partial class AppMain
         AppMain.gm_gmk_ss_ringgate_obj_tvx_list = null;
         AppMain.gm_gmk_ss_oblong_obj_3d_list = null;
         AppMain.gm_gmk_ss_oblong_obj_tvx_list = null;
-        AppMain.gm_gmk_ss_oblong_mat_color = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_gmk_ss_oblong_mat_color = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.25f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0.75f)
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0f, 0.25f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0f, 0.75f)
         };
         AppMain.gmGmkSsOblongDrawFunctvx = null;
         AppMain.gm_gmk_splring_obj_3d_list = null;
@@ -24527,7 +22773,7 @@ public partial class AppMain
         AppMain.GMD_BOSS5_STRONG_MODE_THRESHOLD_LIFE = 17;
         AppMain.GMD_BOSS5_DEFAULT_POS_Z = 0;
         AppMain.GMD_BOSS5_BG_FARSIDE_POS_Z = -1048576;
-        AppMain.GMD_BOSS5_SCT_SPIN_SPD_ANGLE = AppMain.AKM_DEGtoA32(3f);
+        AppMain.GMD_BOSS5_SCT_SPIN_SPD_ANGLE = AkMath.DEGtoA32(3f);
         AppMain.GMD_BOSS5_BODY_NODE_IDX_BODY = 2;
         AppMain.GMD_BOSS5_BODY_NODE_IDX_FOOT_L = 12;
         AppMain.GMD_BOSS5_BODY_NODE_IDX_FOOT_R = 20;
@@ -24619,7 +22865,7 @@ public partial class AppMain
         AppMain.GMD_BOSS5_BODY_START_RISE_VIB_INTERVAL = 3U;
         AppMain.GMD_BOSS5_BODY_CANOPY_CLOSE_RATIO_SPD_ACC = 0.001f;
         AppMain.GMD_BOSS5_BODY_CANOPY_CLOSE_RATIO_SPD_MAX = 0.5f;
-        AppMain.GMD_BOSS5_BODY_CANOPY_CLOSE_START_ANGLE_X = AppMain.AKM_DEGtoA32(-80f);
+        AppMain.GMD_BOSS5_BODY_CANOPY_CLOSE_START_ANGLE_X = AkMath.DEGtoA32(-80f);
         AppMain.GMD_BOSS5_BODY_WALK_WALK_END_WALL_DISTANCE = 393216;
         AppMain.GMD_BOSS5_BODY_RUN_FWD_JUMP_INIT_SPD_X = 40960;
         AppMain.GMD_BOSS5_BODY_RUN_FWD_FLY_INIT_SPD_X = 20480;
@@ -24668,7 +22914,7 @@ public partial class AppMain
         AppMain.GMD_BOSS5_BODY_DEFEAT_WAIT_START_TIME = 40U;
         AppMain.GMD_BOSS5_BODY_DEFEAT_SCT_FALL_LAND_VIB_TIME = 8U;
         AppMain.GMD_BOSS5_BODY_DEFEAT_SCT_FALL_LAND_VIB_AMP = 8192;
-        AppMain.GMD_BOSS5_BODY_DEFEAT_SCT_FALL_LAND_VIB_DEG_SPD = AppMain.AKM_DEGtoA32(60);
+        AppMain.GMD_BOSS5_BODY_DEFEAT_SCT_FALL_LAND_VIB_DEG_SPD = AkMath.DEGtoA32(60);
         AppMain.GMD_BOSS5_BODY_RPUNCH_LAUNCH_TIMING_DELAY = 10f;
         AppMain.GMD_BOSS5_ALARM_FADE_DEST_ALPHA = 63;
         AppMain.GMD_BOSS5_ALARM_FADE_DEST_RED = byte.MaxValue;
@@ -25238,89 +23484,89 @@ public partial class AppMain
         {
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(0U, 0.05f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(30), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-35), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-40), 0))
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(30), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-35), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-40), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(10U, 0f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(30), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(30), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-35), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-35), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-40), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-40), 0))
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(30), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(30), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-35), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-35), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-40), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-40), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(0U, 0.2f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(30), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-60), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-35), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-40), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0))
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(30), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-60), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-35), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-40), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(0U, 0.2f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(-60), 0),
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-90), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0))
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(-60), 0),
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-90), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(0U, 0.5f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
                 new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0,
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-90), 0),
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-100), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0))
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-90), 0),
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-100), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(0U, 0.5f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
                 new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0,
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-100), 0),
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-86), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0))
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-100), 0),
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-86), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(0U, 0.5f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
                 new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0,
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-86), 0),
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-90), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0))
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-86), 0),
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-90), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(60U, 0f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
                 new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0,
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-90), 0),
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-90), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0))
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-90), 0),
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-90), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0))
             }),
             new AppMain.GMS_BOSS5_ARM_ANIM_INFO(0U, 0.05f, new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO[]
             {
                 new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1,
-                    new AppMain.NNS_ROTATE_A32(AppMain.AKM_DEGtoA32(-30), AppMain.AKM_DEGtoA32(-90), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(10), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0)),
-                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0),
-                    new AppMain.NNS_ROTATE_A32(0, AppMain.AKM_DEGtoA32(0), 0))
+                    new NNS_ROTATE_A32(AkMath.DEGtoA32(-30), AkMath.DEGtoA32(-90), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(1, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(10), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0)),
+                new AppMain.GMS_BOSS5_ARM_PART_ANIM_INFO(0, new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0),
+                    new NNS_ROTATE_A32(0, AkMath.DEGtoA32(0), 0))
             })
         };
         AppMain.GMS_BOSS5_BODY_RECT_SETTING_INFO[] array363 = new AppMain.GMS_BOSS5_BODY_RECT_SETTING_INFO[11];
@@ -26446,7 +24692,6 @@ public partial class AppMain
         AppMain.dm_opt_prev_evt = 0;
         AppMain.dm_opt_show_xboxlive = false;
         AppMain.dm_xbox_show_progress = 0;
-        AppMain.g_ao_account_current_id = -1;
         AppMain.gs_main_eme_get_act_no_tbl = new uint[]
         {
             65535U,
@@ -26464,10 +24709,10 @@ public partial class AppMain
             14U
         };
         AppMain.nngCurrentTextureList = null;
-        AppMain.nngColorWhite = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.nngColorBlack = new AppMain.NNS_RGBA(0f, 0f, 0f, 1f);
-        AppMain.nngUnitMatrix = new AppMain.NNS_MATRIX();
-        AppMain.nngProjectionMatrix = new AppMain.NNS_MATRIX();
+        AppMain.nngColorWhite = new NNS_RGBA(1f, 1f, 1f, 1f);
+        AppMain.nngColorBlack = new NNS_RGBA(0f, 0f, 0f, 1f);
+        AppMain.nngUnitMatrix = new NNS_MATRIX();
+        AppMain.nngProjectionMatrix = new NNS_MATRIX();
         AppMain.nnsystem_init = 0;
         AppMain.nngFogSwitch = false;
         AppMain.nngFogStart = 0f;
@@ -27191,13 +25436,13 @@ public partial class AppMain
         };
         AppMain.gm_gmk_ss_square_obj_3d_list = null;
         AppMain.gm_gmk_ss_square_obj_tvx_list = null;
-        AppMain.gm_gmk_ss_square_mat_color = new AppMain.NNS_TEXCOORD[]
+        AppMain.gm_gmk_ss_square_mat_color = new NNS_TEXCOORD[]
         {
-            new AppMain.NNS_TEXCOORD(0.5f, 0f),
-            new AppMain.NNS_TEXCOORD(0.5f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0f),
-            new AppMain.NNS_TEXCOORD(0f, 0.5f),
-            new AppMain.NNS_TEXCOORD(0f, 0f)
+            new NNS_TEXCOORD(0.5f, 0f),
+            new NNS_TEXCOORD(0.5f, 0.5f),
+            new NNS_TEXCOORD(0f, 0f),
+            new NNS_TEXCOORD(0f, 0.5f),
+            new NNS_TEXCOORD(0f, 0f)
         };
         AppMain.gm_gmk_ss_square_uv_parameter = new byte[]
         {
@@ -27941,10 +26186,10 @@ public partial class AppMain
         };
         AppMain.gm_clrdm_mgr = new AppMain.GMS_CLRDM_MGR();
         AppMain.gm_clrdm_mgr_p = null;
-        AppMain.AMS_AMB_HEADER[] array497 = new AppMain.AMS_AMB_HEADER[2];
+        AMS_AMB_HEADER[] array497 = new AMS_AMB_HEADER[2];
         AppMain.gm_clrdm_amb = array497;
         AppMain.gm_clrdm_tex = AppMain.New<AppMain.AOS_TEXTURE>(2);
-        AppMain.GMD_BOSS5_TURRET_TILT_NEAR_ANGLE = AppMain.AKM_DEGtoA32(45);
+        AppMain.GMD_BOSS5_TURRET_TILT_NEAR_ANGLE = AkMath.DEGtoA32(45);
         AppMain.GMD_BOSS5_TURRET_FACE_PLY_SPD_DEG = 2f;
         AppMain.GMD_BOSS5_TURRET_FACE_TIME = 10U;
         AppMain.GMD_BOSS5_TURRET_SLIDE_LENGTH_MAX = 16f;
@@ -27970,9 +26215,9 @@ public partial class AppMain
             new AppMain.GMS_BOSS5_TURRET_SEQ_VUL_SHOT_INFO(AppMain.GMD_BOSS5_TURRET_START_LIFE_THRESHOLD, 480U, 3),
             new AppMain.GMS_BOSS5_TURRET_SEQ_VUL_SHOT_INFO(AppMain.GMD_BOSS5_LIFE, 0U, 0)
         };
-        AppMain.gmBoss5TurretMain_trt_ofst = new AppMain.NNS_MATRIX();
-        AppMain.GMD_BOSS4_CHIBI_ABURNER1_TURN_X = AppMain.AKM_DEGtoA32(-90f);
-        AppMain.gm_boss4_color_red = new AppMain.NNS_RGB(1f, 0f, 0f);
+        AppMain.gmBoss5TurretMain_trt_ofst = new NNS_MATRIX();
+        AppMain.GMD_BOSS4_CHIBI_ABURNER1_TURN_X = AkMath.DEGtoA32(-90f);
+        AppMain.gm_boss4_color_red = new NNS_RGB(1f, 0f, 0f);
         AppMain.gm_chibi_inv_flag = false;
         AppMain.gm_chibi_exp_flag = false;
         AppMain.GMD_BOSS4_SCROLL_SPD_MAX = AppMain.GMM_BOSS4_PAL_SPEED(8f);
@@ -28060,8 +26305,7 @@ public partial class AppMain
         {
             "snd_sng_title"
         };
-        AppMain.amCriAudio_global = new AppMain.AMS_CRIAUDIO_INTERFACE();
-        AppMain.pAu = AppMain.amCriAudio_global;
+
         AppMain.g_gs_font_builded = false;
         AppMain._obj_user_resist = new AppMain.OBS_RECT_WORK[80];
         AppMain._obj_user_resist_num = new byte[8];
@@ -28313,25 +26557,20 @@ public partial class AppMain
         AppMain.gm_gmk_bubble_table_def = array21;
         AppMain.gm_ene_uniuni_obj_3d_list = null;
         AppMain.gm_ene_mogu_obj_3d_list = null;
-        AppMain.gm_camera_vibration = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.gm_camera_work = new AppMain.GMS_CAMERA_WORK();
-        AppMain.gm_camera_option_allow_pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.gm_camera_common_allow_pos = new AppMain.NNS_VECTOR(15f, 50f, 0f);
-        AppMain.gm_camera_splstg_allow_pos = new AppMain.NNS_VECTOR(0f, 0f, 0f);
-        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_DIR_Z_L = AppMain.AKM_DEGtoA16(180);
-        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_DIR_Z_R = AppMain.AKM_DEGtoA16(0);
-        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_ADJ_DIR_X_LA = AppMain.AKM_DEGtoA32(-15f);
-        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_ADJ_DIR_X_RA = AppMain.AKM_DEGtoA32(40f);
-        AppMain.GMD_BOSS5_RKT_FALL_SPIN_ANGLE_SPD = AppMain.AKM_DEGtoA32(3);
-        AppMain.GMD_BOSS5_RKT_FALL_WOBBLE_SIN_PARAM_DEG_SPD = AppMain.AKM_DEGtoA32(5);
-        AppMain.GMD_BOSS5_RKT_GRD_STUCK_LEAN_HIT_VIB_SIN_ANGLE_ADD = AppMain.AKM_DEGtoA32(-90);
-        AppMain.GMD_BOSS5_RKT_BLOW_FLY_ROT_SPD = AppMain.AKM_DEGtoA32(30f);
-        AppMain.GMD_BOSS5_RKT_BOUNCE_DIR_ANGLE = AppMain.AKM_DEGtoA32(255f);
-        AppMain.GMD_BOSS5_RKT_BOUNCE_FLY_ROT_SPD = AppMain.AKM_DEGtoA32(30f);
-        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_R_START = AppMain.AKM_DEGtoA32(330);
-        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_R_END = AppMain.AKM_DEGtoA32(370);
-        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_L_START = AppMain.AKM_DEGtoA32(170);
-        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_L_END = AppMain.AKM_DEGtoA32(210);
+        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_DIR_Z_L = AkMath.DEGtoA16(180);
+        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_DIR_Z_R = AkMath.DEGtoA16(0);
+        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_ADJ_DIR_X_LA = AkMath.DEGtoA32(-15f);
+        AppMain.GMD_BOSS5_RKT_SEARCH_INITIAL_ADJ_DIR_X_RA = AkMath.DEGtoA32(40f);
+        AppMain.GMD_BOSS5_RKT_FALL_SPIN_ANGLE_SPD = AkMath.DEGtoA32(3);
+        AppMain.GMD_BOSS5_RKT_FALL_WOBBLE_SIN_PARAM_DEG_SPD = AkMath.DEGtoA32(5);
+        AppMain.GMD_BOSS5_RKT_GRD_STUCK_LEAN_HIT_VIB_SIN_ANGLE_ADD = AkMath.DEGtoA32(-90);
+        AppMain.GMD_BOSS5_RKT_BLOW_FLY_ROT_SPD = AkMath.DEGtoA32(30f);
+        AppMain.GMD_BOSS5_RKT_BOUNCE_DIR_ANGLE = AkMath.DEGtoA32(255f);
+        AppMain.GMD_BOSS5_RKT_BOUNCE_FLY_ROT_SPD = AkMath.DEGtoA32(30f);
+        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_R_START = AkMath.DEGtoA32(330);
+        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_R_END = AkMath.DEGtoA32(370);
+        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_L_START = AkMath.DEGtoA32(170);
+        AppMain.GMD_BOSS5_RKT_LOCKON_DIR_LIMIT_L_END = AkMath.DEGtoA32(210);
         AppMain.GMS_BOSS5_RKT_SEQ_WAITFALL_INFO[] array502 = new AppMain.GMS_BOSS5_RKT_SEQ_WAITFALL_INFO[3];
         AppMain.GMS_BOSS5_RKT_SEQ_WAITFALL_INFO[] array503 = array502;
         int num483 = 0;
@@ -28365,8 +26604,8 @@ public partial class AppMain
         array22[0] = 150U;
         array504[num484] = new AppMain.GMS_BOSS5_RKT_SEQ_WAITFALL_INFO(life2, prob2, array22);
         AppMain.gm_boss5_rkt_seq_wait_fall_time_tbl = array502;
-        AppMain.GMD_BOSS3_ANGLE_LEFT = AppMain.AKM_DEGtoA16(300f);
-        AppMain.GMD_BOSS3_ANGLE_RIGHT = AppMain.AKM_DEGtoA16(60f);
+        AppMain.GMD_BOSS3_ANGLE_LEFT = AkMath.DEGtoA16(300f);
+        AppMain.GMD_BOSS3_ANGLE_RIGHT = AkMath.DEGtoA16(60f);
         AppMain.gm_boss3_obj_3d_list = null;
         AppMain.gm_boss3_act_info_tbl = new AppMain.GMS_BOSS3_PART_ACT_INFO[][]
         {
@@ -28754,33 +26993,33 @@ public partial class AppMain
             new AppMain.GMS_MAP_FAR_SCROLL(0, 0, 0)
         };
         AppMain.g_map_far_zone_ss_scroll_num_y = AppMain.g_map_far_zone_ss_scroll_y.Length;
-        AppMain.g_gm_map_far_camera_target_offset = new AppMain.NNS_VECTOR[]
+        AppMain.g_gm_map_far_camera_target_offset = new NNS_VECTOR[]
         {
-            new AppMain.NNS_VECTOR(-160f, 0f, 0f),
-            new AppMain.NNS_VECTOR(-160f, 0f, 0f),
-            new AppMain.NNS_VECTOR(-160f, 0f, 0f),
-            new AppMain.NNS_VECTOR(-160f, 0f, 0f),
-            new AppMain.NNS_VECTOR(-160f, 0f, 0f),
-            new AppMain.NNS_VECTOR(0f, 0f, -200f)
+            new NNS_VECTOR(-160f, 0f, 0f),
+            new NNS_VECTOR(-160f, 0f, 0f),
+            new NNS_VECTOR(-160f, 0f, 0f),
+            new NNS_VECTOR(-160f, 0f, 0f),
+            new NNS_VECTOR(-160f, 0f, 0f),
+            new NNS_VECTOR(0f, 0f, -200f)
         };
-        AppMain.g_gm_map_far_clear_color = new AppMain.NNS_RGBA_U8[]
+        AppMain.g_gm_map_far_clear_color = new NNS_RGBA_U8[]
         {
-            new AppMain.NNS_RGBA_U8(90, 48, 16, byte.MaxValue),
-            new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue),
-            new AppMain.NNS_RGBA_U8(85, 118, 109, byte.MaxValue),
-            new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue),
-            new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue),
-            new AppMain.NNS_RGBA_U8(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue)
+            new NNS_RGBA_U8(90, 48, 16, byte.MaxValue),
+            new NNS_RGBA_U8(0, 0, 0, byte.MaxValue),
+            new NNS_RGBA_U8(85, 118, 109, byte.MaxValue),
+            new NNS_RGBA_U8(0, 0, 0, byte.MaxValue),
+            new NNS_RGBA_U8(0, 0, 0, byte.MaxValue),
+            new NNS_RGBA_U8(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue)
         };
-        AppMain.GmMapFarGetCameraTarget_result = new AppMain.NNS_VECTOR();
+        AppMain.GmMapFarGetCameraTarget_result = new NNS_VECTOR();
         AppMain._gmMapFarTcbProcPreDrawDT = AppMain.gmMapFarTcbProcPreDrawDT;
         AppMain._gmMapFarTcbProcPostDrawDT = AppMain.gmMapFarTcbProcPostDrawDT;
-        AppMain.gmMapFarCameraGetPos_result = new AppMain.NNS_VECTOR();
-        AppMain.gmMapFarZone1GetCameraPos_result = new AppMain.NNS_VECTOR();
-        AppMain.gmMapFarZone2GetCameraPos_result = new AppMain.NNS_VECTOR();
-        AppMain.gmMapFarZone3GetCameraPos_result = new AppMain.NNS_VECTOR();
-        AppMain.gmMapFarZoneFinalGetCameraPos_result = new AppMain.NNS_VECTOR();
-        AppMain.gmMapFarZoneSSGetCameraPos_result = new AppMain.NNS_VECTOR();
+        AppMain.gmMapFarCameraGetPos_result = new NNS_VECTOR();
+        AppMain.gmMapFarZone1GetCameraPos_result = new NNS_VECTOR();
+        AppMain.gmMapFarZone2GetCameraPos_result = new NNS_VECTOR();
+        AppMain.gmMapFarZone3GetCameraPos_result = new NNS_VECTOR();
+        AppMain.gmMapFarZoneFinalGetCameraPos_result = new NNS_VECTOR();
+        AppMain.gmMapFarZoneSSGetCameraPos_result = new NNS_VECTOR();
         AppMain.GMD_GMK_DRAIN_TANK_ROLL_ANGLE_MAX = AppMain.NNM_DEGtoA32(30);
         AppMain.GMD_GMK_DRAIN_TANK_ROLL_ANGLE_MIN = AppMain.NNM_DEGtoA32(1);
         AppMain.GMD_GMK_DRAIN_TANK_ROLL_ANGLE_SPEED = AppMain.NNM_DEGtoA32(0.2f);
@@ -29866,13 +28105,13 @@ public partial class AppMain
             -32768,
             -32768
         };
-        AppMain.GMD_BOSS2_ANGLE_LEFT = AppMain.AKM_DEGtoA16(300f);
-        AppMain.GMD_BOSS2_ANGLE_RIGHT = AppMain.AKM_DEGtoA16(60f);
-        AppMain.GMD_BOSS2_BODY_PINBALL_ROLL_ROT_Z = (short) AppMain.AKM_DEGtoA32(20f);
-        AppMain.GMD_BOSS2_BODY_PINBALL_ANGLE_LEFT_ROLL = AppMain.AKM_DEGtoA16(270f);
-        AppMain.GMD_BOSS2_BODY_PINBALL_ANGLE_RIGHT_ROLL = AppMain.AKM_DEGtoA16(90f);
-        AppMain.GMD_BOSS2_EFFECT_BLITZ_LINE_DISP_ROT_Z = (short) AppMain.AKM_DEGtoA32(90f);
-        AppMain.GMD_BOSS2_EFFECT_BLITZ_ARM_DISP_ROT_Z = (short) AppMain.AKM_DEGtoA32(90f);
+        AppMain.GMD_BOSS2_ANGLE_LEFT = AkMath.DEGtoA16(300f);
+        AppMain.GMD_BOSS2_ANGLE_RIGHT = AkMath.DEGtoA16(60f);
+        AppMain.GMD_BOSS2_BODY_PINBALL_ROLL_ROT_Z = (short) AkMath.DEGtoA32(20f);
+        AppMain.GMD_BOSS2_BODY_PINBALL_ANGLE_LEFT_ROLL = AkMath.DEGtoA16(270f);
+        AppMain.GMD_BOSS2_BODY_PINBALL_ANGLE_RIGHT_ROLL = AkMath.DEGtoA16(90f);
+        AppMain.GMD_BOSS2_EFFECT_BLITZ_LINE_DISP_ROT_Z = (short) AkMath.DEGtoA32(90f);
+        AppMain.GMD_BOSS2_EFFECT_BLITZ_ARM_DISP_ROT_Z = (short) AkMath.DEGtoA32(90f);
         AppMain.gm_boss2_obj_3d_list = null;
         AppMain.gm_boss2_act_info_tbl = new AppMain.GMS_BOSS2_PART_ACT_INFO[][]
         {
@@ -32046,34 +30285,34 @@ public partial class AppMain
             65531,
             65531
         };
-        AppMain.gm_bs_cmn_dmg_flicker_default_color = new AppMain.NNS_RGB(1f, 1f, 1f);
-        AppMain.GmBsCmnUpdateObject3DNNStuckWithNode_rot_mtx = new AppMain.NNS_MATRIX();
-        AppMain.GmBsCmnUpdateObject3DNNStuckWithNode_node_w_rot = new AppMain.NNS_MATRIX();
-        AppMain.GmBsCmnUpdateObject3DESStuckWithNode_node_w_rot = new AppMain.NNS_MATRIX();
-        AppMain.GmBsCmnUpdateObject3DESStuckWithNode_rot_mtx = new AppMain.NNS_MATRIX();
-        AppMain.GmBsCmnUpdateObject3DESStuckWithNode_nml_w_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMotionCallbackStoreNodeMatrix_base_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMotionCallbackStoreNodeMatrix_node_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_init_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_candidate_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_inv_view_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_node_w_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_cur_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_inv_cur_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_parent_cur_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_inv_parent_orig_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_parent_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_diff_mtx = new AppMain.NNS_MATRIX();
-        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_parent_init_mtx = new AppMain.NNS_MATRIX();
+        AppMain.gm_bs_cmn_dmg_flicker_default_color = new NNS_RGB(1f, 1f, 1f);
+        AppMain.GmBsCmnUpdateObject3DNNStuckWithNode_rot_mtx = new NNS_MATRIX();
+        AppMain.GmBsCmnUpdateObject3DNNStuckWithNode_node_w_rot = new NNS_MATRIX();
+        AppMain.GmBsCmnUpdateObject3DESStuckWithNode_node_w_rot = new NNS_MATRIX();
+        AppMain.GmBsCmnUpdateObject3DESStuckWithNode_rot_mtx = new NNS_MATRIX();
+        AppMain.GmBsCmnUpdateObject3DESStuckWithNode_nml_w_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMotionCallbackStoreNodeMatrix_base_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMotionCallbackStoreNodeMatrix_node_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_init_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_candidate_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_inv_view_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_node_w_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_cur_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_inv_cur_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_parent_cur_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_inv_parent_orig_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_parent_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_diff_mtx = new NNS_MATRIX();
+        AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_parent_init_mtx = new NNS_MATRIX();
         AppMain.gmBsCmnMtxpltCallbackControlNodeMatrix_orig_mtx_plt = null;
-        AppMain.gmBsCmnGetNodeWorldMtx_init_mtx = new AppMain.NNS_MATRIX();
-        AppMain.GMD_BOSS1_RIGHTWARD_ANGLE = AppMain.AKM_DEGtoA16(60f);
-        AppMain.GMD_BOSS1_LEFTWARD_ANGLE = AppMain.AKM_DEGtoA16(300f);
-        AppMain.GMD_BOSS1_BODY_ATKNML_MOVE_CURVE_ANGLE_WIDTH = AppMain.AKM_DEGtoA32(120f);
-        AppMain.GMD_BOSS1_BODY_ATKNML_MOVE_CURVE_START_ANGLE = AppMain.AKM_DEGtoA32(30f);
-        AppMain.GMD_BOSS1_EFF_SHOCKWAVE_SUB_ROT_X = AppMain.AKM_DEGtoA32(-20f);
-        AppMain.GMD_BOSS1_EFF_SCT_PART_RING_SPIN_SPD_DEG = AppMain.AKM_DEGtoA32(20f);
-        AppMain.GMD_BOSS1_EFF_SCT_PART_IBALL_SPIN_SPD_DEG = AppMain.AKM_DEGtoA32(5f);
+        AppMain.gmBsCmnGetNodeWorldMtx_init_mtx = new NNS_MATRIX();
+        AppMain.GMD_BOSS1_RIGHTWARD_ANGLE = AkMath.DEGtoA16(60f);
+        AppMain.GMD_BOSS1_LEFTWARD_ANGLE = AkMath.DEGtoA16(300f);
+        AppMain.GMD_BOSS1_BODY_ATKNML_MOVE_CURVE_ANGLE_WIDTH = AkMath.DEGtoA32(120f);
+        AppMain.GMD_BOSS1_BODY_ATKNML_MOVE_CURVE_START_ANGLE = AkMath.DEGtoA32(30f);
+        AppMain.GMD_BOSS1_EFF_SHOCKWAVE_SUB_ROT_X = AkMath.DEGtoA32(-20f);
+        AppMain.GMD_BOSS1_EFF_SCT_PART_RING_SPIN_SPD_DEG = AkMath.DEGtoA32(20f);
+        AppMain.GMD_BOSS1_EFF_SCT_PART_IBALL_SPIN_SPD_DEG = AkMath.DEGtoA32(5f);
         AppMain.gm_boss1_act_id_tbl = new AppMain.GMS_BOSS1_PART_ACT_INFO[][]
         {
             new AppMain.GMS_BOSS1_PART_ACT_INFO[]
@@ -32219,7 +30458,7 @@ public partial class AppMain
         AppMain.nngMatCtrlAmbient = new AppMain.NNS_MATCTRL_RGB(0, 0f, 0f, 0f);
         AppMain.nngMatCtrlSpecular = new AppMain.NNS_MATCTRL_RGB(0, 0f, 0f, 0f);
         AppMain.nngMatCtrlAlpha = new AppMain.NNS_MATCTRL_ALPHA(0, 0f);
-        AppMain.nngMatCtrlEnvTexMtx = new AppMain.NNS_MATCTRL_ENVTEXMATRIX(1, AppMain.NNS_MATRIX.CreateIdentity());
+        AppMain.nngMatCtrlEnvTexMtx = new AppMain.NNS_MATCTRL_ENVTEXMATRIX(1, NNS_MATRIX.CreateIdentity());
         AppMain.nngMatCtrlBlendMode = new AppMain.NNS_MATCTRL_BLENDMODE(0);
         AppMain.nngMatCtrlTexOffset = new AppMain.NNS_MATCTRL_TEXOFFSET[]
         {
@@ -32323,7 +30562,7 @@ public partial class AppMain
                 48
             }
         };
-        array333 = new ushort[6][];
+        var array333 = new ushort[6][];
         array333[0] = new ushort[]
         {
             0,
@@ -33436,9 +31675,9 @@ public partial class AppMain
             65531,
             65531
         };
-        AppMain.GMD_BOSS4_BODY_ATKNML_MOVE_CURVE_ANGLE_WIDTH = AppMain.AKM_DEGtoA32(120f);
-        AppMain.GMD_BOSS4_BODY_ATKNML_MOVE_CURVE_START_ANGLE = AppMain.AKM_DEGtoA32(30f);
-        AppMain.GMD_BOSS4_EFF_ABURNER3_DISP_ROT_X = AppMain.AKM_DEGtoA32(90f);
+        AppMain.GMD_BOSS4_BODY_ATKNML_MOVE_CURVE_ANGLE_WIDTH = AkMath.DEGtoA32(120f);
+        AppMain.GMD_BOSS4_BODY_ATKNML_MOVE_CURVE_START_ANGLE = AkMath.DEGtoA32(30f);
+        AppMain.GMD_BOSS4_EFF_ABURNER3_DISP_ROT_X = AkMath.DEGtoA32(90f);
         AppMain.gm_boss4_body_state_enter_info_tbl = new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO[]
         {
             new AppMain.GMS_BOSS4_BODY_STATE_ENTER_INFO(null, false),
@@ -33508,7 +31747,7 @@ public partial class AppMain
             77,
             65
         };
-        AppMain.AoActDrawPre_mtx = new AppMain.NNS_MATRIX();
+        AppMain.AoActDrawPre_mtx = new NNS_MATRIX();
         AppMain.aoActDrawTask_pct_array = new AppMain.NNS_PRIM3D_PCT_ARRAY();
         AppMain.aoActDrawTask_pct = new AppMain.NNS_PRIM3D_PCT[6];
         AppMain.aoActDrawTask_pc = new AppMain.NNS_PRIM3D_PC[6];
@@ -33543,7 +31782,7 @@ public partial class AppMain
             1,
             2
         };
-        AppMain.seq_func_delegate[] array532 = new AppMain.seq_func_delegate[67];
+        seq_func_delegate[] array532 = new seq_func_delegate[67];
         array532[0] = AppMain.GmPlySeqInitFw;
         array532[1] = AppMain.GmPlySeqInitWalk;
         array532[2] = AppMain.GmPlySeqInitTurn;
@@ -33574,7 +31813,7 @@ public partial class AppMain
         array532[27] = AppMain.GmPlySeqInitTRetryFw;
         array532[28] = AppMain.GmPlySeqInitTRetryAcc;
         AppMain.g_gm_ply_seq_init_tbl_son = array532;
-        array532 = new AppMain.seq_func_delegate[67];
+        array532 = new seq_func_delegate[67];
         array532[0] = AppMain.GmPlySeqInitFw;
         array532[1] = AppMain.GmPlySeqInitWalk;
         array532[2] = AppMain.GmPlySeqInitTurn;
@@ -33605,7 +31844,7 @@ public partial class AppMain
         array532[27] = AppMain.GmPlySeqInitTRetryFw;
         array532[28] = AppMain.GmPlySeqInitTRetryAcc;
         AppMain.g_gm_ply_seq_init_tbl_sp_son = array532;
-        array532 = new AppMain.seq_func_delegate[67];
+        array532 = new seq_func_delegate[67];
         array532[0] = AppMain.GmPlySeqInitTruckFw;
         array532[1] = AppMain.GmPlySeqInitTruckWalk;
         array532[2] = AppMain.GmPlySeqInitTurn;
@@ -33636,7 +31875,7 @@ public partial class AppMain
         array532[27] = AppMain.GmPlySeqInitTRetryFw;
         array532[28] = AppMain.GmPlySeqInitTRetryAcc;
         AppMain.g_gm_ply_seq_init_tbl_tr_son = array532;
-        AppMain.g_gm_ply_seq_init_tbl_list = new AppMain.seq_func_delegate[][]
+        AppMain.g_gm_ply_seq_init_tbl_list = new seq_func_delegate[][]
         {
             AppMain.g_gm_ply_seq_init_tbl_son,
             AppMain.g_gm_ply_seq_init_tbl_son,
@@ -33741,8 +31980,8 @@ public partial class AppMain
         };
         AppMain.dm_manual_mgr = new AppMain.DMS_MANUAL_MGR();
         AppMain.dm_manual_mgr_p = null;
-        AppMain.dm_manual_ama = new AppMain.A2S_AMA_HEADER[2];
-        AppMain.dm_manual_amb = new AppMain.AMS_AMB_HEADER[2];
+        AppMain.dm_manual_ama = new A2S_AMA_HEADER[2];
+        AppMain.dm_manual_amb = new AMS_AMB_HEADER[2];
         AppMain.dm_manual_disp_act_cmn_tbl = new int[][]
         {
             new int[]
@@ -34111,30 +32350,14 @@ public partial class AppMain
         AppMain._ObjObjectMain = AppMain.ObjObjectMain;
         AppMain._ObjObjectViewOutCheck = AppMain.ObjObjectViewOutCheck;
         AppMain._objObjectDataReleaseCheck = AppMain.objObjectDataReleaseCheck;
-        AppMain.nnCalcNode_mtx_pool = new AppMain.SimplePool<AppMain.NNS_MATRIX>();
+        AppMain.nnCalcNode_mtx_pool = new AppMain.SimplePool<NNS_MATRIX>();
         AppMain.nnInitMaterialMotionObject_bTexOffsetMot = new bool[8];
         AppMain._am_iphone_accel_data = new AppMain.AMS_IPHONE_ACCEL_DATA();
         AppMain._am_is_back_key_pressed = false;
         AppMain.back_key_is_pressed = false;
         AppMain._am_iphone_tp_ctrl_data = AppMain.New<AppMain.AMS_IPHONE_TP_CTRL_DATA>(4);
         AppMain.posVector = Vector2.Zero;
-        AppMain.touchMarked = new bool[4];
-        AppMain.readAMAFile_nodeHash = new Dictionary<int, AppMain.A2S_AMA_NODE>(100);
-        AppMain.readAMAFile_actHash = new Dictionary<int, AppMain.A2S_AMA_ACT>(100);
-        AppMain.readAMAFile_mtnHash = new Dictionary<int, AppMain.A2S_AMA_MTN>(100);
-        AppMain.readAMAFile_anmHash = new Dictionary<int, AppMain.A2S_AMA_ANM>(100);
-        AppMain.readAMAFile_acmHash = new Dictionary<int, AppMain.A2S_AMA_ACM>(100);
-        AppMain.readAMAFile_usrHash = new Dictionary<int, AppMain.A2S_AMA_USR>(100);
-        AppMain.readAMAFile_hitHash = new Dictionary<int, AppMain.A2S_AMA_HIT>(100);
-        AppMain.readAMAFile_subtrsHash = new Dictionary<int, AppMain.A2S_SUB_TRS[]>(100);
-        AppMain.readAMAFile_submtnHash = new Dictionary<int, AppMain.A2S_SUB_MTN[]>(100);
-        AppMain.readAMAFile_subanmHash = new Dictionary<int, AppMain.A2S_SUB_ANM[]>(100);
-        AppMain.readAMAFile_submatHash = new Dictionary<int, AppMain.A2S_SUB_MAT[]>(100);
-        AppMain.readAMAFile_subacmHash = new Dictionary<int, AppMain.A2S_SUB_ACM[]>(100);
-        AppMain.readAMAFile_subusrHash = new Dictionary<int, AppMain.A2S_SUB_USR[]>(100);
-        AppMain.readAMAFile_subhitHash = new Dictionary<int, AppMain.A2S_SUB_HIT[]>(100);
-        AppMain.readAMAFile_subkeyHash = new Dictionary<int, AppMain.A2S_SUB_KEY[]>(100);
-        AppMain.readChars_name = new char[100];
+        AppMain.touchMarked = new bool[4];        
         AppMain.GMD_MAP_DRAW_BGM_TIMER = 2;
         AppMain.gm_map_prim_draw_tvx_alpha_set_z2 = new int[]
         {
@@ -34182,7 +32405,7 @@ public partial class AppMain
             2,
             2
         };
-        AppMain.gm_map_use_prim_mtx = AppMain.New<AppMain.NNS_MATRIX>(16);
+        AppMain.gm_map_use_prim_mtx = AppMain.New<NNS_MATRIX>(16);
         AppMain.gm_map_addmap_camera_tbl = new int[]
         {
             2,
@@ -34258,8 +32481,8 @@ public partial class AppMain
             }
         };
         AppMain.gmMapTransX = 0f;
-        AppMain.main_camera_pos = AppMain.New<AppMain.NNS_VECTOR>(2);
-        AppMain.gmMapMain_mtx = new AppMain.NNS_MATRIX();
+        AppMain.main_camera_pos = AppMain.New<NNS_VECTOR>(2);
+        AppMain.gmMapMain_mtx = new NNS_MATRIX();
         AppMain.GMD_GMK_SCREW_EVE_FLAG_LEFT = 1;
         AppMain.gm_gmk_breakland_col_rect_tbl = new short[]
         {
@@ -36150,7 +34373,7 @@ public partial class AppMain
         AppMain.dm_titleop_mgr_tcb = null;
         AppMain.dm_titleop_build_state = false;
         AppMain.dm_titleop_clear_color =
-            new AppMain.NNS_RGBA_U8(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
+            new NNS_RGBA_U8(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
         AppMain.dm_titleop_rock_setting = new AppMain.DMS_TITLEOP_ROCK_SETTING[][]
         {
             new AppMain.DMS_TITLEOP_ROCK_SETTING[]
@@ -36187,12 +34410,11 @@ public partial class AppMain
             5,
             6
         };
-        AppMain.dm_titleop_data = new AppMain.AMS_FS[2];
+        AppMain.dm_titleop_data = new AMS_FS[2];
         AppMain.dm_titleop_mapfar_data = new object[4];
         AppMain.dm_titleop_aos_tex = null;
         AppMain._dmTitleOpPreDrawDT = AppMain.dmTitleOpPreDrawDT;
         AppMain._dmTitleOpFallShaderPreRenderUserFunc = AppMain.dmTitleOpFallShaderPreRenderUserFunc;
-        AppMain.AKD_UTIL_FRAME60_TO_TIME_MAX_FRAME = 215999 / 2;
         AppMain.sFile = "";
         AppMain.obj_load_initial_work = new AppMain.OBS_LOAD_INITIAL_WORK();
         AppMain.obj_load_initial_set_flag = false;
@@ -36220,19 +34442,19 @@ public partial class AppMain
         AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE15 = AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE(15);
         AppMain.NND_DRAWOBJ_SHADER_USER_PROFILE_MASK = 1020U;
         AppMain.nngMaterialCallbackFunc = null;
-        AppMain._am_ef_worldViewMtx = new AppMain.NNS_MATRIX();
-        AppMain._am_ef_camPos = new AppMain.NNS_VECTOR();
+        AppMain._am_ef_worldViewMtx = new NNS_MATRIX();
+        AppMain._am_ef_camPos = new NNS_VECTOR();
         AppMain._am_ecb_buf = null;
         AppMain._am_ecb_ref = null;
-        AppMain._am_entry_buf = AppMain.New<AppMain.AMS_AME_ENTRY>(512);
-        AppMain._am_entry_ref = new AppMain.AMS_AME_ENTRY[512];
+        AppMain._am_entry_buf = AppMain.New<AMS_AME_ENTRY>(512);
+        AppMain._am_entry_ref = new AMS_AME_ENTRY[512];
         AppMain._am_runtime_buf = null;
         AppMain._am_runtime_ref = null;
         AppMain._am_work_ref = null;
         AppMain._am_work_buf = null;
-        AppMain._am_ecb_head = new AppMain.AMS_AME_ECB();
-        AppMain._am_ecb_tail = new AppMain.AMS_AME_ECB();
-        AppMain.AmeDelegateFunc[] array539 = new AppMain.AmeDelegateFunc[16];
+        AppMain._am_ecb_head = new AMS_AME_ECB();
+        AppMain._am_ecb_tail = new AMS_AME_ECB();
+        AmeDelegateFunc[] array539 = new AmeDelegateFunc[16];
         array539[0] = AppMain._amInitOmni;
         array539[1] = AppMain._amUpdateOmni;
         array539[2] = AppMain._amDrawOmni;
@@ -36246,7 +34468,7 @@ public partial class AppMain
         array539[13] = AppMain._amUpdateCircle;
         array539[14] = AppMain._amDrawCircle;
         AppMain._am_emitter_func = array539;
-        array539 = new AppMain.AmeDelegateFunc[20];
+        array539 = new AmeDelegateFunc[20];
         array539[0] = AppMain._amInitSimpleSprite;
         array539[1] = AppMain._amUpdateSimpleSprite;
         array539[2] = AppMain._amDrawSimpleSprite;
@@ -36263,7 +34485,7 @@ public partial class AppMain
         array539[17] = AppMain._amUpdateModel;
         array539[18] = AppMain._amDrawModel;
         AppMain._am_particle_func = array539;
-        AppMain._am_field_func = new AppMain.AmeFieldFunc[]
+        AppMain._am_field_func = new AmeFieldFunc[]
         {
             AppMain._amApplyGravity,
             AppMain._amApplyUniform,
@@ -36272,28 +34494,28 @@ public partial class AppMain
             AppMain._amApplyDrag,
             AppMain._amApplyNoise
         };
-        AppMain._amEffectCreate_vec = new AppMain.NNS_VECTOR4D();
-        AppMain._amEffect_create_param = new AppMain.AMS_AME_CREATE_PARAM();
-        AppMain._amEffect_position = new AppMain.NNS_VECTOR4D();
-        AppMain._amEffect_velocity = new AppMain.NNS_VECTOR4D();
-        AppMain._amEffect_direction = new AppMain.NNS_VECTOR4D();
-        AppMain._amEffect_vel = new AppMain.NNS_VECTOR4D();
-        AppMain._amEffect_rot_ax = new AppMain.NNS_VECTOR4D();
-        AppMain._amEffect_mtx = new AppMain.NNS_MATRIX();
-        AppMain._amUpdateCircle_mtx = new AppMain.NNS_MATRIX();
-        AppMain._amDrawLine_offset = new AppMain.NNS_VECTOR4D();
-        AppMain._amDrawLine_eye = new AppMain.NNS_VECTOR4D();
-        AppMain._amDrawLine_pos0 = new AppMain.NNS_VECTOR4D();
-        AppMain._amDrawLine_pos1 = new AppMain.NNS_VECTOR4D();
-        AppMain._amDrawLine_vel = new AppMain.NNS_VECTOR4D();
-        AppMain._amDrawLine_cross = new AppMain.NNS_VECTOR4D();
+        AppMain._amEffectCreate_vec = new NNS_VECTOR4D();
+        AppMain._amEffect_create_param = new AMS_AME_CREATE_PARAM();
+        AppMain._amEffect_position = new NNS_VECTOR4D();
+        AppMain._amEffect_velocity = new NNS_VECTOR4D();
+        AppMain._amEffect_direction = new NNS_VECTOR4D();
+        AppMain._amEffect_vel = new NNS_VECTOR4D();
+        AppMain._amEffect_rot_ax = new NNS_VECTOR4D();
+        AppMain._amEffect_mtx = new NNS_MATRIX();
+        AppMain._amUpdateCircle_mtx = new NNS_MATRIX();
+        AppMain._amDrawLine_offset = new NNS_VECTOR4D();
+        AppMain._amDrawLine_eye = new NNS_VECTOR4D();
+        AppMain._amDrawLine_pos0 = new NNS_VECTOR4D();
+        AppMain._amDrawLine_pos1 = new NNS_VECTOR4D();
+        AppMain._amDrawLine_vel = new NNS_VECTOR4D();
+        AppMain._amDrawLine_cross = new NNS_VECTOR4D();
         AppMain.gm_ply_efct_trail_sys_tcb = null;
         AppMain.gm_ply_efct_trail_color_son =
-            new AppMain.GMS_PLY_EFCT_TRAIL_COLOR(new AppMain.NNS_RGBA(0.4f, 0.4f, 1f, 1f),
-                new AppMain.NNS_RGBA(0f, 0f, 1f, 1f));
+            new AppMain.GMS_PLY_EFCT_TRAIL_COLOR(new NNS_RGBA(0.4f, 0.4f, 1f, 1f),
+                new NNS_RGBA(0f, 0f, 1f, 1f));
         AppMain.gm_ply_efct_trail_color_sson =
-            new AppMain.GMS_PLY_EFCT_TRAIL_COLOR(new AppMain.NNS_RGBA(0.9f, 0.9f, 0.2f, 0.8f),
-                new AppMain.NNS_RGBA(0.5f, 0.5f, 0f, 0.6f));
+            new AppMain.GMS_PLY_EFCT_TRAIL_COLOR(new NNS_RGBA(0.9f, 0.9f, 0.2f, 0.8f),
+                new NNS_RGBA(0.5f, 0.5f, 0f, 0.6f));
         AppMain.gm_ply_efct_trail_setting = new AppMain.GMS_PLY_EFCT_TRAIL_SETTING[]
         {
             new AppMain.GMS_PLY_EFCT_TRAIL_SETTING(14f, 13f, 50f, 50f),
@@ -36303,156 +34525,156 @@ public partial class AppMain
         AppMain.gm_gmk_ss_1up_obj_3d_list = null;
         AppMain.gm_gmk_ss_emerald_effct = null;
         AppMain.gm_gmk_pulley_manager = new AppMain.GMS_GMK_PULLEY_MANAGER();
-        AppMain.gm_gmk_pulley_pos = new AppMain.NNS_VECTOR[][]
+        AppMain.gm_gmk_pulley_pos = new NNS_VECTOR[][]
         {
-            new AppMain.NNS_VECTOR[]
+            new NNS_VECTOR[]
             {
-                new AppMain.NNS_VECTOR(0f, 3.1496513f, 0f),
-                new AppMain.NNS_VECTOR(0f, -54.510956f, 0f),
-                new AppMain.NNS_VECTOR(64f, 3.1496513f, -1f),
-                new AppMain.NNS_VECTOR(64f, -54.510956f, -1f)
+                new NNS_VECTOR(0f, 3.1496513f, 0f),
+                new NNS_VECTOR(0f, -54.510956f, 0f),
+                new NNS_VECTOR(64f, 3.1496513f, -1f),
+                new NNS_VECTOR(64f, -54.510956f, -1f)
             },
-            new AppMain.NNS_VECTOR[]
+            new NNS_VECTOR[]
             {
-                new AppMain.NNS_VECTOR(0f, -5.4280963f, 0f),
-                new AppMain.NNS_VECTOR(64f, -37.42803f, 0f),
-                new AppMain.NNS_VECTOR(0f, 0.83844805f, -1f),
-                new AppMain.NNS_VECTOR(64f, -31.161482f, 0f)
+                new NNS_VECTOR(0f, -5.4280963f, 0f),
+                new NNS_VECTOR(64f, -37.42803f, 0f),
+                new NNS_VECTOR(0f, 0.83844805f, -1f),
+                new NNS_VECTOR(64f, -31.161482f, 0f)
             },
-            new AppMain.NNS_VECTOR[]
+            new NNS_VECTOR[]
             {
-                new AppMain.NNS_VECTOR(0f, 0.83844805f, -1f),
-                new AppMain.NNS_VECTOR(64f, -31.161482f, 0f),
-                new AppMain.NNS_VECTOR(0f, -5.4280963f, 0f),
-                new AppMain.NNS_VECTOR(64f, -37.42803f, 0f)
+                new NNS_VECTOR(0f, 0.83844805f, -1f),
+                new NNS_VECTOR(64f, -31.161482f, 0f),
+                new NNS_VECTOR(0f, -5.4280963f, 0f),
+                new NNS_VECTOR(64f, -37.42803f, 0f)
             },
-            new AppMain.NNS_VECTOR[]
+            new NNS_VECTOR[]
             {
-                new AppMain.NNS_VECTOR(-20.63973f, -54.4f, 0f),
-                new AppMain.NNS_VECTOR(0f, -54.4f, 0f),
-                new AppMain.NNS_VECTOR(-20.63973f, 2.9215617f, -1f),
-                new AppMain.NNS_VECTOR(0f, 2.9215617f, -1f)
+                new NNS_VECTOR(-20.63973f, -54.4f, 0f),
+                new NNS_VECTOR(0f, -54.4f, 0f),
+                new NNS_VECTOR(-20.63973f, 2.9215617f, -1f),
+                new NNS_VECTOR(0f, 2.9215617f, -1f)
             },
-            new AppMain.NNS_VECTOR[]
+            new NNS_VECTOR[]
             {
-                new AppMain.NNS_VECTOR(0f, -54.4f, 0f),
-                new AppMain.NNS_VECTOR(20.63973f, -54.4f, 0f),
-                new AppMain.NNS_VECTOR(0f, 2.9215617f, -1f),
-                new AppMain.NNS_VECTOR(20.63973f, 2.9215617f, -1f)
+                new NNS_VECTOR(0f, -54.4f, 0f),
+                new NNS_VECTOR(20.63973f, -54.4f, 0f),
+                new NNS_VECTOR(0f, 2.9215617f, -1f),
+                new NNS_VECTOR(20.63973f, 2.9215617f, -1f)
             }
         };
-        AppMain.gm_gmk_pulley_tex = new AppMain.NNS_TEXCOORD[][]
+        AppMain.gm_gmk_pulley_tex = new NNS_TEXCOORD[][]
         {
-            new AppMain.NNS_TEXCOORD[]
+            new NNS_TEXCOORD[]
             {
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.215957f,
                     v = 0.047f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.215957f,
                     v = 0.61f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.74286f,
                     v = 0.047f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.74286f,
                     v = 0.61f
                 }
             },
-            new AppMain.NNS_TEXCOORD[]
+            new NNS_TEXCOORD[]
             {
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.303349f,
                     v = 0.125f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.733542f,
                     v = 0.125f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.303083f,
                     v = 0.071f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.733542f,
                     v = 0.071f
                 }
             },
-            new AppMain.NNS_TEXCOORD[]
+            new NNS_TEXCOORD[]
             {
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.303349f,
                     v = 0.125f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.733542f,
                     v = 0.125f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.303083f,
                     v = 0.071f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.733542f,
                     v = 0.071f
                 }
             },
-            new AppMain.NNS_TEXCOORD[]
+            new NNS_TEXCOORD[]
             {
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.02f,
                     v = 0.79f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.02f,
                     v = 0.95f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.491f,
                     v = 0.79f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.491f,
                     v = 0.95f
                 }
             },
-            new AppMain.NNS_TEXCOORD[]
+            new NNS_TEXCOORD[]
             {
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.506436f,
                     v = 0.797227f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.506436f,
                     v = 0.965386f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.975f,
                     v = 0.797227f
                 },
-                new AppMain.NNS_TEXCOORD
+                new NNS_TEXCOORD
                 {
                     u = 0.975f,
                     v = 0.965386f
@@ -36763,244 +34985,244 @@ public partial class AppMain
         AppMain.gm_efct_zone01_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 2U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 0U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 0U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone02_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone03_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(9, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(10, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(10, 2U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(12, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(13, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(14, 1U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(15, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(15, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(16, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(16, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(18, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(18, 1U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -3f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(19, 1U, 18U, new NNS_VECTOR(0f, 0f, -3f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(20, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 32f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(21, 1U, 65U, new NNS_VECTOR(0f, 0f, 32f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 32f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(22, 1U, 17U, new NNS_VECTOR(0f, 0f, 32f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(23, 2U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1),
                 -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 3U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(24, 1U, 3U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(25, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(25, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(26, 2U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(27, 2U, 18U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(28, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(28, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-45), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(29, 1U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-45), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(30, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(30, 2U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(31, 2U, 18U, new AppMain.NNS_VECTOR(0f, 0f, -2f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(31, 2U, 18U, new NNS_VECTOR(0f, 0f, -2f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(32, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(33, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(33, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(34, 2U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(34, 2U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(AppMain.AKM_DEGtoA16(-90), 0, 0), 1f,
+                new AppMain.GMS_EFFECT_CREATE_PARAM(35, 1U, 16U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(AkMath.DEGtoA16(-90), 0, 0), 1f,
                     AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone04_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 67U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 2U, 67U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
+                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 1U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone_final_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone_ss_create_param_tbl = new AppMain.GMS_EFCT_ZONE_CREATE_PARAM[]
         {
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(0, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(1, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(2, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(3, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(4, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(5, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(6, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(7, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 65U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(8, 1U, 65U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(9, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(9, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(10, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(10, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(11, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(12, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(13, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(14, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(15, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(15, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
+                new AppMain.GMS_EFFECT_CREATE_PARAM(16, 0U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1),
             new AppMain.GMS_EFCT_ZONE_CREATE_PARAM(
-                new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 17U, new AppMain.NNS_VECTOR(0f, 0f, 0f),
-                    new AppMain.NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
+                new AppMain.GMS_EFFECT_CREATE_PARAM(17, 1U, 17U, new NNS_VECTOR(0f, 0f, 0f),
+                    new NNS_ROTATE_A16(0, 0, 0), 1f, AppMain.GmEffectDefaultMainFuncDeleteAtEnd, -1), -1, -1)
         };
         AppMain.gm_efct_zone_create_info = new AppMain.GMS_EFCT_ZONE_CREATE_INFO[]
         {
@@ -37436,8 +35658,8 @@ public partial class AppMain
         AppMain.dm_stfrl_scr_tex = new AppMain.AOS_TEXTURE();
         AppMain.dm_stfrl_end_tex = new AppMain.AOS_TEXTURE();
         AppMain.dm_stfrl_end_jp_tex = new AppMain.AOS_TEXTURE();
-        AppMain.dm_stfrl_cmn_ama = new AppMain.A2S_AMA_HEADER[2];
-        AppMain.dm_stfrl_cmn_amb = new AppMain.AMS_AMB_HEADER[2];
+        AppMain.dm_stfrl_cmn_ama = new A2S_AMA_HEADER[2];
+        AppMain.dm_stfrl_cmn_amb = new AMS_AMB_HEADER[2];
         AppMain.dm_stfrl_cmn_tex = AppMain.New<AppMain.AOS_TEXTURE>(2);
         AppMain.dm_stfrl_is_full_staffroll = false;
         AppMain.dm_stfrl_is_pause_maingame = false;
@@ -86163,7 +84385,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_slot_obj_3d_list = null;
 
     // Token: 0x04003E10 RID: 15888
-    private static AppMain.GMS_PLAYER_WORK slot_start_player;
+    private static GMS_PLAYER_WORK slot_start_player;
 
     // Token: 0x04003E11 RID: 15889
     private static int slot_start_call;
@@ -86441,7 +84663,7 @@ public partial class AppMain
     public static AppMain.MPP_VOID_OBS_OBJECT_WORK _gmEnemyDefaultRecFunc;
 
     // Token: 0x04003E4D RID: 15949
-    public static AppMain.OBS_OBJECT_WORK_Delegate2 _gmEnemyActionCallBack;
+    public static OBS_OBJECT_WORK_Delegate2 _gmEnemyActionCallBack;
 
     // Token: 0x04003E4E RID: 15950
     public static AppMain.OBS_RECT_WORK_Delegate1 _GmEnemyDefaultDefFunc;
@@ -86465,7 +84687,7 @@ public partial class AppMain
     private static int[] gm_efct_cmn_mdl_tex_reg_id_list;
 
     // Token: 0x04003E55 RID: 15957
-    private static AppMain.AMS_AMB_HEADER eff_cmn_arc;
+    private static AMS_AMB_HEADER eff_cmn_arc;
 
     // Token: 0x04003E56 RID: 15958
     private static AppMain.OBS_DATA_WORK ambtex_dwork;
@@ -86524,32 +84746,26 @@ public partial class AppMain
     // Token: 0x04003E68 RID: 15976
     private static uint[] objDiffCollisionDirHeightCheck_ulAttr;
 
-    // Token: 0x04003E69 RID: 15977
-    private static AppMain.MTS_TASK_TCB obj_camera_tcb;
-
-    // Token: 0x04003E6A RID: 15978
-    private static AppMain.OBS_CAMERA_SYS obj_camera_sys;
-
     // Token: 0x04003E6B RID: 15979
-    private readonly AppMain.NNS_RGBA nngEffectorXColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
+    private readonly NNS_RGBA nngEffectorXColor = new NNS_RGBA(1f, 1f, 1f, 1f);
 
     // Token: 0x04003E6C RID: 15980
-    private readonly AppMain.NNS_RGBA nngEffectorYColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
+    private readonly NNS_RGBA nngEffectorYColor = new NNS_RGBA(1f, 1f, 1f, 1f);
 
     // Token: 0x04003E6D RID: 15981
-    private readonly AppMain.NNS_RGBA nngEffectorZColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
+    private readonly NNS_RGBA nngEffectorZColor = new NNS_RGBA(1f, 1f, 1f, 1f);
 
     // Token: 0x04003E6E RID: 15982
-    private readonly AppMain.NNS_RGBA nngBoneDiffColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
+    private readonly NNS_RGBA nngBoneDiffColor = new NNS_RGBA(1f, 1f, 1f, 1f);
 
     // Token: 0x04003E6F RID: 15983
-    private readonly AppMain.NNS_RGB nngBoneAmbColor = new AppMain.NNS_RGB(0.2f, 0.2f, 0.2f);
+    private readonly NNS_RGB nngBoneAmbColor = new NNS_RGB(0.2f, 0.2f, 0.2f);
 
     // Token: 0x04003E70 RID: 15984
-    private readonly AppMain.NNS_RGBA nngBoneWireColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
+    private readonly NNS_RGBA nngBoneWireColor = new NNS_RGBA(1f, 1f, 1f, 1f);
 
     // Token: 0x04003E71 RID: 15985
-    private AppMain.NNS_VECTOR nngGridPos;
+    private NNS_VECTOR nngGridPos;
 
     // Token: 0x04003E72 RID: 15986
     private int nngGridXnum;
@@ -86558,16 +84774,16 @@ public partial class AppMain
     private int nngGridZnum;
 
     // Token: 0x04003E74 RID: 15988
-    private readonly AppMain.NNS_RGBA nngGridColor = new AppMain.NNS_RGBA(1f, 1f, 1f, 0.3f);
+    private readonly NNS_RGBA nngGridColor = new NNS_RGBA(1f, 1f, 1f, 0.3f);
 
     // Token: 0x04003E75 RID: 15989
-    private readonly AppMain.NNS_RGBA nngAxisXColor = new AppMain.NNS_RGBA(1f, 0f, 0f, 1f);
+    private readonly NNS_RGBA nngAxisXColor = new NNS_RGBA(1f, 0f, 0f, 1f);
 
     // Token: 0x04003E76 RID: 15990
-    private readonly AppMain.NNS_RGBA nngAxisYColor = new AppMain.NNS_RGBA(0f, 1f, 0f, 1f);
+    private readonly NNS_RGBA nngAxisYColor = new NNS_RGBA(0f, 1f, 0f, 1f);
 
     // Token: 0x04003E77 RID: 15991
-    private readonly AppMain.NNS_RGBA nngAxisZColor = new AppMain.NNS_RGBA(0f, 0f, 1f, 1f);
+    private readonly NNS_RGBA nngAxisZColor = new NNS_RGBA(0f, 0f, 1f, 1f);
 
     // Token: 0x04003E78 RID: 15992
     public static int NNE_LIGHT_0;
@@ -86636,7 +84852,7 @@ public partial class AppMain
     public static AppMain.AMS_TASK _am_draw_task;
 
     // Token: 0x04003E8E RID: 16014
-    private static AppMain.NNS_RGBA_U8 _am_draw_bg_color;
+    private static NNS_RGBA_U8 _am_draw_bg_color;
 
     // Token: 0x04003E8F RID: 16015
     private static int _am_draw_in_scene;
@@ -86654,7 +84870,7 @@ public partial class AppMain
     private static readonly AppMain.AMS_DRAWSTATE[] _am_draw_state_stack;
 
     // Token: 0x04003E94 RID: 16020
-    public static AppMain.NNS_MATRIX _am_draw_proj_mtx;
+    public static NNS_MATRIX _am_draw_proj_mtx;
 
     // Token: 0x04003E95 RID: 16021
     public static int _am_draw_proj_type;
@@ -86672,7 +84888,7 @@ public partial class AppMain
     private static AppMain._am_draw_command_delegate[] _am_draw_system_exec;
 
     // Token: 0x04003E9A RID: 16026
-    private static readonly AppMain.NNS_MATRIX _am_draw_world_view_matrix;
+    private static readonly NNS_MATRIX _am_draw_world_view_matrix;
 
     // Token: 0x04003E9B RID: 16027
     private static object[][] _am_draw_command_buf;
@@ -86684,7 +84900,7 @@ public partial class AppMain
     private static AppMain.Pool<AppMain.AMS_PARAM_DRAW_PRIMITIVE> amDraw_AMS_PARAM_DRAW_PRIMITIVE_Pool;
 
     // Token: 0x04003E9E RID: 16030
-    private static AppMain.Pool<AppMain.NNS_MATRIX> amDraw_NNS_MATRIX_Pool;
+    private static AppMain.Pool<NNS_MATRIX> amDraw_NNS_MATRIX_Pool;
 
     // Token: 0x04003E9F RID: 16031
     private static AppMain.Pool<AppMain.AMS_PARAM_MAKE_TASK> amDraw_AMS_PARAM_MAKE_TASK_Pool;
@@ -86774,10 +84990,10 @@ public partial class AppMain
     public static int NNS_PRIM3D_PCT_ALLOC_CNT;
 
     // Token: 0x04003EBC RID: 16060
-    private static AppMain.NNS_MATRIX _amDrawSortPrimitive3D_base_mtx;
+    private static NNS_MATRIX _amDrawSortPrimitive3D_base_mtx;
 
     // Token: 0x04003EBD RID: 16061
-    private static AppMain.NNS_MATRIX _amDrawSortPrimitive2D_mtx;
+    private static NNS_MATRIX _amDrawSortPrimitive2D_mtx;
 
     // Token: 0x04003EBE RID: 16062
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_stopper_obj_3d_list;
@@ -86795,7 +85011,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_beltconv_obj_3d_list;
 
     // Token: 0x04003EC3 RID: 16067
-    private static AppMain.AMS_AMB_HEADER gm_gmk_beltconv_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_beltconv_obj_tvx_list;
 
     // Token: 0x04003EC4 RID: 16068
     public static AppMain.TVX_FILE _tvx_roller;
@@ -86842,75 +85058,6 @@ public partial class AppMain
     // Token: 0x04003ED2 RID: 16082
     private static readonly ushort[] gm_boss4_eff_sw_def_flag_tbl;
 
-    // Token: 0x04003ED3 RID: 16083
-    private static AppMain.MTS_TASK_TCB gs_sound_tcb;
-
-    // Token: 0x04003ED4 RID: 16084
-    private static Dictionary<string, SoundEffect> cacheFxSounds;
-
-    // Token: 0x04003ED5 RID: 16085
-    private static string[] sLevel_Common_BGMList;
-
-    // Token: 0x04003ED6 RID: 16086
-    private static string[] sLevel_1_BGMList;
-
-    // Token: 0x04003ED7 RID: 16087
-    private static string[] sLevel_2_BGMList;
-
-    // Token: 0x04003ED8 RID: 16088
-    private static string[] sLevel_3_BGMList;
-
-    // Token: 0x04003ED9 RID: 16089
-    private static string[] sLevel_4_BGMList;
-
-    // Token: 0x04003EDA RID: 16090
-    private static string[][] bgmLists;
-
-    // Token: 0x04003EDB RID: 16091
-    private static int m_iBGMPreparedLevel;
-
-    // Token: 0x04003EDC RID: 16092
-    private static Dictionary<string, Song> bgmPreloadedList;
-
-    // Token: 0x04003EDD RID: 16093
-    private static readonly AppMain.GSS_SND_SYS_MAIN_INFO gs_sound_sys_main_info;
-
-    // Token: 0x04003EDE RID: 16094
-    private static readonly AppMain.GSS_SND_SCB[] gs_sound_scb_heap;
-
-    // Token: 0x04003EDF RID: 16095
-    private static readonly byte[] gs_sound_scb_heap_usage_flag;
-
-    // Token: 0x04003EE0 RID: 16096
-    private static readonly AppMain.GSS_SND_SE_HANDLE[] gs_sound_se_handle_heap;
-
-    // Token: 0x04003EE1 RID: 16097
-    private static readonly byte[] gs_sound_se_handle_heap_usage_flag;
-
-    // Token: 0x04003EE2 RID: 16098
-    private static readonly AppMain.GSS_SND_SE_HANDLE gs_sound_se_handle_error;
-
-    // Token: 0x04003EE3 RID: 16099
-    private static AppMain.GSS_SND_SE_HANDLE[] gs_sound_se_handle_default;
-
-    // Token: 0x04003EE4 RID: 16100
-    private static readonly float[] gs_sound_volume;
-
-    // Token: 0x04003EE5 RID: 16101
-    private static Dictionary<string, AppMain.SOUND_TABLE> sound_fx_list;
-
-    // Token: 0x04003EE6 RID: 16102
-    private static Dictionary<string, AppMain.SOUND_TABLE> sound_bgm_list;
-
-    // Token: 0x04003EE7 RID: 16103
-    private static int g_iCurrentCachedIndex;
-
-    // Token: 0x04003EE8 RID: 16104
-    private static bool g_bSoundsPrecached;
-
-    // Token: 0x04003EE9 RID: 16105
-    private static bool b_bPrioritySoundsLoaded;
-
     // Token: 0x04003EEA RID: 16106
     private static AppMain.OBS_DIFF_COLLISION _obj_fcol;
 
@@ -86930,79 +85077,16 @@ public partial class AppMain
     private static float nngBinormalLength;
 
     // Token: 0x04003EF0 RID: 16112
-    private static AppMain.NNS_RGBA nngNormalColor;
+    private static NNS_RGBA nngNormalColor;
 
     // Token: 0x04003EF1 RID: 16113
-    private static AppMain.NNS_RGBA nngTangentColor;
+    private static NNS_RGBA nngTangentColor;
 
     // Token: 0x04003EF2 RID: 16114
-    private static AppMain.NNS_RGBA nngBinormalColor;
+    private static NNS_RGBA nngBinormalColor;
 
     // Token: 0x04003EF3 RID: 16115
-    private static AppMain.NNS_RGBA nngWireColor;
-
-    // Token: 0x04003EF4 RID: 16116
-    private static byte[] gm_player_motion_list_son_right;
-
-    // Token: 0x04003EF5 RID: 16117
-    private static byte[] gm_player_motion_list_sson_right;
-
-    // Token: 0x04003EF6 RID: 16118
-    private static byte[] gm_player_motion_list_pn_son_right;
-
-    // Token: 0x04003EF7 RID: 16119
-    private static byte[] gm_player_motion_list_pn_sson_right;
-
-    // Token: 0x04003EF8 RID: 16120
-    private static byte[] gm_player_motion_list_tr_son_right;
-
-    // Token: 0x04003EF9 RID: 16121
-    private static byte[] gm_player_model_list_pn_son;
-
-    // Token: 0x04003EFA RID: 16122
-    private static byte[] gm_player_model_list_son;
-
-    // Token: 0x04003EFB RID: 16123
-    private static byte[] gm_player_model_list_tr_son;
-
-    // Token: 0x04003EFC RID: 16124
-    private static byte[] gm_player_motion_list_pn_son_left;
-
-    // Token: 0x04003EFD RID: 16125
-    private static byte[] gm_player_motion_list_pn_sson_left;
-
-    // Token: 0x04003EFE RID: 16126
-    private static byte[] gm_player_motion_list_son_left;
-
-    // Token: 0x04003EFF RID: 16127
-    private static byte[] gm_player_motion_list_sson_left;
-
-    // Token: 0x04003F00 RID: 16128
-    private static byte[] gm_player_motion_list_tr_son_left;
-
-    // Token: 0x04003F01 RID: 16129
-    public static byte[][] _g_gm_player_motion_right_tbl;
-
-    // Token: 0x04003F02 RID: 16130
-    public static byte[][] _g_gm_player_motion_left_tbl;
-
-    // Token: 0x04003F03 RID: 16131
-    private static byte[][] _g_gm_player_model_tbl;
-
-    // Token: 0x04003F04 RID: 16132
-    private static byte[][] _g_gm_player_mtn_blend_setting_tbl;
-
-    // Token: 0x04003F05 RID: 16133
-    private static byte[] gm_player_mtn_blend_setting_son;
-
-    // Token: 0x04003F06 RID: 16134
-    private static byte[] gm_player_mtn_blend_setting_tr_son;
-
-    // Token: 0x04003F07 RID: 16135
-    private static byte[] gm_player_mtn_blend_setting_pn_son;
-
-    // Token: 0x04003F08 RID: 16136
-    public static readonly AppMain.GMS_PLY_PARAMETER[] g_gm_player_parameter;
+    private static NNS_RGBA nngWireColor;
 
     // Token: 0x04003F09 RID: 16137
     public static int nextDemoLevel;
@@ -87089,10 +85173,10 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_ene_harisenbo_r_obj_3d_list;
 
     // Token: 0x04003F25 RID: 16165
-    private static AppMain.NNS_MATRIX gmEneHariMotionCallback_node_mtx;
+    private static NNS_MATRIX gmEneHariMotionCallback_node_mtx;
 
     // Token: 0x04003F26 RID: 16166
-    private static AppMain.NNS_MATRIX gmEneHariMotionCallback_base_mtx;
+    private static NNS_MATRIX gmEneHariMotionCallback_base_mtx;
 
     // Token: 0x04003F27 RID: 16167
     public static readonly AppMain.GMS_EFCT_CMN_CREATE_PARAM[] gm_efct_cmn_create_param_tbl;
@@ -87152,7 +85236,7 @@ public partial class AppMain
     private static AppMain.GMS_DECO_PRIM_DRAW_WORK[] g_deco_tvx_work;
 
     // Token: 0x04003F3A RID: 16186
-    private static AppMain.NNS_RGBA_U8 g_deco_rendaer_target_color;
+    private static NNS_RGBA_U8 g_deco_rendaer_target_color;
 
     // Token: 0x04003F3B RID: 16187
     private static AppMain.GMS_DECO_MGR g_deco_mgr_real;
@@ -87167,10 +85251,10 @@ public partial class AppMain
     private static AppMain.GMS_DECO_DATA g_deco_data;
 
     // Token: 0x04003F3F RID: 16191
-    private static AppMain.AMS_AMB_HEADER gmDeco_matMotionHeader;
+    private static AMS_AMB_HEADER gmDeco_matMotionHeader;
 
     // Token: 0x04003F40 RID: 16192
-    private static AppMain.AMS_AMB_HEADER gmDeco_motionHeader;
+    private static AMS_AMB_HEADER gmDeco_motionHeader;
 
     // Token: 0x04003F41 RID: 16193
     private static AppMain.OBF_DRAW_USER_DT_FUNC _gmDecoTcbProcPostDT;
@@ -87242,7 +85326,7 @@ public partial class AppMain
     public static AppMain.TaskProc _objDrawStart_DT;
 
     // Token: 0x04003F58 RID: 16216
-    private static AppMain.NNS_MATRIX ObjDrawAction3DNN_obj_mtx;
+    private static NNS_MATRIX ObjDrawAction3DNN_obj_mtx;
 
     // Token: 0x04003F59 RID: 16217
     private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_MODEL> _ObjDraw3DNNModel_Pool;
@@ -87254,16 +85338,16 @@ public partial class AppMain
     private static AppMain.OBF_DRAW_USER_DT_FUNC _objDraw3DNNDrawPrimitive_DT;
 
     // Token: 0x04003F5C RID: 16220
-    public static AppMain.SNNS_VECTOR4D vec_dispObjDrawAction3DES;
+    public static SNNS_VECTOR4D vec_dispObjDrawAction3DES;
 
     // Token: 0x04003F5D RID: 16221
-    public static AppMain.SNNS_VECTOR4D vec_posObjDrawAction3DES;
+    public static SNNS_VECTOR4D vec_posObjDrawAction3DES;
 
     // Token: 0x04003F5E RID: 16222
-    public static AppMain.SNNS_VECTOR4D vec_scaleObjDrawAction3DES;
+    public static SNNS_VECTOR4D vec_scaleObjDrawAction3DES;
 
     // Token: 0x04003F5F RID: 16223
-    public static AppMain.SNNS_VECTOR4D vecObjDrawAction3DES;
+    public static SNNS_VECTOR4D vecObjDrawAction3DES;
 
     // Token: 0x04003F60 RID: 16224
     private static AppMain.OBF_DRAW_USER_DT_FUNC _objDraw3DESMatrixPush_UserFunc;
@@ -87287,7 +85371,7 @@ public partial class AppMain
     private static AppMain.NNS_MATERIALCALLBACK_FUNC _objDraw3DNNMaterialCallback;
 
     // Token: 0x04003F67 RID: 16231
-    public static AppMain.SNNS_MATRIX tempSNNS_MATRIX0;
+    public static SNNS_MATRIX tempSNNS_MATRIX0;
 
     // Token: 0x04003F68 RID: 16232
     private static int player_spd_x;
@@ -87440,16 +85524,16 @@ public partial class AppMain
     public static AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][] gm_map_prim_draw_tvx_mgr_tbl_z4;
 
     // Token: 0x04003F9A RID: 16282
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_DRM_A_I_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_DRM_A_I_DDS;
 
     // Token: 0x04003F9B RID: 16283
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_PIPE_I_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z4_MID_2_PIPE_I_DDS;
 
     // Token: 0x04003F9C RID: 16284
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z4_Z4_TANK_02_ACT_I_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z4_Z4_TANK_02_ACT_I_DDS;
 
     // Token: 0x04003F9D RID: 16285
-    public static AppMain.NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_z4;
+    public static NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_z4;
 
     // Token: 0x04003F9E RID: 16286
     public static DoubleType<uint[], AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[]> gm_map_prim_draw_tvx_mgr_index_tbl_zf;
@@ -87468,10 +85552,10 @@ public partial class AppMain
     public static AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][] gm_map_prim_draw_tvx_mgr_tbl_zf;
 
     // Token: 0x04003FA3 RID: 16291
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_zf_ZF_MAP_IPHONE_TEXANIM_DDS;
 
     // Token: 0x04003FA4 RID: 16292
-    public static AppMain.NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_zf;
+    public static NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_zf;
 
     // Token: 0x04003FA5 RID: 16293
     public static readonly AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[] gm_map_prim_draw_tvx_mgr_tbl_z2_Z2_PALM_DDS;
@@ -87516,46 +85600,46 @@ public partial class AppMain
     public static int[] gm_map_prim_draw_tvx_mgr_tbl_z2_num;
 
     // Token: 0x04003FB3 RID: 16307
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_DDS;
 
     // Token: 0x04003FB4 RID: 16308
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PANEL_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PANEL_DDS;
 
     // Token: 0x04003FB5 RID: 16309
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILA_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILA_DDS;
 
     // Token: 0x04003FB6 RID: 16310
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILB_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_BUILB_DDS;
 
     // Token: 0x04003FB7 RID: 16311
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILMBELT_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILMBELT_DDS;
 
     // Token: 0x04003FB8 RID: 16312
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_3MARK_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_3MARK_DDS;
 
     // Token: 0x04003FB9 RID: 16313
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_V_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_V_DDS;
 
     // Token: 0x04003FBA RID: 16314
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_BALLOON_ILM_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_BALLOON_ILM_DDS;
 
     // Token: 0x04003FBB RID: 16315
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_CODE_ILM_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_CODE_ILM_DDS;
 
     // Token: 0x04003FBC RID: 16316
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_FLOWER_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_FLOWER_DDS;
 
     // Token: 0x04003FBD RID: 16317
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ROLL_ILM_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ROLL_ILM_DDS;
 
     // Token: 0x04003FBE RID: 16318
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_ASHIBA_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_ILM_ASHIBA_DDS;
 
     // Token: 0x04003FBF RID: 16319
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z3_Z3_ANIM_B_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z3_Z3_ANIM_B_DDS;
 
     // Token: 0x04003FC0 RID: 16320
-    public static readonly AppMain.NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PALM_DDS;
+    public static readonly NNS_TEXCOORD[] gm_map_prim_draw_tvx_uv_mgr_tbl_z2_Z2_PALM_DDS;
 
     // Token: 0x04003FC1 RID: 16321
     public static readonly AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[] gm_map_prim_draw_tvx_mgr_tbl_z3_Z3_ANIM_B_DDS;
@@ -87564,7 +85648,7 @@ public partial class AppMain
     public static AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][] gm_map_prim_draw_tvx_mgr_tbl_z2;
 
     // Token: 0x04003FC3 RID: 16323
-    public static AppMain.NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_z2;
+    public static NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_z2;
 
     // Token: 0x04003FC4 RID: 16324
     public static int[] gm_map_prim_draw_tvx_mgr_tbl_z3_num;
@@ -87573,7 +85657,7 @@ public partial class AppMain
     public static AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][] gm_map_prim_draw_tvx_mgr_tbl_z3;
 
     // Token: 0x04003FC6 RID: 16326
-    public static AppMain.NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_z3;
+    public static NNS_TEXCOORD[][] gm_map_prim_draw_tvx_uv_mgr_tbl_z3;
 
     // Token: 0x04003FC7 RID: 16327
     private static readonly int[] g_gm_gmk_tarzan_rope_model_id;
@@ -87585,7 +85669,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] g_gm_gmk_tarzan_rope_obj_3d_list;
 
     // Token: 0x04003FCA RID: 16330
-    private static readonly AppMain.NNS_MATRIX g_gm_gmk_tarzan_rope_active_matrix;
+    private static readonly NNS_MATRIX g_gm_gmk_tarzan_rope_active_matrix;
 
     // Token: 0x04003FCB RID: 16331
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_spear_obj_3d_list;
@@ -87609,7 +85693,7 @@ public partial class AppMain
     private static byte[] gm_gmk_land_col_type_tbl;
 
     // Token: 0x04003FD2 RID: 16338
-    private static AppMain.AMS_AMB_HEADER gm_gmk_land_3_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_land_3_obj_tvx_list;
 
     // Token: 0x04003FD3 RID: 16339
     public static AppMain.MPP_VOID_OBS_OBJECT_WORK _gmGmkLandColFall;
@@ -87633,25 +85717,25 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_dash_panel_obj_3d_list;
 
     // Token: 0x04003FDA RID: 16346
-    private static object[] g_gm_gamedat_map;
+    public static object[] g_gm_gamedat_map;
 
     // Token: 0x04003FDB RID: 16347
-    private static object[] g_gm_gamedat_map_set;
+    public static object[] g_gm_gamedat_map_set;
 
     // Token: 0x04003FDC RID: 16348
-    private static object[] g_gm_gamedat_map_set_add;
+    public static object[] g_gm_gamedat_map_set_add;
 
     // Token: 0x04003FDD RID: 16349
-    private static object[] g_gm_gamedat_map_attr_set;
+    public static object[] g_gm_gamedat_map_attr_set;
 
     // Token: 0x04003FDE RID: 16350
-    private static AppMain.AMS_AMB_HEADER g_gm_gamedat_enemy_arc;
+    private static AMS_AMB_HEADER g_gm_gamedat_enemy_arc;
 
     // Token: 0x04003FDF RID: 16351
     private static object[] g_gm_gamedat_ring;
 
     // Token: 0x04003FE0 RID: 16352
-    private static AppMain.AMS_AMB_HEADER[] g_gm_gamedat_gimmick;
+    private static AMS_AMB_HEADER[] g_gm_gamedat_gimmick;
 
     // Token: 0x04003FE1 RID: 16353
     private static object[] g_gm_gamedat_enemy;
@@ -87660,7 +85744,7 @@ public partial class AppMain
     private static object[] g_gm_gamedat_effect;
 
     // Token: 0x04003FE3 RID: 16355
-    private static AppMain.AMS_AMB_HEADER g_gm_gamedat_cockpit_main_arc;
+    private static AMS_AMB_HEADER g_gm_gamedat_cockpit_main_arc;
 
     // Token: 0x04003FE4 RID: 16356
     private static int[] g_gm_gamedat_bossbattle_stage_id_tbl;
@@ -87693,7 +85777,7 @@ public partial class AppMain
     private static ulong _am_timer_id;
 
     // Token: 0x04003FEE RID: 16366
-    private AppMain.AMS_ALARM _am_alarm_timer;
+    private AMS_ALARM _am_alarm_timer;
 
     // Token: 0x04003FEF RID: 16367
     private static readonly int[] g_gm_gmk_water_slider_model_id_main;
@@ -87714,7 +85798,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] g_gm_gmk_water_slider_obj_3d_list;
 
     // Token: 0x04003FF5 RID: 16373
-    private static AppMain.GSS_SND_SE_HANDLE g_gm_gmk_water_slider_se_handle;
+    private static GSS_SND_SE_HANDLE g_gm_gmk_water_slider_se_handle;
 
     // Token: 0x04003FF6 RID: 16374
     private static AppMain.GMS_EFFECT_3DES_WORK g_gm_gmk_water_slider_effct_player;
@@ -88236,7 +86320,7 @@ public partial class AppMain
     public static readonly short GMD_BOSS4_LEFTWARD_ANGLE;
 
     // Token: 0x040040A3 RID: 16547
-    public static readonly AppMain.NNS_RGB gm_boss4_color_white;
+    public static readonly NNS_RGB gm_boss4_color_white;
 
     // Token: 0x040040A4 RID: 16548
     private static AppMain.GMS_RING_WORK gm_boss4_util_ring;
@@ -88293,7 +86377,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_sw_wall_obj_3d_list;
 
     // Token: 0x040040B6 RID: 16566
-    private static AppMain.AMS_AMB_HEADER g_gm_gmk_sw_wall3_obj_tvx_list;
+    private static AMS_AMB_HEADER g_gm_gmk_sw_wall3_obj_tvx_list;
 
     // Token: 0x040040B7 RID: 16567
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_switch_obj_3d_list;
@@ -88308,10 +86392,10 @@ public partial class AppMain
     private static readonly ushort[] gm_gmk_ss_endurance_color;
 
     // Token: 0x040040BB RID: 16571
-    private static AppMain.AMS_AMB_HEADER gm_gmk_ss_endurance_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_ss_endurance_obj_tvx_list;
 
     // Token: 0x040040BC RID: 16572
-    private static readonly AppMain.NNS_TEXCOORD[] gm_gmk_ss_endurance_mat_color;
+    private static readonly NNS_TEXCOORD[] gm_gmk_ss_endurance_mat_color;
 
     // Token: 0x040040BD RID: 16573
     private static readonly byte[] gm_gmk_ss_endurance_uv_parameter;
@@ -88320,7 +86404,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_ss_circle_obj_3d_list;
 
     // Token: 0x040040BF RID: 16575
-    private static AppMain.AMS_AMB_HEADER gm_gmk_ss_circle_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_ss_circle_obj_tvx_list;
 
     // Token: 0x040040C0 RID: 16576
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_dsign_obj_3d_list;
@@ -88389,7 +86473,7 @@ public partial class AppMain
     private static readonly int[] dm_logo_sega_efct_mdl_id_tbl;
 
     // Token: 0x040040D6 RID: 16598
-    private static readonly AppMain.AMS_AMB_HEADER[] dm_logo_sega_data;
+    private static readonly AMS_AMB_HEADER[] dm_logo_sega_data;
 
     // Token: 0x040040D7 RID: 16599
     private AppMain.OBS_ACTION3D_NN_WORK[] dm_logo_sega_obj_3d_list;
@@ -88401,75 +86485,36 @@ public partial class AppMain
     public static GameTime lastGameTime;
 
     // Token: 0x040040DA RID: 16602
-    private static string g_ao_storage_filename;
+    public static string g_ao_storage_filename;
 
     // Token: 0x040040DB RID: 16603
     private static readonly AppMain.AOS_STORAGE g_ao_storage;
 
     // Token: 0x040040DC RID: 16604
-    private readonly AppMain.NNS_VECTOR[] nngCircumPoint = AppMain.New<AppMain.NNS_VECTOR>(120);
+    private readonly NNS_VECTOR[] nngCircumPoint = AppMain.New<NNS_VECTOR>(120);
 
     // Token: 0x040040DD RID: 16605
-    private AppMain.NNS_RGBA nngObjCircumCol = new AppMain.NNS_RGBA(1f, 1f, 1f, 0.3f);
+    private NNS_RGBA nngObjCircumCol = new NNS_RGBA(1f, 1f, 1f, 0.3f);
 
     // Token: 0x040040DE RID: 16606
-    private readonly AppMain.NNS_RGBA[] nngNodeCircumCol = new AppMain.NNS_RGBA[]
+    private readonly NNS_RGBA[] nngNodeCircumCol = new NNS_RGBA[]
     {
-        new AppMain.NNS_RGBA(0f, 1f, 0f, 0.3f),
-        new AppMain.NNS_RGBA(1f, 0f, 1f, 0.3f),
-        new AppMain.NNS_RGBA(1f, 1f, 0f, 0.3f),
-        new AppMain.NNS_RGBA(1f, 1f, 1f, 0.3f),
-        new AppMain.NNS_RGBA(0f, 1f, 1f, 0.3f),
-        new AppMain.NNS_RGBA(1f, 0f, 0f, 0.3f),
-        new AppMain.NNS_RGBA(0f, 0f, 0f, 0.3f),
-        default(AppMain.NNS_RGBA)
+        new NNS_RGBA(0f, 1f, 0f, 0.3f),
+        new NNS_RGBA(1f, 0f, 1f, 0.3f),
+        new NNS_RGBA(1f, 1f, 0f, 0.3f),
+        new NNS_RGBA(1f, 1f, 1f, 0.3f),
+        new NNS_RGBA(0f, 1f, 1f, 0.3f),
+        new NNS_RGBA(1f, 0f, 0f, 0.3f),
+        new NNS_RGBA(0f, 0f, 0f, 0.3f),
+        default(NNS_RGBA)
     };
 
     // Token: 0x040040DF RID: 16607
-    private static AppMain.NNS_VECTOR nnCalcTRSMotion_tv;
+    private static NNS_VECTOR nnCalcTRSMotion_tv;
 
     // Token: 0x040040E0 RID: 16608
-    private static AppMain.NNS_VECTOR nnCalcTRSMotion_sv;
-
-    // Token: 0x040040E1 RID: 16609
-    private static AppMain.GSS_SND_SCB gm_sound_bgm_scb;
-
-    // Token: 0x040040E2 RID: 16610
-    private static AppMain.GSS_SND_SCB gm_sound_bgm_sub_scb;
-
-    // Token: 0x040040E3 RID: 16611
-    private static AppMain.GSS_SND_SCB gm_sound_jingle_scb;
-
-    // Token: 0x040040E4 RID: 16612
-    private static AppMain.GSS_SND_SCB gm_sound_jingle_bgm_scb;
-
-    // Token: 0x040040E5 RID: 16613
-    private static uint gm_sound_flag;
-
-    // Token: 0x040040E6 RID: 16614
-    private static AppMain.MTS_TASK_TCB gm_sound_1shot_tcb;
-
-    // Token: 0x040040E7 RID: 16615
-    private static AppMain.MTS_TASK_TCB gm_sound_bgm_fade_tcb;
-
-    // Token: 0x040040E8 RID: 16616
-    private static AppMain.MTS_TASK_TCB gm_sound_bgm_win_boss_tcb;
-
-    // Token: 0x040040E9 RID: 16617
-    private static readonly string[] gm_sound_bgm_name_list;
-
-    // Token: 0x040040EA RID: 16618
-    private static readonly string[] gm_sound_speedup_bgm_name_list;
-
-    // Token: 0x040040EB RID: 16619
-    private static readonly string[] gm_sound_jingle_name_list;
-
-    // Token: 0x040040EC RID: 16620
-    private static readonly string[] gm_sound_bgm_win_boss_name_list;
-
-    // Token: 0x040040ED RID: 16621
-    private static readonly int[] gm_sound_bgm_win_boss_wait_frame_list;
-
+    private static NNS_VECTOR nnCalcTRSMotion_sv;
+    
     // Token: 0x040040EE RID: 16622
     private static readonly int[][] gm_score_vib_tbl;
 
@@ -88510,7 +86555,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_needle_obj_3d_list;
 
     // Token: 0x040040FB RID: 16635
-    private static AppMain.AMS_AMB_HEADER gm_gmk_needle_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_needle_obj_tvx_list;
 
     // Token: 0x040040FC RID: 16636
     private static AppMain.TVX_FILE tvx_needle;
@@ -88600,16 +86645,16 @@ public partial class AppMain
     private static AppMain.GMS_ENE_KAMA_FADE_ANIME gm_ene_kama_blink_anime;
 
     // Token: 0x04004119 RID: 16665
-    private static AppMain.NNS_MATRIX gmEneKamaHandWaitMain_msm;
+    private static NNS_MATRIX gmEneKamaHandWaitMain_msm;
 
     // Token: 0x0400411A RID: 16666
-    private static AppMain.NNS_MATRIX gmEneKamaHandAttackMain_rmat;
+    private static NNS_MATRIX gmEneKamaHandAttackMain_rmat;
 
     // Token: 0x0400411B RID: 16667
-    private static AppMain.NNS_MATRIX gmEneKamaHandAttackMain_tmat;
+    private static NNS_MATRIX gmEneKamaHandAttackMain_tmat;
 
     // Token: 0x0400411C RID: 16668
-    private static AppMain.NNS_MATRIX gmEneKamaHandAttackMain_mat;
+    private static NNS_MATRIX gmEneKamaHandAttackMain_mat;
 
     // Token: 0x0400411D RID: 16669
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_ene_gabu_obj_3d_list;
@@ -88723,7 +86768,7 @@ public partial class AppMain
     private static bool dm_save_is_snd_build;
 
     // Token: 0x04004142 RID: 16706
-    private static readonly AppMain.AMS_AMB_HEADER[] dm_logo_sonic_data;
+    private static readonly AMS_AMB_HEADER[] dm_logo_sonic_data;
 
     // Token: 0x04004143 RID: 16707
     public static AppMain.Reference<AppMain.MTS_TASK_TCB> dm_logo_sonic_load_tcb;
@@ -88756,13 +86801,13 @@ public partial class AppMain
     private static AppMain.DMS_LOADING_MGR dm_loading_mgr_p;
 
     // Token: 0x0400414D RID: 16717
-    private static AppMain.AMS_AMB_HEADER dm_loading_arc_amb;
+    private static AMS_AMB_HEADER dm_loading_arc_amb;
 
     // Token: 0x0400414E RID: 16718
-    private static AppMain.A2S_AMA_HEADER[] dm_loading_ama;
+    private static A2S_AMA_HEADER[] dm_loading_ama;
 
     // Token: 0x0400414F RID: 16719
-    private static AppMain.AMS_AMB_HEADER[] dm_loading_amb;
+    private static AMS_AMB_HEADER[] dm_loading_amb;
 
     // Token: 0x04004150 RID: 16720
     private static AppMain.AOS_TEXTURE[] dm_loading_tex;
@@ -88868,12 +86913,6 @@ public partial class AppMain
 
     // Token: 0x04004172 RID: 16754
     private static int _am_tlist_dline;
-
-    // Token: 0x04004173 RID: 16755
-    private static LinkedList<AppMain.AMS_FS> ams_fsList;
-
-    // Token: 0x04004175 RID: 16757
-    public static AppMain.AMS_FS lastReadAMS_FS;
 
     // Token: 0x04004176 RID: 16758
     public static uint GMD_SMSG_FLAG_WIN_DISP;
@@ -89065,61 +87104,13 @@ public partial class AppMain
     private static int[][] gm_start_msg_body_act_id_table;
 
     // Token: 0x040041B5 RID: 16821
-    private static AppMain.OBS_RECT_WORK[] gm_ply_touch_rect;
-
-    // Token: 0x040041B6 RID: 16822
-    private static ushort[][] gm_player_push_jump_key_rect;
-
-    // Token: 0x040041B7 RID: 16823
-    private static ushort[][] gm_player_push_ssonic_key_rect;
-
-    // Token: 0x040041B8 RID: 16824
-    private static int gm_pos_x;
-
-    // Token: 0x040041B9 RID: 16825
-    private static int gm_pos_y;
-
-    // Token: 0x040041BA RID: 16826
-    private static int gm_pos_z;
-
-    // Token: 0x040041BB RID: 16827
-    private static int[] gm_ply_score_combo_vib_level_tbl;
-
-    // Token: 0x040041BC RID: 16828
-    public static AppMain.OBS_DATA_WORK[][] g_gm_player_data_work;
-
-    // Token: 0x040041BD RID: 16829
-    private static AppMain.OBS_ACTION3D_NN_WORK[] g_gm_ply_son_obj_3d_list;
-
-    // Token: 0x040041BE RID: 16830
-    private static AppMain.OBS_ACTION3D_NN_WORK[] g_gm_ply_sson_obj_3d_list;
-
-    // Token: 0x040041BF RID: 16831
-    private static int[] gm_ply_score_combo_scale_tbl;
-
-    // Token: 0x040041C0 RID: 16832
-    private static int[] gm_ply_score_combo_tbl;
-
-    // Token: 0x040041C1 RID: 16833
-    private static uint[] gm_key_map_key_list;
-
-    // Token: 0x040041C2 RID: 16834
-    private static AppMain.OBS_ACTION3D_NN_WORK[][][] gm_ply_obj_3d_list_tbl;
-
-    // Token: 0x040041C3 RID: 16835
-    private static int fall_rot_buf_gmPlayerDefaultInFunc;
-
-    // Token: 0x040041C4 RID: 16836
-    private int test_dist = 786432;
-
-    // Token: 0x040041C5 RID: 16837
-    public static int GMD_PLAYER_NODE_ID_TRUCK_CENTER;
+  
 
     // Token: 0x040041C6 RID: 16838
     private static AppMain.MTS_TASK_TCB gm_over_tcb;
 
     // Token: 0x040041C7 RID: 16839
-    private static AppMain.AMS_AMB_HEADER[] gm_over_texamb_list;
+    private static AMS_AMB_HEADER[] gm_over_texamb_list;
 
     // Token: 0x040041C8 RID: 16840
     private static readonly AppMain.AOS_TEXTURE[] gm_over_textures;
@@ -89140,16 +87131,16 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_ss_ringgate_obj_3d_list;
 
     // Token: 0x040041CE RID: 16846
-    private static AppMain.AMS_AMB_HEADER gm_gmk_ss_ringgate_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_ss_ringgate_obj_tvx_list;
 
     // Token: 0x040041CF RID: 16847
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_ss_oblong_obj_3d_list;
 
     // Token: 0x040041D0 RID: 16848
-    private static AppMain.AMS_AMB_HEADER gm_gmk_ss_oblong_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_ss_oblong_obj_tvx_list;
 
     // Token: 0x040041D1 RID: 16849
-    private static readonly AppMain.NNS_TEXCOORD[] gm_gmk_ss_oblong_mat_color;
+    private static readonly NNS_TEXCOORD[] gm_gmk_ss_oblong_mat_color;
 
     // Token: 0x040041D2 RID: 16850
     public static AppMain.TVX_FILE gmGmkSsOblongDrawFunctvx;
@@ -89811,9 +87802,6 @@ public partial class AppMain
     // Token: 0x040042AD RID: 17069
     public static int dm_xbox_show_progress;
 
-    // Token: 0x040042AE RID: 17070
-    private static int g_ao_account_current_id;
-
     // Token: 0x040042AF RID: 17071
     private static AppMain.SYS_EVT_DATA[] _gs_evt_data;
 
@@ -89824,16 +87812,16 @@ public partial class AppMain
     public static AppMain.NNS_TEXLIST nngCurrentTextureList;
 
     // Token: 0x040042B2 RID: 17074
-    private static AppMain.NNS_RGBA nngColorWhite;
+    private static NNS_RGBA nngColorWhite;
 
     // Token: 0x040042B3 RID: 17075
-    private static AppMain.NNS_RGBA nngColorBlack;
+    private static NNS_RGBA nngColorBlack;
 
     // Token: 0x040042B4 RID: 17076
-    private static AppMain.NNS_MATRIX nngUnitMatrix;
+    private static NNS_MATRIX nngUnitMatrix;
 
     // Token: 0x040042B5 RID: 17077
-    private static AppMain.NNS_MATRIX nngProjectionMatrix;
+    private static NNS_MATRIX nngProjectionMatrix;
 
     // Token: 0x040042B6 RID: 17078
     private static int nngProjectionType;
@@ -89986,10 +87974,10 @@ public partial class AppMain
     public static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_ss_square_obj_3d_list;
 
     // Token: 0x040042E8 RID: 17128
-    public static AppMain.AMS_AMB_HEADER gm_gmk_ss_square_obj_tvx_list;
+    public static AMS_AMB_HEADER gm_gmk_ss_square_obj_tvx_list;
 
     // Token: 0x040042E9 RID: 17129
-    private static AppMain.NNS_TEXCOORD[] gm_gmk_ss_square_mat_color;
+    private static NNS_TEXCOORD[] gm_gmk_ss_square_mat_color;
 
     // Token: 0x040042EA RID: 17130
     private static byte[] gm_gmk_ss_square_uv_parameter;
@@ -90004,7 +87992,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] g_gm_gmk_needle_neon_obj_3d_list;
 
     // Token: 0x040042EE RID: 17134
-    private static AppMain.AMS_AMB_HEADER g_gm_gmk_needle_neon_obj_tvx_list;
+    private static AMS_AMB_HEADER g_gm_gmk_needle_neon_obj_tvx_list;
 
     // Token: 0x040042EF RID: 17135
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_ene_unides_obj_3d_list;
@@ -90064,7 +88052,7 @@ public partial class AppMain
     private static AppMain.GMS_CLRDM_MGR gm_clrdm_mgr_p;
 
     // Token: 0x04004302 RID: 17154
-    private static readonly AppMain.AMS_AMB_HEADER[] gm_clrdm_amb;
+    private static readonly AMS_AMB_HEADER[] gm_clrdm_amb;
 
     // Token: 0x04004303 RID: 17155
     private static readonly AppMain.AOS_TEXTURE[] gm_clrdm_tex;
@@ -90127,13 +88115,13 @@ public partial class AppMain
     public static AppMain.GMS_BOSS5_TURRET_SEQ_VUL_SHOT_INFO[] gm_boss5_trt_seq_vul_shot_info_tbl;
 
     // Token: 0x04004317 RID: 17175
-    private static AppMain.NNS_MATRIX gmBoss5TurretMain_trt_ofst;
+    private static NNS_MATRIX gmBoss5TurretMain_trt_ofst;
 
     // Token: 0x04004318 RID: 17176
     public static readonly int GMD_BOSS4_CHIBI_ABURNER1_TURN_X;
 
     // Token: 0x04004319 RID: 17177
-    private static readonly AppMain.NNS_RGB gm_boss4_color_red;
+    private static readonly NNS_RGB gm_boss4_color_red;
 
     // Token: 0x0400431A RID: 17178
     private static bool gm_chibi_inv_flag;
@@ -90196,10 +88184,10 @@ public partial class AppMain
     public static bool gm_boss4_is_2nd;
 
     // Token: 0x0400432E RID: 17198
-    private static AppMain.GSS_SND_SCB dm_sound_bgm_scb;
+    private static GSS_SND_SCB dm_sound_bgm_scb;
 
     // Token: 0x0400432F RID: 17199
-    private static AppMain.GSS_SND_SCB dm_sound_jingle_scb;
+    private static GSS_SND_SCB dm_sound_jingle_scb;
 
     // Token: 0x04004330 RID: 17200
     private static string[] dm_sound_bgm_name_list;
@@ -90208,10 +88196,10 @@ public partial class AppMain
     private static string[] dm_sound_jingle_name_list;
 
     // Token: 0x04004332 RID: 17202
-    private static readonly AppMain.AMS_CRIAUDIO_INTERFACE amCriAudio_global;
+    private static readonly AMS_CRIAUDIO_INTERFACE amCriAudio_global;
 
     // Token: 0x04004333 RID: 17203
-    private static AppMain.AMS_CRIAUDIO_INTERFACE pAu;
+    private static AMS_CRIAUDIO_INTERFACE pAu;
 
     // Token: 0x04004334 RID: 17204
     private static bool g_gs_font_builded;
@@ -90389,21 +88377,6 @@ public partial class AppMain
 
     // Token: 0x0400436F RID: 17263
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_ene_mogu_obj_3d_list;
-
-    // Token: 0x04004370 RID: 17264
-    private static readonly AppMain.NNS_VECTOR gm_camera_vibration;
-
-    // Token: 0x04004371 RID: 17265
-    private static readonly AppMain.GMS_CAMERA_WORK gm_camera_work;
-
-    // Token: 0x04004372 RID: 17266
-    private static readonly AppMain.NNS_VECTOR gm_camera_option_allow_pos;
-
-    // Token: 0x04004373 RID: 17267
-    private static readonly AppMain.NNS_VECTOR gm_camera_common_allow_pos;
-
-    // Token: 0x04004374 RID: 17268
-    private static readonly AppMain.NNS_VECTOR gm_camera_splstg_allow_pos;
 
     // Token: 0x04004375 RID: 17269
     private static short GMD_BOSS5_RKT_SEARCH_INITIAL_DIR_Z_L;
@@ -90673,13 +88646,13 @@ public partial class AppMain
     public static readonly int g_map_far_zone_ss_scroll_num_y;
 
     // Token: 0x040043CE RID: 17358
-    private static readonly AppMain.NNS_VECTOR[] g_gm_map_far_camera_target_offset;
+    private static readonly NNS_VECTOR[] g_gm_map_far_camera_target_offset;
 
     // Token: 0x040043CF RID: 17359
-    private static AppMain.NNS_RGBA_U8[] g_gm_map_far_clear_color;
+    private static NNS_RGBA_U8[] g_gm_map_far_clear_color;
 
     // Token: 0x040043D0 RID: 17360
-    private static readonly AppMain.NNS_VECTOR GmMapFarGetCameraTarget_result;
+    private static readonly NNS_VECTOR GmMapFarGetCameraTarget_result;
 
     // Token: 0x040043D1 RID: 17361
     private static AppMain.OBF_DRAW_USER_DT_FUNC _gmMapFarTcbProcPreDrawDT;
@@ -90688,22 +88661,22 @@ public partial class AppMain
     private static AppMain.OBF_DRAW_USER_DT_FUNC _gmMapFarTcbProcPostDrawDT;
 
     // Token: 0x040043D3 RID: 17363
-    private static AppMain.NNS_VECTOR gmMapFarCameraGetPos_result;
+    private static NNS_VECTOR gmMapFarCameraGetPos_result;
 
     // Token: 0x040043D4 RID: 17364
-    private static readonly AppMain.NNS_VECTOR gmMapFarZone1GetCameraPos_result;
+    private static readonly NNS_VECTOR gmMapFarZone1GetCameraPos_result;
 
     // Token: 0x040043D5 RID: 17365
-    private static readonly AppMain.NNS_VECTOR gmMapFarZone2GetCameraPos_result;
+    private static readonly NNS_VECTOR gmMapFarZone2GetCameraPos_result;
 
     // Token: 0x040043D6 RID: 17366
-    private static readonly AppMain.NNS_VECTOR gmMapFarZone3GetCameraPos_result;
+    private static readonly NNS_VECTOR gmMapFarZone3GetCameraPos_result;
 
     // Token: 0x040043D7 RID: 17367
-    private static readonly AppMain.NNS_VECTOR gmMapFarZoneFinalGetCameraPos_result;
+    private static readonly NNS_VECTOR gmMapFarZoneFinalGetCameraPos_result;
 
     // Token: 0x040043D8 RID: 17368
-    private static readonly AppMain.NNS_VECTOR gmMapFarZoneSSGetCameraPos_result;
+    private static readonly NNS_VECTOR gmMapFarZoneSSGetCameraPos_result;
 
     // Token: 0x040043D9 RID: 17369
     public static readonly int GMD_GMK_DRAIN_TANK_ROLL_ANGLE_MAX;
@@ -91073,10 +89046,10 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] g_gm_gmk_boss3_wall_obj_3d_list;
 
     // Token: 0x0400444F RID: 17487
-    private static AppMain.AMS_AMB_HEADER g_gm_gmk_boss3_pillar_obj_tvx_list;
+    private static AMS_AMB_HEADER g_gm_gmk_boss3_pillar_obj_tvx_list;
 
     // Token: 0x04004450 RID: 17488
-    private static AppMain.AMS_AMB_HEADER g_gm_gmk_boss3_wall_obj_tvx_list;
+    private static AMS_AMB_HEADER g_gm_gmk_boss3_wall_obj_tvx_list;
 
     // Token: 0x04004451 RID: 17489
     private static AppMain.OBS_ACTION3D_NN_WORK[] g_gm_gmk_bobbin_obj_3d_list;
@@ -91142,67 +89115,67 @@ public partial class AppMain
     private static ushort[] gm_bs_cmn_efct_def_flag_tbl;
 
     // Token: 0x04004466 RID: 17510
-    private static AppMain.NNS_RGB gm_bs_cmn_dmg_flicker_default_color;
+    private static NNS_RGB gm_bs_cmn_dmg_flicker_default_color;
 
     // Token: 0x04004467 RID: 17511
-    private static AppMain.NNS_MATRIX GmBsCmnUpdateObject3DNNStuckWithNode_rot_mtx;
+    private static NNS_MATRIX GmBsCmnUpdateObject3DNNStuckWithNode_rot_mtx;
 
     // Token: 0x04004468 RID: 17512
-    private static AppMain.NNS_MATRIX GmBsCmnUpdateObject3DNNStuckWithNode_node_w_rot;
+    private static NNS_MATRIX GmBsCmnUpdateObject3DNNStuckWithNode_node_w_rot;
 
     // Token: 0x04004469 RID: 17513
-    private static AppMain.NNS_MATRIX GmBsCmnUpdateObject3DESStuckWithNode_node_w_rot;
+    private static NNS_MATRIX GmBsCmnUpdateObject3DESStuckWithNode_node_w_rot;
 
     // Token: 0x0400446A RID: 17514
-    private static AppMain.NNS_MATRIX GmBsCmnUpdateObject3DESStuckWithNode_rot_mtx;
+    private static NNS_MATRIX GmBsCmnUpdateObject3DESStuckWithNode_rot_mtx;
 
     // Token: 0x0400446B RID: 17515
-    private static AppMain.NNS_MATRIX GmBsCmnUpdateObject3DESStuckWithNode_nml_w_mtx;
+    private static NNS_MATRIX GmBsCmnUpdateObject3DESStuckWithNode_nml_w_mtx;
 
     // Token: 0x0400446C RID: 17516
-    private static AppMain.NNS_MATRIX gmBsCmnMotionCallbackStoreNodeMatrix_base_mtx;
+    private static NNS_MATRIX gmBsCmnMotionCallbackStoreNodeMatrix_base_mtx;
 
     // Token: 0x0400446D RID: 17517
-    private static AppMain.NNS_MATRIX gmBsCmnMotionCallbackStoreNodeMatrix_node_mtx;
+    private static NNS_MATRIX gmBsCmnMotionCallbackStoreNodeMatrix_node_mtx;
 
     // Token: 0x0400446E RID: 17518
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_init_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_init_mtx;
 
     // Token: 0x0400446F RID: 17519
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_candidate_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_candidate_mtx;
 
     // Token: 0x04004470 RID: 17520
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_inv_view_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_inv_view_mtx;
 
     // Token: 0x04004471 RID: 17521
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_node_w_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_node_w_mtx;
 
     // Token: 0x04004472 RID: 17522
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_cur_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_cur_mtx;
 
     // Token: 0x04004473 RID: 17523
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_inv_cur_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_inv_cur_mtx;
 
     // Token: 0x04004474 RID: 17524
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_parent_cur_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_parent_cur_mtx;
 
     // Token: 0x04004475 RID: 17525
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_inv_parent_orig_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_inv_parent_orig_mtx;
 
     // Token: 0x04004476 RID: 17526
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_parent_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_parent_mtx;
 
     // Token: 0x04004477 RID: 17527
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_diff_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_diff_mtx;
 
     // Token: 0x04004478 RID: 17528
-    private static AppMain.NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_parent_init_mtx;
+    private static NNS_MATRIX gmBsCmnMtxpltCallbackControlNodeMatrix_parent_init_mtx;
 
     // Token: 0x04004479 RID: 17529
-    private static AppMain.NNS_MATRIX[] gmBsCmnMtxpltCallbackControlNodeMatrix_orig_mtx_plt;
+    private static NNS_MATRIX[] gmBsCmnMtxpltCallbackControlNodeMatrix_orig_mtx_plt;
 
     // Token: 0x0400447A RID: 17530
-    private static AppMain.NNS_MATRIX gmBsCmnGetNodeWorldMtx_init_mtx;
+    private static NNS_MATRIX gmBsCmnGetNodeWorldMtx_init_mtx;
 
     // Token: 0x0400447B RID: 17531
     public static readonly short GMD_BOSS1_RIGHTWARD_ANGLE;
@@ -91316,7 +89289,7 @@ public partial class AppMain
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_ss_goal_obj_3d_list;
 
     // Token: 0x040044A0 RID: 17568
-    private static AppMain.AMS_AMB_HEADER gm_gmk_ss_goal_obj_tvx_list;
+    private static AMS_AMB_HEADER gm_gmk_ss_goal_obj_tvx_list;
 
     // Token: 0x040044A1 RID: 17569
     private static int[] g_gm_gmk_flipper_model_id;
@@ -91631,7 +89604,7 @@ public partial class AppMain
     private static byte[] AmaMagicId;
 
     // Token: 0x04004509 RID: 17673
-    private static AppMain.NNS_MATRIX AoActDrawPre_mtx;
+    private static NNS_MATRIX AoActDrawPre_mtx;
 
     // Token: 0x0400450A RID: 17674
     private static AppMain.NNS_PRIM3D_PCT_ARRAY aoActDrawTask_pct_array;
@@ -91679,16 +89652,16 @@ public partial class AppMain
     private static ushort[] g_txb_mag_filter;
 
     // Token: 0x04004519 RID: 17689
-    public static readonly AppMain.seq_func_delegate[] g_gm_ply_seq_init_tbl_son;
+    public static readonly seq_func_delegate[] g_gm_ply_seq_init_tbl_son;
 
     // Token: 0x0400451A RID: 17690
-    public static readonly AppMain.seq_func_delegate[] g_gm_ply_seq_init_tbl_sp_son;
+    public static readonly seq_func_delegate[] g_gm_ply_seq_init_tbl_sp_son;
 
     // Token: 0x0400451B RID: 17691
-    public static readonly AppMain.seq_func_delegate[] g_gm_ply_seq_init_tbl_tr_son;
+    public static readonly seq_func_delegate[] g_gm_ply_seq_init_tbl_tr_son;
 
     // Token: 0x0400451C RID: 17692
-    public static readonly AppMain.seq_func_delegate[][] g_gm_ply_seq_init_tbl_list;
+    public static readonly seq_func_delegate[][] g_gm_ply_seq_init_tbl_list;
 
     // Token: 0x0400451D RID: 17693
     public static readonly ushort[] gm_ply_seq_turn_dir_tbl;
@@ -91748,10 +89721,10 @@ public partial class AppMain
     private static AppMain.DMS_MANUAL_MGR dm_manual_mgr_p;
 
     // Token: 0x04004530 RID: 17712
-    private static AppMain.A2S_AMA_HEADER[] dm_manual_ama;
+    private static A2S_AMA_HEADER[] dm_manual_ama;
 
     // Token: 0x04004531 RID: 17713
-    private static AppMain.AMS_AMB_HEADER[] dm_manual_amb;
+    private static AMS_AMB_HEADER[] dm_manual_amb;
 
     // Token: 0x04004532 RID: 17714
     public static readonly int[][] dm_manual_disp_act_cmn_tbl;
@@ -91803,19 +89776,19 @@ public partial class AppMain
     private static AppMain.GSF_TASK_PROCEDURE _ObjObjectMain;
 
     // Token: 0x04004548 RID: 17736
-    private static AppMain.OBS_OBJECT_WORK_Delegate3 _ObjObjectViewOutCheck;
+    private static OBS_OBJECT_WORK_Delegate3 _ObjObjectViewOutCheck;
 
     // Token: 0x04004549 RID: 17737
     private static AppMain.GSF_TASK_PROCEDURE _objObjectDataReleaseCheck;
 
     // Token: 0x0400454A RID: 17738
-    private static AppMain.SimplePool<AppMain.NNS_MATRIX> nnCalcNode_mtx_pool;
+    private static AppMain.SimplePool<NNS_MATRIX> nnCalcNode_mtx_pool;
 
     // Token: 0x0400454B RID: 17739
     private static bool[] nnInitMaterialMotionObject_bTexOffsetMot;
 
     // Token: 0x0400454C RID: 17740
-    private static AppMain.AMS_IPHONE_ACCEL_DATA _am_iphone_accel_data;
+    public static AppMain.AMS_IPHONE_ACCEL_DATA _am_iphone_accel_data;
 
     // Token: 0x0400454D RID: 17741
     private static bool _am_is_back_key_pressed;
@@ -91832,53 +89805,6 @@ public partial class AppMain
     // Token: 0x04004551 RID: 17745
     public static bool[] touchMarked;
 
-    // Token: 0x04004552 RID: 17746
-    private static Dictionary<int, AppMain.A2S_AMA_NODE> readAMAFile_nodeHash;
-
-    // Token: 0x04004553 RID: 17747
-    private static Dictionary<int, AppMain.A2S_AMA_ACT> readAMAFile_actHash;
-
-    // Token: 0x04004554 RID: 17748
-    private static Dictionary<int, AppMain.A2S_AMA_MTN> readAMAFile_mtnHash;
-
-    // Token: 0x04004555 RID: 17749
-    private static Dictionary<int, AppMain.A2S_AMA_ANM> readAMAFile_anmHash;
-
-    // Token: 0x04004556 RID: 17750
-    private static Dictionary<int, AppMain.A2S_AMA_ACM> readAMAFile_acmHash;
-
-    // Token: 0x04004557 RID: 17751
-    private static Dictionary<int, AppMain.A2S_AMA_USR> readAMAFile_usrHash;
-
-    // Token: 0x04004558 RID: 17752
-    private static Dictionary<int, AppMain.A2S_AMA_HIT> readAMAFile_hitHash;
-
-    // Token: 0x04004559 RID: 17753
-    private static Dictionary<int, AppMain.A2S_SUB_TRS[]> readAMAFile_subtrsHash;
-
-    // Token: 0x0400455A RID: 17754
-    private static Dictionary<int, AppMain.A2S_SUB_MTN[]> readAMAFile_submtnHash;
-
-    // Token: 0x0400455B RID: 17755
-    private static Dictionary<int, AppMain.A2S_SUB_ANM[]> readAMAFile_subanmHash;
-
-    // Token: 0x0400455C RID: 17756
-    private static Dictionary<int, AppMain.A2S_SUB_MAT[]> readAMAFile_submatHash;
-
-    // Token: 0x0400455D RID: 17757
-    private static Dictionary<int, AppMain.A2S_SUB_ACM[]> readAMAFile_subacmHash;
-
-    // Token: 0x0400455E RID: 17758
-    private static Dictionary<int, AppMain.A2S_SUB_USR[]> readAMAFile_subusrHash;
-
-    // Token: 0x0400455F RID: 17759
-    private static Dictionary<int, AppMain.A2S_SUB_HIT[]> readAMAFile_subhitHash;
-
-    // Token: 0x04004560 RID: 17760
-    private static Dictionary<int, AppMain.A2S_SUB_KEY[]> readAMAFile_subkeyHash;
-
-    // Token: 0x04004561 RID: 17761
-    private static char[] readChars_name;
 
     // Token: 0x04004562 RID: 17762
     public static int GMD_MAP_DRAW_BGM_TIMER;
@@ -91905,7 +89831,7 @@ public partial class AppMain
     private static AppMain.AOS_TEXTURE gm_map_texture;
 
     // Token: 0x0400456A RID: 17770
-    private static AppMain.AMS_AMB_HEADER gm_map_model;
+    private static AMS_AMB_HEADER gm_map_model;
 
     // Token: 0x0400456B RID: 17771
     private static bool gm_map_tex_load_init;
@@ -91935,7 +89861,7 @@ public partial class AppMain
     private static int[] gm_map_add_tbl_use_no;
 
     // Token: 0x04004574 RID: 17780
-    private static AppMain.NNS_MATRIX[] gm_map_use_prim_mtx;
+    private static NNS_MATRIX[] gm_map_use_prim_mtx;
 
     // Token: 0x04004575 RID: 17781
     private static uint gm_map_prim_draw_tvx_color;
@@ -91965,10 +89891,10 @@ public partial class AppMain
     private static float gmMapTransX;
 
     // Token: 0x0400457E RID: 17790
-    private static AppMain.NNS_VECTOR[] main_camera_pos;
+    private static NNS_VECTOR[] main_camera_pos;
 
     // Token: 0x0400457F RID: 17791
-    private static AppMain.NNS_MATRIX gmMapMain_mtx;
+    private static NNS_MATRIX gmMapMain_mtx;
 
     // Token: 0x04004580 RID: 17792
     public static int GMD_GMK_SCREW_EVE_FLAG_LEFT;
@@ -92016,7 +89942,7 @@ public partial class AppMain
     private AppMain.DMS_LOGO_COM_LOAD_FILE_INFO[] dm_titleop_com_fileinfo_list;
 
     // Token: 0x0400458F RID: 17807
-    private static AppMain.NNS_RGBA_U8 dm_titleop_clear_color;
+    private static NNS_RGBA_U8 dm_titleop_clear_color;
 
     // Token: 0x04004590 RID: 17808
     private static AppMain.DMS_TITLEOP_ROCK_SETTING[][] dm_titleop_rock_setting;
@@ -92025,7 +89951,7 @@ public partial class AppMain
     private static int[] dm_titleop_rock_setting_num;
 
     // Token: 0x04004592 RID: 17810
-    private static AppMain.AMS_FS[] dm_titleop_data;
+    private static AMS_FS[] dm_titleop_data;
 
     // Token: 0x04004593 RID: 17811
     private static object[] dm_titleop_mapfar_data;
@@ -92047,9 +89973,6 @@ public partial class AppMain
 
     // Token: 0x04004599 RID: 17817
     private static AppMain.OBF_DRAW_USER_DT_FUNC _dmTitleOpFallShaderPreRenderUserFunc;
-
-    // Token: 0x0400459A RID: 17818
-    public static int AKD_UTIL_FRAME60_TO_TIME_MAX_FRAME;
 
     // Token: 0x0400459B RID: 17819
     public static string sFile;
@@ -92136,34 +90059,34 @@ public partial class AppMain
     private static AppMain.NNS_MATERIALCALLBACK_FUNC nngMaterialCallbackFunc;
 
     // Token: 0x040045B7 RID: 17847
-    private static AppMain.NNS_MATRIX _am_ef_worldViewMtx;
+    private static NNS_MATRIX _am_ef_worldViewMtx;
 
     // Token: 0x040045B8 RID: 17848
-    private static AppMain.NNS_VECTOR _am_ef_camPos;
+    private static NNS_VECTOR _am_ef_camPos;
 
     // Token: 0x040045B9 RID: 17849
-    private static AppMain.AMS_AME_ECB[] _am_ecb_buf;
+    private static AMS_AME_ECB[] _am_ecb_buf;
 
     // Token: 0x040045BA RID: 17850
-    private static AppMain.AMS_AME_ECB[] _am_ecb_ref;
+    private static AMS_AME_ECB[] _am_ecb_ref;
 
     // Token: 0x040045BB RID: 17851
-    private static AppMain.AMS_AME_ENTRY[] _am_entry_buf;
+    private static AMS_AME_ENTRY[] _am_entry_buf;
 
     // Token: 0x040045BC RID: 17852
-    private static AppMain.AMS_AME_ENTRY[] _am_entry_ref;
+    private static AMS_AME_ENTRY[] _am_entry_ref;
 
     // Token: 0x040045BD RID: 17853
-    private static AppMain.AMS_AME_RUNTIME[] _am_runtime_buf;
+    private static AMS_AME_RUNTIME[] _am_runtime_buf;
 
     // Token: 0x040045BE RID: 17854
-    private static AppMain.AMS_AME_RUNTIME[] _am_runtime_ref;
+    private static AMS_AME_RUNTIME[] _am_runtime_ref;
 
     // Token: 0x040045BF RID: 17855
-    private static AppMain.AMS_AME_RUNTIME_WORK[] _am_work_ref;
+    private static AMS_AME_RUNTIME_WORK[] _am_work_ref;
 
     // Token: 0x040045C0 RID: 17856
-    private static AppMain.AMS_AME_RUNTIME_WORK[] _am_work_buf;
+    private static AMS_AME_RUNTIME_WORK[] _am_work_buf;
 
     // Token: 0x040045C1 RID: 17857
     private static int _am_enable_draw;
@@ -92175,10 +90098,10 @@ public partial class AppMain
     private static float _am_unit_frame;
 
     // Token: 0x040045C4 RID: 17860
-    private static AppMain.AMS_AME_ECB _am_ecb_head;
+    private static AMS_AME_ECB _am_ecb_head;
 
     // Token: 0x040045C5 RID: 17861
-    private static AppMain.AMS_AME_ECB _am_ecb_tail;
+    private static AMS_AME_ECB _am_ecb_tail;
 
     // Token: 0x040045C6 RID: 17862
     private static int _am_ecb_alloc;
@@ -92205,61 +90128,61 @@ public partial class AppMain
     private static int _am_work_free;
 
     // Token: 0x040045CE RID: 17870
-    private static AppMain.AMS_FRUSTUM _am_view_frustum;
+    private static AMS_FRUSTUM _am_view_frustum;
 
     // Token: 0x040045CF RID: 17871
-    private static AppMain.AmeDelegateFunc[] _am_emitter_func;
+    private static AmeDelegateFunc[] _am_emitter_func;
 
     // Token: 0x040045D0 RID: 17872
-    private static AppMain.AmeDelegateFunc[] _am_particle_func;
+    private static AmeDelegateFunc[] _am_particle_func;
 
     // Token: 0x040045D1 RID: 17873
-    private static AppMain.AmeFieldFunc[] _am_field_func;
+    private static AmeFieldFunc[] _am_field_func;
 
     // Token: 0x040045D2 RID: 17874
-    private static AppMain.NNS_VECTOR4D _amEffectCreate_vec;
+    private static NNS_VECTOR4D _amEffectCreate_vec;
 
     // Token: 0x040045D3 RID: 17875
-    private static AppMain.AMS_AME_CREATE_PARAM _amEffect_create_param;
+    private static AMS_AME_CREATE_PARAM _amEffect_create_param;
 
     // Token: 0x040045D4 RID: 17876
-    private static AppMain.NNS_VECTOR4D _amEffect_position;
+    private static NNS_VECTOR4D _amEffect_position;
 
     // Token: 0x040045D5 RID: 17877
-    private static AppMain.NNS_VECTOR4D _amEffect_velocity;
+    private static NNS_VECTOR4D _amEffect_velocity;
 
     // Token: 0x040045D6 RID: 17878
-    private static AppMain.NNS_VECTOR4D _amEffect_direction;
+    private static NNS_VECTOR4D _amEffect_direction;
 
     // Token: 0x040045D7 RID: 17879
-    private static AppMain.NNS_VECTOR4D _amEffect_vel;
+    private static NNS_VECTOR4D _amEffect_vel;
 
     // Token: 0x040045D8 RID: 17880
-    private static AppMain.NNS_VECTOR4D _amEffect_rot_ax;
+    private static NNS_VECTOR4D _amEffect_rot_ax;
 
     // Token: 0x040045D9 RID: 17881
-    private static AppMain.NNS_MATRIX _amEffect_mtx;
+    private static NNS_MATRIX _amEffect_mtx;
 
     // Token: 0x040045DA RID: 17882
-    private static AppMain.NNS_MATRIX _amUpdateCircle_mtx;
+    private static NNS_MATRIX _amUpdateCircle_mtx;
 
     // Token: 0x040045DB RID: 17883
-    private static AppMain.NNS_VECTOR4D _amDrawLine_offset;
+    private static NNS_VECTOR4D _amDrawLine_offset;
 
     // Token: 0x040045DC RID: 17884
-    private static AppMain.NNS_VECTOR4D _amDrawLine_eye;
+    private static NNS_VECTOR4D _amDrawLine_eye;
 
     // Token: 0x040045DD RID: 17885
-    private static AppMain.NNS_VECTOR4D _amDrawLine_pos0;
+    private static NNS_VECTOR4D _amDrawLine_pos0;
 
     // Token: 0x040045DE RID: 17886
-    private static AppMain.NNS_VECTOR4D _amDrawLine_pos1;
+    private static NNS_VECTOR4D _amDrawLine_pos1;
 
     // Token: 0x040045DF RID: 17887
-    private static AppMain.NNS_VECTOR4D _amDrawLine_vel;
+    private static NNS_VECTOR4D _amDrawLine_vel;
 
     // Token: 0x040045E0 RID: 17888
-    private static AppMain.NNS_VECTOR4D _amDrawLine_cross;
+    private static NNS_VECTOR4D _amDrawLine_cross;
 
     // Token: 0x040045E1 RID: 17889
     private static AppMain.MTS_TASK_TCB gm_ply_efct_trail_sys_tcb;
@@ -92286,10 +90209,10 @@ public partial class AppMain
     private static readonly AppMain.GMS_GMK_PULLEY_MANAGER gm_gmk_pulley_manager;
 
     // Token: 0x040045E9 RID: 17897
-    private static readonly AppMain.NNS_VECTOR[][] gm_gmk_pulley_pos;
+    private static readonly NNS_VECTOR[][] gm_gmk_pulley_pos;
 
     // Token: 0x040045EA RID: 17898
-    private static readonly AppMain.NNS_TEXCOORD[][] gm_gmk_pulley_tex;
+    private static readonly NNS_TEXCOORD[][] gm_gmk_pulley_tex;
 
     // Token: 0x040045EB RID: 17899
     public static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_pulley_obj_3d_list;
@@ -92439,40 +90362,40 @@ public partial class AppMain
     private static AppMain.DMS_STFRL_DATA_MGR dm_stfrl_data_mgr_p;
 
     // Token: 0x0400461C RID: 17948
-    private static AppMain.AMS_AMB_HEADER dm_stfrl_font_amb;
+    private static AMS_AMB_HEADER dm_stfrl_font_amb;
 
     // Token: 0x0400461D RID: 17949
     private static readonly AppMain.AOS_TEXTURE dm_stfrl_font_tex;
 
     // Token: 0x0400461E RID: 17950
-    private static AppMain.AMS_AMB_HEADER dm_stfrl_scr_amb;
+    private static AMS_AMB_HEADER dm_stfrl_scr_amb;
 
     // Token: 0x0400461F RID: 17951
     private static readonly AppMain.AOS_TEXTURE dm_stfrl_scr_tex;
 
     // Token: 0x04004620 RID: 17952
-    private static AppMain.A2S_AMA_HEADER dm_stfrl_end_cmn_ama;
+    private static A2S_AMA_HEADER dm_stfrl_end_cmn_ama;
 
     // Token: 0x04004621 RID: 17953
-    private static AppMain.AMS_AMB_HEADER dm_stfrl_end_cmn_amb;
+    private static AMS_AMB_HEADER dm_stfrl_end_cmn_amb;
 
     // Token: 0x04004622 RID: 17954
     private static readonly AppMain.AOS_TEXTURE dm_stfrl_end_tex;
 
     // Token: 0x04004623 RID: 17955
-    private static AppMain.A2S_AMA_HEADER dm_stfrl_end_lng_ama;
+    private static A2S_AMA_HEADER dm_stfrl_end_lng_ama;
 
     // Token: 0x04004624 RID: 17956
-    private static AppMain.AMS_AMB_HEADER dm_stfrl_end_lng_amb;
+    private static AMS_AMB_HEADER dm_stfrl_end_lng_amb;
 
     // Token: 0x04004625 RID: 17957
     private static readonly AppMain.AOS_TEXTURE dm_stfrl_end_jp_tex;
 
     // Token: 0x04004626 RID: 17958
-    private static readonly AppMain.A2S_AMA_HEADER[] dm_stfrl_cmn_ama;
+    private static readonly A2S_AMA_HEADER[] dm_stfrl_cmn_ama;
 
     // Token: 0x04004627 RID: 17959
-    private static readonly AppMain.AMS_AMB_HEADER[] dm_stfrl_cmn_amb;
+    private static readonly AMS_AMB_HEADER[] dm_stfrl_cmn_amb;
 
     // Token: 0x04004628 RID: 17960
     private static readonly AppMain.AOS_TEXTURE[] dm_stfrl_cmn_tex;
@@ -92571,7 +90494,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200021A RID: 538
-    public struct VecFx32 : AppMain.IClearable
+    public struct VecFx32 : IClearable
     {
         // Token: 0x0600236D RID: 9069 RVA: 0x00148CF8 File Offset: 0x00146EF8
         public void Clear()
@@ -92736,11 +90659,11 @@ public partial class AppMain
 
     // Token: 0x020002A2 RID: 674
     // (Invoke) Token: 0x06002456 RID: 9302
-    public delegate AppMain.OBS_OBJECT_WORK Del__(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int x, int y, byte type);
+    public delegate OBS_OBJECT_WORK Del__(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int x, int y, byte type);
 
     // Token: 0x020002A3 RID: 675
     // (Invoke) Token: 0x0600245A RID: 9306
-    public delegate AppMain.OBS_OBJECT_WORK Del__2(AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type);
+    public delegate OBS_OBJECT_WORK Del__2(AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type);
 
 
     // Token: 0x02000350 RID: 848

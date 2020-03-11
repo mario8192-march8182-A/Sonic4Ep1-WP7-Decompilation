@@ -8,7 +8,7 @@ public partial class AppMain
 {
 
     // Token: 0x02000202 RID: 514
-    public class GMS_GMK_PMARKER_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_PMARKER_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002344 RID: 9028 RVA: 0x00148780 File Offset: 0x00146980
         public GMS_GMK_PMARKER_WORK()
@@ -17,7 +17,7 @@ public partial class AppMain
         }
 
         // Token: 0x06002345 RID: 9029 RVA: 0x00148794 File Offset: 0x00146994
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -44,7 +44,7 @@ public partial class AppMain
 
         // Token: 0x170000AC RID: 172
         // (get) Token: 0x06002348 RID: 9032 RVA: 0x001487C0 File Offset: 0x001469C0
-        public AppMain.OBS_OBJECT_WORK OBJWORK
+        public OBS_OBJECT_WORK OBJWORK
         {
             get
             {
@@ -69,16 +69,16 @@ public partial class AppMain
     }
 
     // Token: 0x06000B2C RID: 2860 RVA: 0x00064D60 File Offset: 0x00062F60
-    private static AppMain.OBS_OBJECT_WORK GmGmkPointMarkerInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPointMarkerInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         if ( AppMain.g_gs_main_sys_info.game_mode == 1 )
         {
             eve_rec.pos_x = byte.MaxValue;
             return null;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PMARKER_WORK(), "GMK_POINT_MARKER");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PMARKER_WORK(), "GMK_POINT_MARKER");
         AppMain.GMS_GMK_PMARKER_WORK gms_GMK_PMARKER_WORK = (AppMain.GMS_GMK_PMARKER_WORK)obs_OBJECT_WORK;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
         obs_OBJECT_WORK2.pos.y = obs_OBJECT_WORK2.pos.y + 4096;
         if ( AppMain.g_gs_main_sys_info.stage_id == 9 )
         {
@@ -104,7 +104,7 @@ public partial class AppMain
     // Token: 0x06000B2E RID: 2862 RVA: 0x00064E5C File Offset: 0x0006305C
     public static void GmGmkPointMarkerFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(838));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(838));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_pmarker_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
@@ -112,13 +112,13 @@ public partial class AppMain
     private static void gmGmkPointMarkerHit( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_GMK_PMARKER_WORK gms_GMK_PMARKER_WORK = (AppMain.GMS_GMK_PMARKER_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         gms_GMK_PMARKER_WORK.markerdist = gms_GMK_PMARKER_WORK.OBJWORK.pos.x - gms_PLAYER_WORK.obj_work.pos.x;
         if ( ( gms_GMK_PMARKER_WORK.markerdist <= 16384 && gms_GMK_PMARKER_WORK.markerdist >= -16384 ) || ( gms_GMK_PMARKER_WORK.markerdist < 16384 && gms_GMK_PMARKER_WORK.markerdistlast >= 16384 ) || ( gms_GMK_PMARKER_WORK.markerdist > -16384 && gms_GMK_PMARKER_WORK.markerdistlast <= -16384 ) )
         {
             if ( AppMain.g_gm_main_system.marker_pri < ( uint )gms_GMK_PMARKER_WORK.marker_prty )
             {
-                AppMain.GmPlayerSetMarkerPoint( gms_PLAYER_WORK, gms_GMK_PMARKER_WORK.OBJWORK.pos.x, gms_GMK_PMARKER_WORK.OBJWORK.pos.y );
+                GmPlayer.SetMarkerPoint( gms_PLAYER_WORK, gms_GMK_PMARKER_WORK.OBJWORK.pos.x, gms_GMK_PMARKER_WORK.OBJWORK.pos.y );
                 AppMain.g_gm_main_system.marker_pri = ( uint )gms_GMK_PMARKER_WORK.marker_prty;
                 gms_GMK_PMARKER_WORK.marker_prty = 0;
                 gms_GMK_PMARKER_WORK.hitcounter = 2;
@@ -131,7 +131,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000B30 RID: 2864 RVA: 0x00064FA8 File Offset: 0x000631A8
-    private static void gmGmkPointMarkerStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPointMarkerStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PMARKER_WORK gms_GMK_PMARKER_WORK = (AppMain.GMS_GMK_PMARKER_WORK)obj_work;
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
@@ -141,14 +141,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000B31 RID: 2865 RVA: 0x00064FE4 File Offset: 0x000631E4
-    private static void gmGmkPointMarkerStay_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPointMarkerStay_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PMARKER_WORK gms_GMK_PMARKER_WORK = (AppMain.GMS_GMK_PMARKER_WORK)obj_work;
         gms_GMK_PMARKER_WORK.markerdistlast = gms_GMK_PMARKER_WORK.markerdist;
         gms_GMK_PMARKER_WORK.markerdist = 0;
         if ( gms_GMK_PMARKER_WORK.hitcounter > 0 )
         {
-            AppMain.GmSoundPlaySE( "Marker" );
+            GmSound.PlaySE( "Marker" );
             AppMain.gmGmkPointMarkerStay_200( obj_work );
             return;
         }
@@ -160,14 +160,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000B32 RID: 2866 RVA: 0x00065044 File Offset: 0x00063244
-    private static void gmGmkPointMarkerStay_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPointMarkerStay_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet( obj_work, 1 );
         obj_work.ppFunc = AppMain.gmGmkPointMarkerStay_210;
     }
 
     // Token: 0x06000B33 RID: 2867 RVA: 0x00065060 File Offset: 0x00063260
-    private static void gmGmkPointMarkerStay_210( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPointMarkerStay_210( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PMARKER_WORK gms_GMK_PMARKER_WORK = (AppMain.GMS_GMK_PMARKER_WORK)obj_work;
         if ( ( obj_work.disp_flag & 8U ) != 0U )
@@ -184,7 +184,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000B34 RID: 2868 RVA: 0x000650B4 File Offset: 0x000632B4
-    private static void gmGmkPointMarkerStay_300( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPointMarkerStay_300( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.disp_flag & 8U ) != 0U )
         {
@@ -193,7 +193,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000B35 RID: 2869 RVA: 0x000650C8 File Offset: 0x000632C8
-    private static void gmGmkPointMarkerStay_400( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPointMarkerStay_400( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate(obj_work, 49);
         AppMain.GmEffect3DESAddDispOffset( gms_EFFECT_3DES_WORK, 0f, 34f, 0f );
@@ -205,7 +205,7 @@ public partial class AppMain
         {
             gms_EFFECT_3DES_WORK.efct_com.obj_work.pos.z = obj_work.pos.z + 65536;
         }
-        AppMain.ObjAction3dNNMaterialMotionLoad( obj_work.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 841 ).pData );
+        AppMain.ObjAction3dNNMaterialMotionLoad( obj_work.obj_3d, 0, null, null, 0, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 841 ).pData );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obj_work, 0 );
         obj_work.obj_3d.mat_speed = 1f;
         obj_work.disp_flag |= 4U;
@@ -213,7 +213,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000B36 RID: 2870 RVA: 0x000651A0 File Offset: 0x000633A0
-    private static void gmGmkPointMarkerStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPointMarkerStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PMARKER_WORK gms_GMK_PMARKER_WORK = (AppMain.GMS_GMK_PMARKER_WORK)obj_work;
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.gm_gmk_pmarker_obj_3d_list[0], gms_GMK_PMARKER_WORK.OBJ_3D );

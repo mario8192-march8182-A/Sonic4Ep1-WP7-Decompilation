@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0600076C RID: 1900 RVA: 0x00041830 File Offset: 0x0003FA30
-    private static AppMain.OBS_OBJECT_WORK GmGmkSsEnduranceInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSsEnduranceInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_ENDURANCE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_ENDURANCE");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst -= 128;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_ss_endurance_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -40,23 +40,23 @@ public partial class AppMain
     public static void GmGmkSsEnduranceBuild()
     {
         AppMain.gm_gmk_ss_endurance_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.GmGameDatGetGimmickData( 903 ), AppMain.GmGameDatGetGimmickData( 904 ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(906);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(906);
         AppMain.gm_gmk_ss_endurance_obj_tvx_list = ams_AMB_HEADER;
     }
 
     // Token: 0x0600076E RID: 1902 RVA: 0x00041A28 File Offset: 0x0003FC28
     public static void GmGmkSsEnduranceFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(903);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(903);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_endurance_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_ss_endurance_obj_tvx_list = null;
     }
 
     // Token: 0x0600076F RID: 1903 RVA: 0x00041A58 File Offset: 0x0003FC58
-    private static void gmGmkSsEnduranceWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsEnduranceWait( OBS_OBJECT_WORK obj_work )
     {
         AppMain.OBS_COLLISION_OBJ obj_col = obj_work.col_work.obj_col;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
         {
             obj_work.flag |= 4U;
@@ -66,14 +66,14 @@ public partial class AppMain
         {
             obj_work.ppFunc = AppMain.gmGmkSsEnduranceDamage;
             obj_work.user_timer |= 30;
-            AppMain.GmSoundPlaySE( "Special3" );
+            GmSound.PlaySE( "Special3" );
         }
         AppMain.gmGmkSsEnduranceUpdateUVTimer( obj_work );
         AppMain.GmGmkSsSquareBounce( obj_work );
     }
 
     // Token: 0x06000770 RID: 1904 RVA: 0x00041AE4 File Offset: 0x0003FCE4
-    private static void gmGmkSsEnduranceDamage( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsEnduranceDamage( OBS_OBJECT_WORK obj_work )
     {
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
         {
@@ -113,7 +113,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000771 RID: 1905 RVA: 0x00041C30 File Offset: 0x0003FE30
-    private static void gmGmkSsEnduranceDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsEnduranceDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = obj_work.obj_3d;
         if ( !AppMain.GmMainIsDrawEnable() )
@@ -127,7 +127,7 @@ public partial class AppMain
         AppMain.TVX_FILE tvx_FILE;
         if ( AppMain.gm_gmk_ss_endurance_obj_tvx_list.buf[0] == null )
         {
-            tvx_FILE = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_ss_endurance_obj_tvx_list, 0 ) );
+            tvx_FILE = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_ss_endurance_obj_tvx_list, 0 ) );
             AppMain.gm_gmk_ss_endurance_obj_tvx_list.buf[0] = tvx_FILE;
         }
         else
@@ -146,7 +146,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000772 RID: 1906 RVA: 0x00041D60 File Offset: 0x0003FF60
-    private static void gmGmkSsEnduranceUpdateUVTimer( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsEnduranceUpdateUVTimer( OBS_OBJECT_WORK obj_work )
     {
         uint num = (uint)obj_work.user_timer >> 8 & 127U;
         num += 1U;
@@ -164,7 +164,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000774 RID: 1908 RVA: 0x00041DA8 File Offset: 0x0003FFA8
-    private static void gmGmkSsEnduranceScaleSet( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsEnduranceScaleSet( OBS_OBJECT_WORK obj_work )
     {
         int z = 4096;
         switch ( obj_work.user_flag & 2147483647U )

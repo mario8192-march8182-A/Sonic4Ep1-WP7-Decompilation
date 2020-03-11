@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000041 RID: 65
-    public class GMS_ENEMY_COM_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENEMY_COM_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001D64 RID: 7524 RVA: 0x001381EB File Offset: 0x001363EB
         public static explicit operator AppMain.GMS_GMK_TRUCK_WORK( AppMain.GMS_ENEMY_COM_WORK p )
@@ -32,13 +32,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001D67 RID: 7527 RVA: 0x0013821C File Offset: 0x0013641C
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x06001D68 RID: 7528 RVA: 0x00138224 File Offset: 0x00136424
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_ENEMY_COM_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_ENEMY_COM_WORK work )
         {
             return work.obj_work;
         }
@@ -46,18 +46,18 @@ public partial class AppMain
         // Token: 0x06001D69 RID: 7529 RVA: 0x0013822C File Offset: 0x0013642C
         public GMS_ENEMY_COM_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this, null );
+            this.obj_work = OBS_OBJECT_WORK.Create( this, null );
         }
 
         // Token: 0x06001D6A RID: 7530 RVA: 0x0013827C File Offset: 0x0013647C
         public GMS_ENEMY_COM_WORK( object p )
         {
             this.holder = p;
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this, p );
+            this.obj_work = OBS_OBJECT_WORK.Create( this, p );
         }
 
         // Token: 0x04004854 RID: 18516
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004855 RID: 18517
         public readonly AppMain.OBS_RECT_WORK[] rect_work = AppMain.New<AppMain.OBS_RECT_WORK>(3);
@@ -90,7 +90,7 @@ public partial class AppMain
         public ushort act_state;
 
         // Token: 0x0400485F RID: 18527
-        public AppMain.OBS_OBJECT_WORK target_obj;
+        public OBS_OBJECT_WORK target_obj;
 
         // Token: 0x04004860 RID: 18528
         public AppMain.VecU16 target_dp_dir = default(AppMain.VecU16);
@@ -106,7 +106,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015AD RID: 5549 RVA: 0x000BD49C File Offset: 0x000BB69C
-    private static void GmEneComActionSetDependHFlip( AppMain.OBS_OBJECT_WORK obj_work, int act_id_r, int act_id_l )
+    private static void GmEneComActionSetDependHFlip( OBS_OBJECT_WORK obj_work, int act_id_r, int act_id_l )
     {
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -117,7 +117,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015AE RID: 5550 RVA: 0x000BD4B7 File Offset: 0x000BB6B7
-    private static void GmEneComActionSet3DNNBlendDependHFlip( AppMain.OBS_OBJECT_WORK obj_work, int act_id_r, int act_id_l )
+    private static void GmEneComActionSet3DNNBlendDependHFlip( OBS_OBJECT_WORK obj_work, int act_id_r, int act_id_l )
     {
         if ( ( obj_work.disp_flag & 1U ) != 0U )
         {
@@ -128,7 +128,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015AF RID: 5551 RVA: 0x000BD4D2 File Offset: 0x000BB6D2
-    private static int GmEneComTargetIsLeft( AppMain.OBS_OBJECT_WORK mine_obj, AppMain.OBS_OBJECT_WORK target_obj )
+    private static int GmEneComTargetIsLeft( OBS_OBJECT_WORK mine_obj, OBS_OBJECT_WORK target_obj )
     {
         if ( target_obj.pos.x < mine_obj.pos.x )
         {
@@ -138,7 +138,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015B0 RID: 5552 RVA: 0x000BD4EF File Offset: 0x000BB6EF
-    private static int GmEneComCheckMoveLimit( AppMain.OBS_OBJECT_WORK obj_work, int limit_left, int limit_right )
+    private static int GmEneComCheckMoveLimit( OBS_OBJECT_WORK obj_work, int limit_left, int limit_right )
     {
         if ( ( ( obj_work.disp_flag & 1U ) != 0U && obj_work.pos.x <= limit_left ) || ( ( obj_work.disp_flag & 1U ) == 0U && obj_work.pos.x >= limit_right ) )
         {
@@ -148,9 +148,9 @@ public partial class AppMain
     }
 
     // Token: 0x060015B1 RID: 5553 RVA: 0x000BD52C File Offset: 0x000BB72C
-    private static AppMain.OBS_OBJECT_WORK GmEneComCreateAtkObject( AppMain.OBS_OBJECT_WORK parent_obj, short view_out_ofst )
+    private static OBS_OBJECT_WORK GmEneComCreateAtkObject( OBS_OBJECT_WORK parent_obj, short view_out_ofst )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_COM_WORK(), parent_obj, 0, parent_obj.tcb.am_tcb.name);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_COM_WORK(), parent_obj, 0, parent_obj.tcb.am_tcb.name);
         AppMain.GMS_EFFECT_COM_WORK efct_com = (AppMain.GMS_EFFECT_COM_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.flag &= 4294967277U;
         obs_OBJECT_WORK.move_flag |= 256U;

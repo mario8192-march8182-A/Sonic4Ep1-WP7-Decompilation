@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0600198D RID: 6541 RVA: 0x000E7910 File Offset: 0x000E5B10
-    private static uint nnCalcClipBoxNode( AppMain.NNS_NODE node, AppMain.NNS_MATRIX mtx )
+    private static uint nnCalcClipBoxNode( AppMain.NNS_NODE node, NNS_MATRIX mtx )
     {
         float boundingBoxX = node.BoundingBoxX;
         float boundingBoxY = node.BoundingBoxY;
@@ -16,14 +16,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600198E RID: 6542 RVA: 0x000E7944 File Offset: 0x000E5B44
-    private static uint nnCalcClipBox( AppMain.NNS_VECTOR center, float sx, float sy, float sz, AppMain.NNS_MATRIX mtx )
+    private static uint nnCalcClipBox( NNS_VECTOR center, float sx, float sy, float sz, NNS_MATRIX mtx )
     {
         uint num = 0U;
         float n_clip = AppMain.nngClip3d.n_clip;
         float f_clip = AppMain.nngClip3d.f_clip;
-        AppMain.NNS_VECTORFAST src;
+        NNS_VECTORFAST src;
         AppMain.nnmSetUpVectorFast( out src, center.x, center.y, center.z );
-        AppMain.NNS_VECTORFAST nns_VECTORFAST;
+        NNS_VECTORFAST nns_VECTORFAST;
         AppMain.nnTransformVectorFast( out nns_VECTORFAST, mtx, src );
         float num2 = sx * mtx.M20;
         float num3 = sy * mtx.M21;
@@ -146,14 +146,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600198F RID: 6543 RVA: 0x000E7EF8 File Offset: 0x000E60F8
-    private static uint nnCalcClipCore( AppMain.NNS_VECTOR center, float radius, AppMain.NNS_MATRIX mtx )
+    private static uint nnCalcClipCore( NNS_VECTOR center, float radius, NNS_MATRIX mtx )
     {
         uint num = 0U;
         float n_clip = AppMain.nngClip3d.n_clip;
         float f_clip = AppMain.nngClip3d.f_clip;
-        AppMain.NNS_VECTORFAST src;
+        NNS_VECTORFAST src;
         AppMain.nnmSetUpVectorFast( out src, center.x, center.y, center.z );
-        AppMain.NNS_VECTORFAST nns_VECTORFAST;
+        NNS_VECTORFAST nns_VECTORFAST;
         AppMain.nnTransformVectorFast( out nns_VECTORFAST, mtx, src );
         if ( nns_VECTORFAST.z > -n_clip + radius || nns_VECTORFAST.z < -f_clip - radius )
         {
@@ -257,7 +257,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001990 RID: 6544 RVA: 0x000E81A3 File Offset: 0x000E63A3
-    private static uint nnCalcClip( AppMain.NNS_VECTOR center, float radius, AppMain.NNS_MATRIX mtx )
+    private static uint nnCalcClip( NNS_VECTOR center, float radius, NNS_MATRIX mtx )
     {
         if ( radius == 0f )
         {
@@ -268,7 +268,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001991 RID: 6545 RVA: 0x000E81C1 File Offset: 0x000E63C1
-    private static uint nnCalcClipUniformScale( AppMain.NNS_VECTOR center, float radius, AppMain.NNS_MATRIX mtx, float factor )
+    private static uint nnCalcClipUniformScale( NNS_VECTOR center, float radius, NNS_MATRIX mtx, float factor )
     {
         if ( radius == 0f )
         {
@@ -279,7 +279,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001992 RID: 6546 RVA: 0x000E81DC File Offset: 0x000E63DC
-    private static void nnCalcClipSetNodeStatus( uint[] pNodeStatList, AppMain.NNS_NODE[] pNodeList, int nodeIdx, AppMain.NNS_MATRIX pNodeMtx, float rootscale, uint flag )
+    private static void nnCalcClipSetNodeStatus( uint[] pNodeStatList, AppMain.NNS_NODE[] pNodeList, int nodeIdx, NNS_MATRIX pNodeMtx, float rootscale, uint flag )
     {
         AppMain.nnclip.nnsNodeStatList = pNodeStatList;
         AppMain.nnclip.nnsNodeList = pNodeList;
@@ -344,34 +344,34 @@ public partial class AppMain
     }
 
     // Token: 0x06001994 RID: 6548 RVA: 0x000E8364 File Offset: 0x000E6564
-    private uint nnCheckObjectClip( AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx )
+    private uint nnCheckObjectClip( AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx )
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06001995 RID: 6549 RVA: 0x000E836C File Offset: 0x000E656C
-    private uint nnCheckObjectClipMotionCore( AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNS_MATRIX basemtx )
+    private uint nnCheckObjectClipMotionCore( AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, NNS_MATRIX basemtx )
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06001996 RID: 6550 RVA: 0x000E8374 File Offset: 0x000E6574
-    private uint nnCheckObjectClipMotion( AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNS_MATRIX basemtx )
+    private uint nnCheckObjectClipMotion( AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, NNS_MATRIX basemtx )
     {
         AppMain.mppAssertNotImpl();
         return uint.MaxValue;
     }
 
     // Token: 0x06001997 RID: 6551 RVA: 0x000E837C File Offset: 0x000E657C
-    private static float nnEstimateMatrixScaling( AppMain.NNS_MATRIX mtx )
+    private static float nnEstimateMatrixScaling( NNS_MATRIX mtx )
     {
-        AppMain.NNS_VECTORFAST nns_VECTORFAST;
+        NNS_VECTORFAST nns_VECTORFAST;
         AppMain.nnSetUpVectorFast( out nns_VECTORFAST, mtx.M00, mtx.M10, mtx.M20 );
-        AppMain.NNS_VECTORFAST nns_VECTORFAST2;
+        NNS_VECTORFAST nns_VECTORFAST2;
         AppMain.nnSetUpVectorFast( out nns_VECTORFAST2, mtx.M01, mtx.M11, mtx.M21 );
-        AppMain.NNS_VECTORFAST nns_VECTORFAST3;
+        NNS_VECTORFAST nns_VECTORFAST3;
         AppMain.nnSetUpVectorFast( out nns_VECTORFAST3, mtx.M02, mtx.M12, mtx.M22 );
         float num = AppMain.nnLengthSqVectorFast(ref nns_VECTORFAST);
         num = AppMain.NNM_MAX( num, AppMain.nnLengthSqVectorFast( ref nns_VECTORFAST2 ) );

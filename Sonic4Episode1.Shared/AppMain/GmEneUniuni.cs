@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000269 RID: 617
-    public class GMS_ENE_UNIUNI_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_UNIUNI_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060023F9 RID: 9209 RVA: 0x00149F53 File Offset: 0x00148153
         public GMS_ENE_UNIUNI_WORK()
@@ -16,7 +16,7 @@ public partial class AppMain
         }
 
         // Token: 0x060023FA RID: 9210 RVA: 0x00149F67 File Offset: 0x00148167
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
@@ -61,20 +61,20 @@ public partial class AppMain
     // Token: 0x06001024 RID: 4132 RVA: 0x0008C502 File Offset: 0x0008A702
     private static void GmEneUniuniBuild()
     {
-        AppMain.gm_ene_uniuni_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 693 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 694 ) ), 0U );
+        AppMain.gm_ene_uniuni_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 693 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 694 ) ), 0U );
     }
 
     // Token: 0x06001025 RID: 4133 RVA: 0x0008C530 File Offset: 0x0008A730
     private static void GmEneUniuniFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(693));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(693));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_uniuni_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06001026 RID: 4134 RVA: 0x0008C564 File Offset: 0x0008A764
-    private static AppMain.OBS_OBJECT_WORK GmEneUniuniInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneUniuniInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_UNIUNI_WORK(), "ENE_UNIUNI");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_UNIUNI_WORK(), "ENE_UNIUNI");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK = (AppMain.GMS_ENE_UNIUNI_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_uniuni_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -96,11 +96,11 @@ public partial class AppMain
         if ( ( eve_rec.flag & 1 ) == 0 )
         {
             obs_OBJECT_WORK.disp_flag |= 1U;
-            obs_OBJECT_WORK.dir.y = ( ushort )AppMain.AKM_DEGtoA16( 45 );
+            obs_OBJECT_WORK.dir.y = ( ushort )AkMath.DEGtoA16( 45 );
         }
         else
         {
-            obs_OBJECT_WORK.dir.y = ( ushort )AppMain.AKM_DEGtoA16( -45 );
+            obs_OBJECT_WORK.dir.y = ( ushort )AkMath.DEGtoA16( -45 );
         }
         obs_OBJECT_WORK.user_work = ( uint )( obs_OBJECT_WORK.pos.x + ( ( int )eve_rec.left << 12 ) );
         obs_OBJECT_WORK.user_flag = ( uint )( obs_OBJECT_WORK.pos.x + ( ( int )( eve_rec.left + ( sbyte )eve_rec.width ) << 12 ) );
@@ -109,14 +109,14 @@ public partial class AppMain
         gms_ENE_UNIUNI_WORK.len = 17.5f;
         gms_ENE_UNIUNI_WORK.len_target = 35.5f;
         gms_ENE_UNIUNI_WORK.len_spd = 1f;
-        gms_ENE_UNIUNI_WORK.rot_x = AppMain.AKM_DEGtoA32( 90f );
-        gms_ENE_UNIUNI_WORK.rot_y = AppMain.AKM_DEGtoA32( 0f );
-        gms_ENE_UNIUNI_WORK.rot_z = AppMain.AKM_DEGtoA32( 0f );
+        gms_ENE_UNIUNI_WORK.rot_x = AkMath.DEGtoA32( 90f );
+        gms_ENE_UNIUNI_WORK.rot_y = AkMath.DEGtoA32( 0f );
+        gms_ENE_UNIUNI_WORK.rot_z = AkMath.DEGtoA32( 0f );
         gms_ENE_UNIUNI_WORK.num = 0;
         AppMain.gmEneUniuniWalkInit( obs_OBJECT_WORK );
         for ( int i = 0; i < 4; i++ )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GmEventMgrLocalEventBirth(310, pos_x, pos_y, 0, 0, 0, 0, 0, 0);
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GmEventMgrLocalEventBirth(310, pos_x, pos_y, 0, 0, 0, 0, 0, 0);
             obs_OBJECT_WORK2.parent_obj = obs_OBJECT_WORK;
             AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK2 = (AppMain.GMS_ENE_UNIUNI_WORK)obs_OBJECT_WORK2;
             gms_ENE_UNIUNI_WORK2.num = i;
@@ -128,9 +128,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001027 RID: 4135 RVA: 0x0008C818 File Offset: 0x0008AA18
-    private static AppMain.OBS_OBJECT_WORK GmEneUniuniNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneUniuniNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_UNIUNI_WORK(), "ENE_UNIUNI");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_UNIUNI_WORK(), "ENE_UNIUNI");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_uniuni_obj_3d_list[1], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, true, AppMain.ObjDataGet( 695 ), null, 0, null );
@@ -153,9 +153,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001028 RID: 4136 RVA: 0x0008C96C File Offset: 0x0008AB6C
-    private static int gmEneUniuniGetLength2N( AppMain.OBS_OBJECT_WORK obj_work )
+    private static int gmEneUniuniGetLength2N( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
         {
             return int.MaxValue;
@@ -168,7 +168,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001029 RID: 4137 RVA: 0x0008C9F0 File Offset: 0x0008ABF0
-    private static void gmEneUniuniWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK = (AppMain.GMS_ENE_UNIUNI_WORK)obj_work;
         obj_work.disp_flag |= 4U;
@@ -178,7 +178,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600102A RID: 4138 RVA: 0x0008CA44 File Offset: 0x0008AC44
-    private static void gmEneUniuniWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniWalkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK = (AppMain.GMS_ENE_UNIUNI_WORK)obj_work;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
@@ -193,22 +193,22 @@ public partial class AppMain
         {
             if ( ( obj_work.disp_flag & 1U ) != 0U )
             {
-                gms_ENE_UNIUNI_WORK.rot_y += AppMain.AKM_DEGtoA32( 1 );
+                gms_ENE_UNIUNI_WORK.rot_y += AkMath.DEGtoA32( 1 );
             }
             else
             {
-                gms_ENE_UNIUNI_WORK.rot_y += AppMain.AKM_DEGtoA32( -1 );
+                gms_ENE_UNIUNI_WORK.rot_y += AkMath.DEGtoA32( -1 );
             }
         }
         else
         {
             if ( ( obj_work.disp_flag & 1U ) != 0U )
             {
-                gms_ENE_UNIUNI_WORK.rot_y += AppMain.AKM_DEGtoA32( 0.5f );
+                gms_ENE_UNIUNI_WORK.rot_y += AkMath.DEGtoA32( 0.5f );
             }
             else
             {
-                gms_ENE_UNIUNI_WORK.rot_y += AppMain.AKM_DEGtoA32( -0.5f );
+                gms_ENE_UNIUNI_WORK.rot_y += AkMath.DEGtoA32( -0.5f );
             }
             obj_work.spd.x = 0;
         }
@@ -255,7 +255,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600102B RID: 4139 RVA: 0x0008CC2C File Offset: 0x0008AE2C
-    private static void gmEneUniuniFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniFwMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountDown( obj_work.user_timer );
         if ( obj_work.user_timer <= 0 )
@@ -265,13 +265,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600102C RID: 4140 RVA: 0x0008CC4E File Offset: 0x0008AE4E
-    private static void gmEneUniuniFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniFlipInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.ppFunc = AppMain.gmEneUniuniFlipMain;
     }
 
     // Token: 0x0600102D RID: 4141 RVA: 0x0008CC69 File Offset: 0x0008AE69
-    private static void gmEneUniuniFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneUniuniSetWalkSpeed( ( AppMain.GMS_ENE_UNIUNI_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )
@@ -288,7 +288,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600102F RID: 4143 RVA: 0x0008CCA8 File Offset: 0x0008AEA8
-    private static void gmEneUniuniNeedleWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniNeedleWaitInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 4U;
         obj_work.ppFunc = AppMain.gmEneUniuniNeedleWaitMain;
@@ -298,7 +298,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001030 RID: 4144 RVA: 0x0008CD04 File Offset: 0x0008AF04
-    private static void gmEneUniuniNeedleWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniNeedleWaitMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK = (AppMain.GMS_ENE_UNIUNI_WORK)obj_work;
         AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK2 = (AppMain.GMS_ENE_UNIUNI_WORK)obj_work.parent_obj;
@@ -306,17 +306,17 @@ public partial class AppMain
         int rot_x = gms_ENE_UNIUNI_WORK2.rot_x;
         int rot_z = gms_ENE_UNIUNI_WORK2.rot_z;
         float len = gms_ENE_UNIUNI_WORK2.len;
-        num += AppMain.AKM_DEGtoA32( 360 ) / 4 * gms_ENE_UNIUNI_WORK.num;
-        num %= AppMain.AKM_DEGtoA32( 360 );
-        AppMain.SNNS_MATRIX snns_MATRIX;
+        num += AkMath.DEGtoA32( 360 ) / 4 * gms_ENE_UNIUNI_WORK.num;
+        num %= AkMath.DEGtoA32( 360 );
+        SNNS_MATRIX snns_MATRIX;
         AppMain.nnMakeRotateXMatrix( out snns_MATRIX, rot_x );
         AppMain.nnRotateZMatrix( ref snns_MATRIX, ref snns_MATRIX, rot_z );
         AppMain.nnRotateYMatrix( ref snns_MATRIX, ref snns_MATRIX, num );
-        AppMain.SNNS_MATRIX snns_MATRIX2;
+        SNNS_MATRIX snns_MATRIX2;
         AppMain.nnMakeTranslateMatrix( out snns_MATRIX2, len, 0f, 0f );
-        AppMain.SNNS_MATRIX snns_MATRIX3;
+        SNNS_MATRIX snns_MATRIX3;
         AppMain.nnMultiplyMatrix( out snns_MATRIX3, ref snns_MATRIX, ref snns_MATRIX2 );
-        AppMain.SNNS_VECTOR snns_VECTOR;
+        SNNS_VECTOR snns_VECTOR;
         AppMain.nnCopyMatrixTranslationVector( out snns_VECTOR, ref snns_MATRIX3 );
         obj_work.pos.x = AppMain.FX_F32_TO_FX32( snns_VECTOR.x ) + gms_ENE_UNIUNI_WORK2.ene_3d_work.ene_com.obj_work.pos.x;
         obj_work.pos.y = AppMain.FX_F32_TO_FX32( snns_VECTOR.y ) + gms_ENE_UNIUNI_WORK2.ene_3d_work.ene_com.obj_work.pos.y;
@@ -328,7 +328,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001031 RID: 4145 RVA: 0x0008CE58 File Offset: 0x0008B058
-    private static void gmEneUniuniNeedleAttackInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniNeedleAttackInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_UNIUNI_WORK gms_ENE_UNIUNI_WORK = (AppMain.GMS_ENE_UNIUNI_WORK)obj_work.parent_obj;
         gms_ENE_UNIUNI_WORK.num--;
@@ -345,7 +345,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001032 RID: 4146 RVA: 0x0008CEDE File Offset: 0x0008B0DE
-    private static void gmEneUniuniNeedleAttackMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneUniuniNeedleAttackMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.UNREFERENCED_PARAMETER( obj_work );
     }

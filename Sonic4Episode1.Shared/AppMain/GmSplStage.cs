@@ -22,7 +22,7 @@ public partial class AppMain
         public int roll_spd;
 
         // Token: 0x040057FB RID: 22523
-        public readonly AppMain.NNS_VECTOR light_vec = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR light_vec = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040057FC RID: 22524
         public ushort get_ring;
@@ -60,8 +60,8 @@ public partial class AppMain
     // Token: 0x06000D7D RID: 3453 RVA: 0x00076148 File Offset: 0x00074348
     private static void GmSplStageSetLight()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = -0.4f;
         nns_VECTOR.y = -0.4f;
         nns_VECTOR.z = -1f;
@@ -119,7 +119,7 @@ public partial class AppMain
         if ( AppMain.IzFadeIsEnd() )
         {
             AppMain.IzFadeExit();
-            AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+            GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
             gms_PLAYER_WORK.obj_work.move_flag &= 4294958847U;
             gms_PLAYER_WORK.nudge_di_timer = 0;
             gms_PLAYER_WORK.nudge_timer = 0;
@@ -141,8 +141,8 @@ public partial class AppMain
     private static void gmSplStagePlayEndChk( AppMain.MTS_TASK_TCB tcb )
     {
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = (AppMain.GMS_SPL_STG_WORK)tcb.work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         if ( AppMain.ObjObjectPauseCheck( 0U ) != 0U )
         {
             return;
@@ -173,7 +173,7 @@ public partial class AppMain
     private static void gmSplStageRolling( AppMain.MTS_TASK_TCB tcb )
     {
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = (AppMain.GMS_SPL_STG_WORK)tcb.work;
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         if ( AppMain.ObjObjectPauseCheck( 0U ) != 0U )
         {
             return;
@@ -227,8 +227,8 @@ public partial class AppMain
     // Token: 0x06000D88 RID: 3464 RVA: 0x00076598 File Offset: 0x00074798
     private static void gmSplStageLightCtrl( AppMain.GMS_SPL_STG_WORK tcb_work )
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.UNREFERENCED_PARAMETER( tcb_work );
         nns_VECTOR = AppMain.gmSplStageLightRot( -1f, -1f, -1f );
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
@@ -239,9 +239,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000D89 RID: 3465 RVA: 0x00076630 File Offset: 0x00074830
-    private static AppMain.NNS_VECTOR gmSplStageLightRot( float pos_x, float pos_y, float pos_z )
+    private static NNS_VECTOR gmSplStageLightRot( float pos_x, float pos_y, float pos_z )
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         float num = pos_x * AppMain.nnSin((int)(-(int)AppMain.g_gm_main_system.pseudofall_dir));
         float num2 = pos_x * AppMain.nnCos((int)(-(int)AppMain.g_gm_main_system.pseudofall_dir));
         float num3 = pos_y * AppMain.nnSin((int)(-(int)AppMain.g_gm_main_system.pseudofall_dir));
@@ -255,8 +255,8 @@ public partial class AppMain
     // Token: 0x06000D8A RID: 3466 RVA: 0x000766AC File Offset: 0x000748AC
     private static void gmSplStageNudgeCtrl()
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         if ( gms_PLAYER_WORK.nudge_timer != 0 )
         {
             int num = ((int)(gms_PLAYER_WORK.nudge_timer * 8) << 12) / 30;
@@ -269,7 +269,7 @@ public partial class AppMain
             AppMain.GmObjGetRotPosXY( num, num2, ref num, ref num2, ( ushort )-AppMain.g_gm_main_system.pseudofall_dir );
             obs_CAMERA.ofst.x = AppMain.FXM_FX32_TO_FLOAT( num );
             obs_CAMERA.ofst.y = AppMain.FXM_FX32_TO_FLOAT( num2 );
-            AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK2 = gms_PLAYER_WORK;
+            GMS_PLAYER_WORK gms_PLAYER_WORK2 = gms_PLAYER_WORK;
             gms_PLAYER_WORK2.nudge_timer -= 1;
             return;
         }
@@ -283,7 +283,7 @@ public partial class AppMain
     // Token: 0x06000D8B RID: 3467 RVA: 0x000767BC File Offset: 0x000749BC
     private static void gmSplStageRingGateChk( AppMain.GMS_SPL_STG_WORK tcb_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         ushort get_ring = tcb_work.get_ring;
         for ( ushort num = 0; num < 9; num += 1 )
         {
@@ -302,7 +302,7 @@ public partial class AppMain
         }
         if ( get_ring != tcb_work.get_ring )
         {
-            AppMain.GmSoundPlaySE( "Special7" );
+            GmSound.PlaySE( "Special7" );
         }
     }
 

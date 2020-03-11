@@ -259,37 +259,37 @@ public partial class AppMain
     private class DMS_STGSLCT_MAIN_WORK
     {
         // Token: 0x04005B98 RID: 23448
-        public readonly AppMain.AMS_FS[] arc_cmn_amb_fs = new AppMain.AMS_FS[5];
+        public readonly AMS_FS[] arc_cmn_amb_fs = new AMS_FS[5];
 
         // Token: 0x04005B99 RID: 23449
-        public readonly AppMain.AMS_AMB_HEADER[] arc_cmn_amb = new AppMain.AMS_AMB_HEADER[5];
+        public readonly AMS_AMB_HEADER[] arc_cmn_amb = new AMS_AMB_HEADER[5];
 
         // Token: 0x04005B9A RID: 23450
-        public readonly AppMain.A2S_AMA_HEADER[] cmn_ama = new AppMain.A2S_AMA_HEADER[5];
+        public readonly A2S_AMA_HEADER[] cmn_ama = new A2S_AMA_HEADER[5];
 
         // Token: 0x04005B9B RID: 23451
-        public readonly AppMain.AMS_AMB_HEADER[] cmn_amb = new AppMain.AMS_AMB_HEADER[5];
+        public readonly AMS_AMB_HEADER[] cmn_amb = new AMS_AMB_HEADER[5];
 
         // Token: 0x04005B9C RID: 23452
         public readonly AppMain.AOS_TEXTURE[] cmn_tex = AppMain.New<AppMain.AOS_TEXTURE>(5);
 
         // Token: 0x04005B9D RID: 23453
-        public readonly AppMain.AMS_FS[] arc_amb_fs = new AppMain.AMS_FS[2];
+        public readonly AMS_FS[] arc_amb_fs = new AMS_FS[2];
 
         // Token: 0x04005B9E RID: 23454
-        public readonly AppMain.AMS_AMB_HEADER[] arc_amb = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] arc_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005B9F RID: 23455
-        public AppMain.AMS_FS win_amb_fs;
+        public AMS_FS win_amb_fs;
 
         // Token: 0x04005BA0 RID: 23456
-        public readonly AppMain.A2S_AMA_HEADER[] ama = new AppMain.A2S_AMA_HEADER[2];
+        public readonly A2S_AMA_HEADER[] ama = new A2S_AMA_HEADER[2];
 
         // Token: 0x04005BA1 RID: 23457
-        public readonly AppMain.AMS_AMB_HEADER[] amb = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005BA2 RID: 23458
-        public AppMain.AMS_AMB_HEADER win_amb;
+        public AMS_AMB_HEADER win_amb;
 
         // Token: 0x04005BA3 RID: 23459
         public readonly AppMain.AOS_TEXTURE[] tex = AppMain.New<AppMain.AOS_TEXTURE>(2);
@@ -571,7 +571,7 @@ public partial class AppMain
     public class CActionDraw
     {
         // Token: 0x0600248D RID: 9357 RVA: 0x0014ADF4 File Offset: 0x00148FF4
-        public void Entry(AppMain.A2S_AMA_HEADER ama, uint id, float frame, float x, float y)
+        public void Entry(A2S_AMA_HEADER ama, uint id, float frame, float x, float y)
         {
             if (AppMain._am_sample_draw_enable)
             {
@@ -587,7 +587,7 @@ public partial class AppMain
         }
 
         // Token: 0x0600248E RID: 9358 RVA: 0x0014AE4C File Offset: 0x0014904C
-        public void Entry(AppMain.A2S_AMA_HEADER ama, uint id, float frame, float x, float y, float scalex, float scaley)
+        public void Entry(A2S_AMA_HEADER ama, uint id, float frame, float x, float y, float scalex, float scaley)
         {
             if (AppMain._am_sample_draw_enable)
             {
@@ -982,7 +982,7 @@ public partial class AppMain
             this.dmStgSlctSetNextEvt(dms_STGSLCT_MAIN_WORK);
         }
         // kick back to title menu
-        if ((dms_STGSLCT_MAIN_WORK.flag & 2147483648U) != 0U && !AppMain.AoAccountIsCurrentEnable())
+        if ((dms_STGSLCT_MAIN_WORK.flag & 2147483648U) != 0U && !AoAccount.AoAccountIsCurrentEnable())
         {
             dms_STGSLCT_MAIN_WORK.proc_menu_update = this.dmStgSlctProcFadeOut;
             dms_STGSLCT_MAIN_WORK.flag &= 2147483647U;
@@ -1101,13 +1101,13 @@ public partial class AppMain
     // Token: 0x0600132C RID: 4908 RVA: 0x000A6EBC File Offset: 0x000A50BC
     private void dmStgSlctLoadRequest(AppMain.DMS_STGSLCT_MAIN_WORK main_work)
     {
-        main_work.arc_amb_fs[0] = AppMain.amFsReadBackground("DEMO/STGSLCT/D_STGSLCT.AMB");
-        main_work.arc_amb_fs[1] = AppMain.amFsReadBackground(AppMain.dm_stgslct_main_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
+        main_work.arc_amb_fs[0] = AmFs.amFsReadBackground("DEMO/STGSLCT/D_STGSLCT.AMB");
+        main_work.arc_amb_fs[1] = AmFs.amFsReadBackground(AppMain.dm_stgslct_main_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
         for (int i = 0; i < 4; i++)
         {
-            main_work.arc_cmn_amb_fs[i] = AppMain.amFsReadBackground(AppMain.dm_stgslct_menu_cmn_amb_name_tbl[i]);
+            main_work.arc_cmn_amb_fs[i] = AmFs.amFsReadBackground(AppMain.dm_stgslct_menu_cmn_amb_name_tbl[i]);
         }
-        main_work.arc_cmn_amb_fs[4] = AppMain.amFsReadBackground(AppMain.dm_stgslct_menu_cmn_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
+        main_work.arc_cmn_amb_fs[4] = AmFs.amFsReadBackground(AppMain.dm_stgslct_menu_cmn_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
         main_work.proc_menu_update = this.dmStgSlctProcLoadWait;
     }
 
@@ -1118,13 +1118,13 @@ public partial class AppMain
         {
             for (int i = 0; i < 2; i++)
             {
-                main_work.arc_amb[i] = AppMain.readAMBFile(main_work.arc_amb_fs[i]);
+                main_work.arc_amb[i] = AmFs.readAMBFile(main_work.arc_amb_fs[i]);
                 main_work.arc_amb_fs[i] = null;
-                main_work.ama[i] = AppMain.readAMAFile(AppMain.amBindGet(main_work.arc_amb[i], 0));
+                main_work.ama[i] = A2S.readAMAFile(AmBind.Get(main_work.arc_amb[i], 0));
                 string dir;
-                main_work.amb[i] = AppMain.readAMBFile(AppMain.amBindGet(main_work.arc_amb[i], 1, out dir));
+                main_work.amb[i] = AmFs.readAMBFile(AmBind.Get(main_work.arc_amb[i], 1, out dir));
                 main_work.amb[i].dir = dir;
-                AppMain.amFsClearRequest(main_work.arc_amb_fs[i]);
+                AmFs.amFsClearRequest(main_work.arc_amb_fs[i]);
                 main_work.arc_amb_fs[i] = null;
                 AppMain.AoTexBuild(main_work.tex[i], main_work.amb[i]);
                 AppMain.AoTexLoad(main_work.tex[i]);
@@ -1142,11 +1142,11 @@ public partial class AppMain
         {
             for (int i = 0; i < 5; i++)
             {
-                main_work.arc_cmn_amb[i] = AppMain.readAMBFile(main_work.arc_cmn_amb_fs[i]);
+                main_work.arc_cmn_amb[i] = AmFs.readAMBFile(main_work.arc_cmn_amb_fs[i]);
                 main_work.arc_cmn_amb_fs[i] = null;
-                main_work.cmn_ama[i] = AppMain.readAMAFile(AppMain.amBindGet(main_work.arc_cmn_amb[i], 0));
+                main_work.cmn_ama[i] = A2S.readAMAFile(AmBind.Get(main_work.arc_cmn_amb[i], 0));
                 string dir;
-                main_work.cmn_amb[i] = AppMain.readAMBFile(AppMain.amBindGet(main_work.arc_cmn_amb[i], 1, out dir));
+                main_work.cmn_amb[i] = AmFs.readAMBFile(AmBind.Get(main_work.arc_cmn_amb[i], 1, out dir));
                 main_work.cmn_amb[i].dir = dir;
                 main_work.arc_cmn_amb_fs[i] = null;
                 AppMain.AoTexBuild(main_work.cmn_tex[i], main_work.cmn_amb[i]);
@@ -1182,7 +1182,7 @@ public partial class AppMain
     {
         for (uint num = 0U; num < 116U; num += 1U)
         {
-            AppMain.A2S_AMA_HEADER ama;
+            A2S_AMA_HEADER ama;
             AppMain.AOS_TEXTURE tex;
             if (num >= 112U)
             {
@@ -2455,7 +2455,7 @@ public partial class AppMain
             main_work.cur_stage = (int)((long)(main_work.crsr_idx + main_work.focus_disp_no) + (long)((ulong)num));
             this.dmStgSlctSetActChngZonePosInit(main_work, -1);
             AppMain.DmSoundPlaySE("Cursol");
-            if ((AppMain.AoPadMRepeat() & ControllerConsts.CONFIRM) != 0 || (AppMain.AoPadMStand() & ControllerConsts.CONFIRM) != 0)
+            if ((AoPad.AoPadMRepeat() & ControllerConsts.CONFIRM) != 0 || (AoPad.AoPadMStand() & ControllerConsts.CONFIRM) != 0)
             {
                 main_work.flag |= 4194304U;
                 main_work.btn_l_disp_frm = 0U;
@@ -2485,7 +2485,7 @@ public partial class AppMain
             main_work.cur_stage = (int)((long)(main_work.crsr_idx + main_work.focus_disp_no) + (long)((ulong)num));
             this.dmStgSlctSetActChngZonePosInit(main_work, 1);
             AppMain.DmSoundPlaySE("Cursol");
-            if ((AppMain.AoPadMRepeat().HasFlag(ControllerConsts.CANCEL) || AppMain.AoPadMStand().HasFlag(ControllerConsts.CANCEL)))
+            if ((AoPad.AoPadMRepeat().HasFlag(ControllerConsts.CANCEL) || AoPad.AoPadMStand().HasFlag(ControllerConsts.CANCEL)))
             {
                 main_work.flag |= 8388608U;
                 main_work.btn_r_disp_frm = 0U;
@@ -2518,17 +2518,17 @@ public partial class AppMain
             }
             is_spe_open = 0;
         }
-        if ((AppMain.AoPadStand() & ControllerConsts.CANCEL) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.CANCEL) != 0)
         {
             main_work.flag |= 2U;
             return;
         }
-        if ((AppMain.AoPadStand() & ControllerConsts.CONFIRM) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.CONFIRM) != 0)
         {
             main_work.flag |= 4U;
             return;
         }
-        if ((AppMain.AoPadStand() & ControllerConsts.UP) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.UP) != 0)
         {
             main_work.cur_game_mode ^= 1U;
             main_work.mode_tex_frm = 1f;
@@ -2536,9 +2536,9 @@ public partial class AppMain
             return;
         }
         this.dmStgSlctInputChangeEvtRanking(main_work);
-        if ((AppMain.AoPadMRepeat() & ControllerConsts.LEFT) != 0 || (AppMain.AoPadMRepeat() & ControllerConsts.LEFT) != 0)
+        if ((AoPad.AoPadMRepeat() & ControllerConsts.LEFT) != 0 || (AoPad.AoPadMRepeat() & ControllerConsts.LEFT) != 0)
         {
-            if ((AppMain.AoPadMStand() & ControllerConsts.LEFT) != 0 || (AppMain.AoPadMStand() & ControllerConsts.LEFT) != 0 || main_work.cur_zone != 0U)
+            if ((AoPad.AoPadMStand() & ControllerConsts.LEFT) != 0 || (AoPad.AoPadMStand() & ControllerConsts.LEFT) != 0 || main_work.cur_zone != 0U)
             {
                 main_work.chng_zone = main_work.cur_zone;
                 main_work.cur_zone = (uint)this.dmStgSlctGetRevisedZoneNo((int)main_work.cur_zone, -1, is_final_open, is_spe_open);
@@ -2562,7 +2562,7 @@ public partial class AppMain
                 main_work.cur_stage = (int)((long)(main_work.crsr_idx + main_work.focus_disp_no) + (long)((ulong)num));
                 this.dmStgSlctSetActChngZonePosInit(main_work, -1);
                 AppMain.DmSoundPlaySE("Cursol");
-                if ((AppMain.AoPadMRepeat() & ControllerConsts.LEFT) != 0 || (AppMain.AoPadMStand() & ControllerConsts.LEFT) != 0)
+                if ((AoPad.AoPadMRepeat() & ControllerConsts.LEFT) != 0 || (AoPad.AoPadMStand() & ControllerConsts.LEFT) != 0)
                 {
                     main_work.flag |= 4194304U;
                     main_work.btn_l_disp_frm = 0U;
@@ -2571,7 +2571,7 @@ public partial class AppMain
             }
             return;
         }
-        if (((AppMain.AoPadMRepeat() & ControllerConsts.RIGHT) != 0 || (AppMain.AoPadMRepeat() & ControllerConsts.RIGHT) != 0) && ((AppMain.AoPadMStand() & ControllerConsts.RIGHT) != 0 || (AppMain.AoPadMStand() & ControllerConsts.RIGHT) != 0 || main_work.cur_zone != (uint)num4))
+        if (((AoPad.AoPadMRepeat() & ControllerConsts.RIGHT) != 0 || (AoPad.AoPadMRepeat() & ControllerConsts.RIGHT) != 0) && ((AoPad.AoPadMStand() & ControllerConsts.RIGHT) != 0 || (AoPad.AoPadMStand() & ControllerConsts.RIGHT) != 0 || main_work.cur_zone != (uint)num4))
         {
             main_work.chng_zone = main_work.cur_zone;
             main_work.cur_zone = (uint)this.dmStgSlctGetRevisedZoneNo((int)main_work.cur_zone, 1, is_final_open, is_spe_open);
@@ -2595,7 +2595,7 @@ public partial class AppMain
             main_work.cur_stage = (int)((long)(main_work.crsr_idx + main_work.focus_disp_no) + (long)((ulong)num));
             this.dmStgSlctSetActChngZonePosInit(main_work, 1);
             AppMain.DmSoundPlaySE("Cursol");
-            if ((AppMain.AoPadMRepeat() & ControllerConsts.RIGHT) != 0 || (AppMain.AoPadMStand() & ControllerConsts.RIGHT) != 0)
+            if ((AoPad.AoPadMRepeat() & ControllerConsts.RIGHT) != 0 || (AoPad.AoPadMStand() & ControllerConsts.RIGHT) != 0)
             {
                 main_work.flag |= 8388608U;
                 main_work.btn_r_disp_frm = 0U;
@@ -2610,17 +2610,17 @@ public partial class AppMain
         uint num = AppMain.dm_stgslct_zone_act_num_tbl[(int)((UIntPtr)main_work.cur_zone)][0];
         uint num2 = num + AppMain.dm_stgslct_zone_act_num_tbl[(int)((UIntPtr)main_work.cur_zone)][1];
         uint num3 = AppMain.dm_stgslct_zone_act_num_tbl[(int)((UIntPtr)main_work.cur_zone)][1] - 1U;
-        if ((AppMain.AoPadStand() & ControllerConsts.CANCEL) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.CANCEL) != 0)
         {
             main_work.flag |= 2U;
             return;
         }
-        if ((AppMain.AoPadStand() & ControllerConsts.CONFIRM) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.CONFIRM) != 0)
         {
             main_work.flag |= 4U;
             return;
         }
-        if ((AppMain.AoPadStand() & ControllerConsts.START) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.START) != 0)
         {
             main_work.cur_game_mode ^= 1U;
             main_work.mode_tex_frm = 1f;
@@ -2628,9 +2628,9 @@ public partial class AppMain
             return;
         }
         this.dmStgSlctInputChangeEvtRanking(main_work);
-        if ((AppMain.AoPadMRepeat() & ControllerConsts.UP) != 0)
+        if ((AoPad.AoPadMRepeat() & ControllerConsts.UP) != 0)
         {
-            if ((AppMain.AoPadMStand() & ControllerConsts.UP) != 0 || main_work.cur_stage != (int)num)
+            if ((AoPad.AoPadMStand() & ControllerConsts.UP) != 0 || main_work.cur_stage != (int)num)
             {
                 if (main_work.cur_zone == 4U)
                 {
@@ -2655,7 +2655,7 @@ public partial class AppMain
             }
             return;
         }
-        if ((AppMain.AoPadMRepeat() & ControllerConsts.DOWN) != 0 && ((AppMain.AoPadMStand() & ControllerConsts.DOWN) != 0 || main_work.cur_stage != (int)(num2 - 1U)))
+        if ((AoPad.AoPadMRepeat() & ControllerConsts.DOWN) != 0 && ((AoPad.AoPadMStand() & ControllerConsts.DOWN) != 0 || main_work.cur_stage != (int)(num2 - 1U)))
         {
             if (main_work.cur_zone == 4U)
             {
@@ -2683,7 +2683,7 @@ public partial class AppMain
     // Token: 0x0600134D RID: 4941 RVA: 0x000A9C80 File Offset: 0x000A7E80
     private void dmStgSlctInputChangeEvtRanking(AppMain.DMS_STGSLCT_MAIN_WORK main_work)
     {
-        if ((AppMain.AoPadStand() & ControllerConsts.CANCEL) != 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.CANCEL) != 0)
         {
             main_work.flag |= 524288U;
         }
@@ -3570,7 +3570,7 @@ public partial class AppMain
         {
             if (main_work.record_time[(int)((UIntPtr)act_no)] != 36000)
             {
-                AppMain.AkUtilFrame60ToTime((uint)main_work.record_time[(int)((UIntPtr)act_no)], ref num2, ref num3, ref num4);
+                AkUtil.Frame60ToTime((uint)main_work.record_time[(int)((UIntPtr)act_no)], ref num2, ref num3, ref num4);
                 float num10 = (float)num3;
                 if (num10 >= 10f)
                 {
@@ -3811,14 +3811,14 @@ public partial class AppMain
     {
         for (int i = 0; i < 2; i++)
         {
-            if (!AppMain.amFsIsComplete(main_work.arc_amb_fs[i]))
+            if (!AmFs.amFsIsComplete(main_work.arc_amb_fs[i]))
             {
                 return 0;
             }
         }
         for (int j = 0; j < 5; j++)
         {
-            if (!AppMain.amFsIsComplete(main_work.arc_cmn_amb_fs[j]))
+            if (!AmFs.amFsIsComplete(main_work.arc_cmn_amb_fs[j]))
             {
                 return 0;
             }

@@ -35,7 +35,7 @@ public partial class AppMain
         public int handle;
 
         // Token: 0x04006175 RID: 24949
-        public AppMain.AMS_ALARM alarm_exit = new AppMain.AMS_ALARM();
+        public AMS_ALARM alarm_exit = new AMS_ALARM();
 
         // Token: 0x04006176 RID: 24950
         public object mutex = new object();
@@ -61,7 +61,7 @@ public partial class AppMain
         thread.thread_id = new Thread( proc.Invoke );
         if ( thread.thread_id != null )
         {
-            AppMain.amAlarmCreate( thread.alarm_exit );
+            AmAlarm.Create( thread.alarm_exit );
             AppMain.amMutexCreate( thread.mutex );
             thread.thread_id.Start( arg );
         }
@@ -83,7 +83,7 @@ public partial class AppMain
     private static int amThreadExit( AppMain.AMS_THREAD thread )
     {
         AppMain.amAssert( thread );
-        AppMain.amAlarmSet( thread.alarm_exit );
+        AmAlarm.Set( thread.alarm_exit );
         return 1;
     }
 
@@ -91,7 +91,7 @@ public partial class AppMain
     private static int amThreadCheckExit( AppMain.AMS_THREAD thread )
     {
         AppMain.amAssert( thread );
-        return AppMain.amAlarmCheck( thread.alarm_exit );
+        return AmAlarm.Check( thread.alarm_exit );
     }
 
     // Token: 0x06001A12 RID: 6674 RVA: 0x000EA2CD File Offset: 0x000E84CD
@@ -125,7 +125,7 @@ public partial class AppMain
     {
         AppMain.amAssert( thread );
         AppMain.amMutexDelete( thread.mutex );
-        AppMain.amAlarmDelete( thread.alarm_exit );
+        AmAlarm.Delete( thread.alarm_exit );
     }
 
     // Token: 0x06001A16 RID: 6678 RVA: 0x000EA333 File Offset: 0x000E8533

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0600194A RID: 6474 RVA: 0x000E49A8 File Offset: 0x000E2BA8
-    private static void ObjAction3dNNModelLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, string filename_tex, AppMain.AMS_AMB_HEADER amb_tex, uint drawflag )
+    public static void ObjAction3dNNModelLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, string filename_tex, AMS_AMB_HEADER amb_tex, uint drawflag )
     {
         object obj = null;
         string filepath = null;
@@ -84,7 +84,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600194B RID: 6475 RVA: 0x000E4B90 File Offset: 0x000E2D90
-    private static void ObjCopyAction3dNNModel( AppMain.OBS_ACTION3D_NN_WORK src_obj_3d, AppMain.OBS_ACTION3D_NN_WORK dest_obj_3d )
+    public static void ObjCopyAction3dNNModel( AppMain.OBS_ACTION3D_NN_WORK src_obj_3d, AppMain.OBS_ACTION3D_NN_WORK dest_obj_3d )
     {
         dest_obj_3d._object = src_obj_3d._object;
         dest_obj_3d.texlist = src_obj_3d.texlist;
@@ -111,7 +111,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600194C RID: 6476 RVA: 0x000E4C88 File Offset: 0x000E2E88
-    private static void ObjObjectCopyAction3dNNModel( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK src_obj_3d, AppMain.OBS_ACTION3D_NN_WORK dest_obj_3d )
+    public static void ObjObjectCopyAction3dNNModel( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK src_obj_3d, AppMain.OBS_ACTION3D_NN_WORK dest_obj_3d )
     {
         if ( dest_obj_3d == null )
         {
@@ -132,7 +132,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600194D RID: 6477 RVA: 0x000E4CEC File Offset: 0x000E2EEC
-    private static void ObjObjectAction3dNNModelReleaseCopy( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void ObjObjectAction3dNNModelReleaseCopy( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.flag & 134217728U ) != 0U )
         {
@@ -144,7 +144,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600194E RID: 6478 RVA: 0x000E4D3C File Offset: 0x000E2F3C
-    private static void ObjObjectAction3dNNModelLoad( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, string filename_tex, AppMain.AMS_AMB_HEADER amb_tex, uint drawflag )
+    public static void ObjObjectAction3dNNModelLoad( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, string filename_tex, AMS_AMB_HEADER amb_tex, uint drawflag )
     {
         if ( obj_3d == null )
         {
@@ -164,7 +164,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600194F RID: 6479 RVA: 0x000E4D98 File Offset: 0x000E2F98
-    private static void ObjAction3dNNModelLoadTxb( AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, string filename_tex, AppMain.AMS_AMB_HEADER amb_tex, uint drawflag, AppMain.TXB_HEADER txb )
+    public static void ObjAction3dNNModelLoadTxb( AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, string filename_tex, AMS_AMB_HEADER amb_tex, uint drawflag, AppMain.TXB_HEADER txb )
     {
         object obj = null;
         string filepath = null;
@@ -239,7 +239,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001950 RID: 6480 RVA: 0x000E4F70 File Offset: 0x000E3170
-    private static void ObjObjectAction3dNNModelLoadTxb( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, string filename_tex, AppMain.AMS_AMB_HEADER amb_tex, uint drawflag, AppMain.TXB_HEADER txb )
+    public static void ObjObjectAction3dNNModelLoadTxb( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK obj_3d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, string filename_tex, AMS_AMB_HEADER amb_tex, uint drawflag, AppMain.TXB_HEADER txb )
     {
         if ( obj_3d == null )
         {
@@ -259,13 +259,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001951 RID: 6481 RVA: 0x000E4FCC File Offset: 0x000E31CC
-    private static void ObjAction3dNNMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive )
+    public static void ObjAction3dNNMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive )
     {
         AppMain.ObjAction3dNNMotionLoad( obj_3d, reg_file_id, marge, data_work, filename, index, archive, 64, 16 );
     }
 
     // Token: 0x06001952 RID: 6482 RVA: 0x000E4FEC File Offset: 0x000E31EC
-    private static void ObjAction3dNNMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, int motion_num, int mmotion_num )
+    public static void ObjAction3dNNMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, int motion_num, int mmotion_num )
     {
         object obj = null;
         if ( ( obj_3d.flag & 1073741824U ) == 0U )
@@ -322,9 +322,9 @@ public partial class AppMain
         {
             obj_3d.motion = AppMain.amMotionCreate( obj_3d._object, motion_num, mmotion_num, marge ? 1 : 0 );
         }
-        if ( obj is AppMain.AMS_AMB_HEADER || obj is AppMain.AMS_FS )
+        if ( obj is AMS_AMB_HEADER || obj is AMS_FS )
         {
-            AppMain.AMS_AMB_HEADER amb = AppMain.readAMBFile(obj);
+            AMS_AMB_HEADER amb = AmFs.readAMBFile(obj);
             AppMain.amMotionRegistFile( obj_3d.motion, reg_file_id, amb );
             return;
         }
@@ -332,26 +332,26 @@ public partial class AppMain
     }
 
     // Token: 0x06001953 RID: 6483 RVA: 0x000E5170 File Offset: 0x000E3370
-    private static void ObjObjectAction3dNNMotionLoad( AppMain.OBS_OBJECT_WORK obj_work, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive )
+    public static void ObjObjectAction3dNNMotionLoad( OBS_OBJECT_WORK obj_work, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive )
     {
         AppMain.ObjObjectAction3dNNMotionLoad( obj_work, reg_file_id, marge, data_work, filename, index, archive, 64, 16 );
     }
 
     // Token: 0x06001954 RID: 6484 RVA: 0x000E5190 File Offset: 0x000E3390
-    private static void ObjObjectAction3dNNMotionLoad( AppMain.OBS_OBJECT_WORK obj_work, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, int motion_num, int mmotion_num )
+    public static void ObjObjectAction3dNNMotionLoad( OBS_OBJECT_WORK obj_work, int reg_file_id, bool marge, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, int motion_num, int mmotion_num )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = obj_work.obj_3d;
         AppMain.ObjAction3dNNMotionLoad( obj_3d, reg_file_id, marge, data_work, filename, index, archive, motion_num, mmotion_num );
     }
 
     // Token: 0x06001955 RID: 6485 RVA: 0x000E51B7 File Offset: 0x000E33B7
-    private static void ObjAction3dNNMaterialMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive )
+    public static void ObjAction3dNNMaterialMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive )
     {
         AppMain.ObjAction3dNNMaterialMotionLoad( obj_3d, reg_file_id, data_work, filename, index, archive, 64, 16 );
     }
 
     // Token: 0x06001956 RID: 6486 RVA: 0x000E51CC File Offset: 0x000E33CC
-    private static void ObjAction3dNNMaterialMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, int motion_num, int mmotion_num )
+    public static void ObjAction3dNNMaterialMotionLoad( AppMain.OBS_ACTION3D_NN_WORK obj_3d, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, int motion_num, int mmotion_num )
     {
         object obj = null;
         if ( ( obj_3d.flag & 1073741824U ) == 0U )
@@ -408,9 +408,9 @@ public partial class AppMain
         {
             obj_3d.motion = AppMain.amMotionCreate( obj_3d._object, motion_num, mmotion_num, 0 );
         }
-        if ( obj is AppMain.AMS_AMB_HEADER || obj is AppMain.AMS_FS )
+        if ( obj is AMS_AMB_HEADER || obj is AMS_FS )
         {
-            AppMain.AMS_AMB_HEADER amb = AppMain.readAMBFile(obj);
+            AMS_AMB_HEADER amb = AmFs.readAMBFile(obj);
             AppMain.amMotionMaterialRegistFile( obj_3d.motion, reg_file_id, amb );
             return;
         }
@@ -418,20 +418,20 @@ public partial class AppMain
     }
 
     // Token: 0x06001957 RID: 6487 RVA: 0x000E534E File Offset: 0x000E354E
-    private static void ObjObjectAction3dNNMaterialMotionLoad( AppMain.OBS_OBJECT_WORK obj_work, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, object archive )
+    public static void ObjObjectAction3dNNMaterialMotionLoad( OBS_OBJECT_WORK obj_work, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, object archive )
     {
         AppMain.ObjObjectAction3dNNMaterialMotionLoad( obj_work, reg_file_id, data_work, filename, index, archive, 64, 16 );
     }
 
     // Token: 0x06001958 RID: 6488 RVA: 0x000E5364 File Offset: 0x000E3564
-    private static void ObjObjectAction3dNNMaterialMotionLoad( AppMain.OBS_OBJECT_WORK obj_work, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, object archive, int motion_num, int mmotion_num )
+    public static void ObjObjectAction3dNNMaterialMotionLoad( OBS_OBJECT_WORK obj_work, int reg_file_id, AppMain.OBS_DATA_WORK data_work, string filename, int index, object archive, int motion_num, int mmotion_num )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = obj_work.obj_3d;
-        AppMain.ObjAction3dNNMaterialMotionLoad( obj_3d, reg_file_id, data_work, filename, index, ( AppMain.AMS_AMB_HEADER )archive, motion_num, mmotion_num );
+        AppMain.ObjAction3dNNMaterialMotionLoad( obj_3d, reg_file_id, data_work, filename, index, ( AMS_AMB_HEADER )archive, motion_num, mmotion_num );
     }
 
     // Token: 0x06001959 RID: 6489 RVA: 0x000E5390 File Offset: 0x000E3590
-    private static bool ObjAction3dNNModelLoadCheck( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
+    public static bool ObjAction3dNNModelLoadCheck( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
     {
         if ( ( obj_3d.flag & 2147483648U ) != 0U )
         {
@@ -494,14 +494,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600195A RID: 6490 RVA: 0x000E5574 File Offset: 0x000E3774
-    private static void ObjAction3dNNModelRelease( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
+    public static void ObjAction3dNNModelRelease( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
     {
         obj_3d.reg_index = AppMain.amObjectRelease( obj_3d._object, obj_3d.texlist );
         obj_3d.flag |= 134217728U;
     }
 
     // Token: 0x0600195B RID: 6491 RVA: 0x000E55A0 File Offset: 0x000E37A0
-    private static bool ObjAction3dNNModelReleaseCheck( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
+    public static bool ObjAction3dNNModelReleaseCheck( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
     {
         if ( ( obj_3d.flag & 1207959552U ) == 0U )
         {
@@ -534,7 +534,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600195C RID: 6492 RVA: 0x000E5648 File Offset: 0x000E3848
-    private static void ObjAction3dNNMotionRelease( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
+    public static void ObjAction3dNNMotionRelease( AppMain.OBS_ACTION3D_NN_WORK obj_3d )
     {
         if ( obj_3d.motion != null )
         {
@@ -569,7 +569,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600195D RID: 6493 RVA: 0x000E5740 File Offset: 0x000E3940
-    private static void ObjAction3dESEffectLoad( AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, int user_attr, int ecb_prio )
+    public static void ObjAction3dESEffectLoad( AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, int user_attr, int ecb_prio )
     {
         object obj = null;
         obj_3des.command_state = 0U;
@@ -609,17 +609,17 @@ public partial class AppMain
         {
             obj_3des.eff_data_work = data_work;
         }
-        obj_3des.ecb = AppMain._amEffectCreate( ( AppMain.AMS_AME_HEADER )obj_3des.eff, user_attr, ecb_prio );
+        obj_3des.ecb = AppMain._amEffectCreate( ( AMS_AME_HEADER )obj_3des.eff, user_attr, ecb_prio );
     }
 
     // Token: 0x0600195E RID: 6494 RVA: 0x000E581B File Offset: 0x000E3A1B
-    private static void ObjObjectAction3dESEffectLoad( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive )
+    public static void ObjObjectAction3dESEffectLoad( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive )
     {
         AppMain.ObjObjectAction3dESEffectLoad( obj_work, obj_3des, data_work, filename, index, archive, 0, 0 );
     }
 
     // Token: 0x0600195F RID: 6495 RVA: 0x000E582C File Offset: 0x000E3A2C
-    private static void ObjObjectAction3dESEffectLoad( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, int user_attr, int ecb_prio )
+    public static void ObjObjectAction3dESEffectLoad( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, int user_attr, int ecb_prio )
     {
         if ( obj_3des == null )
         {
@@ -639,32 +639,32 @@ public partial class AppMain
     }
 
     // Token: 0x06001960 RID: 6496 RVA: 0x000E5884 File Offset: 0x000E3A84
-    private static void ObjAction3dESEffectRelease( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
+    public static void ObjAction3dESEffectRelease( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
     {
         AppMain.amEffectDelete( obj_3des.ecb );
         obj_3des.ecb = null;
     }
 
     // Token: 0x06001961 RID: 6497 RVA: 0x000E5898 File Offset: 0x000E3A98
-    private static void ObjAction3dESTextureLoad( AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, bool load_tex )
+    public static void ObjAction3dESTextureLoad( AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, bool load_tex )
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = null;
+        AMS_AMB_HEADER ams_AMB_HEADER = null;
         if ( archive != null )
         {
             obj_3des.flag |= 131072U;
         }
         if ( filename != null && filename != "" )
         {
-            ams_AMB_HEADER = AppMain.readAMBFile( AppMain.ObjDataLoad( data_work, filename, archive ) );
+            ams_AMB_HEADER = AmFs.readAMBFile( AppMain.ObjDataLoad( data_work, filename, archive ) );
             if ( archive != null && ams_AMB_HEADER == null )
             {
                 obj_3des.flag &= 4294836223U;
-                ams_AMB_HEADER = AppMain.readAMBFile( AppMain.ObjDataLoad( data_work, filename, null ) );
+                ams_AMB_HEADER = AmFs.readAMBFile( AppMain.ObjDataLoad( data_work, filename, null ) );
             }
         }
         else if ( archive != null )
         {
-            ams_AMB_HEADER = AppMain.readAMBFile( AppMain.ObjDataLoadAmbIndex( data_work, index, archive ) );
+            ams_AMB_HEADER = AmFs.readAMBFile( AppMain.ObjDataLoadAmbIndex( data_work, index, archive ) );
             if ( ams_AMB_HEADER == null )
             {
                 obj_3des.flag &= 4294836223U;
@@ -672,7 +672,7 @@ public partial class AppMain
         }
         else if ( data_work != null )
         {
-            ams_AMB_HEADER = AppMain.readAMBFile( AppMain.ObjDataGetInc( data_work ) );
+            ams_AMB_HEADER = AmFs.readAMBFile( AppMain.ObjDataGetInc( data_work ) );
         }
         if ( ams_AMB_HEADER == null )
         {
@@ -685,7 +685,7 @@ public partial class AppMain
         }
         if ( load_tex )
         {
-            AppMain.TXB_HEADER txb = AppMain.readTXBfile(AppMain.amBindGet(ams_AMB_HEADER, 0));
+            AppMain.TXB_HEADER txb = AppMain.readTXBfile(AmBind.Get(ams_AMB_HEADER, 0));
             uint num = AppMain.amTxbGetCount(txb);
             obj_3des.texlistbuf = null;
             AppMain.nnSetUpTexlist( out obj_3des.texlist, ( int )num, ref obj_3des.texlistbuf );
@@ -704,13 +704,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001962 RID: 6498 RVA: 0x000E59EA File Offset: 0x000E3BEA
-    private static void ObjObjectAction3dESTextureLoad( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, bool load_tex )
+    public static void ObjObjectAction3dESTextureLoad( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, bool load_tex )
     {
         AppMain.ObjAction3dESTextureLoad( obj_3des, data_work, filename, index, archive, load_tex );
     }
 
     // Token: 0x06001963 RID: 6499 RVA: 0x000E59FC File Offset: 0x000E3BFC
-    private static void ObjAction3dESTextureRelease( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
+    public static void ObjAction3dESTextureRelease( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
     {
         if ( obj_3des.texlist_data_work != null )
         {
@@ -731,7 +731,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001964 RID: 6500 RVA: 0x000E5A68 File Offset: 0x000E3C68
-    private static bool ObjAction3dESTextureReleaseCheck( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
+    public static bool ObjAction3dESTextureReleaseCheck( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
     {
         if ( ( obj_3des.flag & 1073741824U ) == 0U )
         {
@@ -761,12 +761,12 @@ public partial class AppMain
     }
 
     // Token: 0x06001965 RID: 6501 RVA: 0x000E5B08 File Offset: 0x000E3D08
-    private static int ObjAction3dESTextureLoadToDwork( AppMain.OBS_DATA_WORK texlist_dwork, AppMain.AMS_AMB_HEADER amb_tex, ref object texlist_buf )
+    public static int ObjAction3dESTextureLoadToDwork( AppMain.OBS_DATA_WORK texlist_dwork, AMS_AMB_HEADER amb_tex, ref object texlist_buf )
     {
         int result;
         if ( texlist_dwork.pData == null )
         {
-            AppMain.TXB_HEADER txb = AppMain.readTXBfile(AppMain.amBindGet(amb_tex, 0));
+            AppMain.TXB_HEADER txb = AppMain.readTXBfile(AmBind.Get(amb_tex, 0));
             uint num = AppMain.amTxbGetCount(txb);
             texlist_buf = null;
             AppMain.NNS_TEXLIST nns_TEXLIST;
@@ -784,7 +784,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001966 RID: 6502 RVA: 0x000E5B68 File Offset: 0x000E3D68
-    private static int ObjAction3dESTextureReleaseDwork( AppMain.OBS_DATA_WORK texlist_dwork )
+    public static int ObjAction3dESTextureReleaseDwork( AppMain.OBS_DATA_WORK texlist_dwork )
     {
         int result = -1;
         if ( texlist_dwork.num != 0 && texlist_dwork.pData != null )
@@ -799,7 +799,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001967 RID: 6503 RVA: 0x000E5BB0 File Offset: 0x000E3DB0
-    private static bool ObjAction3dESTextureReleaseDworkCheck( AppMain.OBS_DATA_WORK texlist_dwork, int reg_index )
+    public static bool ObjAction3dESTextureReleaseDworkCheck( AppMain.OBS_DATA_WORK texlist_dwork, int reg_index )
     {
         if ( AppMain.amDrawIsRegistComplete( reg_index ) )
         {
@@ -810,7 +810,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001968 RID: 6504 RVA: 0x000E5BC4 File Offset: 0x000E3DC4
-    private static void ObjObjectAction3dESTextureSetByDwork( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_DATA_WORK texlist_dwork )
+    public static void ObjObjectAction3dESTextureSetByDwork( OBS_OBJECT_WORK obj_work, AppMain.OBS_DATA_WORK texlist_dwork )
     {
         AppMain.OBS_ACTION3D_ES_WORK obj_3des = obj_work.obj_3des;
         object obj = null;
@@ -821,7 +821,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001969 RID: 6505 RVA: 0x000E5C08 File Offset: 0x000E3E08
-    private static void ObjAction3dESModelLoad( AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, uint drawflag, bool load_model )
+    public static void ObjAction3dESModelLoad( AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, uint drawflag, bool load_model )
     {
         object obj = null;
         if ( archive != null )
@@ -870,13 +870,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600196A RID: 6506 RVA: 0x000E5D03 File Offset: 0x000E3F03
-    private static void ObjObjectAction3dESModelLoad( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, uint drawflag, bool load_model )
+    public static void ObjObjectAction3dESModelLoad( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, uint drawflag, bool load_model )
     {
         AppMain.ObjAction3dESModelLoad( obj_3des, data_work, filename, index, archive, drawflag, load_model );
     }
 
     // Token: 0x0600196B RID: 6507 RVA: 0x000E5D18 File Offset: 0x000E3F18
-    private static void ObjAction3dESModelRelease( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
+    public static void ObjAction3dESModelRelease( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
     {
         if ( obj_3des.object_data_work != null )
         {
@@ -896,7 +896,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600196C RID: 6508 RVA: 0x000E5D7C File Offset: 0x000E3F7C
-    private static bool ObjAction3dESModelReleaseCheck( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
+    public static bool ObjAction3dESModelReleaseCheck( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
     {
         if ( ( obj_3des.flag & 2147483648U ) == 0U )
         {
@@ -924,7 +924,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600196D RID: 6509 RVA: 0x000E5E10 File Offset: 0x000E4010
-    private static int ObjAction3dESModelLoadToDwork( AppMain.OBS_DATA_WORK object_dwork, object model, uint drawflag )
+    public static int ObjAction3dESModelLoadToDwork( AppMain.OBS_DATA_WORK object_dwork, object model, uint drawflag )
     {
         int result;
         if ( object_dwork.pData == null )
@@ -945,7 +945,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600196E RID: 6510 RVA: 0x000E5E5C File Offset: 0x000E405C
-    private static int ObjAction3dESModelReleaseDwork( AppMain.OBS_DATA_WORK object_dwork )
+    public static int ObjAction3dESModelReleaseDwork( AppMain.OBS_DATA_WORK object_dwork )
     {
         int result = -1;
         if ( object_dwork.num != 0 && object_dwork.pData != null )
@@ -960,7 +960,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600196F RID: 6511 RVA: 0x000E5EA4 File Offset: 0x000E40A4
-    private static bool ObjAction3dESModelReleaseDworkCheck( AppMain.OBS_DATA_WORK object_dwork, int reg_index )
+    public static bool ObjAction3dESModelReleaseDworkCheck( AppMain.OBS_DATA_WORK object_dwork, int reg_index )
     {
         if ( AppMain.amDrawIsRegistComplete( reg_index ) )
         {
@@ -971,7 +971,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001970 RID: 6512 RVA: 0x000E5EB8 File Offset: 0x000E40B8
-    private static void ObjObjectAction3dESModelSetByDwork( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_DATA_WORK object_dwork )
+    public static void ObjObjectAction3dESModelSetByDwork( OBS_OBJECT_WORK obj_work, AppMain.OBS_DATA_WORK object_dwork )
     {
         AppMain.OBS_ACTION3D_ES_WORK obj_3des = obj_work.obj_3des;
         AppMain.ObjAction3dESModelLoadToDwork( object_dwork, null, 0U );
@@ -981,7 +981,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001971 RID: 6513 RVA: 0x000E5F00 File Offset: 0x000E4100
-    private static bool ObjAction3dESEffectLoadCheck( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
+    public static bool ObjAction3dESEffectLoadCheck( AppMain.OBS_ACTION3D_ES_WORK obj_3des )
     {
         bool result = true;
         if ( ( obj_3des.flag & 1073741824U ) != 0U )
@@ -1012,9 +1012,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001972 RID: 6514 RVA: 0x000E5F80 File Offset: 0x000E4180
-    private static void ObjAction2dAMALoad( AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, AppMain.AMS_AMB_HEADER amb_tex, uint id, int type_node )
+    public static void ObjAction2dAMALoad( AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, AMS_AMB_HEADER amb_tex, uint id, int type_node )
     {
-        AppMain.A2S_AMA_HEADER a2S_AMA_HEADER = null;
+        A2S_AMA_HEADER a2S_AMA_HEADER = null;
         AppMain.ObjAction2dAMAWorkInit( obj_2d );
         if ( archive != null )
         {
@@ -1022,16 +1022,16 @@ public partial class AppMain
         }
         if ( filename != null )
         {
-            a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataLoad( data_work, filename, archive ) );
+            a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataLoad( data_work, filename, archive ) );
             if ( archive != null && a2S_AMA_HEADER == null )
             {
                 obj_2d.flag &= 2147483647U;
-                a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataLoad( data_work, filename, null ) );
+                a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataLoad( data_work, filename, null ) );
             }
         }
         else if ( archive != null )
         {
-            a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataLoadAmbIndex( data_work, index, archive ) );
+            a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataLoadAmbIndex( data_work, index, archive ) );
             if ( a2S_AMA_HEADER == null )
             {
                 obj_2d.flag &= 2147483647U;
@@ -1039,7 +1039,7 @@ public partial class AppMain
         }
         else if ( data_work != null )
         {
-            a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataGetInc( data_work ) );
+            a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataGetInc( data_work ) );
         }
         if ( a2S_AMA_HEADER == null )
         {
@@ -1059,7 +1059,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001973 RID: 6515 RVA: 0x000E6080 File Offset: 0x000E4280
-    private static void ObjObjectAction2dAMALoad( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, AppMain.AMS_AMB_HEADER amb_tex, uint id, int type_node )
+    public static void ObjObjectAction2dAMALoad( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, AMS_AMB_HEADER amb_tex, uint id, int type_node )
     {
         if ( obj_2d == null )
         {
@@ -1079,9 +1079,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001974 RID: 6516 RVA: 0x000E60DC File Offset: 0x000E42DC
-    private static void ObjAction2dAMALoadSetTexlist( AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, AppMain.NNS_TEXLIST texlist, uint id, int type_node )
+    public static void ObjAction2dAMALoadSetTexlist( AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, AppMain.NNS_TEXLIST texlist, uint id, int type_node )
     {
-        AppMain.A2S_AMA_HEADER a2S_AMA_HEADER = null;
+        A2S_AMA_HEADER a2S_AMA_HEADER = null;
         AppMain.ObjAction2dAMAWorkInit( obj_2d );
         if ( archive != null )
         {
@@ -1089,16 +1089,16 @@ public partial class AppMain
         }
         if ( filename != null )
         {
-            a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataLoad( data_work, filename, archive ) );
+            a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataLoad( data_work, filename, archive ) );
             if ( archive != null && a2S_AMA_HEADER == null )
             {
                 obj_2d.flag &= 2147483647U;
-                a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataLoad( data_work, filename, null ) );
+                a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataLoad( data_work, filename, null ) );
             }
         }
         else if ( archive != null )
         {
-            a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataLoadAmbIndex( data_work, index, archive ) );
+            a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataLoadAmbIndex( data_work, index, archive ) );
             if ( a2S_AMA_HEADER == null )
             {
                 obj_2d.flag &= 2147483647U;
@@ -1106,7 +1106,7 @@ public partial class AppMain
         }
         else if ( data_work != null )
         {
-            a2S_AMA_HEADER = AppMain.readAMAFile( AppMain.ObjDataGetInc( data_work ) );
+            a2S_AMA_HEADER = A2S.readAMAFile( AppMain.ObjDataGetInc( data_work ) );
         }
         if ( a2S_AMA_HEADER == null )
         {
@@ -1125,7 +1125,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001975 RID: 6517 RVA: 0x000E61C0 File Offset: 0x000E43C0
-    private static void ObjObjectAction2dAMALoadSetTexlist( AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AppMain.AMS_AMB_HEADER archive, AppMain.NNS_TEXLIST texlist, uint id, int type_node )
+    public static void ObjObjectAction2dAMALoadSetTexlist( OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION2D_AMA_WORK obj_2d, AppMain.OBS_DATA_WORK data_work, string filename, int index, AMS_AMB_HEADER archive, AppMain.NNS_TEXLIST texlist, uint id, int type_node )
     {
         if ( obj_2d == null )
         {
@@ -1145,7 +1145,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001976 RID: 6518 RVA: 0x000E621C File Offset: 0x000E441C
-    private static void ObjAction2dAMAWorkInit( AppMain.OBS_ACTION2D_AMA_WORK obj_2d )
+    public static void ObjAction2dAMAWorkInit( AppMain.OBS_ACTION2D_AMA_WORK obj_2d )
     {
         obj_2d.Clear();
         obj_2d.speed = 1f;
@@ -1160,7 +1160,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001977 RID: 6519 RVA: 0x000E62AC File Offset: 0x000E44AC
-    private static void ObjAction2dAMACreate( AppMain.OBS_ACTION2D_AMA_WORK obj_2d )
+    public static void ObjAction2dAMACreate( AppMain.OBS_ACTION2D_AMA_WORK obj_2d )
     {
         AppMain.AoActSetTexture( obj_2d.texlist );
         if ( obj_2d.type_node != 0 )
@@ -1175,7 +1175,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001978 RID: 6520 RVA: 0x000E630C File Offset: 0x000E450C
-    private static bool ObjAction2dAMALoadCheck( AppMain.OBS_ACTION2D_AMA_WORK obj_2d )
+    public static bool ObjAction2dAMALoadCheck( AppMain.OBS_ACTION2D_AMA_WORK obj_2d )
     {
         if ( ( obj_2d.flag & 1073741824U ) != 0U )
         {

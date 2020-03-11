@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020001B0 RID: 432
-    public class GMS_SCORE_DISP_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_SCORE_DISP_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x0600220B RID: 8715 RVA: 0x00142285 File Offset: 0x00140485
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_SCORE_DISP_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_SCORE_DISP_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x0600220C RID: 8716 RVA: 0x0014228D File Offset: 0x0014048D
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
@@ -24,11 +24,11 @@ public partial class AppMain
         // Token: 0x0600220D RID: 8717 RVA: 0x00142295 File Offset: 0x00140495
         public GMS_SCORE_DISP_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x04004FAB RID: 20395
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004FAC RID: 20396
         public readonly AppMain.GMS_EFFECT_3DES_WORK[] efct_work = new AppMain.GMS_EFFECT_3DES_WORK[5];

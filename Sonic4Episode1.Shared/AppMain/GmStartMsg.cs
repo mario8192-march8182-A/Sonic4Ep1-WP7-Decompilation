@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020001F5 RID: 501
-    public class GMS_SMSG_2D_OBJ_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_SMSG_2D_OBJ_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002314 RID: 8980 RVA: 0x00147F04 File Offset: 0x00146104
         public GMS_SMSG_2D_OBJ_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x06002315 RID: 8981 RVA: 0x00147F23 File Offset: 0x00146123
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x04005515 RID: 21781
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04005516 RID: 21782
         public readonly AppMain.OBS_ACTION2D_AMA_WORK obj_2d = new AppMain.OBS_ACTION2D_AMA_WORK();
@@ -33,7 +33,7 @@ public partial class AppMain
     public delegate void pfnGMS_SMSG_MGR_WORK( AppMain.GMS_SMSG_MGR_WORK p );
 
     // Token: 0x020001F7 RID: 503
-    public class GMS_SMSG_MGR_WORK : AppMain.IClearable
+    public class GMS_SMSG_MGR_WORK : IClearable
     {
         // Token: 0x0600231A RID: 8986 RVA: 0x00147F2C File Offset: 0x0014612C
         public void Clear()
@@ -152,20 +152,20 @@ public partial class AppMain
         int num = AppMain.GsEnvGetLanguage();
         object[] array = new object[3];
         AppMain.gm_start_msg_aos_tex = AppMain.New<AppMain.AOS_TEXTURE>( 3 );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(991);
-        AppMain.AMS_AMB_HEADER header = AppMain.GmGameDatGetGimmickData(992);
-        array[0] = AppMain.amBindGet( ams_AMB_HEADER, num * 2 + 1 );
-        array[1] = AppMain.amBindGet( header, 1 );
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(991);
+        AMS_AMB_HEADER header = AppMain.GmGameDatGetGimmickData(992);
+        array[0] = AmBind.Get( ams_AMB_HEADER, num * 2 + 1 );
+        array[1] = AmBind.Get( header, 1 );
         int num2 = 2;
         if ( AppMain.g_gs_main_sys_info.stage_id != 5 )
         {
-            array[2] = AppMain.amBindGet( ams_AMB_HEADER, ams_AMB_HEADER.file_num - 1 );
+            array[2] = AmBind.Get( ams_AMB_HEADER, ams_AMB_HEADER.file_num - 1 );
             num2 = 3;
         }
         for ( int i = 0; i < num2; i++ )
         {
             AppMain.AOS_TEXTURE tex = AppMain.gm_start_msg_aos_tex[i];
-            AppMain.AoTexBuild( tex, ( AppMain.AMS_AMB_HEADER )array[i] );
+            AppMain.AoTexBuild( tex, ( AMS_AMB_HEADER )array[i] );
             AppMain.AoTexLoad( tex );
         }
     }
@@ -207,7 +207,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A99 RID: 2713 RVA: 0x0005D398 File Offset: 0x0005B598
-    public static void gmStartMsgObjMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmStartMsgObjMain( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.gm_start_msg_end_state )
         {
@@ -277,7 +277,7 @@ public partial class AppMain
         }
         gms_SMSG_MGR_WORK.msg_type = 0;
         IL_10B:
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(991);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(991);
         AppMain.NNS_TEXLIST texlist = AppMain.AoTexGetTexList(AppMain.gm_start_msg_aos_tex[0]);
         for ( int i = 0; i < ( int )AppMain.gm_start_msg_ama_act_num_tbl[gms_SMSG_MGR_WORK.msg_type]; i++ )
         {
@@ -376,7 +376,7 @@ public partial class AppMain
         AppMain.ObjObjectPause( 2 );
         AppMain.g_gm_main_system.game_flag &= 4294964223U;
         mgr_work.win_per = 0f;
-        AppMain.GmSoundPlaySE( "Window" );
+        GmSound.PlaySE( "Window" );
         mgr_work.timer = 0;
         mgr_work.func = AppMain.gmStartMsgMain_WindowOpen;
     }

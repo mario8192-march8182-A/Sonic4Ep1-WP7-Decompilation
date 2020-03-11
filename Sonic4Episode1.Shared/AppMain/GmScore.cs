@@ -22,7 +22,7 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(18432, 5, 0, 0, () => new AppMain.GMS_SCORE_DISP_WORK(), null);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(18432, 5, 0, 0, () => new AppMain.GMS_SCORE_DISP_WORK(), null);
         AppMain.GMS_SCORE_DISP_WORK gms_SCORE_DISP_WORK = (AppMain.GMS_SCORE_DISP_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.pos.x = pos_x;
         obs_OBJECT_WORK.pos.y = pos_y + -65536;
@@ -72,8 +72,8 @@ public partial class AppMain
         while ( i < 5 && array[i] != -1 )
         {
             gms_SCORE_DISP_WORK.efct_work[i] = AppMain.GmEfctCmnEsCreate( obs_OBJECT_WORK, 56 + array[i] );
-            AppMain.OBS_OBJECT_WORK obj_work = gms_SCORE_DISP_WORK.efct_work[i].efct_com.obj_work;
-            AppMain.OBS_OBJECT_WORK obj_work2 = gms_SCORE_DISP_WORK.efct_work[i].efct_com.obj_work;
+            OBS_OBJECT_WORK obj_work = gms_SCORE_DISP_WORK.efct_work[i].efct_com.obj_work;
+            OBS_OBJECT_WORK obj_work2 = gms_SCORE_DISP_WORK.efct_work[i].efct_com.obj_work;
             gms_SCORE_DISP_WORK.efct_work[i].efct_com.obj_work.scale.z = scale;
             obj_work2.scale.y = scale;
             obj_work.scale.x = scale;
@@ -85,7 +85,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000850 RID: 2128 RVA: 0x00048BB0 File Offset: 0x00046DB0
-    public static void gmScoreMainFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmScoreMainFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_SCORE_DISP_WORK gms_SCORE_DISP_WORK = (AppMain.GMS_SCORE_DISP_WORK)obj_work;
         AppMain.GMS_SCORE_DISP_WORK gms_SCORE_DISP_WORK2 = gms_SCORE_DISP_WORK;

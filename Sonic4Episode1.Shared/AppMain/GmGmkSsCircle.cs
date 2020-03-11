@@ -9,23 +9,23 @@ public partial class AppMain
     // Token: 0x06000775 RID: 1909 RVA: 0x00041E20 File Offset: 0x00040020
     private static void GmGmkSsCircleBuild()
     {
-        AppMain.gm_gmk_ss_circle_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 900 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 901 ) ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(902));
+        AppMain.gm_gmk_ss_circle_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 900 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 901 ) ), 0U );
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(902));
         AppMain.gm_gmk_ss_circle_obj_tvx_list = ams_AMB_HEADER;
     }
 
     // Token: 0x06000776 RID: 1910 RVA: 0x00041E6C File Offset: 0x0004006C
     private static void GmGmkSsCircleFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(900));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(900));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_circle_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_ss_circle_obj_tvx_list = null;
     }
 
     // Token: 0x06000777 RID: 1911 RVA: 0x00041EA8 File Offset: 0x000400A8
-    private static AppMain.OBS_OBJECT_WORK GmGmkSsCircleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSsCircleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_CIRCLE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_CIRCLE");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst -= 128;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_ss_circle_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -66,7 +66,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000779 RID: 1913 RVA: 0x0004209C File Offset: 0x0004029C
-    private static void gmGmkSsCircleMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsCircleMain( OBS_OBJECT_WORK obj_work )
     {
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
         {
@@ -81,7 +81,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600077A RID: 1914 RVA: 0x000420F4 File Offset: 0x000402F4
-    private static void gmGmkSsOnewayMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsOnewayMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
@@ -109,7 +109,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600077B RID: 1915 RVA: 0x00042234 File Offset: 0x00040434
-    private static void gmGmkSsCircleDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsCircleDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -122,7 +122,7 @@ public partial class AppMain
         AppMain.TVX_FILE tvx_FILE;
         if ( AppMain.gm_gmk_ss_circle_obj_tvx_list.buf[0] == null )
         {
-            tvx_FILE = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_ss_circle_obj_tvx_list, 0 ) );
+            tvx_FILE = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_ss_circle_obj_tvx_list, 0 ) );
             AppMain.gm_gmk_ss_circle_obj_tvx_list.buf[0] = tvx_FILE;
         }
         else

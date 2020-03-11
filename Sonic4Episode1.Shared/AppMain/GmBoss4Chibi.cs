@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000251 RID: 593
-    public class GMS_BOSS4_CHIBI_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_BOSS4_CHIBI_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060023C4 RID: 9156 RVA: 0x00149750 File Offset: 0x00147950
         public GMS_BOSS4_CHIBI_WORK()
@@ -16,13 +16,13 @@ public partial class AppMain
         }
 
         // Token: 0x060023C5 RID: 9157 RVA: 0x001497A6 File Offset: 0x001479A6
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d.ene_com.obj_work;
         }
 
         // Token: 0x060023C6 RID: 9158 RVA: 0x001497B8 File Offset: 0x001479B8
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_BOSS4_CHIBI_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_BOSS4_CHIBI_WORK work )
         {
             return work.ene_3d.ene_com.obj_work;
         }
@@ -293,7 +293,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000256 RID: 598
-    public class GMS_BOSS4_MGR_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_BOSS4_MGR_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060023CC RID: 9164 RVA: 0x00149AC3 File Offset: 0x00147CC3
         public GMS_BOSS4_MGR_WORK()
@@ -302,7 +302,7 @@ public partial class AppMain
         }
 
         // Token: 0x060023CD RID: 9165 RVA: 0x00149AD7 File Offset: 0x00147CD7
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d.ene_com.obj_work;
         }

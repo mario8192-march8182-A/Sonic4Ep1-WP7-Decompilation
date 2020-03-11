@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0200024B RID: 587
-    public class GMS_ENE_KANI_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_KANI_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060023B8 RID: 9144 RVA: 0x00149588 File Offset: 0x00147788
         public GMS_ENE_KANI_WORK()
@@ -16,7 +16,7 @@ public partial class AppMain
         }
 
         // Token: 0x060023B9 RID: 9145 RVA: 0x001495A7 File Offset: 0x001477A7
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
@@ -49,20 +49,20 @@ public partial class AppMain
     // Token: 0x06000E00 RID: 3584 RVA: 0x0007B5DE File Offset: 0x000797DE
     public static void GmEneKaniBuild()
     {
-        AppMain.gm_ene_kani_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 684 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 685 ) ), 0U );
+        AppMain.gm_ene_kani_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 684 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 685 ) ), 0U );
     }
 
     // Token: 0x06000E01 RID: 3585 RVA: 0x0007B60C File Offset: 0x0007980C
     public static void GmEneKaniFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(684));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(684));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_kani_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06000E02 RID: 3586 RVA: 0x0007B640 File Offset: 0x00079840
-    public static AppMain.OBS_OBJECT_WORK GmEneKaniInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmEneKaniInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_KANI_WORK(), "ENE_KANI");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_KANI_WORK(), "ENE_KANI");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_KANI_WORK gms_ENE_KANI_WORK = (AppMain.GMS_ENE_KANI_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_kani_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -103,9 +103,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000E03 RID: 3587 RVA: 0x0007B870 File Offset: 0x00079A70
-    public static int gmEneKaniGetLength2N( AppMain.OBS_OBJECT_WORK obj_work )
+    public static int gmEneKaniGetLength2N( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
         {
             return int.MaxValue;
@@ -118,14 +118,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000E04 RID: 3588 RVA: 0x0007B8F4 File Offset: 0x00079AF4
-    public static int gmEneKaniIsPlayerLeft( AppMain.OBS_OBJECT_WORK obj_work )
+    public static int gmEneKaniIsPlayerLeft( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         return AppMain.GmEneComTargetIsLeft( obj_work, gms_PLAYER_WORK.obj_work );
     }
 
     // Token: 0x06000E05 RID: 3589 RVA: 0x0007B91C File Offset: 0x00079B1C
-    public static void gmEneKaniWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GmEneComActionSetDependHFlip( obj_work, 2, 2 );
@@ -153,7 +153,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000E06 RID: 3590 RVA: 0x0007B9E8 File Offset: 0x00079BE8
-    public static void gmEneKaniWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniWalkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_KANI_WORK gms_ENE_KANI_WORK = (AppMain.GMS_ENE_KANI_WORK)obj_work;
         if ( gms_ENE_KANI_WORK.ata_futa != 0 )
@@ -208,23 +208,23 @@ public partial class AppMain
     }
 
     // Token: 0x06000E07 RID: 3591 RVA: 0x0007BB18 File Offset: 0x00079D18
-    public static void gmEneKaniAttackInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniAttackInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
         obj_work.disp_flag &= 4294967291U;
         obj_work.ppFunc = AppMain.gmEneKaniAttackMain;
         obj_work.spd.x = 0;
-        AppMain.GmSoundPlaySE( "Kani" );
+        GmSound.PlaySE( "Kani" );
     }
 
     // Token: 0x06000E08 RID: 3592 RVA: 0x0007BB6C File Offset: 0x00079D6C
-    public static void gmEneKaniAttackMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniAttackMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
         AppMain.GMS_ENE_KANI_WORK gms_ENE_KANI_WORK = (AppMain.GMS_ENE_KANI_WORK)obj_work;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_KANI_WORK.node_work, 16);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_KANI_WORK.node_work, 16);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = nns_MATRIX.M03 - AppMain.FX_FX32_TO_F32( obj_work.pos.x );
         nns_VECTOR.y = nns_MATRIX.M13 - AppMain.FX_FX32_TO_F32( -obj_work.pos.y );
         nns_VECTOR.z = nns_MATRIX.M23 - AppMain.FX_FX32_TO_F32( obj_work.pos.z );
@@ -239,17 +239,17 @@ public partial class AppMain
             obj_work.ppFunc = AppMain.gmEneKaniAttackEnd;
             AppMain.ObjDrawObjectActionSet( obj_work, 1 );
         }
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06000E09 RID: 3593 RVA: 0x0007BC8C File Offset: 0x00079E8C
-    public static void gmEneKaniAttackEnd( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniAttackEnd( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
         AppMain.GMS_ENE_KANI_WORK gms_ENE_KANI_WORK = (AppMain.GMS_ENE_KANI_WORK)obj_work;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_KANI_WORK.node_work, 16);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_KANI_WORK.node_work, 16);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = nns_MATRIX.M03 - AppMain.FX_FX32_TO_F32( obj_work.pos.x );
         nns_VECTOR.y = nns_MATRIX.M13 - AppMain.FX_FX32_TO_F32( -obj_work.pos.y );
         nns_VECTOR.z = nns_MATRIX.M23 - AppMain.FX_FX32_TO_F32( obj_work.pos.z );
@@ -263,11 +263,11 @@ public partial class AppMain
         {
             obj_work.ppFunc = AppMain.gmEneKaniWalkInit;
         }
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06000E0A RID: 3594 RVA: 0x0007BDA2 File Offset: 0x00079FA2
-    public static void gmEneKaniFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniFwMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountDown( obj_work.user_timer );
         if ( obj_work.user_timer <= 0 )
@@ -277,14 +277,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000E0B RID: 3595 RVA: 0x0007BDC4 File Offset: 0x00079FC4
-    public static void gmEneKaniFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniFlipInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.spd.x = 0;
         obj_work.ppFunc = AppMain.gmEneKaniFlipMain;
     }
 
     // Token: 0x06000E0C RID: 3596 RVA: 0x0007BDEB File Offset: 0x00079FEB
-    public static void gmEneKaniFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneKaniFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneKaniSetWalkSpeed( ( AppMain.GMS_ENE_KANI_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )

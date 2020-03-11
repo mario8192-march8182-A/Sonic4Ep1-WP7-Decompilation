@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x06001202 RID: 4610 RVA: 0x0009DF88 File Offset: 0x0009C188
-    private static AppMain.OBS_OBJECT_WORK GmGmkWaterAreaInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkWaterAreaInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         ushort water_level = (ushort)(eve_rec.left * 100 + eve_rec.top);
         ushort num = 0;
@@ -33,7 +33,7 @@ public partial class AppMain
         }
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkWaterAreaLoadObj(eve_rec, pos_x, pos_y, type);
         AppMain.gmGmkWaterAreaInit( gms_ENEMY_3D_WORK, water_level, num );
-        return ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_3D_WORK;
+        return ( OBS_OBJECT_WORK )gms_ENEMY_3D_WORK;
     }
 
     // Token: 0x06001203 RID: 4611 RVA: 0x0009E020 File Offset: 0x0009C220
@@ -48,7 +48,7 @@ public partial class AppMain
     // Token: 0x06001204 RID: 4612 RVA: 0x0009E094 File Offset: 0x0009C294
     private static void gmGmkWaterAreaInit( AppMain.GMS_ENEMY_3D_WORK gimmick_work, ushort water_level, ushort time )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gimmick_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gimmick_work;
         AppMain.GMS_EVE_RECORD_EVENT eve_rec = gimmick_work.ene_com.eve_rec;
         uint type = AppMain.gmGmkWaterAreaGetType(eve_rec);
         byte width = eve_rec.width;
@@ -95,7 +95,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001207 RID: 4615 RVA: 0x0009E1AC File Offset: 0x0009C3AC
-    private static void gmGmkWaterAreaRequestChangeWatarLevel( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkWaterAreaRequestChangeWatarLevel( OBS_OBJECT_WORK obj_work )
     {
         ushort water_level = AppMain.gmGmkWaterAreaUserWorkGetLevel(obj_work);
         ushort num = AppMain.gmGmkWaterAreaUserWorkGetTime(obj_work);
@@ -135,7 +135,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001209 RID: 4617 RVA: 0x0009E27C File Offset: 0x0009C47C
-    private static bool gmGmkWaterAreaCheckDir( AppMain.OBS_OBJECT_WORK gimmick_obj_work, AppMain.OBS_OBJECT_WORK player_obj_work, uint type )
+    private static bool gmGmkWaterAreaCheckDir( OBS_OBJECT_WORK gimmick_obj_work, OBS_OBJECT_WORK player_obj_work, uint type )
     {
         bool result = false;
         switch ( type )
@@ -174,9 +174,9 @@ public partial class AppMain
     // Token: 0x0600120A RID: 4618 RVA: 0x0009E31C File Offset: 0x0009C51C
     private static void gmGmkWaterAreaDefFuncDelay( AppMain.OBS_RECT_WORK own_rect, AppMain.OBS_RECT_WORK target_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)parent_obj;
-        AppMain.OBS_OBJECT_WORK parent_obj2 = target_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj2 = target_rect.parent_obj;
         if ( !AppMain.gmGmkWaterAreaModeCheckWait( parent_obj ) )
         {
             return;
@@ -190,27 +190,27 @@ public partial class AppMain
     }
 
     // Token: 0x0600120B RID: 4619 RVA: 0x0009E36C File Offset: 0x0009C56C
-    private static bool gmGmkWaterAreaModeCheckWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static bool gmGmkWaterAreaModeCheckWait( OBS_OBJECT_WORK obj_work )
     {
         return obj_work.ppFunc == null;
     }
 
     // Token: 0x0600120C RID: 4620 RVA: 0x0009E379 File Offset: 0x0009C579
-    private static void gmGmkWaterAreaModeChangeWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkWaterAreaModeChangeWait( OBS_OBJECT_WORK obj_work )
     {
         obj_work.flag &= 4294967279U;
         obj_work.ppFunc = null;
     }
 
     // Token: 0x0600120D RID: 4621 RVA: 0x0009E391 File Offset: 0x0009C591
-    private static void gmGmkWaterAreaModeChangeLady( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkWaterAreaModeChangeLady( OBS_OBJECT_WORK obj_work )
     {
         obj_work.flag &= 4294967279U;
         obj_work.ppFunc = AppMain.gmGmkWaterAreaMainLady;
     }
 
     // Token: 0x0600120E RID: 4622 RVA: 0x0009E3B4 File Offset: 0x0009C5B4
-    private static void gmGmkWaterAreaModeChangeActive( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkWaterAreaModeChangeActive( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkWaterAreaRequestChangeWatarLevel( obj_work );
         obj_work.flag |= 16U;
@@ -221,7 +221,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600120F RID: 4623 RVA: 0x0009E3F0 File Offset: 0x0009C5F0
-    private static void gmGmkWaterAreaMainLady( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkWaterAreaMainLady( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
@@ -231,7 +231,7 @@ public partial class AppMain
         }
         AppMain.GMS_EVE_RECORD_EVENT eve_rec = gms_ENEMY_3D_WORK.ene_com.eve_rec;
         uint type = AppMain.gmGmkWaterAreaGetType(eve_rec);
-        AppMain.OBS_OBJECT_WORK target_obj = gms_ENEMY_3D_WORK.ene_com.target_obj;
+        OBS_OBJECT_WORK target_obj = gms_ENEMY_3D_WORK.ene_com.target_obj;
         if ( AppMain.gmGmkWaterAreaCheckDir( obj_work, target_obj, type ) )
         {
             AppMain.gmGmkWaterAreaModeChangeWait( obj_work );
@@ -241,7 +241,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001210 RID: 4624 RVA: 0x0009E45C File Offset: 0x0009C65C
-    private static void gmGmkWaterAreaMainActive( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkWaterAreaMainActive( OBS_OBJECT_WORK obj_work )
     {
         int num = (int)AppMain.gmGmkWaterAreaUserWorkGetTime(obj_work);
         int num2 = AppMain.gmGmkWaterAreaUserTimerGetCounter(obj_work);
@@ -253,44 +253,44 @@ public partial class AppMain
     }
 
     // Token: 0x06001211 RID: 4625 RVA: 0x0009E48B File Offset: 0x0009C68B
-    private static void gmGmkWaterAreaUserWorkSetLevel( AppMain.OBS_OBJECT_WORK obj_work, ushort level )
+    private static void gmGmkWaterAreaUserWorkSetLevel( OBS_OBJECT_WORK obj_work, ushort level )
     {
         obj_work.user_work |= ( uint )( ( uint )level << 16 );
     }
 
     // Token: 0x06001212 RID: 4626 RVA: 0x0009E49E File Offset: 0x0009C69E
-    private static ushort gmGmkWaterAreaUserWorkGetLevel( AppMain.OBS_OBJECT_WORK obj_work )
+    private static ushort gmGmkWaterAreaUserWorkGetLevel( OBS_OBJECT_WORK obj_work )
     {
         return ( ushort )( obj_work.user_work >> 16 );
     }
 
     // Token: 0x06001213 RID: 4627 RVA: 0x0009E4AA File Offset: 0x0009C6AA
-    private static void gmGmkWaterAreaUserWorkSetTime( AppMain.OBS_OBJECT_WORK obj_work, ushort time )
+    private static void gmGmkWaterAreaUserWorkSetTime( OBS_OBJECT_WORK obj_work, ushort time )
     {
         obj_work.user_work &= 4294901760U;
         obj_work.user_work |= ( uint )time;
     }
 
     // Token: 0x06001214 RID: 4628 RVA: 0x0009E4CC File Offset: 0x0009C6CC
-    private static ushort gmGmkWaterAreaUserWorkGetTime( AppMain.OBS_OBJECT_WORK obj_work )
+    private static ushort gmGmkWaterAreaUserWorkGetTime( OBS_OBJECT_WORK obj_work )
     {
         return ( ushort )obj_work.user_work;
     }
 
     // Token: 0x06001215 RID: 4629 RVA: 0x0009E4D5 File Offset: 0x0009C6D5
-    private static void gmGmkWaterAreaUserTimerSetCounter( AppMain.OBS_OBJECT_WORK obj_work, int time )
+    private static void gmGmkWaterAreaUserTimerSetCounter( OBS_OBJECT_WORK obj_work, int time )
     {
         obj_work.user_timer = time;
     }
 
     // Token: 0x06001216 RID: 4630 RVA: 0x0009E4DE File Offset: 0x0009C6DE
-    private static void gmGmkWaterAreaUserTimerAddCounter( AppMain.OBS_OBJECT_WORK obj_work, int time )
+    private static void gmGmkWaterAreaUserTimerAddCounter( OBS_OBJECT_WORK obj_work, int time )
     {
         obj_work.user_timer += time;
     }
 
     // Token: 0x06001217 RID: 4631 RVA: 0x0009E4EE File Offset: 0x0009C6EE
-    private static int gmGmkWaterAreaUserTimerGetCounter( AppMain.OBS_OBJECT_WORK obj_work )
+    private static int gmGmkWaterAreaUserTimerGetCounter( OBS_OBJECT_WORK obj_work )
     {
         return obj_work.user_timer;
     }

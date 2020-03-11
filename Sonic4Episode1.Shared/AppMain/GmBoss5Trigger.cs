@@ -8,7 +8,7 @@ public partial class AppMain
 {
 
     // Token: 0x02000073 RID: 115
-    public class GMS_GMK_BOSS5_TRIGGER_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BOSS5_TRIGGER_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001E25 RID: 7717 RVA: 0x00139662 File Offset: 0x00137862
         public GMS_GMK_BOSS5_TRIGGER_WORK()
@@ -17,7 +17,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001E26 RID: 7718 RVA: 0x00139676 File Offset: 0x00137876
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d.ene_com.obj_work;
         }

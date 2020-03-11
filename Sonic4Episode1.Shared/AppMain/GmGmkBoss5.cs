@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0600027D RID: 637 RVA: 0x00014808 File Offset: 0x00012A08
-    private static AppMain.OBS_OBJECT_WORK GmGmkBoss5TriggerInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBoss5TriggerInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_BOSS5_TRIGGER_WORK(), "BOSS5_TRIGGER");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_BOSS5_TRIGGER_WORK(), "BOSS5_TRIGGER");
         obs_OBJECT_WORK.flag |= 16U;
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
         obs_OBJECT_WORK.move_flag |= 8448U;
@@ -19,9 +19,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600027E RID: 638 RVA: 0x00014898 File Offset: 0x00012A98
-    private static void gmGmkBoss5TriggerMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBoss5TriggerMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( obs_OBJECT_WORK != null && obs_OBJECT_WORK.pos.x >= obj_work.pos.x && AppMain.gmGmkBoss5TriggerTryAnnounce() )
         {
             obj_work.flag |= 4U;
@@ -31,7 +31,7 @@ public partial class AppMain
     // Token: 0x0600027F RID: 639 RVA: 0x000148E8 File Offset: 0x00012AE8
     private static bool gmGmkBoss5TriggerTryAnnounce()
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject(null, 2);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject(null, 2);
         while ( obs_OBJECT_WORK != null )
         {
             AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;

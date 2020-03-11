@@ -8,10 +8,10 @@ public partial class AppMain
 {
 
     // Token: 0x06001554 RID: 5460 RVA: 0x000B9490 File Offset: 0x000B7690
-    private static AppMain.OBS_OBJECT_WORK GmGmkSsGoalInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSsGoalInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_GOAL");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_GOAL");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst -= 128;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_ss_goal_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -38,23 +38,23 @@ public partial class AppMain
     public static void GmGmkSsGoalBuild()
     {
         AppMain.gm_gmk_ss_goal_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.GmGameDatGetGimmickData( 907 ), AppMain.GmGameDatGetGimmickData( 908 ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(909);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(909);
         AppMain.gm_gmk_ss_goal_obj_tvx_list = ams_AMB_HEADER;
     }
 
     // Token: 0x06001556 RID: 5462 RVA: 0x000B965C File Offset: 0x000B785C
     public static void GmGmkSsGoalFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(907);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(907);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_goal_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_ss_goal_obj_tvx_list = null;
     }
 
     // Token: 0x06001557 RID: 5463 RVA: 0x000B968C File Offset: 0x000B788C
-    private static void gmGmkSsGoalMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsGoalMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.OBS_COLLISION_OBJ obj_col = obj_work.col_work.obj_col;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
         {
             obj_work.flag |= 4U;
@@ -64,12 +64,12 @@ public partial class AppMain
         if ( obj_col.toucher_obj == gms_PLAYER_WORK.obj_work && obj_col.toucher_obj.touch_obj == obj_work && ( AppMain.g_gm_main_system.game_flag & 131072U ) == 0U )
         {
             AppMain.g_gm_main_system.game_flag |= 131072U;
-            AppMain.GmSoundPlaySE( "Special4" );
+            GmSound.PlaySE( "Special4" );
         }
     }
 
     // Token: 0x06001558 RID: 5464 RVA: 0x000B9730 File Offset: 0x000B7930
-    private static void gmGmkSsGoalDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsGoalDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -82,7 +82,7 @@ public partial class AppMain
         AppMain.TVX_FILE tvx_FILE;
         if ( AppMain.gm_gmk_ss_goal_obj_tvx_list.buf[0] == null )
         {
-            tvx_FILE = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_ss_goal_obj_tvx_list, 0 ) );
+            tvx_FILE = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_ss_goal_obj_tvx_list, 0 ) );
             AppMain.gm_gmk_ss_goal_obj_tvx_list.buf[0] = tvx_FILE;
         }
         else

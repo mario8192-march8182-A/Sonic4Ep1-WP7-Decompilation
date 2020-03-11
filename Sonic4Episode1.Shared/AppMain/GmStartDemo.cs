@@ -8,7 +8,7 @@ using gs.backup;
 public partial class AppMain
 {
     // Token: 0x0200023D RID: 573
-    public class GMS_START_DEMO_DATA : AppMain.IClearable
+    public class GMS_START_DEMO_DATA : IClearable
     {
         // Token: 0x0600239A RID: 9114 RVA: 0x00149273 File Offset: 0x00147473
         public void Clear()
@@ -58,7 +58,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000240 RID: 576
-    public class GMS_START_DEMO_MGR : AppMain.IClearable
+    public class GMS_START_DEMO_MGR : IClearable
     {
         // Token: 0x060023A1 RID: 9121 RVA: 0x001492E7 File Offset: 0x001474E7
         public void Clear()
@@ -98,7 +98,7 @@ public partial class AppMain
             int num = 0;
             while ( 2 > num )
             {
-                AppMain.AoTexBuild( gms_START_DEMO_DATA.aos_texture[num], ( AppMain.AMS_AMB_HEADER )gms_START_DEMO_DATA.demo_amb[num] );
+                AppMain.AoTexBuild( gms_START_DEMO_DATA.aos_texture[num], ( AMS_AMB_HEADER )gms_START_DEMO_DATA.demo_amb[num] );
                 AppMain.AoTexLoad( gms_START_DEMO_DATA.aos_texture[num] );
                 num++;
             }
@@ -219,7 +219,7 @@ public partial class AppMain
         gms_START_DEMO_WORK.counter = 0U;
         gms_START_DEMO_WORK.update = AppMain.gmStartDemoProcFade;
         AppMain.gmStartDemo2DActionCreate( gms_START_DEMO_WORK );
-        AppMain.GMS_PLAYER_WORK ply_work = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK ply_work = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         AppMain.GmPlySeqInitDemoFw( ply_work );
         AppMain.IzFadeInitEasy( 1U, 2U, 30f );
     }
@@ -343,7 +343,7 @@ public partial class AppMain
         AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, tcb_name);
         gms_COCKPIT_2D_WORK.cpit_com.obj_work.disp_flag |= ( uint )node_flag;
         AppMain.ObjObjectAction2dAMALoadSetTexlist( gms_COCKPIT_2D_WORK.cpit_com.obj_work, gms_COCKPIT_2D_WORK.obj_2d, null, null, ama_id, AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList( aos_texture ), ( uint )action_id, node_flag );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_COCKPIT_2D_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_COCKPIT_2D_WORK;
         obs_OBJECT_WORK.pos.z = obs_OBJECT_WORK.pos.z - AppMain.FX_F32_TO_FX32( 10f );
         return gms_COCKPIT_2D_WORK;
     }
@@ -558,7 +558,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.GMS_PLAYER_WORK ply_work = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+                GMS_PLAYER_WORK ply_work = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
                 AppMain.GmPlySeqChangeSequence(ply_work, 0);
                 AppMain.gmStartDemoSetGameFlag(1024U);
                 AoPresence.AoPresenceSet(AoPresenceLocation.Stage);

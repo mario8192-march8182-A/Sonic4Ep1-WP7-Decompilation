@@ -357,7 +357,7 @@ public partial class AppMain
     private class gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_SUPER_SONIC
     {
         // Token: 0x060021BE RID: 8638 RVA: 0x00141A8C File Offset: 0x0013FC8C
-        public static void OutFunc(AppMain.OBS_OBJECT_WORK obj_work)
+        public static void OutFunc(OBS_OBJECT_WORK obj_work)
         {
             if (AppMain.gm_fix_tcb != null)
             {
@@ -374,7 +374,7 @@ public partial class AppMain
     private class gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_PAUSE
     {
         // Token: 0x060021C0 RID: 8640 RVA: 0x00141ACC File Offset: 0x0013FCCC
-        public static void OutFunc(AppMain.OBS_OBJECT_WORK obj_work)
+        public static void OutFunc(OBS_OBJECT_WORK obj_work)
         {
             if (AppMain.gm_fix_tcb != null)
             {
@@ -391,7 +391,7 @@ public partial class AppMain
     private class gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_ACTION
     {
         // Token: 0x060021C2 RID: 8642 RVA: 0x00141B0C File Offset: 0x0013FD0C
-        public static void OutFunc(AppMain.OBS_OBJECT_WORK obj_work)
+        public static void OutFunc(OBS_OBJECT_WORK obj_work)
         {
             if (AppMain.gm_fix_tcb != null)
             {
@@ -408,7 +408,7 @@ public partial class AppMain
     private class gmFixVirtualPadOutClassGMD_FIX_MGR_FLAG_HIDE_VIRTUAL_PAD_PART_MOVE_PAD
     {
         // Token: 0x060021C4 RID: 8644 RVA: 0x00141B4C File Offset: 0x0013FD4C
-        public static void OutFunc(AppMain.OBS_OBJECT_WORK obj_work)
+        public static void OutFunc(OBS_OBJECT_WORK obj_work)
         {
             if (AppMain.gm_fix_tcb != null)
             {
@@ -441,7 +441,7 @@ public partial class AppMain
         for (int j = 0; j < 3; j++)
         {
             AppMain.gm_fix_texamb_list[j] = AppMain.ObjDataLoadAmbIndex(null, AppMain.gm_fix_tex_amb_idx_tbl[AppMain.GsEnvGetLanguage()][j], AppMain.GmGameDatGetCockpitData());
-            AppMain.AoTexBuild(AppMain.gm_fix_textures[j], (AppMain.AMS_AMB_HEADER)AppMain.gm_fix_texamb_list[j]);
+            AppMain.AoTexBuild(AppMain.gm_fix_textures[j], (AMS_AMB_HEADER)AppMain.gm_fix_texamb_list[j]);
             AppMain.AoTexLoad(AppMain.gm_fix_textures[j]);
         }
     }
@@ -588,7 +588,7 @@ public partial class AppMain
     }
 
     // Token: 0x060006AA RID: 1706 RVA: 0x0003C3C4 File Offset: 0x0003A5C4
-    private static void gmFixSubpartOutFunc(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmFixSubpartOutFunc(OBS_OBJECT_WORK obj_work)
     {
         if (AppMain.gm_fix_tcb == null)
         {
@@ -602,7 +602,7 @@ public partial class AppMain
     }
 
     // Token: 0x060006AB RID: 1707 RVA: 0x0003C3F9 File Offset: 0x0003A5F9
-    private static void gmFixSetFrameStatic(AppMain.OBS_OBJECT_WORK obj_work, float frame)
+    private static void gmFixSetFrameStatic(OBS_OBJECT_WORK obj_work, float frame)
     {
         obj_work.obj_2d.frame = frame;
         obj_work.obj_2d.speed = 0f;
@@ -828,14 +828,14 @@ public partial class AppMain
         gms_FIX_PART_WORK.proc_disp = AppMain.gmFixRingCountPartProcDispMain;
         for (int i = 0; i < 4; i++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_RING");
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_RING");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
             obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.gm_fix_ringcount_act_id_tbl[i], 0);
             AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
             if (i != 0)
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK2.pos.y = obs_OBJECT_WORK2.pos.y + AppMain.FX_F32_TO_FX32(5f);
             }
             ((AppMain.GMS_FIX_PART_RINGCOUNT)gms_FIX_PART_WORK).sub_parts[i] = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
@@ -896,7 +896,7 @@ public partial class AppMain
     private static void gmFixRingCountPartUpdateDigitList(AppMain.GMS_FIX_PART_RINGCOUNT part_ringcount)
     {
         int num = (int)AppMain.gmFixGetRingNum();
-        AppMain.AkUtilNumValueToDigits(num, part_ringcount.digit_list, 3);
+        AkUtil.NumValueToDigits(num, part_ringcount.digit_list, 3);
         if (num == 0)
         {
             for (int i = 0; i < 3; i++)
@@ -912,7 +912,7 @@ public partial class AppMain
         for (int i = 0; i < 3; i++)
         {
             AppMain.GMS_COCKPIT_2D_WORK work = part_ringcount.sub_parts[AppMain.gm_fix_part_ring_count_digit_subpart_idx_tbl[i]];
-            AppMain.gmFixSetFrameStatic((AppMain.OBS_OBJECT_WORK)work, AppMain.gm_fix_part_ring_count_digit_type_frame_tbl[part_ringcount.digit_list[i]]);
+            AppMain.gmFixSetFrameStatic((OBS_OBJECT_WORK)work, AppMain.gm_fix_part_ring_count_digit_type_frame_tbl[part_ringcount.digit_list[i]]);
         }
     }
 
@@ -925,11 +925,11 @@ public partial class AppMain
             {
                 if (enable)
                 {
-                    ((AppMain.OBS_OBJECT_WORK)part_ringcount.sub_parts[i]).disp_flag &= 4294967263U;
+                    ((OBS_OBJECT_WORK)part_ringcount.sub_parts[i]).disp_flag &= 4294967263U;
                 }
                 else
                 {
-                    ((AppMain.OBS_OBJECT_WORK)part_ringcount.sub_parts[i]).disp_flag |= 32U;
+                    ((OBS_OBJECT_WORK)part_ringcount.sub_parts[i]).disp_flag |= 32U;
                 }
             }
         }
@@ -960,16 +960,16 @@ public partial class AppMain
             }
             else
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_SCORE");
+                OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_SCORE");
                 AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
                 obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
                 AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.act_id_tblgmFixScorePartInit[i], 0);
                 AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + num;
                 if (i != 0)
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y + AppMain.FX_F32_TO_FX32(2f);
                 }
                 ((AppMain.GMS_FIX_PART_SCORE)gms_FIX_PART_WORK).sub_parts[i] = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
@@ -995,7 +995,7 @@ public partial class AppMain
     private static void gmFixScorePartUpdateDigitList(AppMain.GMS_FIX_PART_SCORE part_score)
     {
         int val = (int)AppMain.gmFixGetScore();
-        AppMain.AkUtilNumValueToDigits(val, part_score.digit_list, 9);
+        AkUtil.NumValueToDigits(val, part_score.digit_list, 9);
     }
 
     // Token: 0x060006C8 RID: 1736 RVA: 0x0003CBF8 File Offset: 0x0003ADF8
@@ -1004,7 +1004,7 @@ public partial class AppMain
         for (int i = 0; i < 9; i++)
         {
             AppMain.GMS_COCKPIT_2D_WORK work = part_score.sub_parts[AppMain.gm_fix_part_score_digit_subpart_idx_tbl[i]];
-            AppMain.gmFixSetFrameStatic((AppMain.OBS_OBJECT_WORK)work, AppMain.gm_fix_part_common_digit_type_frame_tbl[part_score.digit_list[i]]);
+            AppMain.gmFixSetFrameStatic((OBS_OBJECT_WORK)work, AppMain.gm_fix_part_common_digit_type_frame_tbl[part_score.digit_list[i]]);
         }
     }
 
@@ -1027,24 +1027,24 @@ public partial class AppMain
         }
         for (int i = 0; i < 8; i++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_TIMER");
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_TIMER");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
             obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.act_id_tblgmFixTimerPartInit[i], 0);
             AppMain.gmFixSetFrameStatic(obs_OBJECT_WORK, 0f);
             if (AppMain.gmFixIsTimeAttack())
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + AppMain.FX_F32_TO_FX32(-98f);
                 if (i != 0)
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y + AppMain.FX_F32_TO_FX32(5f);
                 }
             }
             else if (i != 0)
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK4.pos.y = obs_OBJECT_WORK4.pos.y + AppMain.FX_F32_TO_FX32(5f);
             }
             ((AppMain.GMS_FIX_PART_TIMER)gms_FIX_PART_WORK).sub_parts[i] = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
@@ -1062,7 +1062,7 @@ public partial class AppMain
         part_timer.flag |= 1U;
         for (int i = 0; i < 8; i++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_TIMER_SS");
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_TIMER_SS");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
             int num;
             int num2;
@@ -1100,7 +1100,7 @@ public partial class AppMain
         {
             ushort? num = new ushort?(0);
             ushort? num2 = default(ushort?);
-            AppMain.AkUtilFrame60ToTime(AppMain.gmFixGetGameTime(), ref num2, ref num, ref num2);
+            AkUtil.Frame60ToTime(AppMain.gmFixGetGameTime(), ref num2, ref num, ref num2);
             if ((part_work.flag & 4U) == 0U)
             {
                 part_work.flag |= 4U;
@@ -1110,7 +1110,7 @@ public partial class AppMain
             if (gms_FIX_PART_TIMER.cur_sec != num)
             {
                 gms_FIX_PART_TIMER.cur_sec = num.Value;
-                AppMain.GmSoundPlaySE("Countdown");
+                GmSound.PlaySE("Countdown");
                 return;
             }
         }
@@ -1158,13 +1158,13 @@ public partial class AppMain
         ushort val = 0;
         ushort val2 = 0;
         ushort val3 = 0;
-        AppMain.AkUtilFrame60ToTime(AppMain.gmFixGetGameTime(), ref val3, ref val2, ref val);
+        AkUtil.Frame60ToTime(AppMain.gmFixGetGameTime(), ref val3, ref val2, ref val);
         int num = 0;
-        AppMain.AkUtilNumValueToDigits((int)val, new AppMain.ArrayPointer<int>(part_timer.digit_list, num), AppMain.digit_num_listgmFixTimerPartUpdateDigitList[0]);
+        AkUtil.NumValueToDigits((int)val, new AppMain.ArrayPointer<int>(part_timer.digit_list, num), AppMain.digit_num_listgmFixTimerPartUpdateDigitList[0]);
         num += AppMain.digit_num_listgmFixTimerPartUpdateDigitList[0];
-        AppMain.AkUtilNumValueToDigits((int)val2, new AppMain.ArrayPointer<int>(part_timer.digit_list, num), AppMain.digit_num_listgmFixTimerPartUpdateDigitList[1]);
+        AkUtil.NumValueToDigits((int)val2, new AppMain.ArrayPointer<int>(part_timer.digit_list, num), AppMain.digit_num_listgmFixTimerPartUpdateDigitList[1]);
         num += AppMain.digit_num_listgmFixTimerPartUpdateDigitList[1];
-        AppMain.AkUtilNumValueToDigits((int)val3, new AppMain.ArrayPointer<int>(part_timer.digit_list, num), AppMain.digit_num_listgmFixTimerPartUpdateDigitList[2]);
+        AkUtil.NumValueToDigits((int)val3, new AppMain.ArrayPointer<int>(part_timer.digit_list, num), AppMain.digit_num_listgmFixTimerPartUpdateDigitList[2]);
         num += AppMain.digit_num_listgmFixTimerPartUpdateDigitList[2];
     }
 
@@ -1175,14 +1175,14 @@ public partial class AppMain
         while ((long)num < 5L)
         {
             AppMain.GMS_COCKPIT_2D_WORK work = part_timer.sub_parts[AppMain.gm_fix_part_timer_digit_subpart_idx_tbl[num]];
-            AppMain.gmFixSetFrameStatic((AppMain.OBS_OBJECT_WORK)work, AppMain.gm_fix_part_common_digit_type_frame_tbl[part_timer.digit_list[num]] + part_timer.digit_frame_ofst);
+            AppMain.gmFixSetFrameStatic((OBS_OBJECT_WORK)work, AppMain.gm_fix_part_common_digit_type_frame_tbl[part_timer.digit_list[num]] + part_timer.digit_frame_ofst);
             num++;
         }
         int num2 = 0;
         while ((long)num2 < 2L)
         {
             AppMain.GMS_COCKPIT_2D_WORK work2 = part_timer.sub_parts[AppMain.gm_fix_part_timer_deco_char_subpart_idx_tbl[num2]];
-            AppMain.gmFixSetFrameStatic((AppMain.OBS_OBJECT_WORK)work2, 0f + part_timer.deco_char_frame_ofst);
+            AppMain.gmFixSetFrameStatic((OBS_OBJECT_WORK)work2, 0f + part_timer.deco_char_frame_ofst);
             num2++;
         }
     }
@@ -1196,11 +1196,11 @@ public partial class AppMain
             {
                 if (enable)
                 {
-                    ((AppMain.OBS_OBJECT_WORK)part_timer.sub_parts[i]).disp_flag &= 4294967263U;
+                    ((OBS_OBJECT_WORK)part_timer.sub_parts[i]).disp_flag &= 4294967263U;
                 }
                 else
                 {
-                    ((AppMain.OBS_OBJECT_WORK)part_timer.sub_parts[i]).disp_flag |= 32U;
+                    ((OBS_OBJECT_WORK)part_timer.sub_parts[i]).disp_flag |= 32U;
                 }
             }
         }
@@ -1222,7 +1222,7 @@ public partial class AppMain
     {
         for (int i = 0; i < 8; i++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)part_timer.sub_parts[i];
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)part_timer.sub_parts[i];
             if (i != 0)
             {
                 if (enable)
@@ -1255,7 +1255,7 @@ public partial class AppMain
     {
         ushort num = 0;
         ushort num2 = 0;
-        AppMain.AkUtilFrame60ToTime(AppMain.gmFixGetGameTime(), ref num, ref num2);
+        AkUtil.Frame60ToTime(AppMain.gmFixGetGameTime(), ref num, ref num2);
         if ((mgr_work.flag & 4U) != 0U)
         {
             return num <= 0 && num2 < 20;
@@ -1323,7 +1323,7 @@ public partial class AppMain
             byte a = (byte)AppMain.MTM_MATH_CLIP(255f * part_timer.fade_ratio, 0f, 255f);
             for (uint num2 = 0U; num2 < num; num2 += 1U)
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)part_timer.sub_parts[(int)((UIntPtr)array[(int)((UIntPtr)num2)])];
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)part_timer.sub_parts[(int)((UIntPtr)array[(int)((UIntPtr)num2)])];
                 obs_OBJECT_WORK.scale.x = (obs_OBJECT_WORK.scale.y = y);
                 obs_OBJECT_WORK.obj_2d.fade.b = (obs_OBJECT_WORK.obj_2d.fade.g = (obs_OBJECT_WORK.obj_2d.fade.r = byte.MaxValue));
                 obs_OBJECT_WORK.obj_2d.fade.a = a;
@@ -1335,7 +1335,7 @@ public partial class AppMain
         part_timer.flash_act_phase = 0U;
         for (uint num3 = 0U; num3 < num; num3 += 1U)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = (AppMain.OBS_OBJECT_WORK)part_timer.sub_parts[(int)((UIntPtr)array[(int)((UIntPtr)num3)])];
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = (OBS_OBJECT_WORK)part_timer.sub_parts[(int)((UIntPtr)array[(int)((UIntPtr)num3)])];
             obs_OBJECT_WORK2.scale.x = (obs_OBJECT_WORK2.scale.y = 4096);
             obs_OBJECT_WORK2.obj_2d.fade.a = (obs_OBJECT_WORK2.obj_2d.fade.b = (obs_OBJECT_WORK2.obj_2d.fade.g = (obs_OBJECT_WORK2.obj_2d.fade.r = 0)));
         }
@@ -1351,7 +1351,7 @@ public partial class AppMain
         gms_FIX_PART_WORK.proc_disp = AppMain.gmFixChallengePartProcDispMain;
         for (int i = 0; i < 5; i++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_CHALLENGE");
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_CHALLENGE");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
             obs_OBJECT_WORK.ppOut = AppMain.gmFixSubpartOutFunc;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.gm_fix_challenge_act_id_tbl[AppMain.gmFixGetPlan()][i], 0);
@@ -1376,7 +1376,7 @@ public partial class AppMain
                 frame = 0f;
             }
         }
-        AppMain.gmFixSetFrameStatic((AppMain.OBS_OBJECT_WORK)gms_FIX_PART_CHALLENGE.sub_parts[0], frame);
+        AppMain.gmFixSetFrameStatic((OBS_OBJECT_WORK)gms_FIX_PART_CHALLENGE.sub_parts[0], frame);
         AppMain.gmFixChallengePartUpdateDigitList(gms_FIX_PART_CHALLENGE);
     }
 
@@ -1391,7 +1391,7 @@ public partial class AppMain
     private static void gmFixChallengePartUpdateDigitList(AppMain.GMS_FIX_PART_CHALLENGE part_challenge)
     {
         int val = (int)AppMain.gmFixGetChallengeNum();
-        AppMain.AkUtilNumValueToDigits(val, part_challenge.digit_list, 3);
+        AkUtil.NumValueToDigits(val, part_challenge.digit_list, 3);
     }
 
     // Token: 0x060006DA RID: 1754 RVA: 0x0003D7B0 File Offset: 0x0003B9B0
@@ -1400,7 +1400,7 @@ public partial class AppMain
         for (int i = 0; i < 3; i++)
         {
             AppMain.GMS_COCKPIT_2D_WORK work = part_challenge.sub_parts[AppMain.gm_fix_part_challenge_digit_subpart_idx_tbl[i]];
-            AppMain.gmFixSetFrameStatic((AppMain.OBS_OBJECT_WORK)work, AppMain.gm_fix_part_common_digit_type_frame_tbl[part_challenge.digit_list[i]]);
+            AppMain.gmFixSetFrameStatic((OBS_OBJECT_WORK)work, AppMain.gm_fix_part_common_digit_type_frame_tbl[part_challenge.digit_list[i]]);
         }
     }
 
@@ -1432,7 +1432,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_VIRTUAL_PAD");
+                OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "FIX_VIRTUAL_PAD");
                 AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
                 obs_OBJECT_WORK.ppOut = array[i];
                 AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_fix_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_fix_textures[0]), (uint)AppMain.gm_fix_virtual_pad_act_id_tbl[AppMain.gmFixGetPlan()][i], 0);
@@ -1442,12 +1442,12 @@ public partial class AppMain
                 {
                     if (AppMain.gmFixIsSpecialStage())
                     {
-                        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                        OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                         obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + AppMain.FX_F32_TO_FX32(400f);
                     }
                     else if (AppMain.gmFixIsTimeAttack())
                     {
-                        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+                        OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
                         obs_OBJECT_WORK3.pos.x = obs_OBJECT_WORK3.pos.x + AppMain.FX_F32_TO_FX32(200f);
                     }
                 }
@@ -1474,7 +1474,7 @@ public partial class AppMain
     private static void gmFixVirtualPadPartProcUpdateMain(AppMain.GMS_FIX_PART_WORK part_work)
     {
         AppMain.GMS_FIX_PART_VIRTUAL_PAD gms_FIX_PART_VIRTUAL_PAD = (AppMain.GMS_FIX_PART_VIRTUAL_PAD)part_work;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[0];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[0];
         if (AppMain.gmFixVirtualPadPartIsDispSuperSonicIcon(gms_FIX_PART_VIRTUAL_PAD))
         {
             AppMain.amFlagOff(ref obs_OBJECT_WORK.disp_flag, 32U);
@@ -1483,7 +1483,7 @@ public partial class AppMain
         {
             AppMain.amFlagOn(ref obs_OBJECT_WORK.disp_flag, 32U);
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = (AppMain.OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[1];
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = (OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[1];
         if (AppMain.gmFixVirtualPadPartIsDispPauseIcon(gms_FIX_PART_VIRTUAL_PAD))
         {
             AppMain.amFlagOff(ref obs_OBJECT_WORK2.disp_flag, 32U);
@@ -1508,7 +1508,7 @@ public partial class AppMain
                 break;
             case 2:
                 {
-                    AppMain.OBS_OBJECT_WORK obj_work = (AppMain.OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[3];
+                    OBS_OBJECT_WORK obj_work = (OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[3];
                     float frame = AppMain.gmFixVirtualPadPartGetMovePadFrame(gms_FIX_PART_VIRTUAL_PAD);
                     AppMain.gmFixSetFrameStatic(obj_work, frame);
                     break;
@@ -1516,7 +1516,7 @@ public partial class AppMain
             default:
                 return;
         }
-        AppMain.OBS_OBJECT_WORK obj_work2 = (AppMain.OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[2];
+        OBS_OBJECT_WORK obj_work2 = (OBS_OBJECT_WORK)gms_FIX_PART_VIRTUAL_PAD.sub_parts[2];
         if (AppMain.gmFixVirtualPadPartIsOnActionIcon(gms_FIX_PART_VIRTUAL_PAD))
         {
             AppMain.gmFixSetFrameStatic(obj_work2, 1f);
@@ -1533,7 +1533,7 @@ public partial class AppMain
     // Token: 0x060006DE RID: 1758 RVA: 0x0003DB35 File Offset: 0x0003BD35
     private static bool gmFixVirtualPadPartIsDispSuperSonicIcon(AppMain.GMS_FIX_PART_VIRTUAL_PAD pArg)
     {
-        return AppMain.GmPlayerIsTransformSuperSonic(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)]);
+        return GmPlayer.IsTransformSuperSonic(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)]);
     }
 
     // Token: 0x060006DF RID: 1759 RVA: 0x0003DB49 File Offset: 0x0003BD49
@@ -1576,6 +1576,6 @@ public partial class AppMain
     // Token: 0x060006E2 RID: 1762 RVA: 0x0003DBDA File Offset: 0x0003BDDA
     private static bool gmFixVirtualPadPartIsOnActionIcon(AppMain.GMS_FIX_PART_VIRTUAL_PAD pArg)
     {
-        return AppMain.GmPlayerKeyCheckJumpKeyOn(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)]);
+        return GmPlayer.KeyCheckJumpKeyOn(AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)]);
     }
 }

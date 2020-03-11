@@ -28,23 +28,23 @@ public partial class AppMain
         public int[] work = new int[32];
 
         // Token: 0x04005841 RID: 22593
-        public AppMain.OBS_OBJECT_WORK obj_work;
+        public OBS_OBJECT_WORK obj_work;
     }
 
     // Token: 0x06000096 RID: 150 RVA: 0x00008222 File Offset: 0x00006422
-    private static AppMain.OBS_OBJECT_WORK GMM_ENEMY_CREATE_RIDE_WORK( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, AppMain.TaskWorkFactoryDelegate work_size, string name )
+    private static OBS_OBJECT_WORK GMM_ENEMY_CREATE_RIDE_WORK( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, AppMain.TaskWorkFactoryDelegate work_size, string name )
     {
         return AppMain.GmEnemyCreateWork( eve_rec, pos_x, pos_y, work_size, 4342, name );
     }
 
     // Token: 0x06000097 RID: 151 RVA: 0x00008234 File Offset: 0x00006434
-    private static AppMain.OBS_OBJECT_WORK GMM_ENEMY_CREATE_WORK( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, AppMain.TaskWorkFactoryDelegate work_size, string name )
+    private static OBS_OBJECT_WORK GMM_ENEMY_CREATE_WORK( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, AppMain.TaskWorkFactoryDelegate work_size, string name )
     {
         return AppMain.GmEnemyCreateWork( eve_rec, pos_x, pos_y, work_size, 5376, name );
     }
 
     // Token: 0x06000098 RID: 152 RVA: 0x00008250 File Offset: 0x00006450
-    private static AppMain.OBS_OBJECT_WORK GmEnemyCreateWork( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, AppMain.TaskWorkFactoryDelegate work_size, ushort prio, string name )
+    private static OBS_OBJECT_WORK GmEnemyCreateWork( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, AppMain.TaskWorkFactoryDelegate work_size, ushort prio, string name )
     {
         ushort[] array = new ushort[]
         {
@@ -58,7 +58,7 @@ public partial class AppMain
             ushort.MaxValue,
             65534
         };
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, 2, 0, 0, work_size, name);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, 2, 0, 0, work_size, name);
         if ( obs_OBJECT_WORK == null )
         {
             return null;
@@ -157,10 +157,10 @@ public partial class AppMain
     private static void GmEnemyDefaultDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = null;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = null;
         if ( match_rect.parent_obj != null && match_rect.parent_obj.obj_type == 1 )
         {
-            gms_PLAYER_WORK = ( AppMain.GMS_PLAYER_WORK )match_rect.parent_obj;
+            gms_PLAYER_WORK = ( GMS_PLAYER_WORK )match_rect.parent_obj;
         }
         if ( gms_ENEMY_COM_WORK.vit == 0 )
         {
@@ -174,14 +174,14 @@ public partial class AppMain
             gms_ENEMY_COM_WORK.rect_work[2].flag |= 2048U;
             if ( gms_ENEMY_COM_WORK.obj_work.obj_type == 2 )
             {
-                AppMain.GmSoundPlaySE( "Enemy" );
+                GmSound.PlaySE( "Enemy" );
                 AppMain.GmComEfctCreateHitPlayer( gms_ENEMY_COM_WORK.obj_work, ( int )( ( mine_rect.rect.left + mine_rect.rect.right ) * 4096 / 2 ), ( int )( ( mine_rect.rect.top + mine_rect.rect.bottom ) * 4096 / 2 ) );
                 AppMain.GmComEfctCreateEneDeadSmoke( gms_ENEMY_COM_WORK.obj_work, ( int )( ( mine_rect.rect.left + mine_rect.rect.right ) * 4096 / 2 ), ( int )( ( mine_rect.rect.top + mine_rect.rect.bottom ) * 4096 / 2 ) );
                 AppMain.GmGmkAnimalInit( gms_ENEMY_COM_WORK.obj_work, 0, 0, 0, 0, 0, 0 );
                 AppMain.GMM_PAD_VIB_SMALL();
                 if ( gms_PLAYER_WORK != null )
                 {
-                    AppMain.GmPlayerComboScore( gms_PLAYER_WORK, gms_ENEMY_COM_WORK.obj_work.pos.x, gms_ENEMY_COM_WORK.obj_work.pos.y + -65536 );
+                    GmPlayer.ComboScore( gms_PLAYER_WORK, gms_ENEMY_COM_WORK.obj_work.pos.x, gms_ENEMY_COM_WORK.obj_work.pos.y + -65536 );
                 }
                 AppMain.HgTrophyIncEnemyKillCount( gms_ENEMY_COM_WORK.obj_work );
             }
@@ -209,13 +209,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600009D RID: 157 RVA: 0x0000886C File Offset: 0x00006A6C
-    private static void GmEnemyDefaultMoveFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmEnemyDefaultMoveFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjObjectMove( obj_work );
     }
 
     // Token: 0x0600009E RID: 158 RVA: 0x00008874 File Offset: 0x00006A74
-    private static void GmEnemyDefaultInFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmEnemyDefaultInFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obj_work;
         if ( gms_ENEMY_COM_WORK.target_obj != null && ( gms_ENEMY_COM_WORK.target_obj.flag & 4U ) != 0U )
@@ -225,7 +225,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600009F RID: 159 RVA: 0x000088A6 File Offset: 0x00006AA6
-    private static void gmEnemyDefaultRecFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEnemyDefaultRecFunc( OBS_OBJECT_WORK obj_work )
     {
     }
 

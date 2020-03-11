@@ -9,21 +9,21 @@ public partial class AppMain
     // Token: 0x060003CD RID: 973 RVA: 0x0001E4C9 File Offset: 0x0001C6C9
     private static void GmGmkPressPillarBuild()
     {
-        AppMain.gm_gmk_press_pillar_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 951 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 952 ) ), 0U );
+        AppMain.gm_gmk_press_pillar_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 951 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 952 ) ), 0U );
         AppMain.GmGmkPressPillarClear();
     }
 
     // Token: 0x060003CE RID: 974 RVA: 0x0001E4FC File Offset: 0x0001C6FC
     private static void GmGmkPressPillarFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(951));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(951));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_press_pillar_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060003CF RID: 975 RVA: 0x0001E540 File Offset: 0x0001C740
-    private static AppMain.OBS_OBJECT_WORK GmGmkPressPillarInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPressPillarInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_P_PIL_TOP");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_P_PIL_TOP");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         uint num = 0U;
         if ( eve_rec.id == 285 )
@@ -56,10 +56,10 @@ public partial class AppMain
             AppMain.ObjObjectFieldRectSet( obs_OBJECT_WORK, ( short )( -AppMain.GMD_GMK_PPIL_COL_WIDTH / 2 + 2 ), ( short )( -AppMain.GMD_GMK_PPIL_COL_HEIGHT ), ( short )( AppMain.GMD_GMK_PPIL_COL_WIDTH / 2 - 2 ), -1 );
         }
         obs_OBJECT_WORK.ppFunc = AppMain.gmGmkPPillarTopWait;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_P_PIL_BODY");
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_P_PIL_BODY");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK2;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK2, AppMain.gm_gmk_press_pillar_obj_3d_list[( int )( ( UIntPtr )num )], gms_EFFECT_3DNN_WORK.obj_3d );
-        AppMain.ObjAction3dNNMaterialMotionLoad( gms_EFFECT_3DNN_WORK.obj_3d, 0, null, null, ( int )num, AppMain.readAMBFile( AppMain.ObjDataGet( 953 ).pData ) );
+        AppMain.ObjAction3dNNMaterialMotionLoad( gms_EFFECT_3DNN_WORK.obj_3d, 0, null, null, ( int )num, AmFs.readAMBFile( AppMain.ObjDataGet( 953 ).pData ) );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK2, 0 );
         obs_OBJECT_WORK2.pos.z = -131072;
         obs_OBJECT_WORK2.move_flag |= 256U;
@@ -89,7 +89,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003D2 RID: 978 RVA: 0x0001E868 File Offset: 0x0001CA68
-    private static void gmGmkPPillarTopWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPPillarTopWait( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_EVE_RECORD_EVENT eve_rec = ((AppMain.GMS_ENEMY_COM_WORK)obj_work).eve_rec;
         byte b = (byte)((uint)eve_rec.flag & AppMain.GMD_GMK_PPIL_ID_NUM_MASK);
@@ -114,7 +114,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003D3 RID: 979 RVA: 0x0001E8EC File Offset: 0x0001CAEC
-    private static void gmGmkPPillarTopMove( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPPillarTopMove( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_EVE_RECORD_EVENT eve_rec = ((AppMain.GMS_ENEMY_COM_WORK)obj_work).eve_rec;
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obj_work;
@@ -152,7 +152,7 @@ public partial class AppMain
             obj_work.user_flag |= AppMain.GMD_GMK_PPIL_COLHIT;
             if ( ( ( int )eve_rec.flag & AppMain.GMD_GMK_PPIL_FLAG_EFFECT ) == 0 )
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(obj_work, 3, 1);
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(obj_work, 3, 1);
                 if ( eve_rec.id == 284 )
                 {
                     obs_OBJECT_WORK.dir.z = 32768;
@@ -162,9 +162,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003D4 RID: 980 RVA: 0x0001E9E4 File Offset: 0x0001CBE4
-    private static void gmGmkPPillarBodyFollow( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPPillarBodyFollow( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
         int num = parent_obj.pos.y;
         if ( ( ( AppMain.GMS_ENEMY_COM_WORK )parent_obj ).eve_rec.id == 284 )
         {
@@ -195,9 +195,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003D5 RID: 981 RVA: 0x0001EABC File Offset: 0x0001CCBC
-    private static void gmGmkPPillarBodyMove( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPPillarBodyMove( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
         AppMain.GMS_EVE_RECORD_EVENT eve_rec = ((AppMain.GMS_ENEMY_COM_WORK)parent_obj).eve_rec;
         int num = obj_work.spd.y * 3 / 4;
         if ( 16 < AppMain.MTM_MATH_ABS( num ) )
@@ -235,9 +235,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003D6 RID: 982 RVA: 0x0001EC24 File Offset: 0x0001CE24
-    private static void gmGmkPPillarBodyMoveEx( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPPillarBodyMoveEx( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
         AppMain.GMS_EVE_RECORD_EVENT eve_rec = ((AppMain.GMS_ENEMY_COM_WORK)parent_obj).eve_rec;
         if ( obj_work.user_flag == 0U )
         {
@@ -274,9 +274,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003D7 RID: 983 RVA: 0x0001ED74 File Offset: 0x0001CF74
-    private static void gmGmkPPillarSpringFollow( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPPillarSpringFollow( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
         int num = parent_obj.pos.y;
         if ( ( ( AppMain.GMS_ENEMY_COM_WORK )parent_obj ).eve_rec.id == 284 )
         {
@@ -302,9 +302,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003D8 RID: 984 RVA: 0x0001EE18 File Offset: 0x0001D018
-    private static void gmGmkPPillarSpringMove( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPPillarSpringMove( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
         AppMain.GMS_EVE_RECORD_EVENT eve_rec = ((AppMain.GMS_ENEMY_COM_WORK)parent_obj).eve_rec;
         int num;
         int num2;

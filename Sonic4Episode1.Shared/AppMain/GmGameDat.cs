@@ -134,7 +134,7 @@ public partial class AppMain
         public int bb_no;
 
         // Token: 0x04004D9E RID: 19870
-        public AppMain.AMS_FS fs_req;
+        public AMS_FS fs_req;
 
         // Token: 0x04004D9F RID: 19871
         public AppMain.GMS_GAMEDAT_LOAD_DATA load_data;
@@ -211,7 +211,7 @@ public partial class AppMain
     }
 
     // Token: 0x020001B8 RID: 440
-    public class GMS_GDBUILD_BUILD_MDL_WORK : AppMain.IClearable
+    public class GMS_GDBUILD_BUILD_MDL_WORK : IClearable
     {
         // Token: 0x06002219 RID: 8729 RVA: 0x0014237C File Offset: 0x0014057C
         public void Clear()
@@ -237,10 +237,10 @@ public partial class AppMain
         public int reg_num;
 
         // Token: 0x04004FE1 RID: 20449
-        public AppMain.AMS_AMB_HEADER mdl_amb;
+        public AMS_AMB_HEADER mdl_amb;
 
         // Token: 0x04004FE2 RID: 20450
-        public AppMain.AMS_AMB_HEADER tex_amb;
+        public AMS_AMB_HEADER tex_amb;
 
         // Token: 0x04004FE3 RID: 20451
         public uint draw_flag;
@@ -254,7 +254,7 @@ public partial class AppMain
     public delegate void gamedat_build_area_func();
 
     // Token: 0x060005AD RID: 1453 RVA: 0x00032F4E File Offset: 0x0003114E
-    public static AppMain.AMS_AMB_HEADER GmGameDatGetCockpitData()
+    public static AMS_AMB_HEADER GmGameDatGetCockpitData()
     {
         return AppMain.g_gm_gamedat_cockpit_main_arc;
     }
@@ -417,7 +417,7 @@ public partial class AppMain
     // Token: 0x060005B3 RID: 1459 RVA: 0x00033388 File Offset: 0x00031588
     public static void GmGameDatReleaseStandard()
     {
-        AppMain.GmPlayerRelease();
+        GmPlayer.Release();
         if ( AppMain.g_gm_gamedat_cockpit_main_arc != null )
         {
             AppMain.g_gm_gamedat_cockpit_main_arc = null;
@@ -481,7 +481,7 @@ public partial class AppMain
     }
 
     // Token: 0x060005B7 RID: 1463 RVA: 0x0003346F File Offset: 0x0003166F
-    public static AppMain.AMS_AMB_HEADER GmGameDatGetGimmickData( int data_no )
+    public static AMS_AMB_HEADER GmGameDatGetGimmickData( int data_no )
     {
         return AppMain.g_gm_gamedat_gimmick[data_no - 789];
     }
@@ -615,15 +615,15 @@ public partial class AppMain
             int stage_id = (int)context.stage_id;
             if ( ( 7 == stage_id && "G_ZONE2/BOSS/BOSS02.AMB" == context.file_path ) || ( 11 == stage_id && "G_ZONE3/BOSS/BOSS03.AMB" == context.file_path ) || ( 15 == stage_id && "G_ZONEF/BOSS/BOSS04.AMB" == context.file_path ) || ( 16 == stage_id && "G_ZONEF/BOSS/BOSS05.AMB" == context.file_path ) )
             {
-                context.fs_req = AppMain.amFsReadBackground( context.file_path, 8192 );
+                context.fs_req = AmFs.amFsReadBackground( context.file_path, 8192 );
             }
             else
             {
-                context.fs_req = AppMain.amFsReadBackground( context.file_path, 65536 );
+                context.fs_req = AmFs.amFsReadBackground( context.file_path, 65536 );
             }
             context.state = AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_LOADING;
         }
-        else if ( AppMain.amFsIsComplete( context.fs_req ) )
+        else if ( AmFs.amFsIsComplete( context.fs_req ) )
         {
             context.state = AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_COMPLETE;
             if ( AppMain.gm_gamedat_load_work.proc_type != 1 && context.fs_req != null )
@@ -632,7 +632,7 @@ public partial class AppMain
                 {
                     load_data.proc_post( context );
                 }
-                AppMain.amFsClearRequest( context.fs_req );
+                AmFs.amFsClearRequest( context.fs_req );
                 context.fs_req = null;
             }
         }
@@ -649,26 +649,26 @@ public partial class AppMain
     // Token: 0x060005C2 RID: 1474 RVA: 0x0003382C File Offset: 0x00031A2C
     public static void gmGameDatLoadProcPostPlayer( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.ObjDataSet( AppMain.g_gm_player_data_work[( int )context.ply_no][( int )context.data_no], context.fs_req );
+        AppMain.ObjDataSet( GmPlayer.g_gm_player_data_work[( int )context.ply_no][( int )context.data_no], context.fs_req );
         context.fs_req = null;
     }
 
     // Token: 0x060005C3 RID: 1475 RVA: 0x00033854 File Offset: 0x00031A54
     public static void gmGameDatLoadProcPostCockpit( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.g_gm_gamedat_cockpit_main_arc = AppMain.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_cockpit_main_arc = AmFs.readAMBFile( context.fs_req );
         context.fs_req = null;
     }
 
     // Token: 0x060005C4 RID: 1476 RVA: 0x00033870 File Offset: 0x00031A70
     public static void gmGameDatLoadProcPostMap( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.g_gm_gamedat_map[( int )context.data_no] = AppMain.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_map[( int )context.data_no] = AmFs.readAMBFile( context.fs_req );
         switch ( context.data_no )
         {
             case 0:
                 {
-                    AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(context.fs_req);
+                    AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(context.fs_req);
                     int i = 0;
                     while ( i < 9 && i < ams_AMB_HEADER.file_num )
                     {
@@ -678,14 +678,14 @@ public partial class AppMain
                             case 1:
                             case 4:
                             case 5:
-                                AppMain.g_gm_gamedat_map_set[i] = AppMain.readMPFile( ( AppMain.AmbChunk )AppMain.amBindGet( ams_AMB_HEADER, i ) );
+                                AppMain.g_gm_gamedat_map_set[i] = AppMain.readMPFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, i ) );
                                 break;
                             case 2:
                             case 3:
-                                AppMain.g_gm_gamedat_map_set[i] = AppMain.readMDFile( ( AppMain.AmbChunk )AppMain.amBindGet( ams_AMB_HEADER, i ) );
+                                AppMain.g_gm_gamedat_map_set[i] = AppMain.readMDFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, i ) );
                                 break;
                             default:
-                                AppMain.g_gm_gamedat_map_set[i] = AppMain.amBindGet( ams_AMB_HEADER, i );
+                                AppMain.g_gm_gamedat_map_set[i] = AmBind.Get( ams_AMB_HEADER, i );
                                 break;
                         }
                         i++;
@@ -694,8 +694,8 @@ public partial class AppMain
                     {
                         if ( ams_AMB_HEADER.file_num >= 11 + i )
                         {
-                            AppMain.g_gm_gamedat_map_set_add[i] = AppMain.readMPFile( ( AppMain.AmbChunk )AppMain.amBindGet( ams_AMB_HEADER, 9 + i ) );
-                            AppMain.g_gm_gamedat_map_set_add[i + 1] = AppMain.readMDFile( ( AppMain.AmbChunk )AppMain.amBindGet( ams_AMB_HEADER, 9 + i + 1 ) );
+                            AppMain.g_gm_gamedat_map_set_add[i] = AppMain.readMPFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, 9 + i ) );
+                            AppMain.g_gm_gamedat_map_set_add[i + 1] = AppMain.readMDFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, 9 + i + 1 ) );
                         }
                         else
                         {
@@ -707,11 +707,11 @@ public partial class AppMain
                 }
             case 1:
                 {
-                    AppMain.AMS_AMB_HEADER ams_AMB_HEADER2 = (AppMain.AMS_AMB_HEADER)AppMain.g_gm_gamedat_map[(int)context.data_no];
+                    AMS_AMB_HEADER ams_AMB_HEADER2 = (AMS_AMB_HEADER)AppMain.g_gm_gamedat_map[(int)context.data_no];
                     AppMain.TVX_FILE[] array = new AppMain.TVX_FILE[ams_AMB_HEADER2.file_num];
                     for ( int j = 0; j < ams_AMB_HEADER2.file_num; j++ )
                     {
-                        array[j] = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( ams_AMB_HEADER2, j ) );
+                        array[j] = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( ams_AMB_HEADER2, j ) );
                     }
                     if ( AppMain.g_gs_main_sys_info.stage_id >= 0 && AppMain.g_gs_main_sys_info.stage_id <= 3 )
                     {
@@ -788,11 +788,11 @@ public partial class AppMain
                 break;
             case 3:
                 {
-                    AppMain.AMS_AMB_HEADER ams_AMB_HEADER3 = AppMain.readAMBFile(context.fs_req);
+                    AMS_AMB_HEADER ams_AMB_HEADER3 = AmFs.readAMBFile(context.fs_req);
                     int num9 = 0;
                     while ( num9 < 3 && num9 < ams_AMB_HEADER3.file_num )
                     {
-                        AppMain.g_gm_gamedat_map_attr_set[num9] = AppMain.amBindGet( ams_AMB_HEADER3, num9 );
+                        AppMain.g_gm_gamedat_map_attr_set[num9] = AmBind.Get( ams_AMB_HEADER3, num9 );
                         num9++;
                     }
                     break;
@@ -806,14 +806,14 @@ public partial class AppMain
     // Token: 0x060005C5 RID: 1477 RVA: 0x00033E45 File Offset: 0x00032045
     public static void gmGameDatLoadProcPostMapFar( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.GmMapFarInitData( AppMain.readAMBFile( context.fs_req ) );
+        AppMain.GmMapFarInitData( AmFs.readAMBFile( context.fs_req ) );
         context.fs_req = null;
     }
 
     // Token: 0x060005C6 RID: 1478 RVA: 0x00033E5E File Offset: 0x0003205E
     public static void gmGameDatLoadProcPostEffect( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.g_gm_gamedat_effect[context.load_data.user_data - 5] = AppMain.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_effect[context.load_data.user_data - 5] = AmFs.readAMBFile( context.fs_req );
         context.fs_req = null;
     }
 
@@ -827,28 +827,28 @@ public partial class AppMain
     // Token: 0x060005C8 RID: 1480 RVA: 0x00033EAB File Offset: 0x000320AB
     public static void gmGameDatLoadProcPostBoss( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.g_gm_gamedat_enemy_arc = AppMain.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_enemy_arc = AmFs.readAMBFile( context.fs_req );
         context.fs_req = null;
     }
 
     // Token: 0x060005C9 RID: 1481 RVA: 0x00033EC4 File Offset: 0x000320C4
     public static void gmGameDatLoadProcPostGimmick( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.g_gm_gamedat_gimmick[context.load_data.user_data - 789] = AppMain.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_gimmick[context.load_data.user_data - 789] = AmFs.readAMBFile( context.fs_req );
         context.fs_req = null;
     }
 
     // Token: 0x060005CA RID: 1482 RVA: 0x00033EEF File Offset: 0x000320EF
     public static void gmGameDatLoadProcPostDeco( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.GmDecoInitData( AppMain.readAMBFile( context.fs_req ) );
+        AppMain.GmDecoInitData( AmFs.readAMBFile( context.fs_req ) );
         context.fs_req = null;
     }
 
     // Token: 0x060005CB RID: 1483 RVA: 0x00033F08 File Offset: 0x00032108
     public static void gmGameDatLoadProcPostWaterSurface( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
     {
-        AppMain.GmWaterSurfaceInitData( AppMain.readAMBFile( context.fs_req ) );
+        AppMain.GmWaterSurfaceInitData( AmFs.readAMBFile( context.fs_req ) );
         context.fs_req = null;
     }
 
@@ -903,8 +903,8 @@ public partial class AppMain
     // Token: 0x060008E9 RID: 2281 RVA: 0x00051A8E File Offset: 0x0004FC8E
     private static void GmGameDatBuildStandard()
     {
-        AppMain.GmPlayerBuild();
-        AppMain.GmSoundBuild();
+        GmPlayer.Build();
+        GmSound.Build();
         AppMain.GmFixBuildDataInit();
         AppMain.GmClearDemoBuild();
         AppMain.GmStartDemoBuild();
@@ -946,7 +946,7 @@ public partial class AppMain
     // Token: 0x060008EB RID: 2283 RVA: 0x00051B6C File Offset: 0x0004FD6C
     private static bool GmGameDatBuildStandardCheck()
     {
-        return AppMain.GmPlayerBuildCheck() && AppMain.GmSoundBuildCheck() && AppMain.GmRingBuildCheck() != 0 && AppMain.GmFixBuildDataLoop() && AppMain.GmClearDemoBuildCheck() && AppMain.GmStartDemoBuildCheck() && AppMain.GmOverBuildDataLoop() && AppMain.GmPauseMenuBuildIsFinished() && AppMain.GmEfctCmnBuildDataLoop();
+        return GmPlayer.BuildCheck() && GmSound.BuildCheck() && AppMain.GmRingBuildCheck() != 0 && AppMain.GmFixBuildDataLoop() && AppMain.GmClearDemoBuildCheck() && AppMain.GmStartDemoBuildCheck() && AppMain.GmOverBuildDataLoop() && AppMain.GmPauseMenuBuildIsFinished() && AppMain.GmEfctCmnBuildDataLoop();
     }
 
     // Token: 0x060008EC RID: 2284 RVA: 0x00051BCC File Offset: 0x0004FDCC
@@ -1013,8 +1013,8 @@ public partial class AppMain
         AppMain.GmStartDemoFlush();
         AppMain.GmClearDemoFlush();
         AppMain.GmFixFlushDataInit();
-        AppMain.GmSoundFlush();
-        AppMain.GmPlayerFlush();
+        GmSound.Flush();
+        GmPlayer.Flush();
     }
 
     // Token: 0x060008EF RID: 2287 RVA: 0x00051C74 File Offset: 0x0004FE74
@@ -1048,7 +1048,7 @@ public partial class AppMain
     // Token: 0x060008F0 RID: 2288 RVA: 0x00051D1C File Offset: 0x0004FF1C
     private static bool GmGameDatFlushStandardCheck()
     {
-        return AppMain.GmRingFlushCheck() != 0 && AppMain.GmEfctCmnFlushDataLoop() && AppMain.GmFixFlushDataLoop() && AppMain.GmStartDemoFlushCheck() && AppMain.GmClearDemoFlushCheck() && AppMain.GmOverFlushDataLoop() && AppMain.GmPauseMenuFlushIsFinished() && AppMain.GmGameDBuildCheckFlushModel() && AppMain.GmWaterSurfaceCheckFlush() && AppMain.GmPlayerFlushCheck();
+        return AppMain.GmRingFlushCheck() != 0 && AppMain.GmEfctCmnFlushDataLoop() && AppMain.GmFixFlushDataLoop() && AppMain.GmStartDemoFlushCheck() && AppMain.GmClearDemoFlushCheck() && AppMain.GmOverFlushDataLoop() && AppMain.GmPauseMenuFlushIsFinished() && AppMain.GmGameDBuildCheckFlushModel() && AppMain.GmWaterSurfaceCheckFlush() && GmPlayer.FlushCheck();
     }
 
     // Token: 0x060008F1 RID: 2289 RVA: 0x00051D84 File Offset: 0x0004FF84
@@ -1186,13 +1186,13 @@ public partial class AppMain
     }
 
     // Token: 0x060008F9 RID: 2297 RVA: 0x00051F11 File Offset: 0x00050111
-    private static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel( AppMain.AMS_AMB_HEADER mdl_amb, AppMain.AMS_AMB_HEADER tex_amb, uint draw_flag )
+    private static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel( AMS_AMB_HEADER mdl_amb, AMS_AMB_HEADER tex_amb, uint draw_flag )
     {
         return AppMain.GmGameDBuildRegBuildModel( mdl_amb, tex_amb, draw_flag, null );
     }
 
     // Token: 0x060008FA RID: 2298 RVA: 0x00051F1C File Offset: 0x0005011C
-    private static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel( AppMain.AMS_AMB_HEADER mdl_amb, AppMain.AMS_AMB_HEADER tex_amb, uint draw_flag, AppMain.TXB_HEADER txb )
+    private static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel( AMS_AMB_HEADER mdl_amb, AMS_AMB_HEADER tex_amb, uint draw_flag, AppMain.TXB_HEADER txb )
     {
         AppMain.GMS_GDBUILD_BUILD_MDL_WORK gms_GDBUILD_BUILD_MDL_WORK = AppMain.gm_obj_build_model_work_buf[AppMain.gm_obj_build_model_work_reg_num];
         AppMain.gm_obj_build_model_work_reg_num++;

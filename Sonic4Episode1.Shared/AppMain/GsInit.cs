@@ -17,7 +17,7 @@ public partial class AppMain
         public int count;
 
         // Token: 0x0400504B RID: 20555
-        public AppMain.AMS_FS fs;
+        public AMS_FS fs;
 
         // Token: 0x0400504C RID: 20556
         public AppMain.GSS_INIT_WORK.ProcDelegate proc;
@@ -114,12 +114,12 @@ public partial class AppMain
     {
         if (work.fs == null)
         {
-            work.fs = AppMain.amFsReadBackground("DEMO/LOADING/D_LOADING.AMB");
+            work.fs = AmFs.amFsReadBackground("DEMO/LOADING/D_LOADING.AMB");
         }
-        if (AppMain.amFsIsComplete(work.fs))
+        if (AmFs.amFsIsComplete(work.fs))
         {
             AppMain.DmLoadingBuild(work.fs);
-            AppMain.amFsClearRequest(work.fs);
+            AmFs.amFsClearRequest(work.fs);
             work.fs = null;
             work.proc = AppMain.gsInitProcBuildLoadingFile;
         }
@@ -149,7 +149,7 @@ public partial class AppMain
     // Token: 0x060009F4 RID: 2548 RVA: 0x00059C1C File Offset: 0x00057E1C
     private static void gsInitProcSysLast(AppMain.GSS_INIT_WORK work)
     {
-        AppMain.AoAccountInit();
+        AoAccount.AoAccountInit();
         AppMain.AoStorageInit();
         work.proc = AppMain.gsInitProcCheckTrial;
     }

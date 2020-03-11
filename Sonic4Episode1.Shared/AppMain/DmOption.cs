@@ -28,49 +28,49 @@ public partial class AppMain
         }
 
         // Token: 0x0400572B RID: 22315
-        public AppMain.AMS_FS[] arc_cmn_amb_fs = new AppMain.AMS_FS[5];
+        public AMS_FS[] arc_cmn_amb_fs = new AMS_FS[5];
 
         // Token: 0x0400572C RID: 22316
-        public AppMain.AMS_AMB_HEADER[] arc_cmn_amb = new AppMain.AMS_AMB_HEADER[5];
+        public AMS_AMB_HEADER[] arc_cmn_amb = new AMS_AMB_HEADER[5];
 
         // Token: 0x0400572D RID: 22317
-        public AppMain.A2S_AMA_HEADER[] cmn_ama = new AppMain.A2S_AMA_HEADER[5];
+        public A2S_AMA_HEADER[] cmn_ama = new A2S_AMA_HEADER[5];
 
         // Token: 0x0400572E RID: 22318
-        public AppMain.AMS_AMB_HEADER[] cmn_amb = new AppMain.AMS_AMB_HEADER[5];
+        public AMS_AMB_HEADER[] cmn_amb = new AMS_AMB_HEADER[5];
 
         // Token: 0x0400572F RID: 22319
         public AppMain.AOS_TEXTURE[] cmn_tex;
 
         // Token: 0x04005730 RID: 22320
-        public AppMain.AMS_FS[] arc_amb_fs = new AppMain.AMS_FS[2];
+        public AMS_FS[] arc_amb_fs = new AMS_FS[2];
 
         // Token: 0x04005731 RID: 22321
-        public AppMain.AMS_FS[] user_arc_amb_fs = new AppMain.AMS_FS[2];
+        public AMS_FS[] user_arc_amb_fs = new AMS_FS[2];
 
         // Token: 0x04005732 RID: 22322
-        public AppMain.AMS_FS[] manual_arc_amb_fs = new AppMain.AMS_FS[2];
+        public AMS_FS[] manual_arc_amb_fs = new AMS_FS[2];
 
         // Token: 0x04005733 RID: 22323
-        public AppMain.AMS_AMB_HEADER[] arc_amb = new AppMain.AMS_AMB_HEADER[2];
+        public AMS_AMB_HEADER[] arc_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005734 RID: 22324
-        public AppMain.AMS_AMB_HEADER[] user_arc_amb = new AppMain.AMS_AMB_HEADER[2];
+        public AMS_AMB_HEADER[] user_arc_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005735 RID: 22325
-        public AppMain.AMS_AMB_HEADER[] manual_arc_amb = new AppMain.AMS_AMB_HEADER[2];
+        public AMS_AMB_HEADER[] manual_arc_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005736 RID: 22326
-        public AppMain.AMS_FS[] win_amb_fs;
+        public AMS_FS[] win_amb_fs;
 
         // Token: 0x04005737 RID: 22327
-        public AppMain.A2S_AMA_HEADER[] ama = new AppMain.A2S_AMA_HEADER[2];
+        public A2S_AMA_HEADER[] ama = new A2S_AMA_HEADER[2];
 
         // Token: 0x04005738 RID: 22328
-        public AppMain.AMS_AMB_HEADER[] amb = new AppMain.AMS_AMB_HEADER[2];
+        public AMS_AMB_HEADER[] amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005739 RID: 22329
-        public AppMain.AMS_AMB_HEADER[] win_amb;
+        public AMS_AMB_HEADER[] win_amb;
 
         // Token: 0x0400573A RID: 22330
         public AppMain.AOS_TEXTURE[] tex;
@@ -232,10 +232,10 @@ public partial class AppMain
         public bool is_jp_region;
 
         // Token: 0x0400576F RID: 22383
-        public AppMain.GSS_SND_SCB bgm_scb;
+        public GSS_SND_SCB bgm_scb;
 
         // Token: 0x04005770 RID: 22384
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
 
         // Token: 0x0200022C RID: 556
         // (Invoke) Token: 0x06002381 RID: 9089
@@ -417,7 +417,7 @@ public partial class AppMain
             }
             AppMain.dmOptSetNextEvt(dms_OPT_MAIN_WORK);
         }
-        if ((dms_OPT_MAIN_WORK.flag & 2147483648U) > 0U && !AppMain.AoAccountIsCurrentEnable())
+        if ((dms_OPT_MAIN_WORK.flag & 2147483648U) > 0U && !AoAccount.AoAccountIsCurrentEnable())
         {
             dms_OPT_MAIN_WORK.proc_update = AppMain.dmOptProcFadeOut;
             dms_OPT_MAIN_WORK.flag &= 2147483647U;
@@ -504,15 +504,15 @@ public partial class AppMain
     // Token: 0x06000CBC RID: 3260 RVA: 0x00070A24 File Offset: 0x0006EC24
     private static void dmOptLoadRequest(AppMain.DMS_OPT_MAIN_WORK main_work)
     {
-        main_work.arc_amb_fs[0] = AppMain.amFsReadBackground("DEMO/OPTION/D_OPTION.AMB");
-        main_work.arc_amb_fs[1] = AppMain.amFsReadBackground(AppMain.dm_opt_main_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
+        main_work.arc_amb_fs[0] = AmFs.amFsReadBackground("DEMO/OPTION/D_OPTION.AMB");
+        main_work.arc_amb_fs[1] = AmFs.amFsReadBackground(AppMain.dm_opt_main_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
         for (int i = 0; i < 4; i++)
         {
-            main_work.arc_cmn_amb_fs[i] = AppMain.amFsReadBackground(AppMain.dm_opt_menu_cmn_amb_name_tbl[i]);
+            main_work.arc_cmn_amb_fs[i] = AmFs.amFsReadBackground(AppMain.dm_opt_menu_cmn_amb_name_tbl[i]);
         }
-        main_work.arc_cmn_amb_fs[4] = AppMain.amFsReadBackground(AppMain.dm_opt_menu_cmn_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
-        main_work.manual_arc_amb_fs[0] = AppMain.amFsReadBackground("DEMO/MANUAL/D_MANUAL.AMB");
-        main_work.manual_arc_amb_fs[1] = AppMain.amFsReadBackground(AppMain.dm_opt_manual_file_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
+        main_work.arc_cmn_amb_fs[4] = AmFs.amFsReadBackground(AppMain.dm_opt_menu_cmn_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
+        main_work.manual_arc_amb_fs[0] = AmFs.amFsReadBackground("DEMO/MANUAL/D_MANUAL.AMB");
+        main_work.manual_arc_amb_fs[1] = AmFs.amFsReadBackground(AppMain.dm_opt_manual_file_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
         main_work.proc_update = AppMain.dmOptProcLoadWait;
     }
 
@@ -523,24 +523,24 @@ public partial class AppMain
         {
             for (int i = 0; i < 2; i++)
             {
-                main_work.arc_amb[i] = AppMain.readAMBFile(main_work.arc_amb_fs[i]);
-                main_work.ama[i] = AppMain.readAMAFile(AppMain.amBindGet(main_work.arc_amb[i], 0));
+                main_work.arc_amb[i] = AmFs.readAMBFile(main_work.arc_amb_fs[i]);
+                main_work.ama[i] = A2S.readAMAFile(AmBind.Get(main_work.arc_amb[i], 0));
                 string dir;
-                main_work.amb[i] = AppMain.readAMBFile(AppMain.amBindGet(main_work.arc_amb[i], 1, out dir));
+                main_work.amb[i] = AmFs.readAMBFile(AmBind.Get(main_work.arc_amb[i], 1, out dir));
                 main_work.amb[i].dir = dir;
-                AppMain.amFsClearRequest(main_work.arc_amb_fs[i]);
+                AmFs.amFsClearRequest(main_work.arc_amb_fs[i]);
                 main_work.arc_amb_fs[i] = null;
                 AppMain.AoTexBuild(main_work.tex[i], main_work.amb[i]);
                 AppMain.AoTexLoad(main_work.tex[i]);
             }
             for (int j = 0; j < 5; j++)
             {
-                main_work.arc_cmn_amb[j] = AppMain.readAMBFile(main_work.arc_cmn_amb_fs[j]);
-                main_work.cmn_ama[j] = AppMain.readAMAFile(AppMain.amBindGet(main_work.arc_cmn_amb[j], 0));
+                main_work.arc_cmn_amb[j] = AmFs.readAMBFile(main_work.arc_cmn_amb_fs[j]);
+                main_work.cmn_ama[j] = A2S.readAMAFile(AmBind.Get(main_work.arc_cmn_amb[j], 0));
                 string dir2;
-                main_work.cmn_amb[j] = AppMain.readAMBFile(AppMain.amBindGet(main_work.arc_cmn_amb[j], 1, out dir2));
+                main_work.cmn_amb[j] = AmFs.readAMBFile(AmBind.Get(main_work.arc_cmn_amb[j], 1, out dir2));
                 main_work.cmn_amb[j].dir = dir2;
-                AppMain.amFsClearRequest(main_work.arc_cmn_amb_fs[j]);
+                AmFs.amFsClearRequest(main_work.arc_cmn_amb_fs[j]);
                 main_work.arc_cmn_amb_fs[j] = null;
                 AppMain.AoTexBuild(main_work.cmn_tex[j], main_work.cmn_amb[j]);
                 AppMain.AoTexLoad(main_work.cmn_tex[j]);
@@ -561,8 +561,8 @@ public partial class AppMain
         {
             for (int i = 0; i < 2; i++)
             {
-                main_work.manual_arc_amb[i] = AppMain.readAMBFile(main_work.manual_arc_amb_fs[i]);
-                AppMain.amFsClearRequest(main_work.manual_arc_amb_fs[i]);
+                main_work.manual_arc_amb[i] = AmFs.readAMBFile(main_work.manual_arc_amb_fs[i]);
+                AmFs.amFsClearRequest(main_work.manual_arc_amb_fs[i]);
                 main_work.manual_arc_amb_fs[i] = null;
             }
             AppMain.DmManualBuild(main_work.manual_arc_amb);
@@ -580,9 +580,9 @@ public partial class AppMain
             {
                 return;
             }
-            main_work.bgm_scb = AppMain.GsSoundAssignScb(0);
+            main_work.bgm_scb = GsSound.AssignScb(0);
             main_work.bgm_scb.flag |= 2147483648U;
-            main_work.se_handle = AppMain.GsSoundAllocSeHandle();
+            main_work.se_handle = GsSound.AllocSeHandle();
         }
     }
 
@@ -601,7 +601,7 @@ public partial class AppMain
     // Token: 0x06000CC1 RID: 3265 RVA: 0x00070D74 File Offset: 0x0006EF74
     private static void dmOptProcCreateAct(AppMain.DMS_OPT_MAIN_WORK main_work)
     {
-        AppMain.A2S_AMA_HEADER ama;
+        A2S_AMA_HEADER ama;
         AppMain.AOS_TEXTURE tex;
         for (uint num = 0U; num < 102U; num += 1U)
         {
@@ -704,7 +704,7 @@ public partial class AppMain
             AppMain.DmSndBgmPlayerPlayBgm(0);
             return;
         }
-        AppMain.GsSoundPlayBgm(main_work.bgm_scb, "snd_sng_menu", 32);
+        GsSound.PlayBgm(main_work.bgm_scb, "snd_sng_menu", 32);
     }
 
     // Token: 0x06000CC2 RID: 3266 RVA: 0x00071075 File Offset: 0x0006F275
@@ -763,8 +763,8 @@ public partial class AppMain
                 AppMain.DmSoundPlaySE("Cancel");
                 return;
             }
-            AppMain.GsSoundPlaySe("Cancel", main_work.se_handle);
-            AppMain.GsSoundStopBgm(main_work.bgm_scb, 32);
+            GsSound.PlaySe("Cancel", main_work.se_handle);
+            GsSound.StopBgm(main_work.bgm_scb, 32);
             return;
         }
         else
@@ -779,7 +779,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Ok", main_work.se_handle);
+                    GsSound.PlaySe("Ok", main_work.se_handle);
                 }
                 main_work.flag &= 4294967291U;
                 main_work.flag &= 4294967293U;
@@ -794,7 +794,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                    GsSound.PlaySe("Cursol", main_work.se_handle);
                 }
                 main_work.flag |= 262144U;
                 AppMain.dmOptSetChngFocusCrsrData(main_work);
@@ -810,7 +810,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                    GsSound.PlaySe("Cursol", main_work.se_handle);
                 }
                 main_work.flag |= 262144U;
                 AppMain.dmOptSetChngFocusCrsrData(main_work);
@@ -937,7 +937,7 @@ public partial class AppMain
                 AppMain.DmSoundPlaySE("Cancel");
                 return;
             }
-            AppMain.GsSoundPlaySe("Cancel", main_work.se_handle);
+            GsSound.PlaySe("Cancel", main_work.se_handle);
             return;
         }
         else
@@ -971,7 +971,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Cancel", main_work.se_handle);
+                    GsSound.PlaySe("Cancel", main_work.se_handle);
                 }
                 main_work.flag &= 4294967291U;
                 main_work.flag &= 4294967293U;
@@ -989,7 +989,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Ok", main_work.se_handle);
+                    GsSound.PlaySe("Ok", main_work.se_handle);
                 }
                 main_work.flag &= 4294967291U;
                 main_work.flag &= 4294967293U;
@@ -1004,7 +1004,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                    GsSound.PlaySe("Cursol", main_work.se_handle);
                 }
                 main_work.flag &= 4294967231U;
                 main_work.flag &= 4294967167U;
@@ -1019,7 +1019,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                    GsSound.PlaySe("Cursol", main_work.se_handle);
                 }
                 main_work.flag &= 4294967231U;
                 main_work.flag &= 4294967167U;
@@ -1109,7 +1109,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.GsSoundPlaySe("Cancel", main_work.se_handle);
+                GsSound.PlaySe("Cancel", main_work.se_handle);
             }
             main_work.flag &= 4294967291U;
             main_work.flag &= 4294967293U;
@@ -1140,7 +1140,7 @@ public partial class AppMain
             main_work.flag |= 2147483648U;
             if (AppMain.dm_opt_is_pause_maingame)
             {
-                AppMain.GsSoundPlayBgm(main_work.bgm_scb, "snd_sng_menu", 32);
+                GsSound.PlayBgm(main_work.bgm_scb, "snd_sng_menu", 32);
                 AppMain.IzFadeInitEasyColor(0, 32767, 61439, 18U, 0U, 0U, 32f, true);
                 return;
             }
@@ -1177,10 +1177,10 @@ public partial class AppMain
             {
                 return;
             }
-            AppMain.GsSoundStopBgm(main_work.bgm_scb, 0);
-            AppMain.GsSoundResignScb(main_work.bgm_scb);
+            GsSound.StopBgm(main_work.bgm_scb, 0);
+            GsSound.ResignScb(main_work.bgm_scb);
             main_work.bgm_scb = null;
-            AppMain.GsSoundFreeSeHandle(main_work.se_handle);
+            GsSound.FreeSeHandle(main_work.se_handle);
             main_work.se_handle = null;
         }
     }
@@ -1356,7 +1356,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                    GsSound.PlaySe("Cursol", main_work.se_handle);
                 }
             }
             CTrgAoAction ctrgAoAction2 = main_work.trg_ctrl_btn[1];
@@ -1373,7 +1373,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                    GsSound.PlaySe("Cursol", main_work.se_handle);
                 }
             }
             else if (ctrgAoAction2.GetState(0U)[10] && ctrgAoAction2.GetState(0U)[1])
@@ -1384,7 +1384,7 @@ public partial class AppMain
                     AppMain.DmSoundPlaySE("Window");
                     return;
                 }
-                AppMain.GsSoundPlaySe("Window", main_work.se_handle);
+                GsSound.PlaySe("Window", main_work.se_handle);
                 return;
             }
         }
@@ -1413,7 +1413,7 @@ public partial class AppMain
                         AppMain.DmSoundPlaySE("Cursol");
                         return;
                     }
-                    AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                    GsSound.PlaySe("Cursol", main_work.se_handle);
                 }
             }
             return;
@@ -1493,7 +1493,7 @@ public partial class AppMain
                             AppMain.DmSoundPlaySE("Cursol");
                             return;
                         }
-                        AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                        GsSound.PlaySe("Cursol", main_work.se_handle);
                         break;
                     default:
                         return;
@@ -1517,7 +1517,7 @@ public partial class AppMain
                     AppMain.DmSoundPlaySE("Cursol");
                     return;
                 }
-                AppMain.GsSoundPlaySe("Cursol", main_work.se_handle);
+                GsSound.PlaySe("Cursol", main_work.se_handle);
                 return;
             default:
                 return;
@@ -1533,7 +1533,7 @@ public partial class AppMain
             main_work.flag |= 2U;
             return;
         }
-        if ((AppMain.AoPadStand() & ControllerConsts.CONFIRM) > 0)
+        if ((AoPad.AoPadStand() & ControllerConsts.CONFIRM) > 0)
         {
             main_work.flag |= 4U;
         }
@@ -2162,7 +2162,7 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.GsSoundPlaySe("Window", main_work.se_handle, 0);
+                    GsSound.PlaySe("Window", main_work.se_handle, 0);
                 }
                 AppMain.dmOptSetSaveOptionData(main_work);
                 return;
@@ -2183,7 +2183,7 @@ public partial class AppMain
                     AppMain.DmSndBgmPlayerBgmStop();
                     return;
                 }
-                AppMain.GsSoundStopBgm(main_work.bgm_scb, 32);
+                GsSound.StopBgm(main_work.bgm_scb, 32);
                 return;
             default:
                 return;
@@ -2375,21 +2375,21 @@ public partial class AppMain
     {
         for (int i = 0; i < 2; i++)
         {
-            if (!AppMain.amFsIsComplete(main_work.arc_amb_fs[i]))
+            if (!AmFs.amFsIsComplete(main_work.arc_amb_fs[i]))
             {
                 return 0;
             }
         }
         for (int j = 0; j < 5; j++)
         {
-            if (!AppMain.amFsIsComplete(main_work.arc_cmn_amb_fs[j]))
+            if (!AmFs.amFsIsComplete(main_work.arc_cmn_amb_fs[j]))
             {
                 return 0;
             }
         }
         for (int k = 0; k < 2; k++)
         {
-            if (!AppMain.amFsIsComplete(main_work.manual_arc_amb_fs[k]))
+            if (!AmFs.amFsIsComplete(main_work.manual_arc_amb_fs[k]))
             {
                 return 0;
             }

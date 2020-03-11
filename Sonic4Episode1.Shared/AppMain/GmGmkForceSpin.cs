@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x06001564 RID: 5476 RVA: 0x000B9BFC File Offset: 0x000B7DFC
-    private static AppMain.OBS_OBJECT_WORK GmGmkForceSpinSetInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x,
+    private static OBS_OBJECT_WORK GmGmkForceSpinSetInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x,
         int pos_y, byte type)
     {
         AppMain.UNREFERENCED_PARAMETER(type);
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y,
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y,
             () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_FORCE_SPIN_SET");
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK) obs_OBJECT_WORK;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_COM_WORK.rect_work[2];
@@ -23,11 +23,11 @@ public partial class AppMain
     }
 
     // Token: 0x06001565 RID: 5477 RVA: 0x000B9CB0 File Offset: 0x000B7EB0
-    private static AppMain.OBS_OBJECT_WORK GmGmkForceSpinResetInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x,
+    private static OBS_OBJECT_WORK GmGmkForceSpinResetInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x,
         int pos_y, byte type)
     {
         AppMain.UNREFERENCED_PARAMETER(type);
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y,
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y,
             () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_FORCE_SPIN_RESET");
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK) obs_OBJECT_WORK;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_COM_WORK.rect_work[2];
@@ -39,10 +39,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001566 RID: 5478 RVA: 0x000B9D5C File Offset: 0x000B7F5C
-    private static void gmGmkForceSpinSetMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkForceSpinSetMain(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK) obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int) ((UIntPtr) 0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int) ((UIntPtr) 0)];
         if ((gms_PLAYER_WORK.player_flag & 1024U) != 0U || (gms_PLAYER_WORK.obj_work.flag & 2U) != 0U ||
             (AppMain.g_gm_main_system.game_flag & 262656U) != 0U)
         {
@@ -63,10 +63,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001567 RID: 5479 RVA: 0x000B9DF4 File Offset: 0x000B7FF4
-    private static void gmGmkForceSpinResetMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkForceSpinResetMain(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK) obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[0];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[0];
         if ((gms_PLAYER_WORK.player_flag & 1024U) != 0U || (gms_PLAYER_WORK.obj_work.flag & 2U) != 0U ||
             (AppMain.g_gm_main_system.game_flag & 262656U) != 0U || gms_PLAYER_WORK.seq_state == 41)
         {

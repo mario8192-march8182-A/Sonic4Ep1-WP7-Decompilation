@@ -114,7 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XamarinAccelerometer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +131,9 @@
       <Version>1.5.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\SOUND\S4EP1_19_Clear_Mixed4816.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

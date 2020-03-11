@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060005A9 RID: 1449 RVA: 0x00032C60 File Offset: 0x00030E60
-    private static AppMain.OBS_OBJECT_WORK GmGmkDashPanelInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkDashPanelInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_DASH_PANEL");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_DASH_PANEL");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_dash_panel_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, false, AppMain.ObjDataGet( 827 ), null, 0, null );
         AppMain.ObjDrawObjectActionSet( obs_OBJECT_WORK, 0 );
-        AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 828 ).pData );
+        AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, 0, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 828 ).pData );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.pos.z = -131072;
         obs_OBJECT_WORK.move_flag |= 8448U;
@@ -66,7 +66,7 @@ public partial class AppMain
     // Token: 0x060005AB RID: 1451 RVA: 0x00032E90 File Offset: 0x00031090
     public static void GmGmkDashPanelFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(825));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(825));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_dash_panel_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
@@ -74,7 +74,7 @@ public partial class AppMain
     private static void gmGmkDashPanelDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -90,6 +90,6 @@ public partial class AppMain
             return;
         }
         AppMain.GmPlySeqInitDashPanel( gms_PLAYER_WORK, ( uint )( gms_ENEMY_COM_WORK.eve_rec.id - 107 ) );
-        AppMain.GmSoundPlaySE( "DashPanel" );
+        GmSound.PlaySE( "DashPanel" );
     }
 }

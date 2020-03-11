@@ -18,7 +18,7 @@ public partial class AppMain
         }
 
         // Token: 0x04005A64 RID: 23140
-        public AppMain.AMS_AMB_HEADER amb_header;
+        public AMS_AMB_HEADER amb_header;
 
         // Token: 0x04005A65 RID: 23141
         public bool flag_load_object;
@@ -64,7 +64,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001168 RID: 4456 RVA: 0x00098DC9 File Offset: 0x00096FC9
-    private static void GmWaterSurfaceInitData( AppMain.AMS_AMB_HEADER amb )
+    private static void GmWaterSurfaceInitData( AMS_AMB_HEADER amb )
     {
         AppMain.gmWaterSurfaceDataInit();
         AppMain.gmWaterSurfaceDataSetAmbHeader( amb );
@@ -78,8 +78,8 @@ public partial class AppMain
         if ( num == 2 )
         {
             AppMain.dwaterInit();
-            AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.gmWaterSurfaceDataGetAmbHeader();
-            AppMain.AoTexBuild( AppMain._dmap_water.tex_color, AppMain.readAMBFile( AppMain.amBindGet( ams_AMB_HEADER, ams_AMB_HEADER.file_num - 1 ) ) );
+            AMS_AMB_HEADER ams_AMB_HEADER = AppMain.gmWaterSurfaceDataGetAmbHeader();
+            AppMain.AoTexBuild( AppMain._dmap_water.tex_color, AmFs.readAMBFile( AmBind.Get( ams_AMB_HEADER, ams_AMB_HEADER.file_num - 1 ) ) );
             AppMain.AoTexLoad( AppMain._dmap_water.tex_color );
             AppMain.dwaterSetObjectAMB( ams_AMB_HEADER, ams_AMB_HEADER );
             uint objflag = 0U;
@@ -379,14 +379,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600117D RID: 4477 RVA: 0x00099320 File Offset: 0x00097520
-    private static void gmWaterSurfaceDataSetAmbHeader( AppMain.AMS_AMB_HEADER amb )
+    private static void gmWaterSurfaceDataSetAmbHeader( AMS_AMB_HEADER amb )
     {
         AppMain.GMS_WATER_SURFACE_DATA gms_WATER_SURFACE_DATA = AppMain.gmWaterSurfaceDataGetInfo();
         gms_WATER_SURFACE_DATA.amb_header = amb;
     }
 
     // Token: 0x0600117E RID: 4478 RVA: 0x0009933C File Offset: 0x0009753C
-    private static AppMain.AMS_AMB_HEADER gmWaterSurfaceDataGetAmbHeader()
+    private static AMS_AMB_HEADER gmWaterSurfaceDataGetAmbHeader()
     {
         AppMain.GMS_WATER_SURFACE_DATA gms_WATER_SURFACE_DATA = AppMain.gmWaterSurfaceDataGetInfo();
         return gms_WATER_SURFACE_DATA.amb_header;
@@ -468,7 +468,7 @@ public partial class AppMain
             return;
         }
         AppMain.amDrawEndScene();
-        AppMain.NNS_RGBA_U8 color = new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
+        NNS_RGBA_U8 color = new NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
         AppMain.amRenderCopyTarget( ams_RENDER_TARGET, color );
         AppMain.GMS_WATER_SURFACE_MGR gms_WATER_SURFACE_MGR = AppMain.gmWaterSurfaceGetMgr();
         if ( gms_WATER_SURFACE_MGR != null )
@@ -528,7 +528,7 @@ public partial class AppMain
             AppMain.gmWaterSurfaceGameSystemSetWaterLevel( ( ushort )gms_WATER_SURFACE_INFO.now_water_level );
             speed = AppMain.amSystemGetFrameRateMain();
         }
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(6);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(6);
         float x = obs_CAMERA.disp_pos.x;
         float num3 = obs_CAMERA.disp_pos.y;
         float num4 = -gms_WATER_SURFACE_INFO.now_water_level - num3;
@@ -576,7 +576,7 @@ public partial class AppMain
         AppMain.NNS_PRIM3D_PCT_ARRAY nns_PRIM3D_PCT_ARRAY = AppMain.amDrawAlloc_NNS_PRIM3D_PCT(18);
         AppMain.NNS_PRIM3D_PCT[] buffer = nns_PRIM3D_PCT_ARRAY.buffer;
         int offset = nns_PRIM3D_PCT_ARRAY.offset;
-        AppMain.OBS_CAMERA obs_CAMERA2 = AppMain.ObjCameraGet(0);
+        OBS_CAMERA obs_CAMERA2 = ObjCamera.Get(0);
         x = obs_CAMERA2.disp_pos.x;
         num3 = -gms_WATER_SURFACE_INFO.now_water_level;
         float num5 = AppMain.FX_FX32_TO_F32(1310720);
@@ -679,8 +679,8 @@ public partial class AppMain
     private static void gmWaterSurfaceUserFuncMatrixPush( object param )
     {
         AppMain.amMatrixPush();
-        AppMain.NNS_MATRIX mtx = AppMain.amMatrixGetCurrent();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX mtx = AppMain.amMatrixGetCurrent();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMultiplyMatrix( nns_MATRIX, AppMain.amDrawGetWorldViewMatrix(), mtx );
         AppMain.nnSetPrimitive3DMatrix( nns_MATRIX );
     }

@@ -95,14 +95,9 @@ public class Sonic4Ep1 : Game
         //#if DEBUG
         this.benchmarkObject = new BenchmarkObject(this, fntKootenay, new Vector2(0, 0), Color.Red);
         //#endif
-        try
-        {
-            this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
-            this.appMain.AppInit(saveContentPath, this.controllerSource, Window.ClientBounds);
-        }
-        catch (Exception)
-        {
-        }
+
+        this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
+        this.appMain.AppInit(saveContentPath, this.controllerSource, Window.ClientBounds);
     }
 
     // Token: 0x0600287D RID: 10365 RVA: 0x001530B8 File Offset: 0x001512B8

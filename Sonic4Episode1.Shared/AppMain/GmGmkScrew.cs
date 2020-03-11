@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060018A1 RID: 6305 RVA: 0x000E0654 File Offset: 0x000DE854
-    private static AppMain.OBS_OBJECT_WORK GmGmkScrewInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkScrewInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_SCREW");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_SCREW");
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.move_flag |= 8480U;
         gms_ENEMY_COM_WORK.rect_work[0].flag &= 4294967291U;
@@ -32,9 +32,9 @@ public partial class AppMain
     }
 
     // Token: 0x060018A2 RID: 6306 RVA: 0x000E0748 File Offset: 0x000DE948
-    private static void gmGmkScrewMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkScrewMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( gms_PLAYER_WORK.seq_state != 38 && gms_PLAYER_WORK.gmk_obj != obj_work )
         {
             obj_work.flag &= 4294967279U;
@@ -45,7 +45,7 @@ public partial class AppMain
     private static void gmGmkScrewDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;

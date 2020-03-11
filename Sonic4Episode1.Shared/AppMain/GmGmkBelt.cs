@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000074 RID: 116
-    public class GMS_GMK_BELTC_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BELTC_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001E27 RID: 7719 RVA: 0x00139688 File Offset: 0x00137888
         public GMS_GMK_BELTC_WORK()
@@ -16,13 +16,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001E28 RID: 7720 RVA: 0x0013969C File Offset: 0x0013789C
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x06001E29 RID: 7721 RVA: 0x001396AE File Offset: 0x001378AE
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_BELTC_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_BELTC_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -62,10 +62,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000281 RID: 641 RVA: 0x00014950 File Offset: 0x00012B50
-    private static AppMain.OBS_OBJECT_WORK GmGmkBeltConveyorInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBeltConveyorInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_BELTC_WORK gms_GMK_BELTC_WORK = (AppMain.GMS_GMK_BELTC_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_BELTC_WORK(), "Gmk_BeltConveyor");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_BELTC_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_BELTC_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_BELTC_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_beltconv_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -69632;
@@ -109,21 +109,21 @@ public partial class AppMain
     public static void GmGmkBeltConveyorBuild()
     {
         AppMain.gm_gmk_beltconv_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.GmGameDatGetGimmickData( 844 ), AppMain.GmGameDatGetGimmickData( 845 ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(846);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(846);
         AppMain.gm_gmk_beltconv_obj_tvx_list = ams_AMB_HEADER;
     }
 
     // Token: 0x06000283 RID: 643 RVA: 0x00014B10 File Offset: 0x00012D10
     public static void GmGmkBeltConveyorFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(844);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(844);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_beltconv_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_beltconv_obj_3d_list = null;
         AppMain.gm_gmk_beltconv_obj_tvx_list = null;
     }
 
     // Token: 0x06000284 RID: 644 RVA: 0x00014B44 File Offset: 0x00012D44
-    private static void gmGmkBeltConveyor_ppOut( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBeltConveyor_ppOut( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BELTC_WORK gms_GMK_BELTC_WORK = (AppMain.GMS_GMK_BELTC_WORK)obj_work;
         if ( !AppMain.GmMainIsDrawEnable() )
@@ -136,10 +136,10 @@ public partial class AppMain
         }
         if ( AppMain._tvx_roller == null )
         {
-            AppMain._tvx_roller = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_beltconv_obj_tvx_list, 0 ) );
-            AppMain._tvx_axis = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_beltconv_obj_tvx_list, 1 ) );
-            AppMain._tvx_belt_up = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_beltconv_obj_tvx_list, 2 ) );
-            AppMain._tvx_belt_down = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_beltconv_obj_tvx_list, 3 ) );
+            AppMain._tvx_roller = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_beltconv_obj_tvx_list, 0 ) );
+            AppMain._tvx_axis = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_beltconv_obj_tvx_list, 1 ) );
+            AppMain._tvx_belt_up = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_beltconv_obj_tvx_list, 2 ) );
+            AppMain._tvx_belt_down = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_beltconv_obj_tvx_list, 3 ) );
         }
         AppMain.TVX_FILE tvx_roller = AppMain._tvx_roller;
         AppMain.TVX_FILE tvx_axis = AppMain._tvx_axis;
@@ -183,10 +183,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000285 RID: 645 RVA: 0x00014DE0 File Offset: 0x00012FE0
-    private static void gmGmkBeltConveyorStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBeltConveyorStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BELTC_WORK gms_GMK_BELTC_WORK = (AppMain.GMS_GMK_BELTC_WORK)obj_work;
-        AppMain.OBS_OBJECT_WORK obj_work2 = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)].obj_work;
+        OBS_OBJECT_WORK obj_work2 = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)].obj_work;
         bool flag = false;
         if ( obj_work2.ride_obj == obj_work )
         {
@@ -212,7 +212,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000286 RID: 646 RVA: 0x00014F40 File Offset: 0x00013140
-    private static void gmGmkBeltConveyorStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBeltConveyorStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_BELTC_WORK gms_GMK_BELTC_WORK = (AppMain.GMS_GMK_BELTC_WORK)obj_work;
         gms_GMK_BELTC_WORK.gmk_work.ene_com.col_work.obj_col.obj = obj_work;

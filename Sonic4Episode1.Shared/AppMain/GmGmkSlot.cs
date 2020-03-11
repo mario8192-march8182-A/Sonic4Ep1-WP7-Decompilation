@@ -35,7 +35,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000032 RID: 50
-    public class GMS_GMK_SLOT_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SLOT_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001D3A RID: 7482 RVA: 0x0013723D File Offset: 0x0013543D
         public GMS_GMK_SLOT_WORK()
@@ -44,13 +44,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001D3B RID: 7483 RVA: 0x00137269 File Offset: 0x00135469
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_SLOT_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_SLOT_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x06001D3C RID: 7484 RVA: 0x0013727B File Offset: 0x0013547B
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -114,7 +114,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000033 RID: 51
-    public class GMS_GMK_SLOTPARTS_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SLOTPARTS_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001D3E RID: 7486 RVA: 0x00137295 File Offset: 0x00135495
         public GMS_GMK_SLOTPARTS_WORK()
@@ -123,13 +123,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001D3F RID: 7487 RVA: 0x001372A9 File Offset: 0x001354A9
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_SLOTPARTS_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_SLOTPARTS_WORK work )
         {
             return work.eff_work.efct_com.obj_work;
         }
 
         // Token: 0x06001D40 RID: 7488 RVA: 0x001372BB File Offset: 0x001354BB
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
@@ -172,7 +172,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600005E RID: 94 RVA: 0x00004CCC File Offset: 0x00002ECC
-    private static void gmGmkSlotStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         gms_GMK_SLOT_WORK.reel_status[0].reel = ( short )( AppMain.GMD_GMK_SLOT_REEL1KOMA_HEIGHT * 15 );
@@ -198,7 +198,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600005F RID: 95 RVA: 0x00004DF0 File Offset: 0x00002FF0
-    private static void gmGmkSlotStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         AppMain.rand_result <<= 16;
@@ -217,7 +217,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000061 RID: 97 RVA: 0x00004E58 File Offset: 0x00003058
-    private static void gmGmkSlotGameStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotGameStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         gms_GMK_SLOT_WORK.slot_step = 0;
@@ -329,7 +329,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000062 RID: 98 RVA: 0x00005164 File Offset: 0x00003364
-    private static void gmGmkSlotGameStart_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotGameStart_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         if ( gms_GMK_SLOT_WORK.timer <= 0 )
@@ -513,7 +513,7 @@ public partial class AppMain
                                     gms_GMK_SLOT_REEL_STATUS_WORK.reel_target_mark = ( int )AppMain.tbl_gmk_reel_mark[gms_GMK_SLOT_WORK.current_reel][num2];
                                     gms_GMK_SLOT_REEL_STATUS_WORK.reel_extime = 8;
                                     gms_GMK_SLOT_REEL_STATUS_WORK.reel_spd = ( int )AppMain.GMD_GMK_SLOT_REEL_MIN_SPEED;
-                                    AppMain.GmSoundPlaySE( "Casino5" );
+                                    GmSound.PlaySE( "Casino5" );
                                     gms_GMK_SLOT_WORK.slot_step = 81;
                                     break;
                                 }
@@ -601,7 +601,7 @@ public partial class AppMain
                 gms_GMK_SLOT_REEL_STATUS_WORK.reel = ( short )( ( int )AppMain.GMD_GMK_SLOT_REEL1KOMA_HEIGHT * num );
                 IL_431:
                 gms_GMK_SLOT_REEL_STATUS_WORK.reel_extime = 8;
-                AppMain.GmSoundPlaySE( "Casino5" );
+                GmSound.PlaySE( "Casino5" );
                 gms_GMK_SLOT_WORK.slot_step = 72;
                 IL_44A:
                 if ( ( gms_GMK_SLOT_REEL_STATUS_WORK.reel_extime & 1 ) == 0 )
@@ -679,7 +679,7 @@ public partial class AppMain
                 short num5 = (short)((int)gms_GMK_SLOT_REEL_STATUS_WORK3.reel + gms_GMK_SLOT_REEL_STATUS_WORK3.reel_spd);
                 if ( num5 / 4096 != gms_GMK_SLOT_REEL_STATUS_WORK3.reel / 4096 && ( int )( num5 & -4096 ) != gms_GMK_SLOT_REEL_STATUS_WORK3.reel_se && gms_GMK_SLOT_WORK.slot_se_timer <= 0 )
                 {
-                    AppMain.GmSoundPlaySE( "Casino4" );
+                    GmSound.PlaySE( "Casino4" );
                     gms_GMK_SLOT_WORK.slot_se_timer = 3;
                 }
                 gms_GMK_SLOT_REEL_STATUS_WORK3.reel_se = ( int )( num5 & -4096 );
@@ -691,7 +691,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000063 RID: 99 RVA: 0x00005A60 File Offset: 0x00003C60
-    private static void gmGmkSlotGameHit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotGameHit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         if ( gms_GMK_SLOT_WORK.lotresult != 1 )
@@ -706,20 +706,20 @@ public partial class AppMain
     }
 
     // Token: 0x06000064 RID: 100 RVA: 0x00005AD4 File Offset: 0x00003CD4
-    private static void gmGmkSlotGameHit_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotGameHit_100( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.GmRingCheckRestSlotRing() != 0 )
         {
             return;
         }
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
-        AppMain.GmPlayerAddScore( AppMain.slot_start_player, AppMain.tbl_slot_bonus_score[( int )gms_GMK_SLOT_WORK.lotresult], AppMain.slot_start_player.obj_work.pos.x, AppMain.slot_start_player.obj_work.pos.y );
+        GmPlayer.AddScore( AppMain.slot_start_player, AppMain.tbl_slot_bonus_score[( int )gms_GMK_SLOT_WORK.lotresult], AppMain.slot_start_player.obj_work.pos.x, AppMain.slot_start_player.obj_work.pos.y );
         AppMain.slot_start_call = -1;
         obj_work.ppFunc = AppMain.gmGmkSlotStay;
     }
 
     // Token: 0x06000065 RID: 101 RVA: 0x00005B48 File Offset: 0x00003D48
-    private static void gmGmkSlotGameHit_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotGameHit_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         gms_GMK_SLOT_WORK.timer--;
@@ -733,15 +733,15 @@ public partial class AppMain
     }
 
     // Token: 0x06000066 RID: 102 RVA: 0x00005BC4 File Offset: 0x00003DC4
-    private static void gmGmkSlotGameHit_210( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotGameHit_210( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)obj_work;
         AppMain.slot_start_player.obj_work.pos.x = gms_GMK_SLOT_WORK.ppos_x + ( ( int )AppMain.tbl_dam_ofst_xy[gms_GMK_SLOT_WORK.timer % 8][0] << 12 );
         AppMain.slot_start_player.obj_work.pos.y = gms_GMK_SLOT_WORK.ppos_y + ( ( int )AppMain.tbl_dam_ofst_xy[gms_GMK_SLOT_WORK.timer % 8][1] << 12 );
-        AppMain.GmPlayerRingDec( AppMain.slot_start_player, 1 );
+        GmPlayer.RingDec( AppMain.slot_start_player, 1 );
         if ( gms_GMK_SLOT_WORK.timer % 12 == 0 )
         {
-            AppMain.GmSoundPlaySE( "Damage2" );
+            GmSound.PlaySE( "Damage2" );
         }
         gms_GMK_SLOT_WORK.timer--;
         if ( gms_GMK_SLOT_WORK.timer <= 0 )
@@ -754,7 +754,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000067 RID: 103 RVA: 0x00005CB7 File Offset: 0x00003EB7
-    private static void gmGmkSlotGameLose( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotGameLose( OBS_OBJECT_WORK obj_work )
     {
         //(AppMain.GMS_GMK_SLOT_WORK)obj_work;
         AppMain.slot_start_call = -1;
@@ -764,10 +764,10 @@ public partial class AppMain
     // Token: 0x06000068 RID: 104 RVA: 0x00005CE0 File Offset: 0x00003EE0
     private static void gmGmkSlot_CreateReel( AppMain.GMS_GMK_SLOT_WORK pwork )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)pwork;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)pwork;
         for ( int i = 0; i < 3; i++ )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_SLOTPARTS_WORK(), null, 0, "Gmk_SlotReel");
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_SLOTPARTS_WORK(), null, 0, "Gmk_SlotReel");
             AppMain.GMS_GMK_SLOTPARTS_WORK gms_GMK_SLOTPARTS_WORK = (AppMain.GMS_GMK_SLOTPARTS_WORK)obs_OBJECT_WORK2;
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK2, AppMain.gm_gmk_slot_obj_3d_list[( int )AppMain.tbl_gmk_slot_reelmodel_id[i]], gms_GMK_SLOTPARTS_WORK.eff_work.obj_3d );
             obs_OBJECT_WORK2.parent_obj = obs_OBJECT_WORK;
@@ -787,7 +787,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000069 RID: 105 RVA: 0x00005E3C File Offset: 0x0000403C
-    private static void gmGmkSlotReel( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSlotReel( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SLOTPARTS_WORK gms_GMK_SLOTPARTS_WORK = (AppMain.GMS_GMK_SLOTPARTS_WORK)obj_work;
         ushort num = (ushort)((ushort)gms_GMK_SLOTPARTS_WORK.slot_work.reel_status[gms_GMK_SLOTPARTS_WORK.reel_id].reel >> 12);
@@ -801,7 +801,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600006A RID: 106 RVA: 0x00005EF7 File Offset: 0x000040F7
-    private static int GmGmkSlotStartRequest( int slot_id, AppMain.GMS_PLAYER_WORK ply_work )
+    private static int GmGmkSlotStartRequest( int slot_id, GMS_PLAYER_WORK ply_work )
     {
         if ( AppMain.slot_start_call != -1 )
         {
@@ -824,13 +824,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600006C RID: 108 RVA: 0x00005F30 File Offset: 0x00004130
-    private static AppMain.OBS_OBJECT_WORK GmGmkSlotInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSlotInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SLOT_WORK gms_GMK_SLOT_WORK = (AppMain.GMS_GMK_SLOT_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_SLOT_WORK(), "Gmk_Slot");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_SLOT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_SLOT_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_SLOT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_slot_obj_3d_list[3], gms_ENEMY_3D_WORK.obj_3d );
-        AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 875 ).pData, 1, 1 );
+        AppMain.ObjAction3dNNMaterialMotionLoad( gms_ENEMY_3D_WORK.obj_3d, 0, null, null, 0, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 875 ).pData, 1, 1 );
         AppMain.ObjDrawAction3dActionSet3DNNMaterial( gms_ENEMY_3D_WORK.obj_3d, 0 );
         obs_OBJECT_WORK.pos.z = -135168;
         obs_OBJECT_WORK.move_flag |= 256U;
@@ -855,7 +855,7 @@ public partial class AppMain
     // Token: 0x0600006E RID: 110 RVA: 0x00006040 File Offset: 0x00004240
     private static void GmGmkSlotFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(873);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(873);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_slot_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 

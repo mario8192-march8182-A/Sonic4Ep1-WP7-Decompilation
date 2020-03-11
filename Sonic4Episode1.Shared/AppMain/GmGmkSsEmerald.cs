@@ -8,10 +8,10 @@ using gs.backup;
 public partial class AppMain
 {
     // Token: 0x06001AFB RID: 6907 RVA: 0x000F5504 File Offset: 0x000F3704
-    private static AppMain.OBS_OBJECT_WORK GmGmkSsEmeraldInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSsEmeraldInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         bool flag = false;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_EMERALD");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_EMERALD");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst -= 128;
         ushort num = (ushort)(AppMain.g_gs_main_sys_info.stage_id - 21);
@@ -61,14 +61,14 @@ public partial class AppMain
     // Token: 0x06001AFD RID: 6909 RVA: 0x000F56E4 File Offset: 0x000F38E4
     public static void GmGmkSsEmeraldFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(910);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(910);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_emerald_obj_3d_list, ams_AMB_HEADER.file_num );
         ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData( 913 );
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_1up_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06001AFE RID: 6910 RVA: 0x000F5727 File Offset: 0x000F3927
-    private static void gmGmkSsEmeraldMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsEmeraldMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.dir.z = AppMain.GmMainGetObjectRotation();
     }
@@ -77,7 +77,7 @@ public partial class AppMain
     private static void gmGmkSsEmeraldDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -86,12 +86,12 @@ public partial class AppMain
         {
             return;
         }
-        if ( gms_PLAYER_WORK.gmk_obj == ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK )
+        if ( gms_PLAYER_WORK.gmk_obj == ( OBS_OBJECT_WORK )gms_ENEMY_COM_WORK )
         {
             return;
         }
-        AppMain.GmSoundPlayJingle( 3U, 0 );
-        AppMain.GmSoundPlaySE( "Special5" );
+        GmSound.PlayJingle( 3U, 0 );
+        GmSound.PlaySE( "Special5" );
         AppMain.GmComEfctCreateRing( gms_ENEMY_COM_WORK.obj_work.pos.x, gms_ENEMY_COM_WORK.obj_work.pos.y );
         AppMain.gmGmkSsEmeraldEfctKill();
         gms_ENEMY_COM_WORK.obj_work.flag |= 4U;
@@ -103,7 +103,7 @@ public partial class AppMain
     {
         if ( AppMain.gm_gmk_ss_emerald_effct != null )
         {
-            AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )AppMain.gm_gmk_ss_emerald_effct );
+            AppMain.ObjDrawKillAction3DES( ( OBS_OBJECT_WORK )AppMain.gm_gmk_ss_emerald_effct );
             AppMain.gm_gmk_ss_emerald_effct = null;
         }
     }

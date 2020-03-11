@@ -54,7 +54,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F56 RID: 3926 RVA: 0x00087E07 File Offset: 0x00086007
-    private static AppMain.AMS_RENDER_TARGET amRenderSetTarget( AppMain.AMS_RENDER_TARGET target, uint flag, AppMain.NNS_RGBA_U8 color )
+    private static AppMain.AMS_RENDER_TARGET amRenderSetTarget( AppMain.AMS_RENDER_TARGET target, uint flag, NNS_RGBA_U8 color )
     {
         return AppMain.amRenderSetTarget( target, flag, color, 1f, 0 );
     }
@@ -66,7 +66,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F58 RID: 3928 RVA: 0x00087E27 File Offset: 0x00086027
-    private static AppMain.AMS_RENDER_TARGET amRenderSetTarget( AppMain.AMS_RENDER_TARGET target, uint flag, AppMain.NNS_RGBA_U8 color, float z, int stencil )
+    private static AppMain.AMS_RENDER_TARGET amRenderSetTarget( AppMain.AMS_RENDER_TARGET target, uint flag, NNS_RGBA_U8 color, float z, int stencil )
     {
         return null;
     }
@@ -77,7 +77,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F5A RID: 3930 RVA: 0x00087E2C File Offset: 0x0008602C
-    private static void amRenderCopyTarget( AppMain.AMS_RENDER_TARGET target, AppMain.NNS_RGBA_U8 color )
+    private static void amRenderCopyTarget( AppMain.AMS_RENDER_TARGET target, NNS_RGBA_U8 color )
     {
     }
 }

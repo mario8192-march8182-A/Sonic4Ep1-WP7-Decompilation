@@ -8,7 +8,7 @@ public partial class AppMain
 {
 
     // Token: 0x0200019B RID: 411
-    public class GMS_GMK_SW_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SW_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060021EA RID: 8682 RVA: 0x00141F3E File Offset: 0x0014013E
         public GMS_GMK_SW_WORK()
@@ -17,13 +17,13 @@ public partial class AppMain
         }
 
         // Token: 0x060021EB RID: 8683 RVA: 0x00141F5D File Offset: 0x0014015D
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_SW_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_SW_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x060021EC RID: 8684 RVA: 0x00141F6F File Offset: 0x0014016F
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -45,7 +45,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200019C RID: 412
-    private class GMS_GMK_SW_STATE_WORK : AppMain.IClearable
+    private class GMS_GMK_SW_STATE_WORK : IClearable
     {
         // Token: 0x060021ED RID: 8685 RVA: 0x00141F84 File Offset: 0x00140184
         public void Clear()
@@ -90,14 +90,14 @@ public partial class AppMain
     // Token: 0x0600075E RID: 1886 RVA: 0x000410CC File Offset: 0x0003F2CC
     private static void GmGmkSwitchFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(931);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(931);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_switch_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x0600075F RID: 1887 RVA: 0x000410FC File Offset: 0x0003F2FC
-    private static AppMain.OBS_OBJECT_WORK GmGmkSwitchInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSwitchInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_SW_WORK(), "GMK_SWITCH");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_SW_WORK(), "GMK_SWITCH");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_GMK_SW_WORK gms_GMK_SW_WORK = (AppMain.GMS_GMK_SW_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_switch_obj_3d_list[1], gms_ENEMY_3D_WORK.obj_3d );
@@ -185,7 +185,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000765 RID: 1893 RVA: 0x000413F4 File Offset: 0x0003F5F4
-    private static void gmGmkSwOffInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSwOffInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SW_WORK gms_GMK_SW_WORK = (AppMain.GMS_GMK_SW_WORK)obj_work;
         AppMain.gm_gmk_switch_state[( int )( ( UIntPtr )gms_GMK_SW_WORK.id )].sw = false;
@@ -199,7 +199,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000766 RID: 1894 RVA: 0x00041464 File Offset: 0x0003F664
-    private static void gmGmkSwOffMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSwOffMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SW_WORK gms_GMK_SW_WORK = (AppMain.GMS_GMK_SW_WORK)obj_work;
         if ( gms_GMK_SW_WORK.top_pos_y > -14 )
@@ -219,7 +219,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000767 RID: 1895 RVA: 0x00041530 File Offset: 0x0003F730
-    private static void gmGmkSwOnInit( AppMain.OBS_OBJECT_WORK obj_work, bool now_on )
+    private static void gmGmkSwOnInit( OBS_OBJECT_WORK obj_work, bool now_on )
     {
         AppMain.GMS_GMK_SW_WORK gms_GMK_SW_WORK = (AppMain.GMS_GMK_SW_WORK)obj_work;
         AppMain.gm_gmk_switch_state[( int )( ( UIntPtr )gms_GMK_SW_WORK.id )].sw = true;
@@ -234,7 +234,7 @@ public partial class AppMain
         }
         if ( now_on )
         {
-            AppMain.GmSoundPlaySE( "Switch" );
+            GmSound.PlaySE( "Switch" );
             AppMain.GMM_PAD_VIB_SMALL();
             AppMain.GmComEfctCreateSpring( obj_work, 0, -32768, -obj_work.pos.z );
         }
@@ -242,7 +242,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000768 RID: 1896 RVA: 0x000415D4 File Offset: 0x0003F7D4
-    private static void gmGmkSwOnMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSwOnMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SW_WORK gms_GMK_SW_WORK = (AppMain.GMS_GMK_SW_WORK)obj_work;
         if ( gms_GMK_SW_WORK.top_pos_y < -10 )
@@ -274,7 +274,7 @@ public partial class AppMain
     private static void gmGmkSwitchDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -287,7 +287,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600076A RID: 1898 RVA: 0x00041770 File Offset: 0x0003F970
-    private static void gmGmkSwDispFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSwDispFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SW_WORK gms_GMK_SW_WORK = (AppMain.GMS_GMK_SW_WORK)obj_work;
         AppMain.VecFx32 vecFx = default(AppMain.VecFx32);

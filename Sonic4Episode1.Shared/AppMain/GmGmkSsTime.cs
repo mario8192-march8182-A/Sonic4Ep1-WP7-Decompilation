@@ -8,9 +8,9 @@ public partial class AppMain
 {
 
     // Token: 0x0600179F RID: 6047 RVA: 0x000D10FC File Offset: 0x000CF2FC
-    private static AppMain.OBS_OBJECT_WORK GmGmkSsTimeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSsTimeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_TIME");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_TIME");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst -= 128;
         uint num = (uint)(eve_rec.flag & 3);
@@ -42,12 +42,12 @@ public partial class AppMain
     // Token: 0x060017A1 RID: 6049 RVA: 0x000D12B0 File Offset: 0x000CF4B0
     public static void GmGmkSsTimeFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(915);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(915);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_time_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060017A2 RID: 6050 RVA: 0x000D12D8 File Offset: 0x000CF4D8
-    private static void gmGmkSsTimeMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsTimeMain( OBS_OBJECT_WORK obj_work )
     {
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
         {
@@ -61,7 +61,7 @@ public partial class AppMain
     private static void gmGmkSsTimeDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -70,7 +70,7 @@ public partial class AppMain
         {
             return;
         }
-        if ( gms_PLAYER_WORK.gmk_obj == ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK )
+        if ( gms_PLAYER_WORK.gmk_obj == ( OBS_OBJECT_WORK )gms_ENEMY_COM_WORK )
         {
             return;
         }
@@ -82,16 +82,16 @@ public partial class AppMain
         gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkSsTimeEfctMain;
         gms_EFFECT_3DES_WORK.obj_3des.command_state = 10U;
         gms_ENEMY_COM_WORK.enemy_flag |= 65536U;
-        AppMain.GmSoundPlaySE( "Special6" );
+        GmSound.PlaySE( "Special6" );
         AppMain.GmFixRequestTimerFlash();
         AppMain.g_gm_main_system.game_time += AppMain.gm_gmk_ss_time_add_subtract[( int )( ( UIntPtr )gms_ENEMY_COM_WORK.obj_work.user_work )];
         gms_ENEMY_COM_WORK.obj_work.flag |= 4U;
     }
 
     // Token: 0x060017A4 RID: 6052 RVA: 0x000D1450 File Offset: 0x000CF650
-    private static void gmGmkSsTimeEfctMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsTimeEfctMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
         if ( obs_CAMERA != null )
         {
             obj_work.dir.z = ( ushort )( -( ushort )obs_CAMERA.roll );

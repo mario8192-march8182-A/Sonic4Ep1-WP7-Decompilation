@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x06001559 RID: 5465 RVA: 0x000B97D0 File Offset: 0x000B79D0
-    private static AppMain.OBS_OBJECT_WORK GmGmkLoopInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkLoopInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkLoopLoadObjNoModel(eve_rec, pos_x, pos_y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         AppMain.gmGmkLoopInit( obj_work );
         return obj_work;
     }
@@ -25,7 +25,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600155B RID: 5467 RVA: 0x000B9878 File Offset: 0x000B7A78
-    private static void gmGmkLoopInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkLoopInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkLoopSetRect( obj_work );
         obj_work.move_flag |= 8448U;
@@ -33,7 +33,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600155C RID: 5468 RVA: 0x000B98A4 File Offset: 0x000B7AA4
-    private static void gmGmkLoopSetRect( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkLoopSetRect( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
@@ -51,12 +51,12 @@ public partial class AppMain
     private static void gmGmkLoopDefFunc( AppMain.OBS_RECT_WORK own_rect, AppMain.OBS_RECT_WORK target_rect )
     {
         AppMain.UNREFERENCED_PARAMETER( target_rect );
-        AppMain.OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
         parent_obj.user_flag |= 1U;
     }
 
     // Token: 0x0600155E RID: 5470 RVA: 0x000B9998 File Offset: 0x000B7B98
-    private static void gmGmkLoopMainFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkLoopMainFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.user_flag & 1U ) != 0U )
         {
@@ -66,7 +66,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600155F RID: 5471 RVA: 0x000B99BC File Offset: 0x000B7BBC
-    private static void gmGmkLoopExecute( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkLoopExecute( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         int loop_x = (int)(gms_ENEMY_3D_WORK.ene_com.eve_rec.left * 64) * 4096;
@@ -82,11 +82,11 @@ public partial class AppMain
     // Token: 0x06001560 RID: 5472 RVA: 0x000B9A30 File Offset: 0x000B7C30
     private static void gmGmkLoopExecuteObj( int loop_x, int loop_y, int obj_type )
     {
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ( ushort )obj_type ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ( ushort )obj_type ) )
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ( ushort )obj_type ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ( ushort )obj_type ) )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
             obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + loop_x;
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
             obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y + loop_y;
         }
     }
@@ -94,11 +94,11 @@ public partial class AppMain
     // Token: 0x06001561 RID: 5473 RVA: 0x000B9A7C File Offset: 0x000B7C7C
     private static void gmGmkLoopExecuteEffect( int loop_x, int loop_y )
     {
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 5 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 5 ) )
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 5 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 5 ) )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
             obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + loop_x;
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
             obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y + loop_y;
             if ( obs_OBJECT_WORK.obj_3des != null )
             {
@@ -123,9 +123,9 @@ public partial class AppMain
     // Token: 0x06001563 RID: 5475 RVA: 0x000B9B34 File Offset: 0x000B7D34
     private static void gmGmkLoopExecuteCamera( int loop_x, int loop_y )
     {
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
-        AppMain.GmCameraPosSet( AppMain.FX_F32_TO_FX32( obs_CAMERA.pos.x ) + loop_x, -AppMain.FX_F32_TO_FX32( obs_CAMERA.pos.y ) + loop_y, AppMain.FX_F32_TO_FX32( obs_CAMERA.pos.z ) );
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
+        GmCamera.PosSet( AppMain.FX_F32_TO_FX32( obs_CAMERA.pos.x ) + loop_x, -AppMain.FX_F32_TO_FX32( obs_CAMERA.pos.y ) + loop_y, AppMain.FX_F32_TO_FX32( obs_CAMERA.pos.z ) );
         AppMain.ObjObjectCameraSet( AppMain.FXM_FLOAT_TO_FX32( obs_CAMERA.disp_pos.x - ( float )( AppMain.OBD_LCD_X / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( -obs_CAMERA.disp_pos.y - ( float )( AppMain.OBD_LCD_Y / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( obs_CAMERA.disp_pos.x - ( float )( AppMain.OBD_LCD_X / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( -obs_CAMERA.disp_pos.y - ( float )( AppMain.OBD_LCD_Y / 2 ) ) );
-        AppMain.GmCameraSetClipCamera( obs_CAMERA );
+        GmCamera.SetClipCamera( obs_CAMERA );
     }
 }

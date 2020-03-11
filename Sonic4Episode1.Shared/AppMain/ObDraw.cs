@@ -85,7 +85,7 @@ public partial class AppMain
         public readonly AppMain.AMS_PARAM_DRAW_OBJECT param;
 
         // Token: 0x04004BC7 RID: 19399
-        public readonly AppMain.NNS_MATRIX mtx = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX mtx = new NNS_MATRIX();
 
         // Token: 0x04004BC8 RID: 19400
         public readonly AppMain.AMS_DRAWSTATE draw_state = new AppMain.AMS_DRAWSTATE();
@@ -110,7 +110,7 @@ public partial class AppMain
     }
 
     // Token: 0x020000D2 RID: 210
-    private class OBS_DRAW_PARAM_3DNN_MOTION : AppMain.IClearable
+    private class OBS_DRAW_PARAM_3DNN_MOTION : IClearable
     {
         // Token: 0x06001F19 RID: 7961 RVA: 0x0013CDEC File Offset: 0x0013AFEC
         public OBS_DRAW_PARAM_3DNN_MOTION()
@@ -128,7 +128,7 @@ public partial class AppMain
         public readonly AppMain.AMS_PARAM_DRAW_MOTION_TRS param;
 
         // Token: 0x04004BD0 RID: 19408
-        public readonly AppMain.NNS_MATRIX mtx = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX mtx = new NNS_MATRIX();
 
         // Token: 0x04004BD1 RID: 19409
         public readonly AppMain.AMS_DRAWSTATE draw_state = new AppMain.AMS_DRAWSTATE();
@@ -175,7 +175,7 @@ public partial class AppMain
         public readonly AppMain.AMS_PARAM_DRAW_MOTION param;
 
         // Token: 0x04004BDB RID: 19419
-        public readonly AppMain.NNS_MATRIX mtx = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX mtx = new NNS_MATRIX();
 
         // Token: 0x04004BDC RID: 19420
         public readonly AppMain.AMS_DRAWSTATE draw_state = new AppMain.AMS_DRAWSTATE();
@@ -240,10 +240,10 @@ public partial class AppMain
         public int proj_type;
 
         // Token: 0x04004BEE RID: 19438
-        public readonly AppMain.NNS_MATRIX prj_mtx = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX prj_mtx = new NNS_MATRIX();
 
         // Token: 0x04004BEF RID: 19439
-        public readonly AppMain.NNS_MATRIX view_mtx = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX view_mtx = new NNS_MATRIX();
     }
 
     // Token: 0x020000D7 RID: 215
@@ -267,7 +267,7 @@ public partial class AppMain
         public readonly AppMain.AMS_PARAM_DRAW_PRIMITIVE dat = new AppMain.AMS_PARAM_DRAW_PRIMITIVE();
 
         // Token: 0x04004BF1 RID: 19441
-        public readonly AppMain.NNS_MATRIX mtx = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX mtx = new NNS_MATRIX();
 
         // Token: 0x04004BF2 RID: 19442
         public int light;
@@ -284,7 +284,7 @@ public partial class AppMain
     private class _objDraw3DNNModel_DT
     {
         // Token: 0x04004BF4 RID: 19444
-        public static AppMain.NNS_MATRIX[] plt_mtx;
+        public static NNS_MATRIX[] plt_mtx;
 
         // Token: 0x04004BF5 RID: 19445
         public static uint[] nstat;
@@ -294,7 +294,7 @@ public partial class AppMain
     private class _objDraw3DNNMotion_DT
     {
         // Token: 0x04004BF6 RID: 19446
-        public static AppMain.NNS_MATRIX[] plt_mtx;
+        public static NNS_MATRIX[] plt_mtx;
 
         // Token: 0x04004BF7 RID: 19447
         public static uint[] nstat;
@@ -304,14 +304,14 @@ public partial class AppMain
     private class _objDraw3DNNDrawMotion_DT
     {
         // Token: 0x04004BF8 RID: 19448
-        public static AppMain.NNS_MATRIX[] plt_mtx;
+        public static NNS_MATRIX[] plt_mtx;
 
         // Token: 0x04004BF9 RID: 19449
         public static uint[] nstat;
     }
 
     // Token: 0x06000463 RID: 1123 RVA: 0x000249E3 File Offset: 0x00022BE3
-    public static void ObjDrawObjectSetToon(AppMain.OBS_OBJECT_WORK obj_work)
+    public static void ObjDrawObjectSetToon(OBS_OBJECT_WORK obj_work)
     {
         AppMain.ObjDrawSetToon(obj_work.obj_3d);
     }
@@ -356,7 +356,7 @@ public partial class AppMain
         AppMain.g_obj_draw_3dnn_draw_state.zmode.compare = 1U;
         AppMain.g_obj_draw_3dnn_draw_state.zmode.func = 515;
         AppMain.g_obj_draw_3dnn_draw_state.zmode.update = 1U;
-        AppMain.NNS_MATRIX texmtx = AppMain.g_obj_draw_3dnn_draw_state.envmap.texmtx;
+        NNS_MATRIX texmtx = AppMain.g_obj_draw_3dnn_draw_state.envmap.texmtx;
         AppMain.nnMakeUnitMatrix(texmtx);
         AppMain.nnTranslateMatrix(texmtx, texmtx, 0.5f, 0.5f, 0f);
         AppMain.nnScaleMatrix(texmtx, texmtx, 0.5f, 0.5f, 0f);
@@ -366,8 +366,8 @@ public partial class AppMain
             AppMain.g_obj_draw_3dnn_draw_state.texoffset[i].u = 0f;
             AppMain.g_obj_draw_3dnn_draw_state.texoffset[i].v = 0f;
         }
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = new AppMain.NNS_VECTOR(-1f, -1f, -1f);
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = new NNS_VECTOR(-1f, -1f, -1f);
         AppMain.g_obj.def_user_light_flag = 1U;
         AppMain.g_obj.ambient_color.r = 0.8f;
         AppMain.g_obj.ambient_color.g = 0.8f;
@@ -413,12 +413,12 @@ public partial class AppMain
     }
 
     // Token: 0x0600046B RID: 1131 RVA: 0x00024D6F File Offset: 0x00022F6F
-    public static void ObjDrawPrioritySet(AppMain.OBS_OBJECT_WORK obj_work, uint prio)
+    public static void ObjDrawPrioritySet(OBS_OBJECT_WORK obj_work, uint prio)
     {
     }
 
     // Token: 0x0600046C RID: 1132 RVA: 0x00024D74 File Offset: 0x00022F74
-    public static void ObjDrawObjectActionSet(AppMain.OBS_OBJECT_WORK obj_work, int id)
+    public static void ObjDrawObjectActionSet(OBS_OBJECT_WORK obj_work, int id)
     {
         obj_work.disp_flag &= 4294967287U;
         obj_work.disp_flag &= 4294967291U;
@@ -431,7 +431,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600046D RID: 1133 RVA: 0x00024DE6 File Offset: 0x00022FE6
-    public static void ObjDrawObjectActionSet3DNN(AppMain.OBS_OBJECT_WORK obj_work, int id, int mbuf_id)
+    public static void ObjDrawObjectActionSet3DNN(OBS_OBJECT_WORK obj_work, int id, int mbuf_id)
     {
         obj_work.disp_flag &= 4294967287U;
         obj_work.disp_flag &= 4294967291U;
@@ -451,7 +451,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600046F RID: 1135 RVA: 0x00024E3D File Offset: 0x0002303D
-    public static void ObjDrawObjectActionSet3DNNBlend(AppMain.OBS_OBJECT_WORK obj_work, int id)
+    public static void ObjDrawObjectActionSet3DNNBlend(OBS_OBJECT_WORK obj_work, int id)
     {
         obj_work.disp_flag &= 4294967287U;
         obj_work.disp_flag &= 4294967291U;
@@ -469,7 +469,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000471 RID: 1137 RVA: 0x00024EB9 File Offset: 0x000230B9
-    public static void ObjDrawObjectActionSet3DNNMaterial(AppMain.OBS_OBJECT_WORK obj_work, int id)
+    public static void ObjDrawObjectActionSet3DNNMaterial(OBS_OBJECT_WORK obj_work, int id)
     {
         obj_work.disp_flag &= 4294967287U;
         obj_work.disp_flag &= 4294967291U;
@@ -485,7 +485,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000473 RID: 1139 RVA: 0x00024F05 File Offset: 0x00023105
-    public static int ObjDrawActionGet(AppMain.OBS_OBJECT_WORK obj_work)
+    public static int ObjDrawActionGet(OBS_OBJECT_WORK obj_work)
     {
         if (obj_work.obj_3d != null && obj_work.obj_3d.motion != null)
         {
@@ -499,7 +499,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000474 RID: 1140 RVA: 0x00024F3F File Offset: 0x0002313F
-    public static int ObjDrawActionGet3DNN(AppMain.OBS_OBJECT_WORK obj_work, int mbuf_id)
+    public static int ObjDrawActionGet3DNN(OBS_OBJECT_WORK obj_work, int mbuf_id)
     {
         if (mbuf_id >= 2)
         {
@@ -513,7 +513,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000475 RID: 1141 RVA: 0x00024F6C File Offset: 0x0002316C
-    public static void ObjDrawActionSummary(AppMain.OBS_OBJECT_WORK obj_work)
+    public static void ObjDrawActionSummary(OBS_OBJECT_WORK obj_work)
     {
         if (obj_work.obj_3d != null && AppMain.ObjAction3dNNModelLoadCheck(obj_work.obj_3d))
         {
@@ -559,14 +559,14 @@ public partial class AppMain
     // Token: 0x06000479 RID: 1145 RVA: 0x00025040 File Offset: 0x00023240
     public static void ObjDraw3DNNSetCamera(int camera_id, int proj_type)
     {
-        AppMain.OBS_CAMERA obs_CAMERA = null;
+        OBS_CAMERA obs_CAMERA = null;
         if (!AppMain.GmMainIsDrawEnable())
         {
             return;
         }
         if (camera_id >= 0)
         {
-            obs_CAMERA = AppMain.ObjCameraGet(camera_id);
+            obs_CAMERA = ObjCamera.Get(camera_id);
         }
         AppMain.objDraw3DNNSetCamera(obs_CAMERA, proj_type, obs_CAMERA.command_state);
     }
@@ -574,14 +574,14 @@ public partial class AppMain
     // Token: 0x0600047A RID: 1146 RVA: 0x00025070 File Offset: 0x00023270
     public static void ObjDraw3DNNSetCameraEx(int camera_id, int proj_type, uint command_state)
     {
-        AppMain.OBS_CAMERA obj_camera = null;
+        OBS_CAMERA obj_camera = null;
         if (!AppMain.GmMainIsDrawEnable())
         {
             return;
         }
         if (camera_id >= 0)
         {
-            obj_camera = AppMain.ObjCameraGet(camera_id);
+            obj_camera = ObjCamera.Get(camera_id);
         }
         AppMain.objDraw3DNNSetCamera(obj_camera, proj_type, command_state);
     }
@@ -606,7 +606,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600047D RID: 1149 RVA: 0x000250DC File Offset: 0x000232DC
-    public static void ObjDrawObjectAction3DNN(AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK obj_3d)
+    public static void ObjDrawObjectAction3DNN(OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_NN_WORK obj_3d)
     {
         AppMain.VecFx32 pos = obj_work.pos;
         AppMain.VecU16 vecU = new AppMain.VecU16(obj_work.dir);
@@ -646,7 +646,7 @@ public partial class AppMain
             num &= 3758096383U;
             if (pos != null && (num & 293609472U) == 0U)
             {
-                AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain._g_obj.glb_camera_id);
+                OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain._g_obj.glb_camera_id);
                 float num2 = obs_CAMERA.disp_pos.x + obs_CAMERA.bottom;
                 float num3 = obs_CAMERA.disp_pos.x + obs_CAMERA.top;
                 float num4 = -(obs_CAMERA.disp_pos.y + obs_CAMERA.top);
@@ -703,7 +703,7 @@ public partial class AppMain
             }
             return;
         }
-        AppMain.NNS_MATRIX objDrawAction3DNN_obj_mtx = AppMain.ObjDrawAction3DNN_obj_mtx;
+        NNS_MATRIX objDrawAction3DNN_obj_mtx = AppMain.ObjDrawAction3DNN_obj_mtx;
         AppMain.VecFx32 value = new AppMain.VecFx32(4096, 4096, 4096);
         AppMain.nnMakeUnitMatrix(objDrawAction3DNN_obj_mtx);
         if (pos != null && (num & 8192U) == 0U)
@@ -1031,7 +1031,7 @@ public partial class AppMain
             return;
         }
         AppMain.OBS_DRAW_PARAM_3DNN_MODEL obs_DRAW_PARAM_3DNN_MODEL = AppMain._ObjDraw3DNNModel_Pool.Alloc();
-        AppMain.NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MODEL.mtx;
+        NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MODEL.mtx;
         AppMain.nnCopyMatrix(mtx, AppMain.amMatrixGetCurrent());
         AppMain.AMS_PARAM_DRAW_OBJECT param = obs_DRAW_PARAM_3DNN_MODEL.param;
         param._object = _object;
@@ -1067,7 +1067,7 @@ public partial class AppMain
             return;
         }
         AppMain.OBS_DRAW_PARAM_3DNN_MODEL obs_DRAW_PARAM_3DNN_MODEL = new AppMain.OBS_DRAW_PARAM_3DNN_MODEL();
-        AppMain.NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MODEL.mtx;
+        NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MODEL.mtx;
         AppMain.nnCopyMatrix(mtx, AppMain.amMatrixGetCurrent());
         AppMain.AMS_PARAM_DRAW_OBJECT param = obs_DRAW_PARAM_3DNN_MODEL.param;
         param._object = _object;
@@ -1100,7 +1100,7 @@ public partial class AppMain
         }
         int node_num = motion.node_num;
         AppMain.OBS_DRAW_PARAM_3DNN_MOTION obs_DRAW_PARAM_3DNN_MOTION = AppMain.amDrawAlloc_OBS_DRAW_PARAM_3DNN_MOTION();
-        AppMain.NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MOTION.mtx;
+        NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MOTION.mtx;
         AppMain.nnCopyMatrix(mtx, AppMain.amMatrixGetCurrent());
         AppMain.AMS_PARAM_DRAW_MOTION_TRS param = obs_DRAW_PARAM_3DNN_MOTION.param;
         param._object = _object;
@@ -1147,7 +1147,7 @@ public partial class AppMain
         }
         int node_num = motion.node_num;
         AppMain.OBS_DRAW_PARAM_3DNN_MOTION obs_DRAW_PARAM_3DNN_MOTION = AppMain.amDrawAlloc_OBS_DRAW_PARAM_3DNN_MOTION();
-        AppMain.NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MOTION.mtx;
+        NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_MOTION.mtx;
         mtx.Assign(AppMain.amMatrixGetCurrent());
         AppMain.AMS_PARAM_DRAW_MOTION_TRS param = obs_DRAW_PARAM_3DNN_MOTION.param;
         param.mtx = mtx;
@@ -1199,7 +1199,7 @@ public partial class AppMain
             return;
         }
         AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION obs_DRAW_PARAM_3DNN_DRAW_MOTION = AppMain.amDrawAlloc_OBS_DRAW_PARAM_3DNN_DRAW_MOTION();
-        AppMain.NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_DRAW_MOTION.mtx;
+        NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_DRAW_MOTION.mtx;
         AppMain.nnCopyMatrix(mtx, AppMain.amMatrixGetCurrent());
         AppMain.AMS_PARAM_DRAW_MOTION param = obs_DRAW_PARAM_3DNN_DRAW_MOTION.param;
         param._object = _object;
@@ -1234,7 +1234,7 @@ public partial class AppMain
             return;
         }
         AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION obs_DRAW_PARAM_3DNN_DRAW_MOTION = new AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION();
-        AppMain.NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_DRAW_MOTION.mtx;
+        NNS_MATRIX mtx = obs_DRAW_PARAM_3DNN_DRAW_MOTION.mtx;
         AppMain.nnCopyMatrix(mtx, AppMain.amMatrixGetCurrent());
         AppMain.AMS_PARAM_DRAW_MOTION param = obs_DRAW_PARAM_3DNN_DRAW_MOTION.param;
         param._object = _object;
@@ -1329,7 +1329,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000490 RID: 1168 RVA: 0x000267E0 File Offset: 0x000249E0
-    public static void ObjDrawObjectAction3DES(AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des)
+    public static void ObjDrawObjectAction3DES(OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION3D_ES_WORK obj_3des)
     {
         AppMain.VecFx32 vecFx = default(AppMain.VecFx32);
         AppMain.VecU16 vecU = default(AppMain.VecU16);
@@ -1361,11 +1361,11 @@ public partial class AppMain
             return;
         }
         uint num = 0U;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION3 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION4 = default(AppMain.NNS_QUATERNION);
+        NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION3 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION4 = default(NNS_QUATERNION);
         AppMain.vec_posObjDrawAction3DES.w = 0f;
         AppMain.amQuatInit(ref nns_QUATERNION);
         AppMain.amVectorInit(ref AppMain.vecObjDrawAction3DES);
@@ -1457,9 +1457,9 @@ public partial class AppMain
             AppMain.amVectorAdd(ref AppMain.vecObjDrawAction3DES, ref AppMain.vec_dispObjDrawAction3DES, ref AppMain.vecObjDrawAction3DES);
             AppMain.amQuatMulti(ref nns_QUATERNION, ref nns_QUATERNION3, ref nns_QUATERNION);
             AppMain.amQuatMulti(ref nns_QUATERNION, ref nns_QUATERNION4, ref nns_QUATERNION);
-            AppMain.SNNS_MATRIX snns_MATRIX;
+            SNNS_MATRIX snns_MATRIX;
             AppMain.nnMakeQuaternionMatrix(out snns_MATRIX, ref nns_QUATERNION);
-            AppMain.SNNS_VECTOR snns_VECTOR;
+            SNNS_VECTOR snns_VECTOR;
             snns_VECTOR.x = AppMain.vecObjDrawAction3DES.x;
             snns_VECTOR.y = AppMain.vecObjDrawAction3DES.y;
             snns_VECTOR.z = AppMain.vecObjDrawAction3DES.z;
@@ -1476,12 +1476,12 @@ public partial class AppMain
             {
                 AppMain.amEffectSetRotate(obj_3des.ecb, ref nns_QUATERNION);
             }
-            AppMain.SNNS_MATRIX snns_MATRIX2;
+            SNNS_MATRIX snns_MATRIX2;
             AppMain.nnMakeScaleMatrix(out snns_MATRIX2, AppMain.vec_scaleObjDrawAction3DES.x, AppMain.vec_scaleObjDrawAction3DES.y, AppMain.vec_scaleObjDrawAction3DES.z);
             AppMain.nnMultiplyMatrix(nns_MATRIX, ref snns_MATRIX2, nns_MATRIX);
             if ((obj_3des.flag & 2U) != 0U)
             {
-                AppMain.SNNS_MATRIX snns_MATRIX3;
+                SNNS_MATRIX snns_MATRIX3;
                 AppMain.nnMakeTranslateMatrix(out snns_MATRIX3, AppMain.vec_posObjDrawAction3DES.x, AppMain.vec_posObjDrawAction3DES.y, AppMain.vec_posObjDrawAction3DES.z);
                 AppMain.nnMultiplyMatrix(nns_MATRIX, ref snns_MATRIX3, nns_MATRIX);
             }
@@ -1496,18 +1496,18 @@ public partial class AppMain
             AppMain.amQuatMulti(ref nns_QUATERNION, ref nns_QUATERNION3, ref nns_QUATERNION);
             AppMain.amQuatMulti(ref nns_QUATERNION, ref nns_QUATERNION4, ref nns_QUATERNION);
             AppMain.nnMakeQuaternionMatrix(nns_MATRIX, ref nns_QUATERNION);
-            AppMain.SNNS_VECTOR snns_VECTOR2;
+            SNNS_VECTOR snns_VECTOR2;
             snns_VECTOR2.x = AppMain.vec_posObjDrawAction3DES.x;
             snns_VECTOR2.y = AppMain.vec_posObjDrawAction3DES.y;
             snns_VECTOR2.z = AppMain.vec_posObjDrawAction3DES.z;
             AppMain.nnCopyVectorMatrixTranslation(nns_MATRIX, ref snns_VECTOR2);
-            AppMain.SNNS_MATRIX snns_MATRIX4;
+            SNNS_MATRIX snns_MATRIX4;
             AppMain.nnMakeScaleMatrix(out snns_MATRIX4, AppMain.vec_scaleObjDrawAction3DES.x, AppMain.vec_scaleObjDrawAction3DES.y, AppMain.vec_scaleObjDrawAction3DES.z);
             AppMain.nnMultiplyMatrix(nns_MATRIX, nns_MATRIX, ref snns_MATRIX4);
-            AppMain.SNNS_MATRIX snns_MATRIX5;
+            SNNS_MATRIX snns_MATRIX5;
             AppMain.nnMakeTranslateMatrix(out snns_MATRIX5, AppMain.vec_dispObjDrawAction3DES.x, AppMain.vec_dispObjDrawAction3DES.y, AppMain.vec_dispObjDrawAction3DES.z);
             AppMain.nnMultiplyMatrix(nns_MATRIX, nns_MATRIX, ref snns_MATRIX5);
-            AppMain.SNNS_MATRIX snns_MATRIX6;
+            SNNS_MATRIX snns_MATRIX6;
             AppMain.nnMakeQuaternionMatrix(out snns_MATRIX6, ref nns_QUATERNION2);
             AppMain.nnMultiplyMatrix(nns_MATRIX, nns_MATRIX, ref snns_MATRIX6);
         }
@@ -1540,7 +1540,7 @@ public partial class AppMain
             AppMain.ObjDraw3DESEffect(obj_3des.ecb, obj_3des.texlist, obj_3des.command_state);
             if ((obj_3des.flag & 64U) != 0U)
             {
-                AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.amDrawAlloc_NNS_MATRIX();
+                NNS_MATRIX nns_MATRIX2 = AppMain.amDrawAlloc_NNS_MATRIX();
                 AppMain.nnMakeTranslateMatrix(nns_MATRIX2, obj_3des.dup_draw_ofst.x, obj_3des.dup_draw_ofst.y, obj_3des.dup_draw_ofst.z);
                 AppMain.nnMultiplyMatrix(nns_MATRIX2, nns_MATRIX2, nns_MATRIX);
                 AppMain.ObjDraw3DESMatrixPop(obj_3des.command_state);
@@ -1553,13 +1553,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000493 RID: 1171 RVA: 0x00026FF2 File Offset: 0x000251F2
-    public static void ObjDraw3DESEffect(AppMain.AMS_AME_ECB ecb, AppMain.NNS_TEXLIST texlist, uint command_state)
+    public static void ObjDraw3DESEffect(AMS_AME_ECB ecb, AppMain.NNS_TEXLIST texlist, uint command_state)
     {
         AppMain.amEffectDraw(ecb, texlist, command_state);
     }
 
     // Token: 0x06000494 RID: 1172 RVA: 0x00026FFC File Offset: 0x000251FC
-    public static void ObjDraw3DESMatrixPush(AppMain.NNS_MATRIX mtx, uint command_state)
+    public static void ObjDraw3DESMatrixPush(NNS_MATRIX mtx, uint command_state)
     {
         AppMain._ObjDraw3DNNUserFunc(AppMain._objDraw3DESMatrixPush_UserFunc, mtx, command_state);
     }
@@ -1571,7 +1571,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000496 RID: 1174 RVA: 0x00027019 File Offset: 0x00025219
-    public static void ObjDrawKillAction3DES(AppMain.OBS_OBJECT_WORK obj_work)
+    public static void ObjDrawKillAction3DES(OBS_OBJECT_WORK obj_work)
     {
         if (obj_work.obj_3des.ecb != null)
         {
@@ -1580,19 +1580,19 @@ public partial class AppMain
     }
 
     // Token: 0x06000497 RID: 1175 RVA: 0x00027038 File Offset: 0x00025238
-    public static void ObjDraw3DESSetCamera(AppMain.OBS_ACTION3D_ES_WORK obj_3des, AppMain.NNS_MATRIX obj_mtx)
+    public static void ObjDraw3DESSetCamera(AppMain.OBS_ACTION3D_ES_WORK obj_3des, NNS_MATRIX obj_mtx)
     {
-        AppMain.SNNS_VECTOR snns_VECTOR = default(AppMain.SNNS_VECTOR);
-        AppMain.SNNS_VECTOR snns_VECTOR2 = default(AppMain.SNNS_VECTOR);
+        SNNS_VECTOR snns_VECTOR = default(SNNS_VECTOR);
+        SNNS_VECTOR snns_VECTOR2 = default(SNNS_VECTOR);
         AppMain.ObjDraw3DNNSetCameraEx(AppMain.g_obj.glb_camera_id, AppMain.g_obj.glb_camera_type, obj_3des.command_state);
-        AppMain.ObjCameraDispPosGet(AppMain.g_obj.glb_camera_id, out snns_VECTOR);
+        ObjCamera.DispPosGet(AppMain.g_obj.glb_camera_id, out snns_VECTOR);
         AppMain.amVectorSet(ref snns_VECTOR2, -obj_mtx.M03, -obj_mtx.M13, -obj_mtx.M23);
         AppMain.nnAddVector(ref snns_VECTOR, ref snns_VECTOR2, ref snns_VECTOR);
         AppMain.amEffectSetCameraPos(ref snns_VECTOR);
     }
 
     // Token: 0x06000498 RID: 1176 RVA: 0x000270B4 File Offset: 0x000252B4
-    public static void ObjDrawObjectAction2DAMA(AppMain.OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION2D_AMA_WORK obj_2d)
+    public static void ObjDrawObjectAction2DAMA(OBS_OBJECT_WORK obj_work, AppMain.OBS_ACTION2D_AMA_WORK obj_2d)
     {
         if (!AppMain.GmMainIsDrawEnable())
         {
@@ -1691,7 +1691,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600049B RID: 1179 RVA: 0x00027374 File Offset: 0x00025574
-    public static void ObjDrawSetParallelLight(int light_no, ref AppMain.NNS_RGBA col, float intensity, AppMain.NNS_VECTOR vec)
+    public static void ObjDrawSetParallelLight(int light_no, ref NNS_RGBA col, float intensity, NNS_VECTOR vec)
     {
         AppMain.NNS_LIGHT_PARALLEL parallel = AppMain.g_obj.light[light_no].parallel;
         AppMain.nnSetUpParallelLight(parallel, ref col, intensity, vec);
@@ -1699,7 +1699,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600049C RID: 1180 RVA: 0x000273B0 File Offset: 0x000255B0
-    private void ObjDrawSetPointLight(int light_no, ref AppMain.NNS_RGBA col, float intensity, AppMain.NNS_VECTOR pos, float falloffstart, float falloffend)
+    private void ObjDrawSetPointLight(int light_no, ref NNS_RGBA col, float intensity, NNS_VECTOR pos, float falloffstart, float falloffend)
     {
         AppMain.mppAssertNotImpl();
         AppMain.NNS_LIGHT_POINT point = AppMain.g_obj.light[light_no].point;
@@ -1708,7 +1708,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600049D RID: 1181 RVA: 0x000273F4 File Offset: 0x000255F4
-    private void ObjDrawSetTargetSpotLight(int light_no, ref AppMain.NNS_RGBA col, float intensity, AppMain.NNS_VECTOR pos, AppMain.NNS_VECTOR target, int innerangle, int outerangle, float falloffstart, float falloffend)
+    private void ObjDrawSetTargetSpotLight(int light_no, ref NNS_RGBA col, float intensity, NNS_VECTOR pos, NNS_VECTOR target, int innerangle, int outerangle, float falloffstart, float falloffend)
     {
         AppMain.mppAssertNotImpl();
         AppMain.NNS_LIGHT_TARGET_SPOT target_spot = AppMain.g_obj.light[light_no].target_spot;
@@ -1717,7 +1717,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600049E RID: 1182 RVA: 0x00027440 File Offset: 0x00025640
-    private void ObjDrawSetRotationSpotLight(int light_no, ref AppMain.NNS_RGBA col, float intensity, AppMain.NNS_VECTOR pos, int rottype, AppMain.NNS_ROTATE_A32 rotation, int innerangle, int outerangle, float falloffstart, float falloffend)
+    private void ObjDrawSetRotationSpotLight(int light_no, ref NNS_RGBA col, float intensity, NNS_VECTOR pos, int rottype, NNS_ROTATE_A32 rotation, int innerangle, int outerangle, float falloffstart, float falloffend)
     {
         AppMain.mppAssertNotImpl();
         AppMain.NNS_LIGHT_ROTATION_SPOT rotation_spot = AppMain.g_obj.light[light_no].rotation_spot;
@@ -1759,7 +1759,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004A0 RID: 1184 RVA: 0x0002756C File Offset: 0x0002576C
-    public static void objDraw3DNNSetCamera(AppMain.OBS_CAMERA obj_camera, int proj_type, uint command_state)
+    public static void objDraw3DNNSetCamera(OBS_CAMERA obj_camera, int proj_type, uint command_state)
     {
         AppMain.OBS_DRAW_PARAM_3DNN_SET_CAMERA obs_DRAW_PARAM_3DNN_SET_CAMERA = AppMain._objDraw3DNNSetCamera_Pool.Alloc();
         obs_DRAW_PARAM_3DNN_SET_CAMERA.proj_type = proj_type;
@@ -1778,12 +1778,12 @@ public partial class AppMain
         }
         else
         {
-            AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-            AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
             AppMain.NNS_CAMERAPTR nns_CAMERAPTR = new AppMain.NNS_CAMERAPTR();
             AppMain.NNS_CAMERA_TARGET_ROLL nns_CAMERA_TARGET_ROLL = new AppMain.NNS_CAMERA_TARGET_ROLL();
-            AppMain.NNS_VECTOR vec = new AppMain.NNS_VECTOR(0f, 0f, 0f);
-            AppMain.NNS_MATRIX scaleMatrix = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+            NNS_VECTOR vec = new NNS_VECTOR(0f, 0f, 0f);
+            NNS_MATRIX scaleMatrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
             nnMakeScaleMatrix(scaleMatrix, AMD_SCREEN_SCALE, AMD_SCREEN_SCALE, AMD_SCREEN_SCALE);
             nns_CAMERAPTR.fType = 255U;
             nns_CAMERAPTR.pCamera = nns_CAMERA_TARGET_ROLL;
@@ -1825,7 +1825,7 @@ public partial class AppMain
     // Token: 0x060004A1 RID: 1185 RVA: 0x0002777C File Offset: 0x0002597C
     public static void objDraw3DNNModel_DT(AppMain.AMS_COMMAND_HEADER command, uint drawflag)
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
+        NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
         AppMain.amMatrixPush();
         AppMain.OBS_DRAW_PARAM_3DNN_MODEL obs_DRAW_PARAM_3DNN_MODEL;
         if (command.param is AppMain.AMS_PARAM_DRAW_OBJECT)
@@ -1850,13 +1850,13 @@ public partial class AppMain
         AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool.Alloc();
         if (AppMain._objDraw3DNNModel_DT.plt_mtx == null || AppMain._objDraw3DNNModel_DT.plt_mtx.Length < nNode)
         {
-            AppMain._objDraw3DNNModel_DT.plt_mtx = new AppMain.NNS_MATRIX[nNode];
+            AppMain._objDraw3DNNModel_DT.plt_mtx = new NNS_MATRIX[nNode];
             for (int i = 0; i < nNode; i++)
             {
-                AppMain._objDraw3DNNModel_DT.plt_mtx[i] = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+                AppMain._objDraw3DNNModel_DT.plt_mtx[i] = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
             }
         }
-        AppMain.NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNModel_DT.plt_mtx;
+        NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNModel_DT.plt_mtx;
         if (AppMain._objDraw3DNNModel_DT.nstat == null || AppMain._objDraw3DNNModel_DT.nstat.Length < (nNode + 3 & -4))
         {
             AppMain._objDraw3DNNModel_DT.nstat = new uint[nNode + 3 & -4];
@@ -1912,7 +1912,7 @@ public partial class AppMain
     // Token: 0x060004A2 RID: 1186 RVA: 0x000279E4 File Offset: 0x00025BE4
     private static void objDraw3DNNMotion_DT(AppMain.AMS_COMMAND_HEADER command, uint drawflag)
     {
-        AppMain.SNNS_MATRIX snns_MATRIX = default(AppMain.SNNS_MATRIX);
+        SNNS_MATRIX snns_MATRIX = default(SNNS_MATRIX);
         AppMain.amMatrixPush();
         AppMain.OBS_DRAW_PARAM_3DNN_MOTION obs_DRAW_PARAM_3DNN_MOTION;
         if (command.param is AppMain.OBS_DRAW_PARAM_3DNN_MOTION)
@@ -1944,13 +1944,13 @@ public partial class AppMain
         AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool.Alloc();
         if (AppMain._objDraw3DNNMotion_DT.plt_mtx == null || AppMain._objDraw3DNNMotion_DT.plt_mtx.Length < nMtxPal)
         {
-            AppMain._objDraw3DNNMotion_DT.plt_mtx = new AppMain.NNS_MATRIX[nMtxPal];
+            AppMain._objDraw3DNNMotion_DT.plt_mtx = new NNS_MATRIX[nMtxPal];
             for (int i = 0; i < nMtxPal; i++)
             {
-                AppMain._objDraw3DNNMotion_DT.plt_mtx[i] = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+                AppMain._objDraw3DNNMotion_DT.plt_mtx[i] = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
             }
         }
-        AppMain.NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNMotion_DT.plt_mtx;
+        NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNMotion_DT.plt_mtx;
         if (AppMain._objDraw3DNNMotion_DT.nstat == null || AppMain._objDraw3DNNMotion_DT.nstat.Length < nNode)
         {
             AppMain._objDraw3DNNMotion_DT.nstat = new uint[nNode];
@@ -2099,7 +2099,7 @@ public partial class AppMain
     // Token: 0x060004A6 RID: 1190 RVA: 0x00027EE4 File Offset: 0x000260E4
     public static void objDraw3DNNDrawMotion_DT(AppMain.AMS_COMMAND_HEADER command, uint drawflag)
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
+        NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
         AppMain.amMatrixPush();
         AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION obs_DRAW_PARAM_3DNN_DRAW_MOTION;
         if (command.param is AppMain.AMS_PARAM_DRAW_MOTION)
@@ -2122,14 +2122,14 @@ public partial class AppMain
         int nNode = param._object.nNode;
         if (AppMain._objDraw3DNNDrawMotion_DT.plt_mtx == null || AppMain._objDraw3DNNDrawMotion_DT.plt_mtx.Length < nNode)
         {
-            AppMain._objDraw3DNNDrawMotion_DT.plt_mtx = new AppMain.NNS_MATRIX[nNode];
+            AppMain._objDraw3DNNDrawMotion_DT.plt_mtx = new NNS_MATRIX[nNode];
             AppMain._objDraw3DNNDrawMotion_DT.nstat = new uint[nNode];
             for (int i = 0; i < nNode; i++)
             {
-                AppMain._objDraw3DNNDrawMotion_DT.plt_mtx[i] = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+                AppMain._objDraw3DNNDrawMotion_DT.plt_mtx[i] = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
             }
         }
-        AppMain.NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNDrawMotion_DT.plt_mtx;
+        NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNDrawMotion_DT.plt_mtx;
         uint[] nstat = AppMain._objDraw3DNNDrawMotion_DT.nstat;
         if (param.mtx != null)
         {
@@ -2308,8 +2308,8 @@ public partial class AppMain
     public static void objDraw3DESMatrixPush_UserFunc(object param)
     {
         AppMain.amMatrixPush();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amMatrixGetCurrent();
-        AppMain.nnMultiplyMatrix(nns_MATRIX, nns_MATRIX, (AppMain.NNS_MATRIX)param);
+        NNS_MATRIX nns_MATRIX = AppMain.amMatrixGetCurrent();
+        AppMain.nnMultiplyMatrix(nns_MATRIX, nns_MATRIX, (NNS_MATRIX)param);
         AppMain.nnMultiplyMatrix(ref AppMain.tempSNNS_MATRIX0, AppMain.amDrawGetWorldViewMatrix(), nns_MATRIX);
         AppMain.nnSetPrimitive3DMatrix(ref AppMain.tempSNNS_MATRIX0);
     }

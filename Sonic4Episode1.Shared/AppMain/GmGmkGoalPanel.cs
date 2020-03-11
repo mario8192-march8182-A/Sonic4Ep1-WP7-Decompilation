@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060008D2 RID: 2258 RVA: 0x0005018C File Offset: 0x0004E38C
-    private static AppMain.OBS_OBJECT_WORK GmGmkGoalPanelInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkGoalPanelInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_GOAL_PANEL");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_GOAL_PANEL");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         gms_ENEMY_3D_WORK.ene_com.enemy_flag |= 65536U;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_goal_panel_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -33,14 +33,14 @@ public partial class AppMain
     // Token: 0x060008D4 RID: 2260 RVA: 0x000502B4 File Offset: 0x0004E4B4
     public static void GmGmkGoalPanelFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(836));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(836));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_goal_panel_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060008D5 RID: 2261 RVA: 0x000502E4 File Offset: 0x0004E4E4
-    private static void gmGmkGoalPanelMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkGoalPanelMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( obj_work.pos.x < gms_PLAYER_WORK.obj_work.pos.x )
         {
             SaveState.deleteSave();
@@ -53,7 +53,7 @@ public partial class AppMain
                 AppMain.g_gm_main_system.game_flag &= 4261412863U;
             }
             AppMain.HgTrophyTryAcquisition( 1 );
-            AppMain.GmPlayerSetGoalState( gms_PLAYER_WORK );
+            GmPlayer.SetGoalState( gms_PLAYER_WORK );
             AppMain.g_gm_main_system.game_flag &= 4294966271U;
             AppMain.g_gm_main_system.game_flag |= 1048576U;
             obj_work.user_work = 4096U;
@@ -71,18 +71,18 @@ public partial class AppMain
             AppMain.GmEffect3DESSetDispOffset( AppMain.gm_gmk_goal_panel_effct, 0f, 30f, 15f );
             AppMain.GmEffect3DESSetDispRotation( AppMain.gm_gmk_goal_panel_effct, 0, 0, 0 );
             AppMain.GMM_PAD_VIB_SMALL();
-            AppMain.GmSoundPlaySE( "GoalPanel" );
+            GmSound.PlaySE( "GoalPanel" );
         }
     }
 
     // Token: 0x060008D6 RID: 2262 RVA: 0x0005044C File Offset: 0x0004E64C
-    private static AppMain.OBS_OBJECT_WORK GmGmkCamScrLimitSet( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y )
+    private static OBS_OBJECT_WORK GmGmkCamScrLimitSet( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y )
     {
         return AppMain.GmEventMgrLocalEventBirth( 302, pos_x, pos_y, eve_rec.flag, eve_rec.left, eve_rec.top, eve_rec.width, eve_rec.height, 0 );
     }
 
     // Token: 0x060008D7 RID: 2263 RVA: 0x00050488 File Offset: 0x0004E688
-    private static void gmGmkGoalPanelPass( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkGoalPanelPass( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer--;
         if ( obj_work.user_timer <= 0 )
@@ -99,7 +99,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008D8 RID: 2264 RVA: 0x00050514 File Offset: 0x0004E714
-    private static void gmGmkGoalPanelWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkGoalPanelWait( OBS_OBJECT_WORK obj_work )
     {
         if ( --obj_work.user_timer <= 0 )
         {
@@ -114,7 +114,7 @@ public partial class AppMain
     {
         if ( AppMain.gm_gmk_goal_panel_effct != null )
         {
-            AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )AppMain.gm_gmk_goal_panel_effct );
+            AppMain.ObjDrawKillAction3DES( ( OBS_OBJECT_WORK )AppMain.gm_gmk_goal_panel_effct );
             AppMain.gm_gmk_goal_panel_effct = null;
         }
     }

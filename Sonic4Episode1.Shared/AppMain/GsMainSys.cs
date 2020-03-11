@@ -81,7 +81,7 @@ public partial class AppMain
         public uint sync_time;
 
         // Token: 0x04004B61 RID: 19297
-        public AppMain.GMS_PLAYER_WORK[] ply_work = new AppMain.GMS_PLAYER_WORK[1];
+        public GMS_PLAYER_WORK[] ply_work = new GMS_PLAYER_WORK[1];
 
         // Token: 0x04004B62 RID: 19298
         public uint marker_pri;
@@ -114,16 +114,16 @@ public partial class AppMain
         public int die_event_wait_time;
 
         // Token: 0x04004B6C RID: 19308
-        public readonly AppMain.NNS_VECTOR def_light_vec = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR def_light_vec = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004B6D RID: 19309
-        public AppMain.NNS_RGBA def_light_col;
+        public NNS_RGBA def_light_col;
 
         // Token: 0x04004B6E RID: 19310
-        public readonly AppMain.NNS_VECTOR ply_light_vec = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR ply_light_vec = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004B6F RID: 19311
-        public AppMain.NNS_RGBA ply_light_col;
+        public NNS_RGBA ply_light_col;
 
         // Token: 0x04004B70 RID: 19312
         public uint ply_dmg_count;
@@ -393,14 +393,14 @@ public partial class AppMain
         AppMain.GsMainSysInfoInit(AppMain.GsGetMainSysInfo());
         AppMain.mtTaskInitSystem();
         AppMain.SyInitEvtSys(AppMain._gs_evt_data, 15, 1, true, 256, 14);
-        AppMain.GsSoundInit();
+        GsSound.Init();
     }
 
     // Token: 0x06000D11 RID: 3345 RVA: 0x00074A85 File Offset: 0x00072C85
     private static void GsExitUser()
     {
         AppMain.GsOtherExit();
-        AppMain.GsSoundExit();
+        GsSound.Exit();
     }
 
     // Token: 0x06000D12 RID: 3346 RVA: 0x00074A91 File Offset: 0x00072C91
@@ -463,7 +463,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D18 RID: 3352 RVA: 0x00074B38 File Offset: 0x00072D38
-    private static bool GsMainSysGetSuspendedFlag()
+    public static bool GsMainSysGetSuspendedFlag()
     {
         bool result = false;
         if ((AppMain.g_gs_main_sys_info.sys_flag & 1U) != 0U)

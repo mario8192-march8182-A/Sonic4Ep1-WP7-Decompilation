@@ -41,7 +41,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000148 RID: 328
-    public class GMS_GMK_SPEAR_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SPEAR_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060020B3 RID: 8371 RVA: 0x0013F955 File Offset: 0x0013DB55
         public GMS_GMK_SPEAR_WORK()
@@ -50,7 +50,7 @@ public partial class AppMain
         }
 
         // Token: 0x060020B4 RID: 8372 RVA: 0x0013F969 File Offset: 0x0013DB69
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -81,7 +81,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000149 RID: 329
-    public class GMS_GMK_SPEARPARTS_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SPEARPARTS_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060020B5 RID: 8373 RVA: 0x0013F97B File Offset: 0x0013DB7B
         public GMS_GMK_SPEARPARTS_WORK()
@@ -90,7 +90,7 @@ public partial class AppMain
         }
 
         // Token: 0x060020B6 RID: 8374 RVA: 0x0013F98F File Offset: 0x0013DB8F
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
@@ -108,14 +108,14 @@ public partial class AppMain
         public int connect;
 
         // Token: 0x04004D65 RID: 19813
-        public AppMain.OBS_OBJECT_WORK parent_connect;
+        public OBS_OBJECT_WORK parent_connect;
 
         // Token: 0x04004D66 RID: 19814
         public uint connect_type;
     }
 
     // Token: 0x06000554 RID: 1364 RVA: 0x0002CFAC File Offset: 0x0002B1AC
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpearUInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSpearUInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)AppMain.gmGmkSpearInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SPEAR_WORK.obj_type = 0U;
@@ -139,7 +139,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000555 RID: 1365 RVA: 0x0002D070 File Offset: 0x0002B270
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpearDInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSpearDInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)AppMain.gmGmkSpearInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SPEAR_WORK.obj_type = 1U;
@@ -163,7 +163,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000556 RID: 1366 RVA: 0x0002D138 File Offset: 0x0002B338
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpearLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSpearLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)AppMain.gmGmkSpearInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SPEAR_WORK.obj_type = 2U;
@@ -187,7 +187,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000557 RID: 1367 RVA: 0x0002D200 File Offset: 0x0002B400
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpearRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSpearRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)AppMain.gmGmkSpearInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SPEAR_WORK.obj_type = 3U;
@@ -213,13 +213,13 @@ public partial class AppMain
     // Token: 0x06000558 RID: 1368 RVA: 0x0002D2C2 File Offset: 0x0002B4C2
     public static void GmGmkSpearBuild()
     {
-        AppMain.gm_gmk_spear_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 856 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 857 ) ), 0U );
+        AppMain.gm_gmk_spear_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 856 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 857 ) ), 0U );
     }
 
     // Token: 0x06000559 RID: 1369 RVA: 0x0002D2F0 File Offset: 0x0002B4F0
     public static void GmGmkSpearFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(856));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(856));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_spear_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
@@ -235,7 +235,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600055B RID: 1371 RVA: 0x0002D36C File Offset: 0x0002B56C
-    private static void gmGmkSpearStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         gms_GMK_SPEAR_WORK.gmk_work.ene_com.rect_work[2].flag &= 4294967291U;
@@ -312,14 +312,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600055C RID: 1372 RVA: 0x0002D6BB File Offset: 0x0002B8BB
-    private static void gmGmkSpearStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearStay( OBS_OBJECT_WORK obj_work )
     {
         obj_work.ppFunc = AppMain.gmGmkSpearStay_100;
         AppMain.gmGmkSpearStay_100( obj_work );
     }
 
     // Token: 0x0600055D RID: 1373 RVA: 0x0002D6D8 File Offset: 0x0002B8D8
-    private static void gmGmkSpearStay_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearStay_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         gms_GMK_SPEAR_WORK.timer_dec--;
@@ -330,7 +330,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600055E RID: 1374 RVA: 0x0002D718 File Offset: 0x0002B918
-    private static void gmGmkSpearStay_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearStay_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         obj_work.spd.x = AppMain.mtMathCos( ( int )gms_GMK_SPEAR_WORK.vect );
@@ -338,12 +338,12 @@ public partial class AppMain
         obj_work.spd.x = obj_work.spd.x * gms_GMK_SPEAR_WORK.stroke_spd >> 12;
         obj_work.spd.y = obj_work.spd.y * gms_GMK_SPEAR_WORK.stroke_spd >> 12;
         gms_GMK_SPEAR_WORK.timer_dec = gms_GMK_SPEAR_WORK.timer_set_move;
-        AppMain.GmSoundPlaySE( "Spear" );
+        GmSound.PlaySE( "Spear" );
         AppMain.gmGmkSpearStroke( obj_work );
     }
 
     // Token: 0x0600055F RID: 1375 RVA: 0x0002D7B4 File Offset: 0x0002B9B4
-    private static void gmGmkSpearStroke( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearStroke( OBS_OBJECT_WORK obj_work )
     {
         obj_work.pos.x = obj_work.pos.x + obj_work.spd.x;
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
@@ -352,7 +352,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000560 RID: 1376 RVA: 0x0002D814 File Offset: 0x0002BA14
-    private static void gmGmkSpearStroke_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearStroke_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         gms_GMK_SPEAR_WORK.timer_dec -= gms_GMK_SPEAR_WORK.stroke_spd;
@@ -375,7 +375,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000561 RID: 1377 RVA: 0x0002D8E8 File Offset: 0x0002BAE8
-    private static void gmGmkSpearStroke_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearStroke_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         obj_work.spd.x = 0;
@@ -396,14 +396,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000562 RID: 1378 RVA: 0x0002D96A File Offset: 0x0002BB6A
-    private static void gmGmkSpearWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearWait( OBS_OBJECT_WORK obj_work )
     {
         obj_work.ppFunc = AppMain.gmGmkSpearWait_100;
         AppMain.gmGmkSpearWait_100( obj_work );
     }
 
     // Token: 0x06000563 RID: 1379 RVA: 0x0002D984 File Offset: 0x0002BB84
-    private static void gmGmkSpearWait_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearWait_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         gms_GMK_SPEAR_WORK.timer_dec--;
@@ -414,7 +414,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000564 RID: 1380 RVA: 0x0002D9C4 File Offset: 0x0002BBC4
-    private static void gmGmkSpearWait_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearWait_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         obj_work.spd.x = -( AppMain.mtMathCos( ( int )gms_GMK_SPEAR_WORK.vect ) * gms_GMK_SPEAR_WORK.stroke_spd ) >> 12;
@@ -424,7 +424,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000565 RID: 1381 RVA: 0x0002DA2C File Offset: 0x0002BC2C
-    private static void gmGmkSpearShrink( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearShrink( OBS_OBJECT_WORK obj_work )
     {
         obj_work.pos.x = obj_work.pos.x + obj_work.spd.x;
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
@@ -433,7 +433,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000566 RID: 1382 RVA: 0x0002DA8C File Offset: 0x0002BC8C
-    private static void gmGmkSpearShrink_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearShrink_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         gms_GMK_SPEAR_WORK.timer_dec -= gms_GMK_SPEAR_WORK.stroke_spd;
@@ -456,7 +456,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000567 RID: 1383 RVA: 0x0002DB64 File Offset: 0x0002BD64
-    private static void gmGmkSpearShrink_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearShrink_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)obj_work;
         obj_work.spd.x = 0;
@@ -474,7 +474,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000568 RID: 1384 RVA: 0x0002DBC4 File Offset: 0x0002BDC4
-    private static void gmGmkSpearRod( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpearRod( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPEARPARTS_WORK gms_GMK_SPEARPARTS_WORK = (AppMain.GMS_GMK_SPEARPARTS_WORK)obj_work;
         switch ( gms_GMK_SPEARPARTS_WORK.connect_type )
@@ -500,8 +500,8 @@ public partial class AppMain
     // Token: 0x06000569 RID: 1385 RVA: 0x0002DC8C File Offset: 0x0002BE8C
     private static void gmGmkSpear_CreateParts( AppMain.GMS_GMK_SPEAR_WORK pwork )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = pwork.gmk_work.ene_com.obj_work;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_SPEARPARTS_WORK(), null, 0, "Gmk_SpearBase");
+        OBS_OBJECT_WORK obj_work = pwork.gmk_work.ene_com.obj_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_SPEARPARTS_WORK(), null, 0, "Gmk_SpearBase");
         AppMain.GMS_GMK_SPEARPARTS_WORK gms_GMK_SPEARPARTS_WORK = (AppMain.GMS_GMK_SPEARPARTS_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_spear_obj_3d_list[2], gms_GMK_SPEARPARTS_WORK.eff_work.obj_3d );
         obs_OBJECT_WORK.parent_obj = obj_work;
@@ -512,25 +512,25 @@ public partial class AppMain
         {
             case 0U:
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK2.pos.y = obs_OBJECT_WORK2.pos.y + 16384;
                     break;
                 }
             case 1U:
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y - 16384;
                     break;
                 }
             case 2U:
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK4.pos.x = obs_OBJECT_WORK4.pos.x + 16384;
                     break;
                 }
             case 3U:
                 {
-                    AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK5 = obs_OBJECT_WORK;
+                    OBS_OBJECT_WORK obs_OBJECT_WORK5 = obs_OBJECT_WORK;
                     obs_OBJECT_WORK5.pos.x = obs_OBJECT_WORK5.pos.x - 16384;
                     break;
                 }
@@ -576,10 +576,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600056A RID: 1386 RVA: 0x0002DFA4 File Offset: 0x0002C1A4
-    private static AppMain.OBS_OBJECT_WORK gmGmkSpearInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK gmGmkSpearInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPEAR_WORK gms_GMK_SPEAR_WORK = (AppMain.GMS_GMK_SPEAR_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_SPEAR_WORK(), "Gmk_Spear");
-        AppMain.OBS_OBJECT_WORK obj_work = gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_GMK_SPEAR_WORK.gmk_work.ene_com.obj_work;
         AppMain.GMS_ENEMY_3D_WORK gmk_work = gms_GMK_SPEAR_WORK.gmk_work;
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.gm_gmk_spear_obj_3d_list[0], gmk_work.obj_3d );
         obj_work.pos.z = 0;

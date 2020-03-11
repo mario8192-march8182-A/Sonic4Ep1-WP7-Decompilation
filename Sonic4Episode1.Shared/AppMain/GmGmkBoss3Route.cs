@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0600077F RID: 1919 RVA: 0x00042460 File Offset: 0x00040660
-    private static AppMain.OBS_OBJECT_WORK GmGmkBoss3RouteInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBoss3RouteInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkBoss3RouteLoadObjNoModel(eve_rec, pos_x, pos_y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         AppMain.gmGmkBoss3RouteInit( obj_work );
         return obj_work;
     }
@@ -25,7 +25,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000781 RID: 1921 RVA: 0x00042508 File Offset: 0x00040708
-    private static void gmGmkBoss3RouteInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBoss3RouteInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.move_flag |= 8448U;
         obj_work.flag |= 16U;
@@ -35,7 +35,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000782 RID: 1922 RVA: 0x00042558 File Offset: 0x00040758
-    private static bool gmGmkBoss3RouteCheckHit( AppMain.OBS_OBJECT_WORK target_obj_work, AppMain.OBS_OBJECT_WORK gimmick_obj_work )
+    private static bool gmGmkBoss3RouteCheckHit( OBS_OBJECT_WORK target_obj_work, OBS_OBJECT_WORK gimmick_obj_work )
     {
         int num = target_obj_work.pos.x - gimmick_obj_work.pos.x;
         int num2 = target_obj_work.pos.y - gimmick_obj_work.pos.y;
@@ -49,10 +49,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000783 RID: 1923 RVA: 0x000425D8 File Offset: 0x000407D8
-    private static bool gmGmkBoss3RouteSetMoveParam( AppMain.OBS_OBJECT_WORK target_obj_work, AppMain.OBS_OBJECT_WORK gimmick_obj_work )
+    private static bool gmGmkBoss3RouteSetMoveParam( OBS_OBJECT_WORK target_obj_work, OBS_OBJECT_WORK gimmick_obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gimmick_obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         float num = (float)gms_ENEMY_3D_WORK.ene_com.eve_rec.width / 10f;
         if ( gms_PLAYER_WORK.obj_work.pos.y >= target_obj_work.pos.y && ( gms_ENEMY_3D_WORK.ene_com.eve_rec.flag & 1 ) != 0 && AppMain.ObjViewOutCheck( target_obj_work.pos.x, target_obj_work.pos.y, 96, 0, 0, 0, 0 ) != 0 )
         {
@@ -68,22 +68,22 @@ public partial class AppMain
         float num5 = AppMain.FX_FX32_TO_F32(target_obj_work.pos.y);
         float num6 = num2 - num4;
         float num7 = num3 - num5;
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.amVectorSet( nns_VECTOR, num6, num7, 0f );
         float num8 = 1f / AppMain.nnLengthVector(nns_VECTOR);
         float x3 = num6 * num8 * num;
         float x4 = num7 * num8 * num;
         target_obj_work.spd.x = AppMain.FX_F32_TO_FX32( x3 );
         target_obj_work.spd.y = AppMain.FX_F32_TO_FX32( x4 );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
         return true;
     }
 
     // Token: 0x06000784 RID: 1924 RVA: 0x00042774 File Offset: 0x00040974
-    private static void gmGmkBoss3RouteMainFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBoss3RouteMainFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 2 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 2 ) )
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 2 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 2 ) )
         {
             AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
             if ( gms_ENEMY_COM_WORK.eve_rec.id == 319 )

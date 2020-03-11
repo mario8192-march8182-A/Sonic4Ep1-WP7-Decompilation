@@ -8,7 +8,7 @@ public partial class AppMain
 {
 
     // Token: 0x02000367 RID: 871
-    public class GlobalPool<T> where T : class, AppMain.IClearable, new()
+    public class GlobalPool<T> where T : class, IClearable, new()
     {
         // Token: 0x06002696 RID: 9878 RVA: 0x0014FB4C File Offset: 0x0014DD4C
         public static T Alloc()

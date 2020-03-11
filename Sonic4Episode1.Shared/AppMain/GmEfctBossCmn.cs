@@ -57,7 +57,7 @@ public partial class AppMain
         object obj = null;
         int num = 0;
         AppMain.OBS_DATA_WORK pWork = AppMain.ObjDataGet(15);
-        AppMain.AMS_AMB_HEADER amb = AppMain.readAMBFile(AppMain.ObjDataGetInc(pWork));
+        AMS_AMB_HEADER amb = AmFs.readAMBFile(AppMain.ObjDataGetInc(pWork));
         AppMain.gm_efct_boss_cmn_model_reg_num = 6;
         if ( AppMain.gm_efct_boss_cmn_model_reg_num > 0 )
         {
@@ -71,7 +71,7 @@ public partial class AppMain
         }
         AppMain.OBS_DATA_WORK obs_DATA_WORK = AppMain.ObjDataGet(621);
         AppMain.ObjDataLoadAmbIndex( obs_DATA_WORK, 6, amb );
-        AppMain.gm_efct_boss_cmn_tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( 622 ), AppMain.readAMBFile( obs_DATA_WORK.pData ), ref obj );
+        AppMain.gm_efct_boss_cmn_tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( 622 ), AmFs.readAMBFile( obs_DATA_WORK.pData ), ref obj );
         for ( int j = 0; j < 6; j++ )
         {
             AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM gms_EFCT_BOSS_CMN_CREATE_PARAM = AppMain.gm_efct_boss_cmn_create_param_tbl[j];
@@ -85,9 +85,9 @@ public partial class AppMain
             {
                 obs_DATA_WORK = AppMain.ObjDataGet( index3 );
                 AppMain.ObjDataLoadAmbIndex( obs_DATA_WORK, mdl_ambtex_idx, amb );
-                AppMain.gm_efct_boss_cmn_mdl_tex_reg_id_list[num] = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( index4 ), AppMain.readAMBFile( obs_DATA_WORK.pData ), ref obj );
+                AppMain.gm_efct_boss_cmn_mdl_tex_reg_id_list[num] = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( index4 ), AmFs.readAMBFile( obs_DATA_WORK.pData ), ref obj );
                 AppMain.ObjDataLoadAmbIndex( AppMain.ObjDataGet( index ), model_idx, amb );
-                AppMain.gm_efct_boss_cmn_model_reg_id_list[num] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.ObjDataGet( index2 ), ( AppMain.AmbChunk )AppMain.ObjDataGet( index ).pData, 0U );
+                AppMain.gm_efct_boss_cmn_model_reg_id_list[num] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.ObjDataGet( index2 ), ( AmbChunk )AppMain.ObjDataGet( index ).pData, 0U );
                 num++;
             }
         }
@@ -234,19 +234,19 @@ public partial class AppMain
     }
 
     // Token: 0x06000965 RID: 2405 RVA: 0x00054ED0 File Offset: 0x000530D0
-    public static void GmEfctBossBuildSingleDataReg( int tex_index, AppMain.OBS_DATA_WORK ambtex_dwork, AppMain.OBS_DATA_WORK texlist_dwork, int model_index, AppMain.OBS_DATA_WORK model_dwork, AppMain.OBS_DATA_WORK object_dwork, AppMain.AMS_AMB_HEADER arc )
+    public static void GmEfctBossBuildSingleDataReg( int tex_index, AppMain.OBS_DATA_WORK ambtex_dwork, AppMain.OBS_DATA_WORK texlist_dwork, int model_index, AppMain.OBS_DATA_WORK model_dwork, AppMain.OBS_DATA_WORK object_dwork, AMS_AMB_HEADER arc )
     {
         object obj = null;
         AppMain.GMS_EFCT_BOSS_SINGLE_BUILD_WORK gms_EFCT_BOSS_SINGLE_BUILD_WORK = AppMain.gm_efct_boss_single_build_list[AppMain.gm_efct_boss_single_reg_num];
         AppMain.gm_efct_boss_single_reg_num++;
         AppMain.ObjDataLoadAmbIndex( ambtex_dwork, tex_index, arc );
-        gms_EFCT_BOSS_SINGLE_BUILD_WORK.tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( texlist_dwork, AppMain.readAMBFile( ambtex_dwork.pData ), ref obj );
+        gms_EFCT_BOSS_SINGLE_BUILD_WORK.tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( texlist_dwork, AmFs.readAMBFile( ambtex_dwork.pData ), ref obj );
         gms_EFCT_BOSS_SINGLE_BUILD_WORK.ambtex_dwork = ambtex_dwork;
         gms_EFCT_BOSS_SINGLE_BUILD_WORK.texlist_dwork = texlist_dwork;
         if ( model_dwork != null )
         {
             AppMain.ObjDataLoadAmbIndex( model_dwork, model_index, arc );
-            gms_EFCT_BOSS_SINGLE_BUILD_WORK.model_reg_id = AppMain.ObjAction3dESModelLoadToDwork( object_dwork, ( AppMain.AmbChunk )model_dwork.pData, 0U );
+            gms_EFCT_BOSS_SINGLE_BUILD_WORK.model_reg_id = AppMain.ObjAction3dESModelLoadToDwork( object_dwork, ( AmbChunk )model_dwork.pData, 0U );
             gms_EFCT_BOSS_SINGLE_BUILD_WORK.model_dwork = model_dwork;
             gms_EFCT_BOSS_SINGLE_BUILD_WORK.object_dwork = object_dwork;
             return;
@@ -347,7 +347,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000969 RID: 2409 RVA: 0x000550E8 File Offset: 0x000532E8
-    public static AppMain.GMS_EFFECT_3DES_WORK GmEfctBossCmnEsCreate( AppMain.OBS_OBJECT_WORK parent_obj, uint efct_bscmn_idx )
+    public static AppMain.GMS_EFFECT_3DES_WORK GmEfctBossCmnEsCreate( OBS_OBJECT_WORK parent_obj, uint efct_bscmn_idx )
     {
         AppMain.GMS_EFCT_BOSS_CMN_CREATE_PARAM gms_EFCT_BOSS_CMN_CREATE_PARAM = AppMain.gm_efct_boss_cmn_create_param_tbl[(int)((UIntPtr)efct_bscmn_idx)];
         AppMain.OBS_DATA_WORK model_dwork;

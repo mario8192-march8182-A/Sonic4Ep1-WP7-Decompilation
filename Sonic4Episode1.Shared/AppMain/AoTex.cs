@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000232 RID: 562
-    public class AOS_TEXTURE : AppMain.IClearable
+    public class AOS_TEXTURE : IClearable
     {
         // Token: 0x06002393 RID: 9107 RVA: 0x00149142 File Offset: 0x00147342
         public void Clear()
@@ -29,14 +29,14 @@ public partial class AppMain
         public int reg_id;
 
         // Token: 0x04005778 RID: 22392
-        public AppMain.AMS_AMB_HEADER amb;
+        public AMS_AMB_HEADER amb;
 
         // Token: 0x04005779 RID: 22393
         public AppMain.TXB_HEADER txb;
     }
 
     // Token: 0x06000CF4 RID: 3316 RVA: 0x000747B0 File Offset: 0x000729B0
-    public static void AoTexBuild( AppMain.AOS_TEXTURE tex, AppMain.AMS_AMB_HEADER amb )
+    public static void AoTexBuild( AppMain.AOS_TEXTURE tex, AMS_AMB_HEADER amb )
     {
         if ( tex == null )
         {
@@ -48,7 +48,7 @@ public partial class AppMain
         }
         AppMain.aoTexInitTex( tex );
         tex.amb = amb;
-        AppMain.AmbChunk ambChunk = AppMain.amBindSearchEx(amb, ".txb");
+        AmbChunk ambChunk = AmBind.SearchEx(amb, ".txb");
         tex.txb = AppMain.readTXBfile( ambChunk.array, ambChunk.offset, amb.dir );
         AppMain.TXB_HEADER txb = tex.txb;
     }

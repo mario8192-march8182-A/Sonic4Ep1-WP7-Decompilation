@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020003CC RID: 972
-    public class GMS_GMK_PWALL_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_PWALL_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x0600283C RID: 10300 RVA: 0x00152A13 File Offset: 0x00150C13
         public GMS_GMK_PWALL_WORK()
@@ -22,13 +22,13 @@ public partial class AppMain
         }
 
         // Token: 0x0600283E RID: 10302 RVA: 0x00152A2F File Offset: 0x00150C2F
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x0600283F RID: 10303 RVA: 0x00152A41 File Offset: 0x00150C41
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_PWALL_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_PWALL_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -64,10 +64,10 @@ public partial class AppMain
         public bool stop_wall;
 
         // Token: 0x04006218 RID: 25112
-        public AppMain.OBS_OBJECT_WORK efct_obj;
+        public OBS_OBJECT_WORK efct_obj;
 
         // Token: 0x04006219 RID: 25113
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
 
         // Token: 0x0400621A RID: 25114
         public uint mat_timer;
@@ -77,7 +77,7 @@ public partial class AppMain
     }
 
     // Token: 0x020003CD RID: 973
-    public class GMS_GMK_PWALLCTRL_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_PWALLCTRL_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002840 RID: 10304 RVA: 0x00152A53 File Offset: 0x00150C53
         public GMS_GMK_PWALLCTRL_WORK()
@@ -86,7 +86,7 @@ public partial class AppMain
         }
 
         // Token: 0x06002841 RID: 10305 RVA: 0x00152A67 File Offset: 0x00150C67
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -131,7 +131,7 @@ public partial class AppMain
         public int line_bottom;
 
         // Token: 0x0400621F RID: 25119
-        public AppMain.GMS_PLAYER_WORK ply_work;
+        public GMS_PLAYER_WORK ply_work;
 
         // Token: 0x04006220 RID: 25120
         public int last_ply_x;
@@ -141,7 +141,7 @@ public partial class AppMain
     }
 
     // Token: 0x020003CE RID: 974
-    public class GMS_GMK_PRESSWALL_PARTS : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_PRESSWALL_PARTS : IOBS_OBJECT_WORK
     {
         // Token: 0x06002846 RID: 10310 RVA: 0x00152A9B File Offset: 0x00150C9B
         public GMS_GMK_PRESSWALL_PARTS()
@@ -150,7 +150,7 @@ public partial class AppMain
         }
 
         // Token: 0x06002847 RID: 10311 RVA: 0x00152AAF File Offset: 0x00150CAF
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
@@ -166,11 +166,11 @@ public partial class AppMain
     }
 
     // Token: 0x06001B18 RID: 6936 RVA: 0x000F6C7C File Offset: 0x000F4E7C
-    private static AppMain.OBS_OBJECT_WORK GmGmkPressWallInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPressWallInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PWALL_WORK(), "Gmk_PressWall");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_PWALL_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_PWALL_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_PWALL_WORK;
         if ( AppMain.g_gm_gamedat_zone_type_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] == 2 )
         {
@@ -179,13 +179,13 @@ public partial class AppMain
             if ( eve_rec.height == 0 )
             {
                 gms_GMK_PWALL_WORK.wall_height = 0;
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK2.pos.y = obs_OBJECT_WORK2.pos.y - 524288;
             }
             else
             {
                 gms_GMK_PWALL_WORK.wall_height = ( int )( eve_rec.height * 64 ) * 4096;
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y - gms_GMK_PWALL_WORK.wall_height;
             }
             obs_OBJECT_WORK.pos.z = 913408;
@@ -194,19 +194,19 @@ public partial class AppMain
         {
             AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_presswall_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
             obs_OBJECT_WORK.ppOut = AppMain.gmGmkPressWall_ppOut;
-            AppMain.ObjAction3dNNMaterialMotionLoad( obs_OBJECT_WORK.obj_3d, 0, null, null, 1, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 895 ).pData );
+            AppMain.ObjAction3dNNMaterialMotionLoad( obs_OBJECT_WORK.obj_3d, 0, null, null, 1, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 895 ).pData );
             AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
             obs_OBJECT_WORK.disp_flag |= 4U;
             if ( eve_rec.height == 0 )
             {
                 gms_GMK_PWALL_WORK.wall_height = 0;
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK4 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK4.pos.y = obs_OBJECT_WORK4.pos.y - 786432;
             }
             else
             {
                 gms_GMK_PWALL_WORK.wall_height = ( int )( eve_rec.height * 192 ) * 4096;
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK5 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK5 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK5.pos.y = obs_OBJECT_WORK5.pos.y - gms_GMK_PWALL_WORK.wall_height;
             }
             obs_OBJECT_WORK.pos.z = 1044480;
@@ -229,9 +229,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001B19 RID: 6937 RVA: 0x000F6EC4 File Offset: 0x000F50C4
-    private static AppMain.OBS_OBJECT_WORK GmGmkPressWallStopInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPressWallStopInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK;
         if ( AppMain.g_gm_gamedat_zone_type_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] == 2 && AppMain.pwall == null )
         {
             obs_OBJECT_WORK = AppMain.GmGmkPressWallInit( eve_rec, pos_x, pos_y, type );
@@ -248,10 +248,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B1A RID: 6938 RVA: 0x000F6F50 File Offset: 0x000F5150
-    private static AppMain.OBS_OBJECT_WORK GmGmkPressWallControlerInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPressWallControlerInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PWALLCTRL_WORK(), "Gmk_PressWallControler");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PWALLCTRL_WORK(), "Gmk_PressWallControler");
         AppMain.GMS_GMK_PWALLCTRL_WORK gms_GMK_PWALLCTRL_WORK = (AppMain.GMS_GMK_PWALLCTRL_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[2];
@@ -297,12 +297,12 @@ public partial class AppMain
     // Token: 0x06001B1C RID: 6940 RVA: 0x000F70FC File Offset: 0x000F52FC
     public static void GmGmkPressWallFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(892);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(892);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_presswall_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06001B1D RID: 6941 RVA: 0x000F7124 File Offset: 0x000F5324
-    private static void gmGmkPressWall_ppOut( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWall_ppOut( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
         obj_work.pos.y = gms_GMK_PWALL_WORK.master_posy;
@@ -335,7 +335,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B1E RID: 6942 RVA: 0x000F7274 File Offset: 0x000F5474
-    private static void gmGmkPressWallStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallStay( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.g_obj.camera[0][0] >= obj_work.pos.x || ( AppMain.g_gm_gamedat_zone_type_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] == 2 && obj_work.user_flag != 0U ) )
         {
@@ -374,8 +374,8 @@ public partial class AppMain
             else
             {
                 AppMain.GMM_PAD_VIB_MID_TIME( 60f );
-                gms_GMK_PWALL_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
-                AppMain.GmSoundPlaySEForce( "MovingWall", gms_GMK_PWALL_WORK.se_handle );
+                gms_GMK_PWALL_WORK.se_handle = GsSound.AllocSeHandle();
+                GmSound.PlaySEForce( "MovingWall", gms_GMK_PWALL_WORK.se_handle );
             }
             gms_GMK_PWALL_WORK.efct_obj = null;
             obj_work.ppFunc = AppMain.gmGmkPressWallForce;
@@ -384,10 +384,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B1F RID: 6943 RVA: 0x000F7558 File Offset: 0x000F5758
-    private static void gmGmkPressWallForce( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallForce( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
         {
             gms_GMK_PWALL_WORK.ply_death = true;
@@ -413,7 +413,7 @@ public partial class AppMain
             gms_GMK_PWALL_WORK4.wall_vibration += 1;
             if ( gms_GMK_PWALL_WORK.wall_effect_build_timer == 0 )
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(null, 2, 32);
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.GmEfctZoneEsCreate(null, 2, 32);
                 obs_OBJECT_WORK.pos.x = obj_work.pos.x;
                 obs_OBJECT_WORK.pos.y = AppMain.g_obj.camera[0][1];
                 obs_OBJECT_WORK.pos.z = obj_work.pos.z;
@@ -464,7 +464,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B20 RID: 6944 RVA: 0x000F77F4 File Offset: 0x000F59F4
-    private static void gmGmkPressWallForce_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallForce_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
         gms_GMK_PWALL_WORK.wall_brake -= gms_GMK_PWALL_WORK.wall_speed / 20;
@@ -481,7 +481,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B21 RID: 6945 RVA: 0x000F787C File Offset: 0x000F5A7C
-    private static void gmGmkPressWallForce_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallForce_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
         if ( gms_GMK_PWALL_WORK != AppMain.pwall )
@@ -492,10 +492,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B22 RID: 6946 RVA: 0x000F78C4 File Offset: 0x000F5AC4
-    private static void gmGmkPressWallForceZ4_Hit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallForceZ4_Hit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
         {
             gms_GMK_PWALL_WORK.ply_death = true;
@@ -535,10 +535,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B23 RID: 6947 RVA: 0x000F7A44 File Offset: 0x000F5C44
-    private static void gmGmkPressWallForceZ4_Hit_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallForceZ4_Hit_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
         {
             gms_GMK_PWALL_WORK.ply_death = true;
@@ -579,7 +579,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B24 RID: 6948 RVA: 0x000F7C18 File Offset: 0x000F5E18
-    private static void gmGmkPressWallForceZ4_Stop( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallForceZ4_Stop( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
         if ( gms_GMK_PWALL_WORK.gmk_work.obj_3d.speed[0] > 0f )
@@ -610,26 +610,26 @@ public partial class AppMain
     // Token: 0x06001B25 RID: 6949 RVA: 0x000F7D4C File Offset: 0x000F5F4C
     private static void gmGmkPressWallZ4Hit( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
         parent_obj.flag |= 2U;
         parent_obj.user_flag |= 1U;
         AppMain.GmEnemyDefaultAtkFunc( mine_rect, match_rect );
     }
 
     // Token: 0x06001B26 RID: 6950 RVA: 0x000F7D84 File Offset: 0x000F5F84
-    private static void gmGmkPressWallSeStop( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallSeStop( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
         if ( gms_GMK_PWALL_WORK.se_handle != null )
         {
-            AppMain.GsSoundStopSeHandle( gms_GMK_PWALL_WORK.se_handle );
-            AppMain.GsSoundFreeSeHandle( gms_GMK_PWALL_WORK.se_handle );
+            GsSound.StopSeHandle( gms_GMK_PWALL_WORK.se_handle );
+            GsSound.FreeSeHandle( gms_GMK_PWALL_WORK.se_handle );
             gms_GMK_PWALL_WORK.se_handle = null;
         }
     }
 
     // Token: 0x06001B27 RID: 6951 RVA: 0x000F7DC0 File Offset: 0x000F5FC0
-    private static void gmGmkPressWallStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work;
         AppMain.pwall = gms_GMK_PWALL_WORK;
@@ -643,7 +643,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B28 RID: 6952 RVA: 0x000F7E34 File Offset: 0x000F6034
-    private static void gmGmkPressWallStopperMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallStopperMain( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.pwall == null )
         {
@@ -671,7 +671,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B29 RID: 6953 RVA: 0x000F7F5C File Offset: 0x000F615C
-    private static void gmGmkPressWallStopperStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallStopperStart( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_work_OBJECT = AppMain.pwall;
         obj_work.disp_flag |= 32U;
@@ -681,10 +681,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B2A RID: 6954 RVA: 0x000F7FB8 File Offset: 0x000F61B8
-    private static void gmGmkPressWallControler( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallControler( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALLCTRL_WORK gms_GMK_PWALLCTRL_WORK = (AppMain.GMS_GMK_PWALLCTRL_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK ply_work = gms_GMK_PWALLCTRL_WORK.ply_work;
+        GMS_PLAYER_WORK ply_work = gms_GMK_PWALLCTRL_WORK.ply_work;
         if ( AppMain.pwall != null && ( obj_work.user_flag & 1U ) != 0U && obj_work.pos.x > gms_GMK_PWALLCTRL_WORK.last_ply_x && obj_work.pos.x <= ply_work.obj_work.pos.x && ( ( obj_work.user_flag & 2U ) == 0U || ( ply_work.obj_work.pos.y >= gms_GMK_PWALLCTRL_WORK.line_top && ply_work.obj_work.pos.y <= gms_GMK_PWALLCTRL_WORK.line_bottom ) ) )
         {
             if ( ( obj_work.user_flag & 4U ) != 0U && AppMain.pwall.gmk_work.ene_com.obj_work.pos.x <= AppMain.g_obj.camera[0][0] - 32768 )
@@ -705,10 +705,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B2B RID: 6955 RVA: 0x000F8150 File Offset: 0x000F6350
-    private static void gmGmkPressWallControlerStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallControlerStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PWALLCTRL_WORK gms_GMK_PWALLCTRL_WORK = (AppMain.GMS_GMK_PWALLCTRL_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         gms_GMK_PWALLCTRL_WORK.ply_work = gms_PLAYER_WORK;
         gms_GMK_PWALLCTRL_WORK.last_ply_x = gms_PLAYER_WORK.obj_work.pos.x;
         gms_GMK_PWALLCTRL_WORK.last_ply_y = gms_PLAYER_WORK.obj_work.pos.y;
@@ -718,13 +718,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001B2C RID: 6956 RVA: 0x000F81D8 File Offset: 0x000F63D8
-    private static void gmGmkPressWallParts( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallParts( OBS_OBJECT_WORK obj_work )
     {
         obj_work.pos.x = obj_work.parent_obj.pos.x;
     }
 
     // Token: 0x06001B2D RID: 6957 RVA: 0x000F81F8 File Offset: 0x000F63F8
-    private static void gmGmkPressWallRail( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallRail( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PRESSWALL_PARTS gms_GMK_PRESSWALL_PARTS = (AppMain.GMS_GMK_PRESSWALL_PARTS)obj_work;
         AppMain.GMS_GMK_PWALL_WORK gms_GMK_PWALL_WORK = (AppMain.GMS_GMK_PWALL_WORK)obj_work.parent_obj;
@@ -735,9 +735,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001B2E RID: 6958 RVA: 0x000F8288 File Offset: 0x000F6488
-    private static void gmGmkPressWallCreateRail( AppMain.OBS_OBJECT_WORK parent_obj, int height, int pos_y )
+    private static void gmGmkPressWallCreateRail( OBS_OBJECT_WORK parent_obj, int height, int pos_y )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_PRESSWALL_PARTS(), parent_obj, 0, "PresswallRail-Top");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_PRESSWALL_PARTS(), parent_obj, 0, "PresswallRail-Top");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_presswall_obj_3d_list[2], gms_EFFECT_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK.flag &= 4294966271U;
@@ -762,7 +762,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B2F RID: 6959 RVA: 0x000F8448 File Offset: 0x000F6648
-    private static void gmGmkPressWallZ4Parts_ppOut( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPressWallZ4Parts_ppOut( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PRESSWALL_PARTS gms_GMK_PRESSWALL_PARTS = (AppMain.GMS_GMK_PRESSWALL_PARTS)obj_work;
         obj_work.pos.y = gms_GMK_PRESSWALL_PARTS.master_posy;
@@ -782,9 +782,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001B30 RID: 6960 RVA: 0x000F852C File Offset: 0x000F672C
-    private static void gmGmkPressWallCreateParts( AppMain.OBS_OBJECT_WORK parent_obj, int pos_y, int height )
+    private static void gmGmkPressWallCreateParts( OBS_OBJECT_WORK parent_obj, int pos_y, int height )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = null;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = null;
         for ( int i = 0; i < 3; i++ )
         {
             obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK( () => new AppMain.GMS_GMK_PRESSWALL_PARTS(), parent_obj, 0, "PresswallZ4Parts" );
@@ -804,7 +804,7 @@ public partial class AppMain
                 obs_OBJECT_WORK.ppOut = AppMain.gmGmkPressWallZ4Parts_ppOut;
             }
         }
-        AppMain.ObjAction3dNNMaterialMotionLoad( obs_OBJECT_WORK.obj_3d, 0, null, null, 0, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 895 ).pData );
+        AppMain.ObjAction3dNNMaterialMotionLoad( obs_OBJECT_WORK.obj_3d, 0, null, null, 0, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 895 ).pData );
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK, 0 );
         obs_OBJECT_WORK.obj_3d.mat_speed = 1f;
         obs_OBJECT_WORK.disp_flag |= 4U;
@@ -813,7 +813,7 @@ public partial class AppMain
     // Token: 0x06001B31 RID: 6961 RVA: 0x000F8688 File Offset: 0x000F6888
     private static void gmGmkPressWallExit( AppMain.MTS_TASK_TCB tcb )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         if ( AppMain.pwall == ( AppMain.GMS_GMK_PWALL_WORK )obs_OBJECT_WORK )
         {
             AppMain.pwall = null;

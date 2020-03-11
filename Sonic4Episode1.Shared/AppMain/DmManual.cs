@@ -45,13 +45,13 @@ public partial class AppMain
         }
 
         // Token: 0x04005EBE RID: 24254
-        public AppMain.AMS_FS arc_amb;
+        public AMS_FS arc_amb;
 
         // Token: 0x04005EBF RID: 24255
-        public AppMain.A2S_AMA_HEADER[] ama = new AppMain.A2S_AMA_HEADER[2];
+        public A2S_AMA_HEADER[] ama = new A2S_AMA_HEADER[2];
 
         // Token: 0x04005EC0 RID: 24256
-        public AppMain.AMS_AMB_HEADER[] amb = new AppMain.AMS_AMB_HEADER[2];
+        public AMS_AMB_HEADER[] amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005EC1 RID: 24257
         public AppMain.AOS_TEXTURE[] tex;
@@ -93,7 +93,7 @@ public partial class AppMain
         public uint draw_state;
 
         // Token: 0x04005ECE RID: 24270
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
 
         // Token: 0x04005ECF RID: 24271
         public CTrgAoAction[] trg_btn;
@@ -115,7 +115,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017B1 RID: 6065 RVA: 0x000D23A8 File Offset: 0x000D05A8
-    private static void DmManualBuild( AppMain.AMS_AMB_HEADER[] arc_amb )
+    private static void DmManualBuild( AMS_AMB_HEADER[] arc_amb )
     {
         AppMain.dm_manual_mgr.Clear();
         AppMain.dm_manual_mgr_p = AppMain.dm_manual_mgr;
@@ -125,9 +125,9 @@ public partial class AppMain
         }
         for ( int i = 0; i < 2; i++ )
         {
-            AppMain.dm_manual_ama[i] = AppMain.readAMAFile( AppMain.amBindGet( arc_amb[i], 0 ) );
+            AppMain.dm_manual_ama[i] = A2S.readAMAFile( AmBind.Get( arc_amb[i], 0 ) );
             string dir;
-            AppMain.dm_manual_amb[i] = AppMain.readAMBFile( AppMain.amBindGet( arc_amb[i], 1, out dir ) );
+            AppMain.dm_manual_amb[i] = AmFs.readAMBFile( AmBind.Get( arc_amb[i], 1, out dir ) );
             AppMain.dm_manual_amb[i].dir = dir;
         }
         for ( int i = 0; i < 2; i++ )
@@ -205,7 +205,7 @@ public partial class AppMain
         if ( cur_evt_id == 6 || cur_evt_id == 11 )
         {
             AppMain.dm_manual_is_pause_maingame = true;
-            dms_MANUAL_MAIN_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
+            dms_MANUAL_MAIN_WORK.se_handle = GsSound.AllocSeHandle();
         }
         dms_MANUAL_MAIN_WORK.proc_update = AppMain.dmManualProcInit;
     }
@@ -225,7 +225,7 @@ public partial class AppMain
         {
             AppMain.DmManualExit();
         }
-        if ( ( dms_MANUAL_MAIN_WORK.flag & 2147483648U ) != 0U && !AppMain.AoAccountIsCurrentEnable() )
+        if ( ( dms_MANUAL_MAIN_WORK.flag & 2147483648U ) != 0U && !AoAccount.AoAccountIsCurrentEnable() )
         {
             dms_MANUAL_MAIN_WORK.proc_update = AppMain.dmManualProcFadeOut;
             dms_MANUAL_MAIN_WORK.flag &= 2147483647U;
@@ -268,7 +268,7 @@ public partial class AppMain
     {
         for ( uint num = 0U; num <= 13U; num += 1U )
         {
-            AppMain.A2S_AMA_HEADER ama = AppMain.dm_manual_ama[0];
+            A2S_AMA_HEADER ama = AppMain.dm_manual_ama[0];
             AppMain.AOS_TEXTURE tex = AppMain.dm_manual_tex[0];
             AppMain.AoActSetTexture( AppMain.AoTexGetTexList( tex ) );
             main_work.act[( int )( ( UIntPtr )num )] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_m[( int )( ( UIntPtr )num )] );
@@ -280,7 +280,7 @@ public partial class AppMain
         main_work.trg_return.Create( main_work.act[13] );
         for ( uint num3 = 119U; num3 <= 120U; num3 += 1U )
         {
-            AppMain.A2S_AMA_HEADER ama = AppMain.dm_manual_ama[1];
+            A2S_AMA_HEADER ama = AppMain.dm_manual_ama[1];
             AppMain.AOS_TEXTURE tex = AppMain.dm_manual_tex[1];
             AppMain.AoActSetTexture( AppMain.AoTexGetTexList( tex ) );
             main_work.act[( int )( ( UIntPtr )num3 )] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_m[( int )( ( UIntPtr )num3 )] );
@@ -361,7 +361,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.GsSoundPlaySe( "Cancel", main_work.se_handle );
+                GsSound.PlaySe( "Cancel", main_work.se_handle );
             }
             main_work.flag &= 4294967291U;
             main_work.flag &= 4294967293U;
@@ -380,7 +380,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.GsSoundPlaySe( "Cursol", main_work.se_handle );
+                GsSound.PlaySe( "Cursol", main_work.se_handle );
             }
             main_work.flag &= 4294967287U;
             return;
@@ -398,7 +398,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.GsSoundPlaySe( "Cursol", main_work.se_handle );
+                GsSound.PlaySe( "Cursol", main_work.se_handle );
             }
             main_work.flag &= 4294967279U;
         }
@@ -413,7 +413,7 @@ public partial class AppMain
             main_work.proc_draw = null;
             if ( main_work.se_handle != null )
             {
-                AppMain.GsSoundFreeSeHandle( main_work.se_handle );
+                GsSound.FreeSeHandle( main_work.se_handle );
                 main_work.se_handle = null;
             }
         }
@@ -644,7 +644,7 @@ public partial class AppMain
         {
             if ( flag )
             {
-                AppMain.A2S_AMA_HEADER ama = AppMain.dm_manual_ama[0];
+                A2S_AMA_HEADER ama = AppMain.dm_manual_ama[0];
                 AppMain.AoActSetTexture( AppMain.AoTexGetTexList( AppMain.dm_manual_tex[0] ) );
                 main_work.act[k] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_m[k] );
             }
@@ -658,181 +658,181 @@ public partial class AppMain
         {
             if ( flag )
             {
-                AppMain.A2S_AMA_HEADER ama = AppMain.dm_manual_ama[1];
+                A2S_AMA_HEADER ama = AppMain.dm_manual_ama[1];
                 main_work.act[l] = AppMain.AoActCreate( ama, AppMain.g_dm_act_id_tbl_m[l] );
                 if ( AppMain.GsEnvGetLanguage() == 6 )
                 {
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 9U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 120f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 120f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 10U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 125f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 125f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 48U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 120f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 120f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 49U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 125f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 125f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 18U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 90f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 90f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 19U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 200f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 200f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 52U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 90f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 90f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 53U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 200f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 200f;
                     }
                 }
                 if ( AppMain.GsEnvGetLanguage() == 7 )
                 {
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 9U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 180f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 180f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 10U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 185f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 185f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 48U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 180f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 180f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 49U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 185f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 185f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 18U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 280f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 280f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 19U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 235f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 235f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 52U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 280f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 280f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 53U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 235f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 235f;
                     }
                 }
                 if ( AppMain.GsEnvGetLanguage() == 8 )
                 {
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 9U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 160f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 160f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 10U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 245f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 245f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 48U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 160f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 160f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 49U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 245f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 245f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 18U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 19U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 220f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 220f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 52U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 53U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 220f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 220f;
                     }
                 }
                 if ( AppMain.GsEnvGetLanguage() == 9 )
                 {
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 9U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 10U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 48U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 49U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 18U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 19U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 52U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 53U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                 }
                 if ( AppMain.GsEnvGetLanguage() == 10 )
                 {
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 9U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 10U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 48U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 49U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 225f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 18U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 19U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 52U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                     if ( AppMain.g_dm_act_id_tbl_m[l] == 53U )
                     {
-                        ( ( AppMain.A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
+                        ( ( A2S_AMA_ACT )main_work.act[l].data ).mtn.trs_tbl[0].trs_x = 110f;
                     }
                 }
             }

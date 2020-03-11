@@ -115,7 +115,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200013B RID: 315
-    public class OBS_COL_CHK_DATA : AppMain.IClearable
+    public class OBS_COL_CHK_DATA : IClearable
     {
         // Token: 0x0600207D RID: 8317 RVA: 0x0013EA5C File Offset: 0x0013CC5C
         public AppMain.OBS_COL_CHK_DATA Assign( AppMain.OBS_COL_CHK_DATA data )
@@ -168,13 +168,13 @@ public partial class AppMain
     public class OBS_COLLISION_OBJ
     {
         // Token: 0x04005F67 RID: 24423
-        public AppMain.OBS_OBJECT_WORK obj;
+        public OBS_OBJECT_WORK obj;
 
         // Token: 0x04005F68 RID: 24424
-        public AppMain.OBS_OBJECT_WORK rider_obj;
+        public OBS_OBJECT_WORK rider_obj;
 
         // Token: 0x04005F69 RID: 24425
-        public AppMain.OBS_OBJECT_WORK toucher_obj;
+        public OBS_OBJECT_WORK toucher_obj;
 
         // Token: 0x04005F6A RID: 24426
         public AppMain.VecFx32 pos = default(AppMain.VecFx32);
@@ -251,7 +251,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600011A RID: 282 RVA: 0x0000B465 File Offset: 0x00009665
-    private static void objDiffAttrSet( AppMain.OBS_OBJECT_WORK pWork, uint ulAttr )
+    public static void objDiffAttrSet( OBS_OBJECT_WORK pWork, uint ulAttr )
     {
         if ( ( ulAttr & 2U ) != 0U )
         {
@@ -264,7 +264,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600011B RID: 283 RVA: 0x0000B48D File Offset: 0x0000968D
-    private static int objCollision( AppMain.OBS_COL_CHK_DATA pData )
+    public static int objCollision( AppMain.OBS_COL_CHK_DATA pData )
     {
         if ( ( AppMain.g_obj.flag & 16U ) != 0U )
         {
@@ -274,7 +274,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600011C RID: 284 RVA: 0x0000B4AB File Offset: 0x000096AB
-    private static int objCollisionFast( AppMain.OBS_COL_CHK_DATA pData )
+    public static int objCollisionFast( AppMain.OBS_COL_CHK_DATA pData )
     {
         if ( ( AppMain.g_obj.flag & 16U ) != 0U )
         {
@@ -284,7 +284,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600011D RID: 285 RVA: 0x0000B4CC File Offset: 0x000096CC
-    private static int ObjCollisionUnion( AppMain.OBS_OBJECT_WORK pWork, AppMain.OBS_COL_CHK_DATA pData )
+    public static int ObjCollisionUnion( OBS_OBJECT_WORK pWork, AppMain.OBS_COL_CHK_DATA pData )
     {
         int num = 32;
         if ( ( pWork.move_flag & 4096U ) == 0U )
@@ -303,7 +303,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600011E RID: 286 RVA: 0x0000B514 File Offset: 0x00009714
-    private static int ObjCollisionFastUnion( AppMain.OBS_COL_CHK_DATA pData )
+    public static int ObjCollisionFastUnion( AppMain.OBS_COL_CHK_DATA pData )
     {
         int num = AppMain.objCollisionFast(pData);
         int num2 = AppMain.ObjCollisionObjectFastCheck(pData);
@@ -315,13 +315,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600011F RID: 287 RVA: 0x0000B53C File Offset: 0x0000973C
-    private static void ObjDiffCollisionEarthCheck( AppMain.OBS_OBJECT_WORK pWork )
+    public static void ObjDiffCollisionEarthCheck( OBS_OBJECT_WORK pWork )
     {
         AppMain.objDiffCollisionDirCheck( pWork );
     }
 
     // Token: 0x06000120 RID: 288 RVA: 0x0000B544 File Offset: 0x00009744
-    private static void objDiffCollisionDirCheck( AppMain.OBS_OBJECT_WORK pWork )
+    public static void objDiffCollisionDirCheck( OBS_OBJECT_WORK pWork )
     {
         pWork.col_flag = 0U;
         int sSpd;
@@ -359,7 +359,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000121 RID: 289 RVA: 0x0000B634 File Offset: 0x00009834
-    private static ushort objDiffSufSet( AppMain.OBS_OBJECT_WORK pWork )
+    public static ushort objDiffSufSet( OBS_OBJECT_WORK pWork )
     {
         ushort num = 0;
         if ( ( pWork.move_flag & 32U ) != 0U )
@@ -382,7 +382,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000122 RID: 290 RVA: 0x0000B694 File Offset: 0x00009894
-    private static void objDiffCollisionDirWidthCheck( AppMain.OBS_OBJECT_WORK pWork, byte ucWall, int sSpd )
+    public static void objDiffCollisionDirWidthCheck( OBS_OBJECT_WORK pWork, byte ucWall, int sSpd )
     {
         AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         short num = 0;
@@ -724,7 +724,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000123 RID: 291 RVA: 0x0000BF34 File Offset: 0x0000A134
-    private static sbyte objDiffCollisionSimpleOverCheck( AppMain.OBS_OBJECT_WORK pWork )
+    public static sbyte objDiffCollisionSimpleOverCheck( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.flag = AppMain.objDiffSufSet( pWork );
@@ -801,10 +801,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000124 RID: 292 RVA: 0x0000C13C File Offset: 0x0000A33C
-    private static void objDiffCollisionDirHeightCheck( AppMain.OBS_OBJECT_WORK pWork )
+    public static void objDiffCollisionDirHeightCheck( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
-        AppMain.OBS_OBJECT_WORK ride_obj = pWork.ride_obj;
+        OBS_OBJECT_WORK ride_obj = pWork.ride_obj;
         uint[] array = AppMain.objDiffCollisionDirHeightCheck_ulAttr;
         array[0] = 0U;
         ushort[] array2 = AppMain.objDiffCollisionDirHeightCheck_usDir1;
@@ -1287,7 +1287,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000125 RID: 293 RVA: 0x0000CF1C File Offset: 0x0000B11C
-    private static void objDiffColDirMove( ref int lPosX, ref int lPosY, sbyte cDelta, ushort usColFlag )
+    public static void objDiffColDirMove( ref int lPosX, ref int lPosY, sbyte cDelta, ushort usColFlag )
     {
         switch ( usColFlag )
         {
@@ -1307,19 +1307,19 @@ public partial class AppMain
     }
 
     // Token: 0x06000329 RID: 809 RVA: 0x0001928F File Offset: 0x0001748F
-    private static void ObjSetDiffCollision( AppMain.OBS_DIFF_COLLISION pFat )
+    public static void ObjSetDiffCollision( AppMain.OBS_DIFF_COLLISION pFat )
     {
         AppMain._obj_fcol = pFat;
     }
 
     // Token: 0x0600032A RID: 810 RVA: 0x00019297 File Offset: 0x00017497
-    private static AppMain.OBS_DIFF_COLLISION ObjGetDiffCollision()
+    public static AppMain.OBS_DIFF_COLLISION ObjGetDiffCollision()
     {
         return AppMain._obj_fcol;
     }
 
     // Token: 0x0600032B RID: 811 RVA: 0x000192A0 File Offset: 0x000174A0
-    private static int ObjDiffCollisionDetFast( int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
+    public static int ObjDiffCollisionDetFast( int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
     {
         AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
@@ -1334,7 +1334,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600032C RID: 812 RVA: 0x000192F0 File Offset: 0x000174F0
-    private static int ObjDiffCollisionFast( AppMain.OBS_COL_CHK_DATA pData )
+    public static int ObjDiffCollisionFast( AppMain.OBS_COL_CHK_DATA pData )
     {
         int num = 0;
         ushort num2 = 0;
@@ -1402,7 +1402,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600032D RID: 813 RVA: 0x00019468 File Offset: 0x00017668
-    private static int ObjDiffCollisionDet( int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
+    public static int ObjDiffCollisionDet( int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
     {
         AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
@@ -1417,7 +1417,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600032E RID: 814 RVA: 0x000194B8 File Offset: 0x000176B8
-    private static int ObjDiffCollision( AppMain.OBS_COL_CHK_DATA pData )
+    public static int ObjDiffCollision( AppMain.OBS_COL_CHK_DATA pData )
     {
         int num = 0;
         int num2 = 0;
@@ -1616,7 +1616,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600032F RID: 815 RVA: 0x00019930 File Offset: 0x00017B30
-    private static AppMain.MP_BLOCK objGetMapBlockData( int pos_x, int pos_y, ushort suf )
+    public static AppMain.MP_BLOCK objGetMapBlockData( int pos_x, int pos_y, ushort suf )
     {
         int num = pos_x >> 3;
         int num2 = pos_y >> 3;
@@ -1631,7 +1631,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000330 RID: 816 RVA: 0x00019984 File Offset: 0x00017B84
-    private static byte[] objGetDiffCharData( int pos_x, int pos_y, ushort suf )
+    public static byte[] objGetDiffCharData( int pos_x, int pos_y, ushort suf )
     {
         int num = pos_x >> 3;
         int num2 = pos_y >> 3;
@@ -1657,7 +1657,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000331 RID: 817 RVA: 0x00019A40 File Offset: 0x00017C40
-    private static sbyte objGetXDiffData( int pos_x, int pos_y, ushort suf )
+    public static sbyte objGetXDiffData( int pos_x, int pos_y, ushort suf )
     {
         byte[] array = AppMain.objGetDiffCharData(pos_x, pos_y, suf);
         int num = pos_x & 7;
@@ -1687,7 +1687,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000332 RID: 818 RVA: 0x00019ABC File Offset: 0x00017CBC
-    private static sbyte objGetYDiffData( int pos_x, int pos_y, ushort suf )
+    public static sbyte objGetYDiffData( int pos_x, int pos_y, ushort suf )
     {
         byte[] array = AppMain.objGetDiffCharData(pos_x, pos_y, suf);
         int num = pos_x & 7;
@@ -1717,7 +1717,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000333 RID: 819 RVA: 0x00019B38 File Offset: 0x00017D38
-    private static ushort objGetDirData( int pos_x, int pos_y, ushort suf )
+    public static ushort objGetDirData( int pos_x, int pos_y, ushort suf )
     {
         int num = pos_x >> 3;
         int num2 = pos_y >> 3;
@@ -1758,7 +1758,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000334 RID: 820 RVA: 0x00019C40 File Offset: 0x00017E40
-    private static void objGetConv88Pos( int pos_x, int pos_y, ref AppMain.MP_BLOCK mp_block, out int conv_pos_x, out int conv_pos_y )
+    public static void objGetConv88Pos( int pos_x, int pos_y, ref AppMain.MP_BLOCK mp_block, out int conv_pos_x, out int conv_pos_y )
     {
         int num;
         int num2;
@@ -1794,7 +1794,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000335 RID: 821 RVA: 0x00019CA8 File Offset: 0x00017EA8
-    private static byte objGetConvDiff( AppMain.MP_BLOCK mp_block, byte diff )
+    public static byte objGetConvDiff( AppMain.MP_BLOCK mp_block, byte diff )
     {
         byte b = (byte)(diff & 15);
         byte b2 = (byte)(diff >> 4 & 15);
@@ -1845,7 +1845,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000336 RID: 822 RVA: 0x00019D5C File Offset: 0x00017F5C
-    private static int field_objMapGetDiff( int lCol, sbyte sPix, sbyte sDelta )
+    public static int field_objMapGetDiff( int lCol, sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( lCol > 0 )
@@ -1871,7 +1871,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000337 RID: 823 RVA: 0x00019D90 File Offset: 0x00017F90
-    private static int field_objMapGetForward( sbyte sPix, sbyte sDelta )
+    public static int field_objMapGetForward( sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( sDelta > 0 )
@@ -1886,7 +1886,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000338 RID: 824 RVA: 0x00019DAC File Offset: 0x00017FAC
-    private static int field_objMapGetBack( sbyte sPix, sbyte sDelta )
+    public static int field_objMapGetBack( sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( sDelta > 0 )
@@ -1916,7 +1916,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600033A RID: 826 RVA: 0x00019DE8 File Offset: 0x00017FE8
-    private static int field_objMapGetForwardRev( sbyte sPix, sbyte sDelta )
+    public static int field_objMapGetForwardRev( sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( sDelta > 0 )
@@ -1931,7 +1931,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600033B RID: 827 RVA: 0x00019E04 File Offset: 0x00018004
-    private static int objGetColDataX( int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
+    public static int objGetColDataX( int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
     {
         sbyte b = 0;
         if ( ( ucSuf & 64 ) != 0 )
@@ -1992,7 +1992,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600033C RID: 828 RVA: 0x00019F5C File Offset: 0x0001815C
-    private static int objGetColDataY( int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
+    public static int objGetColDataY( int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
     {
         sbyte b;
         if ( ( ucSuf & 64 ) != 0 )
@@ -2051,7 +2051,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600033D RID: 829 RVA: 0x0001A0A0 File Offset: 0x000182A0
-    private static byte objGetAttrData( int pos_x, int pos_y, ushort suf )
+    public static byte objGetAttrData( int pos_x, int pos_y, ushort suf )
     {
         int num = pos_x >> 3;
         int num2 = pos_y >> 3;
@@ -2080,7 +2080,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001979 RID: 6521 RVA: 0x000E6384 File Offset: 0x000E4584
-    private static void ObjObjectCollisionSet( AppMain.OBS_OBJECT_WORK pObj, AppMain.OBS_COLLISION_WORK pCol, short sOfstX, short sOfstY, ushort usWidth, ushort usHeight )
+    public static void ObjObjectCollisionSet( OBS_OBJECT_WORK pObj, AppMain.OBS_COLLISION_WORK pCol, short sOfstX, short sOfstY, ushort usWidth, ushort usHeight )
     {
         if ( pCol == null )
         {
@@ -2103,7 +2103,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600197A RID: 6522 RVA: 0x000E6404 File Offset: 0x000E4604
-    private static void ObjObjectCollisionDifSet( AppMain.OBS_OBJECT_WORK pObj, string pPath, AppMain.OBS_DATA_WORK pData, AppMain.AMS_AMB_HEADER pArchive )
+    public static void ObjObjectCollisionDifSet( OBS_OBJECT_WORK pObj, string pPath, AppMain.OBS_DATA_WORK pData, AMS_AMB_HEADER pArchive )
     {
         if ( pObj.col_work != null )
         {
@@ -2113,7 +2113,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600197B RID: 6523 RVA: 0x000E6432 File Offset: 0x000E4632
-    private static void ObjObjectCollisionDirSet( AppMain.OBS_OBJECT_WORK pObj, string pPath, AppMain.OBS_DATA_WORK pData, AppMain.AMS_AMB_HEADER pArchive )
+    public static void ObjObjectCollisionDirSet( OBS_OBJECT_WORK pObj, string pPath, AppMain.OBS_DATA_WORK pData, AMS_AMB_HEADER pArchive )
     {
         if ( pObj.col_work != null )
         {
@@ -2123,7 +2123,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600197C RID: 6524 RVA: 0x000E6460 File Offset: 0x000E4660
-    private static void ObjObjectCollisionAtrSet( AppMain.OBS_OBJECT_WORK pObj, string pPath, AppMain.OBS_DATA_WORK pData, AppMain.AMS_AMB_HEADER pArchive )
+    public static void ObjObjectCollisionAtrSet( OBS_OBJECT_WORK pObj, string pPath, AppMain.OBS_DATA_WORK pData, AMS_AMB_HEADER pArchive )
     {
         if ( pObj.col_work != null )
         {
@@ -2133,7 +2133,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600197D RID: 6525 RVA: 0x000E6490 File Offset: 0x000E4690
-    private static void ObjCollisionObjectRegist( AppMain.OBS_COLLISION_OBJ pObj )
+    public static void ObjCollisionObjectRegist( AppMain.OBS_COLLISION_OBJ pObj )
     {
         if ( AppMain._obj_collision_num_nx >= 144 )
         {
@@ -2201,7 +2201,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600197E RID: 6526 RVA: 0x000E6720 File Offset: 0x000E4920
-    private static void ObjCollisionObjectClear()
+    public static void ObjCollisionObjectClear()
     {
         ushort num;
         for ( num = 0; num < ( ushort )AppMain._obj_collision_num_nx; num += 1 )
@@ -2218,7 +2218,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600197F RID: 6527 RVA: 0x000E6774 File Offset: 0x000E4974
-    private static void objCollsionOffsetSet( AppMain.OBS_COLLISION_OBJ pCol, out short cOfstX, out short cOfstY )
+    public static void objCollsionOffsetSet( AppMain.OBS_COLLISION_OBJ pCol, out short cOfstX, out short cOfstY )
     {
         cOfstX = pCol.ofst_x;
         cOfstY = pCol.ofst_y;
@@ -2233,7 +2233,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001980 RID: 6528 RVA: 0x000E67D0 File Offset: 0x000E49D0
-    private static int ObjCollisionObjectFastCheckDet( int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
+    public static int ObjCollisionObjectFastCheckDet( int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
     {
         AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
@@ -2248,7 +2248,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001981 RID: 6529 RVA: 0x000E6820 File Offset: 0x000E4A20
-    private static int ObjCollisionObjectFastCheck( AppMain.OBS_COL_CHK_DATA pData )
+    public static int ObjCollisionObjectFastCheck( AppMain.OBS_COL_CHK_DATA pData )
     {
         int num = 24;
         int num2 = 0;
@@ -2335,7 +2335,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001982 RID: 6530 RVA: 0x000E6A5C File Offset: 0x000E4C5C
-    private static int ObjCollisionObjectCheckDet( AppMain.OBS_OBJECT_WORK pObj, int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
+    public static int ObjCollisionObjectCheckDet( OBS_OBJECT_WORK pObj, int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
     {
         AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
@@ -2350,7 +2350,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001983 RID: 6531 RVA: 0x000E6AAC File Offset: 0x000E4CAC
-    private static int ObjCollisionObjectCheck( AppMain.OBS_OBJECT_WORK pObj, AppMain.OBS_COL_CHK_DATA pData )
+    public static int ObjCollisionObjectCheck( OBS_OBJECT_WORK pObj, AppMain.OBS_COL_CHK_DATA pData )
     {
         int num = 24;
         short num2 = 0;
@@ -2519,7 +2519,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001984 RID: 6532 RVA: 0x000E7048 File Offset: 0x000E5248
-    private static AppMain.OBS_COLLISION_OBJ ObjCollisionDiffObjectGetCollisionObj( byte col_no )
+    public static AppMain.OBS_COLLISION_OBJ ObjCollisionDiffObjectGetCollisionObj( byte col_no )
     {
         if ( col_no < AppMain._obj_collision_num )
         {
@@ -2529,7 +2529,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001985 RID: 6533 RVA: 0x000E705C File Offset: 0x000E525C
-    private static int objFastCollisionDiffObject( AppMain.OBS_COLLISION_OBJ pColObj, AppMain.OBS_COL_CHK_DATA pData )
+    public static int objFastCollisionDiffObject( AppMain.OBS_COLLISION_OBJ pColObj, AppMain.OBS_COL_CHK_DATA pData )
     {
         ushort num = 0;
         uint num2 = 0U;
@@ -2578,7 +2578,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001986 RID: 6534 RVA: 0x000E715C File Offset: 0x000E535C
-    private static int objCollisionDiffObject( AppMain.OBS_COLLISION_OBJ pColObj, AppMain.OBS_COL_CHK_DATA pData )
+    public static int objCollisionDiffObject( AppMain.OBS_COLLISION_OBJ pColObj, AppMain.OBS_COL_CHK_DATA pData )
     {
         int num = 0;
         int num2 = 0;
@@ -2728,7 +2728,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001987 RID: 6535 RVA: 0x000E7498 File Offset: 0x000E5698
-    private static int objGetColDataX( AppMain.OBS_COLLISION_OBJ pColObj, int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
+    public static int objGetColDataX( AppMain.OBS_COLLISION_OBJ pColObj, int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
     {
         sbyte b = 0;
         if ( lPosX < pColObj.left || lPosX >= pColObj.right )
@@ -2830,7 +2830,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001988 RID: 6536 RVA: 0x000E768C File Offset: 0x000E588C
-    private static int objGetColDataY( AppMain.OBS_COLLISION_OBJ pColObj, int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
+    public static int objGetColDataY( AppMain.OBS_COLLISION_OBJ pColObj, int lPosX, int lPosY, ushort ucSuf, ushort[] pDir, uint[] pAttr )
     {
         sbyte b = 0;
         if ( lPosX < pColObj.left || lPosX >= pColObj.right )
@@ -2933,7 +2933,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001989 RID: 6537 RVA: 0x000E7884 File Offset: 0x000E5A84
-    private static int objMapGetDiff( int lCol, sbyte sPix, sbyte sDelta )
+    public static int objMapGetDiff( int lCol, sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( lCol > 0 )
@@ -2959,7 +2959,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600198A RID: 6538 RVA: 0x000E78B8 File Offset: 0x000E5AB8
-    private static int objMapGetForward( sbyte sPix, sbyte sDelta )
+    public static int objMapGetForward( sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( sDelta > 0 )
@@ -2974,7 +2974,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600198B RID: 6539 RVA: 0x000E78D4 File Offset: 0x000E5AD4
-    private static int objMapGetBack( sbyte sPix, sbyte sDelta )
+    public static int objMapGetBack( sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( sDelta > 0 )
@@ -2989,7 +2989,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600198C RID: 6540 RVA: 0x000E78F4 File Offset: 0x000E5AF4
-    private static int objMapGetForwardRev( sbyte sPix, sbyte sDelta )
+    public static int objMapGetForwardRev( sbyte sPix, sbyte sDelta )
     {
         int result;
         if ( sDelta > 0 )

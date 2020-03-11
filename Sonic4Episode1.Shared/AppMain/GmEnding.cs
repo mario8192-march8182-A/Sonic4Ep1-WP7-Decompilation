@@ -59,7 +59,7 @@ public partial class AppMain
         gms_ENDING_WORK.step = 0;
         gms_ENDING_WORK.flag = 1U;
         gms_ENDING_WORK.timer = 16U;
-        AppMain.GmCameraAllowSet( 0f, 50f, 0f );
+        GmCamera.AllowSet( 0f, 50f, 0f );
         AppMain.g_gm_main_system.map_fcol.bottom = AppMain.g_gm_main_system.map_fcol.bottom - 32;
     }
 
@@ -72,7 +72,7 @@ public partial class AppMain
     // Token: 0x0600125A RID: 4698 RVA: 0x000A07D8 File Offset: 0x0009E9D8
     public static void GmEndingFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(949);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(949);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ending_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
@@ -90,7 +90,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600125D RID: 4701 RVA: 0x000A0848 File Offset: 0x0009EA48
-    public static void GmEndingPlyKeyCustom( AppMain.GMS_PLAYER_WORK ply_work )
+    public static void GmEndingPlyKeyCustom( GMS_PLAYER_WORK ply_work )
     {
         AppMain.GMS_ENDING_WORK gms_ENDING_WORK = AppMain.gmEndingGetWork();
         if ( ( gms_ENDING_WORK.flag & 1U ) != 0U )
@@ -143,9 +143,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001260 RID: 4704 RVA: 0x000A09C0 File Offset: 0x0009EBC0
-    private static void gmEndingLastPic( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEndingLastPic( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         obj_work.disp_flag |= 32U;
         if ( gms_PLAYER_WORK.act_state == 80 || gms_PLAYER_WORK.act_state == 82 || gms_PLAYER_WORK.act_state == 84 )
         {
@@ -158,8 +158,8 @@ public partial class AppMain
     private static void gmEndingLastPicInit()
     {
         AppMain.GMS_ENDING_WORK gms_ENDING_WORK = AppMain.gmEndingGetWork();
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), gms_PLAYER_WORK.obj_work, 0, "END_PIC");
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), gms_PLAYER_WORK.obj_work, 0, "END_PIC");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.ppFunc = AppMain.gmEndingLastPic;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ending_obj_3d_list[gms_ENDING_WORK.type], gms_EFFECT_3DNN_WORK.obj_3d );
@@ -174,7 +174,7 @@ public partial class AppMain
     private static void gmEndingCtrl( AppMain.MTS_TASK_TCB tcb )
     {
         AppMain.GMS_ENDING_WORK gms_ENDING_WORK = (AppMain.GMS_ENDING_WORK)tcb.work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         switch ( gms_ENDING_WORK.step )
         {
             case 0:
@@ -187,7 +187,7 @@ public partial class AppMain
                 AppMain.IzFadeInitEasy( 1U, 2U, 60f );
                 gms_ENDING_WORK.step = 1;
                 gms_ENDING_WORK.flag = 2U;
-                AppMain.GmSoundPlayStageBGM( 0 );
+                GmSound.PlayStageBGM( 0 );
                 return;
             case 1:
                 break;

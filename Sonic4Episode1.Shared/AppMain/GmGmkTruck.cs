@@ -8,10 +8,10 @@ public partial class AppMain
 {
     // Token: 0x0200017F RID: 383
     // (Invoke) Token: 0x06002194 RID: 8596
-    public delegate void pfnGMS_GMK_TRUCK_WORK( AppMain.GMS_GMK_TRUCK_WORK a, AppMain.GMS_PLAYER_WORK b );
+    public delegate void pfnGMS_GMK_TRUCK_WORK( AppMain.GMS_GMK_TRUCK_WORK a, GMS_PLAYER_WORK b );
 
     // Token: 0x02000180 RID: 384
-    public class GMS_GMK_TRUCK_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_TRUCK_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002197 RID: 8599 RVA: 0x00141570 File Offset: 0x0013F770
         public GMS_GMK_TRUCK_WORK()
@@ -20,13 +20,13 @@ public partial class AppMain
         }
 
         // Token: 0x06002198 RID: 8600 RVA: 0x001415C6 File Offset: 0x0013F7C6
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_TRUCK_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_TRUCK_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x06002199 RID: 8601 RVA: 0x001415D8 File Offset: 0x0013F7D8
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -41,7 +41,7 @@ public partial class AppMain
         public AppMain.GMS_GMK_TRUCK_WORK seq;
 
         // Token: 0x04004EAE RID: 20142
-        public AppMain.GMS_PLAYER_WORK target_player;
+        public GMS_PLAYER_WORK target_player;
 
         // Token: 0x04004EAF RID: 20143
         public int tire_spd_for_dir;
@@ -53,16 +53,16 @@ public partial class AppMain
         public ushort tire_dir;
 
         // Token: 0x04004EB2 RID: 20146
-        public readonly AppMain.NNS_MATRIX tire_pos_f = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX tire_pos_f = new NNS_MATRIX();
 
         // Token: 0x04004EB3 RID: 20147
-        public readonly AppMain.NNS_MATRIX tire_pos_b = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX tire_pos_b = new NNS_MATRIX();
 
         // Token: 0x04004EB4 RID: 20148
-        public readonly AppMain.NNS_MATRIX light_pos = new AppMain.NNS_MATRIX();
+        public readonly NNS_MATRIX light_pos = new NNS_MATRIX();
 
         // Token: 0x04004EB5 RID: 20149
-        public readonly AppMain.NNS_VECTOR trans_r = new AppMain.NNS_VECTOR();
+        public readonly NNS_VECTOR trans_r = new NNS_VECTOR();
 
         // Token: 0x04004EB6 RID: 20150
         public ushort slope_z_dir;
@@ -80,7 +80,7 @@ public partial class AppMain
         public AppMain.GMS_EFFECT_3DES_WORK efct_b_spark;
 
         // Token: 0x04004EBB RID: 20155
-        public AppMain.GSS_SND_SE_HANDLE h_snd_lorry;
+        public GSS_SND_SE_HANDLE h_snd_lorry;
     }
 
     // Token: 0x06000669 RID: 1641 RVA: 0x00038B56 File Offset: 0x00036D56
@@ -92,14 +92,14 @@ public partial class AppMain
     // Token: 0x0600066A RID: 1642 RVA: 0x00038B78 File Offset: 0x00036D78
     public static void GmGmkTruckFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(928);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(928);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_truck_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x0600066B RID: 1643 RVA: 0x00038BA8 File Offset: 0x00036DA8
-    public static AppMain.OBS_OBJECT_WORK GmGmkTruckInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkTruckInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_TRUCK_WORK(), "GMK_TRUCK");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_TRUCK_WORK(), "GMK_TRUCK");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obs_OBJECT_WORK;
         AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkTruckDest );
@@ -128,8 +128,8 @@ public partial class AppMain
         obs_RECT_WORK.ppHit = null;
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -64, -64, 64, 64 );
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = -0.85f;
         nns_VECTOR.y = -0.45f;
         nns_VECTOR.z = -3.05f;
@@ -146,9 +146,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600066C RID: 1644 RVA: 0x00038ED8 File Offset: 0x000370D8
-    public static AppMain.OBS_OBJECT_WORK GmGmkTruckGravityInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkTruckGravityInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_T_GRAVITY");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_T_GRAVITY");
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.move_flag |= 8448U;
         obs_OBJECT_WORK.disp_flag |= 32U;
@@ -189,10 +189,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600066D RID: 1645 RVA: 0x00039094 File Offset: 0x00037294
-    public static AppMain.OBS_OBJECT_WORK GmGmkTruckNoLandingInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmGmkTruckNoLandingInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_T_NOLANDING");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_T_NOLANDING");
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.move_flag |= 8448U;
         obs_OBJECT_WORK.disp_flag |= 32U;
@@ -215,15 +215,15 @@ public partial class AppMain
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( gms_GMK_TRUCK_WORK.h_snd_lorry != null )
         {
-            AppMain.GmSoundStopSE( gms_GMK_TRUCK_WORK.h_snd_lorry );
-            AppMain.GsSoundFreeSeHandle( gms_GMK_TRUCK_WORK.h_snd_lorry );
+            GsSound.StopSE( gms_GMK_TRUCK_WORK.h_snd_lorry );
+            GsSound.FreeSeHandle( gms_GMK_TRUCK_WORK.h_snd_lorry );
             gms_GMK_TRUCK_WORK.h_snd_lorry = null;
         }
         AppMain.GmEnemyDefaultExit( tcb );
     }
 
     // Token: 0x0600066F RID: 1647 RVA: 0x00039200 File Offset: 0x00037400
-    public static void gmGmkTruckInitMain( AppMain.OBS_OBJECT_WORK obj_work, AppMain.GMS_PLAYER_WORK ply_work )
+    public static void gmGmkTruckInitMain( OBS_OBJECT_WORK obj_work, GMS_PLAYER_WORK ply_work )
     {
         AppMain.UNREFERENCED_PARAMETER( ply_work );
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work;
@@ -231,11 +231,11 @@ public partial class AppMain
         obj_work.move_flag |= 8448U;
         obj_work.ppFunc = AppMain.gmGmkTruckMain;
         AppMain.gmGmkTruckCreateSparkEfct( gms_GMK_TRUCK_WORK, 27 );
-        gms_GMK_TRUCK_WORK.h_snd_lorry = AppMain.GsSoundAllocSeHandle();
+        gms_GMK_TRUCK_WORK.h_snd_lorry = GsSound.AllocSeHandle();
     }
 
     // Token: 0x06000670 RID: 1648 RVA: 0x00039260 File Offset: 0x00037460
-    public static void gmGmkTruckMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work;
         if ( gms_GMK_TRUCK_WORK.target_player == null )
@@ -260,7 +260,7 @@ public partial class AppMain
         {
             obj_work.pos.z = 983040;
         }
-        AppMain.GMS_PLAYER_WORK target_player = gms_GMK_TRUCK_WORK.target_player;
+        GMS_PLAYER_WORK target_player = gms_GMK_TRUCK_WORK.target_player;
         obj_work.prev_pos = obj_work.pos;
         obj_work.pos.x = target_player.obj_work.pos.x;
         obj_work.pos.y = target_player.obj_work.pos.y;
@@ -350,7 +350,7 @@ public partial class AppMain
         AppMain.nnTranslateMatrix( obj_work.obj_3d.user_obj_mtx_r, obj_work.obj_3d.user_obj_mtx_r, gms_GMK_TRUCK_WORK.trans_r.x, gms_GMK_TRUCK_WORK.trans_r.y, gms_GMK_TRUCK_WORK.trans_r.z );
         if ( ( target_player.gmk_flag & 262144U ) != 0U && target_player.gmk_work3 != 0 )
         {
-            AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
             gms_GMK_TRUCK_WORK.slope_z_dir = ( ushort )target_player.gmk_work3;
             gms_GMK_TRUCK_WORK.slope_f_z_dir = ( ushort )( AppMain.MTM_MATH_ABS( target_player.gmk_work3 ) >> 2 );
             gms_GMK_TRUCK_WORK.slope_f_y_dir = ( ushort )( target_player.gmk_work3 >> 2 );
@@ -361,7 +361,7 @@ public partial class AppMain
             AppMain.nnRotateZMatrix( nns_MATRIX, nns_MATRIX, ( int )gms_GMK_TRUCK_WORK.slope_f_z_dir );
             AppMain.nnTranslateMatrix( nns_MATRIX, nns_MATRIX, num3, num4, num5 );
             AppMain.nnMultiplyMatrix( obj_work.obj_3d.user_obj_mtx_r, obj_work.obj_3d.user_obj_mtx_r, nns_MATRIX );
-            AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX );
+            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
         }
         if ( ( target_player.obj_work.move_flag & 1U ) != 0U && AppMain.MTM_MATH_ABS( target_player.obj_work.spd_m ) >= AppMain.GMD_GMK_TRUCK_SPARK_EFCT_SMALL_MIN_SPD && ( gms_GMK_TRUCK_WORK.efct_f_spark == null || gms_GMK_TRUCK_WORK.efct_b_spark == null ) )
         {
@@ -369,15 +369,15 @@ public partial class AppMain
         }
         if ( gms_GMK_TRUCK_WORK.h_snd_lorry.au_player.sound == null || gms_GMK_TRUCK_WORK.h_snd_lorry.au_player.sound[0] == null )
         {
-            gms_GMK_TRUCK_WORK.h_snd_lorry = AppMain.GsSoundAllocSeHandle();
+            gms_GMK_TRUCK_WORK.h_snd_lorry = GsSound.AllocSeHandle();
             gms_GMK_TRUCK_WORK.h_snd_lorry.au_player.SetAisac( "Speed", 0f );
-            AppMain.GmSoundPlaySEForce( "Lorry", gms_GMK_TRUCK_WORK.h_snd_lorry, true );
+            GmSound.PlaySEForce( "Lorry", gms_GMK_TRUCK_WORK.h_snd_lorry, true );
         }
         AppMain.gmGmkTruckSetMoveSeParam( obj_work, gms_GMK_TRUCK_WORK.h_snd_lorry, target_player, ( ( target_player.player_flag & 16777216U ) != 0U ) ? 1 : 0 );
     }
 
     // Token: 0x06000671 RID: 1649 RVA: 0x0003980C File Offset: 0x00037A0C
-    public static void gmGmkTruckInitFree( AppMain.OBS_OBJECT_WORK obj_work, AppMain.GMS_PLAYER_WORK ply_work )
+    public static void gmGmkTruckInitFree( OBS_OBJECT_WORK obj_work, GMS_PLAYER_WORK ply_work )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work;
         gms_GMK_TRUCK_WORK.target_player = null;
@@ -424,7 +424,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000672 RID: 1650 RVA: 0x00039960 File Offset: 0x00037B60
-    public static void gmGmkTruckFreeMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckFreeMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work;
         if ( ( obj_work.move_flag & 1U ) != 0U && ( obj_work.move_flag & 16U ) != 0U )
@@ -440,7 +440,7 @@ public partial class AppMain
                 AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 0 );
                 obj_work.disp_flag |= 4U;
             }
-            AppMain.GmSoundPlaySE( "Lorry4" );
+            GmSound.PlaySE( "Lorry4" );
         }
         if ( ( obj_work.move_flag & 1U ) != 0U )
         {
@@ -468,7 +468,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000673 RID: 1651 RVA: 0x00039AD4 File Offset: 0x00037CD4
-    public static void gmGmkTruckInitDeathFall( AppMain.OBS_OBJECT_WORK obj_work, AppMain.GMS_PLAYER_WORK ply_work )
+    public static void gmGmkTruckInitDeathFall( OBS_OBJECT_WORK obj_work, GMS_PLAYER_WORK ply_work )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work;
         gms_GMK_TRUCK_WORK.target_player = null;
@@ -498,13 +498,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000674 RID: 1652 RVA: 0x00039C44 File Offset: 0x00037E44
-    public static void gmGmkTruckDeathFallMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckDeathFallMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.dir.z = ( ushort )( obj_work.dir.z + 1024 );
     }
 
     // Token: 0x06000675 RID: 1653 RVA: 0x00039C60 File Offset: 0x00037E60
-    public static void gmGmkTruckDispFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckDispFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work;
         AppMain.ObjDrawActionSummary( obj_work );
@@ -526,7 +526,7 @@ public partial class AppMain
     public static void gmGmkTruckBodyDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -537,7 +537,7 @@ public partial class AppMain
         }
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)gms_ENEMY_COM_WORK;
         gms_ENEMY_COM_WORK.obj_work.flag |= 16U;
-        AppMain.GmPlayerSetTruckRide( gms_PLAYER_WORK, gms_ENEMY_COM_WORK.obj_work, gms_ENEMY_COM_WORK.obj_work.field_rect[0], gms_ENEMY_COM_WORK.obj_work.field_rect[1], gms_ENEMY_COM_WORK.obj_work.field_rect[2], gms_ENEMY_COM_WORK.obj_work.field_rect[3] );
+        GmPlayer.SetTruckRide( gms_PLAYER_WORK, gms_ENEMY_COM_WORK.obj_work, gms_ENEMY_COM_WORK.obj_work.field_rect[0], gms_ENEMY_COM_WORK.obj_work.field_rect[1], gms_ENEMY_COM_WORK.obj_work.field_rect[2], gms_ENEMY_COM_WORK.obj_work.field_rect[3] );
         gms_GMK_TRUCK_WORK.target_player = gms_PLAYER_WORK;
         AppMain.gmGmkTruckInitMain( gms_ENEMY_COM_WORK.obj_work, gms_PLAYER_WORK );
     }
@@ -545,8 +545,8 @@ public partial class AppMain
     // Token: 0x06000677 RID: 1655 RVA: 0x00039E28 File Offset: 0x00038028
     public static void gmGmkTruckMotionCallback( AppMain.AMS_MOTION motion, AppMain.NNS_OBJECT _object, object param )
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)param;
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.nnMultiplyMatrix( nns_MATRIX2, nns_MATRIX2, AppMain.amMatrixGetCurrent() );
@@ -559,14 +559,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000678 RID: 1656 RVA: 0x00039ECC File Offset: 0x000380CC
-    public static void gmGmkTruckSetMoveSeParam( AppMain.OBS_OBJECT_WORK obj_work, AppMain.GSS_SND_SE_HANDLE h_snd, AppMain.GMS_PLAYER_WORK ply_work, int b_goal )
+    public static void gmGmkTruckSetMoveSeParam( OBS_OBJECT_WORK obj_work, GSS_SND_SE_HANDLE h_snd, GMS_PLAYER_WORK ply_work, int b_goal )
     {
         float num = 0f;
         if ( h_snd == null )
         {
             return;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK;
         if ( ply_work != null )
         {
             obs_OBJECT_WORK = ply_work.obj_work;
@@ -594,7 +594,7 @@ public partial class AppMain
         h_snd.au_player.SetAisac( "Speed", num );
         if ( b_goal != 0 )
         {
-            AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
+            OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
             float num3 = AppMain.FXM_FX32_TO_FLOAT(obs_OBJECT_WORK.pos.x) - obs_CAMERA.disp_pos.x;
             float num4 = AppMain.FXM_FX32_TO_FLOAT(obs_OBJECT_WORK.pos.y) - -obs_CAMERA.disp_pos.y;
             float num6;
@@ -634,7 +634,7 @@ public partial class AppMain
     public static void gmGmkTGravityChangeDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -779,7 +779,7 @@ public partial class AppMain
     public static void gmGmkTGravityForceChangeDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -819,7 +819,7 @@ public partial class AppMain
     public static void gmGmkTNoLandingDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -834,14 +834,14 @@ public partial class AppMain
     // Token: 0x0600067C RID: 1660 RVA: 0x0003A5C0 File Offset: 0x000387C0
     public static void gmGmkTruckCreateLightEfct( AppMain.GMS_GMK_TRUCK_WORK truck_work )
     {
-        AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate((AppMain.OBS_OBJECT_WORK)truck_work, 2, 10);
+        AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctZoneEsCreate((OBS_OBJECT_WORK)truck_work, 2, 10);
         gms_EFFECT_3DES_WORK.efct_com.obj_work.user_work_OBJECT = truck_work.light_pos;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.ppFunc = AppMain.gmGmkTruckLightEfctMain;
         gms_EFFECT_3DES_WORK.efct_com.obj_work.ppOut = AppMain.gmGmkTruckLightEfctDispFunc;
     }
 
     // Token: 0x0600067D RID: 1661 RVA: 0x0003A62C File Offset: 0x0003882C
-    public static void gmGmkTruckLightEfctMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckLightEfctMain( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.parent_obj == null )
         {
@@ -857,9 +857,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600067E RID: 1662 RVA: 0x0003A698 File Offset: 0x00038898
-    public static void gmGmkTruckLightEfctDispFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckLightEfctDispFunc( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.NNS_MATRIX nns_MATRIX = (AppMain.NNS_MATRIX)obj_work.user_work_OBJECT;
+        NNS_MATRIX nns_MATRIX = (NNS_MATRIX)obj_work.user_work_OBJECT;
         if ( obj_work.parent_obj == null )
         {
             return;
@@ -875,7 +875,7 @@ public partial class AppMain
     {
         if ( truck_work.efct_f_spark == null )
         {
-            truck_work.efct_f_spark = AppMain.GmEfctZoneEsCreate( ( AppMain.OBS_OBJECT_WORK )truck_work, 2, efct_type );
+            truck_work.efct_f_spark = AppMain.GmEfctZoneEsCreate( ( OBS_OBJECT_WORK )truck_work, 2, efct_type );
             truck_work.efct_f_spark.efct_com.obj_work.flag |= 524304U;
             truck_work.efct_f_spark.efct_com.obj_work.user_work_OBJECT = truck_work.tire_pos_f;
             truck_work.efct_f_spark.efct_com.obj_work.user_timer = efct_type;
@@ -885,7 +885,7 @@ public partial class AppMain
         }
         if ( truck_work.efct_b_spark == null )
         {
-            truck_work.efct_b_spark = AppMain.GmEfctZoneEsCreate( ( AppMain.OBS_OBJECT_WORK )truck_work, 2, efct_type );
+            truck_work.efct_b_spark = AppMain.GmEfctZoneEsCreate( ( OBS_OBJECT_WORK )truck_work, 2, efct_type );
             truck_work.efct_b_spark.efct_com.obj_work.flag |= 524304U;
             truck_work.efct_b_spark.efct_com.obj_work.user_work_OBJECT = truck_work.tire_pos_b;
             truck_work.efct_b_spark.efct_com.obj_work.user_timer = efct_type;
@@ -896,7 +896,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000680 RID: 1664 RVA: 0x0003A8A4 File Offset: 0x00038AA4
-    public static void gmGmkTruckSparkEfctMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckSparkEfctMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work.parent_obj;
         if ( obj_work.parent_obj == null )
@@ -904,10 +904,10 @@ public partial class AppMain
             obj_work.flag |= 4U;
             return;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_TRUCK_WORK.target_player;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_TRUCK_WORK.target_player;
         if ( obs_OBJECT_WORK == null )
         {
-            obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )gms_GMK_TRUCK_WORK;
+            obs_OBJECT_WORK = ( OBS_OBJECT_WORK )gms_GMK_TRUCK_WORK;
         }
         uint disp_flag = obj_work.disp_flag;
         if ( ( obs_OBJECT_WORK.move_flag & 1U ) == 0U )
@@ -940,20 +940,20 @@ public partial class AppMain
     }
 
     // Token: 0x06000681 RID: 1665 RVA: 0x0003A978 File Offset: 0x00038B78
-    public static void gmGmkTruckSparkEfctDispFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmGmkTruckSparkEfctDispFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work.parent_obj;
-        AppMain.NNS_MATRIX nns_MATRIX = (AppMain.NNS_MATRIX)obj_work.user_work_OBJECT;
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = (NNS_MATRIX)obj_work.user_work_OBJECT;
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         if ( obj_work.parent_obj == null )
         {
-            AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+            AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
             return;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_TRUCK_WORK.target_player;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_TRUCK_WORK.target_player;
         if ( obs_OBJECT_WORK == null )
         {
-            obs_OBJECT_WORK = ( AppMain.OBS_OBJECT_WORK )gms_GMK_TRUCK_WORK;
+            obs_OBJECT_WORK = ( OBS_OBJECT_WORK )gms_GMK_TRUCK_WORK;
         }
         AppMain.VecFx32 pos;
         pos.x = AppMain.FXM_FLOAT_TO_FX32( nns_MATRIX.M03 );
@@ -980,6 +980,6 @@ public partial class AppMain
         AppMain.GmComEfctSetDispOffsetF( ( AppMain.GMS_EFFECT_3DES_WORK )obj_work, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z );
         AppMain.GmComEfctSetDispRotation( ( AppMain.GMS_EFFECT_3DES_WORK )obj_work, 0, 0, dir_z );
         AppMain.ObjDrawActionSummary( obj_work );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

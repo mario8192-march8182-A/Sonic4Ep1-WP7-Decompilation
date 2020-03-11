@@ -13,10 +13,10 @@ using System.Runtime.InteropServices;
 public partial class AppMain
 {
     // Token: 0x02000006 RID: 6
-    private static class nnnodestatuslist
+    public static class nnnodestatuslist
     {
         // Token: 0x04004742 RID: 18242
-        public static AppMain.NNS_MATRIX[] nnsMtxPal;
+        public static NNS_MATRIX[] nnsMtxPal;
 
         // Token: 0x04004743 RID: 18243
         public static uint[] nnsNodeStatList;
@@ -156,19 +156,19 @@ public partial class AppMain
         public short iSibling;
 
         // Token: 0x0400474B RID: 18251
-        public readonly AppMain.NNS_VECTOR Translation = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Translation = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x0400474C RID: 18252
-        public AppMain.NNS_ROTATE_A32 Rotation;
+        public NNS_ROTATE_A32 Rotation;
 
         // Token: 0x0400474D RID: 18253
-        public readonly AppMain.NNS_VECTOR Scaling = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Scaling = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x0400474E RID: 18254
-        public readonly AppMain.NNS_MATRIX InvInitMtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX InvInitMtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x0400474F RID: 18255
-        public readonly AppMain.NNS_VECTOR Center = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Center = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004750 RID: 18256
         public float Radius;
@@ -632,7 +632,7 @@ public partial class AppMain
         }
 
         // Token: 0x04004775 RID: 18293
-        public readonly AppMain.NNS_VECTOR Center = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Center = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004776 RID: 18294
         public float Radius;
@@ -901,7 +901,7 @@ public partial class AppMain
         }
 
         // Token: 0x04004784 RID: 18308
-        public readonly AppMain.NNS_VECTOR Center = new AppMain.NNS_VECTOR();
+        public readonly NNS_VECTOR Center = new NNS_VECTOR();
 
         // Token: 0x04004785 RID: 18309
         public float Radius;
@@ -988,7 +988,7 @@ public partial class AppMain
     public class NNS_COMMON_PW2
     {
         // Token: 0x0400479D RID: 18333
-        public readonly AppMain.NNS_VECTOR Pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x0400479E RID: 18334
         public readonly AppMain.NNS_COMMON_WEIGHT2 Wgt = new AppMain.NNS_COMMON_WEIGHT2();
@@ -998,7 +998,7 @@ public partial class AppMain
     public class NNS_COMMON_PW4
     {
         // Token: 0x0400479F RID: 18335
-        public readonly AppMain.NNS_VECTOR Pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A0 RID: 18336
         public readonly AppMain.NNS_COMMON_WEIGHT[] Wgt = AppMain.New<AppMain.NNS_COMMON_WEIGHT>(4);
@@ -1008,20 +1008,20 @@ public partial class AppMain
     public class NNS_COMMON_PN
     {
         // Token: 0x040047A1 RID: 18337
-        public readonly AppMain.NNS_VECTOR Pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A2 RID: 18338
-        public readonly AppMain.NNS_VECTOR Nrm = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x0200001D RID: 29
     public class NNS_COMMON_PNW2
     {
         // Token: 0x040047A3 RID: 18339
-        public readonly AppMain.NNS_VECTOR Pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A4 RID: 18340
-        public readonly AppMain.NNS_VECTOR Nrm = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A5 RID: 18341
         public readonly AppMain.NNS_COMMON_WEIGHT2 Wgt = new AppMain.NNS_COMMON_WEIGHT2();
@@ -1031,10 +1031,10 @@ public partial class AppMain
     public class NNS_COMMON_PNW4
     {
         // Token: 0x040047A6 RID: 18342
-        public readonly AppMain.NNS_VECTOR Pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A7 RID: 18343
-        public readonly AppMain.NNS_VECTOR Nrm = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A8 RID: 18344
         public readonly AppMain.NNS_COMMON_WEIGHT[] Wgt = AppMain.New<AppMain.NNS_COMMON_WEIGHT>(4);
@@ -1044,7 +1044,7 @@ public partial class AppMain
     public class NNS_COMMON_TEXCOORD2
     {
         // Token: 0x040047A9 RID: 18345
-        public readonly AppMain.NNS_TEXCOORD[] Tex = AppMain.New<AppMain.NNS_TEXCOORD>(2);
+        public readonly NNS_TEXCOORD[] Tex = AppMain.New<NNS_TEXCOORD>(2);
     }
 
     // Token: 0x02000020 RID: 32
@@ -1219,16 +1219,16 @@ public partial class AppMain
     }
 
     // Token: 0x02000276 RID: 630
-    private static class nncalcmatrixpalettemotion
+    public static class nncalcmatrixpalettemotion
     {
         // Token: 0x04005994 RID: 22932
         public static int nnsSubMotIdx;
 
         // Token: 0x04005995 RID: 22933
-        public static AppMain.NNS_MATRIX nnsBaseMtx;
+        public static NNS_MATRIX nnsBaseMtx;
 
         // Token: 0x04005996 RID: 22934
-        public static AppMain.NNS_MATRIX[] nnsMtxPal;
+        public static NNS_MATRIX[] nnsMtxPal;
 
         // Token: 0x04005997 RID: 22935
         public static uint[] nnsNodeStatList;
@@ -1256,7 +1256,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000277 RID: 631
-    private class _nnCalcMotionRotate
+    public class _nnCalcMotionRotate
     {
         // Token: 0x0400599F RID: 22943
         public static int[] arv = new int[3];
@@ -1275,7 +1275,7 @@ public partial class AppMain
         }
 
         // Token: 0x04005D2E RID: 23854
-        public readonly AppMain.NNS_VECTOR2D Pos = new AppMain.NNS_VECTOR2D();
+        public readonly NNS_VECTOR2D Pos = new NNS_VECTOR2D();
     }
 
     // Token: 0x02000303 RID: 771
@@ -1302,17 +1302,17 @@ public partial class AppMain
         }
 
         // Token: 0x04005D30 RID: 23856
-        public AppMain.NNS_TEXCOORD Tex;
+        public NNS_TEXCOORD Tex;
     }
 
     // Token: 0x02000305 RID: 773
     public class NNS_PRIM3D_PN
     {
         // Token: 0x04005D31 RID: 23857
-        public readonly AppMain.NNS_VECTOR Pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04005D32 RID: 23858
-        public readonly AppMain.NNS_VECTOR Nrm = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x02000306 RID: 774
@@ -1329,7 +1329,7 @@ public partial class AppMain
     public class NNS_PRIM3D_PNT : AppMain.NNS_PRIM3D_PN
     {
         // Token: 0x04005D35 RID: 23861
-        public AppMain.NNS_TEXCOORD Tex;
+        public NNS_TEXCOORD Tex;
     }
 
     // Token: 0x02000308 RID: 776
@@ -1342,7 +1342,7 @@ public partial class AppMain
         public uint Col;
 
         // Token: 0x04005D38 RID: 23864
-        public AppMain.NNS_TEXCOORD Tex;
+        public NNS_TEXCOORD Tex;
     }
 
     // Token: 0x02000309 RID: 777
@@ -1365,7 +1365,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200030B RID: 779
-    private struct NNS_CONFIG_GL
+    public struct NNS_CONFIG_GL
     {
         // Token: 0x04005D3E RID: 23870
         public int WindowWidth;
@@ -1375,7 +1375,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200033C RID: 828
-    private struct NNS_SCREEN
+    public struct NNS_SCREEN
     {
         // Token: 0x04005E6F RID: 24175
         public float xad;
@@ -1415,7 +1415,7 @@ public partial class AppMain
     }
 
     // Token: 0x0200033D RID: 829
-    private struct NNS_CLIP
+    public struct NNS_CLIP
     {
         // Token: 0x04005E7B RID: 24187
         public float f_clip;
@@ -1437,13 +1437,13 @@ public partial class AppMain
     }
 
     // Token: 0x0200036D RID: 877
-    private static class nncalcnodematrix
+    public static class nncalcnodematrix
     {
         // Token: 0x04005FE5 RID: 24549
         public static int nnsSubMotIdx;
 
         // Token: 0x04005FE6 RID: 24550
-        public static AppMain.NNS_MATRIX nnsBaseMtx;
+        public static NNS_MATRIX nnsBaseMtx;
 
         // Token: 0x04005FE7 RID: 24551
         public static AppMain.NNS_NODE[] nnsNodeList;
@@ -1459,13 +1459,13 @@ public partial class AppMain
     }
 
     // Token: 0x0200036E RID: 878
-    private static class nncalcmatrixpalette
+    public static class nncalcmatrixpalette
     {
         // Token: 0x04005FEB RID: 24555
-        public static AppMain.NNS_MATRIX nnsBaseMtx;
+        public static NNS_MATRIX nnsBaseMtx;
 
         // Token: 0x04005FEC RID: 24556
-        public static AppMain.NNS_MATRIX[] nnsMtxPal;
+        public static NNS_MATRIX[] nnsMtxPal;
 
         // Token: 0x04005FED RID: 24557
         public static uint[] nnsNodeStatList;
@@ -1531,13 +1531,13 @@ public partial class AppMain
         }
 
         // Token: 0x04005FFA RID: 24570
-        public AppMain.NNS_VECTORFAST Translation;
+        public NNS_VECTORFAST Translation;
 
         // Token: 0x04005FFB RID: 24571
-        public AppMain.NNS_QUATERNION Rotation;
+        public NNS_QUATERNION Rotation;
 
         // Token: 0x04005FFC RID: 24572
-        public AppMain.NNS_VECTORFAST Scaling;
+        public NNS_VECTORFAST Scaling;
     }
 
     // Token: 0x02000371 RID: 881
@@ -1599,7 +1599,7 @@ public partial class AppMain
     public delegate void NNS_NODEUSRMOT_CALLBACK_FUNC(AppMain.NNS_NODEUSRMOT_CALLBACK_VAL val);
 
     // Token: 0x02000374 RID: 884
-    private class nngGLExtensions
+    public class nngGLExtensions
     {
         // Token: 0x04006009 RID: 24585
         public static int max_texture_units = 2;
@@ -1612,7 +1612,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000375 RID: 885
-    private class NNS_SHADER_MANAGER
+    public class NNS_SHADER_MANAGER
     {
         // Token: 0x0400600C RID: 24588
         public AppMain.NNS_SHADER_NAME Name;
@@ -1802,40 +1802,40 @@ public partial class AppMain
     }
 
     // Token: 0x02000376 RID: 886
-    private struct NNS_SPHERE
+    public struct NNS_SPHERE
     {
         // Token: 0x0400604A RID: 24650
-        private AppMain.NNS_VECTOR c;
+        public NNS_VECTOR c;
 
         // Token: 0x0400604B RID: 24651
-        private float r;
+        public float r;
     }
 
     // Token: 0x02000377 RID: 887
-    private struct NNS_CAPSULE
+    public struct NNS_CAPSULE
     {
         // Token: 0x0400604C RID: 24652
-        private AppMain.NNS_VECTOR c1;
+        public NNS_VECTOR c1;
 
         // Token: 0x0400604D RID: 24653
-        private AppMain.NNS_VECTOR c2;
+        public NNS_VECTOR c2;
 
         // Token: 0x0400604E RID: 24654
-        private float r;
+        public float r;
     }
 
     // Token: 0x02000378 RID: 888
-    private class NNS_BOX
+    public class NNS_BOX
     {
         // Token: 0x0400604F RID: 24655
-        private AppMain.NNS_VECTOR p;
+        public NNS_VECTOR p;
 
         // Token: 0x04006050 RID: 24656
-        private AppMain.NNS_VECTOR[] v = AppMain.New<AppMain.NNS_VECTOR>(3);
+        public NNS_VECTOR[] v = AppMain.New<NNS_VECTOR>(3);
     }
 
     // Token: 0x02000379 RID: 889
-    private enum NNE_PRINT_ORIENTATION_MODE
+    public enum NNE_PRINT_ORIENTATION_MODE
     {
         // Token: 0x04006052 RID: 24658
         NNE_POM_VERTICAL,
@@ -1846,7 +1846,7 @@ public partial class AppMain
     }
 
     // Token: 0x020003A4 RID: 932
-    private static class nnclip
+    public static class nnclip
     {
         // Token: 0x04006150 RID: 24912
         public static uint[] nnsNodeStatList;
@@ -1914,57 +1914,57 @@ public partial class AppMain
     }
 
     // Token: 0x020003A8 RID: 936
-    private struct NNS_OBJECT_MEASURE
+    public struct NNS_OBJECT_MEASURE
     {
         // Token: 0x0400615E RID: 24926
-        private int nObj;
+        public int nObj;
 
         // Token: 0x0400615F RID: 24927
-        private int nSubobj;
+        public int nSubobj;
 
         // Token: 0x04006160 RID: 24928
-        private int nNode;
+        public int nNode;
 
         // Token: 0x04006161 RID: 24929
-        private int nMtx;
+        public int nMtx;
 
         // Token: 0x04006162 RID: 24930
-        private int nVtx;
+        public int nVtx;
 
         // Token: 0x04006163 RID: 24931
-        private int nPrim;
+        public int nPrim;
 
         // Token: 0x04006164 RID: 24932
-        private int nMeshset;
+        public int nMeshset;
 
         // Token: 0x04006165 RID: 24933
-        private int nMaterial;
+        public int nMaterial;
 
         // Token: 0x04006166 RID: 24934
-        private int nTex;
+        public int nTex;
     }
 
     // Token: 0x020003A9 RID: 937
-    private struct NNS_PLIABLEOBJ
+    public struct NNS_PLIABLEOBJ
     {
         // Token: 0x04006167 RID: 24935
-        private uint flag;
+        public uint flag;
 
         // Token: 0x04006168 RID: 24936
-        private AppMain.NNS_OBJECT pObject;
+        public AppMain.NNS_OBJECT pObject;
 
         // Token: 0x04006169 RID: 24937
-        private uint Size;
+        public uint Size;
 
         // Token: 0x0400616A RID: 24938
-        private object pBuffer;
+        public object pBuffer;
 
         // Token: 0x0400616B RID: 24939
-        private uint pIdx;
+        public uint pIdx;
     }
 
     // Token: 0x06001125 RID: 4389 RVA: 0x00095960 File Offset: 0x00093B60
-    private static void nnCalcMatrixPaletteMotion(AppMain.NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public static void nnCalcMatrixPaletteMotion(NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         if ((mot.fType & 1U) != 0U)
         {
@@ -1998,7 +1998,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001126 RID: 4390 RVA: 0x00095A14 File Offset: 0x00093C14
-    private static int nnCalcMotionFrame(out float dstframe, uint fType, float startframe, float endframe, float frame)
+    public static int nnCalcMotionFrame(out float dstframe, uint fType, float startframe, float endframe, float frame)
     {
         if ((fType & 64U) != 0U)
         {
@@ -2091,7 +2091,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001127 RID: 4391 RVA: 0x00095B2C File Offset: 0x00093D2C
-    private static void nnCalcMatrixPaletteMotionNode(int nodeIdx)
+    public static void nnCalcMatrixPaletteMotionNode(int nodeIdx)
     {
         int? num = new int?(0);
         for (; ; )
@@ -2135,7 +2135,7 @@ public partial class AppMain
             continue;
         IL_D4:
             AppMain.nnPushMatrix(AppMain.nncalcmatrixpalettemotion.nnsMstk, null);
-            AppMain.NNS_MATRIX nns_MATRIX = AppMain.nnGetCurrentMatrix(AppMain.nncalcmatrixpalettemotion.nnsMstk);
+            NNS_MATRIX nns_MATRIX = AppMain.nnGetCurrentMatrix(AppMain.nncalcmatrixpalettemotion.nnsMstk);
             AppMain.nncalcmatrixpalettemotion.nnsSubMotIdx = AppMain.nnCalcNodeMotionCore(nns_MATRIX, ref num, AppMain.nncalcmatrixpalettemotion.nnsBaseMtx, nns_NODE, nodeIdx, AppMain.nncalcmatrixpalettemotion.nnsObj, AppMain.nncalcmatrixpalettemotion.nnsMot, AppMain.nncalcmatrixpalettemotion.nnsSubMotIdx, AppMain.nncalcmatrixpalettemotion.nnsFrame);
             if (nns_NODE.iMatrix != -1)
             {
@@ -2179,12 +2179,12 @@ public partial class AppMain
     }
 
     // Token: 0x06001128 RID: 4392 RVA: 0x00095D28 File Offset: 0x00093F28
-    private static int nnCalcNodeMotionCore(AppMain.NNS_MATRIX pNodeMtx, ref int? pHideFlag, AppMain.NNS_MATRIX pBaseMtx, AppMain.NNS_NODE pNode, int NodeIdx, AppMain.NNS_OBJECT pObj, AppMain.NNS_MOTION pMot, int SubMotIdx, float frame)
+    public static int nnCalcNodeMotionCore(NNS_MATRIX pNodeMtx, ref int? pHideFlag, NNS_MATRIX pBaseMtx, AppMain.NNS_NODE pNode, int NodeIdx, AppMain.NNS_OBJECT pObj, AppMain.NNS_MOTION pMot, int SubMotIdx, float frame)
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_ROTATE_A32 nns_ROTATE_A = default(AppMain.NNS_ROTATE_A32);
-        AppMain.NNS_QUATERNION rq = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_ROTATE_A32 nns_ROTATE_A = default(NNS_ROTATE_A32);
+        NNS_QUATERNION rq = default(NNS_QUATERNION);
+        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         uint fType = pNode.fType;
         uint num = pNode.fType & 3840U;
         nns_VECTOR.Assign(pNode.Translation);
@@ -2251,7 +2251,7 @@ public partial class AppMain
         {
             if ((pNode.fType & 8192U) != 0U)
             {
-                AppMain.NNS_VECTORFAST src = default(AppMain.NNS_VECTORFAST);
+                NNS_VECTORFAST src = default(NNS_VECTORFAST);
                 AppMain.nnmSetUpVectorFast(out src, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z);
                 AppMain.nnTransformVectorFast(out src, pBaseMtx, src);
                 AppMain.nnCopyVectorFastMatrixTranslation(pNodeMtx, ref src);
@@ -2314,16 +2314,16 @@ public partial class AppMain
         {
             AppMain.nnScaleMatrixFast(pNodeMtx, nns_VECTOR2.x, nns_VECTOR2.y, nns_VECTOR2.z);
         }
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR2);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
         return SubMotIdx;
     }
 
     // Token: 0x06001129 RID: 4393 RVA: 0x0009611C File Offset: 0x0009431C
-    private static int nnCalcMotionRotate(AppMain.NNS_SUBMOTION submot, float frame, ref AppMain.NNS_ROTATE_A32 rv, AppMain.NNS_QUATERNION rq, uint rtype)
+    public static int nnCalcMotionRotate(AppMain.NNS_SUBMOTION submot, float frame, ref NNS_ROTATE_A32 rv, NNS_QUATERNION rq, uint rtype)
     {
         int result = 0;
-        AppMain.NNS_ROTATE_A16 nns_ROTATE_A = default(AppMain.NNS_ROTATE_A16);
+        NNS_ROTATE_A16 nns_ROTATE_A = default(NNS_ROTATE_A16);
         int[] arv = AppMain._nnCalcMotionRotate.arv;
         arv[0] = rv.x;
         arv[1] = rv.y;
@@ -2572,7 +2572,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600112A RID: 4394 RVA: 0x00096639 File Offset: 0x00094839
-    private static void nnRotateXYZMatrixFast(AppMain.NNS_MATRIX mtx, int ax, int ay, int az)
+    public static void nnRotateXYZMatrixFast(NNS_MATRIX mtx, int ax, int ay, int az)
     {
         AppMain.nnmRotateMatrixFast(mtx, az, 0, 1);
         AppMain.nnmRotateMatrixFast(mtx, ay, 2, 0);
@@ -2580,7 +2580,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600112B RID: 4395 RVA: 0x00096656 File Offset: 0x00094856
-    private static void nnRotateXZYMatrixFast(AppMain.NNS_MATRIX mtx, int ax, int ay, int az)
+    public static void nnRotateXZYMatrixFast(NNS_MATRIX mtx, int ax, int ay, int az)
     {
         AppMain.nnmRotateMatrixFast(mtx, ay, 2, 0);
         AppMain.nnmRotateMatrixFast(mtx, az, 0, 1);
@@ -2588,7 +2588,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600112C RID: 4396 RVA: 0x00096673 File Offset: 0x00094873
-    private static void nnRotateZXYMatrixFast(AppMain.NNS_MATRIX mtx, int ax, int ay, int az)
+    public static void nnRotateZXYMatrixFast(NNS_MATRIX mtx, int ax, int ay, int az)
     {
         AppMain.nnmRotateMatrixFast(mtx, ay, 2, 0);
         AppMain.nnmRotateMatrixFast(mtx, ax, 1, 2);
@@ -2596,7 +2596,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600112D RID: 4397 RVA: 0x00096690 File Offset: 0x00094890
-    private static int nnCalcMotionTranslate(AppMain.NNS_SUBMOTION submot, float frame, AppMain.NNS_VECTOR tv)
+    public static int nnCalcMotionTranslate(AppMain.NNS_SUBMOTION submot, float frame, NNS_VECTOR tv)
     {
         int result = 0;
         float num = 0f;
@@ -2708,7 +2708,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600112E RID: 4398 RVA: 0x00096834 File Offset: 0x00094A34
-    private static void nnTranslateMatrixFast(AppMain.NNS_MATRIX mtx, float x, float y, float z)
+    public static void nnTranslateMatrixFast(NNS_MATRIX mtx, float x, float y, float z)
     {
         mtx.M03 = mtx.M00 * x + mtx.M01 * y + mtx.M02 * z + mtx.M03;
         mtx.M13 = mtx.M10 * x + mtx.M11 * y + mtx.M12 * z + mtx.M13;
@@ -2716,7 +2716,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600112F RID: 4399 RVA: 0x000968B8 File Offset: 0x00094AB8
-    private static int nnCalcMotionScale(AppMain.NNS_SUBMOTION submot, float frame, AppMain.NNS_VECTOR sv)
+    public static int nnCalcMotionScale(AppMain.NNS_SUBMOTION submot, float frame, NNS_VECTOR sv)
     {
         int result = 0;
         float num = 0f;
@@ -2828,7 +2828,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001130 RID: 4400 RVA: 0x00096A5C File Offset: 0x00094C5C
-    private static void nnScaleMatrixFast(AppMain.NNS_MATRIX mtx, float x, float y, float z)
+    public static void nnScaleMatrixFast(NNS_MATRIX mtx, float x, float y, float z)
     {
         mtx.M00 *= x;
         mtx.M01 *= y;
@@ -2842,31 +2842,31 @@ public partial class AppMain
     }
 
     // Token: 0x06001131 RID: 4401 RVA: 0x00096AE7 File Offset: 0x00094CE7
-    private static void nnCalcMatrixPaletteMotionNode2BoneSIIK(int jnt1nodeIdx)
+    public static void nnCalcMatrixPaletteMotionNode2BoneSIIK(int jnt1nodeIdx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06001132 RID: 4402 RVA: 0x00096AEE File Offset: 0x00094CEE
-    private static void nnCalcMatrixPaletteMotionNode1BoneSIIK(int jnt1nodeIdx)
+    public static void nnCalcMatrixPaletteMotionNode1BoneSIIK(int jnt1nodeIdx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06001133 RID: 4403 RVA: 0x00096AF5 File Offset: 0x00094CF5
-    private static void nnCalcMatrixPaletteMotionNode2BoneXSIIK(int rootidx)
+    public static void nnCalcMatrixPaletteMotionNode2BoneXSIIK(int rootidx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06001134 RID: 4404 RVA: 0x00096AFC File Offset: 0x00094CFC
-    private static void nnCalcMatrixPaletteMotionNode1BoneXSIIK(int rootidx)
+    public static void nnCalcMatrixPaletteMotionNode1BoneXSIIK(int rootidx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06001135 RID: 4405 RVA: 0x00096B04 File Offset: 0x00094D04
-    private static void nnCallbackMotionUserData(AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, int SubMotIdx, int NodeIdx, float nframe, float origframe)
+    public static void nnCallbackMotionUserData(AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, int SubMotIdx, int NodeIdx, float nframe, float origframe)
     {
         AppMain.NNS_NODEUSRMOT_CALLBACK_VAL nns_NODEUSRMOT_CALLBACK_VAL = new AppMain.NNS_NODEUSRMOT_CALLBACK_VAL();
         nns_NODEUSRMOT_CALLBACK_VAL.iNode = NodeIdx;
@@ -2881,7 +2881,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001136 RID: 4406 RVA: 0x00096B68 File Offset: 0x00094D68
-    private static void nnCalcMotionUserData(AppMain.NNS_NODEUSRMOT_CALLBACK_VAL val, AppMain.NNS_SUBMOTION submot, float frame)
+    public static void nnCalcMotionUserData(AppMain.NNS_NODEUSRMOT_CALLBACK_VAL val, AppMain.NNS_SUBMOTION submot, float frame)
     {
         if (AppMain.nngNodeUserMotionCallbackFunc == null)
         {
@@ -2950,7 +2950,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001137 RID: 4407 RVA: 0x00096CB4 File Offset: 0x00094EB4
-    private static void nnNormalizeColumn0(AppMain.NNS_MATRIX mtx)
+    public static void nnNormalizeColumn0(NNS_MATRIX mtx)
     {
         float num = mtx.M00;
         float num2 = num * num;
@@ -2965,7 +2965,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001138 RID: 4408 RVA: 0x00096D18 File Offset: 0x00094F18
-    private static void nnNormalizeColumn1(AppMain.NNS_MATRIX mtx)
+    public static void nnNormalizeColumn1(NNS_MATRIX mtx)
     {
         float num = mtx.M01;
         float num2 = num * num;
@@ -2980,7 +2980,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001139 RID: 4409 RVA: 0x00096D7C File Offset: 0x00094F7C
-    private static void nnNormalizeColumn2(AppMain.NNS_MATRIX mtx)
+    public static void nnNormalizeColumn2(NNS_MATRIX mtx)
     {
         float num = mtx.M02;
         float num2 = num * num;
@@ -2995,7 +2995,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600113A RID: 4410 RVA: 0x00096DE0 File Offset: 0x00094FE0
-    private static void nnNormalizeColumn3(AppMain.NNS_MATRIX mtx)
+    public static void nnNormalizeColumn3(NNS_MATRIX mtx)
     {
         float num = mtx.M03;
         float num2 = num * num;
@@ -3010,7 +3010,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600113B RID: 4411 RVA: 0x00096E44 File Offset: 0x00095044
-    private static void nnPutFixedMaterialGL()
+    public static void nnPutFixedMaterialGL()
     {
         OpenGL.glDisable(2884U);
         OpenGL.glLightModelf(2898U, 0f);
@@ -3030,7 +3030,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600113C RID: 4412 RVA: 0x00096EF8 File Offset: 0x000950F8
-    private static void nnPutDisableTexturesGL()
+    public static void nnPutDisableTexturesGL()
     {
         OpenGL.glActiveTexture(33984U);
         OpenGL.glDisable(3553U);
@@ -3043,13 +3043,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600113D RID: 4413 RVA: 0x00096F55 File Offset: 0x00095155
-    private static void nnSetDivColor(float r, float g, float b, float a)
+    public static void nnSetDivColor(float r, float g, float b, float a)
     {
         OpenGL.glColor4f(r, g, b, a);
     }
 
     // Token: 0x0600113E RID: 4414 RVA: 0x00096F60 File Offset: 0x00095160
-    private static void nnSetDivColorRandom(int i)
+    public static void nnSetDivColorRandom(int i)
     {
         Random random = new Random(i * 15485863);
         float red = (float)random.Next() / 32767f;
@@ -3059,7 +3059,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600113F RID: 4415 RVA: 0x00096FAC File Offset: 0x000951AC
-    private static void nnSetDivColorRandomA(int nSeed, uint[] seeds)
+    public static void nnSetDivColorRandomA(int nSeed, uint[] seeds)
     {
         uint num3;
         uint num2;
@@ -3080,25 +3080,25 @@ public partial class AppMain
     }
 
     // Token: 0x06001140 RID: 4416 RVA: 0x0009704D File Offset: 0x0009524D
-    private static void nnPutColorStrip(int iStrip, int iMeshset, int iSubobj)
+    public static void nnPutColorStrip(int iStrip, int iMeshset, int iSubobj)
     {
         AppMain.nnSetDivColorRandom(iStrip * 10007 + iMeshset * 7 + iSubobj);
     }
 
     // Token: 0x06001141 RID: 4417 RVA: 0x00097061 File Offset: 0x00095261
-    private static void nnPutColorMeshset(int iMeshset, int iSubobj)
+    public static void nnPutColorMeshset(int iMeshset, int iSubobj)
     {
         AppMain.nnSetDivColorRandom(iMeshset * 7 + iSubobj);
     }
 
     // Token: 0x06001142 RID: 4418 RVA: 0x0009706D File Offset: 0x0009526D
-    private static void nnPutColorMaterial(int iMaterial)
+    public static void nnPutColorMaterial(int iMaterial)
     {
         AppMain.nnSetDivColorRandom(iMaterial);
     }
 
     // Token: 0x06001143 RID: 4419 RVA: 0x00097078 File Offset: 0x00095278
-    private static void nnPutColorNWeight(AppMain.NNS_VTXLISTPTR vlistptr)
+    public static void nnPutColorNWeight(AppMain.NNS_VTXLISTPTR vlistptr)
     {
         float[][] array = new float[5][];
         array[0] = new float[]
@@ -3186,7 +3186,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001144 RID: 4420 RVA: 0x0009720C File Offset: 0x0009540C
-    private static void nnPutColorNTexture(int nTexture)
+    public static void nnPutColorNTexture(int nTexture)
     {
         float[][] array = new float[8][];
         float[][] array2 = array;
@@ -3242,7 +3242,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001530 RID: 5424 RVA: 0x000B8A89 File Offset: 0x000B6C89
-    private static void nnSetMaterialControlDiffuse(int mode, float r, float g, float b)
+    public static void nnSetMaterialControlDiffuse(int mode, float r, float g, float b)
     {
         AppMain.nngMatCtrlDiffuse.mode = mode;
         AppMain.nngMatCtrlDiffuse.col.r = r;
@@ -3251,7 +3251,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001531 RID: 5425 RVA: 0x000B8AC6 File Offset: 0x000B6CC6
-    private static void nnSetMaterialControlAmbient(int mode, float r, float g, float b)
+    public static void nnSetMaterialControlAmbient(int mode, float r, float g, float b)
     {
         AppMain.nngMatCtrlAmbient.mode = mode;
         AppMain.nngMatCtrlAmbient.col.r = r;
@@ -3260,33 +3260,33 @@ public partial class AppMain
     }
 
     // Token: 0x06001532 RID: 5426 RVA: 0x000B8B03 File Offset: 0x000B6D03
-    private void nnSetMaterialControlSpecularGL(int mode, float r, float g, float b)
+    public void nnSetMaterialControlSpecularGL(int mode, float r, float g, float b)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06001533 RID: 5427 RVA: 0x000B8B0A File Offset: 0x000B6D0A
-    private static void nnSetMaterialControlAlpha(int mode, float alpha)
+    public static void nnSetMaterialControlAlpha(int mode, float alpha)
     {
         AppMain.nngMatCtrlAlpha.mode = mode;
         AppMain.nngMatCtrlAlpha.alpha = alpha;
     }
 
     // Token: 0x06001534 RID: 5428 RVA: 0x000B8B22 File Offset: 0x000B6D22
-    private static void nnSetMaterialControlEnvTexMatrix(int texsrc, AppMain.NNS_MATRIX texmtx)
+    public static void nnSetMaterialControlEnvTexMatrix(int texsrc, NNS_MATRIX texmtx)
     {
         AppMain.nngMatCtrlEnvTexMtx.texcoordsrc = texsrc;
         AppMain.nnCopyMatrix(AppMain.nngMatCtrlEnvTexMtx.texmtx, texmtx);
     }
 
     // Token: 0x06001535 RID: 5429 RVA: 0x000B8B3F File Offset: 0x000B6D3F
-    private static void nnSetMaterialControlBlendMode(int blendmode)
+    public static void nnSetMaterialControlBlendMode(int blendmode)
     {
         AppMain.nngMatCtrlBlendMode.blendmode = blendmode;
     }
 
     // Token: 0x06001536 RID: 5430 RVA: 0x000B8B4C File Offset: 0x000B6D4C
-    private static void nnSetMaterialControlTextureOffset(int slot, int mode, float u, float v)
+    public static void nnSetMaterialControlTextureOffset(int slot, int mode, float u, float v)
     {
         AppMain.nngMatCtrlTexOffset[slot].mode = mode;
         AppMain.nngMatCtrlTexOffset[slot].offset.u = u;
@@ -3294,13 +3294,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001537 RID: 5431 RVA: 0x000B8B7F File Offset: 0x000B6D7F
-    private static void nnSetPrimitiveBlend(int blend)
+    public static void nnSetPrimitiveBlend(int blend)
     {
         AppMain.nngDrawPrimBlend = blend;
     }
 
     // Token: 0x06001538 RID: 5432 RVA: 0x000B8B88 File Offset: 0x000B6D88
-    private static void nnSetPrimitiveTexNum(AppMain.NNS_TEXLIST texlist, int num)
+    public static void nnSetPrimitiveTexNum(AppMain.NNS_TEXLIST texlist, int num)
     {
         if (texlist != null && num >= 0 && num < texlist.nTex)
         {
@@ -3313,7 +3313,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001539 RID: 5433 RVA: 0x000B8BC8 File Offset: 0x000B6DC8
-    private static void nnSetPrimitiveTexState(int blend, int coord, int uwrap, int vwrap)
+    public static void nnSetPrimitiveTexState(int blend, int coord, int uwrap, int vwrap)
     {
         switch (blend)
         {
@@ -3346,7 +3346,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600153A RID: 5434 RVA: 0x000B8C4C File Offset: 0x000B6E4C
-    private static void nnPutPrimitiveTexParameter()
+    public static void nnPutPrimitiveTexParameter()
     {
         OpenGL.glClientActiveTexture(33985U);
         OpenGL.glDisableClientState(32888U);
@@ -3365,7 +3365,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600153B RID: 5435 RVA: 0x000B8D08 File Offset: 0x000B6F08
-    private static void nnPutPrimitiveNoTexture()
+    public static void nnPutPrimitiveNoTexture()
     {
         OpenGL.glClientActiveTexture(33984U);
         OpenGL.glDisableClientState(32888U);
@@ -3378,19 +3378,19 @@ public partial class AppMain
     }
 
     // Token: 0x0600153C RID: 5436 RVA: 0x000B8D65 File Offset: 0x000B6F65
-    private static float NNM_TAYLOR_SIN(float f, float f2)
+    public static float NNM_TAYLOR_SIN(float f, float f2)
     {
         return f * (1f + f2 * (-0.16666667f - f2 * -0.008333334f));
     }
 
     // Token: 0x0600153D RID: 5437 RVA: 0x000B8D7E File Offset: 0x000B6F7E
-    private static float NNM_TAYLOR_COS(float f, float f2)
+    public static float NNM_TAYLOR_COS(float f, float f2)
     {
         return 1f + f2 * (-0.5f + f2 * (0.041666668f + f2 * -0.0013888889f));
     }
 
     // Token: 0x0600153E RID: 5438 RVA: 0x000B8DA0 File Offset: 0x000B6FA0
-    private static float nnSin(int ang)
+    public static float nnSin(int ang)
     {
         float result = 0f;
         int num = ang & 65535;
@@ -3460,13 +3460,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600153F RID: 5439 RVA: 0x000B8EC4 File Offset: 0x000B70C4
-    private static float nnCos(int ang)
+    public static float nnCos(int ang)
     {
         return AppMain.nnSin(ang + 16384);
     }
 
     // Token: 0x06001540 RID: 5440 RVA: 0x000B8EE0 File Offset: 0x000B70E0
-    private static void nnCalcSinCosTable()
+    public static void nnCalcSinCosTable()
     {
         for (int i = 0; i < 36000; i++)
         {
@@ -3476,7 +3476,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001541 RID: 5441 RVA: 0x000B8F24 File Offset: 0x000B7124
-    private static void nnSinCos(int ang, out float s, out float c)
+    public static void nnSinCos(int ang, out float s, out float c)
     {
         int i;
         for (i = (int)Math.Round((double)((float)ang * 0.5493164f)); i > 35999; i -= 36000)
@@ -3491,7 +3491,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001542 RID: 5442 RVA: 0x000B8F74 File Offset: 0x000B7174
-    private static void _nnSinCos(int ang, out float s, out float c)
+    public static void _nnSinCos(int ang, out float s, out float c)
     {
         if (ang == 0)
         {
@@ -3575,25 +3575,25 @@ public partial class AppMain
     }
 
     // Token: 0x0600001B RID: 27 RVA: 0x00002606 File Offset: 0x00000806
-    private void nnSetNodeUserMotionCallback(AppMain.NNS_NODEUSRMOT_CALLBACK_FUNC func)
+    public void nnSetNodeUserMotionCallback(AppMain.NNS_NODEUSRMOT_CALLBACK_FUNC func)
     {
         AppMain.nngNodeUserMotionCallbackFunc = func;
     }
 
     // Token: 0x0600001C RID: 28 RVA: 0x0000260E File Offset: 0x0000080E
-    private AppMain.NNS_NODEUSRMOT_CALLBACK_FUNC nnGetNodeUserMotionCallback()
+    public AppMain.NNS_NODEUSRMOT_CALLBACK_FUNC nnGetNodeUserMotionCallback()
     {
         return AppMain.nngNodeUserMotionCallbackFunc;
     }
 
     // Token: 0x0600001D RID: 29 RVA: 0x00002615 File Offset: 0x00000815
-    private void nnSetNodeUserMotionTriggerTime(float t)
+    public void nnSetNodeUserMotionTriggerTime(float t)
     {
         AppMain.nngNodeUserMotionTriggerTime = t;
     }
 
     // Token: 0x0600001E RID: 30 RVA: 0x00002620 File Offset: 0x00000820
-    private static void nnSetUpNodeStatusList(uint[] nodestatlist, int num, uint flag)
+    public static void nnSetUpNodeStatusList(uint[] nodestatlist, int num, uint flag)
     {
         for (int i = 0; i < num; i++)
         {
@@ -3602,11 +3602,11 @@ public partial class AppMain
     }
 
     // Token: 0x0600001F RID: 31 RVA: 0x00002640 File Offset: 0x00000840
-    private static void nnCalcNodeStatusListMatrixPaletteNode(int nodeIdx)
+    public static void nnCalcNodeStatusListMatrixPaletteNode(int nodeIdx)
     {
         AppMain.mppAssertNotImpl();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.NNS_NODE nns_NODE;
         do
         {
@@ -3614,7 +3614,7 @@ public partial class AppMain
             int iMatrix = (int)nns_NODE.iMatrix;
             if (iMatrix != -1)
             {
-                AppMain.NNS_MATRIX nns_MATRIX3 = AppMain.nnnodestatuslist.nnsMtxPal[iMatrix];
+                NNS_MATRIX nns_MATRIX3 = AppMain.nnnodestatuslist.nnsMtxPal[iMatrix];
                 if ((nns_NODE.fType & 8U) != 0U)
                 {
                     AppMain.nnCopyMatrix(nns_MATRIX, nns_MATRIX3);
@@ -3641,7 +3641,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000020 RID: 32 RVA: 0x00002709 File Offset: 0x00000909
-    private static void nnCalcNodeStatusListMatrixPalette(uint[] nodestatlist, AppMain.NNS_MATRIX[] mtxpal, AppMain.NNS_OBJECT obj, uint flag)
+    public static void nnCalcNodeStatusListMatrixPalette(uint[] nodestatlist, NNS_MATRIX[] mtxpal, AppMain.NNS_OBJECT obj, uint flag)
     {
         AppMain.nnnodestatuslist.nnsMtxPal = mtxpal;
         AppMain.nnnodestatuslist.nnsNodeStatList = nodestatlist;
@@ -3663,13 +3663,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000023 RID: 35 RVA: 0x00002754 File Offset: 0x00000954
-    private void nnDrawMultiObjectInitialPoseBaseMatrixList(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtxlist, uint[] nodestatlistptrlist, uint subobjtype, uint flag, int num)
+    public void nnDrawMultiObjectInitialPoseBaseMatrixList(AppMain.NNS_OBJECT obj, NNS_MATRIX basemtxlist, uint[] nodestatlistptrlist, uint subobjtype, uint flag, int num)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000024 RID: 36 RVA: 0x0000275C File Offset: 0x0000095C
-    public static void nnmRotateMatrixFast(AppMain.NNS_MATRIX mtx, int ang, int ma, int mb)
+    public static void nnmRotateMatrixFast(NNS_MATRIX mtx, int ang, int ma, int mb)
     {
         if (ang != 0)
         {
@@ -3694,73 +3694,73 @@ public partial class AppMain
     }
 
     // Token: 0x06000137 RID: 311 RVA: 0x0000E5B7 File Offset: 0x0000C7B7
-    private void nnSetBoneColor(ref AppMain.NNS_RGBA pDiff, AppMain.NNS_RGB pAmb, ref AppMain.NNS_RGBA pWire)
+    public void nnSetBoneColor(ref NNS_RGBA pDiff, NNS_RGB pAmb, ref NNS_RGBA pWire)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000138 RID: 312 RVA: 0x0000E5BE File Offset: 0x0000C7BE
-    private void nnDrawOneBoneData(float bonelength, AppMain.NNS_MATRIX mtx, uint flag)
+    public void nnDrawOneBoneData(float bonelength, NNS_MATRIX mtx, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000139 RID: 313 RVA: 0x0000E5C5 File Offset: 0x0000C7C5
-    private void nnSetEffectorColor(ref AppMain.NNS_RGBA pXcol, ref AppMain.NNS_RGBA pYcol, ref AppMain.NNS_RGBA pZcol)
+    public void nnSetEffectorColor(ref NNS_RGBA pXcol, ref NNS_RGBA pYcol, ref NNS_RGBA pZcol)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600013A RID: 314 RVA: 0x0000E5CC File Offset: 0x0000C7CC
-    private void nnDrawEffector(AppMain.NNS_VECTOR p, AppMain.NNS_MATRIX mtx)
+    public void nnDrawEffector(NNS_VECTOR p, NNS_MATRIX mtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600013B RID: 315 RVA: 0x0000E5D4 File Offset: 0x0000C7D4
-    private void nnDrawSIIKBone(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIX mtxlist, uint flag)
+    public void nnDrawSIIKBone(AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, NNS_MATRIX mtxlist, uint flag)
     {
-        new AppMain.NNS_RGBA(1f, 1f, 1f, 0.5f);
-        new AppMain.NNS_RGBA(1f, 0f, 0f, 0.5f);
-        new AppMain.NNS_RGBA(0f, 1f, 0f, 0.5f);
-        new AppMain.NNS_RGBA(0f, 0f, 1f, 0.5f);
-        new AppMain.NNS_RGBA(1f, 1f, 0f, 0.5f);
-        new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        new AppMain.NNS_RGB(0.2f, 0.2f, 0.2f);
-        new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
+        new NNS_RGBA(1f, 1f, 1f, 0.5f);
+        new NNS_RGBA(1f, 0f, 0f, 0.5f);
+        new NNS_RGBA(0f, 1f, 0f, 0.5f);
+        new NNS_RGBA(0f, 0f, 1f, 0.5f);
+        new NNS_RGBA(1f, 1f, 0f, 0.5f);
+        new NNS_RGBA(1f, 1f, 1f, 1f);
+        new NNS_RGB(0.2f, 0.2f, 0.2f);
+        new NNS_RGBA(1f, 1f, 1f, 1f);
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600013C RID: 316 RVA: 0x0000E6B1 File Offset: 0x0000C8B1
-    private void nnMakeNodeTreeMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR vec, AppMain.NNS_VECTOR trans)
+    public void nnMakeNodeTreeMatrix(NNS_MATRIX mtx, NNS_VECTOR vec, NNS_VECTOR trans)
     {
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600013D RID: 317 RVA: 0x0000E6CA File Offset: 0x0000C8CA
-    private void nnDrawNodeTree(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIX mtxlist, uint flag)
+    public void nnDrawNodeTree(AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, NNS_MATRIX mtxlist, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600013E RID: 318 RVA: 0x0000E6D1 File Offset: 0x0000C8D1
-    private void nnDrawAxis(AppMain.NNS_VECTOR p, float length, AppMain.NNS_MATRIX mtx)
+    public void nnDrawAxis(NNS_VECTOR p, float length, NNS_MATRIX mtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600013F RID: 319 RVA: 0x0000E6D8 File Offset: 0x0000C8D8
-    private uint nnCalcGridBufferSize(int Xnum, int Znum)
+    public uint nnCalcGridBufferSize(int Xnum, int Znum)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000140 RID: 320 RVA: 0x0000E6E0 File Offset: 0x0000C8E0
-    private void nnInitGrid(AppMain.NNS_VECTOR pBuf, int Xnum, int Znum)
+    public void nnInitGrid(NNS_VECTOR pBuf, int Xnum, int Znum)
     {
         this.nngGridPos = pBuf;
         this.nngGridXnum = Xnum;
@@ -3768,19 +3768,19 @@ public partial class AppMain
     }
 
     // Token: 0x06000141 RID: 321 RVA: 0x0000E6F7 File Offset: 0x0000C8F7
-    private void nnDrawGrid(AppMain.NNS_VECTOR p, float length, AppMain.NNS_MATRIX mtx)
+    public void nnDrawGrid(NNS_VECTOR p, float length, NNS_MATRIX mtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000142 RID: 322 RVA: 0x0000E6FE File Offset: 0x0000C8FE
-    private void nnDrawGridPlane(int Xnum, int Znum, float length, AppMain.NNS_MATRIX mtx, ref AppMain.NNS_RGBA pcolor)
+    public void nnDrawGridPlane(int Xnum, int Znum, float length, NNS_MATRIX mtx, ref NNS_RGBA pcolor)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000143 RID: 323 RVA: 0x0000E705 File Offset: 0x0000C905
-    public static void nnmSetUpVectorFast(out AppMain.NNS_VECTORFAST dst, float x, float y, float z)
+    public static void nnmSetUpVectorFast(out NNS_VECTORFAST dst, float x, float y, float z)
     {
         dst.x = x;
         dst.y = y;
@@ -3789,7 +3789,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000144 RID: 324 RVA: 0x0000E727 File Offset: 0x0000C927
-    public static void nnSetUpVectorFast(out AppMain.NNS_VECTORFAST dst, float x, float y, float z)
+    public static void nnSetUpVectorFast(out NNS_VECTORFAST dst, float x, float y, float z)
     {
         dst.x = x;
         dst.y = y;
@@ -3798,7 +3798,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000145 RID: 325 RVA: 0x0000E749 File Offset: 0x0000C949
-    public static void nnAddVector(ref AppMain.SNNS_VECTOR dst, ref AppMain.SNNS_VECTOR vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static void nnAddVector(ref SNNS_VECTOR dst, ref SNNS_VECTOR vec1, ref SNNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3806,7 +3806,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000146 RID: 326 RVA: 0x0000E784 File Offset: 0x0000C984
-    public static void nnAddVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnAddVector(NNS_VECTOR dst, NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3814,7 +3814,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000147 RID: 327 RVA: 0x0000E7BF File Offset: 0x0000C9BF
-    public static void nnAddVector(ref AppMain.Vector3f dst, ref AppMain.SNNS_VECTOR vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static void nnAddVector(ref AppMain.Vector3f dst, ref SNNS_VECTOR vec1, ref SNNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3822,7 +3822,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000148 RID: 328 RVA: 0x0000E7FA File Offset: 0x0000C9FA
-    public static void nnAddVector(ref AppMain.Vector3f dst, ref AppMain.SNNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnAddVector(ref AppMain.Vector3f dst, ref SNNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3830,7 +3830,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000149 RID: 329 RVA: 0x0000E835 File Offset: 0x0000CA35
-    public static void nnAddVector(ref AppMain.Vector3f dst, AppMain.NNS_VECTOR vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static void nnAddVector(ref AppMain.Vector3f dst, NNS_VECTOR vec1, ref SNNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3838,7 +3838,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600014A RID: 330 RVA: 0x0000E870 File Offset: 0x0000CA70
-    public static void nnAddVector(ref AppMain.Vector3f dst, AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnAddVector(ref AppMain.Vector3f dst, NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3846,7 +3846,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600014B RID: 331 RVA: 0x0000E8AB File Offset: 0x0000CAAB
-    public static void nnAddVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnAddVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3854,7 +3854,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600014C RID: 332 RVA: 0x0000E8E6 File Offset: 0x0000CAE6
-    public static void nnAddVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static void nnAddVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, ref SNNS_VECTOR vec2)
     {
         dst.x = vec1.x + vec2.x;
         dst.y = vec1.y + vec2.y;
@@ -3862,7 +3862,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600014D RID: 333 RVA: 0x0000E924 File Offset: 0x0000CB24
-    public static void nnCrossProductVector(ref AppMain.SNNS_VECTOR dst, ref AppMain.SNNS_VECTOR vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static void nnCrossProductVector(ref SNNS_VECTOR dst, ref SNNS_VECTOR vec1, ref SNNS_VECTOR vec2)
     {
         float x = vec1.y * vec2.z - vec1.z * vec2.y;
         float y = vec1.z * vec2.x - vec1.x * vec2.z;
@@ -3873,7 +3873,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600014E RID: 334 RVA: 0x0000E99C File Offset: 0x0000CB9C
-    public static void nnCrossProductVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnCrossProductVector(NNS_VECTOR dst, NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         float x = vec1.y * vec2.z - vec1.z * vec2.y;
         float y = vec1.z * vec2.x - vec1.x * vec2.z;
@@ -3884,37 +3884,37 @@ public partial class AppMain
     }
 
     // Token: 0x0600014F RID: 335 RVA: 0x0000EA12 File Offset: 0x0000CC12
-    public static void nnCopyVector(AppMain.NNS_VECTOR dst, ref AppMain.SNNS_VECTOR src)
+    public static void nnCopyVector(NNS_VECTOR dst, ref SNNS_VECTOR src)
     {
         dst.Assign(ref src);
     }
 
     // Token: 0x06000150 RID: 336 RVA: 0x0000EA1C File Offset: 0x0000CC1C
-    public static void nnCopyVector(AppMain.NNS_VECTOR dst, ref AppMain.SNNS_VECTOR4D src)
+    public static void nnCopyVector(NNS_VECTOR dst, ref SNNS_VECTOR4D src)
     {
         dst.Assign(ref src);
     }
 
     // Token: 0x06000151 RID: 337 RVA: 0x0000EA26 File Offset: 0x0000CC26
-    public static void nnCopyVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR src)
+    public static void nnCopyVector(NNS_VECTOR dst, NNS_VECTOR src)
     {
         dst.Assign(src);
     }
 
     // Token: 0x06000152 RID: 338 RVA: 0x0000EA30 File Offset: 0x0000CC30
-    public static float nnDotProductVector(AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static float nnDotProductVector(NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         return vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z;
     }
 
     // Token: 0x06000153 RID: 339 RVA: 0x0000EA68 File Offset: 0x0000CC68
-    public static float nnLengthVector(AppMain.NNS_VECTOR vec)
+    public static float nnLengthVector(NNS_VECTOR vec)
     {
         return AppMain.nnSqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
     }
 
     // Token: 0x06000154 RID: 340 RVA: 0x0000EAA8 File Offset: 0x0000CCA8
-    public static float nnDistanceVector(AppMain.NNS_VECTOR vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static float nnDistanceVector(NNS_VECTOR vec1, ref SNNS_VECTOR vec2)
     {
         float num = vec2.x - vec1.x;
         float num2 = vec2.y - vec1.y;
@@ -3923,7 +3923,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000155 RID: 341 RVA: 0x0000EAF0 File Offset: 0x0000CCF0
-    public static float nnDistanceVector(ref AppMain.SNNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static float nnDistanceVector(ref SNNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         float num = vec2.x - vec1.x;
         float num2 = vec2.y - vec1.y;
@@ -3932,7 +3932,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000156 RID: 342 RVA: 0x0000EB38 File Offset: 0x0000CD38
-    public static float nnDistanceVector(AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static float nnDistanceVector(NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         float num = vec2.x - vec1.x;
         float num2 = vec2.y - vec1.y;
@@ -3941,7 +3941,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000157 RID: 343 RVA: 0x0000EB80 File Offset: 0x0000CD80
-    public static float nnDistanceVector(ref AppMain.Vector3f vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static float nnDistanceVector(ref AppMain.Vector3f vec1, ref SNNS_VECTOR vec2)
     {
         float num = vec2.x - vec1.x;
         float num2 = vec2.y - vec1.y;
@@ -3950,7 +3950,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000158 RID: 344 RVA: 0x0000EBC8 File Offset: 0x0000CDC8
-    public static float nnDistanceVector(ref AppMain.Vector3f vec1, AppMain.NNS_VECTOR vec2)
+    public static float nnDistanceVector(ref AppMain.Vector3f vec1, NNS_VECTOR vec2)
     {
         float num = vec2.x - vec1.x;
         float num2 = vec2.y - vec1.y;
@@ -3959,13 +3959,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000159 RID: 345 RVA: 0x0000EC10 File Offset: 0x0000CE10
-    public static float nnLengthSqVector(AppMain.NNS_VECTOR vec)
+    public static float nnLengthSqVector(NNS_VECTOR vec)
     {
         return vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
     }
 
     // Token: 0x0600015A RID: 346 RVA: 0x0000EC48 File Offset: 0x0000CE48
-    public static float nnLengthSqVector(ref AppMain.SNNS_VECTOR vec)
+    public static float nnLengthSqVector(ref SNNS_VECTOR vec)
     {
         return vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
     }
@@ -3983,7 +3983,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600015D RID: 349 RVA: 0x0000ECE0 File Offset: 0x0000CEE0
-    public static float nnDistanceSqVector(AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static float nnDistanceSqVector(NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         float num = vec2.x - vec1.x;
         float num2 = vec2.y - vec1.y;
@@ -3992,7 +3992,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600015E RID: 350 RVA: 0x0000ED24 File Offset: 0x0000CF24
-    public static int nnNormalizeVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR src)
+    public static int nnNormalizeVector(NNS_VECTOR dst, NNS_VECTOR src)
     {
         float num = AppMain.nnLengthSqVector(src);
         if (num == 0f)
@@ -4010,7 +4010,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600015F RID: 351 RVA: 0x0000ED98 File Offset: 0x0000CF98
-    public static int nnNormalizeVector(ref AppMain.SNNS_VECTOR dst, ref AppMain.SNNS_VECTOR src)
+    public static int nnNormalizeVector(ref SNNS_VECTOR dst, ref SNNS_VECTOR src)
     {
         float num = AppMain.nnLengthSqVector(ref src);
         if (num == 0f)
@@ -4064,7 +4064,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000162 RID: 354 RVA: 0x0000EED5 File Offset: 0x0000D0D5
-    public static void nnScaleVector(ref AppMain.SNNS_VECTOR dst, ref AppMain.SNNS_VECTOR src, float scale)
+    public static void nnScaleVector(ref SNNS_VECTOR dst, ref SNNS_VECTOR src, float scale)
     {
         dst.x = src.x * scale;
         dst.y = src.y * scale;
@@ -4072,7 +4072,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000163 RID: 355 RVA: 0x0000EF01 File Offset: 0x0000D101
-    public static void nnScaleVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR src, float scale)
+    public static void nnScaleVector(NNS_VECTOR dst, NNS_VECTOR src, float scale)
     {
         dst.x = src.x * scale;
         dst.y = src.y * scale;
@@ -4080,7 +4080,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000164 RID: 356 RVA: 0x0000EF30 File Offset: 0x0000D130
-    public static void nnScaleAddVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2, float scale)
+    public static void nnScaleAddVector(NNS_VECTOR dst, NNS_VECTOR vec1, NNS_VECTOR vec2, float scale)
     {
         float num = vec2.x * scale;
         float num2 = vec2.y * scale;
@@ -4091,7 +4091,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000165 RID: 357 RVA: 0x0000EF82 File Offset: 0x0000D182
-    public static void nnSubtractVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnSubtractVector(NNS_VECTOR dst, NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x - vec2.x;
         dst.y = vec1.y - vec2.y;
@@ -4099,7 +4099,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000166 RID: 358 RVA: 0x0000EFBD File Offset: 0x0000D1BD
-    public static void nnSubtractVector(ref AppMain.Vector3f dst, AppMain.NNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnSubtractVector(ref AppMain.Vector3f dst, NNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x - vec2.x;
         dst.y = vec1.y - vec2.y;
@@ -4107,7 +4107,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000167 RID: 359 RVA: 0x0000EFF8 File Offset: 0x0000D1F8
-    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref AppMain.SNNS_VECTOR vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref SNNS_VECTOR vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x - vec2.x;
         dst.y = vec1.y - vec2.y;
@@ -4115,7 +4115,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000168 RID: 360 RVA: 0x0000F033 File Offset: 0x0000D233
-    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref AppMain.SNNS_VECTOR vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref SNNS_VECTOR vec1, ref SNNS_VECTOR vec2)
     {
         dst.x = vec1.x - vec2.x;
         dst.y = vec1.y - vec2.y;
@@ -4123,7 +4123,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000169 RID: 361 RVA: 0x0000F06E File Offset: 0x0000D26E
-    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, AppMain.NNS_VECTOR vec2)
+    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, NNS_VECTOR vec2)
     {
         dst.x = vec1.x - vec2.x;
         dst.y = vec1.y - vec2.y;
@@ -4131,7 +4131,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600016A RID: 362 RVA: 0x0000F0A9 File Offset: 0x0000D2A9
-    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, ref AppMain.SNNS_VECTOR vec2)
+    public static void nnSubtractVector(ref AppMain.Vector3f dst, ref AppMain.Vector3f vec1, ref SNNS_VECTOR vec2)
     {
         dst.x = vec1.x - vec2.x;
         dst.y = vec1.y - vec2.y;
@@ -4139,7 +4139,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600016B RID: 363 RVA: 0x0000F0E4 File Offset: 0x0000D2E4
-    private static void nnTransformVector(ref AppMain.SNNS_VECTOR dst, ref AppMain.SNNS_MATRIX mtx, ref AppMain.SNNS_VECTOR src)
+    public static void nnTransformVector(ref SNNS_VECTOR dst, ref SNNS_MATRIX mtx, ref SNNS_VECTOR src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4150,7 +4150,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600016C RID: 364 RVA: 0x0000F19C File Offset: 0x0000D39C
-    private static void nnTransformVector(AppMain.NNS_VECTOR dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR src)
+    public static void nnTransformVector(NNS_VECTOR dst, NNS_MATRIX mtx, NNS_VECTOR src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4161,7 +4161,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600016D RID: 365 RVA: 0x0000F254 File Offset: 0x0000D454
-    private static void nnTransformVector(ref AppMain.Vector3f dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR src)
+    public static void nnTransformVector(ref AppMain.Vector3f dst, NNS_MATRIX mtx, NNS_VECTOR src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4172,7 +4172,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600016E RID: 366 RVA: 0x0000F30C File Offset: 0x0000D50C
-    private static void nnTransformVector(ref AppMain.Vector3f dst, ref AppMain.SNNS_MATRIX mtx, ref AppMain.SNNS_VECTOR src)
+    public static void nnTransformVector(ref AppMain.Vector3f dst, ref SNNS_MATRIX mtx, ref SNNS_VECTOR src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4183,7 +4183,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600016F RID: 367 RVA: 0x0000F3C4 File Offset: 0x0000D5C4
-    private static void nnTransformVector(ref AppMain.Vector3f dst, AppMain.NNS_MATRIX mtx, ref AppMain.SNNS_VECTOR src)
+    public static void nnTransformVector(ref AppMain.Vector3f dst, NNS_MATRIX mtx, ref SNNS_VECTOR src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4194,7 +4194,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000170 RID: 368 RVA: 0x0000F47C File Offset: 0x0000D67C
-    private static void nnTransformVector(ref AppMain.Vector3f dst, AppMain.NNS_MATRIX mtx, ref AppMain.Vector3f src)
+    public static void nnTransformVector(ref AppMain.Vector3f dst, NNS_MATRIX mtx, ref AppMain.Vector3f src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4205,7 +4205,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000171 RID: 369 RVA: 0x0000F534 File Offset: 0x0000D734
-    private static void nnTransformVector(AppMain.NNS_VECTOR4D dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR4D src)
+    public static void nnTransformVector(NNS_VECTOR4D dst, NNS_MATRIX mtx, NNS_VECTOR4D src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4216,7 +4216,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000172 RID: 370 RVA: 0x0000F5EC File Offset: 0x0000D7EC
-    private static void nnTransformVector(ref AppMain.SNNS_VECTOR4D dst, AppMain.NNS_MATRIX mtx, ref AppMain.SNNS_VECTOR4D src)
+    public static void nnTransformVector(ref SNNS_VECTOR4D dst, NNS_MATRIX mtx, ref SNNS_VECTOR4D src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4227,7 +4227,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000173 RID: 371 RVA: 0x0000F6A4 File Offset: 0x0000D8A4
-    private static void nnTransformNormalVector(AppMain.NNS_VECTOR dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR src)
+    public static void nnTransformNormalVector(NNS_VECTOR dst, NNS_MATRIX mtx, NNS_VECTOR src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z;
@@ -4238,7 +4238,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000174 RID: 372 RVA: 0x0000F744 File Offset: 0x0000D944
-    private static void nnTransformNormalVector(AppMain.NNS_VECTOR4D dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR4D src)
+    public static void nnTransformNormalVector(NNS_VECTOR4D dst, NNS_MATRIX mtx, NNS_VECTOR4D src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z;
@@ -4249,7 +4249,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000175 RID: 373 RVA: 0x0000F7E4 File Offset: 0x0000D9E4
-    private static void nnTransformNormalVector(ref AppMain.SNNS_VECTOR4D dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR4D src)
+    public static void nnTransformNormalVector(ref SNNS_VECTOR4D dst, NNS_MATRIX mtx, NNS_VECTOR4D src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z;
@@ -4260,7 +4260,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000176 RID: 374 RVA: 0x0000F884 File Offset: 0x0000DA84
-    private static void nnTransformNormalVector(ref AppMain.SNNS_VECTOR4D dst, AppMain.NNS_MATRIX mtx, ref AppMain.SNNS_VECTOR4D src)
+    public static void nnTransformNormalVector(ref SNNS_VECTOR4D dst, NNS_MATRIX mtx, ref SNNS_VECTOR4D src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z;
@@ -4271,7 +4271,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000177 RID: 375 RVA: 0x0000F924 File Offset: 0x0000DB24
-    private static void nnTransformNormalVector(AppMain.NNS_VECTOR4D dst, AppMain.NNS_MATRIX mtx, ref AppMain.SNNS_VECTOR4D src)
+    public static void nnTransformNormalVector(NNS_VECTOR4D dst, NNS_MATRIX mtx, ref SNNS_VECTOR4D src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z;
@@ -4282,7 +4282,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000178 RID: 376 RVA: 0x0000F9C4 File Offset: 0x0000DBC4
-    private static void nnCopyMatrixTranslationVector(AppMain.NNS_VECTOR dst, AppMain.NNS_MATRIX mtx)
+    public static void nnCopyMatrixTranslationVector(NNS_VECTOR dst, NNS_MATRIX mtx)
     {
         dst.x = mtx.M03;
         dst.y = mtx.M13;
@@ -4290,7 +4290,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000179 RID: 377 RVA: 0x0000F9EA File Offset: 0x0000DBEA
-    private static void nnCopyMatrixTranslationVector(out AppMain.SNNS_VECTOR dst, AppMain.NNS_MATRIX mtx)
+    public static void nnCopyMatrixTranslationVector(out SNNS_VECTOR dst, NNS_MATRIX mtx)
     {
         dst.x = mtx.M03;
         dst.y = mtx.M13;
@@ -4298,7 +4298,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600017A RID: 378 RVA: 0x0000FA10 File Offset: 0x0000DC10
-    private static void nnCopyMatrixTranslationVector(out AppMain.SNNS_VECTOR dst, ref AppMain.SNNS_MATRIX mtx)
+    public static void nnCopyMatrixTranslationVector(out SNNS_VECTOR dst, ref SNNS_MATRIX mtx)
     {
         dst.x = mtx.M03;
         dst.y = mtx.M13;
@@ -4306,7 +4306,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600017B RID: 379 RVA: 0x0000FA36 File Offset: 0x0000DC36
-    private static void nnCopyMatrixTranslationVector(AppMain.NNS_VECTOR dst, ref AppMain.SNNS_MATRIX mtx)
+    public static void nnCopyMatrixTranslationVector(NNS_VECTOR dst, ref SNNS_MATRIX mtx)
     {
         dst.x = mtx.M03;
         dst.y = mtx.M13;
@@ -4314,7 +4314,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600017C RID: 380 RVA: 0x0000FA5C File Offset: 0x0000DC5C
-    private static void nnSubtractVectorFast(out AppMain.NNS_VECTORFAST dst, AppMain.NNS_VECTORFAST vec1, AppMain.NNS_VECTORFAST vec2)
+    public static void nnSubtractVectorFast(out NNS_VECTORFAST dst, NNS_VECTORFAST vec1, NNS_VECTORFAST vec2)
     {
         float x = vec1.x - vec2.x;
         float y = vec1.y - vec2.y;
@@ -4323,7 +4323,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600017D RID: 381 RVA: 0x0000FAA4 File Offset: 0x0000DCA4
-    private static void nnTransformVectorFast(out AppMain.NNS_VECTORFAST dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTORFAST src)
+    public static void nnTransformVectorFast(out NNS_VECTORFAST dst, NNS_MATRIX mtx, NNS_VECTORFAST src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z + mtx.M03;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z + mtx.M13;
@@ -4332,7 +4332,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600017E RID: 382 RVA: 0x0000FB58 File Offset: 0x0000DD58
-    private static void nnTransformNormalVectorFast(out AppMain.NNS_VECTORFAST dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTORFAST src)
+    public static void nnTransformNormalVectorFast(out NNS_VECTORFAST dst, NNS_MATRIX mtx, NNS_VECTORFAST src)
     {
         float x = mtx.M00 * src.x + mtx.M01 * src.y + mtx.M02 * src.z;
         float y = mtx.M10 * src.x + mtx.M11 * src.y + mtx.M12 * src.z;
@@ -4341,7 +4341,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600017F RID: 383 RVA: 0x0000FBF5 File Offset: 0x0000DDF5
-    private static void nnCopyMatrixTranslationVectorFast(out AppMain.NNS_VECTORFAST dst, AppMain.NNS_MATRIX mtx)
+    public static void nnCopyMatrixTranslationVectorFast(out NNS_VECTORFAST dst, NNS_MATRIX mtx)
     {
         dst.x = mtx.M03;
         dst.y = mtx.M13;
@@ -4350,54 +4350,54 @@ public partial class AppMain
     }
 
     // Token: 0x06000180 RID: 384 RVA: 0x0000FC28 File Offset: 0x0000DE28
-    private static float nnLengthSqVectorFast(ref AppMain.NNS_VECTORFAST vec)
+    public static float nnLengthSqVectorFast(ref NNS_VECTORFAST vec)
     {
         return vec.x * vec.x + vec.y * vec.y + vec.z * vec.z;
     }
 
     // Token: 0x06000181 RID: 385 RVA: 0x0000FC60 File Offset: 0x0000DE60
-    private static float nnDotProductVectorFast(ref AppMain.NNS_VECTORFAST vec1, ref AppMain.NNS_VECTORFAST vec2)
+    public static float nnDotProductVectorFast(ref NNS_VECTORFAST vec1, ref NNS_VECTORFAST vec2)
     {
         return vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z;
     }
 
     // Token: 0x06000182 RID: 386 RVA: 0x0000FC98 File Offset: 0x0000DE98
-    private static void nnSetTexCoordSrc(int slot, int src)
+    public static void nnSetTexCoordSrc(int slot, int src)
     {
         AppMain.nnsTexCoordSrc[slot] = src;
     }
 
     // Token: 0x06000183 RID: 387 RVA: 0x0000FCA2 File Offset: 0x0000DEA2
-    private static int nnGetTexCoordSrc(int slot)
+    public static int nnGetTexCoordSrc(int slot)
     {
         return AppMain.nnsTexCoordSrc[slot];
     }
 
     // Token: 0x06000184 RID: 388 RVA: 0x0000FCAB File Offset: 0x0000DEAB
-    private static void nnSetNormalFormatType(uint ftype)
+    public static void nnSetNormalFormatType(uint ftype)
     {
         AppMain.nnsNormalFormatType = ftype;
     }
 
     // Token: 0x06000185 RID: 389 RVA: 0x0000FCB3 File Offset: 0x0000DEB3
-    private uint nnGetNormalFormatType()
+    public uint nnGetNormalFormatType()
     {
         return AppMain.nnsNormalFormatType;
     }
 
     // Token: 0x06000186 RID: 390 RVA: 0x0000FCBC File Offset: 0x0000DEBC
-    private static void nnPutEnvironmentTextureMatrix(AppMain.NNS_MATRIX pEnvMtx)
+    public static void nnPutEnvironmentTextureMatrix(NNS_MATRIX pEnvMtx)
     {
         if (AppMain.nnsTexCoordSrc[0] != 3 && AppMain.nnsTexCoordSrc[1] != 3)
         {
             return;
         }
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeTranslateMatrix(nns_MATRIX, 0.5f, 0.5f, 0f);
         AppMain.nnScaleMatrix(nns_MATRIX, nns_MATRIX, 0.5f, -0.5f, 0f);
         if (pEnvMtx != null)
         {
-            AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
             AppMain.nnCopyMatrix(nns_MATRIX2, pEnvMtx);
             nns_MATRIX2.M03 = 0f;
             nns_MATRIX2.M13 = 0f;
@@ -4419,17 +4419,17 @@ public partial class AppMain
                 OpenGL.glLoadMatrixf(ref matrix);
             }
         }
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release(nns_MATRIX);
+        AppMain.GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
     }
 
     // Token: 0x06000187 RID: 391 RVA: 0x0000FDB8 File Offset: 0x0000DFB8
-    private static void nnDrawObjectVertexList(AppMain.NNS_VTXLISTPTR vlistptr, uint flag)
+    public static void nnDrawObjectVertexList(AppMain.NNS_VTXLISTPTR vlistptr, uint flag)
     {
         AppMain.nnDrawObjectVertexList(vlistptr, flag, 0U);
     }
 
     // Token: 0x06000188 RID: 392 RVA: 0x0000FDC4 File Offset: 0x0000DFC4
-    private static void nnMPPVerifyAlternativeLightingSettings()
+    public static void nnMPPVerifyAlternativeLightingSettings()
     {
         OpenGL.BufferItem bufferItem = OpenGL.m_buffers[OpenGL.m_boundArrayBuffer];
         OpenGL.VertexBufferDesc vertexBufferDesc = (OpenGL.VertexBufferDesc)bufferItem.buffer;
@@ -4454,7 +4454,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000189 RID: 393 RVA: 0x0000FEA8 File Offset: 0x0000E0A8
-    private static void nnDrawObjectVertexList(AppMain.NNS_VTXLISTPTR vlistptr, uint flag, uint alternativeLighting)
+    public static void nnDrawObjectVertexList(AppMain.NNS_VTXLISTPTR vlistptr, uint flag, uint alternativeLighting)
     {
         AppMain.NNS_VTXLIST_GL_DESC nns_VTXLIST_GL_DESC = (AppMain.NNS_VTXLIST_GL_DESC)vlistptr.pVtxList;
         uint type = nns_VTXLIST_GL_DESC.Type;
@@ -4626,7 +4626,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600018A RID: 394 RVA: 0x00010370 File Offset: 0x0000E570
-    private static void nnDrawObjectPrimitiveList(AppMain.NNS_PRIMLISTPTR plistptr, uint flag)
+    public static void nnDrawObjectPrimitiveList(AppMain.NNS_PRIMLISTPTR plistptr, uint flag)
     {
         AppMain.NNS_PRIMLIST_GL_DESC nns_PRIMLIST_GL_DESC = (AppMain.NNS_PRIMLIST_GL_DESC)plistptr.pPrimList;
         OpenGL.glBindBuffer(34963U, nns_PRIMLIST_GL_DESC.BufferName);
@@ -4691,7 +4691,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600018B RID: 395 RVA: 0x0001056C File Offset: 0x0000E76C
-    private static void nnDrawObject(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX[] mtxpal, uint[] nodestatlist, uint subobjtype, uint flag, uint alternativeLighting)
+    public static void nnDrawObject(AppMain.NNS_OBJECT obj, NNS_MATRIX[] mtxpal, uint[] nodestatlist, uint subobjtype, uint flag, uint alternativeLighting)
     {
         int num = -1;
         if ((flag & 1U) != 0U)
@@ -4818,7 +4818,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600018C RID: 396 RVA: 0x000108D4 File Offset: 0x0000EAD4
-    private void nnMakeCameraPointerViewMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_CAMERAPTR camptr)
+    public void nnMakeCameraPointerViewMatrix(NNS_MATRIX mtx, AppMain.NNS_CAMERAPTR camptr)
     {
         AppMain.mppAssertNotImpl();
         uint fType = camptr.fType;
@@ -4853,17 +4853,17 @@ public partial class AppMain
     }
 
     // Token: 0x0600018D RID: 397 RVA: 0x0001095F File Offset: 0x0000EB5F
-    private void nnMakeCameraPointerPerspectiveMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_CAMERAPTR camptr)
+    public void nnMakeCameraPointerPerspectiveMatrix(NNS_MATRIX dst, AppMain.NNS_CAMERAPTR camptr)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600018E RID: 398 RVA: 0x00010968 File Offset: 0x0000EB68
-    private static void nnMakeTargetRollCameraViewMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_CAMERA_TARGET_ROLL cam)
+    public static void nnMakeTargetRollCameraViewMatrix(NNS_MATRIX mtx, AppMain.NNS_CAMERA_TARGET_ROLL cam)
     {
-        AppMain.SNNS_VECTOR snns_VECTOR = default(AppMain.SNNS_VECTOR);
-        AppMain.SNNS_VECTOR snns_VECTOR2 = default(AppMain.SNNS_VECTOR);
-        AppMain.SNNS_VECTOR snns_VECTOR3 = default(AppMain.SNNS_VECTOR);
+        SNNS_VECTOR snns_VECTOR = default(SNNS_VECTOR);
+        SNNS_VECTOR snns_VECTOR2 = default(SNNS_VECTOR);
+        SNNS_VECTOR snns_VECTOR3 = default(SNNS_VECTOR);
         snns_VECTOR3.x = cam.Position.x - cam.Target.x;
         snns_VECTOR3.y = cam.Position.y - cam.Target.y;
         snns_VECTOR3.z = cam.Position.z - cam.Target.z;
@@ -4874,17 +4874,17 @@ public partial class AppMain
         AppMain.nnNormalizeVector(ref snns_VECTOR, ref snns_VECTOR);
         AppMain.nnCrossProductVector(ref snns_VECTOR2, ref snns_VECTOR3, ref snns_VECTOR);
         AppMain.nnMakeVectorCameraViewMatrix(mtx, cam.Position, ref snns_VECTOR, ref snns_VECTOR2, ref snns_VECTOR3);
-        AppMain.SNNS_MATRIX snns_MATRIX;
+        SNNS_MATRIX snns_MATRIX;
         AppMain.nnMakeRotateZMatrix(out snns_MATRIX, -cam.Roll);
         AppMain.nnMultiplyMatrix(mtx, ref snns_MATRIX, mtx);
     }
 
     // Token: 0x0600018F RID: 399 RVA: 0x00010A58 File Offset: 0x0000EC58
-    private static void nnMakeTargetUpVectorCameraViewMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_CAMERA_TARGET_UPVECTOR cam)
+    public static void nnMakeTargetUpVectorCameraViewMatrix(NNS_MATRIX mtx, AppMain.NNS_CAMERA_TARGET_UPVECTOR cam)
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = cam.Position.x - cam.Target.x;
         nns_VECTOR.y = cam.Position.y - cam.Target.y;
         nns_VECTOR.z = cam.Position.z - cam.Target.z;
@@ -4896,26 +4896,26 @@ public partial class AppMain
     }
 
     // Token: 0x06000190 RID: 400 RVA: 0x00010B02 File Offset: 0x0000ED02
-    private static void nnMakeTargetUpTargetCameraViewMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_CAMERA_TARGET_UPTARGET cam)
+    public static void nnMakeTargetUpTargetCameraViewMatrix(NNS_MATRIX mtx, AppMain.NNS_CAMERA_TARGET_UPTARGET cam)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000191 RID: 401 RVA: 0x00010B09 File Offset: 0x0000ED09
-    private void nnMakeRotationCameraViewMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_CAMERA_ROTATION cam)
+    public void nnMakeRotationCameraViewMatrix(NNS_MATRIX mtx, AppMain.NNS_CAMERA_ROTATION cam)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000192 RID: 402 RVA: 0x00010B10 File Offset: 0x0000ED10
-    private uint nnEstimateCameraBufferSize(uint type)
+    public uint nnEstimateCameraBufferSize(uint type)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000193 RID: 403 RVA: 0x00010B18 File Offset: 0x0000ED18
-    private static void nnMakeVectorCameraViewMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR pos, AppMain.NNS_VECTOR right, AppMain.NNS_VECTOR up, AppMain.NNS_VECTOR ilook)
+    public static void nnMakeVectorCameraViewMatrix(NNS_MATRIX mtx, NNS_VECTOR pos, NNS_VECTOR right, NNS_VECTOR up, NNS_VECTOR ilook)
     {
         mtx.M00 = right.x;
         mtx.M01 = right.y;
@@ -4934,7 +4934,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000194 RID: 404 RVA: 0x00010C50 File Offset: 0x0000EE50
-    private static void nnMakeVectorCameraViewMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR pos, ref AppMain.SNNS_VECTOR right, ref AppMain.SNNS_VECTOR up, ref AppMain.SNNS_VECTOR ilook)
+    public static void nnMakeVectorCameraViewMatrix(NNS_MATRIX mtx, NNS_VECTOR pos, ref SNNS_VECTOR right, ref SNNS_VECTOR up, ref SNNS_VECTOR ilook)
     {
         mtx.M00 = right.x;
         mtx.M01 = right.y;
@@ -5000,7 +5000,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000344 RID: 836 RVA: 0x0001A449 File Offset: 0x00018649
-    public void nnSetClipScreenCoordinates(AppMain.NNS_VECTOR2D pos)
+    public void nnSetClipScreenCoordinates(NNS_VECTOR2D pos)
     {
         AppMain.mppAssertNotImpl();
     }
@@ -5012,99 +5012,99 @@ public partial class AppMain
     }
 
     // Token: 0x06000346 RID: 838 RVA: 0x0001A457 File Offset: 0x00018657
-    private int nnGetNodeIndex(AppMain.NNS_NODENAMELIST pNodeNameList, string NodeName)
+    public int nnGetNodeIndex(AppMain.NNS_NODENAMELIST pNodeNameList, string NodeName)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000347 RID: 839 RVA: 0x0001A45F File Offset: 0x0001865F
-    private string nnGetNodeName(AppMain.NNS_NODENAMELIST pNodeNameList, int NodeIndex)
+    public string nnGetNodeName(AppMain.NNS_NODENAMELIST pNodeNameList, int NodeIndex)
     {
         AppMain.mppAssertNotImpl();
         return null;
     }
 
     // Token: 0x06000348 RID: 840 RVA: 0x0001A467 File Offset: 0x00018667
-    private void nnCalcNodeStatusListMatrixList(uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX mtxlist, AppMain.NNS_MATRIX basemtx, uint flag)
+    public void nnCalcNodeStatusListMatrixList(uint[] nodestatlist, AppMain.NNS_OBJECT obj, NNS_MATRIX mtxlist, NNS_MATRIX basemtx, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000349 RID: 841 RVA: 0x0001A46E File Offset: 0x0001866E
-    private static float NNM_DEGtoRAD(float n)
+    public static float NNM_DEGtoRAD(float n)
     {
         return n * 0.017453292f;
     }
 
     // Token: 0x0600034A RID: 842 RVA: 0x0001A477 File Offset: 0x00018677
-    private static float NNM_DEGtoRAD(int n)
+    public static float NNM_DEGtoRAD(int n)
     {
         return (float)n * 0.017453292f;
     }
 
     // Token: 0x0600034B RID: 843 RVA: 0x0001A481 File Offset: 0x00018681
-    private static int NNM_DEGtoA32(float n)
+    public static int NNM_DEGtoA32(float n)
     {
         return (int)(n * 182.04443f);
     }
 
     // Token: 0x0600034C RID: 844 RVA: 0x0001A48B File Offset: 0x0001868B
-    private static int NNM_RADtoA32(float n)
+    public static int NNM_RADtoA32(float n)
     {
         return (int)(n * 10430.378f);
     }
 
     // Token: 0x0600034D RID: 845 RVA: 0x0001A495 File Offset: 0x00018695
-    private static float NNM_RADtoDEG(float n)
+    public static float NNM_RADtoDEG(float n)
     {
         return n * 57.29578f;
     }
 
     // Token: 0x0600034E RID: 846 RVA: 0x0001A49E File Offset: 0x0001869E
-    private static float NNM_A32toDEG(float n)
+    public static float NNM_A32toDEG(float n)
     {
         return n * 0.005493164f;
     }
 
     // Token: 0x0600034F RID: 847 RVA: 0x0001A4A7 File Offset: 0x000186A7
-    private static float NNM_A32toRAD(float n)
+    public static float NNM_A32toRAD(float n)
     {
         return n * 9.58738E-05f;
     }
 
     // Token: 0x06000350 RID: 848 RVA: 0x0001A4B0 File Offset: 0x000186B0
-    private static int NNM_DEGtoA32(int n)
+    public static int NNM_DEGtoA32(int n)
     {
         return (int)((float)n * 182.04443f);
     }
 
     // Token: 0x06000351 RID: 849 RVA: 0x0001A4BB File Offset: 0x000186BB
-    private static int NNM_RADtoA32(int n)
+    public static int NNM_RADtoA32(int n)
     {
         return (int)((float)n * 10430.378f);
     }
 
     // Token: 0x06000352 RID: 850 RVA: 0x0001A4C6 File Offset: 0x000186C6
-    private static float NNM_RADtoDEG(int n)
+    public static float NNM_RADtoDEG(int n)
     {
         return (float)n * 57.29578f;
     }
 
     // Token: 0x06000353 RID: 851 RVA: 0x0001A4D0 File Offset: 0x000186D0
-    private static float NNM_A32toDEG(int n)
+    public static float NNM_A32toDEG(int n)
     {
         return (float)n * 0.005493164f;
     }
 
     // Token: 0x06000354 RID: 852 RVA: 0x0001A4DA File Offset: 0x000186DA
-    private static float NNM_A32toRAD(int n)
+    public static float NNM_A32toRAD(int n)
     {
         return (float)n * 9.58738E-05f;
     }
 
     // Token: 0x06000355 RID: 853 RVA: 0x0001A4E4 File Offset: 0x000186E4
-    private static int NNM_DEGtoA16(float n)
+    public static int NNM_DEGtoA16(float n)
     {
         return (int)((short)((int)(n * 182.04443f)));
     }
@@ -5134,26 +5134,26 @@ public partial class AppMain
     }
 
     // Token: 0x0600035A RID: 858 RVA: 0x0001A513 File Offset: 0x00018713
-    private static void nnSetPrimitive2DAlphaFuncGL(uint func, float _ref)
+    public static void nnSetPrimitive2DAlphaFuncGL(uint func, float _ref)
     {
         AppMain.nndrawprim2d.nnsAlphaFunc = func;
         AppMain.nndrawprim2d.nnsAlphaFuncRef = _ref;
     }
 
     // Token: 0x0600035B RID: 859 RVA: 0x0001A521 File Offset: 0x00018721
-    private static void nnSetPrimitive2DDepthFuncGL(uint func)
+    public static void nnSetPrimitive2DDepthFuncGL(uint func)
     {
         AppMain.nndrawprim2d.nnsDepthFunc = func;
     }
 
     // Token: 0x0600035C RID: 860 RVA: 0x0001A529 File Offset: 0x00018729
-    private static void nnSetPrimitive2DDepthMaskGL(bool flag)
+    public static void nnSetPrimitive2DDepthMaskGL(bool flag)
     {
         AppMain.nndrawprim2d.nnsDepthMask = flag;
     }
 
     // Token: 0x0600035D RID: 861 RVA: 0x0001A534 File Offset: 0x00018734
-    private static void nnConvert2DTo3D(AppMain.NNS_VECTOR p3D, float x_2D, float y_2D, float z_3D)
+    public static void nnConvert2DTo3D(NNS_VECTOR p3D, float x_2D, float y_2D, float z_3D)
     {
         float num = (x_2D - AppMain.nngScreen.cx) * 2f / AppMain.nngScreen.w;
         float num2 = (AppMain.nngScreen.cy - y_2D) * 2f / AppMain.nngScreen.h;
@@ -5168,7 +5168,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600035E RID: 862 RVA: 0x0001A5FC File Offset: 0x000187FC
-    private static void nnConvert2DTo3D(ref Vector3 p3D, float x_2D, float y_2D, float z_3D)
+    public static void nnConvert2DTo3D(ref Vector3 p3D, float x_2D, float y_2D, float z_3D)
     {
         float num = (x_2D - AppMain.nngScreen.cx) * 2f / AppMain.nngScreen.w;
         float num2 = (AppMain.nngScreen.cy - y_2D) * 2f / AppMain.nngScreen.h;
@@ -5183,7 +5183,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600035F RID: 863 RVA: 0x0001A6C4 File Offset: 0x000188C4
-    private static void nnBeginDrawPrimitive2DCore(int fmt, int blend)
+    public static void nnBeginDrawPrimitive2DCore(int fmt, int blend)
     {
         OpenGL.glShadeModel(7424U);
         OpenGL.glDisable(2884U);
@@ -5257,7 +5257,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000360 RID: 864 RVA: 0x0001A8CC File Offset: 0x00018ACC
-    private static void nnDrawPrimitive2DCore(uint mode, object vtx, int count, float pri)
+    public static void nnDrawPrimitive2DCore(uint mode, object vtx, int count, float pri)
     {
         if (pri > -AppMain.nngClip2d.n_clip || -AppMain.nngClip2d.f_clip > pri)
         {
@@ -5278,7 +5278,7 @@ public partial class AppMain
                     OpenGL.glColorPointer(4, 5121U, 0, new AppMain.RGBA_U8_ColorData(cbuf, 0));
                     for (int i = 0; i < count; i++)
                     {
-                        AppMain.NNS_VECTOR2D pos = array[i].Pos;
+                        NNS_VECTOR2D pos = array[i].Pos;
                         uint col = array[i].Col;
                         AppMain.nnConvert2DTo3D(ref vbuf[num], pos.x, pos.y, pri);
                         cbuf[num].r = (byte)(col >> 24);
@@ -5324,18 +5324,18 @@ public partial class AppMain
     }
 
     // Token: 0x06000361 RID: 865 RVA: 0x0001AAC1 File Offset: 0x00018CC1
-    private static void nnEndDrawPrimitive2DCore()
+    public static void nnEndDrawPrimitive2DCore()
     {
     }
 
     // Token: 0x06000362 RID: 866 RVA: 0x0001AAC3 File Offset: 0x00018CC3
-    private static void nnBeginDrawPrimitive2D(int fmt, int blend)
+    public static void nnBeginDrawPrimitive2D(int fmt, int blend)
     {
         AppMain.nnBeginDrawPrimitive2DCore(fmt, blend);
     }
 
     // Token: 0x06000363 RID: 867 RVA: 0x0001AACC File Offset: 0x00018CCC
-    private static void nnDrawPrimitive2D(int type, object vtx, int count, float pri)
+    public static void nnDrawPrimitive2D(int type, object vtx, int count, float pri)
     {
         uint mode;
         switch (type)
@@ -5350,20 +5350,20 @@ public partial class AppMain
     }
 
     // Token: 0x06000364 RID: 868 RVA: 0x0001AAFA File Offset: 0x00018CFA
-    private static void nnEndDrawPrimitive2D()
+    public static void nnEndDrawPrimitive2D()
     {
         AppMain.nnEndDrawPrimitive2DCore();
     }
 
     // Token: 0x06000365 RID: 869 RVA: 0x0001AB01 File Offset: 0x00018D01
-    private static void nnBeginDrawPrimitiveLine2D(ref AppMain.NNS_RGBA col, int blend)
+    public static void nnBeginDrawPrimitiveLine2D(ref NNS_RGBA col, int blend)
     {
         AppMain.nnBeginDrawPrimitive2DCore(0, blend);
         OpenGL.glColor4fv((OpenGL.glArray4f)col);
     }
 
     // Token: 0x06000366 RID: 870 RVA: 0x0001AB1C File Offset: 0x00018D1C
-    private static void nnDrawPrimitiveLine2D(AppMain.NNE_PRIM_LINE type, object vtx, int count, float pri)
+    public static void nnDrawPrimitiveLine2D(AppMain.NNE_PRIM_LINE type, object vtx, int count, float pri)
     {
         uint mode;
         switch (type)
@@ -5378,25 +5378,25 @@ public partial class AppMain
     }
 
     // Token: 0x06000367 RID: 871 RVA: 0x0001AB4A File Offset: 0x00018D4A
-    private static void nnEndDrawPrimitiveLine2D()
+    public static void nnEndDrawPrimitiveLine2D()
     {
         AppMain.nnEndDrawPrimitive2DCore();
     }
 
     // Token: 0x06000368 RID: 872 RVA: 0x0001AB51 File Offset: 0x00018D51
-    private static void nnDrawPrimitivePoint2D(object vtx, int count, float pri)
+    public static void nnDrawPrimitivePoint2D(object vtx, int count, float pri)
     {
         AppMain.nnDrawPrimitive2DCore(0U, vtx, count, pri);
     }
 
     // Token: 0x06000369 RID: 873 RVA: 0x0001AB5C File Offset: 0x00018D5C
-    private static void nnEndDrawPrimitivePoint2D()
+    public static void nnEndDrawPrimitivePoint2D()
     {
         AppMain.nnEndDrawPrimitive2DCore();
     }
 
     // Token: 0x0600036A RID: 874 RVA: 0x0001AB64 File Offset: 0x00018D64
-    private static void nnInvertTransposeMatrix33(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src)
+    public static void nnInvertTransposeMatrix33(NNS_MATRIX dst, NNS_MATRIX src)
     {
         float m = src.M00;
         float m2 = src.M01;
@@ -5437,7 +5437,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600036B RID: 875 RVA: 0x0001ACF0 File Offset: 0x00018EF0
-    private static void nnInvertTransposeMatrix33NotNormalized(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src)
+    public static void nnInvertTransposeMatrix33NotNormalized(NNS_MATRIX dst, NNS_MATRIX src)
     {
         float m = src.M00;
         float m2 = src.M01;
@@ -5460,13 +5460,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600036C RID: 876 RVA: 0x0001ADCE File Offset: 0x00018FCE
-    private void nnSetNormalLength(float len)
+    public void nnSetNormalLength(float len)
     {
         AppMain.nngNormalLength = len;
     }
 
     // Token: 0x0600036D RID: 877 RVA: 0x0001ADD6 File Offset: 0x00018FD6
-    private void nnSetNormalColor(float r, float g, float b, float a)
+    public void nnSetNormalColor(float r, float g, float b, float a)
     {
         AppMain.nngNormalColor.r = r;
         AppMain.nngNormalColor.g = g;
@@ -5475,7 +5475,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600036E RID: 878 RVA: 0x0001AE05 File Offset: 0x00019005
-    private void nnSetWireColor(float r, float g, float b, float a)
+    public void nnSetWireColor(float r, float g, float b, float a)
     {
         AppMain.nngWireColor.r = r;
         AppMain.nngWireColor.g = g;
@@ -5484,13 +5484,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600036F RID: 879 RVA: 0x0001AE34 File Offset: 0x00019034
-    private static void nnPutWireColor()
+    public static void nnPutWireColor()
     {
         OpenGL.glColor4fv((OpenGL.glArray4f)AppMain.nngWireColor);
     }
 
     // Token: 0x06000370 RID: 880 RVA: 0x0001AE45 File Offset: 0x00019045
-    private static void nnDrawObjectNormal(AppMain.NNS_VTXLISTPTR vlistptr, AppMain.NNS_PRIMLISTPTR plistptr, AppMain.NNS_MATRIX[] mtxpal, uint flag)
+    public static void nnDrawObjectNormal(AppMain.NNS_VTXLISTPTR vlistptr, AppMain.NNS_PRIMLISTPTR plistptr, NNS_MATRIX[] mtxpal, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
@@ -5502,7 +5502,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000372 RID: 882 RVA: 0x0001AE75 File Offset: 0x00019075
-    private static void nnInitPreviousMaterialValueGL()
+    public static void nnInitPreviousMaterialValueGL()
     {
         AppMain.nnmaterialcore.nngPreMatFlag = uint.MaxValue;
         AppMain.nnmaterialcore.nngpPreMatColor = null;
@@ -5510,7 +5510,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000373 RID: 883 RVA: 0x0001AE8C File Offset: 0x0001908C
-    private static void nnPutMaterialFlagGL(AppMain.NNS_DRAWCALLBACK_VAL val, uint fMatFlag)
+    public static void nnPutMaterialFlagGL(AppMain.NNS_DRAWCALLBACK_VAL val, uint fMatFlag)
     {
         uint num = val.DrawFlag & 96U;
         if (num != 32U)
@@ -5580,7 +5580,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000374 RID: 884 RVA: 0x0001AFF0 File Offset: 0x000191F0
-    private static void nnPutMaterialColorGL(uint face, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_STDSHADER_COLOR pColor)
+    public static void nnPutMaterialColorGL(uint face, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_STDSHADER_COLOR pColor)
     {
         uint fFlag = pColor.fFlag;
         if ((fFlag & 1U) != 0U)
@@ -5770,7 +5770,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000375 RID: 885 RVA: 0x0001B7F4 File Offset: 0x000199F4
-    private static void nnPutMaterialLogicGL(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_LOGIC pLogic)
+    public static void nnPutMaterialLogicGL(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_LOGIC pLogic)
     {
         uint fFlag = pLogic.fFlag;
         if ((val.DrawFlag & 33554432U) != 0U)
@@ -5840,7 +5840,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000376 RID: 886 RVA: 0x0001B964 File Offset: 0x00019B64
-    private static void nnPutMaterialLogicGLES11(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_GLES11_LOGIC pLogic)
+    public static void nnPutMaterialLogicGLES11(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_GLES11_LOGIC pLogic)
     {
         uint fFlag = pLogic.fFlag;
         if ((val.DrawFlag & 33554432U) != 0U)
@@ -5903,25 +5903,25 @@ public partial class AppMain
     }
 
     // Token: 0x06000377 RID: 887 RVA: 0x0001BABB File Offset: 0x00019CBB
-    private void nnPutMaterialTextureShadowMap(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNE_SHADOWMAP idx)
+    public void nnPutMaterialTextureShadowMap(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNE_SHADOWMAP idx)
     {
     }
 
     // Token: 0x06000378 RID: 888 RVA: 0x0001BABD File Offset: 0x00019CBD
-    private uint nnGetTextureMask(uint flag)
+    public uint nnGetTextureMask(uint flag)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000379 RID: 889 RVA: 0x0001BAC5 File Offset: 0x00019CC5
-    private void nnPutMaterialTextureOneGL(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_TEXMAP_DESC pTex)
+    public void nnPutMaterialTextureOneGL(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_TEXMAP_DESC pTex)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600037A RID: 890 RVA: 0x0001BACC File Offset: 0x00019CCC
-    private static void nnPutMaterialTextureOneGLES11(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, ref AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC pTex)
+    public static void nnPutMaterialTextureOneGLES11(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, ref AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC pTex)
     {
         uint fType = pTex.fType;
         uint num = fType & 3841U;
@@ -6032,13 +6032,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600037B RID: 891 RVA: 0x0001BEF0 File Offset: 0x0001A0F0
-    private static void nnPutMaterialTexturesGL(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_TEXMAP_DESC[] texdesc, int num)
+    public static void nnPutMaterialTexturesGL(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_TEXMAP_DESC[] texdesc, int num)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600037C RID: 892 RVA: 0x0001BEF8 File Offset: 0x0001A0F8
-    private static void nnPutMaterialTexturesGLES11(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC[] texdesc, int num)
+    public static void nnPutMaterialTexturesGLES11(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC[] texdesc, int num)
     {
         int max_texture_units = AppMain.nngGLExtensions.max_texture_units;
         int i = 0;
@@ -6061,19 +6061,19 @@ public partial class AppMain
     }
 
     // Token: 0x0600037D RID: 893 RVA: 0x0001BF51 File Offset: 0x0001A151
-    private void nnPutMaterialStdShaderTextureOneGL(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_STDSHADER_TEXMAP_DESC pTex)
+    public void nnPutMaterialStdShaderTextureOneGL(int slot, AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_STDSHADER_TEXMAP_DESC pTex)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600037E RID: 894 RVA: 0x0001BF58 File Offset: 0x0001A158
-    private void nnPutMaterialStdShaderTexturesGL(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_STDSHADER_TEXMAP_DESC texdesc, int num)
+    public void nnPutMaterialStdShaderTexturesGL(AppMain.NNS_DRAWCALLBACK_VAL val, AppMain.NNS_MATERIAL_STDSHADER_TEXMAP_DESC texdesc, int num)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600037F RID: 895 RVA: 0x0001BF60 File Offset: 0x0001A160
-    private static int nnPutMaterialCore(AppMain.NNS_DRAWCALLBACK_VAL val)
+    public static int nnPutMaterialCore(AppMain.NNS_DRAWCALLBACK_VAL val)
     {
         AppMain.NNS_MATERIALPTR pMaterial = val.pMaterial;
         if ((val.DrawFlag & 29440U) != 0U)
@@ -6229,19 +6229,19 @@ public partial class AppMain
     }
 
     // Token: 0x060004B2 RID: 1202 RVA: 0x0002845F File Offset: 0x0002665F
-    private int nnGetMaterialIndex(AppMain.NNS_NODENAMELIST pMaterialNameList, string MaterialName)
+    public int nnGetMaterialIndex(AppMain.NNS_NODENAMELIST pMaterialNameList, string MaterialName)
     {
         return this.nnGetNodeIndex(pMaterialNameList, MaterialName);
     }
 
     // Token: 0x060004B3 RID: 1203 RVA: 0x00028469 File Offset: 0x00026669
-    private string nnGetMaterialName(AppMain.NNS_NODENAMELIST pMaterialNameList, int MaterialIndex)
+    public string nnGetMaterialName(AppMain.NNS_NODENAMELIST pMaterialNameList, int MaterialIndex)
     {
         return this.nnGetNodeName(pMaterialNameList, MaterialIndex);
     }
 
     // Token: 0x060004B4 RID: 1204 RVA: 0x00028474 File Offset: 0x00026674
-    private static void nnSetPrimitive3DMaterial(ref AppMain.NNS_RGBA diffuse, ref AppMain.SNNS_RGB ambient, float specular)
+    public static void nnSetPrimitive3DMaterial(ref NNS_RGBA diffuse, ref SNNS_RGB ambient, float specular)
     {
         AppMain.nndrawprim3d.nnsDiffuse[0] = diffuse.r;
         AppMain.nndrawprim3d.nnsDiffuse[1] = diffuse.g;
@@ -6258,7 +6258,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004B5 RID: 1205 RVA: 0x0002850C File Offset: 0x0002670C
-    private static void nnSetPrimitive3DMaterial(ref AppMain.NNS_RGBA diffuse, ref AppMain.NNS_RGB ambient, float specular)
+    public static void nnSetPrimitive3DMaterial(ref NNS_RGBA diffuse, ref NNS_RGB ambient, float specular)
     {
         AppMain.nndrawprim3d.nnsDiffuse[0] = diffuse.r;
         AppMain.nndrawprim3d.nnsDiffuse[1] = diffuse.g;
@@ -6275,7 +6275,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004B6 RID: 1206 RVA: 0x000285A8 File Offset: 0x000267A8
-    private static void nnSetPrimitive3DMaterialGL(ref AppMain.NNS_RGBA diffuse, ref AppMain.NNS_RGBA ambient, ref AppMain.NNS_RGBA specular, float shininess, ref AppMain.NNS_RGBA emission)
+    public static void nnSetPrimitive3DMaterialGL(ref NNS_RGBA diffuse, ref NNS_RGBA ambient, ref NNS_RGBA specular, float shininess, ref NNS_RGBA emission)
     {
         AppMain.nndrawprim3d.nnsDiffuse[0] = diffuse.r;
         AppMain.nndrawprim3d.nnsDiffuse[1] = diffuse.g;
@@ -6297,19 +6297,19 @@ public partial class AppMain
     }
 
     // Token: 0x060004B7 RID: 1207 RVA: 0x0002868F File Offset: 0x0002688F
-    private static void nnSetPrimitive3DMatrix(ref AppMain.SNNS_MATRIX mtx)
+    public static void nnSetPrimitive3DMatrix(ref SNNS_MATRIX mtx)
     {
         AppMain.nnCopyMatrix(AppMain.nndrawprim3d.nnsPrim3DMatrix, ref mtx);
     }
 
     // Token: 0x060004B8 RID: 1208 RVA: 0x0002869C File Offset: 0x0002689C
-    private static void nnSetPrimitive3DMatrix(AppMain.NNS_MATRIX mtx)
+    public static void nnSetPrimitive3DMatrix(NNS_MATRIX mtx)
     {
         AppMain.nnCopyMatrix(AppMain.nndrawprim3d.nnsPrim3DMatrix, mtx);
     }
 
     // Token: 0x060004B9 RID: 1209 RVA: 0x000286AC File Offset: 0x000268AC
-    private static void nnChangePrimitive3DMatrix(AppMain.NNS_MATRIX mtx)
+    public static void nnChangePrimitive3DMatrix(NNS_MATRIX mtx)
     {
         OpenGL.glMatrixMode(5888U);
         Matrix matrix = (Matrix)mtx;
@@ -6321,26 +6321,26 @@ public partial class AppMain
     }
 
     // Token: 0x060004BA RID: 1210 RVA: 0x000286DF File Offset: 0x000268DF
-    private static void nnSetPrimitive3DAlphaFuncGL(uint func, float _ref)
+    public static void nnSetPrimitive3DAlphaFuncGL(uint func, float _ref)
     {
         AppMain.nndrawprim3d.nnsAlphaFunc = func;
         AppMain.nndrawprim3d.nnsAlphaFuncRef = _ref;
     }
 
     // Token: 0x060004BB RID: 1211 RVA: 0x000286ED File Offset: 0x000268ED
-    private static void nnSetPrimitive3DDepthFuncGL(uint func)
+    public static void nnSetPrimitive3DDepthFuncGL(uint func)
     {
         AppMain.nndrawprim3d.nnsDepthFunc = func;
     }
 
     // Token: 0x060004BC RID: 1212 RVA: 0x000286F5 File Offset: 0x000268F5
-    private static void nnSetPrimitive3DDepthMaskGL(bool flag)
+    public static void nnSetPrimitive3DDepthMaskGL(bool flag)
     {
         AppMain.nndrawprim3d.nnsDepthMask = flag;
     }
 
     // Token: 0x060004BD RID: 1213 RVA: 0x00028700 File Offset: 0x00026900
-    private static void nnBeginDrawPrimitive3DCore(int fmt, int blend, int light)
+    public static void nnBeginDrawPrimitive3DCore(int fmt, int blend, int light)
     {
         OpenGL.glShadeModel(7425U);
         OpenGL.glLightModelf(2898U, 0f);
@@ -6466,7 +6466,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004BE RID: 1214 RVA: 0x00028B3C File Offset: 0x00026D3C
-    private static void nnDrawPrimitive3DCore(uint mode, object vtx, int count)
+    public static void nnDrawPrimitive3DCore(uint mode, object vtx, int count)
     {
         switch (AppMain.nndrawprim3d.nnsFormat)
         {
@@ -6591,12 +6591,12 @@ public partial class AppMain
     }
 
     // Token: 0x060004BF RID: 1215 RVA: 0x00028F48 File Offset: 0x00027148
-    private static void nnEndDrawPrimitive3DCore()
+    public static void nnEndDrawPrimitive3DCore()
     {
     }
 
     // Token: 0x060004C0 RID: 1216 RVA: 0x00028F4C File Offset: 0x0002714C
-    private static void nnBeginDrawPrimitive3D(int fmt, int blend, int light, int cull)
+    public static void nnBeginDrawPrimitive3D(int fmt, int blend, int light, int cull)
     {
         AppMain.nnBeginDrawPrimitive3DCore(fmt, blend, light);
         switch (cull)
@@ -6618,7 +6618,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004C1 RID: 1217 RVA: 0x00028FAC File Offset: 0x000271AC
-    private static void nnDrawPrimitive3D(int type, object vtx, int count)
+    public static void nnDrawPrimitive3D(int type, object vtx, int count)
     {
         uint mode;
         switch (type)
@@ -6633,13 +6633,13 @@ public partial class AppMain
     }
 
     // Token: 0x060004C2 RID: 1218 RVA: 0x00028FD9 File Offset: 0x000271D9
-    private static void nnEndDrawPrimitive3D()
+    public static void nnEndDrawPrimitive3D()
     {
         AppMain.nnEndDrawPrimitive3DCore();
     }
 
     // Token: 0x060004C3 RID: 1219 RVA: 0x00028FE0 File Offset: 0x000271E0
-    private static void nnBeginDrawPrimitiveLine3D(ref AppMain.NNS_RGBA col, int blend)
+    public static void nnBeginDrawPrimitiveLine3D(ref NNS_RGBA col, int blend)
     {
         AppMain.nnBeginDrawPrimitive3DCore(0, blend, 0);
         OpenGL.glDisable(2896U);
@@ -6647,7 +6647,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004C4 RID: 1220 RVA: 0x00029004 File Offset: 0x00027204
-    private static void nnDrawPrimitiveLine3D(AppMain.NNE_PRIM_LINE type, object vtx, int count)
+    public static void nnDrawPrimitiveLine3D(AppMain.NNE_PRIM_LINE type, object vtx, int count)
     {
         uint mode;
         switch (type)
@@ -6662,50 +6662,50 @@ public partial class AppMain
     }
 
     // Token: 0x060004C5 RID: 1221 RVA: 0x00029031 File Offset: 0x00027231
-    private static void nnEndDrawPrimitiveLine3D()
+    public static void nnEndDrawPrimitiveLine3D()
     {
         AppMain.nnEndDrawPrimitive3DCore();
     }
 
     // Token: 0x060004C6 RID: 1222 RVA: 0x00029038 File Offset: 0x00027238
-    private static void nnDrawPrimitivePoint3D(object vtx, int count)
+    public static void nnDrawPrimitivePoint3D(object vtx, int count)
     {
         AppMain.nnDrawPrimitive3DCore(0U, vtx, count);
     }
 
     // Token: 0x060004C7 RID: 1223 RVA: 0x00029042 File Offset: 0x00027242
-    private static void nnEndDrawPrimitivePoint3D()
+    public static void nnEndDrawPrimitivePoint3D()
     {
         AppMain.nnEndDrawPrimitive3DCore();
     }
 
     // Token: 0x060004C8 RID: 1224 RVA: 0x00029049 File Offset: 0x00027249
-    private int nnCalcMorphMotionWeight(ref AppMain.NNS_SUBMOTION submot, float frame, ref float weight)
+    public int nnCalcMorphMotionWeight(ref AppMain.NNS_SUBMOTION submot, float frame, ref float weight)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x060004C9 RID: 1225 RVA: 0x00029051 File Offset: 0x00027251
-    private void nnCalcMorphMotion(float[] mwpal, ref AppMain.NNS_MORPHTARGETLIST mtgt, ref AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcMorphMotion(float[] mwpal, ref AppMain.NNS_MORPHTARGETLIST mtgt, ref AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060004CA RID: 1226 RVA: 0x00029058 File Offset: 0x00027258
-    private void nnBlendMorphWeightPalette(float[] dstmwpal, float[] srcmwpal0, float ratio0, float[] srcmwpal1, float ratio1, ref AppMain.NNS_MORPHTARGETLIST mtgt)
+    public void nnBlendMorphWeightPalette(float[] dstmwpal, float[] srcmwpal0, float ratio0, float[] srcmwpal1, float ratio1, ref AppMain.NNS_MORPHTARGETLIST mtgt)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060004CB RID: 1227 RVA: 0x0002905F File Offset: 0x0002725F
-    public static void nnCopyQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION src)
+    public static void nnCopyQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION src)
     {
         dst = src;
     }
 
     // Token: 0x060004CC RID: 1228 RVA: 0x00029070 File Offset: 0x00027270
-    public static void nnMultiplyQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION quat1, ref AppMain.NNS_QUATERNION quat2)
+    public static void nnMultiplyQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION quat1, ref NNS_QUATERNION quat2)
     {
         float x = quat1.x;
         float y = quat1.y;
@@ -6722,7 +6722,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004CD RID: 1229 RVA: 0x00029120 File Offset: 0x00027320
-    public static int nnNormalizeQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION src)
+    public static int nnNormalizeQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION src)
     {
         float num = src.x * src.x + src.y * src.y + src.z * src.z + src.w * src.w;
         if (num == 0f)
@@ -6742,7 +6742,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004CE RID: 1230 RVA: 0x000291DC File Offset: 0x000273DC
-    public static int nnInvertQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION src)
+    public static int nnInvertQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION src)
     {
         float num = src.x * src.x + src.y * src.y + src.z * src.z + src.w * src.w;
         if (num == 0f)
@@ -6762,7 +6762,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004CF RID: 1231 RVA: 0x0002929C File Offset: 0x0002749C
-    private static void nnLogQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION src)
+    public static void nnLogQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION src)
     {
         int num = AppMain.nnArcCos((double)src.w);
         float num2 = AppMain.nnSin(num);
@@ -6782,7 +6782,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004D0 RID: 1232 RVA: 0x00029344 File Offset: 0x00027544
-    public static void nnExpQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION src)
+    public static void nnExpQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION src)
     {
         float num = AppMain.nnSqrt(src.x * src.x + src.y * src.y + src.z * src.z);
         float num2;
@@ -6804,12 +6804,12 @@ public partial class AppMain
     }
 
     // Token: 0x060004D1 RID: 1233 RVA: 0x00029400 File Offset: 0x00027600
-    private static void nnSplineQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION quatprev, ref AppMain.NNS_QUATERNION quat, ref AppMain.NNS_QUATERNION quatnext)
+    public static void nnSplineQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION quatprev, ref NNS_QUATERNION quat, ref NNS_QUATERNION quatnext)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION3 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION4 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION3 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION4 = default(NNS_QUATERNION);
         AppMain.nnInvertQuaternion(ref nns_QUATERNION2, ref quat);
         AppMain.nnMultiplyQuaternion(ref nns_QUATERNION3, ref nns_QUATERNION2, ref quatprev);
         AppMain.nnMultiplyQuaternion(ref nns_QUATERNION4, ref nns_QUATERNION2, ref quatnext);
@@ -6824,9 +6824,9 @@ public partial class AppMain
     }
 
     // Token: 0x060004D2 RID: 1234 RVA: 0x000294E0 File Offset: 0x000276E0
-    private static void nnLerpQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION quat1, ref AppMain.NNS_QUATERNION quat2, float t)
+    public static void nnLerpQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION quat1, ref NNS_QUATERNION quat2, float t)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
         float num = 1f - t;
         float num2 = quat1.x * quat2.x + quat1.y * quat2.y + quat1.z * quat2.z + quat1.w * quat2.w;
         if (num2 > 0f)
@@ -6847,7 +6847,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004D3 RID: 1235 RVA: 0x00029608 File Offset: 0x00027808
-    private static void nnSlerpQuaternion(out AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION quat1, ref AppMain.NNS_QUATERNION quat2, float t)
+    public static void nnSlerpQuaternion(out NNS_QUATERNION dst, ref NNS_QUATERNION quat1, ref NNS_QUATERNION quat2, float t)
     {
         float num = 1f;
         float num2 = 1f - t;
@@ -6881,7 +6881,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004D4 RID: 1236 RVA: 0x00029744 File Offset: 0x00027944
-    private void nnSlerpNoInvQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION q1, ref AppMain.NNS_QUATERNION q2, float t)
+    public void nnSlerpNoInvQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION q1, ref NNS_QUATERNION q2, float t)
     {
         float num = q1.x * q2.x + q1.y * q2.y + q1.z * q2.z + q1.w * q2.w;
         float num5;
@@ -6906,10 +6906,10 @@ public partial class AppMain
     }
 
     // Token: 0x060004D5 RID: 1237 RVA: 0x00029844 File Offset: 0x00027A44
-    private static void nnSquadQuaternion(ref AppMain.NNS_QUATERNION dst, ref AppMain.NNS_QUATERNION quat1, ref AppMain.NNS_QUATERNION quata, ref AppMain.NNS_QUATERNION quatb, ref AppMain.NNS_QUATERNION quat2, float t)
+    public static void nnSquadQuaternion(ref NNS_QUATERNION dst, ref NNS_QUATERNION quat1, ref NNS_QUATERNION quata, ref NNS_QUATERNION quatb, ref NNS_QUATERNION quat2, float t)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
         float t2 = 2f * t * (1f - t);
         AppMain.nnSlerpQuaternion(out nns_QUATERNION, ref quat1, ref quat2, t);
         AppMain.nnSlerpQuaternion(out nns_QUATERNION2, ref quata, ref quatb, t);
@@ -6917,7 +6917,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004D6 RID: 1238 RVA: 0x00029895 File Offset: 0x00027A95
-    public static void nnMakeUnitQuaternion(ref AppMain.NNS_QUATERNION dst)
+    public static void nnMakeUnitQuaternion(ref NNS_QUATERNION dst)
     {
         dst.x = 0f;
         dst.y = 0f;
@@ -6926,9 +6926,9 @@ public partial class AppMain
     }
 
     // Token: 0x060004D7 RID: 1239 RVA: 0x000298C4 File Offset: 0x00027AC4
-    private static void nnMakeRotateAxisQuaternion(out AppMain.NNS_QUATERNION dst, float vx, float vy, float vz, int ang)
+    public static void nnMakeRotateAxisQuaternion(out NNS_QUATERNION dst, float vx, float vy, float vz, int ang)
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = vx;
         nns_VECTOR.y = vy;
         nns_VECTOR.z = vz;
@@ -6941,11 +6941,11 @@ public partial class AppMain
         dst.y = nns_VECTOR.y * num;
         dst.z = nns_VECTOR.z * num;
         dst.w = w;
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x060004D8 RID: 1240 RVA: 0x0002993C File Offset: 0x00027B3C
-    public static void nnMakeRotateMatrixQuaternion(out AppMain.NNS_QUATERNION dst, AppMain.NNS_MATRIX mtx)
+    public static void nnMakeRotateMatrixQuaternion(out NNS_QUATERNION dst, NNS_MATRIX mtx)
     {
         int[] nxt = AppMain._nnMakeRotateMatrixQuaternion.nxt;
         nxt[0] = 1;
@@ -6990,7 +6990,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004D9 RID: 1241 RVA: 0x00029AC8 File Offset: 0x00027CC8
-    private static void nnMakeRotateXYZQuaternion(out AppMain.NNS_QUATERNION dst, int rx, int ry, int rz)
+    public static void nnMakeRotateXYZQuaternion(out NNS_QUATERNION dst, int rx, int ry, int rz)
     {
         float num;
         float num2;
@@ -7051,7 +7051,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004DA RID: 1242 RVA: 0x00029BA4 File Offset: 0x00027DA4
-    public static void nnMakeRotateXZYQuaternion(out AppMain.NNS_QUATERNION dst, int rx, int ry, int rz)
+    public static void nnMakeRotateXZYQuaternion(out NNS_QUATERNION dst, int rx, int ry, int rz)
     {
         float num;
         float num2;
@@ -7112,7 +7112,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004DB RID: 1243 RVA: 0x00029C80 File Offset: 0x00027E80
-    public static void nnMakeRotateZXYQuaternion(out AppMain.NNS_QUATERNION dst, int rx, int ry, int rz)
+    public static void nnMakeRotateZXYQuaternion(out NNS_QUATERNION dst, int rx, int ry, int rz)
     {
         float num;
         float num2;
@@ -7169,67 +7169,67 @@ public partial class AppMain
     }
 
     // Token: 0x0600050E RID: 1294 RVA: 0x0002B4F6 File Offset: 0x000296F6
-    private void nnCalcMatrixList(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx)
+    public void nnCalcMatrixList(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600050F RID: 1295 RVA: 0x0002B4FD File Offset: 0x000296FD
-    private void nnCalcMatrixListMotionNode(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcMatrixListMotionNode(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000510 RID: 1296 RVA: 0x0002B504 File Offset: 0x00029704
-    private void nnCalcMatrixListMotion(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNS_MATRIX basemtx)
+    public void nnCalcMatrixListMotion(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, NNS_MATRIX basemtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000511 RID: 1297 RVA: 0x0002B50B File Offset: 0x0002970B
-    private void nnCalcMatrixListTRSList(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS trslist, AppMain.NNS_MATRIX basemtx)
+    public void nnCalcMatrixListTRSList(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS trslist, NNS_MATRIX basemtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000512 RID: 1298 RVA: 0x0002B512 File Offset: 0x00029712
-    private void nnCalcMatrixListMultiplyMatrix(AppMain.ArrayPointer<AppMain.NNS_MATRIX> dstlist, AppMain.NNS_MATRIX src, AppMain.ArrayPointer<AppMain.NNS_MATRIX> srclist, int num)
+    public void nnCalcMatrixListMultiplyMatrix(AppMain.ArrayPointer<NNS_MATRIX> dstlist, NNS_MATRIX src, AppMain.ArrayPointer<NNS_MATRIX> srclist, int num)
     {
         this.nnCalcMultiplyMatrices(dstlist, src, srclist, num);
     }
 
     // Token: 0x06000513 RID: 1299 RVA: 0x0002B51F File Offset: 0x0002971F
-    private void nnCalcMatrixPaletteMatrixList(AppMain.NNS_MATRIX mtxpal, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX mtxlist, AppMain.NNS_MATRIX basemtx)
+    public void nnCalcMatrixPaletteMatrixList(NNS_MATRIX mtxpal, AppMain.NNS_OBJECT obj, NNS_MATRIX mtxlist, NNS_MATRIX basemtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000514 RID: 1300 RVA: 0x0002B526 File Offset: 0x00029726
-    private void nnCalcMatrixListMotionNode1BoneSIIK(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, int jnt1idx, int submotidx, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcMatrixListMotionNode1BoneSIIK(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, int jnt1idx, int submotidx, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000515 RID: 1301 RVA: 0x0002B52D File Offset: 0x0002972D
-    private void nnCalcMatrixListMotionNode2BoneSIIK(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, int jnt1idx, int submotidx, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcMatrixListMotionNode2BoneSIIK(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, int jnt1idx, int submotidx, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000516 RID: 1302 RVA: 0x0002B534 File Offset: 0x00029734
-    private void nnCalcMatrixListMotionNode1BoneXSIIK(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, int rootidx, int submotidx, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcMatrixListMotionNode1BoneXSIIK(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, int rootidx, int submotidx, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000517 RID: 1303 RVA: 0x0002B53B File Offset: 0x0002973B
-    private void nnCalcMatrixListMotionNode2BoneXSIIK(AppMain.NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, int rootidx, int submotidx, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcMatrixListMotionNode2BoneXSIIK(NNS_MATRIX mtxlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, int rootidx, int submotidx, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000518 RID: 1304 RVA: 0x0002B544 File Offset: 0x00029744
-    private void nnConvertPosition4sTo3f(float[] dst, short[] src, int nVertex)
+    public void nnConvertPosition4sTo3f(float[] dst, short[] src, int nVertex)
     {
         int num = 0;
         int num2 = 0;
@@ -7243,7 +7243,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000519 RID: 1305 RVA: 0x0002B5A0 File Offset: 0x000297A0
-    private void nnConvertNormal3bTo3f(float[] dst, sbyte[] src, int nVertex)
+    public void nnConvertNormal3bTo3f(float[] dst, sbyte[] src, int nVertex)
     {
         int num = 0;
         int num2 = 0;
@@ -7256,7 +7256,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600051A RID: 1306 RVA: 0x0002B610 File Offset: 0x00029810
-    private void nnConvertNormal3sTo3f(float[] dst, short[] src, int nVertex)
+    public void nnConvertNormal3sTo3f(float[] dst, short[] src, int nVertex)
     {
         int num = 0;
         int num2 = 0;
@@ -7269,73 +7269,73 @@ public partial class AppMain
     }
 
     // Token: 0x0600051B RID: 1307 RVA: 0x0002B67E File Offset: 0x0002987E
-    private static void nnCalcMorphPositon(float[] pPosBuf, AppMain.NNS_VTXARRAY_GL[] pMorphArray, AppMain.NNS_VTXARRAY_GL[] pObjArray, AppMain.NNS_VTXARRAY_GL[] pMtgtArray, int nVertex, float weight)
+    public static void nnCalcMorphPositon(float[] pPosBuf, AppMain.NNS_VTXARRAY_GL[] pMorphArray, AppMain.NNS_VTXARRAY_GL[] pObjArray, AppMain.NNS_VTXARRAY_GL[] pMtgtArray, int nVertex, float weight)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600051C RID: 1308 RVA: 0x0002B685 File Offset: 0x00029885
-    private static void nnCalcMorphNormal(float[] pNrmBuf, AppMain.NNS_VTXARRAY_GL[] pMorphArray, AppMain.NNS_VTXARRAY_GL[] pObjArray, AppMain.NNS_VTXARRAY_GL[] pMtgtArray, int nVertex, float weight)
+    public static void nnCalcMorphNormal(float[] pNrmBuf, AppMain.NNS_VTXARRAY_GL[] pMorphArray, AppMain.NNS_VTXARRAY_GL[] pObjArray, AppMain.NNS_VTXARRAY_GL[] pMtgtArray, int nVertex, float weight)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600051D RID: 1309 RVA: 0x0002B68C File Offset: 0x0002988C
-    private static void nnCalcMorphGeneral(float[] pBuf, AppMain.NNS_VTXARRAY_GL[] pMorphArray, AppMain.NNS_VTXARRAY_GL[] pObjArray, AppMain.NNS_VTXARRAY_GL[] pMtgtArray, int nVertex, float weight)
+    public static void nnCalcMorphGeneral(float[] pBuf, AppMain.NNS_VTXARRAY_GL[] pMorphArray, AppMain.NNS_VTXARRAY_GL[] pObjArray, AppMain.NNS_VTXARRAY_GL[] pMtgtArray, int nVertex, float weight)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600051E RID: 1310 RVA: 0x0002B693 File Offset: 0x00029893
-    private static void nnNormalizeNormalArray(float[] pNrmBuf, AppMain.NNS_VTXARRAY_GL[] pNrmArray, int nVertex)
+    public static void nnNormalizeNormalArray(float[] pNrmBuf, AppMain.NNS_VTXARRAY_GL[] pNrmArray, int nVertex)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600051F RID: 1311 RVA: 0x0002B69A File Offset: 0x0002989A
-    private void nnCalcMorphObject(ref AppMain.NNS_OBJECT mobj, ref AppMain.NNS_OBJECT obj, ref AppMain.NNS_MORPHTARGETLIST mtgt, float[] mwpal, uint flag)
+    public void nnCalcMorphObject(ref AppMain.NNS_OBJECT mobj, ref AppMain.NNS_OBJECT obj, ref AppMain.NNS_MORPHTARGETLIST mtgt, float[] mwpal, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000520 RID: 1312 RVA: 0x0002B6A1 File Offset: 0x000298A1
-    private void nnCalcMotionLightScalar(AppMain.NNS_SUBMOTION submot, float frame, ref float val)
+    public void nnCalcMotionLightScalar(AppMain.NNS_SUBMOTION submot, float frame, ref float val)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000521 RID: 1313 RVA: 0x0002B6A8 File Offset: 0x000298A8
-    private void nnCalcMotionLightAngle(AppMain.NNS_SUBMOTION submot, float frame, ref int ang)
+    public void nnCalcMotionLightAngle(AppMain.NNS_SUBMOTION submot, float frame, ref int ang)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000522 RID: 1314 RVA: 0x0002B6AF File Offset: 0x000298AF
-    private void nnCalcMotionLightXYZ(AppMain.NNS_SUBMOTION submot, float frame, AppMain.NNS_VECTOR xyz)
+    public void nnCalcMotionLightXYZ(AppMain.NNS_SUBMOTION submot, float frame, NNS_VECTOR xyz)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000523 RID: 1315 RVA: 0x0002B6B6 File Offset: 0x000298B6
-    private void nnCalcMotionLightRGB(AppMain.NNS_SUBMOTION submot, float frame, AppMain.NNS_RGB col)
+    public void nnCalcMotionLightRGB(AppMain.NNS_SUBMOTION submot, float frame, NNS_RGB col)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000524 RID: 1316 RVA: 0x0002B6BD File Offset: 0x000298BD
-    private void nnCalcLightMotionCore(AppMain.NNS_LIGHTPTR dstptr, AppMain.NNS_LIGHTPTR litptr, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcLightMotionCore(AppMain.NNS_LIGHTPTR dstptr, AppMain.NNS_LIGHTPTR litptr, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000525 RID: 1317 RVA: 0x0002B6C4 File Offset: 0x000298C4
-    private void nnCalcLightMotion(AppMain.NNS_LIGHTPTR dstptr, AppMain.NNS_LIGHTPTR litptr, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcLightMotion(AppMain.NNS_LIGHTPTR dstptr, AppMain.NNS_LIGHTPTR litptr, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000613 RID: 1555 RVA: 0x00035D3C File Offset: 0x00033F3C
-    private static int nnCalcMotionNodeHide(AppMain.NNS_SUBMOTION submot, float frame)
+    public static int nnCalcMotionNodeHide(AppMain.NNS_SUBMOTION submot, float frame)
     {
         int result = 0;
         AppMain.NNS_MOTION_KEY_Class11[] vk = (AppMain.NNS_MOTION_KEY_Class11[])submot.pKeyList;
@@ -7349,7 +7349,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000614 RID: 1556 RVA: 0x00035D7C File Offset: 0x00033F7C
-    private static void nnCalcNodeHideMotion(AppMain.ArrayPointer<uint> nodestatlist, AppMain.NNS_MOTION mot, float frame)
+    public static void nnCalcNodeHideMotion(AppMain.ArrayPointer<uint> nodestatlist, AppMain.NNS_MOTION mot, float frame)
     {
         if ((mot.fType & 1U) == 0U)
         {
@@ -7385,7 +7385,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000615 RID: 1557 RVA: 0x00035E84 File Offset: 0x00034084
-    private static void nnInterpolateConstantF1(AppMain.NNS_MOTION_KEY_Class1[] vk, int nKey, float frame, out float val)
+    public static void nnInterpolateConstantF1(AppMain.NNS_MOTION_KEY_Class1[] vk, int nKey, float frame, out float val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7406,7 +7406,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000616 RID: 1558 RVA: 0x00035ED0 File Offset: 0x000340D0
-    private static void nnInterpolateConstantF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, AppMain.NNS_VECTOR val)
+    public static void nnInterpolateConstantF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, NNS_VECTOR val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7429,7 +7429,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000617 RID: 1559 RVA: 0x00035F3C File Offset: 0x0003413C
-    private static void nnInterpolateConstantF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, out AppMain.SNNS_VECTOR val)
+    public static void nnInterpolateConstantF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, out SNNS_VECTOR val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7452,7 +7452,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000618 RID: 1560 RVA: 0x00035FA8 File Offset: 0x000341A8
-    private static void nnInterpolateConstantF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, ref AppMain.NNS_RGBA val)
+    public static void nnInterpolateConstantF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, ref NNS_RGBA val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7475,7 +7475,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000619 RID: 1561 RVA: 0x00036014 File Offset: 0x00034214
-    private static void nnInterpolateConstantA32_1(AppMain.NNS_MOTION_KEY_Class8[] vk, int nKey, float frame, out int val)
+    public static void nnInterpolateConstantA32_1(AppMain.NNS_MOTION_KEY_Class8[] vk, int nKey, float frame, out int val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7496,7 +7496,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600061A RID: 1562 RVA: 0x00036054 File Offset: 0x00034254
-    private static void nnInterpolateConstantA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref AppMain.NNS_ROTATE_A32 val)
+    public static void nnInterpolateConstantA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref NNS_ROTATE_A32 val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7519,7 +7519,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600061B RID: 1563 RVA: 0x000360C0 File Offset: 0x000342C0
-    private static void nnInterpolateConstantA16_1(AppMain.NNS_MOTION_KEY_Class14[] vk, int nKey, float frame, out short val)
+    public static void nnInterpolateConstantA16_1(AppMain.NNS_MOTION_KEY_Class14[] vk, int nKey, float frame, out short val)
     {
         short num = (short)frame;
         uint num2 = 0U;
@@ -7541,7 +7541,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600061C RID: 1564 RVA: 0x00036114 File Offset: 0x00034314
-    private static void nnInterpolateConstantA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref AppMain.NNS_ROTATE_A16 val)
+    public static void nnInterpolateConstantA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref NNS_ROTATE_A16 val)
     {
         short num = (short)frame;
         uint num2 = 0U;
@@ -7565,7 +7565,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600061D RID: 1565 RVA: 0x00036184 File Offset: 0x00034384
-    private static void nnInterpolateLinearF1(AppMain.NNS_MOTION_KEY_Class1[] vk, int nKey, float frame, out float val)
+    public static void nnInterpolateLinearF1(AppMain.NNS_MOTION_KEY_Class1[] vk, int nKey, float frame, out float val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7593,7 +7593,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600061E RID: 1566 RVA: 0x00036230 File Offset: 0x00034430
-    private static void nnInterpolateLinearF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, AppMain.NNS_VECTOR val)
+    public static void nnInterpolateLinearF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, NNS_VECTOR val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7625,7 +7625,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600061F RID: 1567 RVA: 0x0003634C File Offset: 0x0003454C
-    private static void nnInterpolateLinearF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, out AppMain.SNNS_VECTOR val)
+    public static void nnInterpolateLinearF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, out SNNS_VECTOR val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7657,7 +7657,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000620 RID: 1568 RVA: 0x00036468 File Offset: 0x00034668
-    private static void nnInterpolateLinearF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, ref AppMain.NNS_RGBA val)
+    public static void nnInterpolateLinearF3(AppMain.NNS_MOTION_KEY_Class5[] vk, int nKey, float frame, ref NNS_RGBA val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7689,7 +7689,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000621 RID: 1569 RVA: 0x00036580 File Offset: 0x00034780
-    private static void nnInterpolateLinearA32_1(AppMain.NNS_MOTION_KEY_Class8[] vk, int nKey, float frame, out int val)
+    public static void nnInterpolateLinearA32_1(AppMain.NNS_MOTION_KEY_Class8[] vk, int nKey, float frame, out int val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7717,7 +7717,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000622 RID: 1570 RVA: 0x00036630 File Offset: 0x00034830
-    private static void nnInterpolateLinearA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref AppMain.NNS_ROTATE_A32 val)
+    public static void nnInterpolateLinearA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref NNS_ROTATE_A32 val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7747,7 +7747,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000623 RID: 1571 RVA: 0x0003676C File Offset: 0x0003496C
-    private static void nnInterpolateLinearA16_1(AppMain.NNS_MOTION_KEY_Class14[] vk, int nKey, float frame, out short val)
+    public static void nnInterpolateLinearA16_1(AppMain.NNS_MOTION_KEY_Class14[] vk, int nKey, float frame, out short val)
     {
         short num = (short)frame;
         uint num2 = 0U;
@@ -7776,7 +7776,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000624 RID: 1572 RVA: 0x00036818 File Offset: 0x00034A18
-    private static void nnInterpolateLinearA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref AppMain.NNS_ROTATE_A16 val)
+    public static void nnInterpolateLinearA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref NNS_ROTATE_A16 val)
     {
         short num = (short)frame;
         uint num2 = 0U;
@@ -7809,7 +7809,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000625 RID: 1573 RVA: 0x0003699C File Offset: 0x00034B9C
-    private static float nnSolveBezier(float f0, float h0, float f1, float h1, float frame)
+    public static float nnSolveBezier(float f0, float h0, float f1, float h1, float frame)
     {
         float num = h1 - h0;
         float num2 = f1 - f0 + num;
@@ -7834,7 +7834,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000626 RID: 1574 RVA: 0x00036A34 File Offset: 0x00034C34
-    private static void nnInterpolateBezierF1(AppMain.NNS_MOTION_KEY_Class2[] vk, int nKey, float frame, out float val)
+    public static void nnInterpolateBezierF1(AppMain.NNS_MOTION_KEY_Class2[] vk, int nKey, float frame, out float val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7872,7 +7872,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000627 RID: 1575 RVA: 0x00036B3C File Offset: 0x00034D3C
-    private static void nnInterpolateBezierA32_1(AppMain.NNS_MOTION_KEY_Class9[] vk, int nKey, float frame, out int val)
+    public static void nnInterpolateBezierA32_1(AppMain.NNS_MOTION_KEY_Class9[] vk, int nKey, float frame, out int val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -7910,7 +7910,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000628 RID: 1576 RVA: 0x00036C7C File Offset: 0x00034E7C
-    private static void nnRotXYZtoQuat(ref AppMain.NNS_QUATERNION dst, int rx, int ry, int rz, uint rtype)
+    public static void nnRotXYZtoQuat(ref NNS_QUATERNION dst, int rx, int ry, int rz, uint rtype)
     {
         if (rtype == 256U)
         {
@@ -7926,10 +7926,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000629 RID: 1577 RVA: 0x00036CBC File Offset: 0x00034EBC
-    private static void nnInterpolateLerpA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val, uint rtype)
+    public static void nnInterpolateLerpA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref NNS_QUATERNION val, uint rtype)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
         short num = (short)frame;
         uint num2 = 0U;
         uint num3 = (uint)nKey;
@@ -7959,10 +7959,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600062A RID: 1578 RVA: 0x00036E10 File Offset: 0x00035010
-    private static void nnInterpolateLerpA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val, uint rtype)
+    public static void nnInterpolateLerpA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref NNS_QUATERNION val, uint rtype)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
         uint num = 0U;
         uint num2 = (uint)nKey;
         while (num2 - num > 1U)
@@ -7991,10 +7991,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600062B RID: 1579 RVA: 0x00036F5C File Offset: 0x0003515C
-    private static void nnInterpolateLerpQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val)
+    public static void nnInterpolateLerpQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref NNS_QUATERNION val)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
         uint num = 0U;
         uint num2 = (uint)nKey;
         while (num2 - num > 1U)
@@ -8023,10 +8023,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600062C RID: 1580 RVA: 0x00037020 File Offset: 0x00035220
-    private static void nnInterpolateSlerpA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val, uint rtype)
+    public static void nnInterpolateSlerpA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref NNS_QUATERNION val, uint rtype)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
         short num = (short)frame;
         uint num2 = 0U;
         uint num3 = (uint)nKey;
@@ -8056,10 +8056,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600062D RID: 1581 RVA: 0x00037174 File Offset: 0x00035374
-    private static void nnInterpolateSlerpA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val, uint rtype)
+    public static void nnInterpolateSlerpA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref NNS_QUATERNION val, uint rtype)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
         uint num = 0U;
         uint num2 = (uint)nKey;
         while (num2 - num > 1U)
@@ -8088,10 +8088,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600062E RID: 1582 RVA: 0x000372C0 File Offset: 0x000354C0
-    private static void nnInterpolateSlerpQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val)
+    public static void nnInterpolateSlerpQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref NNS_QUATERNION val)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
         uint num = 0U;
         uint num2 = (uint)nKey;
         while (num2 - num > 1U)
@@ -8120,14 +8120,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600062F RID: 1583 RVA: 0x00037384 File Offset: 0x00035584
-    private static void nnInterpolateSquadA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val, uint rtype)
+    public static void nnInterpolateSquadA16_3(AppMain.NNS_MOTION_KEY_Class16[] vk, int nKey, float frame, ref NNS_QUATERNION val, uint rtype)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION3 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION4 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION5 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION6 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION3 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION4 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION5 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION6 = default(NNS_QUATERNION);
         short num = (short)frame;
         uint num2 = 0U;
         uint num3 = (uint)nKey;
@@ -8168,14 +8168,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000630 RID: 1584 RVA: 0x000375B8 File Offset: 0x000357B8
-    private static void nnInterpolateSquadA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val, uint rtype)
+    public static void nnInterpolateSquadA32_3(AppMain.NNS_MOTION_KEY_Class13[] vk, int nKey, float frame, ref NNS_QUATERNION val, uint rtype)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION3 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION4 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION5 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION6 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION3 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION4 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION5 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION6 = default(NNS_QUATERNION);
         uint num = 0U;
         uint num2 = (uint)nKey;
         while (num2 - num > 1U)
@@ -8215,14 +8215,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000631 RID: 1585 RVA: 0x000377E4 File Offset: 0x000359E4
-    private static void nnInterpolateSquadQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val)
+    public static void nnInterpolateSquadQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref NNS_QUATERNION val)
     {
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION3 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION4 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION5 = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION6 = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION3 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION4 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION5 = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION6 = default(NNS_QUATERNION);
         uint num = 0U;
         uint num2 = (uint)nKey;
         while (num2 - num > 1U)
@@ -8262,7 +8262,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000632 RID: 1586 RVA: 0x0003792C File Offset: 0x00035B2C
-    private static void nnInterpolateConstantQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref AppMain.NNS_QUATERNION val)
+    public static void nnInterpolateConstantQuat_4(AppMain.NNS_MOTION_KEY_Class7[] vk, int nKey, float frame, ref NNS_QUATERNION val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8286,7 +8286,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000633 RID: 1587 RVA: 0x000379A8 File Offset: 0x00035BA8
-    private static void nnInterpolateSISplineF1(AppMain.NNS_MOTION_KEY_Class3[] vk, int nKey, float frame, out float val)
+    public static void nnInterpolateSISplineF1(AppMain.NNS_MOTION_KEY_Class3[] vk, int nKey, float frame, out float val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8319,7 +8319,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000634 RID: 1588 RVA: 0x00037AE0 File Offset: 0x00035CE0
-    private static void nnInterpolateSISplineA32_1(AppMain.NNS_MOTION_KEY_Class10[] vk, int nKey, float frame, out int val)
+    public static void nnInterpolateSISplineA32_1(AppMain.NNS_MOTION_KEY_Class10[] vk, int nKey, float frame, out int val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8352,7 +8352,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000635 RID: 1589 RVA: 0x00037C14 File Offset: 0x00035E14
-    private static void nnInterpolateSISplineA16_1(AppMain.NNS_MOTION_KEY_Class15[] vk, int nKey, float frame, out short val)
+    public static void nnInterpolateSISplineA16_1(AppMain.NNS_MOTION_KEY_Class15[] vk, int nKey, float frame, out short val)
     {
         short num = (short)frame;
         uint num2 = 0U;
@@ -8386,7 +8386,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000636 RID: 1590 RVA: 0x00037D50 File Offset: 0x00035F50
-    private static void nnInterpolateConstantU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, out uint val)
+    public static void nnInterpolateConstantU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, out uint val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8407,7 +8407,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000637 RID: 1591 RVA: 0x00037D90 File Offset: 0x00035F90
-    private static void nnInterpolateLinearU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, out uint val)
+    public static void nnInterpolateLinearU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, out uint val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8435,7 +8435,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000638 RID: 1592 RVA: 0x00037E3C File Offset: 0x0003603C
-    private static int nnInterpolateTriggerU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, out uint val)
+    public static int nnInterpolateTriggerU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, out uint val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8462,7 +8462,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000639 RID: 1593 RVA: 0x00037E90 File Offset: 0x00036090
-    private static void nnSearchTriggerU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, float interval, AppMain.NNS_NODEUSRMOT_CALLBACK_FUNC func, AppMain.NNS_NODEUSRMOT_CALLBACK_VAL val)
+    public static void nnSearchTriggerU1(AppMain.NNS_MOTION_KEY_Class12[] vk, int nKey, float frame, float interval, AppMain.NNS_NODEUSRMOT_CALLBACK_FUNC func, AppMain.NNS_NODEUSRMOT_CALLBACK_VAL val)
     {
         if (nKey == 0)
         {
@@ -8551,7 +8551,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600063A RID: 1594 RVA: 0x00038020 File Offset: 0x00036220
-    private static void nnInterpolateConstantS32_1(AppMain.NNS_MOTION_KEY_Class11[] vk, int nKey, float frame, out int val)
+    public static void nnInterpolateConstantS32_1(AppMain.NNS_MOTION_KEY_Class11[] vk, int nKey, float frame, out int val)
     {
         short num = (short)frame;
         uint num2 = 0U;
@@ -8573,7 +8573,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600063B RID: 1595 RVA: 0x00038064 File Offset: 0x00036264
-    private static void nnInterpolateConstantF2(AppMain.NNS_MOTION_KEY_Class4[] vk, int nKey, float frame, out AppMain.NNS_TEXCOORD val)
+    public static void nnInterpolateConstantF2(AppMain.NNS_MOTION_KEY_Class4[] vk, int nKey, float frame, out NNS_TEXCOORD val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8595,7 +8595,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600063C RID: 1596 RVA: 0x000380BC File Offset: 0x000362BC
-    private static void nnInterpolateLinearF2(AppMain.NNS_MOTION_KEY_Class4[] vk, int nKey, float frame, out AppMain.NNS_TEXCOORD val)
+    public static void nnInterpolateLinearF2(AppMain.NNS_MOTION_KEY_Class4[] vk, int nKey, float frame, out NNS_TEXCOORD val)
     {
         uint num = 0U;
         uint num2 = (uint)nKey;
@@ -8626,187 +8626,187 @@ public partial class AppMain
     }
 
     // Token: 0x06000729 RID: 1833 RVA: 0x0003FB2B File Offset: 0x0003DD2B
-    private static void nnCalc1BoneSIIK(AppMain.NNS_MATRIX jnt1mtx, AppMain.NNS_MATRIX jnt1motmtx, AppMain.NNS_MATRIX effmtx, float lbone1)
+    public static void nnCalc1BoneSIIK(NNS_MATRIX jnt1mtx, NNS_MATRIX jnt1motmtx, NNS_MATRIX effmtx, float lbone1)
     {
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600072A RID: 1834 RVA: 0x0003FB3E File Offset: 0x0003DD3E
-    private static void nnCalc2BoneSIIK(AppMain.NNS_MATRIX jnt1mtx, AppMain.NNS_MATRIX jnt1motmtx, AppMain.NNS_MATRIX jnt2mtx, AppMain.NNS_MATRIX jnt2motmtx, AppMain.NNS_MATRIX effmtx, float lbone1, float lbone2, int zpref)
+    public static void nnCalc2BoneSIIK(NNS_MATRIX jnt1mtx, NNS_MATRIX jnt1motmtx, NNS_MATRIX jnt2mtx, NNS_MATRIX jnt2motmtx, NNS_MATRIX effmtx, float lbone1, float lbone2, int zpref)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600072B RID: 1835 RVA: 0x0003FB45 File Offset: 0x0003DD45
-    private void nnAdjustMatrixXaxis(AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTORFAST pos)
+    public void nnAdjustMatrixXaxis(NNS_MATRIX mtx, NNS_VECTORFAST pos)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600072C RID: 1836 RVA: 0x0003FB4C File Offset: 0x0003DD4C
-    private void nnCalcCosineTheorem(out float sin, out float cos, float a, float b, float c)
+    public void nnCalcCosineTheorem(out float sin, out float cos, float a, float b, float c)
     {
         AppMain.mppAssertNotImpl();
         sin = (cos = 0f);
     }
 
     // Token: 0x0600072D RID: 1837 RVA: 0x0003FB6C File Offset: 0x0003DD6C
-    private void nnCalcCosineTheorem2(out float sin0, out float cos0, out float sin1, out float cos1, float a, float b, float c)
+    public void nnCalcCosineTheorem2(out float sin0, out float cos0, out float sin1, out float cos1, float a, float b, float c)
     {
         AppMain.mppAssertNotImpl();
         sin0 = (cos0 = (sin1 = (cos1 = 0f)));
     }
 
     // Token: 0x0600072E RID: 1838 RVA: 0x0003FB95 File Offset: 0x0003DD95
-    private void nnCalcNodeStatusListInitialPose(uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, uint flag)
+    public void nnCalcNodeStatusListInitialPose(uint[] nodestatlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600072F RID: 1839 RVA: 0x0003FB9C File Offset: 0x0003DD9C
-    private static void nnmSetUpVector(AppMain.NNS_VECTOR vec, float x, float y, float z)
+    public static void nnmSetUpVector(NNS_VECTOR vec, float x, float y, float z)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000730 RID: 1840 RVA: 0x0003FBA3 File Offset: 0x0003DDA3
-    private static void nnmAddScaleVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR add, float scl)
+    public static void nnmAddScaleVector(NNS_VECTOR dst, NNS_VECTOR add, float scl)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000731 RID: 1841 RVA: 0x0003FBAA File Offset: 0x0003DDAA
-    private static void nnmBlendVector(AppMain.NNS_VECTOR dst, AppMain.NNS_VECTOR vec1, float blend1, AppMain.NNS_VECTOR vec2, float blend2)
+    public static void nnmBlendVector(NNS_VECTOR dst, NNS_VECTOR vec1, float blend1, NNS_VECTOR vec2, float blend2)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000732 RID: 1842 RVA: 0x0003FBB1 File Offset: 0x0003DDB1
-    private static void nnmTransformVector(AppMain.NNS_VECTOR dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR src)
+    public static void nnmTransformVector(NNS_VECTOR dst, NNS_MATRIX mtx, NNS_VECTOR src)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000733 RID: 1843 RVA: 0x0003FBB8 File Offset: 0x0003DDB8
-    private static void nnmTransformNormalVector(AppMain.NNS_VECTOR dst, AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR src)
+    public static void nnmTransformNormalVector(NNS_VECTOR dst, NNS_MATRIX mtx, NNS_VECTOR src)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000734 RID: 1844 RVA: 0x0003FBBF File Offset: 0x0003DDBF
-    private static void nnCalcPliablePosNrm(object pPliablePositions, object pPliableNormals, int nVtx, object pObjPositions, uint PosType, object pObjNormals, uint NrmType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, AppMain.NNS_MATRIX[] posmtx, AppMain.NNS_MATRIX[] nrmmtx)
+    public static void nnCalcPliablePosNrm(object pPliablePositions, object pPliableNormals, int nVtx, object pObjPositions, uint PosType, object pObjNormals, uint NrmType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, NNS_MATRIX[] posmtx, NNS_MATRIX[] nrmmtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000735 RID: 1845 RVA: 0x0003FBC6 File Offset: 0x0003DDC6
-    private static void nnCalcPliableObjectSpaceNormal(object pPliablePositions, object pPliableNormals, object pPliableTangents, object pPliableBinormals, int nVtx, object pObjPositions, uint PosType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, AppMain.NNS_MATRIX[] posmtx, AppMain.NNS_MATRIX[] nrmmtx)
+    public static void nnCalcPliableObjectSpaceNormal(object pPliablePositions, object pPliableNormals, object pPliableTangents, object pPliableBinormals, int nVtx, object pObjPositions, uint PosType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, NNS_MATRIX[] posmtx, NNS_MATRIX[] nrmmtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000736 RID: 1846 RVA: 0x0003FBCD File Offset: 0x0003DDCD
-    private static void nnCalcPliableTangentSpaceNormal(object pPliablePositions, object pPliableNormals, object pPliableTangents, object pPliableBinormals, int nVtx, object pObjPositions, uint PosType, object pObjNormals, uint NrmType, object pObjTangents, uint TanType, object pObjBinormals, uint BnrmType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, AppMain.NNS_MATRIX[] posmtx, AppMain.NNS_MATRIX[] nrmmtx)
+    public static void nnCalcPliableTangentSpaceNormal(object pPliablePositions, object pPliableNormals, object pPliableTangents, object pPliableBinormals, int nVtx, object pObjPositions, uint PosType, object pObjNormals, uint NrmType, object pObjTangents, uint TanType, object pObjBinormals, uint BnrmType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, NNS_MATRIX[] posmtx, NNS_MATRIX[] nrmmtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000737 RID: 1847 RVA: 0x0003FBD4 File Offset: 0x0003DDD4
-    private static void nnCalcPliableVerticesGeneral(object pPliablePositions, object pPliableNormals, object pPliableTangents, object pPliableBinormals, int nVtx, object pObjPositions, uint PosType, object pObjNormals, uint NrmType, object pObjTangents, uint TanType, object pObjBinormals, uint BnrmType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, AppMain.NNS_MATRIX[] posmtx, AppMain.NNS_MATRIX[] nrmmtx)
+    public static void nnCalcPliableVerticesGeneral(object pPliablePositions, object pPliableNormals, object pPliableTangents, object pPliableBinormals, int nVtx, object pObjPositions, uint PosType, object pObjNormals, uint NrmType, object pObjTangents, uint TanType, object pObjBinormals, uint BnrmType, object pWeights, int nWeight, object pMtxIndices, int nMtxIdx, NNS_MATRIX[] posmtx, NNS_MATRIX[] nrmmtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000738 RID: 1848 RVA: 0x0003FBDB File Offset: 0x0003DDDB
-    private void nnCalcPliableObject(AppMain.NNS_PLIABLEOBJ pobj, AppMain.NNS_MATRIX mtxpal, uint flag)
+    public void nnCalcPliableObject(AppMain.NNS_PLIABLEOBJ pobj, NNS_MATRIX mtxpal, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000739 RID: 1849 RVA: 0x0003FBE2 File Offset: 0x0003DDE2
-    private void nnCalcPliableObjectNodeStatusList(AppMain.NNS_PLIABLEOBJ pobj, AppMain.NNS_MATRIX mtxpal, uint nodestatlist, uint flag)
+    public void nnCalcPliableObjectNodeStatusList(AppMain.NNS_PLIABLEOBJ pobj, NNS_MATRIX mtxpal, uint nodestatlist, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600073A RID: 1850 RVA: 0x0003FBE9 File Offset: 0x0003DDE9
-    private void nnTransformUpVectorCameraLocal(AppMain.NNS_VECTOR vec, AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float x, float y, float z)
+    public void nnTransformUpVectorCameraLocal(NNS_VECTOR vec, AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float x, float y, float z)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600073B RID: 1851 RVA: 0x0003FBF0 File Offset: 0x0003DDF0
-    private void nnPitchUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int pitch)
+    public void nnPitchUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int pitch)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600073C RID: 1852 RVA: 0x0003FBF7 File Offset: 0x0003DDF7
-    private void nnRollUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int roll)
+    public void nnRollUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int roll)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600073D RID: 1853 RVA: 0x0003FBFE File Offset: 0x0003DDFE
-    private void nnYawUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int yaw)
+    public void nnYawUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int yaw)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600073E RID: 1854 RVA: 0x0003FC05 File Offset: 0x0003DE05
-    private void nnApproachTargetUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float d)
+    public void nnApproachTargetUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float d)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600073F RID: 1855 RVA: 0x0003FC0C File Offset: 0x0003DE0C
-    private void nnApproachTargetUpVectorCameraLevel(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float d)
+    public void nnApproachTargetUpVectorCameraLevel(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float d)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000740 RID: 1856 RVA: 0x0003FC13 File Offset: 0x0003DE13
-    private void nnMoveTargetUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float d)
+    public void nnMoveTargetUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float d)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000741 RID: 1857 RVA: 0x0003FC1A File Offset: 0x0003DE1A
-    private void nnRotateUpVectorCameraAroundTargetH(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int ang)
+    public void nnRotateUpVectorCameraAroundTargetH(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int ang)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000742 RID: 1858 RVA: 0x0003FC21 File Offset: 0x0003DE21
-    private void nnRotateUpVectorCameraAroundTargetV(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int ang)
+    public void nnRotateUpVectorCameraAroundTargetV(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int ang)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000743 RID: 1859 RVA: 0x0003FC28 File Offset: 0x0003DE28
-    private void nnRotateUpVectorCameraLevelAroundTarget(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int ang)
+    public void nnRotateUpVectorCameraLevelAroundTarget(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, int ang)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000744 RID: 1860 RVA: 0x0003FC2F File Offset: 0x0003DE2F
-    private void nnMoveUpVectorCameraLocal(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float x, float y, float z)
+    public void nnMoveUpVectorCameraLocal(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, float x, float y, float z)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000745 RID: 1861 RVA: 0x0003FC36 File Offset: 0x0003DE36
-    private void nnConvertCameraPointerUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, AppMain.NNS_CAMERAPTR camptr)
+    public void nnConvertCameraPointerUpVectorCamera(AppMain.NNS_CAMERA_TARGET_UPVECTOR cam, AppMain.NNS_CAMERAPTR camptr)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007E9 RID: 2025 RVA: 0x000452DC File Offset: 0x000434DC
-    private void nnInitCircumsphere()
+    public void nnInitCircumsphere()
     {
-        AppMain.ArrayPointer<AppMain.NNS_VECTOR> pointer = new AppMain.ArrayPointer<AppMain.NNS_VECTOR>(this.nngCircumPoint);
+        AppMain.ArrayPointer<NNS_VECTOR> pointer = new AppMain.ArrayPointer<NNS_VECTOR>(this.nngCircumPoint);
         float num = 0f;
         float num2 = 0f;
         float num3 = 0f;
@@ -8855,106 +8855,106 @@ public partial class AppMain
     }
 
     // Token: 0x060007EA RID: 2026 RVA: 0x000454C7 File Offset: 0x000436C7
-    private AppMain.NNE_CIRCUM_COL nnEstCircumColNum(uint clipstat)
+    public AppMain.NNE_CIRCUM_COL nnEstCircumColNum(uint clipstat)
     {
         AppMain.mppAssertNotImpl();
         return AppMain.NNE_CIRCUM_COL.NNE_CIRCUM_COL_NONE;
     }
 
     // Token: 0x060007EB RID: 2027 RVA: 0x000454CF File Offset: 0x000436CF
-    private void nnSetCircumsphereColor(uint dstflag, AppMain.NNE_CIRCUM_COL colnum, ref AppMain.NNS_RGBA col)
+    public void nnSetCircumsphereColor(uint dstflag, AppMain.NNE_CIRCUM_COL colnum, ref NNS_RGBA col)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007EC RID: 2028 RVA: 0x000454D6 File Offset: 0x000436D6
-    private void nnDrawCircumsphereCore(AppMain.NNS_VECTOR center, float radius, AppMain.NNS_MATRIX mtx, ref AppMain.NNS_RGBA col, int trans)
+    public void nnDrawCircumsphereCore(NNS_VECTOR center, float radius, NNS_MATRIX mtx, ref NNS_RGBA col, int trans)
     {
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007ED RID: 2029 RVA: 0x000454E9 File Offset: 0x000436E9
-    private void nnDrawClipBoxCore(AppMain.NNS_VECTOR center, float sx, float sy, float sz, AppMain.NNS_MATRIX mtx, ref AppMain.NNS_RGBA col, int trans)
+    public void nnDrawClipBoxCore(NNS_VECTOR center, float sx, float sy, float sz, NNS_MATRIX mtx, ref NNS_RGBA col, int trans)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007EE RID: 2030 RVA: 0x000454F0 File Offset: 0x000436F0
-    private void nnDrawCircumsphereNode(int nodeIdx, uint hideflag)
+    public void nnDrawCircumsphereNode(int nodeIdx, uint hideflag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007EF RID: 2031 RVA: 0x000454F7 File Offset: 0x000436F7
-    private void nnDrawCircumsphere(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public void nnDrawCircumsphere(AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007F0 RID: 2032 RVA: 0x000454FE File Offset: 0x000436FE
-    private void nnDrawCircumsphereMotionNode(int nodeIdx, uint hideflag)
+    public void nnDrawCircumsphereMotionNode(int nodeIdx, uint hideflag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007F1 RID: 2033 RVA: 0x00045505 File Offset: 0x00043705
-    private void nnDrawCircumsphereMotion(AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public void nnDrawCircumsphereMotion(AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007F2 RID: 2034 RVA: 0x0004550C File Offset: 0x0004370C
-    private void nnDrawCircumsphereTRSListNode(int nodeIdx, uint hideflag)
+    public void nnDrawCircumsphereTRSListNode(int nodeIdx, uint hideflag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007F3 RID: 2035 RVA: 0x00045513 File Offset: 0x00043713
-    private void nnDrawCircumsphereTRSList(AppMain.NNS_OBJECT obj, AppMain.NNS_TRS trslist, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public void nnDrawCircumsphereTRSList(AppMain.NNS_OBJECT obj, AppMain.NNS_TRS trslist, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007F4 RID: 2036 RVA: 0x0004551A File Offset: 0x0004371A
-    private void nnDrawClipSphere(AppMain.NNS_VECTOR center, float radius, AppMain.NNS_MATRIX mtx)
+    public void nnDrawClipSphere(NNS_VECTOR center, float radius, NNS_MATRIX mtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007F5 RID: 2037 RVA: 0x00045521 File Offset: 0x00043721
-    private void nnDrawClipBox(AppMain.NNS_VECTOR center, float sx, float sy, float sz, AppMain.NNS_MATRIX mtx)
+    public void nnDrawClipBox(NNS_VECTOR center, float sx, float sy, float sz, NNS_MATRIX mtx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060007F6 RID: 2038 RVA: 0x00045528 File Offset: 0x00043728
-    private void nnDrawClipBound(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public void nnDrawClipBound(AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         this.nnDrawCircumsphere(obj, basemtx, mstk, flag);
     }
 
     // Token: 0x060007F7 RID: 2039 RVA: 0x00045535 File Offset: 0x00043735
-    private void nnDrawClipBoundMotion(AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public void nnDrawClipBoundMotion(AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         this.nnDrawCircumsphereMotion(obj, mot, frame, basemtx, mstk, flag);
     }
 
     // Token: 0x060007F8 RID: 2040 RVA: 0x00045546 File Offset: 0x00043746
-    private void nnDrawClipBoundTRSList(AppMain.NNS_OBJECT obj, AppMain.NNS_TRS trslist, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public void nnDrawClipBoundTRSList(AppMain.NNS_OBJECT obj, AppMain.NNS_TRS trslist, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         this.nnDrawCircumsphereTRSList(obj, trslist, basemtx, mstk, flag);
     }
 
     // Token: 0x060007F9 RID: 2041 RVA: 0x00045555 File Offset: 0x00043755
-    private void nnSetClipBoundColor(uint dstflag, AppMain.NNE_CIRCUM_COL colnum, ref AppMain.NNS_RGBA col)
+    public void nnSetClipBoundColor(uint dstflag, AppMain.NNE_CIRCUM_COL colnum, ref NNS_RGBA col)
     {
         this.nnSetCircumsphereColor(dstflag, colnum, ref col);
     }
 
     // Token: 0x060007FA RID: 2042 RVA: 0x00045560 File Offset: 0x00043760
-    private void nnCalcTRS(AppMain.NNS_TRS trs, AppMain.NNS_OBJECT obj, int nodeidx)
+    public void nnCalcTRS(AppMain.NNS_TRS trs, AppMain.NNS_OBJECT obj, int nodeidx)
     {
         uint fType = obj.pNodeList[nodeidx].fType;
         trs.Translation.x = obj.pNodeList[nodeidx].Translation.x;
@@ -9061,9 +9061,9 @@ public partial class AppMain
     }
 
     // Token: 0x060007FC RID: 2044 RVA: 0x000458FC File Offset: 0x00043AFC
-    private static int nnCalcNodeMotionTRSCore(out int tflag, out int rflag, out int sflag, AppMain.NNS_VECTOR tv, AppMain.NNS_VECTOR sv, ref AppMain.NNS_QUATERNION rq, ref AppMain.NNS_QUATERNION invrq, bool need_invrq, AppMain.NNS_NODE pNode, int NodeIdx, AppMain.NNS_MOTION pMot, int SubMotIdx, float frame)
+    public static int nnCalcNodeMotionTRSCore(out int tflag, out int rflag, out int sflag, NNS_VECTOR tv, NNS_VECTOR sv, ref NNS_QUATERNION rq, ref NNS_QUATERNION invrq, bool need_invrq, AppMain.NNS_NODE pNode, int NodeIdx, AppMain.NNS_MOTION pMot, int SubMotIdx, float frame)
     {
-        AppMain.NNS_ROTATE_A32 nns_ROTATE_A = default(AppMain.NNS_ROTATE_A32);
+        NNS_ROTATE_A32 nns_ROTATE_A = default(NNS_ROTATE_A32);
         uint fType = pNode.fType;
         uint num = fType & 3840U;
         tv.Assign(pNode.Translation);
@@ -9172,9 +9172,9 @@ public partial class AppMain
     }
 
     // Token: 0x060007FD RID: 2045 RVA: 0x00045C3C File Offset: 0x00043E3C
-    private void nnCalcTRSMotion(AppMain.NNS_TRS trs, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcTRSMotion(AppMain.NNS_TRS trs, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.NNS_MOTION mot, float frame)
     {
-        AppMain.NNS_QUATERNION rotation = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION rotation = default(NNS_QUATERNION);
         if ((mot.fType & 1U) == 0U)
         {
             return;
@@ -9186,11 +9186,11 @@ public partial class AppMain
             return;
         }
         AppMain.NNS_NODE pNode = obj.pNodeList[nodeidx];
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
+        NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
         nns_VECTOR.Clear();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
+        NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
         nns_VECTOR2.Clear();
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
         int num;
         int num2;
         int num3;
@@ -9207,7 +9207,7 @@ public partial class AppMain
     // Token: 0x060007FE RID: 2046 RVA: 0x00045D50 File Offset: 0x00043F50
     public static void nnCalcTRSListMotion(AppMain.NNS_TRS[] trslist, int offset, AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame)
     {
-        AppMain.NNS_QUATERNION rotation = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION rotation = default(NNS_QUATERNION);
         if ((mot.fType & 1U) == 0U)
         {
             return;
@@ -9218,10 +9218,10 @@ public partial class AppMain
             return;
         }
         AppMain.nncalctrsmotion.nnsObj = obj;
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
         nns_VECTOR.Clear();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
+        NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
         nns_VECTOR2.Clear();
         int subMotIdx = 0;
         for (int i = 0; i < obj.nNode; i++)
@@ -9243,13 +9243,13 @@ public partial class AppMain
     }
 
     // Token: 0x060007FF RID: 2047 RVA: 0x00045E94 File Offset: 0x00044094
-    private static void nnCalcMatrixPaletteTRSListNode(int nodeIdx)
+    public static void nnCalcMatrixPaletteTRSListNode(int nodeIdx)
     {
         for (; ; )
         {
             AppMain.NNS_NODE nns_NODE = AppMain.nncalctrsmotion.nnsNodeList[nodeIdx];
             AppMain.NNS_TRS nns_TRS = AppMain.nncalctrsmotion.nnsTrsList[nodeIdx];
-            AppMain.NNS_MATRIX nns_MATRIX;
+            NNS_MATRIX nns_MATRIX;
             if ((nns_NODE.fType & 134217728U) != 0U)
             {
                 if ((nns_NODE.fType & 100663296U) == 0U)
@@ -9372,7 +9372,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000800 RID: 2048 RVA: 0x000461C0 File Offset: 0x000443C0
-    private static void nnCalcMatrixPaletteTRSList(AppMain.NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, ref AppMain.SNNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public static void nnCalcMatrixPaletteTRSList(NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, ref SNNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         AppMain.nncalctrsmotion.nnsBaseMtx.Assign(ref basemtx);
         AppMain.nnSetCurrentMatrix(mstk, AppMain.nncalctrsmotion.nnsBaseMtx);
@@ -9386,7 +9386,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000801 RID: 2049 RVA: 0x00046218 File Offset: 0x00044418
-    private static void nnCalcMatrixPaletteTRSList(AppMain.NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public static void nnCalcMatrixPaletteTRSList(NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         if (basemtx != null)
         {
@@ -9425,14 +9425,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000803 RID: 2051 RVA: 0x0004641C File Offset: 0x0004461C
-    private void nnBlendMotion(AppMain.ArrayPointer<AppMain.NNS_TRS> _dstpose, AppMain.ArrayPointer<AppMain.NNS_TRS> _srcpose, AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNE_MOTIONBLEND blendmode)
+    public void nnBlendMotion(AppMain.ArrayPointer<AppMain.NNS_TRS> _dstpose, AppMain.ArrayPointer<AppMain.NNS_TRS> _srcpose, AppMain.NNS_OBJECT obj, AppMain.NNS_MOTION mot, float frame, AppMain.NNE_MOTIONBLEND blendmode)
     {
         if ((mot.fType & 1U) == 0U)
         {
             return;
         }
-        AppMain.NNS_QUATERNION rotation = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
+        NNS_QUATERNION rotation = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
         AppMain.ArrayPointer<AppMain.NNS_TRS> pointer = _dstpose.Clone();
         AppMain.ArrayPointer<AppMain.NNS_TRS> pointer2 = _srcpose.Clone();
         if (AppMain.nnCalcMotionFrame(out frame, mot.fType, mot.StartFrame, mot.EndFrame, frame) == 0)
@@ -9448,9 +9448,9 @@ public partial class AppMain
         }
         int subMotIdx = 0;
         AppMain.ArrayPointer<AppMain.NNS_NODE> pointer3 = obj.pNodeList;
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
+        NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
         nns_VECTOR.Clear();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
+        NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
         nns_VECTOR2.Clear();
         for (int j = 0; j < obj.nNode; j++)
         {
@@ -9535,7 +9535,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000804 RID: 2052 RVA: 0x000469F0 File Offset: 0x00044BF0
-    private void nnBlendMotionNode(AppMain.NNS_TRS dsttrs, AppMain.NNS_TRS srctrs, AppMain.NNS_OBJECT obj, int inode, AppMain.NNS_MOTION mot, float frame, AppMain.NNE_MOTIONBLEND blendmode)
+    public void nnBlendMotionNode(AppMain.NNS_TRS dsttrs, AppMain.NNS_TRS srctrs, AppMain.NNS_OBJECT obj, int inode, AppMain.NNS_MOTION mot, float frame, AppMain.NNE_MOTIONBLEND blendmode)
     {
         if ((mot.fType & 1U) == 0U)
         {
@@ -9549,11 +9549,11 @@ public partial class AppMain
             }
             return;
         }
-        AppMain.NNS_QUATERNION rotation = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
+        NNS_QUATERNION rotation = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
+        NNS_VECTOR nns_VECTOR = AppMain.nnCalcTRSMotion_tv;
         nns_VECTOR.Clear();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
+        NNS_VECTOR nns_VECTOR2 = AppMain.nnCalcTRSMotion_sv;
         nns_VECTOR2.Clear();
         AppMain.NNS_NODE nns_NODE = obj.pNodeList[inode];
         int num;
@@ -9629,44 +9629,44 @@ public partial class AppMain
     }
 
     // Token: 0x06000805 RID: 2053 RVA: 0x00046DCD File Offset: 0x00044FCD
-    private void nnCalcMatrixTRSList1BoneSIIK(AppMain.NNS_MATRIX jnt1mtx, AppMain.NNS_MATRIX effmtx, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, AppMain.NNS_MATRIX basemtx, int jnt1idx)
+    public void nnCalcMatrixTRSList1BoneSIIK(NNS_MATRIX jnt1mtx, NNS_MATRIX effmtx, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, NNS_MATRIX basemtx, int jnt1idx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000806 RID: 2054 RVA: 0x00046DD4 File Offset: 0x00044FD4
-    private void nnCalcMatrixTRSList2BoneSIIK(AppMain.NNS_MATRIX jnt1mtx, AppMain.NNS_MATRIX jnt2mtx, AppMain.NNS_MATRIX effmtx, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, AppMain.NNS_MATRIX basemtx, int jnt1idx)
+    public void nnCalcMatrixTRSList2BoneSIIK(NNS_MATRIX jnt1mtx, NNS_MATRIX jnt2mtx, NNS_MATRIX effmtx, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, NNS_MATRIX basemtx, int jnt1idx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000807 RID: 2055 RVA: 0x00046DDB File Offset: 0x00044FDB
-    private static void nnCalcMatrixPaletteTRSListNode1BoneSIIK(int jnt1nodeIdx)
+    public static void nnCalcMatrixPaletteTRSListNode1BoneSIIK(int jnt1nodeIdx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000808 RID: 2056 RVA: 0x00046DE2 File Offset: 0x00044FE2
-    private static void nnCalcMatrixPaletteTRSListNode2BoneSIIK(int jnt1nodeIdx)
+    public static void nnCalcMatrixPaletteTRSListNode2BoneSIIK(int jnt1nodeIdx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000809 RID: 2057 RVA: 0x00046DEC File Offset: 0x00044FEC
-    private void nnCalcMatrixPaletteLinkMotionNode(int nodeIdx)
+    public void nnCalcMatrixPaletteLinkMotionNode(int nodeIdx)
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR4 = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_QUATERNION rotation = default(AppMain.NNS_QUATERNION);
-        AppMain.NNS_QUATERNION nns_QUATERNION = default(AppMain.NNS_QUATERNION);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR4 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_QUATERNION rotation = default(NNS_QUATERNION);
+        NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
         AppMain.NNS_TRS nns_TRS = new AppMain.NNS_TRS();
         AppMain.NNS_NODE nns_NODE;
         do
         {
             nns_NODE = AppMain.nncalctrsmotion.nnsNodeList[nodeIdx];
-            AppMain.NNS_QUATERNION nns_QUATERNION2 = default(AppMain.NNS_QUATERNION);
+            NNS_QUATERNION nns_QUATERNION2 = default(NNS_QUATERNION);
             int num;
             int num2;
             int num3;
@@ -9677,7 +9677,7 @@ public partial class AppMain
             AppMain.nncalctrsmotion.nnsSubMotIdx1 = AppMain.nnCalcNodeMotionTRSCore(out num4, out num5, out num6, nns_VECTOR3, nns_VECTOR4, ref nns_QUATERNION, ref nns_QUATERNION2, false, nns_NODE, nodeIdx, AppMain.nncalctrsmotion.nnsMot1, AppMain.nncalctrsmotion.nnsSubMotIdx1, AppMain.nncalctrsmotion.nnsFrame1);
             float num7 = 1f - AppMain.nncalctrsmotion.nnsRatio;
             AppMain.nnPushMatrix(AppMain.nncalctrsmotion.nnsMstk, null);
-            AppMain.NNS_MATRIX nns_MATRIX = AppMain.nnGetCurrentMatrix(AppMain.nncalctrsmotion.nnsMstk);
+            NNS_MATRIX nns_MATRIX = AppMain.nnGetCurrentMatrix(AppMain.nncalctrsmotion.nnsMstk);
             if ((num | num4) != 0)
             {
                 nns_TRS.Translation.x = nns_VECTOR.x * num7 + nns_VECTOR3.x * AppMain.nncalctrsmotion.nnsRatio;
@@ -9755,22 +9755,22 @@ public partial class AppMain
             nodeIdx = (int)nns_NODE.iSibling;
         }
         while (nns_NODE.iSibling != -1);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR3);
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR4);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR4);
     }
 
     // Token: 0x0600080A RID: 2058 RVA: 0x000471AC File Offset: 0x000453AC
-    private void nnCalcMatrixTRSList1BoneXSIIK(AppMain.NNS_MATRIX[] mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, AppMain.NNS_MATRIX basemtx, int rootidx)
+    public void nnCalcMatrixTRSList1BoneXSIIK(NNS_MATRIX[] mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, NNS_MATRIX basemtx, int rootidx)
     {
         int num = -1;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         int num2 = -1;
-        AppMain.NNS_VECTORFAST nns_VECTORFAST = default(AppMain.NNS_VECTORFAST);
+        NNS_VECTORFAST nns_VECTORFAST = default(NNS_VECTORFAST);
         AppMain.NNS_NODE[] pNodeList = obj.pNodeList;
         AppMain.NNS_NODE nns_NODE = pNodeList[rootidx];
-        AppMain.NNS_MATRIX src = mtxlist[rootidx];
+        NNS_MATRIX src = mtxlist[rootidx];
         AppMain.NNS_NODE nns_NODE2;
         for (int num3 = (int)nns_NODE.iChild; num3 != -1; num3 = (int)nns_NODE2.iSibling)
         {
@@ -9786,13 +9786,13 @@ public partial class AppMain
         }
         AppMain.NNM_ASSERT(num != -1, "XSIIK 1Bone Joint1 not Found");
         AppMain.NNM_ASSERT(num2 != -1, "XSIIK 1Bone Effector not Found");
-        AppMain.NNS_MATRIX nns_MATRIX2 = nns_MATRIX;
+        NNS_MATRIX nns_MATRIX2 = nns_MATRIX;
         AppMain.NNS_NODE nns_NODE3 = pNodeList[num];
         AppMain.NNS_TRS nns_TRS = trslist[num];
-        AppMain.NNS_MATRIX nns_MATRIX3 = mtxlist[num];
+        NNS_MATRIX nns_MATRIX3 = mtxlist[num];
         AppMain.NNS_NODE nns_NODE4 = pNodeList[num2];
         AppMain.NNS_TRS nns_TRS2 = trslist[num2];
-        AppMain.NNS_MATRIX nns_MATRIX4 = mtxlist[num2];
+        NNS_MATRIX nns_MATRIX4 = mtxlist[num2];
         float siikboneLength = nns_NODE3.SIIKBoneLength;
         AppMain.nnMakeQuaternionMatrix(nns_MATRIX2, ref nns_TRS.Rotation);
         AppMain.nnScaleMatrix(nns_MATRIX2, nns_MATRIX2, nns_TRS.Scaling.x, 1f, 1f);
@@ -9809,17 +9809,17 @@ public partial class AppMain
     }
 
     // Token: 0x0600080B RID: 2059 RVA: 0x00047300 File Offset: 0x00045500
-    private void nnCalcMatrixTRSList2BoneXSIIK(AppMain.NNS_MATRIX[] mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, AppMain.NNS_MATRIX basemtx, int rootidx)
+    public void nnCalcMatrixTRSList2BoneXSIIK(NNS_MATRIX[] mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, NNS_MATRIX basemtx, int rootidx)
     {
         int num = -1;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         int num2 = -1;
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         int num3 = -1;
-        AppMain.NNS_VECTORFAST nns_VECTORFAST = default(AppMain.NNS_VECTORFAST);
+        NNS_VECTORFAST nns_VECTORFAST = default(NNS_VECTORFAST);
         AppMain.NNS_NODE[] pNodeList = obj.pNodeList;
         AppMain.NNS_NODE nns_NODE = pNodeList[rootidx];
-        AppMain.NNS_MATRIX src = mtxlist[rootidx];
+        NNS_MATRIX src = mtxlist[rootidx];
         AppMain.NNS_NODE nns_NODE2;
         for (int num4 = (int)nns_NODE.iChild; num4 != -1; num4 = (int)nns_NODE2.iSibling)
         {
@@ -9839,15 +9839,15 @@ public partial class AppMain
         AppMain.NNM_ASSERT(num3 != -1, "XSIIK 2Bone Effector not Found");
         AppMain.NNS_NODE nns_NODE3 = pNodeList[num];
         AppMain.NNS_TRS nns_TRS = trslist[num];
-        AppMain.NNS_MATRIX nns_MATRIX3 = mtxlist[num];
-        AppMain.NNS_MATRIX nns_MATRIX4 = nns_MATRIX;
+        NNS_MATRIX nns_MATRIX3 = mtxlist[num];
+        NNS_MATRIX nns_MATRIX4 = nns_MATRIX;
         AppMain.NNS_NODE nns_NODE4 = pNodeList[num2];
         AppMain.NNS_TRS nns_TRS2 = trslist[num2];
-        AppMain.NNS_MATRIX jnt2mtx = mtxlist[num2];
-        AppMain.NNS_MATRIX nns_MATRIX5 = nns_MATRIX2;
+        NNS_MATRIX jnt2mtx = mtxlist[num2];
+        NNS_MATRIX nns_MATRIX5 = nns_MATRIX2;
         AppMain.NNS_NODE nns_NODE5 = pNodeList[num3];
         AppMain.NNS_TRS nns_TRS3 = trslist[num3];
-        AppMain.NNS_MATRIX nns_MATRIX6 = mtxlist[num3];
+        NNS_MATRIX nns_MATRIX6 = mtxlist[num3];
         AppMain.nnMakeQuaternionMatrix(nns_MATRIX4, ref nns_TRS.Rotation);
         AppMain.nnScaleMatrix(nns_MATRIX4, nns_MATRIX4, nns_TRS.Scaling.x, 1f, 1f);
         AppMain.nnMakeQuaternionMatrix(nns_MATRIX5, ref nns_TRS2.Rotation);
@@ -9876,18 +9876,18 @@ public partial class AppMain
     }
 
     // Token: 0x0600080C RID: 2060 RVA: 0x000474EC File Offset: 0x000456EC
-    private static void nnCalcMatrixPaletteTRSListNode1BoneXSIIK(int rootidx)
+    public static void nnCalcMatrixPaletteTRSListNode1BoneXSIIK(int rootidx)
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         int num = -1;
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         int num2 = -1;
-        AppMain.NNS_MATRIX nns_MATRIX4 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX5 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_VECTORFAST nns_VECTORFAST = default(AppMain.NNS_VECTORFAST);
+        NNS_MATRIX nns_MATRIX4 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX5 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_VECTORFAST nns_VECTORFAST = default(NNS_VECTORFAST);
         AppMain.NNS_NODE nns_NODE = AppMain.nncalctrsmotion.nnsNodeList[rootidx];
-        AppMain.NNS_MATRIX nns_MATRIX6 = nns_MATRIX;
+        NNS_MATRIX nns_MATRIX6 = nns_MATRIX;
         AppMain.nnCopyMatrix(nns_MATRIX6, AppMain.nnGetCurrentMatrix(AppMain.nncalctrsmotion.nnsMstk));
         AppMain.NNS_NODE nns_NODE2;
         for (int num3 = (int)nns_NODE.iChild; num3 != -1; num3 = (int)nns_NODE2.iSibling)
@@ -9906,10 +9906,10 @@ public partial class AppMain
         AppMain.NNM_ASSERT(num2 != -1, "XSIIK 1Bone Effector not Found");
         AppMain.NNS_NODE nns_NODE3 = AppMain.nncalctrsmotion.nnsNodeList[num];
         AppMain.NNS_TRS nns_TRS = AppMain.nncalctrsmotion.nnsTrsList[num];
-        AppMain.NNS_MATRIX nns_MATRIX7 = nns_MATRIX2;
-        AppMain.NNS_MATRIX nns_MATRIX8 = nns_MATRIX3;
+        NNS_MATRIX nns_MATRIX7 = nns_MATRIX2;
+        NNS_MATRIX nns_MATRIX8 = nns_MATRIX3;
         AppMain.NNS_NODE nns_NODE4 = AppMain.nncalctrsmotion.nnsNodeList[num2];
-        AppMain.NNS_MATRIX nns_MATRIX9 = nns_MATRIX4;
+        NNS_MATRIX nns_MATRIX9 = nns_MATRIX4;
         AppMain.NNS_TRS nns_TRS2 = AppMain.nncalctrsmotion.nnsTrsList[num2];
         float siikboneLength = nns_NODE3.SIIKBoneLength;
         AppMain.nnCopyMatrix(nns_MATRIX7, nns_MATRIX6);
@@ -9970,13 +9970,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600080D RID: 2061 RVA: 0x0004780F File Offset: 0x00045A0F
-    private static void nnCalcMatrixPaletteTRSListNode2BoneXSIIK(int rootidx)
+    public static void nnCalcMatrixPaletteTRSListNode2BoneXSIIK(int rootidx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x060009FB RID: 2555 RVA: 0x00059D14 File Offset: 0x00057F14
-    private static void nnBindBufferVertexDescGL(AppMain.NNS_VTXLIST_GL_DESC pVtxDesc, uint flag)
+    public static void nnBindBufferVertexDescGL(AppMain.NNS_VTXLIST_GL_DESC pVtxDesc, uint flag)
     {
         OpenGL.glGenBuffer(out pVtxDesc.BufferName);
         OpenGL.glBindBuffer(34962U, pVtxDesc.BufferName);
@@ -10017,7 +10017,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009FC RID: 2556 RVA: 0x00059E64 File Offset: 0x00058064
-    private static void nnBindBufferPrimitiveDescGL(AppMain.NNS_PRIMLIST_GL_DESC pPrimDesc, uint flag)
+    public static void nnBindBufferPrimitiveDescGL(AppMain.NNS_PRIMLIST_GL_DESC pPrimDesc, uint flag)
     {
         OpenGL.glGenBuffer(out pPrimDesc.BufferName);
         OpenGL.glBindBuffer(34963U, pPrimDesc.BufferName);
@@ -10029,7 +10029,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009FD RID: 2557 RVA: 0x00059ED8 File Offset: 0x000580D8
-    private static uint nnBindBufferVertexListGL(AppMain.NNS_VTXLISTPTR[] dstvlist, AppMain.NNS_VTXLISTPTR[] srcvlist, int nVtxList, uint flag)
+    public static uint nnBindBufferVertexListGL(AppMain.NNS_VTXLISTPTR[] dstvlist, AppMain.NNS_VTXLISTPTR[] srcvlist, int nVtxList, uint flag)
     {
         for (int i = 0; i < nVtxList; i++)
         {
@@ -10104,7 +10104,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009FE RID: 2558 RVA: 0x0005A124 File Offset: 0x00058324
-    private static uint nnBindBufferPrimitiveListGL(AppMain.NNS_PRIMLISTPTR[] dstplist, AppMain.NNS_PRIMLISTPTR[] srcplist, int nPrimList, uint flag)
+    public static uint nnBindBufferPrimitiveListGL(AppMain.NNS_PRIMLISTPTR[] dstplist, AppMain.NNS_PRIMLISTPTR[] srcplist, int nPrimList, uint flag)
     {
         for (int i = 0; i < nPrimList; i++)
         {
@@ -10142,7 +10142,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009FF RID: 2559 RVA: 0x0005A1FC File Offset: 0x000583FC
-    private static uint nnBindBufferObjectGL(AppMain.NNS_OBJECT dstobj, AppMain.NNS_OBJECT srcobj, uint flag)
+    public static uint nnBindBufferObjectGL(AppMain.NNS_OBJECT dstobj, AppMain.NNS_OBJECT srcobj, uint flag)
     {
         if ((srcobj.fType & 65536U) != 0U)
         {
@@ -10206,7 +10206,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A00 RID: 2560 RVA: 0x0005A3B0 File Offset: 0x000585B0
-    private void nnBindBufferObjectDirectGL(AppMain.NNS_OBJECT obj, uint flag)
+    public void nnBindBufferObjectDirectGL(AppMain.NNS_OBJECT obj, uint flag)
     {
         if ((obj.fType & 65536U) != 0U)
         {
@@ -10247,7 +10247,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A01 RID: 2561 RVA: 0x0005A4A8 File Offset: 0x000586A8
-    private static void nnDeleteBufferObjectGL(AppMain.NNS_OBJECT obj)
+    public static void nnDeleteBufferObjectGL(AppMain.NNS_OBJECT obj)
     {
         for (int i = 0; i < obj.nVtxList; i++)
         {
@@ -10279,7 +10279,7 @@ public partial class AppMain
     public static void nnSetUpMatrixStack(ref AppMain.NNS_MATRIXSTACK mstk, uint size)
     {
         mstk = new AppMain.NNS_MATRIXSTACK(size);
-        AppMain.NNS_MATRIX matrix = AppMain.NNS_MATRIX.CreateIdentity();
+        NNS_MATRIX matrix = NNS_MATRIX.CreateIdentity();
         mstk.push(matrix);
     }
 
@@ -10287,34 +10287,34 @@ public partial class AppMain
     public static void nnClearMatrixStack(AppMain.NNS_MATRIXSTACK mstk)
     {
         mstk.clear();
-        AppMain.NNS_MATRIX matrix = AppMain.NNS_MATRIX.CreateIdentity();
+        NNS_MATRIX matrix = NNS_MATRIX.CreateIdentity();
         mstk.push(matrix);
     }
 
     // Token: 0x06000A04 RID: 2564 RVA: 0x0005A590 File Offset: 0x00058790
-    public static AppMain.NNS_MATRIX nnGetCurrentMatrix(AppMain.NNS_MATRIXSTACK mstk)
+    public static NNS_MATRIX nnGetCurrentMatrix(AppMain.NNS_MATRIXSTACK mstk)
     {
         return mstk.get();
     }
 
     // Token: 0x06000A05 RID: 2565 RVA: 0x0005A598 File Offset: 0x00058798
-    public static void nnSetCurrentMatrix(AppMain.NNS_MATRIXSTACK mstk, AppMain.NNS_MATRIX mtx)
+    public static void nnSetCurrentMatrix(AppMain.NNS_MATRIXSTACK mstk, NNS_MATRIX mtx)
     {
         mstk.set(mtx);
     }
 
     // Token: 0x06000A06 RID: 2566 RVA: 0x0005A5A4 File Offset: 0x000587A4
-    public static void nnPushMatrix(AppMain.NNS_MATRIXSTACK mstk, ref AppMain.SNNS_MATRIX mtx)
+    public static void nnPushMatrix(AppMain.NNS_MATRIXSTACK mstk, ref SNNS_MATRIX mtx)
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.nnmatrixstack_mtx_pool.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.nnmatrixstack_mtx_pool.Alloc();
         AppMain.nnCopyMatrix(nns_MATRIX, ref mtx);
         mstk.push(nns_MATRIX);
     }
 
     // Token: 0x06000A07 RID: 2567 RVA: 0x0005A5CC File Offset: 0x000587CC
-    public static void nnPushMatrix(AppMain.NNS_MATRIXSTACK mstk, AppMain.NNS_MATRIX mtx)
+    public static void nnPushMatrix(AppMain.NNS_MATRIXSTACK mstk, NNS_MATRIX mtx)
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.nnmatrixstack_mtx_pool.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.nnmatrixstack_mtx_pool.Alloc();
         if (mtx == null)
         {
             nns_MATRIX.Assign(mstk.get());
@@ -10339,7 +10339,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A0A RID: 2570 RVA: 0x0005A620 File Offset: 0x00058820
-    private void nnInitLight()
+    public void nnInitLight()
     {
         AppMain.nnlight.nngLight.AmbientColor.r = 0.2f;
         AppMain.nnlight.nngLight.AmbientColor.g = 0.2f;
@@ -10390,7 +10390,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A0B RID: 2571 RVA: 0x0005A8A8 File Offset: 0x00058AA8
-    private static void nnSetLightSwitch(int no, int on_off)
+    public static void nnSetLightSwitch(int no, int on_off)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10400,7 +10400,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A0C RID: 2572 RVA: 0x0005A8D4 File Offset: 0x00058AD4
-    private static void nnSetLightType(int no, uint type)
+    public static void nnSetLightType(int no, uint type)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10410,7 +10410,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A0D RID: 2573 RVA: 0x0005A900 File Offset: 0x00058B00
-    private static void nnSetLightAmbientGL(int no, float r, float g, float b)
+    public static void nnSetLightAmbientGL(int no, float r, float g, float b)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10422,7 +10422,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A0E RID: 2574 RVA: 0x0005A948 File Offset: 0x00058B48
-    private static void nnSetLightDiffuseGL(int no, float r, float g, float b)
+    public static void nnSetLightDiffuseGL(int no, float r, float g, float b)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10434,7 +10434,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A0F RID: 2575 RVA: 0x0005A990 File Offset: 0x00058B90
-    private static void nnSetLightSpecularGL(int no, float r, float g, float b)
+    public static void nnSetLightSpecularGL(int no, float r, float g, float b)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10446,7 +10446,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A10 RID: 2576 RVA: 0x0005A9D6 File Offset: 0x00058BD6
-    private static void nnSetLightColor(int no, float r, float g, float b)
+    public static void nnSetLightColor(int no, float r, float g, float b)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10456,7 +10456,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A11 RID: 2577 RVA: 0x0005A9F4 File Offset: 0x00058BF4
-    private static void nnSetLightAlpha(int no, float a)
+    public static void nnSetLightAlpha(int no, float a)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10466,7 +10466,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A12 RID: 2578 RVA: 0x0005AA24 File Offset: 0x00058C24
-    private static void nnSetLightDirection(int no, float x, float y, float z)
+    public static void nnSetLightDirection(int no, float x, float y, float z)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10478,7 +10478,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A13 RID: 2579 RVA: 0x0005AA6C File Offset: 0x00058C6C
-    private static void nnSetLightPosition(int no, float x, float y, float z)
+    public static void nnSetLightPosition(int no, float x, float y, float z)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10491,7 +10491,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A14 RID: 2580 RVA: 0x0005AAC4 File Offset: 0x00058CC4
-    private static void nnSetLightTarget(int no, float x, float y, float z)
+    public static void nnSetLightTarget(int no, float x, float y, float z)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10503,7 +10503,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A15 RID: 2581 RVA: 0x0005AB0C File Offset: 0x00058D0C
-    private static void nnSetLightRotation(int no, int rottype, int rotx, int roty, int rotz)
+    public static void nnSetLightRotation(int no, int rottype, int rotx, int roty, int rotz)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10625,7 +10625,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A1D RID: 2589 RVA: 0x0005ADEF File Offset: 0x00058FEF
-    public static void nnSetLightMatrix(AppMain.NNS_MATRIX mtx)
+    public static void nnSetLightMatrix(NNS_MATRIX mtx)
     {
         if (mtx != null)
         {
@@ -10636,7 +10636,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A1E RID: 2590 RVA: 0x0005AE0A File Offset: 0x0005900A
-    public static void nnSetUpParallelLight(AppMain.NNS_LIGHT_PARALLEL light, ref AppMain.NNS_RGBA color, float inten, AppMain.NNS_VECTOR dir)
+    public static void nnSetUpParallelLight(AppMain.NNS_LIGHT_PARALLEL light, ref NNS_RGBA color, float inten, NNS_VECTOR dir)
     {
         light.Color = color;
         light.Intensity = inten;
@@ -10644,7 +10644,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A1F RID: 2591 RVA: 0x0005AE2F File Offset: 0x0005902F
-    public static void nnSetUpPointLight(AppMain.NNS_LIGHT_POINT light, ref AppMain.NNS_RGBA color, float inten, AppMain.NNS_VECTOR pos, float falloffstart, float falloffend)
+    public static void nnSetUpPointLight(AppMain.NNS_LIGHT_POINT light, ref NNS_RGBA color, float inten, NNS_VECTOR pos, float falloffstart, float falloffend)
     {
         light.Color = color;
         light.Intensity = inten;
@@ -10654,7 +10654,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A20 RID: 2592 RVA: 0x0005AE68 File Offset: 0x00059068
-    public static void nnSetUpTargetSpotLight(AppMain.NNS_LIGHT_TARGET_SPOT light, ref AppMain.NNS_RGBA color, float inten, AppMain.NNS_VECTOR pos, AppMain.NNS_VECTOR target, int innerangle, int outerangle, float falloffstart, float falloffend)
+    public static void nnSetUpTargetSpotLight(AppMain.NNS_LIGHT_TARGET_SPOT light, ref NNS_RGBA color, float inten, NNS_VECTOR pos, NNS_VECTOR target, int innerangle, int outerangle, float falloffstart, float falloffend)
     {
         light.Color = color;
         light.Intensity = inten;
@@ -10667,7 +10667,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A21 RID: 2593 RVA: 0x0005AECC File Offset: 0x000590CC
-    public static void nnSetUpRotationSpotLight(AppMain.NNS_LIGHT_ROTATION_SPOT light, ref AppMain.NNS_RGBA color, float inten, AppMain.NNS_VECTOR pos, int rottype, AppMain.NNS_ROTATE_A32 rotation, int innerangle, int outerangle, float falloffstart, float falloffend)
+    public static void nnSetUpRotationSpotLight(AppMain.NNS_LIGHT_ROTATION_SPOT light, ref NNS_RGBA color, float inten, NNS_VECTOR pos, int rottype, NNS_ROTATE_A32 rotation, int innerangle, int outerangle, float falloffstart, float falloffend)
     {
         light.Color = color;
         light.Intensity = inten;
@@ -10681,7 +10681,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A22 RID: 2594 RVA: 0x0005AF34 File Offset: 0x00059134
-    public static void nnSetUpTargetDirectionalLight(AppMain.NNS_LIGHT_TARGET_DIRECTIONAL light, ref AppMain.NNS_RGBA color, float inten, AppMain.NNS_VECTOR pos, AppMain.NNS_VECTOR target, float innerrange, float outerrange, float falloffstart, float falloffend)
+    public static void nnSetUpTargetDirectionalLight(AppMain.NNS_LIGHT_TARGET_DIRECTIONAL light, ref NNS_RGBA color, float inten, NNS_VECTOR pos, NNS_VECTOR target, float innerrange, float outerrange, float falloffstart, float falloffend)
     {
         light.Color = color;
         light.Intensity = inten;
@@ -10694,7 +10694,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A23 RID: 2595 RVA: 0x0005AF90 File Offset: 0x00059190
-    public static void nnSetUpRotationDirectionalLight(AppMain.NNS_LIGHT_ROTATION_DIRECTIONAL light, ref AppMain.NNS_RGBA color, float inten, AppMain.NNS_VECTOR pos, int rottype, AppMain.NNS_ROTATE_A32 rotation, float innerrange, float outerrange, float falloffstart, float falloffend)
+    public static void nnSetUpRotationDirectionalLight(AppMain.NNS_LIGHT_ROTATION_DIRECTIONAL light, ref NNS_RGBA color, float inten, NNS_VECTOR pos, int rottype, NNS_ROTATE_A32 rotation, float innerrange, float outerrange, float falloffstart, float falloffend)
     {
         light.Color = color;
         light.Intensity = inten;
@@ -10708,7 +10708,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A24 RID: 2596 RVA: 0x0005AFF8 File Offset: 0x000591F8
-    public static void nnSetUpStandardLightGL(AppMain.NNS_LIGHT_STANDARD_GL light, ref AppMain.NNS_RGBA ambient, ref AppMain.NNS_RGBA diffuse, ref AppMain.NNS_RGBA specular, AppMain.NNS_VECTOR4D position, AppMain.NNS_VECTOR direction, float expornent, float cutoff, float cnstattn, float linattn, float quadattn)
+    public static void nnSetUpStandardLightGL(AppMain.NNS_LIGHT_STANDARD_GL light, ref NNS_RGBA ambient, ref NNS_RGBA diffuse, ref NNS_RGBA specular, NNS_VECTOR4D position, NNS_VECTOR direction, float expornent, float cutoff, float cnstattn, float linattn, float quadattn)
     {
         light.Ambient = ambient;
         light.Diffuse = diffuse;
@@ -10723,7 +10723,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A25 RID: 2597 RVA: 0x0005B06C File Offset: 0x0005926C
-    private static void nnSetLight(int no, object light, uint type)
+    public static void nnSetLight(int no, object light, uint type)
     {
         if (no < AppMain.NNE_LIGHT_MAX)
         {
@@ -10807,7 +10807,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A26 RID: 2598 RVA: 0x0005B3C4 File Offset: 0x000595C4
-    private static void nnPutLightSettings()
+    public static void nnPutLightSettings()
     {
         OpenGL.glMatrixMode(5888U);
         Matrix matrix = (Matrix)AppMain.nnlight.nngLightMtx;
@@ -11114,54 +11114,54 @@ public partial class AppMain
     }
 
     // Token: 0x06000A27 RID: 2599 RVA: 0x0005BC94 File Offset: 0x00059E94
-    private uint nnEstimateLightBufferSize(uint type)
+    public uint nnEstimateLightBufferSize(uint type)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000A28 RID: 2600 RVA: 0x0005BC9C File Offset: 0x00059E9C
-    private void nnCalcMotionCameraScalar(AppMain.NNS_SUBMOTION submot, float frame, ref float val)
+    public void nnCalcMotionCameraScalar(AppMain.NNS_SUBMOTION submot, float frame, ref float val)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000A29 RID: 2601 RVA: 0x0005BCA3 File Offset: 0x00059EA3
-    private void nnCalcMotionCameraAngle(AppMain.NNS_SUBMOTION submot, float frame, ref int ang)
+    public void nnCalcMotionCameraAngle(AppMain.NNS_SUBMOTION submot, float frame, ref int ang)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000A2A RID: 2602 RVA: 0x0005BCAA File Offset: 0x00059EAA
-    private void nnCalcMotionCameraXYZ(AppMain.NNS_SUBMOTION submot, float frame, AppMain.NNS_VECTOR xyz)
+    public void nnCalcMotionCameraXYZ(AppMain.NNS_SUBMOTION submot, float frame, NNS_VECTOR xyz)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000A2B RID: 2603 RVA: 0x0005BCB1 File Offset: 0x00059EB1
-    private void nnCalcCameraMotionCore(AppMain.NNS_CAMERAPTR dstptr, AppMain.NNS_CAMERAPTR camptr, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcCameraMotionCore(AppMain.NNS_CAMERAPTR dstptr, AppMain.NNS_CAMERAPTR camptr, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000A2C RID: 2604 RVA: 0x0005BCB8 File Offset: 0x00059EB8
-    private void nnCalcCameraMotion(AppMain.NNS_CAMERAPTR dstptr, AppMain.NNS_CAMERAPTR camptr, AppMain.NNS_MOTION mot, float frame)
+    public void nnCalcCameraMotion(AppMain.NNS_CAMERAPTR dstptr, AppMain.NNS_CAMERAPTR camptr, AppMain.NNS_MOTION mot, float frame)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000A66 RID: 2662 RVA: 0x0005C7F6 File Offset: 0x0005A9F6
-    private static void NNM_ASSERT(int iCond, string sText)
+    public static void NNM_ASSERT(int iCond, string sText)
     {
     }
 
     // Token: 0x06000A67 RID: 2663 RVA: 0x0005C7F8 File Offset: 0x0005A9F8
-    private static void NNM_ASSERT(uint iCond, string sText)
+    public static void NNM_ASSERT(uint iCond, string sText)
     {
     }
 
     // Token: 0x06000A68 RID: 2664 RVA: 0x0005C7FA File Offset: 0x0005A9FA
-    private static void NNM_ASSERT(bool iCond, string sText)
+    public static void NNM_ASSERT(bool iCond, string sText)
     {
     }
 
@@ -11187,7 +11187,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D27 RID: 3367 RVA: 0x00074EE8 File Offset: 0x000730E8
-    private static int nnSetTextureList(AppMain.NNS_TEXLIST pTexList)
+    public static int nnSetTextureList(AppMain.NNS_TEXLIST pTexList)
     {
         AppMain.nngCurrentTextureList = pTexList;
         return 1;
@@ -11202,7 +11202,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D29 RID: 3369 RVA: 0x00074EFC File Offset: 0x000730FC
-    private static int nnSetTexInfo(int slot, AppMain.NNS_TEXINFO pTexInfo)
+    public static int nnSetTexInfo(int slot, AppMain.NNS_TEXINFO pTexInfo)
     {
         if (slot >= AppMain.nngGLExtensions.max_texture_units)
         {
@@ -11232,7 +11232,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D2B RID: 3371 RVA: 0x00074F54 File Offset: 0x00073154
-    private static int nnSetTextureNum(int slot, int num)
+    public static int nnSetTextureNum(int slot, int num)
     {
         if (num >= 0)
         {
@@ -11243,7 +11243,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D2C RID: 3372 RVA: 0x00074F84 File Offset: 0x00073184
-    private void nnConfigureSystemGL(AppMain.NNS_CONFIG_GL config)
+    public void nnConfigureSystemGL(AppMain.NNS_CONFIG_GL config)
     {
         if (AppMain.nnsystem_init != 1)
         {
@@ -11277,7 +11277,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D2D RID: 3373 RVA: 0x000751B6 File Offset: 0x000733B6
-    public static void nnSetProjection(AppMain.NNS_MATRIX mtx, int type)
+    public static void nnSetProjection(NNS_MATRIX mtx, int type)
     {
         AppMain.nngProjectionMatrix.Assign(mtx);
         AppMain.nngProjectionType = type;
@@ -11295,7 +11295,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D2E RID: 3374 RVA: 0x000751D8 File Offset: 0x000733D8
-    public static void nnLoadProjectionMatrixGL(AppMain.NNS_MATRIX mtx)
+    public static void nnLoadProjectionMatrixGL(NNS_MATRIX mtx)
     {
         float m = mtx.M20;
         float m2 = mtx.M21;
@@ -11326,38 +11326,38 @@ public partial class AppMain
     }
 
     // Token: 0x06000D2F RID: 3375 RVA: 0x00075236 File Offset: 0x00073436
-    private void nnCalcMultiplyMatrices(AppMain.ArrayPointer<AppMain.NNS_MATRIX> dstlist, AppMain.NNS_MATRIX src, AppMain.ArrayPointer<AppMain.NNS_MATRIX> srclist, int num)
+    public void nnCalcMultiplyMatrices(AppMain.ArrayPointer<NNS_MATRIX> dstlist, NNS_MATRIX src, AppMain.ArrayPointer<NNS_MATRIX> srclist, int num)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D30 RID: 3376 RVA: 0x0007523D File Offset: 0x0007343D
-    private void nnCalcMatrixPaletteMultiplyMatrix(AppMain.ArrayPointer<AppMain.NNS_MATRIX> dstpal, AppMain.NNS_MATRIX src, AppMain.ArrayPointer<AppMain.NNS_MATRIX> srcpal, int num)
+    public void nnCalcMatrixPaletteMultiplyMatrix(AppMain.ArrayPointer<NNS_MATRIX> dstpal, NNS_MATRIX src, AppMain.ArrayPointer<NNS_MATRIX> srcpal, int num)
     {
         this.nnCalcMultiplyMatrices(dstpal, src, srcpal, num);
     }
 
     // Token: 0x06000D31 RID: 3377 RVA: 0x0007524A File Offset: 0x0007344A
-    private uint nnCalcShaderManageBufferSizeGL(int num)
+    public uint nnCalcShaderManageBufferSizeGL(int num)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000D32 RID: 3378 RVA: 0x00075252 File Offset: 0x00073452
-    private void nnSetUpShaderConfigBasicGL(AppMain.NNS_SHADER_CONFIG config)
+    public void nnSetUpShaderConfigBasicGL(AppMain.NNS_SHADER_CONFIG config)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D33 RID: 3379 RVA: 0x00075259 File Offset: 0x00073459
-    private void nnConfigureShaderGL(AppMain.NNS_SHADER_CONFIG config, object managebuffer, int num)
+    public void nnConfigureShaderGL(AppMain.NNS_SHADER_CONFIG config, object managebuffer, int num)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D34 RID: 3380 RVA: 0x00075260 File Offset: 0x00073460
-    private AppMain.NNS_SHADER_NAME nnGetShaderNameGL(AppMain.NNS_SHADER_PROFILE profile)
+    public AppMain.NNS_SHADER_NAME nnGetShaderNameGL(AppMain.NNS_SHADER_PROFILE profile)
     {
         AppMain.NNS_SHADER_NAME result = new AppMain.NNS_SHADER_NAME();
         AppMain.mppAssertNotImpl();
@@ -11365,241 +11365,241 @@ public partial class AppMain
     }
 
     // Token: 0x06000D35 RID: 3381 RVA: 0x00075279 File Offset: 0x00073479
-    private void nnGetShaderProfileGL(AppMain.NNS_SHADER_PROFILE profile, AppMain.NNS_SHADER_NAME Name)
+    public void nnGetShaderProfileGL(AppMain.NNS_SHADER_PROFILE profile, AppMain.NNS_SHADER_NAME Name)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D36 RID: 3382 RVA: 0x00075280 File Offset: 0x00073480
-    private static int nnCompareShaderName(AppMain.NNS_SHADER_NAME lhs, AppMain.NNS_SHADER_NAME rhs)
+    public static int nnCompareShaderName(AppMain.NNS_SHADER_NAME lhs, AppMain.NNS_SHADER_NAME rhs)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D37 RID: 3383 RVA: 0x00075288 File Offset: 0x00073488
-    private int nnRegistShaderNameGL(AppMain.NNS_SHADER_NAME Name)
+    public int nnRegistShaderNameGL(AppMain.NNS_SHADER_NAME Name)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D38 RID: 3384 RVA: 0x00075290 File Offset: 0x00073490
-    private int nnRegistShaderProfileGL(AppMain.NNS_SHADER_PROFILE profile)
+    public int nnRegistShaderProfileGL(AppMain.NNS_SHADER_PROFILE profile)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D39 RID: 3385 RVA: 0x00075298 File Offset: 0x00073498
-    private static int nnGetTexCoord(uint fType)
+    public static int nnGetTexCoord(uint fType)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D3A RID: 3386 RVA: 0x000752A0 File Offset: 0x000734A0
-    private static int nnTexCoordIndex(int texcoord)
+    public static int nnTexCoordIndex(int texcoord)
     {
         AppMain.mppAssertNotImpl();
         return texcoord;
     }
 
     // Token: 0x06000D3B RID: 3387 RVA: 0x000752A8 File Offset: 0x000734A8
-    private void nnInitShaderProfileGL(AppMain.NNS_SHADER_PROFILE profile)
+    public void nnInitShaderProfileGL(AppMain.NNS_SHADER_PROFILE profile)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D3C RID: 3388 RVA: 0x000752AF File Offset: 0x000734AF
-    private int nnSetupShaderProfile(AppMain.NNS_SHADER_PROFILE profile, AppMain.NNS_MATERIALPTR pMat, AppMain.NNS_VTXLISTPTR pVtxListPtr, uint flag)
+    public int nnSetupShaderProfile(AppMain.NNS_SHADER_PROFILE profile, AppMain.NNS_MATERIALPTR pMat, AppMain.NNS_VTXLISTPTR pVtxListPtr, uint flag)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D3D RID: 3389 RVA: 0x000752B7 File Offset: 0x000734B7
-    private int nnRegistObjectShaderProfilesGL(AppMain.NNS_OBJECT obj, uint flag)
+    public int nnRegistObjectShaderProfilesGL(AppMain.NNS_OBJECT obj, uint flag)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D3E RID: 3390 RVA: 0x000752BF File Offset: 0x000734BF
-    private int nnGetCurrentShaderProfileNumberGL()
+    public int nnGetCurrentShaderProfileNumberGL()
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D3F RID: 3391 RVA: 0x000752C7 File Offset: 0x000734C7
-    private void nnGetShaderProfileOneGL(AppMain.NNS_SHADER_PROFILE profile, int idx)
+    public void nnGetShaderProfileOneGL(AppMain.NNS_SHADER_PROFILE profile, int idx)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D40 RID: 3392 RVA: 0x000752D0 File Offset: 0x000734D0
-    private AppMain.NNS_SHADER_NAME nnGetShaderNameListGL()
+    public AppMain.NNS_SHADER_NAME nnGetShaderNameListGL()
     {
         AppMain.mppAssertNotImpl();
         return new AppMain.NNS_SHADER_NAME();
     }
 
     // Token: 0x06000D41 RID: 3393 RVA: 0x000752E9 File Offset: 0x000734E9
-    private void nnClearShaderProfilesGL()
+    public void nnClearShaderProfilesGL()
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D42 RID: 3394 RVA: 0x000752F0 File Offset: 0x000734F0
-    private uint nnCalcBuildShaderWorkBufferSizeGL(uint vtxshadersize, uint fragshadersize)
+    public uint nnCalcBuildShaderWorkBufferSizeGL(uint vtxshadersize, uint fragshadersize)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000D43 RID: 3395 RVA: 0x000752F8 File Offset: 0x000734F8
-    private static int nnCompareShaderManager(object elem1, object elem2)
+    public static int nnCompareShaderManager(object elem1, object elem2)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D44 RID: 3396 RVA: 0x00075300 File Offset: 0x00073500
-    private int nnGetUnbuildShaderProfileNumberGL()
+    public int nnGetUnbuildShaderProfileNumberGL()
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D45 RID: 3397 RVA: 0x00075308 File Offset: 0x00073508
-    private int nnGetUnbuildShaderProfileOneGL(AppMain.NNS_SHADER_PROFILE profile)
+    public int nnGetUnbuildShaderProfileOneGL(AppMain.NNS_SHADER_PROFILE profile)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06000D46 RID: 3398 RVA: 0x00075310 File Offset: 0x00073510
-    private void nnRegistCompiledShaderProfileGL(AppMain.NNS_COMPILED_SHADER_PROFILE compiledShader, AppMain.NNS_SHADER_PROFILE profile)
+    public void nnRegistCompiledShaderProfileGL(AppMain.NNS_COMPILED_SHADER_PROFILE compiledShader, AppMain.NNS_SHADER_PROFILE profile)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D47 RID: 3399 RVA: 0x00075317 File Offset: 0x00073517
-    private void nnBindVertexAttributeGL(uint program)
+    public void nnBindVertexAttributeGL(uint program)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D48 RID: 3400 RVA: 0x0007531E File Offset: 0x0007351E
-    private uint nnGetErrorVertexShaderObjectGL()
+    public uint nnGetErrorVertexShaderObjectGL()
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000D49 RID: 3401 RVA: 0x00075326 File Offset: 0x00073526
-    private uint nnGetErrorFragmentShaderObjectGL()
+    public uint nnGetErrorFragmentShaderObjectGL()
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000D4A RID: 3402 RVA: 0x0007532E File Offset: 0x0007352E
-    private uint nnGetErrorShaderProgramObjectGL()
+    public uint nnGetErrorShaderProgramObjectGL()
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000D4B RID: 3403 RVA: 0x00075336 File Offset: 0x00073536
-    private void nnReleaseShaderGL()
+    public void nnReleaseShaderGL()
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D4C RID: 3404 RVA: 0x0007533D File Offset: 0x0007353D
-    private static AppMain.NNS_SHADER_MANAGER nnSearchShaderManager(AppMain.NNS_SHADER_NAME name)
+    public static AppMain.NNS_SHADER_MANAGER nnSearchShaderManager(AppMain.NNS_SHADER_NAME name)
     {
         AppMain.mppAssertNotImpl();
         return null;
     }
 
     // Token: 0x06000D4D RID: 3405 RVA: 0x00075345 File Offset: 0x00073545
-    private void nnPutColorShader(AppMain.NNS_DRAWCALLBACK_VAL val)
+    public void nnPutColorShader(AppMain.NNS_DRAWCALLBACK_VAL val)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D4E RID: 3406 RVA: 0x0007534C File Offset: 0x0007354C
-    private static void nnBindFixedShaderGL()
+    public static void nnBindFixedShaderGL()
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D4F RID: 3407 RVA: 0x00075353 File Offset: 0x00073553
-    private void nnBindPrintShaderGL()
+    public void nnBindPrintShaderGL()
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D50 RID: 3408 RVA: 0x0007535A File Offset: 0x0007355A
-    private void nnRegistPrimitive2DShaderGL(int bTexture)
+    public void nnRegistPrimitive2DShaderGL(int bTexture)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D51 RID: 3409 RVA: 0x00075361 File Offset: 0x00073561
-    private void nnRegistPrimitive3DShaderGL(int bLighting, int bTexture, int texcoord)
+    public void nnRegistPrimitive3DShaderGL(int bLighting, int bTexture, int texcoord)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D52 RID: 3410 RVA: 0x00075368 File Offset: 0x00073568
-    private static void nnBindPrimitive2DShaderGL(int bTexture)
+    public static void nnBindPrimitive2DShaderGL(int bTexture)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D53 RID: 3411 RVA: 0x0007536F File Offset: 0x0007356F
-    private void nnBindPrimitive3DShaderGL(int bLighting, int bTexture, int texcoord)
+    public void nnBindPrimitive3DShaderGL(int bLighting, int bTexture, int texcoord)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D54 RID: 3412 RVA: 0x00075376 File Offset: 0x00073576
-    private static void nnRegistDefaultShader()
+    public static void nnRegistDefaultShader()
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D55 RID: 3413 RVA: 0x0007537D File Offset: 0x0007357D
-    private void nnSetUserUniformGL(int idx, float x, float y, float z, float w)
+    public void nnSetUserUniformGL(int idx, float x, float y, float z, float w)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D56 RID: 3414 RVA: 0x00075384 File Offset: 0x00073584
-    private void nnPutUserUniformGL(AppMain.NNS_DRAWCALLBACK_VAL val)
+    public void nnPutUserUniformGL(AppMain.NNS_DRAWCALLBACK_VAL val)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000D57 RID: 3415 RVA: 0x0007538B File Offset: 0x0007358B
-    private static void nnSetFogSwitch(bool on_off)
+    public static void nnSetFogSwitch(bool on_off)
     {
         AppMain.nngFogSwitch = on_off;
     }
 
     // Token: 0x06000D58 RID: 3416 RVA: 0x00075393 File Offset: 0x00073593
-    private bool nnGetFogSwitch()
+    public bool nnGetFogSwitch()
     {
         AppMain.mppAssertNotImpl();
         return AppMain.nngFogSwitch;
     }
 
     // Token: 0x06000D59 RID: 3417 RVA: 0x0007539F File Offset: 0x0007359F
-    private static void nnSetFogColor(float r, float g, float b)
+    public static void nnSetFogColor(float r, float g, float b)
     {
         AppMain.nnSetFogColor_col[0] = r;
         AppMain.nnSetFogColor_col[1] = g;
@@ -11609,7 +11609,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D5A RID: 3418 RVA: 0x000753D4 File Offset: 0x000735D4
-    private static void nnSetFogRange(float fnear, float ffar)
+    public static void nnSetFogRange(float fnear, float ffar)
     {
         OpenGL.glFogf(2917U, 9729f);
         AppMain.nngFogStart = fnear;
@@ -11617,7 +11617,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D5B RID: 3419 RVA: 0x000753F1 File Offset: 0x000735F1
-    private void nnSetFogLinearGL(float fnear, float ffar)
+    public void nnSetFogLinearGL(float fnear, float ffar)
     {
         AppMain.mppAssertNotImpl();
         OpenGL.glFogf(2917U, 9729f);
@@ -11626,7 +11626,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D5C RID: 3420 RVA: 0x00075413 File Offset: 0x00073613
-    private void nnSetFogExpGL(float density)
+    public void nnSetFogExpGL(float density)
     {
         AppMain.mppAssertNotImpl();
         OpenGL.glFogf(2917U, 2048f);
@@ -11634,7 +11634,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D5D RID: 3421 RVA: 0x0007542F File Offset: 0x0007362F
-    private void nnSetFogExp2GL(float density)
+    public void nnSetFogExp2GL(float density)
     {
         AppMain.mppAssertNotImpl();
         OpenGL.glFogf(2917U, 2049f);
@@ -11642,14 +11642,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000D5E RID: 3422 RVA: 0x0007544B File Offset: 0x0007364B
-    private void nnSetFogDensityGL(float density)
+    public void nnSetFogDensityGL(float density)
     {
         AppMain.mppAssertNotImpl();
         AppMain.nngFogDensity = density;
     }
 
     // Token: 0x06000D5F RID: 3423 RVA: 0x00075458 File Offset: 0x00073658
-    private static void nnPutFogSwitchGL(bool on_off)
+    public static void nnPutFogSwitchGL(bool on_off)
     {
         if (on_off)
         {
@@ -11666,25 +11666,25 @@ public partial class AppMain
     }
 
     // Token: 0x06000D60 RID: 3424 RVA: 0x000754E7 File Offset: 0x000736E7
-    private void nnDrawMultiObjectInitialPose(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX[] basemtxptrlist, uint[] nodestatlistptrlist, uint subobjtype, uint flag, int num)
+    public void nnDrawMultiObjectInitialPose(AppMain.NNS_OBJECT obj, NNS_MATRIX[] basemtxptrlist, uint[] nodestatlistptrlist, uint subobjtype, uint flag, int num)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000F38 RID: 3896 RVA: 0x00085E9A File Offset: 0x0008409A
-    private void nnDrawMultiObject(AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX[] mtxpalptrlist, uint[] nodestatlistptrlist, uint subobjtype, uint flag, int num)
+    public void nnDrawMultiObject(AppMain.NNS_OBJECT obj, NNS_MATRIX[] mtxpalptrlist, uint[] nodestatlistptrlist, uint subobjtype, uint flag, int num)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000F39 RID: 3897 RVA: 0x00085EA1 File Offset: 0x000840A1
-    private uint nnCalcObjectSize(AppMain.NNS_OBJECT obj)
+    public uint nnCalcObjectSize(AppMain.NNS_OBJECT obj)
     {
         return 0U;
     }
 
     // Token: 0x06000F3A RID: 3898 RVA: 0x00085EA4 File Offset: 0x000840A4
-    private static uint nnCopyMaterialList(AppMain.NNS_MATERIALPTR[] dstmatptr, AppMain.NNS_MATERIALPTR[] srcmatptr, int nMaterial, uint flag)
+    public static uint nnCopyMaterialList(AppMain.NNS_MATERIALPTR[] dstmatptr, AppMain.NNS_MATERIALPTR[] srcmatptr, int nMaterial, uint flag)
     {
         for (int i = 0; i < nMaterial; i++)
         {
@@ -11771,7 +11771,7 @@ public partial class AppMain
                         }
                         if (nns_MATERIAL_STDSHADER_TEXMAP_DESC.pBorderColor != null && dstmatptr != null)
                         {
-                            nns_MATERIAL_STDSHADER_TEXMAP_DESC2.pBorderColor = new AppMain.NNS_RGBA?(default(AppMain.NNS_RGBA));
+                            nns_MATERIAL_STDSHADER_TEXMAP_DESC2.pBorderColor = new NNS_RGBA?(default(NNS_RGBA));
                             nns_MATERIAL_STDSHADER_TEXMAP_DESC2.pBorderColor = nns_MATERIAL_STDSHADER_TEXMAP_DESC.pBorderColor;
                         }
                         if (nns_MATERIAL_STDSHADER_TEXMAP_DESC.pFilterMode != null && dstmatptr != null)
@@ -11993,7 +11993,7 @@ public partial class AppMain
                         }
                         if (nns_MATERIAL_TEXMAP_DESC.pBorderColor != null && dstmatptr != null)
                         {
-                            nns_MATERIAL_TEXMAP_DESC2.pBorderColor = new AppMain.NNS_RGBA?(default(AppMain.NNS_RGBA));
+                            nns_MATERIAL_TEXMAP_DESC2.pBorderColor = new NNS_RGBA?(default(NNS_RGBA));
                             nns_MATERIAL_TEXMAP_DESC2.pBorderColor = nns_MATERIAL_TEXMAP_DESC.pBorderColor;
                         }
                         if (nns_MATERIAL_TEXMAP_DESC.pFilterMode != null && dstmatptr != null)
@@ -12014,7 +12014,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F3B RID: 3899 RVA: 0x000866D0 File Offset: 0x000848D0
-    private static uint nnCopyVertexList(AppMain.NNS_VTXLISTPTR[] dstvlist, AppMain.NNS_VTXLISTPTR[] srcvlist, int nVtxList, uint flag)
+    public static uint nnCopyVertexList(AppMain.NNS_VTXLISTPTR[] dstvlist, AppMain.NNS_VTXLISTPTR[] srcvlist, int nVtxList, uint flag)
     {
         for (int i = 0; i < nVtxList; i++)
         {
@@ -12146,7 +12146,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F3C RID: 3900 RVA: 0x000869E4 File Offset: 0x00084BE4
-    private static uint nnCopyPrimitiveList(AppMain.NNS_PRIMLISTPTR[] dstplist, AppMain.NNS_PRIMLISTPTR[] srcplist, int nPrimList, uint flag)
+    public static uint nnCopyPrimitiveList(AppMain.NNS_PRIMLISTPTR[] dstplist, AppMain.NNS_PRIMLISTPTR[] srcplist, int nPrimList, uint flag)
     {
         for (int i = 0; i < nPrimList; i++)
         {
@@ -12287,7 +12287,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F3D RID: 3901 RVA: 0x00086DF0 File Offset: 0x00084FF0
-    private static uint nnCopySubobjList(AppMain.NNS_SUBOBJ[] pSubobjListDst, AppMain.NNS_SUBOBJ[] pSubobjListSrc, int nSubobj, uint flag)
+    public static uint nnCopySubobjList(AppMain.NNS_SUBOBJ[] pSubobjListDst, AppMain.NNS_SUBOBJ[] pSubobjListSrc, int nSubobj, uint flag)
     {
         if (pSubobjListDst != null)
         {
@@ -12319,7 +12319,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F3E RID: 3902 RVA: 0x00086EA8 File Offset: 0x000850A8
-    private static uint nnCopyObject(AppMain.NNS_OBJECT dstobj, AppMain.NNS_OBJECT srcobj, uint flag)
+    public static uint nnCopyObject(AppMain.NNS_OBJECT dstobj, AppMain.NNS_OBJECT srcobj, uint flag)
     {
         if (dstobj != null)
         {
@@ -12374,27 +12374,27 @@ public partial class AppMain
     }
 
     // Token: 0x06000F3F RID: 3903 RVA: 0x00087022 File Offset: 0x00085222
-    private uint nnCalcMorphObjectBufferSize(ref AppMain.NNS_OBJECT obj, ref AppMain.NNS_MORPHTARGETLIST mtgt, uint flag)
+    public uint nnCalcMorphObjectBufferSize(ref AppMain.NNS_OBJECT obj, ref AppMain.NNS_MORPHTARGETLIST mtgt, uint flag)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000F40 RID: 3904 RVA: 0x0008702A File Offset: 0x0008522A
-    private uint nnInitMorphObject(ref AppMain.NNS_OBJECT mobj, ref AppMain.NNS_OBJECT obj, ref AppMain.NNS_MORPHTARGETLIST mtgt, uint flag)
+    public uint nnInitMorphObject(ref AppMain.NNS_OBJECT mobj, ref AppMain.NNS_OBJECT obj, ref AppMain.NNS_MORPHTARGETLIST mtgt, uint flag)
     {
         AppMain.mppAssertNotImpl();
         return 0U;
     }
 
     // Token: 0x06000F41 RID: 3905 RVA: 0x00087032 File Offset: 0x00085232
-    private void nnDrawMorphObject(ref AppMain.NNS_OBJECT mobj, ref AppMain.NNS_MATRIX mtxpal, ref uint nodestatlist, uint subobjtype, uint flag)
+    public void nnDrawMorphObject(ref AppMain.NNS_OBJECT mobj, ref NNS_MATRIX mtxpal, ref uint nodestatlist, uint subobjtype, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06000F42 RID: 3906 RVA: 0x0008703C File Offset: 0x0008523C
-    private static void nnMakeUnitMatrix(ref AppMain.SNNS_MATRIX dst)
+    public static void nnMakeUnitMatrix(ref SNNS_MATRIX dst)
     {
         dst.M00 = 1f;
         dst.M01 = 0f;
@@ -12415,7 +12415,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F43 RID: 3907 RVA: 0x000870FC File Offset: 0x000852FC
-    private static void nnMakeUnitMatrix(AppMain.NNS_MATRIX dst)
+    public static void nnMakeUnitMatrix(NNS_MATRIX dst)
     {
         dst.M00 = 1f;
         dst.M01 = 0f;
@@ -12436,7 +12436,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F44 RID: 3908 RVA: 0x000871BC File Offset: 0x000853BC
-    private static void nnMakeQuaternionMatrix(out AppMain.SNNS_MATRIX dst, ref AppMain.NNS_QUATERNION quat)
+    public static void nnMakeQuaternionMatrix(out SNNS_MATRIX dst, ref NNS_QUATERNION quat)
     {
         float x = quat.x;
         float y = quat.y;
@@ -12473,7 +12473,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F45 RID: 3909 RVA: 0x00087300 File Offset: 0x00085500
-    private static void nnMakeQuaternionMatrix(AppMain.NNS_MATRIX dst, ref AppMain.NNS_QUATERNION quat)
+    public static void nnMakeQuaternionMatrix(NNS_MATRIX dst, ref NNS_QUATERNION quat)
     {
         float x = quat.x;
         float y = quat.y;
@@ -12510,7 +12510,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F46 RID: 3910 RVA: 0x00087444 File Offset: 0x00085644
-    public static void nnMakeRotateXMatrix(AppMain.NNS_MATRIX dst, int ax)
+    public static void nnMakeRotateXMatrix(NNS_MATRIX dst, int ax)
     {
         float num;
         float num2;
@@ -12534,7 +12534,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F47 RID: 3911 RVA: 0x000874FC File Offset: 0x000856FC
-    public static void nnMakeRotateXMatrix(out AppMain.SNNS_MATRIX dst, int ax)
+    public static void nnMakeRotateXMatrix(out SNNS_MATRIX dst, int ax)
     {
         float num;
         float num2;
@@ -12558,7 +12558,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F48 RID: 3912 RVA: 0x000875B4 File Offset: 0x000857B4
-    public static void nnMakeRotateYMatrix(AppMain.NNS_MATRIX dst, int ay)
+    public static void nnMakeRotateYMatrix(NNS_MATRIX dst, int ay)
     {
         float num;
         float num2;
@@ -12582,7 +12582,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F49 RID: 3913 RVA: 0x0008766C File Offset: 0x0008586C
-    public static void nnMakeRotateZMatrix(out AppMain.SNNS_MATRIX dst, int az)
+    public static void nnMakeRotateZMatrix(out SNNS_MATRIX dst, int az)
     {
         float num;
         float num2;
@@ -12606,7 +12606,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F4A RID: 3914 RVA: 0x00087724 File Offset: 0x00085924
-    public static void nnMakeRotateZMatrix(AppMain.NNS_MATRIX dst, int az)
+    public static void nnMakeRotateZMatrix(NNS_MATRIX dst, int az)
     {
         float num;
         float num2;
@@ -12630,7 +12630,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F4B RID: 3915 RVA: 0x000877DC File Offset: 0x000859DC
-    public static void nnMakeRotateXYZMatrix(AppMain.NNS_MATRIX dst, int ax, int ay, int az)
+    public static void nnMakeRotateXYZMatrix(NNS_MATRIX dst, int ax, int ay, int az)
     {
         AppMain.nnMakeRotateZMatrix(dst, az);
         AppMain.nnRotateYMatrix(dst, dst, ay);
@@ -12638,7 +12638,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F4C RID: 3916 RVA: 0x000877F5 File Offset: 0x000859F5
-    public static void nnMakeRotateXZYMatrix(AppMain.NNS_MATRIX dst, int ax, int ay, int az)
+    public static void nnMakeRotateXZYMatrix(NNS_MATRIX dst, int ax, int ay, int az)
     {
         AppMain.nnMakeRotateYMatrix(dst, ay);
         AppMain.nnRotateZMatrix(dst, dst, az);
@@ -12646,7 +12646,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F4D RID: 3917 RVA: 0x0008780E File Offset: 0x00085A0E
-    public static void nnMakeRotateZXYMatrix(AppMain.NNS_MATRIX dst, int ax, int ay, int az)
+    public static void nnMakeRotateZXYMatrix(NNS_MATRIX dst, int ax, int ay, int az)
     {
         AppMain.nnMakeRotateYMatrix(dst, ay);
         AppMain.nnRotateXMatrix(dst, dst, ax);
@@ -12654,7 +12654,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F4E RID: 3918 RVA: 0x00087828 File Offset: 0x00085A28
-    public static void nnMakeScaleMatrix(out AppMain.SNNS_MATRIX dst, float x, float y, float z)
+    public static void nnMakeScaleMatrix(out SNNS_MATRIX dst, float x, float y, float z)
     {
         dst.M00 = x;
         dst.M01 = 0f;
@@ -12675,7 +12675,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F4F RID: 3919 RVA: 0x000878DC File Offset: 0x00085ADC
-    public static void nnMakeScaleMatrix(AppMain.NNS_MATRIX dst, float x, float y, float z)
+    public static void nnMakeScaleMatrix(NNS_MATRIX dst, float x, float y, float z)
     {
         dst.M00 = x;
         dst.M01 = 0f;
@@ -12696,7 +12696,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F50 RID: 3920 RVA: 0x00087990 File Offset: 0x00085B90
-    private static void nnMakeTranslateMatrix(out AppMain.SNNS_MATRIX dst, float x, float y, float z)
+    public static void nnMakeTranslateMatrix(out SNNS_MATRIX dst, float x, float y, float z)
     {
         dst.M00 = 1f;
         dst.M01 = 0f;
@@ -12717,7 +12717,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F51 RID: 3921 RVA: 0x00087A44 File Offset: 0x00085C44
-    private static void nnMakeTranslateMatrix(AppMain.NNS_MATRIX dst, float x, float y, float z)
+    public static void nnMakeTranslateMatrix(NNS_MATRIX dst, float x, float y, float z)
     {
         dst.M00 = 1f;
         dst.M01 = 0f;
@@ -12738,7 +12738,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F52 RID: 3922 RVA: 0x00087AF8 File Offset: 0x00085CF8
-    public static void nnMakePerspectiveMatrix(AppMain.NNS_MATRIX mtx, int fovy, float aspect, float znear, float zfar)
+    public static void nnMakePerspectiveMatrix(NNS_MATRIX mtx, int fovy, float aspect, float znear, float zfar)
     {
         int ang = fovy >> 1;
         double num = 1.0 / (double)AppMain.nnTan(ang);
@@ -12761,7 +12761,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F53 RID: 3923 RVA: 0x00087BD8 File Offset: 0x00085DD8
-    public static void nnMakePerspectiveOffCenterMatrix(AppMain.NNS_MATRIX mtx, float left, float right, float bottom, float top, float znear, float zfar)
+    public static void nnMakePerspectiveOffCenterMatrix(NNS_MATRIX mtx, float left, float right, float bottom, float top, float znear, float zfar)
     {
         mtx.M00 = (float)(2.0 * (double)znear / ((double)right - (double)left));
         mtx.M01 = 0f;
@@ -12782,7 +12782,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000F54 RID: 3924 RVA: 0x00087CD8 File Offset: 0x00085ED8
-    public static void nnMakeOrthoMatrix(AppMain.NNS_MATRIX mtx, float left, float right, float bottom, float top, float znear, float zfar)
+    public static void nnMakeOrthoMatrix(NNS_MATRIX mtx, float left, float right, float bottom, float top, float znear, float zfar)
     {
         mtx.M00 = (float)(2.0 / (double)(right - left));
         mtx.M01 = 0f;
@@ -12803,7 +12803,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001832 RID: 6194 RVA: 0x000D7DB4 File Offset: 0x000D5FB4
-    private void nnCalcNodeMatrixNode(AppMain.NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx)
+    public void nnCalcNodeMatrixNode(NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx)
     {
         AppMain.NNS_NODE nns_NODE = obj.pNodeList[nodeidx];
         if (nns_NODE.iParent != -1)
@@ -12818,7 +12818,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+                NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
                 AppMain.nnTransformVector(nns_VECTOR, AppMain.nncalcnodematrix.nnsBaseMtx, nns_NODE.Translation);
                 AppMain.nnCopyVectorMatrixTranslation(mtx, nns_VECTOR);
             }
@@ -12875,7 +12875,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001833 RID: 6195 RVA: 0x000D7FA8 File Offset: 0x000D61A8
-    private void nnCalcNodeMatrix(AppMain.NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.NNS_MATRIX basemtx)
+    public void nnCalcNodeMatrix(NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, NNS_MATRIX basemtx)
     {
         if (basemtx != null)
         {
@@ -12890,9 +12890,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001834 RID: 6196 RVA: 0x000D7FD8 File Offset: 0x000D61D8
-    private void nnCalcNodeMatrixMotionNode(AppMain.NNS_MATRIX mtx, int nodeidx)
+    public void nnCalcNodeMatrixMotionNode(NNS_MATRIX mtx, int nodeidx)
     {
-        AppMain.NNS_MATRIX src = null;
+        NNS_MATRIX src = null;
         int num = 0;
         AppMain.NNS_NODE nns_NODE = AppMain.nncalcnodematrix.nnsNodeList[nodeidx];
         if ((nns_NODE.fType & 122880U) == 0U)
@@ -12908,12 +12908,12 @@ public partial class AppMain
         AppMain.NNS_NODE nns_NODE2 = null;
         AppMain.NNS_NODE nns_NODE3 = null;
         AppMain.NNS_NODE nns_NODE4 = null;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX4 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX5 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_VECTORFAST src2 = default(AppMain.NNS_VECTORFAST);
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX4 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX5 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_VECTORFAST src2 = default(NNS_VECTORFAST);
         int nodeidx2 = 0;
         int num3 = 0;
         int num4 = 0;
@@ -13024,7 +13024,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001835 RID: 6197 RVA: 0x000D83C4 File Offset: 0x000D65C4
-    private void nnCalcNodeMatrixMotion(AppMain.NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.NNS_MOTION mot, float frame, AppMain.NNS_MATRIX basemtx)
+    public void nnCalcNodeMatrixMotion(NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.NNS_MOTION mot, float frame, NNS_MATRIX basemtx)
     {
         if ((mot.fType & 1U) != 0U)
         {
@@ -13055,20 +13055,20 @@ public partial class AppMain
     }
 
     // Token: 0x06001836 RID: 6198 RVA: 0x000D8464 File Offset: 0x000D6664
-    private static void nnCalcNodeMatrixTRSListNode(AppMain.NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.ArrayPointer<AppMain.NNS_TRS> trslist)
+    public static void nnCalcNodeMatrixTRSListNode(NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.ArrayPointer<AppMain.NNS_TRS> trslist)
     {
         AppMain.NNS_NODE nns_NODE = null;
         AppMain.NNS_NODE nns_NODE2 = null;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.nnCalcNode_mtx_pool.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.nnCalcNode_mtx_pool.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX3 = AppMain.nnCalcNode_mtx_pool.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.nnCalcNode_mtx_pool.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.nnCalcNode_mtx_pool.Alloc();
+        NNS_MATRIX nns_MATRIX3 = AppMain.nnCalcNode_mtx_pool.Alloc();
         int nodeidx2 = 0;
         int num = 0;
         int num2 = 0;
         int num3 = 0;
         AppMain.NNS_NODE nns_NODE3 = obj.pNodeList[nodeidx];
         AppMain.NNS_TRS nns_TRS = trslist[nodeidx];
-        AppMain.NNS_MATRIX src;
+        NNS_MATRIX src;
         int num4;
         AppMain.NNS_NODE nns_NODE4;
         if ((nns_NODE3.fType & 8192U) != 0U)
@@ -13164,9 +13164,9 @@ public partial class AppMain
             nns_NODE = obj.pNodeList[num];
             nodeidx2 = (int)nns_NODE.iParent;
         }
-        AppMain.NNS_MATRIX nns_MATRIX4 = AppMain.nnCalcNode_mtx_pool.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX5 = AppMain.nnCalcNode_mtx_pool.Alloc();
-        AppMain.NNS_VECTORFAST src2 = default(AppMain.NNS_VECTORFAST);
+        NNS_MATRIX nns_MATRIX4 = AppMain.nnCalcNode_mtx_pool.Alloc();
+        NNS_MATRIX nns_MATRIX5 = AppMain.nnCalcNode_mtx_pool.Alloc();
+        NNS_VECTORFAST src2 = default(NNS_VECTORFAST);
         AppMain.NNS_TRS nns_TRS2 = trslist + num;
         AppMain.NNS_TRS nns_TRS3 = trslist + num2;
         AppMain.NNS_TRS nns_TRS4 = trslist + num4;
@@ -13229,7 +13229,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001837 RID: 6199 RVA: 0x000D8A74 File Offset: 0x000D6C74
-    private static void nnCalcNodeMatrixTRSList(AppMain.NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.ArrayPointer<AppMain.NNS_TRS> trslist, AppMain.NNS_MATRIX basemtx)
+    public static void nnCalcNodeMatrixTRSList(NNS_MATRIX mtx, AppMain.NNS_OBJECT obj, int nodeidx, AppMain.ArrayPointer<AppMain.NNS_TRS> trslist, NNS_MATRIX basemtx)
     {
         if (basemtx != null)
         {
@@ -13243,7 +13243,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001838 RID: 6200 RVA: 0x000D8A98 File Offset: 0x000D6C98
-    public static void nnCopyMatrix33(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src)
+    public static void nnCopyMatrix33(NNS_MATRIX dst, NNS_MATRIX src)
     {
         dst.M00 = src.M00;
         dst.M01 = src.M01;
@@ -13257,7 +13257,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001839 RID: 6201 RVA: 0x000D8B14 File Offset: 0x000D6D14
-    public static void nnCopyMatrix33(ref AppMain.SNNS_MATRIX dst, ref AppMain.SNNS_MATRIX src)
+    public static void nnCopyMatrix33(ref SNNS_MATRIX dst, ref SNNS_MATRIX src)
     {
         dst.M00 = src.M00;
         dst.M01 = src.M01;
@@ -13271,14 +13271,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600183A RID: 6202 RVA: 0x000D8B90 File Offset: 0x000D6D90
-    private static void nnCalcMatrixPaletteNode(int nodeIdx)
+    public static void nnCalcMatrixPaletteNode(int nodeIdx)
     {
         AppMain.NNS_NODE nns_NODE;
         do
         {
             nns_NODE = AppMain.nncalcmatrixpalette.nnsNodeList[nodeIdx];
             AppMain.nnPushMatrix(AppMain.nncalcmatrixpalette.nnsMstk, null);
-            AppMain.NNS_MATRIX nns_MATRIX = AppMain.nnGetCurrentMatrix(AppMain.nncalcmatrixpalette.nnsMstk);
+            NNS_MATRIX nns_MATRIX = AppMain.nnGetCurrentMatrix(AppMain.nncalcmatrixpalette.nnsMstk);
             if ((nns_NODE.fType & 1U) == 0U)
             {
                 if ((nns_NODE.fType & 8192U) == 0U)
@@ -13287,10 +13287,10 @@ public partial class AppMain
                 }
                 else
                 {
-                    AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+                    NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
                     AppMain.nnTransformVector(nns_VECTOR, AppMain.nncalcmatrixpalette.nnsBaseMtx, nns_NODE.Translation);
                     AppMain.nnCopyVectorMatrixTranslation(nns_MATRIX, nns_VECTOR);
-                    AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
+                    AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
                 }
             }
             if ((nns_NODE.fType & 4096U) != 0U)
@@ -13372,7 +13372,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600183B RID: 6203 RVA: 0x000D8E30 File Offset: 0x000D7030
-    private static void nnCalcMatrixPalette(AppMain.NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, AppMain.NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
+    public static void nnCalcMatrixPalette(NNS_MATRIX[] mtxpal, uint[] nodestatlist, AppMain.NNS_OBJECT obj, NNS_MATRIX basemtx, AppMain.NNS_MATRIXSTACK mstk, uint flag)
     {
         if (basemtx != null)
         {
@@ -13392,31 +13392,31 @@ public partial class AppMain
     }
 
     // Token: 0x0600183C RID: 6204 RVA: 0x000D8E89 File Offset: 0x000D7089
-    private static void nnPutCommonVertex(AppMain.NNS_VTXLIST_COMMON_DESC vdesc, int nIndexSetSize, ushort indices, AppMain.NNS_MATRIX mtxpal, uint flag)
+    public static void nnPutCommonVertex(AppMain.NNS_VTXLIST_COMMON_DESC vdesc, int nIndexSetSize, ushort indices, NNS_MATRIX mtxpal, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600183D RID: 6205 RVA: 0x000D8E90 File Offset: 0x000D7090
-    private static void nnPutNormalVector(AppMain.NNS_VECTOR pos, AppMain.NNS_VECTOR nrm)
+    public static void nnPutNormalVector(NNS_VECTOR pos, NNS_VECTOR nrm)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600183E RID: 6206 RVA: 0x000D8E97 File Offset: 0x000D7097
-    private static void nnPutCommonVertexNormal(AppMain.NNS_VTXLIST_COMMON_DESC vdesc, int nIndexSetSize, ushort indices, AppMain.NNS_MATRIX mtxpal)
+    public static void nnPutCommonVertexNormal(AppMain.NNS_VTXLIST_COMMON_DESC vdesc, int nIndexSetSize, ushort indices, NNS_MATRIX mtxpal)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x0600183F RID: 6207 RVA: 0x000D8E9E File Offset: 0x000D709E
-    private void nnDrawObjectCommonVertex(AppMain.NNS_VTXLISTPTR vlistptr, AppMain.NNS_PRIMLISTPTR plistptr, AppMain.NNS_MATRIX mtxpal, uint flag)
+    public void nnDrawObjectCommonVertex(AppMain.NNS_VTXLISTPTR vlistptr, AppMain.NNS_PRIMLISTPTR plistptr, NNS_MATRIX mtxpal, uint flag)
     {
         AppMain.mppAssertNotImpl();
     }
 
     // Token: 0x06001840 RID: 6208 RVA: 0x000D8EA5 File Offset: 0x000D70A5
-    private void nnDrawObjectCommonVertexNormal(AppMain.NNS_VTXLISTPTR vlistptr, AppMain.NNS_PRIMLISTPTR plistptr, AppMain.NNS_MATRIX mtxpal)
+    public void nnDrawObjectCommonVertexNormal(AppMain.NNS_VTXLISTPTR vlistptr, AppMain.NNS_PRIMLISTPTR plistptr, NNS_MATRIX mtxpal)
     {
         AppMain.mppAssertNotImpl();
     }
@@ -13434,28 +13434,28 @@ public partial class AppMain
     }
 
     // Token: 0x06001843 RID: 6211 RVA: 0x000D8EBE File Offset: 0x000D70BE
-    private int nnCheckCollisionSS(ref AppMain.NNS_SPHERE sphere1, ref AppMain.NNS_SPHERE sphere2)
+    public int nnCheckCollisionSS(ref AppMain.NNS_SPHERE sphere1, ref AppMain.NNS_SPHERE sphere2)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06001844 RID: 6212 RVA: 0x000D8EC6 File Offset: 0x000D70C6
-    private int nnCheckCollisionCC(ref AppMain.NNS_CAPSULE capsule1, ref AppMain.NNS_CAPSULE capsule2)
+    public int nnCheckCollisionCC(ref AppMain.NNS_CAPSULE capsule1, ref AppMain.NNS_CAPSULE capsule2)
     {
         AppMain.mppAssertNotImpl();
         return 1;
     }
 
     // Token: 0x06001845 RID: 6213 RVA: 0x000D8ECE File Offset: 0x000D70CE
-    private int nnCheckCollisionBS(ref AppMain.NNS_BOX box, ref AppMain.NNS_SPHERE sphere)
+    public int nnCheckCollisionBS(ref AppMain.NNS_BOX box, ref AppMain.NNS_SPHERE sphere)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06001846 RID: 6214 RVA: 0x000D8ED6 File Offset: 0x000D70D6
-    private int nnCheckCollisionBB(ref AppMain.NNS_BOX box1, ref AppMain.NNS_BOX box2)
+    public int nnCheckCollisionBB(ref AppMain.NNS_BOX box1, ref AppMain.NNS_BOX box2)
     {
         AppMain.mppAssertNotImpl();
         return 1;
@@ -14006,7 +14006,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600184A RID: 6218 RVA: 0x000D9D90 File Offset: 0x000D7F90
-    public static int nnInterpolateFloat2(AppMain.NNS_TEXCOORD val, AppMain.NNS_SUBMOTION submot, float frame)
+    public static int nnInterpolateFloat2(NNS_TEXCOORD val, AppMain.NNS_SUBMOTION submot, float frame)
     {
         if (AppMain.nnCalcMotionFrame(out frame, submot.fIPType, submot.StartFrame, submot.EndFrame, frame) != 0)
         {
@@ -14024,7 +14024,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600184B RID: 6219 RVA: 0x000D9E14 File Offset: 0x000D8014
-    public static int nnInterpolateFloat3(AppMain.NNS_VECTOR val, AppMain.NNS_SUBMOTION submot, float frame)
+    public static int nnInterpolateFloat3(NNS_VECTOR val, AppMain.NNS_SUBMOTION submot, float frame)
     {
         if (AppMain.nnCalcMotionFrame(out frame, submot.fIPType, submot.StartFrame, submot.EndFrame, frame) != 0)
         {
@@ -14042,7 +14042,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600184C RID: 6220 RVA: 0x000D9E98 File Offset: 0x000D8098
-    public static int nnInterpolateFloat3(ref AppMain.SNNS_VECTOR val, AppMain.NNS_SUBMOTION submot, float frame)
+    public static int nnInterpolateFloat3(ref SNNS_VECTOR val, AppMain.NNS_SUBMOTION submot, float frame)
     {
         if (AppMain.nnCalcMotionFrame(out frame, submot.fIPType, submot.StartFrame, submot.EndFrame, frame) != 0)
         {
@@ -14060,9 +14060,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600184D RID: 6221 RVA: 0x000D9F1C File Offset: 0x000D811C
-    public static int nnInterpolateFloat3(ref AppMain.NNS_RGBA _val, AppMain.NNS_SUBMOTION submot, float frame)
+    public static int nnInterpolateFloat3(ref NNS_RGBA _val, AppMain.NNS_SUBMOTION submot, float frame)
     {
-        AppMain.SNNS_VECTOR snns_VECTOR;
+        SNNS_VECTOR snns_VECTOR;
         snns_VECTOR.x = _val.r;
         snns_VECTOR.y = _val.g;
         snns_VECTOR.z = _val.b;
@@ -14756,32 +14756,32 @@ public partial class AppMain
     }
 
     // Token: 0x06001851 RID: 6225 RVA: 0x000DB2F1 File Offset: 0x000D94F1
-    public static void nnDrawMaterialMotionObject(AppMain.NNS_OBJECT mmobj, AppMain.NNS_MATRIX[] mtxpal, uint[] nodestatlist, uint subobjtype, uint flag)
+    public static void nnDrawMaterialMotionObject(AppMain.NNS_OBJECT mmobj, NNS_MATRIX[] mtxpal, uint[] nodestatlist, uint subobjtype, uint flag)
     {
         AppMain.nnDrawObject(mmobj, mtxpal, nodestatlist, subobjtype, flag, 0U);
     }
 
 
     // Token: 0x060016E7 RID: 5863 RVA: 0x000C765E File Offset: 0x000C585E
-    public static void nnCopyMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src)
+    public static void nnCopyMatrix(NNS_MATRIX dst, NNS_MATRIX src)
     {
         dst.Assign(src);
     }
 
     // Token: 0x060016E8 RID: 5864 RVA: 0x000C7668 File Offset: 0x000C5868
-    public static void nnCopyMatrix(AppMain.NNS_MATRIX dst, ref AppMain.SNNS_MATRIX src)
+    public static void nnCopyMatrix(NNS_MATRIX dst, ref SNNS_MATRIX src)
     {
         dst.Assign(ref src);
     }
 
     // Token: 0x060016E9 RID: 5865 RVA: 0x000C7672 File Offset: 0x000C5872
-    public static void nnCopyMatrix(ref AppMain.SNNS_MATRIX dst, ref AppMain.SNNS_MATRIX src)
+    public static void nnCopyMatrix(ref SNNS_MATRIX dst, ref SNNS_MATRIX src)
     {
         dst.Assign(ref src);
     }
 
     // Token: 0x060016EA RID: 5866 RVA: 0x000C767C File Offset: 0x000C587C
-    public static bool nnInvertMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src)
+    public static bool nnInvertMatrix(NNS_MATRIX dst, NNS_MATRIX src)
     {
         float m = src.M00;
         float m2 = src.M01;
@@ -14825,7 +14825,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016EB RID: 5867 RVA: 0x000C7860 File Offset: 0x000C5A60
-    public static void nnInvertOrthoMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src)
+    public static void nnInvertOrthoMatrix(NNS_MATRIX dst, NNS_MATRIX src)
     {
         float m = src.M00;
         float m2 = src.M01;
@@ -14861,7 +14861,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016EC RID: 5868 RVA: 0x000C7980 File Offset: 0x000C5B80
-    public static void nnMultiplyMatrix(AppMain.NNS_MATRIX dst, ref AppMain.SNNS_MATRIX mtx1, AppMain.NNS_MATRIX mtx2)
+    public static void nnMultiplyMatrix(NNS_MATRIX dst, ref SNNS_MATRIX mtx1, NNS_MATRIX mtx2)
     {
         float m = mtx1.M00;
         float m2 = mtx1.M10;
@@ -14906,7 +14906,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016ED RID: 5869 RVA: 0x000C7B88 File Offset: 0x000C5D88
-    public static void nnMultiplyMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX mtx1, ref AppMain.SNNS_MATRIX mtx2)
+    public static void nnMultiplyMatrix(NNS_MATRIX dst, NNS_MATRIX mtx1, ref SNNS_MATRIX mtx2)
     {
         float m = mtx1.M00;
         float m2 = mtx1.M10;
@@ -14951,7 +14951,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016EE RID: 5870 RVA: 0x000C7D90 File Offset: 0x000C5F90
-    public static void nnMultiplyMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX mtx1, AppMain.NNS_MATRIX mtx2)
+    public static void nnMultiplyMatrix(NNS_MATRIX dst, NNS_MATRIX mtx1, NNS_MATRIX mtx2)
     {
         float m = mtx1.M00;
         float m2 = mtx1.M10;
@@ -14996,7 +14996,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016EF RID: 5871 RVA: 0x000C7F98 File Offset: 0x000C6198
-    public static void nnMultiplyMatrix(ref AppMain.SNNS_MATRIX dst, AppMain.NNS_MATRIX mtx1, ref AppMain.SNNS_MATRIX mtx2)
+    public static void nnMultiplyMatrix(ref SNNS_MATRIX dst, NNS_MATRIX mtx1, ref SNNS_MATRIX mtx2)
     {
         float m = mtx1.M00;
         float m2 = mtx1.M10;
@@ -15041,7 +15041,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F0 RID: 5872 RVA: 0x000C81A0 File Offset: 0x000C63A0
-    public static void nnMultiplyMatrix(out AppMain.SNNS_MATRIX dst, ref AppMain.SNNS_MATRIX mtx1, ref AppMain.SNNS_MATRIX mtx2)
+    public static void nnMultiplyMatrix(out SNNS_MATRIX dst, ref SNNS_MATRIX mtx1, ref SNNS_MATRIX mtx2)
     {
         float m = mtx1.M00;
         float m2 = mtx1.M10;
@@ -15086,7 +15086,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F1 RID: 5873 RVA: 0x000C83A8 File Offset: 0x000C65A8
-    public static void nnMultiplyMatrix(ref AppMain.SNNS_MATRIX dst, AppMain.NNS_MATRIX mtx1, AppMain.NNS_MATRIX mtx2)
+    public static void nnMultiplyMatrix(ref SNNS_MATRIX dst, NNS_MATRIX mtx1, NNS_MATRIX mtx2)
     {
         float m = mtx1.M00;
         float m2 = mtx1.M10;
@@ -15131,7 +15131,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F2 RID: 5874 RVA: 0x000C85B0 File Offset: 0x000C67B0
-    public static void nnTransposeMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src)
+    public static void nnTransposeMatrix(NNS_MATRIX dst, NNS_MATRIX src)
     {
         dst.M00 = src.M00;
         dst.M01 = src.M10;
@@ -15152,15 +15152,15 @@ public partial class AppMain
     }
 
     // Token: 0x060016F3 RID: 5875 RVA: 0x000C8678 File Offset: 0x000C6878
-    public static void nnQuaternionMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, ref AppMain.NNS_QUATERNION quat)
+    public static void nnQuaternionMatrix(NNS_MATRIX dst, NNS_MATRIX src, ref NNS_QUATERNION quat)
     {
-        AppMain.SNNS_MATRIX snns_MATRIX;
+        SNNS_MATRIX snns_MATRIX;
         AppMain.nnMakeQuaternionMatrix(out snns_MATRIX, ref quat);
         AppMain.nnMultiplyMatrix(dst, src, ref snns_MATRIX);
     }
 
     // Token: 0x060016F4 RID: 5876 RVA: 0x000C8698 File Offset: 0x000C6898
-    public static void nnRotateXMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, int ax)
+    public static void nnRotateXMatrix(NNS_MATRIX dst, NNS_MATRIX src, int ax)
     {
         if (ax == 0)
         {
@@ -15206,7 +15206,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F5 RID: 5877 RVA: 0x000C87CC File Offset: 0x000C69CC
-    public static void nnRotateYMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, int ay)
+    public static void nnRotateYMatrix(NNS_MATRIX dst, NNS_MATRIX src, int ay)
     {
         if (ay == 0)
         {
@@ -15252,7 +15252,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F6 RID: 5878 RVA: 0x000C8900 File Offset: 0x000C6B00
-    public static void nnRotateYMatrix(ref AppMain.SNNS_MATRIX dst, ref AppMain.SNNS_MATRIX src, int ay)
+    public static void nnRotateYMatrix(ref SNNS_MATRIX dst, ref SNNS_MATRIX src, int ay)
     {
         if (ay == 0)
         {
@@ -15288,7 +15288,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F7 RID: 5879 RVA: 0x000C8A20 File Offset: 0x000C6C20
-    public static void nnRotateZMatrix(ref AppMain.SNNS_MATRIX dst, ref AppMain.SNNS_MATRIX src, int az)
+    public static void nnRotateZMatrix(ref SNNS_MATRIX dst, ref SNNS_MATRIX src, int az)
     {
         if (az == 0)
         {
@@ -15325,7 +15325,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F8 RID: 5880 RVA: 0x000C8B4C File Offset: 0x000C6D4C
-    public static void nnRotateZMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, int az)
+    public static void nnRotateZMatrix(NNS_MATRIX dst, NNS_MATRIX src, int az)
     {
         if (az == 0)
         {
@@ -15371,7 +15371,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016F9 RID: 5881 RVA: 0x000C8C7F File Offset: 0x000C6E7F
-    public static void nnRotateXYZMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, int ax, int ay, int az)
+    public static void nnRotateXYZMatrix(NNS_MATRIX dst, NNS_MATRIX src, int ax, int ay, int az)
     {
         if (az != 0 || dst != src)
         {
@@ -15388,7 +15388,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016FA RID: 5882 RVA: 0x000C8CA8 File Offset: 0x000C6EA8
-    public static void nnRotateXZYMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, int ax, int ay, int az)
+    public static void nnRotateXZYMatrix(NNS_MATRIX dst, NNS_MATRIX src, int ax, int ay, int az)
     {
         if (ay != 0 || dst != src)
         {
@@ -15405,7 +15405,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016FB RID: 5883 RVA: 0x000C8CD1 File Offset: 0x000C6ED1
-    public static void nnRotateZXYMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, int ax, int ay, int az)
+    public static void nnRotateZXYMatrix(NNS_MATRIX dst, NNS_MATRIX src, int ax, int ay, int az)
     {
         if (ay != 0 || dst != src)
         {
@@ -15422,7 +15422,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016FC RID: 5884 RVA: 0x000C8CFC File Offset: 0x000C6EFC
-    public static void nnScaleMatrix(ref AppMain.SNNS_MATRIX dst, ref AppMain.SNNS_MATRIX src, float x, float y, float z)
+    public static void nnScaleMatrix(ref SNNS_MATRIX dst, ref SNNS_MATRIX src, float x, float y, float z)
     {
         dst.M03 = src.M03;
         dst.M13 = src.M13;
@@ -15443,7 +15443,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016FD RID: 5885 RVA: 0x000C8DDC File Offset: 0x000C6FDC
-    public static void nnScaleMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, float x, float y, float z)
+    public static void nnScaleMatrix(NNS_MATRIX dst, NNS_MATRIX src, float x, float y, float z)
     {
         if (dst != src)
         {
@@ -15467,7 +15467,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016FE RID: 5886 RVA: 0x000C8EC0 File Offset: 0x000C70C0
-    public static void nnTranslateMatrix(ref AppMain.SNNS_MATRIX dst, ref AppMain.SNNS_MATRIX src, float x, float y, float z)
+    public static void nnTranslateMatrix(ref SNNS_MATRIX dst, ref SNNS_MATRIX src, float x, float y, float z)
     {
         AppMain.nnCopyMatrix33(ref dst, ref src);
         dst.M30 = 0f;
@@ -15480,7 +15480,7 @@ public partial class AppMain
     }
 
     // Token: 0x060016FF RID: 5887 RVA: 0x000C8F78 File Offset: 0x000C7178
-    public static void nnTranslateMatrix(AppMain.NNS_MATRIX dst, AppMain.NNS_MATRIX src, float x, float y, float z)
+    public static void nnTranslateMatrix(NNS_MATRIX dst, NNS_MATRIX src, float x, float y, float z)
     {
         if (dst != src)
         {
@@ -15496,7 +15496,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001700 RID: 5888 RVA: 0x000C9034 File Offset: 0x000C7234
-    public static void nnCopyVectorMatrixTranslation(AppMain.NNS_MATRIX mtx, ref AppMain.SNNS_VECTOR vec)
+    public static void nnCopyVectorMatrixTranslation(NNS_MATRIX mtx, ref SNNS_VECTOR vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15504,7 +15504,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001701 RID: 5889 RVA: 0x000C905A File Offset: 0x000C725A
-    public static void nnCopyVectorMatrixTranslation(ref AppMain.SNNS_MATRIX mtx, ref AppMain.SNNS_VECTOR vec)
+    public static void nnCopyVectorMatrixTranslation(ref SNNS_MATRIX mtx, ref SNNS_VECTOR vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15512,7 +15512,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001702 RID: 5890 RVA: 0x000C9080 File Offset: 0x000C7280
-    public static void nnCopyVectorMatrixTranslation(ref AppMain.SNNS_MATRIX mtx, AppMain.NNS_VECTOR vec)
+    public static void nnCopyVectorMatrixTranslation(ref SNNS_MATRIX mtx, NNS_VECTOR vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15520,7 +15520,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001703 RID: 5891 RVA: 0x000C90A6 File Offset: 0x000C72A6
-    public static void nnCopyVectorMatrixTranslation(ref AppMain.SNNS_MATRIX mtx, AppMain.NNS_VECTOR4D vec)
+    public static void nnCopyVectorMatrixTranslation(ref SNNS_MATRIX mtx, NNS_VECTOR4D vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15528,7 +15528,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001704 RID: 5892 RVA: 0x000C90CC File Offset: 0x000C72CC
-    public static void nnCopyVectorMatrixTranslation(ref AppMain.SNNS_MATRIX mtx, ref AppMain.SNNS_VECTOR4D vec)
+    public static void nnCopyVectorMatrixTranslation(ref SNNS_MATRIX mtx, ref SNNS_VECTOR4D vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15536,7 +15536,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001705 RID: 5893 RVA: 0x000C90F2 File Offset: 0x000C72F2
-    public static void nnCopyVectorMatrixTranslation(AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR vec)
+    public static void nnCopyVectorMatrixTranslation(NNS_MATRIX mtx, NNS_VECTOR vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15544,7 +15544,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001706 RID: 5894 RVA: 0x000C9118 File Offset: 0x000C7318
-    public static void nnCopyVectorMatrixTranslation(AppMain.NNS_MATRIX mtx, AppMain.NNS_VECTOR4D vec)
+    public static void nnCopyVectorMatrixTranslation(NNS_MATRIX mtx, NNS_VECTOR4D vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15552,7 +15552,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001707 RID: 5895 RVA: 0x000C913E File Offset: 0x000C733E
-    private static void nnCopyVectorFastMatrixTranslation(AppMain.NNS_MATRIX mtx, ref AppMain.NNS_VECTORFAST vec)
+    public static void nnCopyVectorFastMatrixTranslation(NNS_MATRIX mtx, ref NNS_VECTORFAST vec)
     {
         mtx.M03 = vec.x;
         mtx.M13 = vec.y;
@@ -15560,14 +15560,14 @@ public partial class AppMain
     }
 
     // Token: 0x06001708 RID: 5896 RVA: 0x000C9164 File Offset: 0x000C7364
-    private int nnCheckCollisionSC(ref AppMain.NNS_SPHERE sphere, ref AppMain.NNS_CAPSULE capsule)
+    public int nnCheckCollisionSC(ref AppMain.NNS_SPHERE sphere, ref AppMain.NNS_CAPSULE capsule)
     {
         AppMain.mppAssertNotImpl();
         return 0;
     }
 
     // Token: 0x06001709 RID: 5897 RVA: 0x000C916C File Offset: 0x000C736C
-    private int nnCheckCollisionBC(ref AppMain.NNS_BOX box, ref AppMain.NNS_CAPSULE capsule)
+    public int nnCheckCollisionBC(ref AppMain.NNS_BOX box, ref AppMain.NNS_CAPSULE capsule)
     {
         AppMain.mppAssertNotImpl();
         return 0;

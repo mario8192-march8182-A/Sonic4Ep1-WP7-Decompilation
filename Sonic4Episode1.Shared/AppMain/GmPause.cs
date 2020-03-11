@@ -96,7 +96,7 @@ public partial class AppMain
         pause_work.flag |= 1U;
         if ( b_rec_snd )
         {
-            AppMain.GmSoundAllResume();
+            GmSound.AllResume();
         }
     }
 
@@ -116,7 +116,7 @@ public partial class AppMain
     // Token: 0x06000047 RID: 71 RVA: 0x00004728 File Offset: 0x00002928
     private static void gmPauseProcUpdatePauseMenuStart( AppMain.GMS_PAUSE_WORK pause_work )
     {
-        AppMain.GmSoundAllPause();
+        GmSound.AllPause();
         AppMain.GmPauseMenuStart( 28928U );
         pause_work.proc_update = AppMain.gmPauseProcUpdateWaitDecision;
     }

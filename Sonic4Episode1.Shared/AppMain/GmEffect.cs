@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020002DB RID: 731
-    public class GMS_EFFECT_3DNN_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_EFFECT_3DNN_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060024C3 RID: 9411 RVA: 0x0014B253 File Offset: 0x00149453
         public GMS_EFFECT_3DNN_WORK()
@@ -23,7 +23,7 @@ public partial class AppMain
         }
 
         // Token: 0x060024C5 RID: 9413 RVA: 0x0014B298 File Offset: 0x00149498
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.efct_com.obj_work;
         }
@@ -96,12 +96,12 @@ public partial class AppMain
     public class GMS_EFFECT_CREATE_PARAM
     {
         // Token: 0x060024CF RID: 9423 RVA: 0x0014B31C File Offset: 0x0014951C
-        public GMS_EFFECT_CREATE_PARAM( int ame_idx, uint pos_type, uint init_flag, AppMain.NNS_VECTOR disp_ofst, AppMain.NNS_ROTATE_A16 disp_rot, float scale, AppMain.MPP_VOID_OBS_OBJECT_WORK main_func, int model_idx )
+        public GMS_EFFECT_CREATE_PARAM( int ame_idx, uint pos_type, uint init_flag, NNS_VECTOR disp_ofst, NNS_ROTATE_A16 disp_rot, float scale, AppMain.MPP_VOID_OBS_OBJECT_WORK main_func, int model_idx )
         {
             this.ame_idx = ame_idx;
             this.pos_type = pos_type;
             this.init_flag = init_flag;
-            this.disp_ofst = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+            this.disp_ofst = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
             this.disp_ofst.Assign( disp_ofst );
             this.disp_rot = disp_rot;
             this.scale = scale;
@@ -112,8 +112,8 @@ public partial class AppMain
         // Token: 0x060024D0 RID: 9424 RVA: 0x0014B37D File Offset: 0x0014957D
         public GMS_EFFECT_CREATE_PARAM()
         {
-            this.disp_ofst = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-            this.disp_rot = default( AppMain.NNS_ROTATE_A16 );
+            this.disp_ofst = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            this.disp_rot = default( NNS_ROTATE_A16 );
         }
 
         // Token: 0x060024D1 RID: 9425 RVA: 0x0014B39C File Offset: 0x0014959C
@@ -139,10 +139,10 @@ public partial class AppMain
         public uint init_flag;
 
         // Token: 0x04005C65 RID: 23653
-        public readonly AppMain.NNS_VECTOR disp_ofst;
+        public readonly NNS_VECTOR disp_ofst;
 
         // Token: 0x04005C66 RID: 23654
-        public AppMain.NNS_ROTATE_A16 disp_rot;
+        public NNS_ROTATE_A16 disp_rot;
 
         // Token: 0x04005C67 RID: 23655
         public float scale;
@@ -155,7 +155,7 @@ public partial class AppMain
     }
 
     // Token: 0x020002DD RID: 733
-    public class GMS_EFFECT_3DES_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_EFFECT_3DES_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060024D2 RID: 9426 RVA: 0x0014B40F File Offset: 0x0014960F
         public void Clear()
@@ -197,13 +197,13 @@ public partial class AppMain
         }
 
         // Token: 0x060024D8 RID: 9432 RVA: 0x0014B471 File Offset: 0x00149671
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.efct_com.obj_work;
         }
 
         // Token: 0x060024D9 RID: 9433 RVA: 0x0014B47E File Offset: 0x0014967E
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_EFFECT_3DES_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_EFFECT_3DES_WORK work )
         {
             return work.efct_com.obj_work;
         }
@@ -237,7 +237,7 @@ public partial class AppMain
     }
 
     // Token: 0x020002DE RID: 734
-    public class GMS_EFFECT_COM_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_EFFECT_COM_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060024DC RID: 9436 RVA: 0x0014B4C4 File Offset: 0x001496C4
         public void Clear()
@@ -262,7 +262,7 @@ public partial class AppMain
         }
 
         // Token: 0x060024DF RID: 9439 RVA: 0x0014B50F File Offset: 0x0014970F
-        public static explicit operator AppMain.GMS_EFFECT_COM_WORK( AppMain.OBS_OBJECT_WORK work )
+        public static explicit operator AppMain.GMS_EFFECT_COM_WORK( OBS_OBJECT_WORK work )
         {
             if ( work.holder is AppMain.GMS_EFFECT_COM_WORK )
             {
@@ -272,13 +272,13 @@ public partial class AppMain
         }
 
         // Token: 0x060024E0 RID: 9440 RVA: 0x0014B53A File Offset: 0x0014973A
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x060024E1 RID: 9441 RVA: 0x0014B542 File Offset: 0x00149742
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_EFFECT_COM_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_EFFECT_COM_WORK work )
         {
             return work.obj_work;
         }
@@ -286,13 +286,13 @@ public partial class AppMain
         // Token: 0x060024E2 RID: 9442 RVA: 0x0014B54A File Offset: 0x0014974A
         public GMS_EFFECT_COM_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x060024E3 RID: 9443 RVA: 0x0014B56A File Offset: 0x0014976A
         public GMS_EFFECT_COM_WORK( object _holder )
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
             this.holder = _holder;
         }
 
@@ -315,7 +315,7 @@ public partial class AppMain
         }
 
         // Token: 0x04005C6F RID: 23663
-        public AppMain.OBS_OBJECT_WORK obj_work;
+        public OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04005C70 RID: 23664
         public AppMain.OBS_RECT_WORK[] rect_work = AppMain.New<AppMain.OBS_RECT_WORK>(2);
@@ -325,7 +325,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001414 RID: 5140 RVA: 0x000B235D File Offset: 0x000B055D
-    public static AppMain.OBS_OBJECT_WORK GMM_EFFECT_CREATE_WORK( AppMain.TaskWorkFactoryDelegate work_size, AppMain.OBS_OBJECT_WORK parent_obj, ushort sort_prio, string name )
+    public static OBS_OBJECT_WORK GMM_EFFECT_CREATE_WORK( AppMain.TaskWorkFactoryDelegate work_size, OBS_OBJECT_WORK parent_obj, ushort sort_prio, string name )
     {
         return AppMain.GmEffectCreateWork( work_size, parent_obj, sort_prio );
     }
@@ -341,13 +341,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001417 RID: 5143 RVA: 0x000B236C File Offset: 0x000B056C
-    private static AppMain.OBS_OBJECT_WORK GmEffectCreateWork( AppMain.TaskWorkFactoryDelegate work_size, AppMain.OBS_OBJECT_WORK parent_obj, ushort sort_prio )
+    private static OBS_OBJECT_WORK GmEffectCreateWork( AppMain.TaskWorkFactoryDelegate work_size, OBS_OBJECT_WORK parent_obj, ushort sort_prio )
     {
         if ( work_size == null )
         {
             work_size = AppMain._GmEffectCreateWork_Delegate;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT((ushort)(6656 + sort_prio), 3, 0, 0, work_size, null);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT((ushort)(6656 + sort_prio), 3, 0, 0, work_size, null);
         if ( obs_OBJECT_WORK == null )
         {
             return null;
@@ -384,21 +384,21 @@ public partial class AppMain
     }
 
     // Token: 0x06001419 RID: 5145 RVA: 0x000B249C File Offset: 0x000B069C
-    private static AppMain.GMS_EFFECT_3DES_WORK GmEffect3dESCreateByParam( AppMain.GMS_EFFECT_CREATE_PARAM create_param, AppMain.OBS_OBJECT_WORK parent_obj, object arc, AppMain.OBS_DATA_WORK ame_dwork, AppMain.OBS_DATA_WORK ambtex_dwork, AppMain.OBS_DATA_WORK texlist_dwork, AppMain.OBS_DATA_WORK model_dwork, AppMain.OBS_DATA_WORK object_dwork )
+    private static AppMain.GMS_EFFECT_3DES_WORK GmEffect3dESCreateByParam( AppMain.GMS_EFFECT_CREATE_PARAM create_param, OBS_OBJECT_WORK parent_obj, object arc, AppMain.OBS_DATA_WORK ame_dwork, AppMain.OBS_DATA_WORK ambtex_dwork, AppMain.OBS_DATA_WORK texlist_dwork, AppMain.OBS_DATA_WORK model_dwork, AppMain.OBS_DATA_WORK object_dwork )
     {
         return AppMain.GmEffect3dESCreateByParam( create_param, parent_obj, arc, ame_dwork, ambtex_dwork, texlist_dwork, model_dwork, object_dwork, AppMain._GmEffect3dESTaskDelegate );
     }
 
     // Token: 0x0600141A RID: 5146 RVA: 0x000B24C8 File Offset: 0x000B06C8
-    private static AppMain.GMS_EFFECT_3DES_WORK GmEffect3dESCreateByParam( AppMain.GMS_EFFECT_CREATE_PARAM create_param, AppMain.OBS_OBJECT_WORK parent_obj, object arc, AppMain.OBS_DATA_WORK ame_dwork, AppMain.OBS_DATA_WORK ambtex_dwork, AppMain.OBS_DATA_WORK texlist_dwork, AppMain.OBS_DATA_WORK model_dwork, AppMain.OBS_DATA_WORK object_dwork, AppMain.TaskWorkFactoryDelegate work_size )
+    private static AppMain.GMS_EFFECT_3DES_WORK GmEffect3dESCreateByParam( AppMain.GMS_EFFECT_CREATE_PARAM create_param, OBS_OBJECT_WORK parent_obj, object arc, AppMain.OBS_DATA_WORK ame_dwork, AppMain.OBS_DATA_WORK ambtex_dwork, AppMain.OBS_DATA_WORK texlist_dwork, AppMain.OBS_DATA_WORK model_dwork, AppMain.OBS_DATA_WORK object_dwork, AppMain.TaskWorkFactoryDelegate work_size )
     {
         if ( work_size == null )
         {
             work_size = ( () => new AppMain.GMS_EFFECT_3DES_WORK() );
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(work_size, parent_obj, 0, "EF_3DES_CREATE_BY_PARAM");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(work_size, parent_obj, 0, "EF_3DES_CREATE_BY_PARAM");
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = (AppMain.GMS_EFFECT_3DES_WORK)obs_OBJECT_WORK;
-        AppMain.ObjObjectAction3dESEffectLoad( obs_OBJECT_WORK, gms_EFFECT_3DES_WORK.obj_3des, ame_dwork, null, create_param.ame_idx, ( AppMain.AMS_AMB_HEADER )arc );
+        AppMain.ObjObjectAction3dESEffectLoad( obs_OBJECT_WORK, gms_EFFECT_3DES_WORK.obj_3des, ame_dwork, null, create_param.ame_idx, ( AMS_AMB_HEADER )arc );
         AppMain.ObjObjectAction3dESTextureLoad( obs_OBJECT_WORK, obs_OBJECT_WORK.obj_3des, ambtex_dwork, null, 0, null, false );
         AppMain.ObjObjectAction3dESTextureSetByDwork( obs_OBJECT_WORK, texlist_dwork );
         if ( model_dwork != null && create_param.model_idx != -1 )
@@ -418,9 +418,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600141B RID: 5147 RVA: 0x000B25F0 File Offset: 0x000B07F0
-    private static AppMain.GMS_EFFECT_3DES_WORK GmEffect3dESCreateDummy( AppMain.OBS_OBJECT_WORK parent_obj )
+    private static AppMain.GMS_EFFECT_3DES_WORK GmEffect3dESCreateDummy( OBS_OBJECT_WORK parent_obj )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DES_WORK(), parent_obj, 0, "EF_3DES_DUMMY");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DES_WORK(), parent_obj, 0, "EF_3DES_DUMMY");
         obs_OBJECT_WORK.disp_flag |= 8U;
         AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = (AppMain.GMS_EFFECT_3DES_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.obj_3des = gms_EFFECT_3DES_WORK.obj_3des;
@@ -432,7 +432,7 @@ public partial class AppMain
     // Token: 0x0600141C RID: 5148 RVA: 0x000B2664 File Offset: 0x000B0864
     private static void GmEffectRectInit( AppMain.GMS_EFFECT_COM_WORK efct_com, ushort[] atk_flag_tbl, ushort[] def_flag_tbl, byte my_group, byte target_group_flag )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = efct_com.obj_work;
+        OBS_OBJECT_WORK obj_work = efct_com.obj_work;
         AppMain.ObjObjectGetRectBuf( obj_work, efct_com.rect_work, 2 );
         for ( int i = 0; i < 2; i++ )
         {
@@ -459,7 +459,7 @@ public partial class AppMain
     // Token: 0x0600141F RID: 5151 RVA: 0x000B2724 File Offset: 0x000B0924
     private static void GmEffect3DESSetupBase( AppMain.GMS_EFFECT_3DES_WORK efct_3des, uint pos_type, uint init_flag )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)efct_3des;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)efct_3des;
         AppMain.OBS_ACTION3D_ES_WORK obj_3des = obs_OBJECT_WORK.obj_3des;
         efct_3des.saved_pos_type = pos_type;
         efct_3des.saved_init_flag = init_flag;
@@ -535,7 +535,7 @@ public partial class AppMain
     // Token: 0x06001420 RID: 5152 RVA: 0x000B28C8 File Offset: 0x000B0AC8
     private static void GmEffect3DESChangeBase( AppMain.GMS_EFFECT_3DES_WORK efct_3des, uint pos_type, uint init_flag )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = efct_3des.efct_com.obj_work;
+        OBS_OBJECT_WORK obj_work = efct_3des.efct_com.obj_work;
         AppMain.MPP_VOID_OBS_OBJECT_WORK ppFunc = obj_work.ppFunc;
         obj_work.ppFunc = null;
         AppMain.GmEffect3DESSetupBase( efct_3des, pos_type, init_flag );
@@ -597,7 +597,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001428 RID: 5160 RVA: 0x000B2AB8 File Offset: 0x000B0CB8
-    private static void GmEffectDefaultMainFuncDeleteAtEnd( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmEffectDefaultMainFuncDeleteAtEnd( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.disp_flag & 8U ) != 0U )
         {
@@ -606,7 +606,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001429 RID: 5161 RVA: 0x000B2AD2 File Offset: 0x000B0CD2
-    private static void GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.disp_flag & 8U ) != 0U )
         {
@@ -619,14 +619,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600142A RID: 5162 RVA: 0x000B2B0F File Offset: 0x000B0D0F
-    private static void gmEffectDefaultRecFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEffectDefaultRecFunc( OBS_OBJECT_WORK obj_work )
     {
     }
 
     // Token: 0x0600142B RID: 5163 RVA: 0x000B2B14 File Offset: 0x000B0D14
     private static void GmEffect3DESSetScale( AppMain.GMS_EFFECT_3DES_WORK efct_3des, float scale_rate )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)efct_3des;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)efct_3des;
         obs_OBJECT_WORK.scale.x = ( obs_OBJECT_WORK.scale.y = ( obs_OBJECT_WORK.scale.z = AppMain.FX_F32_TO_FX32( scale_rate ) ) );
     }
 }

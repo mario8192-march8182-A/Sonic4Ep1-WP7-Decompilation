@@ -9,23 +9,23 @@ public partial class AppMain
     // Token: 0x060003E1 RID: 993 RVA: 0x0001F524 File Offset: 0x0001D724
     private static void GmEneMereonBuild()
     {
-        AppMain.gm_ene_mereon_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 670 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 672 ) ), 0U );
-        AppMain.gm_ene_mereon_r_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 671 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 672 ) ), 0U );
+        AppMain.gm_ene_mereon_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 670 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 672 ) ), 0U );
+        AppMain.gm_ene_mereon_r_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 671 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 672 ) ), 0U );
     }
 
     // Token: 0x060003E2 RID: 994 RVA: 0x0001F584 File Offset: 0x0001D784
     private static void GmEneMereonFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(670));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(670));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_mereon_obj_3d_list, ams_AMB_HEADER.file_num );
-        ams_AMB_HEADER = AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 671 ) );
+        ams_AMB_HEADER = AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 671 ) );
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_mereon_r_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060003E3 RID: 995 RVA: 0x0001F5D8 File Offset: 0x0001D7D8
-    private static AppMain.OBS_OBJECT_WORK GmEneMereonInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneMereonInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "ENE_MEREON");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "ENE_MEREON");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_mereon_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, true, AppMain.ObjDataGet( 673 ), null, 0, null );
@@ -58,9 +58,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003E4 RID: 996 RVA: 0x0001F798 File Offset: 0x0001D998
-    private static void gmEneMereonHideSearchInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonHideSearchInit( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         obj_work.disp_flag &= 4294967294U;
         if ( gms_PLAYER_WORK.obj_work.pos.x < obj_work.pos.x )
         {
@@ -72,11 +72,11 @@ public partial class AppMain
     }
 
     // Token: 0x060003E5 RID: 997 RVA: 0x0001F81C File Offset: 0x0001DA1C
-    private static void gmEneMereonHideSearchMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonHideSearchMain( OBS_OBJECT_WORK obj_work )
     {
         float[] array = new float[2];
         float[] array2 = new float[2];
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_PLAYER_WORK.rect_work[2];
         array[0] = AppMain.FXM_FX32_TO_FLOAT( gms_PLAYER_WORK.obj_work.pos.x + ( obs_RECT_WORK.rect.top + obs_RECT_WORK.rect.bottom >> 1 ) );
         array[1] = AppMain.FXM_FX32_TO_FLOAT( gms_PLAYER_WORK.obj_work.pos.y + ( obs_RECT_WORK.rect.left + obs_RECT_WORK.rect.right >> 1 ) );
@@ -103,10 +103,10 @@ public partial class AppMain
     }
 
     // Token: 0x060003E6 RID: 998 RVA: 0x0001F978 File Offset: 0x0001DB78
-    private static void gmEneMereonAppearInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonAppearInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         obj_work.disp_flag &= 4294967294U;
         if ( gms_ENEMY_COM_WORK.eve_rec.id == 4 && gms_PLAYER_WORK.obj_work.pos.x > obj_work.pos.x )
         {
@@ -121,7 +121,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003E7 RID: 999 RVA: 0x0001FA40 File Offset: 0x0001DC40
-    private static void gmEneMereonAppearMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonAppearMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obj_work;
         obj_work.user_timer = AppMain.ObjTimeCountUp( obj_work.user_timer );
@@ -149,7 +149,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003E8 RID: 1000 RVA: 0x0001FAF6 File Offset: 0x0001DCF6
-    private static void gmEneMereonAtkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonAtkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 3, 4 );
         obj_work.flag &= 4294967293U;
@@ -158,7 +158,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003E9 RID: 1001 RVA: 0x0001FB28 File Offset: 0x0001DD28
-    private static void gmEneMereonAtkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonAtkMain( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.disp_flag & 8U ) != 0U )
         {
@@ -170,7 +170,7 @@ public partial class AppMain
                 num2 = ( short )( ( int )num2 + 32768 );
             }
             AppMain.GmEneStingCreateBullet( obj_work, -81920, -49152, 32768, -98304, -49152, 0, num, 0, num2 );
-            AppMain.GmSoundPlaySE( "Sting" );
+            GmSound.PlaySE( "Sting" );
             AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 0, 1 );
             obj_work.user_timer = 122880;
         }
@@ -185,7 +185,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003EA RID: 1002 RVA: 0x0001FBC8 File Offset: 0x0001DDC8
-    private static void gmEneMereonHideInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonHideInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.ppFunc = AppMain.gmEneMereonHideMain;
         obj_work.disp_flag |= 134217728U;
@@ -194,7 +194,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003EB RID: 1003 RVA: 0x0001FC20 File Offset: 0x0001DE20
-    private static void gmEneMereonHideMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonHideMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountDown( obj_work.user_timer );
         obj_work.obj_3d.draw_state.alpha.alpha = ( float )obj_work.user_timer / 122880f;
@@ -208,7 +208,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003EC RID: 1004 RVA: 0x0001FCB4 File Offset: 0x0001DEB4
-    private static void gmEneMereonAtkRocketInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonAtkRocketInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 2 );
         obj_work.move_flag &= 4294967039U;
@@ -225,7 +225,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003ED RID: 1005 RVA: 0x0001FD50 File Offset: 0x0001DF50
-    private static void gmEneMereonRocketFallMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonRocketFallMain( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.user_timer != 0 )
         {
@@ -287,7 +287,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003EE RID: 1006 RVA: 0x0001FF54 File Offset: 0x0001E154
-    private static void gmEneMereonRocketMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonRocketMain( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.user_flag == 0U && obj_work.dir.z + 8192 > 16384 )
         {
@@ -318,9 +318,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003EF RID: 1007 RVA: 0x0002003C File Offset: 0x0001E23C
-    private static void gmEneMereonCheckFwFlip( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMereonCheckFwFlip( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( gms_PLAYER_WORK.obj_work.pos.x < obj_work.pos.x )
         {
             if ( obj_work.obj_3d.act_id[0] != 0 )

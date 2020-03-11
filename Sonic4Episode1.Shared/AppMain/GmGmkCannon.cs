@@ -26,7 +26,7 @@ public partial class AppMain
     }
 
     // Token: 0x020002A0 RID: 672
-    public class GMS_GMK_CANNON_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_CANNON_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x0600244F RID: 9295 RVA: 0x0014A8A3 File Offset: 0x00148AA3
         public GMS_GMK_CANNON_WORK()
@@ -41,13 +41,13 @@ public partial class AppMain
         }
 
         // Token: 0x06002451 RID: 9297 RVA: 0x0014A8BF File Offset: 0x00148ABF
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x06002452 RID: 9298 RVA: 0x0014A8D1 File Offset: 0x00148AD1
-        public static explicit operator AppMain.OBS_OBJECT_WORK(AppMain.GMS_GMK_CANNON_WORK work)
+        public static explicit operator OBS_OBJECT_WORK(AppMain.GMS_GMK_CANNON_WORK work)
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -56,7 +56,7 @@ public partial class AppMain
         public readonly AppMain.GMS_ENEMY_3D_WORK gmk_work;
 
         // Token: 0x04005AD0 RID: 23248
-        public AppMain.GMS_PLAYER_WORK ply_work;
+        public GMS_PLAYER_WORK ply_work;
 
         // Token: 0x04005AD1 RID: 23249
         public bool hitpass;
@@ -75,7 +75,7 @@ public partial class AppMain
     }
 
     // Token: 0x020002A1 RID: 673
-    public class GMS_GMK_CANNONPARTS_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_CANNONPARTS_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002453 RID: 9299 RVA: 0x0014A8E3 File Offset: 0x00148AE3
         public GMS_GMK_CANNONPARTS_WORK()
@@ -84,7 +84,7 @@ public partial class AppMain
         }
 
         // Token: 0x06002454 RID: 9300 RVA: 0x0014A8F7 File Offset: 0x00148AF7
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
@@ -94,18 +94,18 @@ public partial class AppMain
     }
 
     // Token: 0x06001248 RID: 4680 RVA: 0x0009FB38 File Offset: 0x0009DD38
-    private static AppMain.OBS_OBJECT_WORK GmGmkCannonInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y,
+    private static OBS_OBJECT_WORK GmGmkCannonInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y,
         byte type)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK =
             (AppMain.GMS_GMK_CANNON_WORK) AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y,
                 () => new AppMain.GMS_GMK_CANNON_WORK(), "Gmk_Cannon");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK) gms_GMK_CANNON_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK) gms_GMK_CANNON_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK) gms_GMK_CANNON_WORK;
         AppMain.ObjObjectCopyAction3dNNModel(obs_OBJECT_WORK, AppMain.gm_gmk_cannon_obj_3d_list[0],
             gms_ENEMY_3D_WORK.obj_3d);
         obs_OBJECT_WORK.pos.z = 131072;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
         obs_OBJECT_WORK2.pos.y = obs_OBJECT_WORK2.pos.y - 18432;
         obs_OBJECT_WORK.dir.y = 32768;
         obs_OBJECT_WORK.move_flag |= 256U;
@@ -124,7 +124,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001249 RID: 4681 RVA: 0x0009FC10 File Offset: 0x0009DE10
-    private static void gmGmkCannonFieldColOn(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCannonFieldColOn(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK = (AppMain.GMS_GMK_CANNON_WORK) obj_work;
         gms_GMK_CANNON_WORK.gmk_work.ene_com.col_work.obj_col.obj = obj_work;
@@ -137,7 +137,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600124A RID: 4682 RVA: 0x0009FCF4 File Offset: 0x0009DEF4
-    private static void gmGmkCannonFieldColOff(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCannonFieldColOff(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK = (AppMain.GMS_GMK_CANNON_WORK) obj_work;
         gms_GMK_CANNON_WORK.gmk_work.ene_com.col_work.obj_col.obj = null;
@@ -166,7 +166,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600124C RID: 4684 RVA: 0x0009FD9C File Offset: 0x0009DF9C
-    private static void gmGmkCannonStart(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCannonStart(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK = (AppMain.GMS_GMK_CANNON_WORK) obj_work;
         AppMain.gmGmkCannonFieldColOn(obj_work);
@@ -187,10 +187,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600124D RID: 4685 RVA: 0x0009FE98 File Offset: 0x0009E098
-    private static void gmGmkCannonStay(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCannonStay(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK = (AppMain.GMS_GMK_CANNON_WORK) obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[0];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[0];
         if (gms_GMK_CANNON_WORK.gmk_work.ene_com.col_work.obj_col.obj != null)
         {
             if (gms_PLAYER_WORK.act_state == 31)
@@ -237,7 +237,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600124F RID: 4687 RVA: 0x0009FF80 File Offset: 0x0009E180
-    private static void gmGmkCannonReady(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCannonReady(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK = (AppMain.GMS_GMK_CANNON_WORK) obj_work;
         short angle_set = gms_GMK_CANNON_WORK.angle_set;
@@ -297,7 +297,7 @@ public partial class AppMain
 
             if (angle_set != gms_GMK_CANNON_WORK.angle_set)
             {
-                AppMain.GmSoundPlaySE("Cannon1");
+                GmSound.PlaySE("Cannon1");
             }
         }
 
@@ -309,14 +309,14 @@ public partial class AppMain
 
         if (gms_GMK_CANNON_WORK.angle_set == gms_GMK_CANNON_WORK.angle_now &&
             angle_now == gms_GMK_CANNON_WORK.angle_now &&
-            AppMain.GmPlayerKeyCheckJumpKeyPush(gms_GMK_CANNON_WORK.ply_work))
+            GmPlayer.KeyCheckJumpKeyPush(gms_GMK_CANNON_WORK.ply_work))
         {
             AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK =
                 AppMain.GmEfctCmnEsCreate(gms_GMK_CANNON_WORK.ply_work.obj_work, 20);
             gms_EFFECT_3DES_WORK.efct_com.obj_work.dir.z = obj_work.dir.z;
-            AppMain.OBS_OBJECT_WORK obj_work2 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
+            OBS_OBJECT_WORK obj_work2 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
             obj_work2.pos.x = obj_work2.pos.x + AppMain.mtMathSin((int) obj_work.dir.z) * 32;
-            AppMain.OBS_OBJECT_WORK obj_work3 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
+            OBS_OBJECT_WORK obj_work3 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
             obj_work3.pos.y = obj_work3.pos.y - AppMain.mtMathCos((int) obj_work.dir.z) * 32;
             AppMain.GmPlySeqInitCannonShoot(gms_GMK_CANNON_WORK.ply_work,
                 AppMain.mtMathCos((int) (obj_work.dir.z - 16384)) * gms_GMK_CANNON_WORK.cannon_power,
@@ -326,13 +326,13 @@ public partial class AppMain
             gms_GMK_CANNON_WORK.shoot_after = 0;
             obj_work.ppFunc = AppMain.gmGmkCannonShoot;
             AppMain.gmGmkCannonShoot(obj_work);
-            AppMain.GmSoundPlaySE("Cannon2");
+            GmSound.PlaySE("Cannon2");
             AppMain.GMM_PAD_VIB_SMALL();
         }
     }
 
     // Token: 0x06001250 RID: 4688 RVA: 0x000A0280 File Offset: 0x0009E480
-    private static void gmGmkCannonShoot(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCannonShoot(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK = (AppMain.GMS_GMK_CANNON_WORK) obj_work;
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK2 = gms_GMK_CANNON_WORK;
@@ -357,7 +357,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001251 RID: 4689 RVA: 0x000A02F4 File Offset: 0x0009E4F4
-    private static void gmGmkCannonShootEnd(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCannonShootEnd(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CANNON_WORK gms_GMK_CANNON_WORK = (AppMain.GMS_GMK_CANNON_WORK) obj_work;
         AppMain.gmGmkCannon_CannonTurn(gms_GMK_CANNON_WORK);
@@ -372,7 +372,7 @@ public partial class AppMain
     private static void gmGmkCannonHit(AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect)
     {
         OBS_OBJECT_WORK parent = mine_rect.parent_obj;
-        GMS_PLAYER_WORK playerWork = (AppMain.GMS_PLAYER_WORK) match_rect.parent_obj;
+        GMS_PLAYER_WORK playerWork = (GMS_PLAYER_WORK) match_rect.parent_obj;
         GMS_GMK_CANNON_WORK cannonWork = (AppMain.GMS_GMK_CANNON_WORK) parent;
         cannonWork.hitpass = false;
         if (playerWork == AppMain.g_gm_main_system.ply_work[0])
@@ -400,7 +400,7 @@ public partial class AppMain
                         {
                             cannonWork.ply_work = playerWork;
                             AppMain.GmPlySeqInitCannon(playerWork, (AppMain.GMS_ENEMY_COM_WORK) parent);
-                            AppMain.GmSoundPlaySE("Cannon3");
+                            GmSound.PlaySE("Cannon3");
                             break;
                         }
 
@@ -418,8 +418,8 @@ public partial class AppMain
     // Token: 0x06001253 RID: 4691 RVA: 0x000A051C File Offset: 0x0009E71C
     private static void gmGmkCannon_CreateParts(AppMain.GMS_GMK_CANNON_WORK pwork)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK) pwork;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 =
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK) pwork;
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 =
             AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_CANNONPARTS_WORK(), null, 0, "Gmk_CannonBase");
         AppMain.GMS_GMK_CANNONPARTS_WORK gms_GMK_CANNONPARTS_WORK = (AppMain.GMS_GMK_CANNONPARTS_WORK) obs_OBJECT_WORK2;
         AppMain.ObjObjectCopyAction3dNNModel(obs_OBJECT_WORK2, AppMain.gm_gmk_cannon_obj_3d_list[1],
@@ -446,7 +446,7 @@ public partial class AppMain
     // Token: 0x06001255 RID: 4693 RVA: 0x000A0650 File Offset: 0x0009E850
     private static void GmGmkCannonFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(858);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(858);
         AppMain.GmGameDBuildRegFlushModel(AppMain.gm_gmk_cannon_obj_3d_list, ams_AMB_HEADER.file_num);
     }
 }

@@ -17,14 +17,14 @@ public partial class AppMain
         }
 
         // Token: 0x0400551E RID: 21790
-        public readonly AppMain.OBS_OBJECT_WORK obj = AppMain.OBS_OBJECT_WORK.Create();
+        public readonly OBS_OBJECT_WORK obj = OBS_OBJECT_WORK.Create();
 
         // Token: 0x0400551F RID: 21791
         public readonly AppMain.OBS_RECT_WORK[] rect_work = new AppMain.OBS_RECT_WORK[2];
     }
 
     // Token: 0x060004DC RID: 1244 RVA: 0x00029D53 File Offset: 0x00027F53
-    private static void GmObjCollision( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmObjCollision( OBS_OBJECT_WORK obj_work )
     {
         obj_work.ride_obj = null;
         obj_work.touch_obj = null;
@@ -37,7 +37,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004DE RID: 1246 RVA: 0x00029D6C File Offset: 0x00027F6C
-    private static void GmObjRegistRectAuto( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmObjRegistRectAuto( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.rect_work.array != null && obj_work.rect_num > 0U )
         {
@@ -55,29 +55,29 @@ public partial class AppMain
     }
 
     // Token: 0x060004DF RID: 1247 RVA: 0x00029DF5 File Offset: 0x00027FF5
-    private static void GmObjObjPreFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmObjObjPreFunc( OBS_OBJECT_WORK obj_work )
     {
     }
 
     // Token: 0x060004E0 RID: 1248 RVA: 0x00029DF7 File Offset: 0x00027FF7
-    private static void GmObjObjPostFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmObjObjPostFunc( OBS_OBJECT_WORK obj_work )
     {
     }
 
     // Token: 0x060004E1 RID: 1249 RVA: 0x00029DF9 File Offset: 0x00027FF9
-    private static bool GmObjCheckMapLeftLimit( AppMain.OBS_OBJECT_WORK obj_work, int ofst )
+    private static bool GmObjCheckMapLeftLimit( OBS_OBJECT_WORK obj_work, int ofst )
     {
         return ( obj_work.move_flag & 12U ) != 0U && obj_work.pos.x >> 12 <= AppMain.g_gm_main_system.map_fcol.left + ofst;
     }
 
     // Token: 0x060004E2 RID: 1250 RVA: 0x00029E2A File Offset: 0x0002802A
-    private static bool GmObjCheckMapRightLimit( AppMain.OBS_OBJECT_WORK obj_work, int ofst )
+    private static bool GmObjCheckMapRightLimit( OBS_OBJECT_WORK obj_work, int ofst )
     {
         return ( obj_work.move_flag & 12U ) != 0U && obj_work.pos.x >> 12 >= AppMain.g_gm_main_system.map_fcol.right - ofst;
     }
 
     // Token: 0x060004E3 RID: 1251 RVA: 0x00029E5C File Offset: 0x0002805C
-    private static void GmObjSetClip( AppMain.OBS_OBJECT_WORK obj_work, short out_ofst, short plus_left, short plus_top, short plus_right, short plus_bottom )
+    private static void GmObjSetClip( OBS_OBJECT_WORK obj_work, short out_ofst, short plus_left, short plus_top, short plus_right, short plus_bottom )
     {
         obj_work.ppViewCheck = AppMain.ObjObjectViewOutCheck;
         obj_work.view_out_ofst = out_ofst;
@@ -102,7 +102,7 @@ public partial class AppMain
     // Token: 0x060004E5 RID: 1253 RVA: 0x00029F08 File Offset: 0x00028108
     private static void GmObjSetAllObjectNoDisp()
     {
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
         {
             if ( ( obs_OBJECT_WORK.flag & 12U ) == 0U )
             {
@@ -120,7 +120,7 @@ public partial class AppMain
         {
             if ( ( num & 1U ) != 0U )
             {
-                for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, num2 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, num2 ) )
+                for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, num2 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, num2 ) )
                 {
                     if ( ( obs_OBJECT_WORK.flag & 12U ) == 0U )
                     {

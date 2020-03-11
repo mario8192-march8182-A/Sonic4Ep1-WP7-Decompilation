@@ -16,11 +16,11 @@ public partial class AppMain
 
     // Token: 0x020000DE RID: 222
     // (Invoke) Token: 0x06001F37 RID: 7991
-    public delegate void MPP_VOID_NNSMATRIX_NNSOBJECT_OBJECT( ref AppMain.NNS_MATRIX m, AppMain.NNS_OBJECT nnso, object o );
+    public delegate void MPP_VOID_NNSMATRIX_NNSOBJECT_OBJECT( ref NNS_MATRIX m, AppMain.NNS_OBJECT nnso, object o );
 
     // Token: 0x020000DF RID: 223
     // (Invoke) Token: 0x06001F3B RID: 7995
-    public delegate void MPP_VOID_ARRAYNNSMATRIX_NNSOBJECT_OBJECT( AppMain.NNS_MATRIX[] m, AppMain.NNS_OBJECT nnso, object o );
+    public delegate void MPP_VOID_ARRAYNNSMATRIX_NNSOBJECT_OBJECT( NNS_MATRIX[] m, AppMain.NNS_OBJECT nnso, object o );
 
     // Token: 0x020000E0 RID: 224
     // (Invoke) Token: 0x06001F3F RID: 7999
@@ -28,7 +28,7 @@ public partial class AppMain
 
     // Token: 0x020000E1 RID: 225
     // (Invoke) Token: 0x06001F43 RID: 8003
-    public delegate void MPP_VOID_OBS_OBJECT_WORK( AppMain.OBS_OBJECT_WORK pPart );
+    public delegate void MPP_VOID_OBS_OBJECT_WORK( OBS_OBJECT_WORK pPart );
 
     // Token: 0x020000E2 RID: 226
     // (Invoke) Token: 0x06001F47 RID: 8007

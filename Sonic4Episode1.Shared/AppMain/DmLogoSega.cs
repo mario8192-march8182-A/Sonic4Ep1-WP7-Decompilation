@@ -8,22 +8,22 @@ public partial class AppMain
 {
 
     // Token: 0x0200019F RID: 415
-    public class DMS_LOGO_SEGA_OBJ_3DNN_WORK : AppMain.IOBS_OBJECT_WORK
+    public class DMS_LOGO_SEGA_OBJ_3DNN_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060021F4 RID: 8692 RVA: 0x0014201D File Offset: 0x0014021D
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x060021F5 RID: 8693 RVA: 0x00142025 File Offset: 0x00140225
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x060021F6 RID: 8694 RVA: 0x0014202D File Offset: 0x0014022D
-        public static explicit operator AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK( AppMain.OBS_OBJECT_WORK work )
+        public static explicit operator AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK( OBS_OBJECT_WORK work )
         {
             return ( AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK )work.holder;
         }
@@ -31,11 +31,11 @@ public partial class AppMain
         // Token: 0x060021F7 RID: 8695 RVA: 0x0014203A File Offset: 0x0014023A
         public DMS_LOGO_SEGA_OBJ_3DNN_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x04004F42 RID: 20290
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004F43 RID: 20291
         public readonly AppMain.OBS_ACTION3D_NN_WORK obj_3d = new AppMain.OBS_ACTION3D_NN_WORK();
@@ -45,16 +45,16 @@ public partial class AppMain
     }
 
     // Token: 0x020001A0 RID: 416
-    public class DMS_LOGO_SEGA_OBJ_ES_WORK : AppMain.IOBS_OBJECT_WORK
+    public class DMS_LOGO_SEGA_OBJ_ES_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060021F8 RID: 8696 RVA: 0x00142064 File Offset: 0x00140264
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x060021F9 RID: 8697 RVA: 0x0014206C File Offset: 0x0014026C
-        public static explicit operator AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK( AppMain.OBS_OBJECT_WORK work )
+        public static explicit operator AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK( OBS_OBJECT_WORK work )
         {
             return ( AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK )work.holder;
         }
@@ -62,11 +62,11 @@ public partial class AppMain
         // Token: 0x060021FA RID: 8698 RVA: 0x00142079 File Offset: 0x00140279
         public DMS_LOGO_SEGA_OBJ_ES_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x04004F45 RID: 20293
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004F46 RID: 20294
         public readonly AppMain.OBS_ACTION3D_ES_WORK obj_3des = new AppMain.OBS_ACTION3D_ES_WORK();
@@ -101,13 +101,13 @@ public partial class AppMain
         public AppMain.AOS_ACTION[] act = new AppMain.AOS_ACTION[8];
 
         // Token: 0x04004F4E RID: 20302
-        public AppMain.OBS_OBJECT_WORK ply_obj;
+        public OBS_OBJECT_WORK ply_obj;
 
         // Token: 0x04004F4F RID: 20303
-        public AppMain.OBS_OBJECT_WORK efct_obj;
+        public OBS_OBJECT_WORK efct_obj;
 
         // Token: 0x04004F50 RID: 20304
-        public AppMain.GSS_SND_SE_HANDLE h_se;
+        public GSS_SND_SE_HANDLE h_se;
     }
 
     // Token: 0x1700001C RID: 28
@@ -133,7 +133,7 @@ public partial class AppMain
     // Token: 0x060007A1 RID: 1953 RVA: 0x00043834 File Offset: 0x00041A34
     private void DmLogoSegaInit( object arg )
     {
-        AppMain.AoAccountClearCurrentId();
+        AoAccount.AoAccountClearCurrentId();
         if ( this.DmLogoSegaBuildCheck() )
         {
             this.dmLogoSegaStart();
@@ -162,16 +162,16 @@ public partial class AppMain
     // Token: 0x060007A4 RID: 1956 RVA: 0x000438F0 File Offset: 0x00041AF0
     private void DmLogoSegaBuild()
     {
-        AppMain.AMS_AMB_HEADER[] array = new AppMain.AMS_AMB_HEADER[2];
+        AMS_AMB_HEADER[] array = new AMS_AMB_HEADER[2];
         AppMain.dm_logo_sega_build_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmLogoSegaDataBuildMain, this.dmLogoSegaDataBuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSEGA_BUILD" );
         AppMain.g_obj.def_user_light_flag = 1U;
         AppMain.GmGameDBuildModelBuildInit();
         this.dm_logo_sega_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.dm_logo_sega_data[0], AppMain.dm_logo_sega_data[1], 0U );
         AppMain.dm_logo_sega_aos_tex = AppMain.New<AppMain.AOS_TEXTURE>( 2 );
         string dir;
-        array[0] = AppMain.readAMBFile( AppMain.amBindGet( AppMain.dm_logo_sega_data[4], 1, out dir ) );
+        array[0] = AmFs.readAMBFile( AmBind.Get( AppMain.dm_logo_sega_data[4], 1, out dir ) );
         array[0].dir = dir;
-        array[1] = AppMain.readAMBFile( AppMain.amBindGet( AppMain.dm_logo_sega_data[3], 105, out dir ) );
+        array[1] = AmFs.readAMBFile( AmBind.Get( AppMain.dm_logo_sega_data[3], 105, out dir ) );
         array[1].dir = dir;
         AppMain.AOS_TEXTURE[] array2 = AppMain.dm_logo_sega_aos_tex;
         for ( int i = 0; i < 2; i++ )
@@ -184,7 +184,7 @@ public partial class AppMain
         }
         for ( int i = 0; i < 2; i++ )
         {
-            AppMain.dm_logo_sega_efct_mdl_state[i] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.dm_logo_sega_efct_mdl_data_work[i], ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.dm_logo_sega_data[3], AppMain.dm_logo_sega_efct_mdl_id_tbl[i] ), 0U );
+            AppMain.dm_logo_sega_efct_mdl_state[i] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.dm_logo_sega_efct_mdl_data_work[i], ( AmbChunk )AmBind.Get( AppMain.dm_logo_sega_data[3], AppMain.dm_logo_sega_efct_mdl_id_tbl[i] ), 0U );
         }
     }
 
@@ -199,7 +199,7 @@ public partial class AppMain
     {
         AppMain.dm_logo_sega_flush_tcb = AppMain.MTM_TASK_MAKE_TCB( this.dmLogoSegaDataFlushMain, this.dmLogoSegaDataFlushDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_TOP_FLUSH" );
         AppMain.GmGameDBuildModelFlushInit();
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.dm_logo_sega_data[0];
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.dm_logo_sega_data[0];
         AppMain.GmGameDBuildRegFlushModel( this.dm_logo_sega_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.ArrayPointer<AppMain.AOS_TEXTURE> pointer = AppMain.dm_logo_sega_aos_tex;
         int i = 0;
@@ -226,7 +226,7 @@ public partial class AppMain
     {
         for ( int i = 0; i < 5; i++ )
         {
-            AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.dm_logo_sega_data[i];
+            AMS_AMB_HEADER ams_AMB_HEADER = AppMain.dm_logo_sega_data[i];
             AppMain.dm_logo_sega_data[i] = null;
         }
     }
@@ -240,11 +240,11 @@ public partial class AppMain
     // Token: 0x060007AA RID: 1962 RVA: 0x00043B1C File Offset: 0x00041D1C
     private void dmLogoSegaStart()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_RGB nns_RGB = new AppMain.NNS_RGB(1f, 1f, 1f);
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_RGB nns_RGB = new NNS_RGB(1f, 1f, 1f);
         this.dmLogoSegaObjSysytemInit();
-        AppMain.GsSoundReset();
-        AppMain.GsSoundBegin( 3, 32767U, 0 );
+        GsSound.Reset();
+        GsSound.Begin( 3, 32767U, 0 );
         AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSegaMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SEGA_WORK(), "DM_LSEGA_MAIN");
         AppMain.DMS_LOGO_SEGA_WORK dms_LOGO_SEGA_WORK = (AppMain.DMS_LOGO_SEGA_WORK)mts_TASK_TCB.work;
         AppMain.nnSetPrimitive3DMaterial( ref nns_RGBA, ref nns_RGB, 1f );
@@ -253,15 +253,15 @@ public partial class AppMain
         dms_LOGO_SEGA_WORK.ply_obj = this.dmLogoSegaCreatePlayer();
         dms_LOGO_SEGA_WORK.timer = 0;
         dms_LOGO_SEGA_WORK.func = this.dmLogoSegaStartWaitFunc;
-        dms_LOGO_SEGA_WORK.h_se = AppMain.GsSoundAllocSeHandle();
+        dms_LOGO_SEGA_WORK.h_se = GsSound.AllocSeHandle();
     }
 
     // Token: 0x060007AB RID: 1963 RVA: 0x00043C0C File Offset: 0x00041E0C
     private void dmLogoSegaObjSysytemInit()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
-        AppMain.NNS_VECTOR pos = new AppMain.NNS_VECTOR(0f, 0f, 50f);
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR pos = new NNS_VECTOR(0f, 0f, 50f);
         AppMain.ObjInit( 4, 61435, 0, AppMain.GMD_OBJ_LCD_X, AppMain.GMD_OBJ_LCD_Y, ( float )AppMain.GSD_DISP_WIDTH, ( float )AppMain.GSD_DISP_HEIGHT );
         AppMain.ObjDataAlloc( 10 );
         AppMain.ObjDrawESEffectSystemInit( 0, 20480U, 0U );
@@ -285,12 +285,12 @@ public partial class AppMain
         nns_VECTOR.z = -1f;
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_0, ref nns_RGBA, 1f, nns_VECTOR );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
-        AppMain.ObjCameraInit( 0, pos, 0, 0, 6144 );
-        AppMain.ObjCamera3dInit( 0 );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        ObjCamera.Init( 0, pos, 0, 0, 6144 );
+        ObjCamera.Init3d( 0 );
         AppMain.g_obj.glb_camera_id = 0;
         AppMain.g_obj.glb_camera_type = 1;
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         obs_CAMERA.user_func = this.dmLogoSegaCamera;
         obs_CAMERA.command_state = 0U;
         obs_CAMERA.scale = 0.9f;
@@ -302,7 +302,7 @@ public partial class AppMain
     private void dmLogoSegaPreEnd( AppMain.DMS_LOGO_SEGA_WORK logo_work )
     {
         AppMain.amTrailEFDeleteGroup( 1 );
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, ushort.MaxValue ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, ushort.MaxValue ) )
         {
             obs_OBJECT_WORK.ppOut = null;
         }
@@ -317,11 +317,11 @@ public partial class AppMain
         AppMain.ObjPreExit();
         AppMain.ObjDrawESEffectSystemExit();
         AppMain.ObjExit();
-        AppMain.GsSoundStopSeHandle( logo_work.h_se );
-        AppMain.GsSoundFreeSeHandle( logo_work.h_se );
-        AppMain.GsSoundHalt();
-        AppMain.GsSoundEnd();
-        AppMain.GsSoundReset();
+        GsSound.StopSeHandle( logo_work.h_se );
+        GsSound.FreeSeHandle( logo_work.h_se );
+        GsSound.Halt();
+        GsSound.End();
+        GsSound.Reset();
     }
 
     // Token: 0x060007AE RID: 1966 RVA: 0x00043EFC File Offset: 0x000420FC
@@ -369,20 +369,20 @@ public partial class AppMain
             AppMain.AoActUpdate( dms_LOGO_SEGA_WORK.act[i], frame );
             AppMain.AoActDraw( dms_LOGO_SEGA_WORK.act[i] );
         }
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_RGB nns_RGB = new AppMain.NNS_RGB(1f, 1f, 1f);
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_RGB nns_RGB = new NNS_RGB(1f, 1f, 1f);
         if ( !AppMain.AoSysIsShowPlatformUI() )
         {
             AppMain.amTrailEFUpdate( 1 );
         }
         if ( AppMain.g_obj.glb_camera_id != -1 )
         {
-            AppMain.SNNS_VECTOR snns_VECTOR = default(AppMain.SNNS_VECTOR);
-            AppMain.SNNS_VECTOR snns_VECTOR2 = default(AppMain.SNNS_VECTOR);
-            AppMain.SNNS_MATRIX snns_MATRIX = default(AppMain.SNNS_MATRIX);
+            SNNS_VECTOR snns_VECTOR = default(SNNS_VECTOR);
+            SNNS_VECTOR snns_VECTOR2 = default(SNNS_VECTOR);
+            SNNS_MATRIX snns_MATRIX = default(SNNS_MATRIX);
             AppMain.nnMakeUnitMatrix( ref snns_MATRIX );
             AppMain.ObjDraw3DNNSetCameraEx( AppMain.g_obj.glb_camera_id, AppMain.g_obj.glb_camera_type, 0U );
-            AppMain.ObjCameraDispPosGet( AppMain.g_obj.glb_camera_id, out snns_VECTOR );
+            ObjCamera.DispPosGet( AppMain.g_obj.glb_camera_id, out snns_VECTOR );
             AppMain.amVectorSet( ref snns_VECTOR2, -snns_MATRIX.M03, -snns_MATRIX.M13, -snns_MATRIX.M23 );
             AppMain.nnAddVector( ref snns_VECTOR, ref snns_VECTOR2, ref snns_VECTOR );
             AppMain.amEffectSetCameraPos( ref snns_VECTOR );
@@ -501,7 +501,7 @@ public partial class AppMain
         {
             logo_work.timer = 0;
             logo_work.func = this.dmLogoSegaDispWaitFunc;
-            AppMain.GsSoundPlaySe( "Sega_Logo", logo_work.h_se );
+            GsSound.PlaySe( "Sega_Logo", logo_work.h_se );
             if ( AppMain.GsSystemBgmIsPlay() )
             {
                 logo_work.h_se.snd_ctrl_param.volume = 0f;
@@ -530,9 +530,9 @@ public partial class AppMain
     }
 
     // Token: 0x060007BA RID: 1978 RVA: 0x0004439C File Offset: 0x0004259C
-    private AppMain.OBS_OBJECT_WORK dmLogoSegaCreatePlayer()
+    private OBS_OBJECT_WORK dmLogoSegaCreatePlayer()
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(8192, 0, 0, 0, () => new AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK(), "DM_LSEGA_PLY");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(8192, 0, 0, 0, () => new AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK(), "DM_LSEGA_PLY");
         AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK dms_LOGO_SEGA_OBJ_3DNN_WORK = (AppMain.DMS_LOGO_SEGA_OBJ_3DNN_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.obj_type = 1;
         obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
@@ -562,7 +562,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007BB RID: 1979 RVA: 0x0004453C File Offset: 0x0004273C
-    private void dmLogoSegaPlayerInitSeqRunLeft( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmLogoSegaPlayerInitSeqRunLeft( OBS_OBJECT_WORK obj_work )
     {
         obj_work.pos.x = 2490368;
         AppMain.ObjDrawObjectActionSet( obj_work, 77 );
@@ -572,7 +572,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007BC RID: 1980 RVA: 0x00044588 File Offset: 0x00042788
-    private void dmLogoSegaPlayerSeqRunLeft( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmLogoSegaPlayerSeqRunLeft( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.AoSysIsShowPlatformUI() )
         {
@@ -584,7 +584,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007BD RID: 1981 RVA: 0x000445D8 File Offset: 0x000427D8
-    private void dmLogoSegaPlayerInitSeqRunRight( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmLogoSegaPlayerInitSeqRunRight( OBS_OBJECT_WORK obj_work )
     {
         obj_work.pos.x = -2490368;
         AppMain.ObjDrawObjectActionSet( obj_work, 9 );
@@ -595,7 +595,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007BE RID: 1982 RVA: 0x00044634 File Offset: 0x00042834
-    private void dmLogoSegaPlayerSeqRunRight( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmLogoSegaPlayerSeqRunRight( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.AoSysIsShowPlatformUI() )
         {
@@ -607,9 +607,9 @@ public partial class AppMain
     }
 
     // Token: 0x060007BF RID: 1983 RVA: 0x0004468C File Offset: 0x0004288C
-    private AppMain.OBS_OBJECT_WORK dmLogoSegaCreateDashEffect( AppMain.OBS_OBJECT_WORK parent_obj, int type )
+    private OBS_OBJECT_WORK dmLogoSegaCreateDashEffect( OBS_OBJECT_WORK parent_obj, int type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(12288, 0, 0, 0, () => new AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK(), "DM_LSEGA_EFCT");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(12288, 0, 0, 0, () => new AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK(), "DM_LSEGA_EFCT");
         AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK dms_LOGO_SEGA_OBJ_ES_WORK = (AppMain.DMS_LOGO_SEGA_OBJ_ES_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.obj_type = 2;
         obs_OBJECT_WORK.ppOut = AppMain.ObjDrawActionSummary;
@@ -633,7 +633,7 @@ public partial class AppMain
         }
         AppMain.ObjObjectAction3dESEffectLoad( obs_OBJECT_WORK, dms_LOGO_SEGA_OBJ_ES_WORK.obj_3des, null, null, index, AppMain.dm_logo_sega_data[3], 0, 0 );
         dms_LOGO_SEGA_OBJ_ES_WORK.obj_3des.command_state = 0U;
-        AppMain.ObjDataSet( dms_LOGO_SEGA_OBJ_ES_WORK.data_work_texamb, AppMain.amBindGet( AppMain.dm_logo_sega_data[3], 97 ) );
+        AppMain.ObjDataSet( dms_LOGO_SEGA_OBJ_ES_WORK.data_work_texamb, AmBind.Get( AppMain.dm_logo_sega_data[3], 97 ) );
         AppMain.OBS_DATA_WORK data_work_texamb = dms_LOGO_SEGA_OBJ_ES_WORK.data_work_texamb;
         data_work_texamb.num |= 32768;
         AppMain.ObjDataSet( dms_LOGO_SEGA_OBJ_ES_WORK.data_work_texlist, AppMain.dm_logo_sega_aos_tex[1].texlist );
@@ -641,7 +641,7 @@ public partial class AppMain
         data_work_texlist.num |= 32768;
         AppMain.ObjObjectAction3dESTextureLoad( obs_OBJECT_WORK, dms_LOGO_SEGA_OBJ_ES_WORK.obj_3des, dms_LOGO_SEGA_OBJ_ES_WORK.data_work_texamb, null, 0, null, false );
         AppMain.ObjObjectAction3dESTextureSetByDwork( obs_OBJECT_WORK, dms_LOGO_SEGA_OBJ_ES_WORK.data_work_texlist );
-        AppMain.ObjDataSet( dms_LOGO_SEGA_OBJ_ES_WORK.data_work_model, AppMain.amBindGet( AppMain.dm_logo_sega_data[3], AppMain.dm_logo_sega_efct_mdl_id_tbl[type] ) );
+        AppMain.ObjDataSet( dms_LOGO_SEGA_OBJ_ES_WORK.data_work_model, AmBind.Get( AppMain.dm_logo_sega_data[3], AppMain.dm_logo_sega_efct_mdl_id_tbl[type] ) );
         AppMain.OBS_DATA_WORK data_work_texlist2 = dms_LOGO_SEGA_OBJ_ES_WORK.data_work_texlist;
         data_work_texlist2.num |= 32768;
         AppMain.ObjObjectAction3dESModelLoad( obs_OBJECT_WORK, dms_LOGO_SEGA_OBJ_ES_WORK.obj_3des, dms_LOGO_SEGA_OBJ_ES_WORK.data_work_model, null, 0, null, 0U, false );
@@ -658,9 +658,9 @@ public partial class AppMain
     }
 
     // Token: 0x060007C0 RID: 1984 RVA: 0x00044924 File Offset: 0x00042B24
-    private void dmLogoSegaEffectMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmLogoSegaEffectMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
         if ( AppMain.AoSysIsShowPlatformUI() )
         {
             obj_work.disp_flag |= 4096U;
@@ -683,7 +683,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007C1 RID: 1985 RVA: 0x00044A08 File Offset: 0x00042C08
-    private void dmLogoSegaCreateTrail( AppMain.OBS_OBJECT_WORK obj_work )
+    private void dmLogoSegaCreateTrail( OBS_OBJECT_WORK obj_work )
     {
         AppMain.NNS_TEXLIST texlist = AppMain.dm_logo_sega_aos_tex[0].texlist;
         AppMain.AMS_TRAIL_PARAM ams_TRAIL_PARAM = new AppMain.AMS_TRAIL_PARAM();
@@ -709,7 +709,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007C2 RID: 1986 RVA: 0x00044B14 File Offset: 0x00042D14
-    private void dmLogoSegaCamera( AppMain.OBS_CAMERA camera )
+    private void dmLogoSegaCamera( OBS_CAMERA camera )
     {
         camera.disp_pos.x = 0f;
         camera.disp_pos.y = 0f;
@@ -722,7 +722,7 @@ public partial class AppMain
     // Token: 0x060007C3 RID: 1987 RVA: 0x00044B81 File Offset: 0x00042D81
     private static void dmLogoSegaLoadPostFunc( AppMain.DMS_LOGO_COM_LOAD_CONTEXT context )
     {
-        AppMain.dm_logo_sega_data[context.no] = AppMain.readAMBFile( context.fs_req );
+        AppMain.dm_logo_sega_data[context.no] = AmFs.readAMBFile( context.fs_req );
     }
 
     // Token: 0x060007C4 RID: 1988 RVA: 0x00044B9C File Offset: 0x00042D9C
@@ -838,7 +838,7 @@ public partial class AppMain
     // Token: 0x060007CA RID: 1994 RVA: 0x00044D04 File Offset: 0x00042F04
     private void dmLogoSegaActionCreate( AppMain.DMS_LOGO_SEGA_WORK logo_work )
     {
-        AppMain.A2S_AMA_HEADER ama = AppMain.readAMAFile(AppMain.amBindGet(AppMain.dm_logo_sega_data[4], 0));
+        A2S_AMA_HEADER ama = A2S.readAMAFile(AmBind.Get(AppMain.dm_logo_sega_data[4], 0));
         for ( uint num = 0U; num < 8U; num += 1U )
         {
             AppMain.AoActSetTexture( AppMain.AoTexGetTexList( AppMain.dm_logo_sega_aos_tex[( int )AppMain.dm_logo_sega_tex_id_tbl[( int )( ( UIntPtr )num )]] ) );

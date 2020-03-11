@@ -17,7 +17,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017CC RID: 6092 RVA: 0x000D3F3A File Offset: 0x000D213A
-    private static bool GsSystemBgmIsPlay()
+    public static bool GsSystemBgmIsPlay()
     {
         return AppMain.AoSysIsPlaySystemBgm();
     }

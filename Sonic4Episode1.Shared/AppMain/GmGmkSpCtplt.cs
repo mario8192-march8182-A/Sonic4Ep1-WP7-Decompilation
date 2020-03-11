@@ -38,7 +38,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000072 RID: 114
-    public class GMS_GMK_SPCTPLT_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SPCTPLT_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001E21 RID: 7713 RVA: 0x00139622 File Offset: 0x00137822
         public GMS_GMK_SPCTPLT_WORK()
@@ -53,13 +53,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001E23 RID: 7715 RVA: 0x0013963E File Offset: 0x0013783E
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_SPCTPLT_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_SPCTPLT_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x06001E24 RID: 7716 RVA: 0x00139650 File Offset: 0x00137850
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -80,14 +80,14 @@ public partial class AppMain
         public int ctplt_height;
 
         // Token: 0x0400497D RID: 18813
-        public AppMain.GMS_PLAYER_WORK ply_work;
+        public GMS_PLAYER_WORK ply_work;
 
         // Token: 0x0400497E RID: 18814
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
     }
 
     // Token: 0x06000270 RID: 624 RVA: 0x0001406C File Offset: 0x0001226C
-    private static void gmGmkSpCtpltStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpCtpltStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)obj_work;
         AppMain.ObjObjectAction3dNNMotionLoad( obj_work, 0, false, AppMain.ObjDataGet( 885 ), null, 0, null );
@@ -111,10 +111,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000271 RID: 625 RVA: 0x000141F8 File Offset: 0x000123F8
-    private static void gmGmkSpCtpltStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpCtpltStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( gms_GMK_SPCTPLT_WORK.ply_work == gms_PLAYER_WORK )
         {
             obj_work.ppFunc = AppMain.gmGmkSpCtplt_PlayerHold;
@@ -123,10 +123,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000272 RID: 626 RVA: 0x0001423C File Offset: 0x0001243C
-    private static void gmGmkSpCtplt_PlayerHold( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpCtplt_PlayerHold( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK ply_work = gms_GMK_SPCTPLT_WORK.ply_work;
+        GMS_PLAYER_WORK ply_work = gms_GMK_SPCTPLT_WORK.ply_work;
         if ( ( ply_work.player_flag & 1024U ) != 0U || ( AppMain.g_gm_main_system.game_flag & 262656U ) != 0U )
         {
             return;
@@ -173,8 +173,8 @@ public partial class AppMain
                     AppMain.ObjDrawObjectActionSet3DNNMaterial( obj_work, 0 );
                     obj_work.disp_flag &= 4294967291U;
                     AppMain.ObjDrawObjectActionSet( obj_work, 1 );
-                    gms_GMK_SPCTPLT_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
-                    AppMain.GmSoundPlaySE( "Catapult1", gms_GMK_SPCTPLT_WORK.se_handle );
+                    gms_GMK_SPCTPLT_WORK.se_handle = GsSound.AllocSeHandle();
+                    GmSound.PlaySE( "Catapult1", gms_GMK_SPCTPLT_WORK.se_handle );
                 }
                 if ( gms_GMK_SPCTPLT_WORK.ctplt_height > 147456 )
                 {
@@ -206,7 +206,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000273 RID: 627 RVA: 0x000144AC File Offset: 0x000126AC
-    private static void gmGmkSpCtplt_PlayerHold_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpCtplt_PlayerHold_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)obj_work;
         gms_GMK_SPCTPLT_WORK.ctplt_return_timer--;
@@ -221,8 +221,8 @@ public partial class AppMain
     // Token: 0x06000274 RID: 628 RVA: 0x00014500 File Offset: 0x00012700
     private static void gmGmkSpCtplt_PlayerHit( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = mine_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U || ( gms_PLAYER_WORK.obj_work.flag & 2U ) != 0U || ( AppMain.g_gm_main_system.game_flag & 262656U ) != 0U )
         {
             return;
@@ -238,13 +238,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000275 RID: 629 RVA: 0x000145A0 File Offset: 0x000127A0
-    private static void gmGmkSpCtpltSeStop( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSpCtpltSeStop( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)obj_work;
         if ( gms_GMK_SPCTPLT_WORK.se_handle != null )
         {
-            AppMain.GsSoundStopSeHandle( gms_GMK_SPCTPLT_WORK.se_handle );
-            AppMain.GsSoundFreeSeHandle( gms_GMK_SPCTPLT_WORK.se_handle );
+            GsSound.StopSeHandle( gms_GMK_SPCTPLT_WORK.se_handle );
+            GsSound.FreeSeHandle( gms_GMK_SPCTPLT_WORK.se_handle );
             gms_GMK_SPCTPLT_WORK.se_handle = null;
         }
     }
@@ -252,17 +252,17 @@ public partial class AppMain
     // Token: 0x06000276 RID: 630 RVA: 0x000145DC File Offset: 0x000127DC
     private static void gmGmkSpCtpltExit( AppMain.MTS_TASK_TCB tcb )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK obj_work = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmGmkSpCtpltSeStop( obj_work );
         AppMain.GmEnemyDefaultExit( tcb );
     }
 
     // Token: 0x06000277 RID: 631 RVA: 0x00014604 File Offset: 0x00012804
-    private static AppMain.OBS_OBJECT_WORK gmGmkSpCtpltInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK gmGmkSpCtpltInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_SPCTPLT_WORK(), "Gmk_Seesaw");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_SPCTPLT_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_SPCTPLT_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_SPCTPLT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_spctplt_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -4096;
@@ -274,7 +274,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000278 RID: 632 RVA: 0x000146C0 File Offset: 0x000128C0
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpCtplt0Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSpCtplt0Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)AppMain.gmGmkSpCtpltInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SPCTPLT_WORK.ctplt_tilt = 0;
@@ -284,7 +284,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000279 RID: 633 RVA: 0x00014710 File Offset: 0x00012910
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpCtplt45Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSpCtplt45Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)AppMain.gmGmkSpCtpltInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SPCTPLT_WORK.ctplt_tilt = 8192;
@@ -294,7 +294,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600027A RID: 634 RVA: 0x00014764 File Offset: 0x00012964
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpCtplt315Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSpCtplt315Init( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_SPCTPLT_WORK gms_GMK_SPCTPLT_WORK = (AppMain.GMS_GMK_SPCTPLT_WORK)AppMain.gmGmkSpCtpltInit(eve_rec, pos_x, pos_y, type);
         gms_GMK_SPCTPLT_WORK.ctplt_tilt = 57344;
@@ -312,7 +312,7 @@ public partial class AppMain
     // Token: 0x0600027C RID: 636 RVA: 0x000147D8 File Offset: 0x000129D8
     private static void GmGmkSpCtpltFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(883);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(883);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_spctplt_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 

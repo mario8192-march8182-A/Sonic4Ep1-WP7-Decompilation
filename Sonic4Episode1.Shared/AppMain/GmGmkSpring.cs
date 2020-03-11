@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x06000FBE RID: 4030 RVA: 0x0008922C File Offset: 0x0008742C
-    private static AppMain.OBS_OBJECT_WORK GmGmkSpringInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type)
+    private static OBS_OBJECT_WORK GmGmkSpringInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SPRING");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SPRING");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         int num;
         if (eve_rec.id <= 79)
@@ -118,12 +118,12 @@ public partial class AppMain
     // Token: 0x06000FC0 RID: 4032 RVA: 0x000895E0 File Offset: 0x000877E0
     public static void GmGmkSpringFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(791));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(791));
         AppMain.GmGameDBuildRegFlushModel(AppMain.gm_gmk_spring_obj_3d_list, ams_AMB_HEADER.file_num);
     }
 
     // Token: 0x06000FC1 RID: 4033 RVA: 0x00089610 File Offset: 0x00087810
-    private static void gmGmkSpringFwInit(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkSpringFwInit(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.ObjDrawObjectActionSet(obj_work, obj_work.user_timer);
@@ -142,12 +142,12 @@ public partial class AppMain
     }
 
     // Token: 0x06000FC2 RID: 4034 RVA: 0x0008968E File Offset: 0x0008788E
-    private static void gmGmkSpringFwMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkSpringFwMain(OBS_OBJECT_WORK obj_work)
     {
     }
 
     // Token: 0x06000FC3 RID: 4035 RVA: 0x00089690 File Offset: 0x00087890
-    private static void gmGmkSpringActInit(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkSpringActInit(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.ObjDrawObjectActionSet(obj_work, (int)obj_work.user_work);
@@ -161,7 +161,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FC4 RID: 4036 RVA: 0x000896F8 File Offset: 0x000878F8
-    private static void gmGmkSpringActMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkSpringActMain(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if ((obj_work.disp_flag & 8U) != 0U)
@@ -175,7 +175,7 @@ public partial class AppMain
     private static void gmGmkSpringDefFunc(AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect)
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         int fall_dir = -1;
         if (gms_ENEMY_COM_WORK == null)
         {
@@ -185,7 +185,7 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.gmGmkSpringActInit((AppMain.OBS_OBJECT_WORK)gms_ENEMY_COM_WORK);
+        AppMain.gmGmkSpringActInit((OBS_OBJECT_WORK)gms_ENEMY_COM_WORK);
         int num = AppMain.MTM_MATH_CLIP((int)gms_ENEMY_COM_WORK.eve_rec.left, 0, 7);
         if (gms_ENEMY_COM_WORK.eve_rec.id == 76 || gms_ENEMY_COM_WORK.eve_rec.id == 72)
         {
@@ -232,7 +232,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FC6 RID: 4038 RVA: 0x000899E4 File Offset: 0x00087BE4
-    private static void gmGmkSpringSwitchOffInit(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkSpringSwitchOffInit(OBS_OBJECT_WORK obj_work)
     {
         AppMain.ObjDrawObjectActionSet(obj_work, obj_work.user_timer);
         obj_work.ppFunc = AppMain.gmGmkSpringSwitchOffMain;
@@ -241,7 +241,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FC7 RID: 4039 RVA: 0x00089A34 File Offset: 0x00087C34
-    private static void gmGmkSpringSwitchOffMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkSpringSwitchOffMain(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if (AppMain.GmGmkSwitchIsOn((uint)gms_ENEMY_3D_WORK.ene_com.eve_rec.width))
@@ -254,7 +254,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FC8 RID: 4040 RVA: 0x00089AFC File Offset: 0x00087CFC
-    private static void gmGmkSpringSwitchOnMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkSpringSwitchOnMain(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if (!AppMain.GmGmkSwitchIsOn((uint)gms_ENEMY_3D_WORK.ene_com.eve_rec.width))

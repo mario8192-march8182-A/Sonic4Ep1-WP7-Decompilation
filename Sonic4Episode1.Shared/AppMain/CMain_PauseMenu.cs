@@ -189,11 +189,11 @@ public partial class AppMain
         // Token: 0x0600254F RID: 9551 RVA: 0x0014C52C File Offset: 0x0014A72C
         private void fileLoadingStart()
         {
-            this.m_file[0] = AppMain.readAMAFile( "G_COM/MENU/G_PAUSE.AMA" );
-            this.pause_amb = AppMain.amFsReadBackground( "G_COM/MENU/G_PAUSE.AMB" );
-            this.m_file[1] = AppMain.readAMAFile( "G_COM/MENU/G_PAUSE_L.AMA" );
+            this.m_file[0] = A2S.readAMAFile( "G_COM/MENU/G_PAUSE.AMA" );
+            this.pause_amb = AmFs.amFsReadBackground( "G_COM/MENU/G_PAUSE.AMB" );
+            this.m_file[1] = A2S.readAMAFile( "G_COM/MENU/G_PAUSE_L.AMA" );
             int num = AppMain.GsEnvGetLanguage();
-            this.lang_amb = AppMain.amFsReadBackground( file.c_lang_amb[num] );
+            this.lang_amb = AmFs.amFsReadBackground( file.c_lang_amb[num] );
             this.m_flag[0] = true;
             this.m_flag[3] = true;
             base.AttachTask( "gmPauseMenu.Load", 28928U, 0U, 0U );
@@ -203,17 +203,17 @@ public partial class AppMain
         // Token: 0x06002550 RID: 9552 RVA: 0x0014C5C0 File Offset: 0x0014A7C0
         private void fileLoading()
         {
-            if ( !AppMain.amFsIsComplete( this.pause_amb ) )
+            if ( !AmFs.amFsIsComplete( this.pause_amb ) )
             {
                 return;
             }
-            this.m_file[2] = AppMain.readAMBFile( this.pause_amb );
+            this.m_file[2] = AmFs.readAMBFile( this.pause_amb );
             AppMain.GsEnvGetLanguage();
-            if ( !AppMain.amFsIsComplete( this.lang_amb ) )
+            if ( !AmFs.amFsIsComplete( this.lang_amb ) )
             {
                 return;
             }
-            this.m_file[3] = AppMain.readAMBFile( this.lang_amb );
+            this.m_file[3] = AmFs.readAMBFile( this.lang_amb );
             this.m_flag[4] = true;
             base.DetachTask();
         }
@@ -224,7 +224,7 @@ public partial class AppMain
             for ( int i = 0; i < AppMain.CMain_PauseMenu.c_local_create_table.Length; i++ )
             {
                 int num = AppMain.CMain_PauseMenu.c_local_create_table[i];
-                AppMain.AoTexBuild( this.m_tex[i], ( AppMain.AMS_AMB_HEADER )this.m_file[num] );
+                AppMain.AoTexBuild( this.m_tex[i], ( AMS_AMB_HEADER )this.m_file[num] );
                 AppMain.AoTexLoad( this.m_tex[i] );
             }
             this.m_flag[5] = true;
@@ -281,7 +281,7 @@ public partial class AppMain
             for ( int i = 0; i < 17; i++ )
             {
                 AppMain.CMain_PauseMenu.SLocalCreateActionTable slocalCreateActionTable = AppMain.CMain_PauseMenu.local_create_action_table[i];
-                AppMain.A2S_AMA_HEADER ama = (AppMain.A2S_AMA_HEADER)this.m_file[slocalCreateActionTable.file];
+                A2S_AMA_HEADER ama = (A2S_AMA_HEADER)this.m_file[slocalCreateActionTable.file];
                 AppMain.CMain_PauseMenu.SAction saction = this.m_act[i];
                 saction.act = AppMain.AoActCreate( ama, ( uint )slocalCreateActionTable.idx );
                 saction.tex = this.m_tex[slocalCreateActionTable.tex];
@@ -298,7 +298,7 @@ public partial class AppMain
             this.m_flag[7] = true;
             this.m_act[0].flag[1] = false;
             this.m_act[0].scale = new Vector2( 0f, 0f );
-            this.m_se_handle = AppMain.GsSoundAllocSeHandle();
+            this.m_se_handle = GsSound.AllocSeHandle();
             base.AttachTask( "gmPauseMenu.Execute", ( uint )prio, 0U, 0U );
             this.playSe( 0 );
             this.m_procCount.SetProc( this.fadeIn );
@@ -624,7 +624,7 @@ public partial class AppMain
                 {
                     AppMain.AoActDelete( saction.act );
                 }
-                AppMain.GsSoundFreeSeHandle( this.m_se_handle );
+                GsSound.FreeSeHandle( this.m_se_handle );
                 this.m_flag[7] = false;
                 base.DetachTask();
             }
@@ -664,7 +664,7 @@ public partial class AppMain
         // Token: 0x06002565 RID: 9573 RVA: 0x0014D1EF File Offset: 0x0014B3EF
         private void playSe( int se )
         {
-            AppMain.GmSoundPlaySE( AppMain.CMain_PauseMenu.c_se_name_tbl[se] );
+            GmSound.PlaySE( AppMain.CMain_PauseMenu.c_se_name_tbl[se] );
         }
 
         // Token: 0x06002566 RID: 9574 RVA: 0x0014D1FD File Offset: 0x0014B3FD
@@ -703,10 +703,10 @@ public partial class AppMain
         private const uint c_fade_enter_efct_frame = 10U;
 
         // Token: 0x04005D50 RID: 23888
-        public AppMain.AMS_FS pause_amb;
+        public AMS_FS pause_amb;
 
         // Token: 0x04005D51 RID: 23889
-        public AppMain.AMS_FS lang_amb;
+        public AMS_FS lang_amb;
 
         // Token: 0x04005D52 RID: 23890
         private static AppMain.CMain_PauseMenu instance_ = new AppMain.CMain_PauseMenu();
@@ -729,7 +729,7 @@ public partial class AppMain
         private int m_really;
 
         // Token: 0x04005D57 RID: 23895
-        private readonly AppMain.AMS_FS[] m_fs = new AppMain.AMS_FS[4];
+        private readonly AMS_FS[] m_fs = new AMS_FS[4];
 
         // Token: 0x04005D58 RID: 23896
         private readonly object[] m_file = new object[4];
@@ -744,7 +744,7 @@ public partial class AppMain
         private readonly CTrgAoAction[] m_trg = AppMain.New<CTrgAoAction>(3);
 
         // Token: 0x04005D5C RID: 23900
-        private AppMain.GSS_SND_SE_HANDLE m_se_handle;
+        private GSS_SND_SE_HANDLE m_se_handle;
 
         // Token: 0x04005D5D RID: 23901
         private AppMain.CProcCount m_procCount;

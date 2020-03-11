@@ -64,7 +64,7 @@ public partial class AppMain
         AppMain.GMS_EFCT_ZONE_CREATE_INFO gms_EFCT_ZONE_CREATE_INFO = AppMain.gm_efct_zone_create_info[AppMain.gm_efct_zone_target_zone_no];
         int num = 0;
         AppMain.OBS_DATA_WORK pWork = AppMain.ObjDataGet(6);
-        AppMain.AMS_AMB_HEADER amb = AppMain.readAMBFile(AppMain.ObjDataGetInc(pWork));
+        AMS_AMB_HEADER amb = AmFs.readAMBFile(AppMain.ObjDataGetInc(pWork));
         AppMain.gm_efct_zone_model_reg_num = 1;
         if ( AppMain.gm_efct_zone_model_reg_num > 0 )
         {
@@ -78,7 +78,7 @@ public partial class AppMain
         }
         AppMain.OBS_DATA_WORK obs_DATA_WORK = AppMain.ObjDataGet(509);
         AppMain.ObjDataLoadAmbIndex( obs_DATA_WORK, AppMain.gm_efct_zone_texamb_index_tbl[AppMain.gm_efct_zone_target_zone_no], amb );
-        AppMain.gm_efct_zone_tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( 510 ), AppMain.readAMBFile( obs_DATA_WORK.pData ), ref obj );
+        AppMain.gm_efct_zone_tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( 510 ), AmFs.readAMBFile( obs_DATA_WORK.pData ), ref obj );
         for ( int j = 0; j < gms_EFCT_ZONE_CREATE_INFO.num; j++ )
         {
             int model_idx = gms_EFCT_ZONE_CREATE_INFO.zone_create_param[j].create_param.model_idx;
@@ -91,9 +91,9 @@ public partial class AppMain
             {
                 obs_DATA_WORK = AppMain.ObjDataGet( index2 );
                 AppMain.ObjDataLoadAmbIndex( obs_DATA_WORK, mdl_ambtex_idx, amb );
-                AppMain.gm_efct_zone_mdl_tex_reg_id_list[num] = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( index3 ), AppMain.readAMBFile( obs_DATA_WORK.pData ), ref obj );
+                AppMain.gm_efct_zone_mdl_tex_reg_id_list[num] = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( index3 ), AmFs.readAMBFile( obs_DATA_WORK.pData ), ref obj );
                 AppMain.ObjDataLoadAmbIndex( AppMain.ObjDataGet( model_dwork_no ), model_idx, amb );
-                AppMain.gm_efct_zone_model_reg_id_list[num] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.ObjDataGet( index ), ( AppMain.AmbChunk )AppMain.ObjDataGet( model_dwork_no ).pData, 0U );
+                AppMain.gm_efct_zone_model_reg_id_list[num] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.ObjDataGet( index ), ( AmbChunk )AppMain.ObjDataGet( model_dwork_no ).pData, 0U );
                 num++;
             }
         }
@@ -281,7 +281,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B76 RID: 7030 RVA: 0x000FB85C File Offset: 0x000F9A5C
-    private static AppMain.GMS_EFFECT_3DES_WORK GmEfctZoneEsCreate( AppMain.OBS_OBJECT_WORK parent_obj, int zone_no, int efct_zone_idx )
+    private static AppMain.GMS_EFFECT_3DES_WORK GmEfctZoneEsCreate( OBS_OBJECT_WORK parent_obj, int zone_no, int efct_zone_idx )
     {
         AppMain.GMS_EFCT_ZONE_CREATE_INFO gms_EFCT_ZONE_CREATE_INFO = AppMain.gm_efct_zone_create_info[zone_no];
         AppMain.GMS_EFCT_ZONE_CREATE_PARAM gms_EFCT_ZONE_CREATE_PARAM = gms_EFCT_ZONE_CREATE_INFO.zone_create_param[efct_zone_idx];

@@ -59,9 +59,9 @@ public partial class AppMain
             {
                 AppMain.ambtex_dwork = AppMain.ObjDataGet( index3 );
                 AppMain.ObjDataLoadAmbIndex( AppMain.ambtex_dwork, mdl_ambtex_idx, AppMain.eff_cmn_arc );
-                AppMain.gm_efct_cmn_mdl_tex_reg_id_list[AppMain.model_reg_cnt] = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( index4 ), AppMain.readAMBFile( AppMain.ambtex_dwork.pData ), ref AppMain.texlistbuf );
+                AppMain.gm_efct_cmn_mdl_tex_reg_id_list[AppMain.model_reg_cnt] = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( index4 ), AmFs.readAMBFile( AppMain.ambtex_dwork.pData ), ref AppMain.texlistbuf );
                 AppMain.ObjDataLoadAmbIndex( AppMain.ObjDataGet( index ), model_idx, AppMain.eff_cmn_arc );
-                AppMain.gm_efct_cmn_model_reg_id_list[AppMain.model_reg_cnt] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.ObjDataGet( index2 ), ( AppMain.AmbChunk )AppMain.ObjDataGet( index ).pData, 0U );
+                AppMain.gm_efct_cmn_model_reg_id_list[AppMain.model_reg_cnt] = AppMain.ObjAction3dESModelLoadToDwork( AppMain.ObjDataGet( index2 ), ( AmbChunk )AppMain.ObjDataGet( index ).pData, 0U );
                 AppMain.model_reg_cnt++;
             }
         }
@@ -82,7 +82,7 @@ public partial class AppMain
     private static void GmEfctCmnBuildDataLoopInit()
     {
         AppMain.OBS_DATA_WORK pWork = AppMain.ObjDataGet(5);
-        AppMain.eff_cmn_arc = AppMain.readAMBFile( AppMain.ObjDataGetInc( pWork ) );
+        AppMain.eff_cmn_arc = AmFs.readAMBFile( AppMain.ObjDataGetInc( pWork ) );
         AppMain.gm_efct_cmn_model_reg_num = 97;
         if ( AppMain.gm_efct_cmn_model_reg_num > 0 )
         {
@@ -95,7 +95,7 @@ public partial class AppMain
         }
         AppMain.ambtex_dwork = AppMain.ObjDataGet( 17 );
         AppMain.ObjDataLoadAmbIndex( AppMain.ambtex_dwork, 97, AppMain.eff_cmn_arc );
-        AppMain.gm_efct_cmn_tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( 18 ), AppMain.readAMBFile( AppMain.ambtex_dwork.pData ), ref AppMain.texlistbuf );
+        AppMain.gm_efct_cmn_tex_reg_id = AppMain.ObjAction3dESTextureLoadToDwork( AppMain.ObjDataGet( 18 ), AmFs.readAMBFile( AppMain.ambtex_dwork.pData ), ref AppMain.texlistbuf );
         AppMain.GmEfctCmnBuildDataLoopInitPartWorking = true;
     }
 
@@ -278,7 +278,7 @@ public partial class AppMain
     }
 
     // Token: 0x060000A8 RID: 168 RVA: 0x00008D90 File Offset: 0x00006F90
-    private static AppMain.GMS_EFFECT_3DES_WORK GmEfctCmnEsCreate( AppMain.OBS_OBJECT_WORK parent_obj, int efct_cmn_idx )
+    private static AppMain.GMS_EFFECT_3DES_WORK GmEfctCmnEsCreate( OBS_OBJECT_WORK parent_obj, int efct_cmn_idx )
     {
         AppMain.GMS_EFCT_CMN_CREATE_PARAM gms_EFCT_CMN_CREATE_PARAM = AppMain.gm_efct_cmn_create_param_tbl[efct_cmn_idx];
         AppMain.OBS_DATA_WORK model_dwork;
@@ -306,27 +306,27 @@ public partial class AppMain
     // Token: 0x060000A9 RID: 169 RVA: 0x00008E44 File Offset: 0x00007044
     private static void GmEfctCmnUpdateInvincibleMainPart( AppMain.GMS_EFFECT_3DES_WORK efct_3des )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = efct_3des.efct_com.obj_work;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = obj_work;
+        OBS_OBJECT_WORK obj_work = efct_3des.efct_com.obj_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = obj_work;
         obs_OBJECT_WORK.dir.z = ( ushort )( obs_OBJECT_WORK.dir.z + 1820 );
     }
 
     // Token: 0x060000AA RID: 170 RVA: 0x00008E78 File Offset: 0x00007078
-    private static void GmEfctCmnUpdateInvincibleSubPart( AppMain.GMS_EFFECT_3DES_WORK efct_3des, AppMain.OBS_OBJECT_WORK ply_obj )
+    private static void GmEfctCmnUpdateInvincibleSubPart( AppMain.GMS_EFFECT_3DES_WORK efct_3des, OBS_OBJECT_WORK ply_obj )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = efct_3des.efct_com.obj_work;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = obj_work;
+        OBS_OBJECT_WORK obj_work = efct_3des.efct_com.obj_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = obj_work;
         obs_OBJECT_WORK.dir.z = ( ushort )( obs_OBJECT_WORK.dir.z + 1820 );
         obj_work.spd.x = AppMain.FX_Mul( ply_obj.pos.x - obj_work.pos.x, 204 );
         obj_work.spd.y = AppMain.FX_Mul( ply_obj.pos.y - obj_work.pos.y, 204 );
         if ( ( obj_work.spd.x > 0 && ply_obj.move.x > 0 ) || ( obj_work.spd.x < 0 && ply_obj.move.x < 0 ) )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obj_work;
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = obj_work;
             obs_OBJECT_WORK2.spd.x = obs_OBJECT_WORK2.spd.x + AppMain.FX_Mul( ply_obj.move.x, 1024 );
         }
         if ( ( obj_work.spd.y > 0 && ply_obj.move.y > 0 ) || ( obj_work.spd.y < 0 && ply_obj.move.y < 0 ) )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obj_work;
+            OBS_OBJECT_WORK obs_OBJECT_WORK3 = obj_work;
             obs_OBJECT_WORK3.spd.y = obs_OBJECT_WORK3.spd.y + AppMain.FX_Mul( ply_obj.move.y, 1024 );
         }
     }

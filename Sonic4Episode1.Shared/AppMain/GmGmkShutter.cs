@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000264 RID: 612
-    public class GMS_GMK_SHUTTER_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_SHUTTER_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060023EF RID: 9199 RVA: 0x00149E6F File Offset: 0x0014806F
         public GMS_GMK_SHUTTER_WORK()
@@ -16,13 +16,13 @@ public partial class AppMain
         }
 
         // Token: 0x060023F0 RID: 9200 RVA: 0x00149E8E File Offset: 0x0014808E
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_SHUTTER_WORK p )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_SHUTTER_WORK p )
         {
             return p.gimmick_work.ene_com.obj_work;
         }
 
         // Token: 0x060023F1 RID: 9201 RVA: 0x00149EA0 File Offset: 0x001480A0
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gimmick_work.ene_com.obj_work;
         }
@@ -46,31 +46,31 @@ public partial class AppMain
     // Token: 0x06000FCA RID: 4042 RVA: 0x00089B50 File Offset: 0x00087D50
     public static void GmGmkShutterFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(938);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(938);
         AppMain.GmGameDBuildRegFlushModel( AppMain.g_gm_gmk_shutter_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.g_gm_gmk_shutter_obj_3d_list = null;
     }
 
     // Token: 0x06000FCB RID: 4043 RVA: 0x00089B80 File Offset: 0x00087D80
-    private static AppMain.OBS_OBJECT_WORK GmGmkShutterInInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkShutterInInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkShutterLoadObj(eve_rec, pos_x, pos_y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         AppMain.gmGmkShutterInInit( obj_work );
         return obj_work;
     }
 
     // Token: 0x06000FCC RID: 4044 RVA: 0x00089BAC File Offset: 0x00087DAC
-    private static AppMain.OBS_OBJECT_WORK GmGmkShutterOutInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkShutterOutInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkShutterLoadObj(eve_rec, pos_x, pos_y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         AppMain.gmGmkShutterOutInit( obj_work );
         return obj_work;
     }
 
     // Token: 0x06000FCD RID: 4045 RVA: 0x00089BD8 File Offset: 0x00087DD8
-    private static void GmGmkShutterInChangeModeClose( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmGmkShutterInChangeModeClose( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.pos.y <= ( int )obj_work.user_work )
         {
@@ -83,7 +83,7 @@ public partial class AppMain
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         if ( num == 4 && gms_GMK_SHUTTER_WORK.effect_work == null )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctCmnEsCreate(null, 44);
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.GmEfctCmnEsCreate(null, 44);
             obs_OBJECT_WORK.pos.x = obj_work.pos.x + 65536;
             obs_OBJECT_WORK.pos.y = obj_work.pos.y - 131072;
             obs_OBJECT_WORK.pos.z = 393216;
@@ -92,7 +92,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FCE RID: 4046 RVA: 0x00089CB0 File Offset: 0x00087EB0
-    private static void GmGmkShutterOutChangeModeOpen( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void GmGmkShutterOutChangeModeOpen( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.pos.y >= ( int )obj_work.user_work )
         {
@@ -104,7 +104,7 @@ public partial class AppMain
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         if ( num == 4 && gms_GMK_SHUTTER_WORK.effect_work == null )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctCmnEsCreate(null, 44);
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.GmEfctCmnEsCreate(null, 44);
             obs_OBJECT_WORK.pos.x = obj_work.pos.x - 65536;
             obs_OBJECT_WORK.pos.y = obj_work.pos.y + 131072;
             obs_OBJECT_WORK.pos.z = 393216;
@@ -139,14 +139,14 @@ public partial class AppMain
             num2 = 0;
         }
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkShutterLoadObjNoModel(eve_rec, pos_x, pos_y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.g_gm_gmk_shutter_obj_3d_list[num2], gms_ENEMY_3D_WORK.obj_3d );
         if ( num == 4 )
         {
             AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)obj_work;
             int num3 = 2;
             AppMain.ObjCopyAction3dNNModel( AppMain.g_gm_gmk_shutter_obj_3d_list[num3], gms_GMK_SHUTTER_WORK.obj_3d_parts );
-            AppMain.ObjAction3dNNMaterialMotionLoad( gms_GMK_SHUTTER_WORK.obj_3d_parts, 0, null, null, 1, ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 940 ).pData );
+            AppMain.ObjAction3dNNMaterialMotionLoad( gms_GMK_SHUTTER_WORK.obj_3d_parts, 0, null, null, 1, ( AMS_AMB_HEADER )AppMain.ObjDataGet( 940 ).pData );
         }
         return gms_ENEMY_3D_WORK;
     }
@@ -160,7 +160,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FD2 RID: 4050 RVA: 0x00089EC4 File Offset: 0x000880C4
-    private static void gmGmkShutterInInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkShutterInInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.obj = gms_ENEMY_3D_WORK.ene_com.obj_work;
@@ -184,7 +184,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FD3 RID: 4051 RVA: 0x0008A044 File Offset: 0x00088244
-    private static void gmGmkShutterInOutFuncForFinalZone( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkShutterInOutFuncForFinalZone( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)obj_work;
         obj_work.ofst.x = AppMain.gm_gmk_shutter_disp_offset_for_final_zone[0] * 4096;
@@ -202,9 +202,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000FD4 RID: 4052 RVA: 0x0008A10C File Offset: 0x0008830C
-    private static void gmGmkShutterInMainWaitClose( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkShutterInMainWaitClose( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( obs_OBJECT_WORK.pos.x - obj_work.pos.x < 262144 )
         {
             return;
@@ -213,9 +213,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000FD5 RID: 4053 RVA: 0x0008A154 File Offset: 0x00088354
-    private static void gmGmkShutterInMainClose( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkShutterInMainClose( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         int a = (int)((ulong)obj_work.user_work - (ulong)((long)obj_work.pos.y));
         if ( AppMain.MTM_MATH_ABS( obs_OBJECT_WORK.pos.x - obj_work.pos.x ) < 131072 && obs_OBJECT_WORK.pos.y <= obj_work.pos.y && AppMain.MTM_MATH_ABS( a ) < 262144 )
         {
@@ -227,7 +227,7 @@ public partial class AppMain
                 {
                     num2 *= -1;
                 }
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+                OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
                 obs_OBJECT_WORK2.flow.x = obs_OBJECT_WORK2.flow.x + num2;
             }
             else
@@ -237,8 +237,8 @@ public partial class AppMain
                 {
                     num3 *= -1;
                 }
-                AppMain.GmPlySeqGmkInitGmkJump( ( AppMain.GMS_PLAYER_WORK )obs_OBJECT_WORK, num3, 0 );
-                AppMain.GmPlySeqChangeSequenceState( ( AppMain.GMS_PLAYER_WORK )obs_OBJECT_WORK, 17 );
+                AppMain.GmPlySeqGmkInitGmkJump( ( GMS_PLAYER_WORK )obs_OBJECT_WORK, num3, 0 );
+                AppMain.GmPlySeqChangeSequenceState( ( GMS_PLAYER_WORK )obs_OBJECT_WORK, 17 );
             }
         }
         if ( obj_work.pos.y <= ( int )obj_work.user_work )
@@ -250,14 +250,14 @@ public partial class AppMain
             AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)obj_work;
             if ( gms_GMK_SHUTTER_WORK.effect_work != null )
             {
-                AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )gms_GMK_SHUTTER_WORK.effect_work );
+                AppMain.ObjDrawKillAction3DES( ( OBS_OBJECT_WORK )gms_GMK_SHUTTER_WORK.effect_work );
                 gms_GMK_SHUTTER_WORK.effect_work = null;
             }
         }
     }
 
     // Token: 0x06000FD6 RID: 4054 RVA: 0x0008A2F0 File Offset: 0x000884F0
-    private static void gmGmkShutterOutInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkShutterOutInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         gms_ENEMY_3D_WORK.ene_com.col_work.obj_col.obj = gms_ENEMY_3D_WORK.ene_com.obj_work;
@@ -281,7 +281,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FD7 RID: 4055 RVA: 0x0008A464 File Offset: 0x00088664
-    private static void gmGmkShutterOutOutFuncForFinalZone( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkShutterOutOutFuncForFinalZone( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)obj_work;
         obj_work.ofst.x = -AppMain.gm_gmk_shutter_disp_offset_for_final_zone[0] * 4096;
@@ -299,7 +299,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FD8 RID: 4056 RVA: 0x0008A52C File Offset: 0x0008872C
-    private static void gmGmkShutterOutMainOpen( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkShutterOutMainOpen( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.pos.y >= ( int )obj_work.user_work )
         {
@@ -311,7 +311,7 @@ public partial class AppMain
             AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)obj_work;
             if ( gms_GMK_SHUTTER_WORK.effect_work != null )
             {
-                AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )gms_GMK_SHUTTER_WORK.effect_work );
+                AppMain.ObjDrawKillAction3DES( ( OBS_OBJECT_WORK )gms_GMK_SHUTTER_WORK.effect_work );
                 gms_GMK_SHUTTER_WORK.effect_work = null;
             }
         }

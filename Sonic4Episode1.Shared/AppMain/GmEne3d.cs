@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000042 RID: 66
-    public class GMS_ENEMY_3D_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENEMY_3D_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001D6B RID: 7531 RVA: 0x001382D2 File Offset: 0x001364D2
         public GMS_ENEMY_3D_WORK()
@@ -363,13 +363,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001DA5 RID: 7589 RVA: 0x001385F4 File Offset: 0x001367F4
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_com.obj_work;
         }
 
         // Token: 0x06001DA6 RID: 7590 RVA: 0x00138601 File Offset: 0x00136801
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_ENEMY_3D_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_ENEMY_3D_WORK work )
         {
             return work.ene_com.obj_work;
         }

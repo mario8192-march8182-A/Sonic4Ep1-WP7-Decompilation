@@ -56,7 +56,7 @@ public partial class AppMain
     }
 
     // Token: 0x020002D6 RID: 726
-    public class GMS_GMK_PISTON_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_PISTON_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060024B3 RID: 9395 RVA: 0x0014B0EA File Offset: 0x001492EA
         public GMS_GMK_PISTON_WORK()
@@ -65,13 +65,13 @@ public partial class AppMain
         }
 
         // Token: 0x060024B4 RID: 9396 RVA: 0x0014B0FE File Offset: 0x001492FE
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
 
         // Token: 0x060024B5 RID: 9397 RVA: 0x0014B110 File Offset: 0x00149310
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_PISTON_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_PISTON_WORK work )
         {
             return work.gmk_work.ene_com.obj_work;
         }
@@ -111,7 +111,7 @@ public partial class AppMain
     }
 
     // Token: 0x020002D7 RID: 727
-    public class GMS_GMK_PISTONROD_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_PISTONROD_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060024B7 RID: 9399 RVA: 0x0014B12A File Offset: 0x0014932A
         public GMS_GMK_PISTONROD_WORK()
@@ -120,13 +120,13 @@ public partial class AppMain
         }
 
         // Token: 0x060024B8 RID: 9400 RVA: 0x0014B13E File Offset: 0x0014933E
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.eff_work.efct_com.obj_work;
         }
 
         // Token: 0x060024B9 RID: 9401 RVA: 0x0014B150 File Offset: 0x00149350
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_GMK_PISTONROD_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_GMK_PISTONROD_WORK work )
         {
             return work.eff_work.efct_com.obj_work;
         }
@@ -142,9 +142,9 @@ public partial class AppMain
     }
 
     // Token: 0x060013B6 RID: 5046 RVA: 0x000AEBFC File Offset: 0x000ACDFC
-    private static AppMain.OBS_OBJECT_WORK GmGmkPistonUpInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPistonUpInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPistonInit(eve_rec, pos_x, pos_y, type);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPistonInit(eve_rec, pos_x, pos_y, type);
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obs_OBJECT_WORK;
         gms_GMK_PISTON_WORK.obj_type = 0U;
         gms_GMK_PISTON_WORK.piston_vect = 32768;
@@ -163,9 +163,9 @@ public partial class AppMain
     }
 
     // Token: 0x060013B7 RID: 5047 RVA: 0x000AECA8 File Offset: 0x000ACEA8
-    private static AppMain.OBS_OBJECT_WORK GmGmkPistonDownInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPistonDownInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPistonInit(eve_rec, pos_x, pos_y, type);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmGmkPistonInit(eve_rec, pos_x, pos_y, type);
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obs_OBJECT_WORK;
         gms_GMK_PISTON_WORK.obj_type = 1U;
         gms_GMK_PISTON_WORK.piston_vect = 0;
@@ -192,7 +192,7 @@ public partial class AppMain
     // Token: 0x060013B9 RID: 5049 RVA: 0x000AED74 File Offset: 0x000ACF74
     public static void GmGmkPistonFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(842);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(842);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_piston_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
@@ -208,7 +208,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013BB RID: 5051 RVA: 0x000AEDE8 File Offset: 0x000ACFE8
-    private static void gmGmkPistonStart( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonStart( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.gmk_work.ene_com.col_work.obj_col.obj = obj_work;
@@ -263,7 +263,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013BC RID: 5052 RVA: 0x000AF087 File Offset: 0x000AD287
-    private static void gmGmkPistonStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonStay( OBS_OBJECT_WORK obj_work )
     {
         obj_work.spd.y = 0;
         obj_work.ppFunc = AppMain.gmGmkPistonStay_100;
@@ -271,7 +271,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013BD RID: 5053 RVA: 0x000AF0B0 File Offset: 0x000AD2B0
-    private static void gmGmkPistonStay_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonStay_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.timer_dec--;
@@ -282,7 +282,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013BE RID: 5054 RVA: 0x000AF0F0 File Offset: 0x000AD2F0
-    private static void gmGmkPistonStay_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonStay_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.timer_dec = gms_GMK_PISTON_WORK.timer_set_move;
@@ -291,18 +291,18 @@ public partial class AppMain
     }
 
     // Token: 0x060013BF RID: 5055 RVA: 0x000AF128 File Offset: 0x000AD328
-    private static void gmGmkPistonStroke( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonStroke( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         obj_work.spd.y = ( ( gms_GMK_PISTON_WORK.piston_vect == 0 ) ? gms_GMK_PISTON_WORK.stroke_spd : ( -gms_GMK_PISTON_WORK.stroke_spd ) );
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
         obj_work.ppFunc = AppMain.gmGmkPistonStroke_100;
         AppMain.gmGmkPistonStroke_100( obj_work );
-        AppMain.GmSoundPlaySE( "Piston1" );
+        GmSound.PlaySE( "Piston1" );
     }
 
     // Token: 0x060013C0 RID: 5056 RVA: 0x000AF1A0 File Offset: 0x000AD3A0
-    private static void gmGmkPistonStroke_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonStroke_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.timer_dec -= gms_GMK_PISTON_WORK.stroke_spd;
@@ -322,7 +322,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013C1 RID: 5057 RVA: 0x000AF22C File Offset: 0x000AD42C
-    private static void gmGmkPistonStroke_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonStroke_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         uint num = (uint)((gms_GMK_PISTON_WORK.timer_set_move + (gms_GMK_PISTON_WORK.stroke_spd - 1)) / gms_GMK_PISTON_WORK.stroke_spd);
@@ -341,17 +341,17 @@ public partial class AppMain
     }
 
     // Token: 0x060013C2 RID: 5058 RVA: 0x000AF298 File Offset: 0x000AD498
-    private static void gmGmkPistonTopDeadWait( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonTopDeadWait( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         if ( !gms_GMK_PISTON_WORK.efct_di )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.GmEfctCmnEsCreate(null, 48);
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.GmEfctCmnEsCreate(null, 48);
             obs_OBJECT_WORK.pos.x = obj_work.pos.x;
             obs_OBJECT_WORK.pos.y = obj_work.pos.y;
             obs_OBJECT_WORK.pos.z = obj_work.pos.z + 65536;
             obs_OBJECT_WORK.dir.z = obj_work.dir.z;
-            AppMain.GmSoundPlaySE( "Piston2" );
+            GmSound.PlaySE( "Piston2" );
         }
         obj_work.spd.y = 0;
         obj_work.ppFunc = AppMain.gmGmkPistonTopDeadWait_100;
@@ -359,7 +359,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013C3 RID: 5059 RVA: 0x000AF350 File Offset: 0x000AD550
-    private static void gmGmkPistonTopDeadWait_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonTopDeadWait_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.timer_dec--;
@@ -370,7 +370,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013C4 RID: 5060 RVA: 0x000AF390 File Offset: 0x000AD590
-    private static void gmGmkPistonTopDeadWait_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonTopDeadWait_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.timer_dec = gms_GMK_PISTON_WORK.timer_set_move;
@@ -378,18 +378,18 @@ public partial class AppMain
     }
 
     // Token: 0x060013C5 RID: 5061 RVA: 0x000AF3B8 File Offset: 0x000AD5B8
-    private static void gmGmkPistonShrink( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonShrink( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         obj_work.spd.y = ( ( gms_GMK_PISTON_WORK.piston_vect == 0 ) ? ( -gms_GMK_PISTON_WORK.stroke_spd ) : gms_GMK_PISTON_WORK.stroke_spd );
         obj_work.pos.y = obj_work.pos.y + obj_work.spd.y;
         obj_work.ppFunc = AppMain.gmGmkPistonShrink_100;
         AppMain.gmGmkPistonShrink_100( obj_work );
-        AppMain.GmSoundPlaySE( "Piston1" );
+        GmSound.PlaySE( "Piston1" );
     }
 
     // Token: 0x060013C6 RID: 5062 RVA: 0x000AF430 File Offset: 0x000AD630
-    private static void gmGmkPistonShrink_100( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonShrink_100( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         gms_GMK_PISTON_WORK.timer_dec -= gms_GMK_PISTON_WORK.stroke_spd;
@@ -409,7 +409,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013C7 RID: 5063 RVA: 0x000AF4BC File Offset: 0x000AD6BC
-    private static void gmGmkPistonShrink_200( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonShrink_200( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)obj_work;
         uint num = AppMain.gmGmkPistonSyncTimeGet(gms_GMK_PISTON_WORK);
@@ -425,7 +425,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013C8 RID: 5064 RVA: 0x000AF504 File Offset: 0x000AD704
-    private static void gmGmkPistonRodStay( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPistonRodStay( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PISTONROD_WORK gms_GMK_PISTONROD_WORK = (AppMain.GMS_GMK_PISTONROD_WORK)obj_work;
         int num = AppMain.MTM_MATH_ABS(obj_work.parent_obj.pos.y - gms_GMK_PISTONROD_WORK.fulcrum);
@@ -434,10 +434,10 @@ public partial class AppMain
     }
 
     // Token: 0x060013C9 RID: 5065 RVA: 0x000AF54C File Offset: 0x000AD74C
-    private static void gmGmkPistonRod_Create( AppMain.OBS_OBJECT_WORK parent_obj )
+    private static void gmGmkPistonRod_Create( OBS_OBJECT_WORK parent_obj )
     {
         AppMain.GMS_GMK_PISTONROD_WORK gms_GMK_PISTONROD_WORK = (AppMain.GMS_GMK_PISTONROD_WORK)AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_GMK_PISTONROD_WORK(), null, 0, "Gmk_PistonRod");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_PISTONROD_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_PISTONROD_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_piston_obj_3d_list[1], gms_GMK_PISTONROD_WORK.eff_work.obj_3d );
         obs_OBJECT_WORK.parent_obj = parent_obj;
         obs_OBJECT_WORK.parent_ofst.x = 0;
@@ -458,10 +458,10 @@ public partial class AppMain
     }
 
     // Token: 0x060013CA RID: 5066 RVA: 0x000AF6A8 File Offset: 0x000AD8A8
-    private static AppMain.OBS_OBJECT_WORK gmGmkPistonInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK gmGmkPistonInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_GMK_PISTON_WORK gms_GMK_PISTON_WORK = (AppMain.GMS_GMK_PISTON_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PISTON_WORK(), "Gmk_PistonRod");
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_GMK_PISTON_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_PISTON_WORK;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)gms_GMK_PISTON_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_piston_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.pos.z = -131072;

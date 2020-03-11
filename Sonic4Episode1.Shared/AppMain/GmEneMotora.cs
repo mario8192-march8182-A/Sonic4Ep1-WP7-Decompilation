@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020000BE RID: 190
-    public class GMS_ENE_MOTORA_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_MOTORA_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001EE7 RID: 7911 RVA: 0x0013CAAA File Offset: 0x0013ACAA
         public GMS_ENE_MOTORA_WORK()
@@ -16,13 +16,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001EE8 RID: 7912 RVA: 0x0013CABE File Offset: 0x0013ACBE
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
 
         // Token: 0x06001EE9 RID: 7913 RVA: 0x0013CAD0 File Offset: 0x0013ACD0
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_ENE_MOTORA_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_ENE_MOTORA_WORK work )
         {
             return work.ene_3d_work.ene_com.obj_work;
         }
@@ -38,9 +38,9 @@ public partial class AppMain
     }
 
     // Token: 0x060003D9 RID: 985 RVA: 0x0001EF58 File Offset: 0x0001D158
-    private static AppMain.OBS_OBJECT_WORK GmEneMotoraInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneMotoraInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_MOTORA_WORK(), "ENE_MOTORA");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_MOTORA_WORK(), "ENE_MOTORA");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_MOTORA_WORK gms_ENE_MOTORA_WORK = (AppMain.GMS_ENE_MOTORA_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_motora_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -76,18 +76,18 @@ public partial class AppMain
     // Token: 0x060003DA RID: 986 RVA: 0x0001F128 File Offset: 0x0001D328
     public static void GmEneMotoraBuild()
     {
-        AppMain.gm_ene_motora_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 661 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 662 ) ), 0U );
+        AppMain.gm_ene_motora_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 661 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 662 ) ), 0U );
     }
 
     // Token: 0x060003DB RID: 987 RVA: 0x0001F154 File Offset: 0x0001D354
     public static void GmEneMotoraFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(661));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(661));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_motora_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060003DC RID: 988 RVA: 0x0001F184 File Offset: 0x0001D384
-    public static void gmEneMotoraWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMotoraWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 1, 2 );
         obj_work.disp_flag |= 4U;
@@ -102,7 +102,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003DD RID: 989 RVA: 0x0001F1FC File Offset: 0x0001D3FC
-    private static void gmEneMotoraWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMotoraWalkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_MOTORA_WORK motora_work = (AppMain.GMS_ENE_MOTORA_WORK)obj_work;
         bool flag = AppMain.gmEneMotoraSetWalkSpeed(motora_work);
@@ -116,7 +116,7 @@ public partial class AppMain
     private static bool gmEneMotoraSetWalkSpeed( AppMain.GMS_ENE_MOTORA_WORK motora_work )
     {
         bool result = false;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)motora_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)motora_work;
         if ( ( obs_OBJECT_WORK.disp_flag & 1U ) != 0U )
         {
             if ( obs_OBJECT_WORK.obj_3d.act_id[0] == 4 && obs_OBJECT_WORK.obj_3d.frame[0] >= 20f )
@@ -166,14 +166,14 @@ public partial class AppMain
     }
 
     // Token: 0x060003DF RID: 991 RVA: 0x0001F4D4 File Offset: 0x0001D6D4
-    private static void gmEneMotoraFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMotoraFlipInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 3, 4 );
         obj_work.ppFunc = AppMain.gmEneMotoraFlipMain;
     }
 
     // Token: 0x060003E0 RID: 992 RVA: 0x0001F4F7 File Offset: 0x0001D6F7
-    private static void gmEneMotoraFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneMotoraFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneMotoraSetWalkSpeed( ( AppMain.GMS_ENE_MOTORA_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )

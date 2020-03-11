@@ -52,7 +52,7 @@ public partial class AppMain
                         while ( ( long )num5 < ( long )( ( ulong )this.pages[num4].line_num ) )
                         {
                             binaryReader.BaseStream.Seek( ( long )( ( ulong )this.pages[num4].lines[num5].str_ofst ), 0 );
-                            this.pages[num4].lines[num5].s = AppMain.readChars( binaryReader );
+                            this.pages[num4].lines[num5].s = AmFs.readChars( binaryReader );
                             num5++;
                         }
                         num4++;

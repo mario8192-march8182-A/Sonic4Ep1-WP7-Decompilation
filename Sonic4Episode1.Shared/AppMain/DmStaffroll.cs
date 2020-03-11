@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000156 RID: 342
-    public class DMS_STFRL_SONIC_WORK : AppMain.IOBS_OBJECT_WORK
+    public class DMS_STFRL_SONIC_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060020D0 RID: 8400 RVA: 0x0013FB6C File Offset: 0x0013DD6C
         public DMS_STFRL_SONIC_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x060020D1 RID: 8401 RVA: 0x0013FB80 File Offset: 0x0013DD80
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x060020D2 RID: 8402 RVA: 0x0013FB88 File Offset: 0x0013DD88
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.DMS_STFRL_SONIC_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.DMS_STFRL_SONIC_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x04004DB1 RID: 19889
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004DB2 RID: 19890
         public short timer;
@@ -44,28 +44,28 @@ public partial class AppMain
     }
 
     // Token: 0x02000157 RID: 343
-    public class DMS_STFRL_BOSS_BODY_WORK : AppMain.IOBS_OBJECT_WORK
+    public class DMS_STFRL_BOSS_BODY_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060020D3 RID: 8403 RVA: 0x0013FB90 File Offset: 0x0013DD90
         public DMS_STFRL_BOSS_BODY_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x060020D4 RID: 8404 RVA: 0x0013FBBA File Offset: 0x0013DDBA
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x060020D5 RID: 8405 RVA: 0x0013FBC2 File Offset: 0x0013DDC2
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.DMS_STFRL_BOSS_BODY_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.DMS_STFRL_BOSS_BODY_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x04004DB6 RID: 19894
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004DB7 RID: 19895
         public readonly AppMain.GMS_BS_CMN_BMCB_MGR bmcb_mgr = new AppMain.GMS_BS_CMN_BMCB_MGR();
@@ -87,28 +87,28 @@ public partial class AppMain
     }
 
     // Token: 0x02000158 RID: 344
-    public class DMS_STFRL_BOSS_EGG_WORK : AppMain.IOBS_OBJECT_WORK
+    public class DMS_STFRL_BOSS_EGG_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060020D6 RID: 8406 RVA: 0x0013FBCA File Offset: 0x0013DDCA
         public DMS_STFRL_BOSS_EGG_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x060020D7 RID: 8407 RVA: 0x0013FBDE File Offset: 0x0013DDDE
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.DMS_STFRL_BOSS_EGG_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.DMS_STFRL_BOSS_EGG_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x060020D8 RID: 8408 RVA: 0x0013FBE6 File Offset: 0x0013DDE6
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x04004DBD RID: 19901
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004DBE RID: 19902
         public uint flag;
@@ -118,28 +118,28 @@ public partial class AppMain
     }
 
     // Token: 0x02000159 RID: 345
-    public class DMS_STFRL_RING_WORK : AppMain.IOBS_OBJECT_WORK
+    public class DMS_STFRL_RING_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060020D9 RID: 8409 RVA: 0x0013FBEE File Offset: 0x0013DDEE
         public DMS_STFRL_RING_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x060020DA RID: 8410 RVA: 0x0013FC26 File Offset: 0x0013DE26
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x060020DB RID: 8411 RVA: 0x0013FC2E File Offset: 0x0013DE2E
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.DMS_STFRL_RING_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.DMS_STFRL_RING_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x04004DC0 RID: 19904
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004DC1 RID: 19905
         public AppMain.VecFx32 start_pos;
@@ -185,7 +185,7 @@ public partial class AppMain
 
         // Token: 0x0200015A RID: 346
         // (Invoke) Token: 0x060020DD RID: 8413
-        public delegate void _proc_efct_( AppMain.OBS_OBJECT_WORK work );
+        public delegate void _proc_efct_( OBS_OBJECT_WORK work );
     }
 
     // Token: 0x020003D7 RID: 983
@@ -203,22 +203,22 @@ public partial class AppMain
         }
 
         // Token: 0x0400624C RID: 25164
-        public AppMain.AMS_AMB_HEADER arc_list_font_amb_fs;
+        public AMS_AMB_HEADER arc_list_font_amb_fs;
 
         // Token: 0x0400624D RID: 25165
-        public AppMain.AMS_AMB_HEADER arc_scr_amb_fs;
+        public AMS_AMB_HEADER arc_scr_amb_fs;
 
         // Token: 0x0400624E RID: 25166
-        public AppMain.AMS_AMB_HEADER arc_end_amb_fs;
+        public AMS_AMB_HEADER arc_end_amb_fs;
 
         // Token: 0x0400624F RID: 25167
-        public AppMain.AMS_AMB_HEADER arc_end_jp_amb_fs;
+        public AMS_AMB_HEADER arc_end_jp_amb_fs;
 
         // Token: 0x04006250 RID: 25168
-        public readonly AppMain.AMS_AMB_HEADER[] arc_cmn_amb_fs = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] arc_cmn_amb_fs = new AMS_AMB_HEADER[2];
 
         // Token: 0x04006251 RID: 25169
-        public AppMain.AMS_FS staff_list_fs;
+        public AMS_FS staff_list_fs;
     }
 
     // Token: 0x020003D8 RID: 984
@@ -236,19 +236,19 @@ public partial class AppMain
         }
 
         // Token: 0x04006252 RID: 25170
-        public AppMain.AMS_AMB_HEADER arc_font_amb;
+        public AMS_AMB_HEADER arc_font_amb;
 
         // Token: 0x04006253 RID: 25171
-        public AppMain.AMS_AMB_HEADER arc_scr_amb;
+        public AMS_AMB_HEADER arc_scr_amb;
 
         // Token: 0x04006254 RID: 25172
-        public AppMain.AMS_AMB_HEADER arc_end_amb;
+        public AMS_AMB_HEADER arc_end_amb;
 
         // Token: 0x04006255 RID: 25173
-        public AppMain.AMS_AMB_HEADER arc_end_jp_amb;
+        public AMS_AMB_HEADER arc_end_jp_amb;
 
         // Token: 0x04006256 RID: 25174
-        public readonly AppMain.AMS_AMB_HEADER[] arc_cmn_amb = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] arc_cmn_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04006257 RID: 25175
         public AppMain.YSDS_HEADER stf_list_ysd;
@@ -292,22 +292,22 @@ public partial class AppMain
         public readonly AppMain.DMS_STFRL_DATA_MGR arc_data = new AppMain.DMS_STFRL_DATA_MGR();
 
         // Token: 0x04006267 RID: 25191
-        public AppMain.AMS_AMB_HEADER arc_list_font_amb;
+        public AMS_AMB_HEADER arc_list_font_amb;
 
         // Token: 0x04006268 RID: 25192
-        public AppMain.AMS_AMB_HEADER arc_scr_amb_fs;
+        public AMS_AMB_HEADER arc_scr_amb_fs;
 
         // Token: 0x04006269 RID: 25193
-        public AppMain.AMS_AMB_HEADER arc_end_amb_fs;
+        public AMS_AMB_HEADER arc_end_amb_fs;
 
         // Token: 0x0400626A RID: 25194
-        public AppMain.AMS_AMB_HEADER arc_end_jp_amb_fs;
+        public AMS_AMB_HEADER arc_end_jp_amb_fs;
 
         // Token: 0x0400626B RID: 25195
-        public readonly AppMain.AMS_AMB_HEADER[] arc_cmn_amb_fs = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] arc_cmn_amb_fs = new AMS_AMB_HEADER[2];
 
         // Token: 0x0400626C RID: 25196
-        public AppMain.AMS_FS arc_list_font_amb_fs;
+        public AMS_FS arc_list_font_amb_fs;
 
         // Token: 0x0400626D RID: 25197
         public object staff_list_fs;
@@ -319,28 +319,28 @@ public partial class AppMain
         public readonly AppMain.AOS_TEXTURE[] scr_tex = AppMain.New<AppMain.AOS_TEXTURE>(3);
 
         // Token: 0x04006270 RID: 25200
-        public AppMain.A2S_AMA_HEADER end_ama;
+        public A2S_AMA_HEADER end_ama;
 
         // Token: 0x04006271 RID: 25201
-        public AppMain.AMS_AMB_HEADER end_amb;
+        public AMS_AMB_HEADER end_amb;
 
         // Token: 0x04006272 RID: 25202
         public readonly AppMain.AOS_TEXTURE end_tex = new AppMain.AOS_TEXTURE();
 
         // Token: 0x04006273 RID: 25203
-        public AppMain.A2S_AMA_HEADER end_jp_ama;
+        public A2S_AMA_HEADER end_jp_ama;
 
         // Token: 0x04006274 RID: 25204
-        public AppMain.AMS_AMB_HEADER end_jp_amb;
+        public AMS_AMB_HEADER end_jp_amb;
 
         // Token: 0x04006275 RID: 25205
         public readonly AppMain.AOS_TEXTURE end_jp_tex = new AppMain.AOS_TEXTURE();
 
         // Token: 0x04006276 RID: 25206
-        public readonly AppMain.A2S_AMA_HEADER[] cmn_ama = new AppMain.A2S_AMA_HEADER[2];
+        public readonly A2S_AMA_HEADER[] cmn_ama = new A2S_AMA_HEADER[2];
 
         // Token: 0x04006277 RID: 25207
-        public readonly AppMain.AMS_AMB_HEADER[] cmn_amb = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] cmn_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04006278 RID: 25208
         public readonly AppMain.AOS_TEXTURE[] cmn_tex = AppMain.New<AppMain.AOS_TEXTURE>(2);
@@ -472,10 +472,10 @@ public partial class AppMain
         public readonly AppMain.DMS_STFRL_RING_WORK[] ring_work = new AppMain.DMS_STFRL_RING_WORK[3];
 
         // Token: 0x040062A3 RID: 25251
-        public AppMain.GSS_SND_SCB bgm_scb;
+        public GSS_SND_SCB bgm_scb;
 
         // Token: 0x040062A4 RID: 25252
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
 
         // Token: 0x020003DB RID: 987
         // (Invoke) Token: 0x0600285D RID: 10333
@@ -528,12 +528,12 @@ public partial class AppMain
         AppMain.dm_stfrl_scr_amb = data_mgr.arc_scr_amb;
         AppMain.AoTexBuild( AppMain.dm_stfrl_scr_tex, AppMain.dm_stfrl_scr_amb );
         AppMain.AoTexLoad( AppMain.dm_stfrl_scr_tex );
-        AppMain.dm_stfrl_end_cmn_ama = AppMain.readAMAFile( AppMain.amBindGet( data_mgr.arc_end_amb, 0 ) );
+        AppMain.dm_stfrl_end_cmn_ama = A2S.readAMAFile( AmBind.Get( data_mgr.arc_end_amb, 0 ) );
         string dir;
-        AppMain.dm_stfrl_end_cmn_amb = AppMain.readAMBFile( AppMain.amBindGet( data_mgr.arc_end_amb, 1, out dir ) );
+        AppMain.dm_stfrl_end_cmn_amb = AmFs.readAMBFile( AmBind.Get( data_mgr.arc_end_amb, 1, out dir ) );
         AppMain.dm_stfrl_end_cmn_amb.dir = dir;
-        AppMain.dm_stfrl_end_lng_ama = AppMain.readAMAFile( AppMain.amBindGet( data_mgr.arc_end_jp_amb, 0 ) );
-        AppMain.dm_stfrl_end_lng_amb = AppMain.readAMBFile( AppMain.amBindGet( data_mgr.arc_end_jp_amb, 1, out dir ) );
+        AppMain.dm_stfrl_end_lng_ama = A2S.readAMAFile( AmBind.Get( data_mgr.arc_end_jp_amb, 0 ) );
+        AppMain.dm_stfrl_end_lng_amb = AmFs.readAMBFile( AmBind.Get( data_mgr.arc_end_jp_amb, 1, out dir ) );
         AppMain.dm_stfrl_end_lng_amb.dir = dir;
         AppMain.AoTexBuild( AppMain.dm_stfrl_end_tex, AppMain.dm_stfrl_end_cmn_amb );
         AppMain.AoTexLoad( AppMain.dm_stfrl_end_tex );
@@ -541,8 +541,8 @@ public partial class AppMain
         AppMain.AoTexLoad( AppMain.dm_stfrl_end_jp_tex );
         for ( int i = 0; i < 2; i++ )
         {
-            AppMain.dm_stfrl_cmn_ama[i] = AppMain.readAMAFile( AppMain.amBindGet( data_mgr.arc_cmn_amb[i], 0 ) );
-            AppMain.dm_stfrl_cmn_amb[i] = AppMain.readAMBFile( AppMain.amBindGet( data_mgr.arc_cmn_amb[i], 1, out dir ) );
+            AppMain.dm_stfrl_cmn_ama[i] = A2S.readAMAFile( AmBind.Get( data_mgr.arc_cmn_amb[i], 0 ) );
+            AppMain.dm_stfrl_cmn_amb[i] = AmFs.readAMBFile( AmBind.Get( data_mgr.arc_cmn_amb[i], 1, out dir ) );
             AppMain.dm_stfrl_cmn_amb[i].dir = dir;
             AppMain.AoTexBuild( AppMain.dm_stfrl_cmn_tex[i], AppMain.dm_stfrl_cmn_amb[i] );
             AppMain.AoTexLoad( AppMain.dm_stfrl_cmn_tex[i] );
@@ -663,7 +663,7 @@ public partial class AppMain
             }
             return;
         }
-        if ( ( dms_STFRL_MAIN_WORK.flag & 2147483648U ) != 0U && !AppMain.AoAccountIsCurrentEnable() )
+        if ( ( dms_STFRL_MAIN_WORK.flag & 2147483648U ) != 0U && !AoAccount.AoAccountIsCurrentEnable() )
         {
             dms_STFRL_MAIN_WORK.proc_update = AppMain.dmStaffRollProcFadeOut;
             dms_STFRL_MAIN_WORK.flag &= 2147483647U;
@@ -678,7 +678,7 @@ public partial class AppMain
             }
             if ( dms_STFRL_MAIN_WORK.bgm_scb != null )
             {
-                AppMain.GsSoundStopBgm( dms_STFRL_MAIN_WORK.bgm_scb, 79 );
+                GsSound.StopBgm( dms_STFRL_MAIN_WORK.bgm_scb, 79 );
             }
             dms_STFRL_MAIN_WORK.flag &= 4294967291U;
             dms_STFRL_MAIN_WORK.flag &= 4294967293U;
@@ -702,7 +702,7 @@ public partial class AppMain
         if ( AppMain.dm_stfrl_is_full_staffroll )
         {
             AppMain.ObjDrawESEffectSystemExit();
-            AppMain.ObjCameraExit();
+            ObjCamera.Exit();
             AppMain.GmMainExitForStaffroll();
         }
     }
@@ -736,18 +736,18 @@ public partial class AppMain
         {
             main_work.proc_update = AppMain.dmStaffRollProcLoadData;
             AppMain.DmStaffRollBuildForGame();
-            main_work.arc_list_font_amb = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_list_font_amb_fs );
-            main_work.arc_scr_amb_fs = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_scr_amb_fs );
-            main_work.arc_end_amb_fs = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_end_amb_fs );
-            main_work.arc_end_jp_amb_fs = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_end_jp_amb_fs );
-            main_work.arc_cmn_amb_fs[0] = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_cmn_amb_fs[0] );
-            main_work.arc_cmn_amb_fs[1] = AppMain.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_cmn_amb_fs[1] );
-            main_work.staff_list_fs = AppMain.amFsRead( "DEMO/STFRL/STAFF_LIST.YSD" );
+            main_work.arc_list_font_amb = AmFs.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_list_font_amb_fs );
+            main_work.arc_scr_amb_fs = AmFs.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_scr_amb_fs );
+            main_work.arc_end_amb_fs = AmFs.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_end_amb_fs );
+            main_work.arc_end_jp_amb_fs = AmFs.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_end_jp_amb_fs );
+            main_work.arc_cmn_amb_fs[0] = AmFs.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_cmn_amb_fs[0] );
+            main_work.arc_cmn_amb_fs[1] = AmFs.readAMBFile( AppMain.dm_stfrl_fs_data_mgr_p.arc_cmn_amb_fs[1] );
+            main_work.staff_list_fs = AmFs.amFsRead( "DEMO/STFRL/STAFF_LIST.YSD" );
         }
         else
         {
-            main_work.arc_list_font_amb_fs = AppMain.amFsReadBackground( "DEMO/STFRL/D_STFRL_FONT.AMB" );
-            main_work.staff_list_fs = AppMain.amFsRead( "DEMO/STFRL/STAFF_LIST.YSD" );
+            main_work.arc_list_font_amb_fs = AmFs.amFsReadBackground( "DEMO/STFRL/D_STFRL_FONT.AMB" );
+            main_work.staff_list_fs = AmFs.amFsRead( "DEMO/STFRL/STAFF_LIST.YSD" );
             main_work.proc_update = AppMain.dmStaffRollProcLoadData;
         }
         AppMain.GsMainSysSetSleepFlag( false );
@@ -797,12 +797,12 @@ public partial class AppMain
                 AppMain.MTM_ASSERT( 0 );
             }
             main_work.disp_list_page_num = AppMain.AoYsdFileGetPageNum( AppMain.dm_stfrl_data_mgr_p.stf_list_ysd );
-            main_work.bgm_scb = AppMain.GsSoundAssignScb( 0 );
+            main_work.bgm_scb = GsSound.AssignScb( 0 );
             main_work.bgm_scb.flag |= 2147483648U;
-            main_work.se_handle = AppMain.GsSoundAllocSeHandle();
-            if ( !AppMain.GsSoundIsRunning() )
+            main_work.se_handle = GsSound.AllocSeHandle();
+            if ( !GsSound.IsRunning() )
             {
-                AppMain.GsSoundBegin( 4096, 1U, 3 );
+                GsSound.Begin( 4096, 1U, 3 );
                 main_work.flag |= 2048U;
             }
         }
@@ -813,7 +813,7 @@ public partial class AppMain
     {
         for ( uint num = 0U; num < 11U; num += 1U )
         {
-            AppMain.A2S_AMA_HEADER ama;
+            A2S_AMA_HEADER ama;
             AppMain.AOS_TEXTURE tex;
             if ( num >= 8U )
             {
@@ -845,11 +845,11 @@ public partial class AppMain
             main_work.timer = 32f;
             if ( AppMain.dm_stfrl_is_full_staffroll )
             {
-                AppMain.GsSoundPlayBgm( main_work.bgm_scb, "snd_sng_ending", 0 );
+                GsSound.PlayBgm( main_work.bgm_scb, "snd_sng_ending", 0 );
             }
             else
             {
-                AppMain.GsSoundPlayBgm( main_work.bgm_scb, "snd_sng_z1a1", 0 );
+                GsSound.PlayBgm( main_work.bgm_scb, "snd_sng_z1a1", 0 );
             }
             main_work.proc_input = AppMain.dmStaffRollInputProcStaffRollMain;
         }
@@ -875,12 +875,12 @@ public partial class AppMain
             if ( AppMain.dm_stfrl_is_pause_maingame )
             {
                 AppMain.IzFadeInitEasyColor( 0, 32767, 61439, 18U, 0U, 1U, 80f, true );
-                AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+                GsSound.StopBgm( main_work.bgm_scb, 80 );
             }
             else
             {
                 AppMain.IzFadeInitEasy( 0U, 1U, 80f );
-                AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+                GsSound.StopBgm( main_work.bgm_scb, 80 );
             }
             main_work.flag &= 4294967291U;
             return;
@@ -913,12 +913,12 @@ public partial class AppMain
             if ( AppMain.dm_stfrl_is_pause_maingame )
             {
                 AppMain.IzFadeInitEasyColor( 0, 32767, 61439, 18U, 0U, 1U, 80f, true );
-                AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+                GsSound.StopBgm( main_work.bgm_scb, 80 );
             }
             else
             {
                 AppMain.IzFadeInitEasy( 0U, 1U, 80f );
-                AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+                GsSound.StopBgm( main_work.bgm_scb, 80 );
             }
             main_work.flag &= 4294967291U;
             return;
@@ -953,12 +953,12 @@ public partial class AppMain
             if ( AppMain.dm_stfrl_is_pause_maingame )
             {
                 AppMain.IzFadeInitEasyColor( 0, 32767, 61439, 18U, 0U, 1U, 80f, true );
-                AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+                GsSound.StopBgm( main_work.bgm_scb, 80 );
             }
             else
             {
                 AppMain.IzFadeInitEasy( 0U, 1U, 80f );
-                AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+                GsSound.StopBgm( main_work.bgm_scb, 80 );
             }
             main_work.flag &= 4294967291U;
             return;
@@ -984,11 +984,11 @@ public partial class AppMain
         if ( AppMain.dm_stfrl_is_pause_maingame )
         {
             AppMain.IzFadeInitEasyColor( 0, 32767, 61439, 18U, 0U, 1U, 80f, true );
-            AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+            GsSound.StopBgm( main_work.bgm_scb, 80 );
             return;
         }
         AppMain.IzFadeInitEasy( 0U, 1U, 80f );
-        AppMain.GsSoundStopBgm( main_work.bgm_scb, 80 );
+        GsSound.StopBgm( main_work.bgm_scb, 80 );
     }
 
     // Token: 0x06001B90 RID: 7056 RVA: 0x000FC6AC File Offset: 0x000FA8AC
@@ -1058,7 +1058,7 @@ public partial class AppMain
             }
             if ( main_work.end_act_frm == 140 )
             {
-                AppMain.GsSoundPlaySe( "Metal_Sonic", main_work.se_handle );
+                GsSound.PlaySe( "Metal_Sonic", main_work.se_handle );
             }
             if ( main_work.sonic_work != null && main_work.body_work != null && ( main_work.sonic_work.flag & 1 ) != 0 )
             {
@@ -1107,7 +1107,7 @@ public partial class AppMain
             main_work.proc_update = AppMain.dmStaffRollProcWinModeFadeIn;
             main_work.disp_mode = 2U;
             AppMain.IzFadeInitEasy( 0U, 0U, 80f );
-            AppMain.GsSoundStopBgm( main_work.bgm_scb, 0 );
+            GsSound.StopBgm( main_work.bgm_scb, 0 );
         }
     }
 
@@ -1142,7 +1142,7 @@ public partial class AppMain
                 }
             }
             main_work.flag |= 1024U;
-            AppMain.GsSoundPlaySe( "Window", main_work.se_handle );
+            GsSound.PlaySe( "Window", main_work.se_handle );
             return;
         }
         main_work.proc_update = AppMain.dmStaffRollProcTrophyCheck;
@@ -1175,7 +1175,7 @@ public partial class AppMain
             main_work.win_timer = 8f;
             main_work.flag &= 4294967231U;
             main_work.proc_update = AppMain.dmStaffRollProcWindowCloseEfct;
-            AppMain.GsSoundPlaySe( "Ok", main_work.se_handle );
+            GsSound.PlaySe( "Ok", main_work.se_handle );
             main_work.flag &= 4294967291U;
             main_work.flag &= 4294967293U;
         }
@@ -1212,18 +1212,18 @@ public partial class AppMain
         {
             if ( ( main_work.flag & 2048U ) != 0U )
             {
-                AppMain.GsSoundHalt();
-                AppMain.GsSoundEnd();
+                GsSound.Halt();
+                GsSound.End();
             }
             if ( main_work.bgm_scb != null )
             {
-                AppMain.GsSoundStopBgm( main_work.bgm_scb, 0 );
-                AppMain.GsSoundResignScb( main_work.bgm_scb );
+                GsSound.StopBgm( main_work.bgm_scb, 0 );
+                GsSound.ResignScb( main_work.bgm_scb );
                 main_work.bgm_scb = null;
             }
             if ( main_work.se_handle != null )
             {
-                AppMain.GsSoundFreeSeHandle( main_work.se_handle );
+                GsSound.FreeSeHandle( main_work.se_handle );
                 main_work.se_handle = null;
             }
             main_work.proc_update = AppMain.dmStaffRollProcStopDraw;
@@ -1331,7 +1331,7 @@ public partial class AppMain
             main_work.proc_update = null;
             if ( ( main_work.flag & 2048U ) != 0U )
             {
-                AppMain.GsSoundReset();
+                GsSound.Reset();
             }
             AppMain.GsFontRelease();
         }
@@ -1773,12 +1773,12 @@ public partial class AppMain
     {
         if ( AppMain.dm_stfrl_is_full_staffroll )
         {
-            if ( main_work.staff_list_fs is AppMain.AMS_FS && !AppMain.amFsIsComplete( ( AppMain.AMS_FS )main_work.staff_list_fs ) )
+            if ( main_work.staff_list_fs is AMS_FS && !AmFs.amFsIsComplete( ( AMS_FS )main_work.staff_list_fs ) )
             {
                 return 0;
             }
         }
-        else if ( !AppMain.amFsIsComplete( main_work.arc_list_font_amb_fs ) )
+        else if ( !AmFs.amFsIsComplete( main_work.arc_list_font_amb_fs ) )
         {
             return 0;
         }
@@ -1789,12 +1789,12 @@ public partial class AppMain
     private static void dmStaffRollDataClearRequestFull( AppMain.DMS_STFRL_MAIN_WORK main_work )
     {
         main_work.arc_data.arc_font_amb = main_work.arc_list_font_amb;
-        main_work.arc_data.arc_scr_amb = AppMain.readAMBFile( main_work.arc_scr_amb_fs );
-        main_work.arc_data.arc_end_amb = AppMain.readAMBFile( main_work.arc_end_amb_fs );
-        main_work.arc_data.arc_end_jp_amb = AppMain.readAMBFile( main_work.arc_end_jp_amb_fs );
+        main_work.arc_data.arc_scr_amb = AmFs.readAMBFile( main_work.arc_scr_amb_fs );
+        main_work.arc_data.arc_end_amb = AmFs.readAMBFile( main_work.arc_end_amb_fs );
+        main_work.arc_data.arc_end_jp_amb = AmFs.readAMBFile( main_work.arc_end_jp_amb_fs );
         for ( uint num = 0U; num < 2U; num += 1U )
         {
-            main_work.arc_data.arc_cmn_amb[( int )( ( UIntPtr )num )] = AppMain.readAMBFile( main_work.arc_cmn_amb_fs[( int )( ( UIntPtr )num )] );
+            main_work.arc_data.arc_cmn_amb[( int )( ( UIntPtr )num )] = AmFs.readAMBFile( main_work.arc_cmn_amb_fs[( int )( ( UIntPtr )num )] );
         }
         main_work.arc_data.stf_list_ysd = new AppMain.YSDS_HEADER( ( byte[] )main_work.staff_list_fs );
         main_work.staff_list_fs = null;
@@ -1803,7 +1803,7 @@ public partial class AppMain
     // Token: 0x06001BAF RID: 7087 RVA: 0x000FE2E8 File Offset: 0x000FC4E8
     private static void dmStaffRollDataClearRequestEasy( AppMain.DMS_STFRL_MAIN_WORK main_work )
     {
-        main_work.arc_data.arc_font_amb = AppMain.readAMBFile( main_work.arc_list_font_amb_fs );
+        main_work.arc_data.arc_font_amb = AmFs.readAMBFile( main_work.arc_list_font_amb_fs );
         main_work.arc_list_font_amb_fs = null;
         main_work.arc_list_font_amb_fs = null;
         main_work.arc_data.stf_list_ysd = new AppMain.YSDS_HEADER( ( byte[] )main_work.staff_list_fs );
@@ -2063,7 +2063,7 @@ public partial class AppMain
         {
             if ( main_work.ring_work[i] != null )
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.ring_work[i];
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.ring_work[i];
                 obs_OBJECT_WORK.ppOut = null;
                 obs_OBJECT_WORK.flag |= 8U;
             }
@@ -2080,13 +2080,13 @@ public partial class AppMain
     {
         if ( main_work.body_work != null )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.body_work;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.body_work;
             obs_OBJECT_WORK.ppOut = null;
             obs_OBJECT_WORK.flag |= 8U;
         }
         if ( main_work.egg_work != null )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.egg_work;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.egg_work;
             obs_OBJECT_WORK.ppOut = null;
             obs_OBJECT_WORK.flag |= 8U;
         }
@@ -2094,14 +2094,14 @@ public partial class AppMain
         {
             if ( main_work.ring_work[i] != null )
             {
-                AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.ring_work[i];
+                OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.ring_work[i];
                 obs_OBJECT_WORK.ppOut = null;
                 obs_OBJECT_WORK.flag |= 8U;
             }
         }
         if ( main_work.sonic_work != null )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)main_work.sonic_work;
+            OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)main_work.sonic_work;
             obs_OBJECT_WORK.ppOut = null;
             obs_OBJECT_WORK.flag |= 8U;
         }
@@ -2111,7 +2111,7 @@ public partial class AppMain
     private static void dmStaffRollSetBossObj( AppMain.DMS_STFRL_MAIN_WORK main_work )
     {
         main_work.body_work = AppMain.DmStfrlMdlCtrlSetBodyObj();
-        main_work.egg_work = AppMain.DmStfrlMdlCtrlSetEggObj( ( AppMain.OBS_OBJECT_WORK )main_work.body_work );
+        main_work.egg_work = AppMain.DmStfrlMdlCtrlSetEggObj( ( OBS_OBJECT_WORK )main_work.body_work );
         if ( main_work.is_eme_comp )
         {
             main_work.body_work.flag |= 1U;
@@ -2121,8 +2121,8 @@ public partial class AppMain
     // Token: 0x06001BBB RID: 7099 RVA: 0x000FEAAC File Offset: 0x000FCCAC
     private static void dmStaffRollInitLight()
     {
-        AppMain.NNS_RGBA def_light_col = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA def_light_col = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.g_obj.ambient_color.r = 0.8f;
         AppMain.g_obj.ambient_color.g = 0.8f;
         AppMain.g_obj.ambient_color.b = 0.8f;
@@ -2134,29 +2134,29 @@ public partial class AppMain
         AppMain.g_gm_main_system.def_light_vec.Assign( nns_VECTOR );
         AppMain.g_gm_main_system.def_light_col = def_light_col;
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_6, ref def_light_col, 1f, nns_VECTOR );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06001BBC RID: 7100 RVA: 0x000FEB8C File Offset: 0x000FCD8C
     private static void dmStaffRollCameraInit()
     {
-        AppMain.NNS_VECTOR pos = new AppMain.NNS_VECTOR(0f, 0f, 50f);
-        AppMain.ObjCameraInit( 0, pos, 4, 0, 8192 );
-        AppMain.ObjCamera3dInit( 0 );
+        NNS_VECTOR pos = new NNS_VECTOR(0f, 0f, 50f);
+        ObjCamera.Init( 0, pos, 4, 0, 8192 );
+        ObjCamera.Init3d( 0 );
         AppMain.g_obj.glb_camera_id = 0;
         AppMain.g_obj.glb_camera_type = 1;
-        AppMain.GmCameraDelayReset();
-        AppMain.GmCameraAllowReset();
-        AppMain.ObjCameraSetUserFunc( 0, AppMain.dmStaffRollCameraFunc );
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        GmCamera.DelayReset();
+        GmCamera.AllowReset();
+        ObjCamera.SetUserFunc( 0, AppMain.dmStaffRollCameraFunc );
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         obs_CAMERA.scale = 0.67438334f;
         obs_CAMERA.ofst.z = 1000f;
     }
 
     // Token: 0x06001BBD RID: 7101 RVA: 0x000FEC18 File Offset: 0x000FCE18
-    private static void dmStaffRollCameraFunc( AppMain.OBS_CAMERA obj_camera )
+    private static void dmStaffRollCameraFunc( OBS_CAMERA obj_camera )
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = AppMain.FXM_FX32_TO_FLOAT( 0 );
         nns_VECTOR.y = AppMain.FXM_FX32_TO_FLOAT( 0 );
         nns_VECTOR.z = AppMain.FXM_FX32_TO_FLOAT( 409600 );
@@ -2175,7 +2175,7 @@ public partial class AppMain
         obj_camera.target_pos.Assign( obj_camera.disp_pos );
         obj_camera.target_pos.z -= 50f;
         AppMain.ObjObjectCameraSet( AppMain.FXM_FLOAT_TO_FX32( obj_camera.disp_pos.x - ( float )( AppMain.OBD_LCD_X / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( -obj_camera.disp_pos.y - ( float )( AppMain.OBD_LCD_Y / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( obj_camera.disp_pos.x - ( float )( AppMain.OBD_LCD_X / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( -obj_camera.disp_pos.y - ( float )( AppMain.OBD_LCD_Y / 2 ) ) );
-        AppMain.GmCameraSetClipCamera( obj_camera );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        GmCamera.SetClipCamera( obj_camera );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

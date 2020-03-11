@@ -67,10 +67,10 @@ public partial class AppMain
     public class DMAP_WATER
     {
         // Token: 0x04005A7E RID: 23166
-        public AppMain.AMS_AMB_HEADER amb_object;
+        public AMS_AMB_HEADER amb_object;
 
         // Token: 0x04005A7F RID: 23167
-        public AppMain.AMS_AMB_HEADER amb_texture;
+        public AMS_AMB_HEADER amb_texture;
 
         // Token: 0x04005A80 RID: 23168
         public int regist_index;

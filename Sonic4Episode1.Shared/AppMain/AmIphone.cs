@@ -79,13 +79,13 @@ public partial class AppMain
     }
 
     // Token: 0x0200037E RID: 894
-    private class AMS_IPHONE_ACCEL_DATA
+    public class AMS_IPHONE_ACCEL_DATA
     {
         // Token: 0x04006068 RID: 24680
-        public readonly AppMain.NNS_VECTOR core = GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR core = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04006069 RID: 24681
-        public readonly AppMain.NNS_VECTOR sensor = GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR sensor = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x0400606A RID: 24682
         public int rot_x;
@@ -107,8 +107,8 @@ public partial class AppMain
     // Token: 0x06001852 RID: 6226 RVA: 0x000DB300 File Offset: 0x000D9500
     public static void amIPhoneAccelerate(ref Vector3 accel)
     {
-        AppMain.NNS_VECTOR core = _am_iphone_accel_data.core;
-        AppMain.NNS_VECTOR sensor = _am_iphone_accel_data.sensor;
+        NNS_VECTOR core = _am_iphone_accel_data.core;
+        NNS_VECTOR sensor = _am_iphone_accel_data.sensor;
         core.x = accel.X;
         core.y = accel.Y;
         core.z = accel.Z;
@@ -324,12 +324,12 @@ public partial class AppMain
         OpenGL.glViewport(0, 0, (int)port.Width, (int)port.Height);
 
         amRenderInit();
-        AppMain.NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX_Viewport = GlobalPool<NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX_Scale = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX_Viewport = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX_Scale = GlobalPool<NNS_MATRIX>.Alloc();
 
-        new AppMain.NNS_VECTOR(0f, 0f, -1f);
-        new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
+        new NNS_VECTOR(0f, 0f, -1f);
+        new NNS_RGBA(1f, 1f, 1f, 1f);
         AppMain.NNS_CONFIG_GL config;
         config.WindowWidth = (int)port.Width;
         config.WindowHeight = (int)port.Height;

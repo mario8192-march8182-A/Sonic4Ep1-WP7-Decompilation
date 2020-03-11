@@ -12,99 +12,6 @@ using Sonic4Episode1.Abstraction;
 
 public partial class AppMain
 {
-
-    // Token: 0x1700000F RID: 15
-    // (get) Token: 0x06000380 RID: 896 RVA: 0x0001C24C File Offset: 0x0001A44C
-    private static byte[][] g_gm_player_motion_right_tbl
-    {
-        get
-        {
-            if (AppMain._g_gm_player_motion_right_tbl == null)
-            {
-                AppMain._g_gm_player_motion_right_tbl = new byte[][]
-                {
-                    AppMain.gm_player_motion_list_son_right,
-                    AppMain.gm_player_motion_list_sson_right,
-                    AppMain.gm_player_motion_list_son_right,
-                    AppMain.gm_player_motion_list_pn_son_right,
-                    AppMain.gm_player_motion_list_pn_sson_right,
-                    AppMain.gm_player_motion_list_tr_son_right,
-                    AppMain.gm_player_motion_list_tr_son_right
-                };
-            }
-            return AppMain._g_gm_player_motion_right_tbl;
-        }
-    }
-
-    // Token: 0x17000010 RID: 16
-    // (get) Token: 0x06000381 RID: 897 RVA: 0x0001C2AC File Offset: 0x0001A4AC
-    private static byte[][] g_gm_player_motion_left_tbl
-    {
-        get
-        {
-            if (AppMain._g_gm_player_motion_left_tbl == null)
-            {
-                AppMain._g_gm_player_motion_left_tbl = new byte[][]
-                {
-                    AppMain.gm_player_motion_list_son_left,
-                    AppMain.gm_player_motion_list_sson_left,
-                    AppMain.gm_player_motion_list_son_left,
-                    AppMain.gm_player_motion_list_pn_son_left,
-                    AppMain.gm_player_motion_list_pn_sson_left,
-                    AppMain.gm_player_motion_list_tr_son_left,
-                    AppMain.gm_player_motion_list_tr_son_left
-                };
-            }
-            return AppMain._g_gm_player_motion_left_tbl;
-        }
-    }
-
-    // Token: 0x17000011 RID: 17
-    // (get) Token: 0x06000382 RID: 898 RVA: 0x0001C30C File Offset: 0x0001A50C
-    private static byte[][] g_gm_player_model_tbl
-    {
-        get
-        {
-            if (AppMain._g_gm_player_model_tbl == null)
-            {
-                AppMain._g_gm_player_model_tbl = new byte[][]
-                {
-                    AppMain.gm_player_model_list_son,
-                    AppMain.gm_player_model_list_son,
-                    AppMain.gm_player_model_list_son,
-                    AppMain.gm_player_model_list_pn_son,
-                    AppMain.gm_player_model_list_pn_son,
-                    AppMain.gm_player_model_list_tr_son,
-                    AppMain.gm_player_model_list_tr_son
-                };
-            }
-            return AppMain._g_gm_player_model_tbl;
-        }
-    }
-
-    // Token: 0x17000012 RID: 18
-    // (get) Token: 0x06000383 RID: 899 RVA: 0x0001C36C File Offset: 0x0001A56C
-    private static byte[][] g_gm_player_mtn_blend_setting_tbl
-    {
-        get
-        {
-            if (AppMain._g_gm_player_mtn_blend_setting_tbl == null)
-            {
-                AppMain._g_gm_player_mtn_blend_setting_tbl = new byte[][]
-                {
-                    AppMain.gm_player_mtn_blend_setting_son,
-                    AppMain.gm_player_mtn_blend_setting_son,
-                    AppMain.gm_player_mtn_blend_setting_son,
-                    AppMain.gm_player_mtn_blend_setting_pn_son,
-                    AppMain.gm_player_mtn_blend_setting_pn_son,
-                    AppMain.gm_player_mtn_blend_setting_tr_son,
-                    AppMain.gm_player_mtn_blend_setting_tr_son
-                };
-            }
-            return AppMain._g_gm_player_mtn_blend_setting_tbl;
-        }
-    }
-
     // Token: 0x17000013 RID: 19
     // (get) Token: 0x06000384 RID: 900 RVA: 0x0001C3CA File Offset: 0x0001A5CA
     public static short GMD_OBJ_LCD_X
@@ -144,7 +51,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000389 RID: 905 RVA: 0x0001C454 File Offset: 0x0001A654
-    private static int GMM_MAIN_GET_ZONE_TYPE()
+    public static int GMM_MAIN_GET_ZONE_TYPE()
     {
         return AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
     }
@@ -162,7 +69,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600038C RID: 908 RVA: 0x0001C494 File Offset: 0x0001A694
-    private static bool GmMainIsWaterLevel()
+    public static bool GmMainIsWaterLevel()
     {
         return AppMain.g_gm_main_system.water_level != ushort.MaxValue;
     }
@@ -174,7 +81,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600038E RID: 910 RVA: 0x0001C4C2 File Offset: 0x0001A6C2
-    private static void GmMainGSInit()
+    public static void GmMainGSInit()
     {
         AppMain.g_gs_main_sys_info.game_flag &= 4294967009U;
         AppMain.g_gs_main_sys_info.clear_ring = 0U;
@@ -183,7 +90,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600038F RID: 911 RVA: 0x0001C4FC File Offset: 0x0001A6FC
-    private static void GmMainGSRetryInit()
+    public static void GmMainGSRetryInit()
     {
         AppMain._bossFinishThread = true;
         AppMain.g_gs_main_sys_info.rest_player_num = AppMain.g_gm_main_system.player_rest_num[(int)((UIntPtr)0)];
@@ -252,7 +159,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000391 RID: 913 RVA: 0x0001C714 File Offset: 0x0001A914
-    private static void GmMainEnd()
+    public static void GmMainEnd()
     {
         AppMain.GmPadVibExit();
         if (AppMain.g_gm_main_system.pre_tcb != null)
@@ -274,8 +181,8 @@ public partial class AppMain
         AppMain.GmFixExit();
         AppMain.GmPauseExit();
         AppMain.GmRingExit();
-        AppMain.GmCameraExit();
-        AppMain.GmSoundExit();
+        GmCamera.Exit();
+        GmSound.Exit();
         AppMain.GmMapFarExit();
         AppMain.GmDecoExit();
         AppMain.GmWaterSurfaceExit();
@@ -296,14 +203,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000392 RID: 914 RVA: 0x0001C80B File Offset: 0x0001AA0B
-    private static void GmMainExit()
+    public static void GmMainExit()
     {
         AppMain.GmMainEnd();
         AppMain.gmMainDataRelease();
     }
 
     // Token: 0x06000393 RID: 915 RVA: 0x0001C817 File Offset: 0x0001AA17
-    private static void GmMainRestartExit()
+    public static void GmMainRestartExit()
     {
         AppMain.GmMainEnd();
         if (AppMain.g_gs_main_sys_info.stage_id == 16)
@@ -317,7 +224,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000394 RID: 916 RVA: 0x0001C852 File Offset: 0x0001AA52
-    private static void GmMainExitForStaffroll()
+    public static void GmMainExitForStaffroll()
     {
         AppMain.gmMainDataRelease();
     }
@@ -341,10 +248,10 @@ public partial class AppMain
     }
 
     // Token: 0x06000398 RID: 920 RVA: 0x0001C88C File Offset: 0x0001AA8C
-    private static ushort GmMainGetObjectRotation()
+    public static ushort GmMainGetObjectRotation()
     {
         ushort result = 0;
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(AppMain.g_obj.glb_camera_id);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
         if (obs_CAMERA != null)
         {
             result = (ushort)(-(ushort)obs_CAMERA.roll);
@@ -353,7 +260,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000399 RID: 921 RVA: 0x0001C8B8 File Offset: 0x0001AAB8
-    private static uint GmMainGetLightColor()
+    public static uint GmMainGetLightColor()
     {
         uint result = 3772834047U;
         if (AppMain.g_gs_main_sys_info.stage_id == 2 || AppMain.g_gs_main_sys_info.stage_id == 3)
@@ -368,7 +275,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600039A RID: 922 RVA: 0x0001C904 File Offset: 0x0001AB04
-    private static uint GmMainGetLightColorABGR()
+    public static uint GmMainGetLightColorABGR()
     {
         uint result = 4292927712U;
         if (AppMain.g_gs_main_sys_info.stage_id == 2 || AppMain.g_gs_main_sys_info.stage_id == 3)
@@ -383,7 +290,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600039B RID: 923 RVA: 0x0001C950 File Offset: 0x0001AB50
-    private static OpenGL.glArray4f GmMainGetLightColorArray4f()
+    public static OpenGL.glArray4f GmMainGetLightColorArray4f()
     {
         ushort stage_id = AppMain.g_gs_main_sys_info.stage_id;
         switch (stage_id)
@@ -495,25 +402,25 @@ public partial class AppMain
     }
 
     // Token: 0x0600039E RID: 926 RVA: 0x0001CBF6 File Offset: 0x0001ADF6
-    private static bool GmMainDatLoadBossBattleLoadCheck()
+    public static bool GmMainDatLoadBossBattleLoadCheck()
     {
         return AppMain.GmMainDatLoadBossBattleLoadCheck(0);
     }
 
     // Token: 0x0600039F RID: 927 RVA: 0x0001CBFE File Offset: 0x0001ADFE
-    private static bool GmMainDatLoadBossBattleLoadCheck(int boss_type)
+    public static bool GmMainDatLoadBossBattleLoadCheck(int boss_type)
     {
         return AppMain.g_gm_main_system.boss_load_no != -1 && (AppMain.g_gm_main_system.game_flag & 4194304U) == 0U && (boss_type == -1 || boss_type == AppMain.g_gm_main_system.boss_load_no);
     }
 
     // Token: 0x060003A0 RID: 928 RVA: 0x0001CC33 File Offset: 0x0001AE33
-    private static bool GmMainDatLoadBossBattleLoadNowCheck()
+    public static bool GmMainDatLoadBossBattleLoadNowCheck()
     {
         return (AppMain.g_gm_main_system.game_flag & 2097152U) != 0U;
     }
 
     // Token: 0x060003A1 RID: 929 RVA: 0x0001CC4A File Offset: 0x0001AE4A
-    private static void GmGameDatLoadBossBattleExit()
+    public static void GmGameDatLoadBossBattleExit()
     {
         if (AppMain.gm_main_load_bossbattle_tcb != null)
         {
@@ -523,7 +430,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003A2 RID: 930 RVA: 0x0001CC6C File Offset: 0x0001AE6C
-    private static void GmGameDatReleaseBossBattleStart(int boss_type)
+    public static void GmGameDatReleaseBossBattleStart(int boss_type)
     {
         AppMain.GmGameDatFlushBossBattleInit();
         AppMain.GmGameDatFlushBossBattle(boss_type);
@@ -535,19 +442,19 @@ public partial class AppMain
     }
 
     // Token: 0x060003A3 RID: 931 RVA: 0x0001CCFD File Offset: 0x0001AEFD
-    private static bool GmMainDatReleaseBossBattleReleaseCheck()
+    public static bool GmMainDatReleaseBossBattleReleaseCheck()
     {
         return AppMain.g_gm_main_system.boss_load_no == -1 && (AppMain.g_gm_main_system.game_flag & 2097152U) == 0U;
     }
 
     // Token: 0x060003A4 RID: 932 RVA: 0x0001CD21 File Offset: 0x0001AF21
-    private static bool GmMainDatReleaseBossBattleReleaseNowCheck()
+    public static bool GmMainDatReleaseBossBattleReleaseNowCheck()
     {
         return (AppMain.g_gm_main_system.game_flag & 4194304U) != 0U;
     }
 
     // Token: 0x060003A5 RID: 933 RVA: 0x0001CD38 File Offset: 0x0001AF38
-    private static void GmGameDatReleaseBossBattleExit()
+    public static void GmGameDatReleaseBossBattleExit()
     {
         if (AppMain.gm_main_release_bossbattle_tcb != null)
         {
@@ -557,7 +464,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003A6 RID: 934 RVA: 0x0001CD54 File Offset: 0x0001AF54
-    private static int GmMainKeyCheckPauseKeyOn()
+    public static int GmMainKeyCheckPauseKeyOn()
     {
         int result = -1;
         uint num = 215U;
@@ -594,7 +501,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003A7 RID: 935 RVA: 0x0001CE24 File Offset: 0x0001B024
-    private static int GmMainKeyCheckPauseKeyPush()
+    public static int GmMainKeyCheckPauseKeyPush()
     {
         int result = -1;
         uint num = 215U;
@@ -622,7 +529,7 @@ public partial class AppMain
                 }
             }
 
-            if (AoPadADirect(ControllerConsts.START))
+            if (AoPad.AoPadADirect(ControllerConsts.START))
             {
                 result = i;
                 break;
@@ -637,7 +544,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003A8 RID: 936 RVA: 0x0001CEC4 File Offset: 0x0001B0C4
-    private static void gmMainSysInit()
+    public static void gmMainSysInit()
     {
         AppMain.g_gm_main_system.Clear();
         AppMain.g_gm_main_system.player_rest_num[(int)((UIntPtr)0)] = AppMain.g_gs_main_sys_info.rest_player_num;
@@ -649,7 +556,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003A9 RID: 937 RVA: 0x0001CF24 File Offset: 0x0001B124
-    private static void gmMainLoad(int load_proc)
+    public static void gmMainLoad(int load_proc)
     {
         short[] array = new short[1];
         AppMain.GmMainClearSuspendedPause();
@@ -667,7 +574,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AA RID: 938 RVA: 0x0001CFAC File Offset: 0x0001B1AC
-    private static void gmMainDataLoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadWait(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         if (!AppMain.GmPauseMenuLoadIsFinished())
@@ -688,7 +595,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AB RID: 939 RVA: 0x0001D00C File Offset: 0x0001B20C
-    private static void gmMainDataBuildWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataBuildWait(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         if (!AppMain.GmGameDatBuildStandardCheck())
@@ -699,11 +606,11 @@ public partial class AppMain
         {
             return;
         }
-        if (!AppMain.SoundPartialCache(5))
+        if (!GsSound.SoundPartialCache(5))
         {
             return;
         }
-        if (!AppMain.PrepareBGMForLevel((int)AppMain.g_gs_main_sys_info.stage_id))
+        if (!GsSound.PrepareBGMForLevel((int)AppMain.g_gs_main_sys_info.stage_id))
         {
             return;
         }
@@ -714,7 +621,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AC RID: 940 RVA: 0x0001D078 File Offset: 0x0001B278
-    private static void gmMainDataLoadingEndWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadingEndWait(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         if (AppMain.DmLoadingIsExit())
@@ -725,20 +632,20 @@ public partial class AppMain
     }
 
     // Token: 0x060003AD RID: 941 RVA: 0x0001D091 File Offset: 0x0001B291
-    private static void gmMainDataLoadDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadDest(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_load_wait_tcb = null;
     }
 
     // Token: 0x060003AE RID: 942 RVA: 0x0001D099 File Offset: 0x0001B299
-    private static void gmMainRebuild()
+    public static void gmMainRebuild()
     {
         AppMain.gm_main_load_wait_tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmMainRebuildWait, AppMain.gmMainRebuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "GM_REBUILD_WAIT");
         AppMain.GmGameDatReBuildRestart();
     }
 
     // Token: 0x060003AF RID: 943 RVA: 0x0001D0D4 File Offset: 0x0001B2D4
-    private static void gmMainRebuildWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainRebuildWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (!AppMain.GmGameDatReBuildRestartCheck())
         {
@@ -749,13 +656,13 @@ public partial class AppMain
     }
 
     // Token: 0x060003B0 RID: 944 RVA: 0x0001D0E9 File Offset: 0x0001B2E9
-    private static void gmMainRebuildDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainRebuildDest(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_load_wait_tcb = null;
     }
 
     // Token: 0x060003B1 RID: 945 RVA: 0x0001D0F4 File Offset: 0x0001B2F4
-    private static void gmMainDataRelease()
+    public static void gmMainDataRelease()
     {
         AppMain.GSF_TASK_PROCEDURE proc;
         if (AppMain.g_gs_main_sys_info.stage_id != 16)
@@ -770,14 +677,14 @@ public partial class AppMain
     }
 
     // Token: 0x060003B2 RID: 946 RVA: 0x0001D154 File Offset: 0x0001B354
-    private static void gmMainDataFlushExitFinalClearObjWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitFinalClearObjWait(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain._bossFinishThread = true;
         if (!AppMain.ObjObjectCheckClearAllObject())
         {
             return;
         }
-        AppMain.GsSoundReset();
+        GsSound.Reset();
         AppMain.GSF_TASK_PROCEDURE proc;
         if (AppMain.GmMainDatLoadBossBattleLoadCheck())
         {
@@ -803,7 +710,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B3 RID: 947 RVA: 0x0001D1E8 File Offset: 0x0001B3E8
-    private static void gmMainDataFlushExitFinalLoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitFinalLoadWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatLoadBossBattleLoadCheck())
         {
@@ -814,7 +721,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B4 RID: 948 RVA: 0x0001D217 File Offset: 0x0001B417
-    private static void gmMainDataFlushExitFinalWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitFinalWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatReleaseBossBattleReleaseCheck())
         {
@@ -824,13 +731,13 @@ public partial class AppMain
     }
 
     // Token: 0x060003B5 RID: 949 RVA: 0x0001D237 File Offset: 0x0001B437
-    private static void gmMainDataFlushExitWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (!AppMain.ObjObjectCheckClearAllObject())
         {
             return;
         }
-        AppMain.GsSoundReset();
+        GsSound.Reset();
         AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmMainDataFlushWait);
         AppMain.GmGameDatFlushInit();
         AppMain.GmGameDatFlushArea();
@@ -838,7 +745,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B6 RID: 950 RVA: 0x0001D268 File Offset: 0x0001B468
-    private static void gmMainDataFlushWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (!AppMain.GmGameDatFlushStandardCheck())
         {
@@ -864,7 +771,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B7 RID: 951 RVA: 0x0001D2F0 File Offset: 0x0001B4F0
-    private static void gmMainDataReleaseWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatReleaseCheck() && !AppMain.ObjIsExitWait())
         {
@@ -887,13 +794,13 @@ public partial class AppMain
     }
 
     // Token: 0x060003B8 RID: 952 RVA: 0x0001D3AF File Offset: 0x0001B5AF
-    private static void gmMainDataReleaseDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseDest(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_release_wait_tcb = null;
     }
 
     // Token: 0x060003B9 RID: 953 RVA: 0x0001D3B8 File Offset: 0x0001B5B8
-    private static void gmMainObjectRelease()
+    public static void gmMainObjectRelease()
     {
         AppMain.GSF_TASK_PROCEDURE proc;
         if (AppMain.g_gs_main_sys_info.stage_id != 16)
@@ -908,7 +815,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BA RID: 954 RVA: 0x0001D418 File Offset: 0x0001B618
-    private static void gmMainObjectReleaseFinalClearObjWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseFinalClearObjWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (!AppMain.ObjObjectCheckClearAllObject())
         {
@@ -941,7 +848,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BB RID: 955 RVA: 0x0001D4BC File Offset: 0x0001B6BC
-    private static void gmMainObjectReleaseFinalLoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseFinalLoadWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatLoadBossBattleLoadCheck())
         {
@@ -952,7 +859,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BC RID: 956 RVA: 0x0001D4EB File Offset: 0x0001B6EB
-    private static void gmMainObjectReleaseFinalWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseFinalWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatReleaseBossBattleReleaseCheck())
         {
@@ -964,7 +871,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BD RID: 957 RVA: 0x0001D526 File Offset: 0x0001B726
-    private static void gmMainObjectReleaseWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (!AppMain.ObjObjectCheckClearAllObject())
         {
@@ -980,13 +887,13 @@ public partial class AppMain
     }
 
     // Token: 0x060003BE RID: 958 RVA: 0x0001D548 File Offset: 0x0001B748
-    private static void gmMainObjectReleaseDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseDest(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_release_wait_tcb = null;
     }
 
     // Token: 0x060003BF RID: 959 RVA: 0x0001D560 File Offset: 0x0001B760
-    private static void gmMainGameStart()
+    public static void gmMainGameStart()
     {
         bool flag = false;
         if (SaveState.shouldResume())
@@ -1079,8 +986,8 @@ public partial class AppMain
         AppMain.GmWaterSurfaceInit();
         AppMain.GmPlyEfctTrailSysInit();
         AppMain.GmFixInit();
-        AppMain.GmCameraInit();
-        AppMain.GmSoundInit();
+        GmCamera.Init();
+        GmSound.Init();
         AppMain.GmRingInit();
         AppMain.GmEventMgrInit();
         AppMain.GmEventMgrStart();
@@ -1089,7 +996,7 @@ public partial class AppMain
         {
             if (AppMain.g_gs_main_sys_info.char_id[num] != 32767)
             {
-                AppMain.g_gm_main_system.ply_work[num] = AppMain.GmPlayerInit(AppMain.g_gs_main_sys_info.char_id[num], 0, (ushort)num, 0);
+                AppMain.g_gm_main_system.ply_work[num] = GmPlayer.Init(AppMain.g_gs_main_sys_info.char_id[num], 0, (ushort)num, 0);
             }
             num++;
         }
@@ -1119,10 +1026,10 @@ public partial class AppMain
     }
 
     // Token: 0x060003C0 RID: 960 RVA: 0x0001D9F8 File Offset: 0x0001BBF8
-    private static void gmMainInitLight()
+    public static void gmMainInitLight()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         if (AppMain.g_gs_main_sys_info.stage_id == 2 || AppMain.g_gs_main_sys_info.stage_id == 3)
         {
             AppMain.g_obj.ambient_color.r = 1f;
@@ -1215,11 +1122,11 @@ public partial class AppMain
             AppMain.GmBoss5LandSetLight();
             AppMain.GmDecoSetLightFinalZone();
         }
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release(nns_VECTOR);
+        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x060003C1 RID: 961 RVA: 0x0001DCC0 File Offset: 0x0001BEC0
-    private static void gmMainPre(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainPre(AppMain.MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         AppMain.GMS_MAIN_SYSTEM gms_MAIN_SYSTEM = AppMain.g_gm_main_system;
@@ -1228,7 +1135,7 @@ public partial class AppMain
             AppMain.g_gm_main_system.game_flag &= 4160749567U;
             if (AppMain.g_gs_main_sys_info.stage_id != 28 && (AppMain.g_gm_main_system.game_flag & 524288U) == 0U)
             {
-                AppMain.GmSoundPlayStageBGM(0);
+                GmSound.PlayStageBGM(0);
             }
         }
         AppMain.CPadVirtualPad cpadVirtualPad = AppMain.CPadVirtualPad.CreateInstance();
@@ -1240,7 +1147,7 @@ public partial class AppMain
         gms_MAIN_SYSTEM.polar_diff = gms_MAIN_SYSTEM.polar_now - polar_now;
         if (AppMain.gmMainIsUseWaitUpCamera())
         {
-            if (AppMain.GmPlayerIsStateWait(gms_MAIN_SYSTEM.ply_work[(int)((UIntPtr)0)]))
+            if (GmPlayer.IsStateWait(gms_MAIN_SYSTEM.ply_work[(int)((UIntPtr)0)]))
             {
                 if (gms_MAIN_SYSTEM.camscale_state == AppMain.GME_MAIN_CAMSCALE_STATE.GMD_MAIN_CAMSCALE_STATE_NON)
                 {
@@ -1263,7 +1170,7 @@ public partial class AppMain
             }
             for (int i = 0; i < 7; i++)
             {
-                AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(i);
+                OBS_CAMERA obs_CAMERA = ObjCamera.Get(i);
                 if (obs_CAMERA != null)
                 {
                     obs_CAMERA.scale = gms_MAIN_SYSTEM.camera_scale;
@@ -1273,7 +1180,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C2 RID: 962 RVA: 0x0001DDFC File Offset: 0x0001BFFC
-    private static void gmMainPost(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainPost(AppMain.MTS_TASK_TCB tcb)
     {
         CPadEmu.CreateInstance();
         if ((AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)].player_flag & 1024U) != 0U && AppMain.g_gm_main_system.die_event_wait_time < 491520 && (AppMain.g_gm_main_system.game_flag & 64U) == 0U)
@@ -1296,7 +1203,7 @@ public partial class AppMain
                     {
                         AppMain.g_gm_main_system.game_flag |= 32U;
                         AppMain.GmOverStart(0);
-                        AppMain.GmSoundPlayGameOver();
+                        GmSound.PlayGameOver();
                     }
                     else
                     {
@@ -1333,7 +1240,7 @@ public partial class AppMain
             }
             return;
         }
-        if (!AppMain.AoAccountIsCurrentEnable())
+        if (!AoAccount.AoAccountIsCurrentEnable())
         {
             AppMain.SyDecideEvtCase(5);
             AppMain.IzFadeInitEasy(0U, 3U, 1f);
@@ -1383,7 +1290,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C3 RID: 963 RVA: 0x0001E144 File Offset: 0x0001C344
-    private static void gmMainDecideNextEvt()
+    public static void gmMainDecideNextEvt()
     {
         short evt_case;
         if ((AppMain.g_gm_main_system.game_flag & 128U) != 0U)
@@ -1450,13 +1357,13 @@ public partial class AppMain
     }
 
     // Token: 0x060003C4 RID: 964 RVA: 0x0001E26B File Offset: 0x0001C46B
-    private static bool gmMainCheckExeSyncTimerCount()
+    public static bool gmMainCheckExeSyncTimerCount()
     {
         return (AppMain.g_gm_main_system.game_flag & 2048U) != 0U;
     }
 
     // Token: 0x060003C5 RID: 965 RVA: 0x0001E284 File Offset: 0x0001C484
-    private static void gmMainDataLoadBoosBattleMgr_LoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadBoosBattleMgr_LoadWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatLoadCheck() == AppMain.GME_GAMEDAT_LOAD_PROGRESS.GMD_GAMEDAT_LOAD_PROGRESS_COMPLETE)
         {
@@ -1469,7 +1376,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C6 RID: 966 RVA: 0x0001E2CC File Offset: 0x0001C4CC
-    private static void gmMainDataLoadBoosBattleMgr_BuildWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadBoosBattleMgr_BuildWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatBuildBossBattleCheck())
         {
@@ -1483,7 +1390,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C7 RID: 967 RVA: 0x0001E328 File Offset: 0x0001C528
-    private static void gmMainDataReleaseBoosBattleMgr_FlushWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseBoosBattleMgr_FlushWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatFlushBossBattleCheck())
         {
@@ -1494,7 +1401,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C8 RID: 968 RVA: 0x0001E368 File Offset: 0x0001C568
-    private static void gmMainDataReleaseBoosBattleMgr_ReleaseWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseBoosBattleMgr_ReleaseWait(AppMain.MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatReleaseCheck())
         {
@@ -1507,12 +1414,12 @@ public partial class AppMain
     }
 
     // Token: 0x060003C9 RID: 969 RVA: 0x0001E3C2 File Offset: 0x0001C5C2
-    private static void gmMainDataReleaseBoosBattleMgr_EndWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseBoosBattleMgr_EndWait(AppMain.MTS_TASK_TCB tcb)
     {
     }
 
     // Token: 0x060003CA RID: 970 RVA: 0x0001E3C4 File Offset: 0x0001C5C4
-    private static bool gmMainIsUseWaitUpCamera()
+    public static bool gmMainIsUseWaitUpCamera()
     {
         bool result = true;
         switch (AppMain.g_gs_main_sys_info.stage_id)
@@ -1549,7 +1456,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003CC RID: 972 RVA: 0x0001E484 File Offset: 0x0001C684
-    private static void gmMainUpdateSuspendedPause()
+    public static void gmMainUpdateSuspendedPause()
     {
         uint num = 4104U;
         if (AppMain.GsMainSysGetSuspendedFlag() && (AppMain.g_gm_main_system.game_flag & 32968936U & ~(num != 0U ? 1 : 0)) == 0U)

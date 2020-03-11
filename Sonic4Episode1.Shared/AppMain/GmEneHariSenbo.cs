@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060003F0 RID: 1008 RVA: 0x000200F4 File Offset: 0x0001E2F4
-    private static AppMain.OBS_OBJECT_WORK GmEneHariSenboInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneHariSenboInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_HARI_WORK(), "ENE_HARI");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_HARI_WORK(), "ENE_HARI");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         if ( eve_rec.id == 0 )
         {
@@ -68,23 +68,23 @@ public partial class AppMain
     // Token: 0x060003F1 RID: 1009 RVA: 0x0002031C File Offset: 0x0001E51C
     public static void GmEneHariSenboBuild()
     {
-        AppMain.gm_ene_harisenbo_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 658 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 659 ) ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(659));
-        AppMain.AmbChunk ambChunk = AppMain.amBindGet(ams_AMB_HEADER, ams_AMB_HEADER.file_num - 1, out ams_AMB_HEADER.dir);
+        AppMain.gm_ene_harisenbo_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 658 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 659 ) ), 0U );
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(659));
+        AmbChunk ambChunk = AmBind.Get(ams_AMB_HEADER, ams_AMB_HEADER.file_num - 1, out ams_AMB_HEADER.dir);
         AppMain.TXB_HEADER txb = AppMain.readTXBfile(ambChunk.array, ambChunk.offset);
-        AppMain.gm_ene_harisenbo_r_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 658 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 659 ) ), 0U, txb );
+        AppMain.gm_ene_harisenbo_r_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 658 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 659 ) ), 0U, txb );
     }
 
     // Token: 0x060003F2 RID: 1010 RVA: 0x000203B4 File Offset: 0x0001E5B4
     public static void GmEneHariSenboFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(658));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(658));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_harisenbo_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_harisenbo_r_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060003F3 RID: 1011 RVA: 0x000203F1 File Offset: 0x0001E5F1
-    public static void gmEneHarisenboRedAtkWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHarisenboRedAtkWaitInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 0 );
         obj_work.disp_flag |= 4U;
@@ -93,7 +93,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003F4 RID: 1012 RVA: 0x00020428 File Offset: 0x0001E628
-    private static void gmEneHarisenboRedAtkWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneHarisenboRedAtkWaitMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountUp( obj_work.user_timer );
         if ( obj_work.user_timer >= ( int )obj_work.user_work )
@@ -103,7 +103,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003F5 RID: 1013 RVA: 0x00020450 File Offset: 0x0001E650
-    private static void gmEneHarisenboRedAtkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneHarisenboRedAtkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 2 );
         obj_work.disp_flag |= 4U;
@@ -112,7 +112,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003F6 RID: 1014 RVA: 0x000204A0 File Offset: 0x0001E6A0
-    private static void gmEneHarisenboRedAtkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneHarisenboRedAtkMain( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.obj_3d.act_id[0] == 2 )
         {
@@ -154,7 +154,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003F7 RID: 1015 RVA: 0x000205D4 File Offset: 0x0001E7D4
-    private static void gmEneHarisenboFwInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneHarisenboFwInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
         obj_work.disp_flag |= 4U;
@@ -162,16 +162,16 @@ public partial class AppMain
     }
 
     // Token: 0x060003F8 RID: 1016 RVA: 0x00020604 File Offset: 0x0001E804
-    private static void gmEneHarisenboFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneHarisenboFwMain( OBS_OBJECT_WORK obj_work )
     {
     }
 
     // Token: 0x060003F9 RID: 1017 RVA: 0x00020608 File Offset: 0x0001E808
     private static void gmEneHariMotionCallback( AppMain.AMS_MOTION motion, AppMain.NNS_OBJECT _object, object param )
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.gmEneHariMotionCallback_node_mtx;
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.gmEneHariMotionCallback_base_mtx;
-        AppMain.GMS_ENE_HARI_WORK gms_ENE_HARI_WORK = (AppMain.GMS_ENE_HARI_WORK)((AppMain.OBS_OBJECT_WORK)param);
+        NNS_MATRIX nns_MATRIX = AppMain.gmEneHariMotionCallback_node_mtx;
+        NNS_MATRIX nns_MATRIX2 = AppMain.gmEneHariMotionCallback_base_mtx;
+        AppMain.GMS_ENE_HARI_WORK gms_ENE_HARI_WORK = (AppMain.GMS_ENE_HARI_WORK)((OBS_OBJECT_WORK)param);
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.nnMultiplyMatrix( nns_MATRIX2, nns_MATRIX2, AppMain.amMatrixGetCurrent() );
         AppMain.nnCalcNodeMatrixTRSList( nns_MATRIX, _object, 7, motion.data, nns_MATRIX2 );
@@ -183,7 +183,7 @@ public partial class AppMain
     {
         if ( hari_work.efct_jet == null )
         {
-            hari_work.efct_jet = AppMain.GmEfctEneEsCreate( ( AppMain.OBS_OBJECT_WORK )hari_work, 12 );
+            hari_work.efct_jet = AppMain.GmEfctEneEsCreate( ( OBS_OBJECT_WORK )hari_work, 12 );
             hari_work.efct_jet.efct_com.obj_work.flag |= 524304U;
             hari_work.efct_jet.efct_com.obj_work.user_work_OBJECT = hari_work.jet_mtx;
             hari_work.efct_jet.efct_com.obj_work.ppFunc = AppMain.gmEneHariJetEfctMain;
@@ -191,10 +191,10 @@ public partial class AppMain
     }
 
     // Token: 0x060003FB RID: 1019 RVA: 0x000206E8 File Offset: 0x0001E8E8
-    private static void gmEneHariJetEfctMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmEneHariJetEfctMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.NNS_MATRIX nns_MATRIX = (AppMain.NNS_MATRIX)obj_work.user_work_OBJECT;
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = (NNS_MATRIX)obj_work.user_work_OBJECT;
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         if ( obj_work.parent_obj == null )
         {
             obj_work.flag |= 4U;
@@ -211,6 +211,6 @@ public partial class AppMain
         nns_VECTOR.y += 5f;
         AppMain.GmComEfctSetDispOffsetF( ( AppMain.GMS_EFFECT_3DES_WORK )obj_work, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z );
         AppMain.GmEffectDefaultMainFuncDeleteAtEnd( obj_work );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

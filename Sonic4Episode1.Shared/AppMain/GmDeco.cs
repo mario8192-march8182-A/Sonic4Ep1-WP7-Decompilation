@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020000C0 RID: 192
-    public class GMS_DECO_SUBMODEL_WORK : AppMain.IClearable, AppMain.IOBS_OBJECT_WORK
+    public class GMS_DECO_SUBMODEL_WORK : IClearable, IOBS_OBJECT_WORK
     {
         // Token: 0x06001EED RID: 7917 RVA: 0x0013CB30 File Offset: 0x0013AD30
         public void Clear()
@@ -30,7 +30,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001EF0 RID: 7920 RVA: 0x0013CB76 File Offset: 0x0013AD76
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.deco_work.obj_work;
         }
@@ -46,7 +46,7 @@ public partial class AppMain
     }
 
     // Token: 0x020000C1 RID: 193
-    public class GMS_DECO_FALL_REGISTER : AppMain.IClearable
+    public class GMS_DECO_FALL_REGISTER : IClearable
     {
         // Token: 0x06001EF1 RID: 7921 RVA: 0x0013CB83 File Offset: 0x0013AD83
         public void Clear()
@@ -63,7 +63,7 @@ public partial class AppMain
     }
 
     // Token: 0x020000C2 RID: 194
-    public class GMS_DECO_FALL_MANAGER : AppMain.IClearable
+    public class GMS_DECO_FALL_MANAGER : IClearable
     {
         // Token: 0x06001EF3 RID: 7923 RVA: 0x0013CBAC File Offset: 0x0013ADAC
         public void Clear()
@@ -136,7 +136,7 @@ public partial class AppMain
     }
 
     // Token: 0x020000C5 RID: 197
-    public class GMS_DECO_MGR : AppMain.IClearable
+    public class GMS_DECO_MGR : IClearable
     {
         // Token: 0x06001EF7 RID: 7927 RVA: 0x0013CC24 File Offset: 0x0013AE24
         public void Clear()
@@ -177,7 +177,7 @@ public partial class AppMain
         public int state_loop;
 
         // Token: 0x04004BA5 RID: 19365
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
     }
 
     // Token: 0x020000C6 RID: 198
@@ -194,7 +194,7 @@ public partial class AppMain
         }
 
         // Token: 0x04004BA6 RID: 19366
-        public AppMain.AMS_AMB_HEADER amb_header;
+        public AMS_AMB_HEADER amb_header;
 
         // Token: 0x04004BA7 RID: 19367
         public AppMain.OBS_ACTION3D_NN_WORK obj_3d_list;
@@ -203,7 +203,7 @@ public partial class AppMain
         public AppMain.OBS_ACTION3D_NN_WORK[] obj_3d_list_fall;
 
         // Token: 0x04004BA9 RID: 19369
-        public AppMain.AMS_AMB_HEADER tvx_model;
+        public AMS_AMB_HEADER tvx_model;
 
         // Token: 0x04004BAA RID: 19370
         public AppMain.TVX_FILE[] tvx_model_data;
@@ -213,7 +213,7 @@ public partial class AppMain
     }
 
     // Token: 0x020000C7 RID: 199
-    public class GMS_DECO_WORK : AppMain.IClearable, AppMain.IOBS_OBJECT_WORK
+    public class GMS_DECO_WORK : IClearable, IOBS_OBJECT_WORK
     {
         // Token: 0x06001EFB RID: 7931 RVA: 0x0013CCDF File Offset: 0x0013AEDF
         public static explicit operator AppMain.GMS_DECO_SUBMODEL_WORK( AppMain.GMS_DECO_WORK p )
@@ -222,13 +222,13 @@ public partial class AppMain
         }
 
         // Token: 0x06001EFC RID: 7932 RVA: 0x0013CCEC File Offset: 0x0013AEEC
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
 
         // Token: 0x06001EFD RID: 7933 RVA: 0x0013CCF4 File Offset: 0x0013AEF4
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_DECO_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_DECO_WORK work )
         {
             return work.obj_work;
         }
@@ -248,18 +248,18 @@ public partial class AppMain
         // Token: 0x06001EFF RID: 7935 RVA: 0x0013CD3B File Offset: 0x0013AF3B
         public GMS_DECO_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x06001F00 RID: 7936 RVA: 0x0013CD66 File Offset: 0x0013AF66
         public GMS_DECO_WORK( object _holder )
         {
             this.holder = _holder;
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x04004BAC RID: 19372
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04004BAD RID: 19373
         public readonly AppMain.OBS_ACTION3D_NN_WORK obj_3d = new AppMain.OBS_ACTION3D_NN_WORK();
@@ -358,7 +358,7 @@ public partial class AppMain
                 AppMain.VecFx32 vecFx = default(AppMain.VecFx32);
                 vecFx.Assign( gms_DECO_FALL_MANAGER.reg[0].vec );
                 AppMain.NNS_TEXLIST texlist = gms_DECO_FALL_MANAGER.texlist;
-                AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+                NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
                 AppMain.nnMakeUnitMatrix( nns_MATRIX );
                 AppMain.nnTranslateMatrix( nns_MATRIX, nns_MATRIX, AppMain.FX_FX32_TO_F32( vecFx.x ), AppMain.FX_FX32_TO_F32( vecFx.y ), AppMain.FX_FX32_TO_F32( vecFx.z ) );
                 AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
@@ -382,7 +382,7 @@ public partial class AppMain
                 ams_PARAM_DRAW_PRIMITIVE.format3D = 4;
                 uint num = 0U;
                 float num2 = AppMain.fmod(dividend, gms_DECO_FALL_MANAGER.frame) / gms_DECO_FALL_MANAGER.frame * 5.027991f;
-                AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+                NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
                 AppMain.VecFx32 vecFx2 = default(AppMain.VecFx32);
                 for ( uint num3 = 0U; num3 < 8U; num3 += 1U )
                 {
@@ -411,9 +411,9 @@ public partial class AppMain
                         num += 1U;
                     }
                 }
-                AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+                AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
                 AppMain.amMatrixPush( nns_MATRIX );
-                AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX );
+                AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
                 AppMain.ObjDraw3DNNDrawPrimitive( ams_PARAM_DRAW_PRIMITIVE, command, 0, 0 );
                 AppMain.amMatrixPop();
                 AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
@@ -442,9 +442,9 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.SNNS_MATRIX snns_MATRIX = default(AppMain.SNNS_MATRIX);
-        AppMain.SNNS_MATRIX snns_MATRIX2 = default(AppMain.SNNS_MATRIX);
-        AppMain.SNNS_MATRIX snns_MATRIX3 = default(AppMain.SNNS_MATRIX);
+        SNNS_MATRIX snns_MATRIX = default(SNNS_MATRIX);
+        SNNS_MATRIX snns_MATRIX2 = default(SNNS_MATRIX);
+        SNNS_MATRIX snns_MATRIX3 = default(SNNS_MATRIX);
         AppMain.nnMakeUnitMatrix( ref snns_MATRIX3 );
         AppMain.nnMakeScaleMatrix( out snns_MATRIX, -1f, 1f, 1f );
         AppMain.nnMakeScaleMatrix( out snns_MATRIX2, 1f, -1f, 1f );
@@ -460,7 +460,7 @@ public partial class AppMain
         AppMain._AMS_PARAM_DRAW_PRIMITIVE.uwrap = 1;
         AppMain._AMS_PARAM_DRAW_PRIMITIVE.vwrap = 1;
         AppMain._AMS_PARAM_DRAW_PRIMITIVE.format3D = 4;
-        AppMain.SNNS_VECTOR snns_VECTOR = default(AppMain.SNNS_VECTOR);
+        SNNS_VECTOR snns_VECTOR = default(SNNS_VECTOR);
         for ( uint num2 = 0U; num2 < 16U; num2 += 1U )
         {
             if ( array[( int )( ( UIntPtr )num2 )].tex_id == -1 )
@@ -571,8 +571,8 @@ public partial class AppMain
         {
             if ( AppMain.g_deco_mgr.se_handle != null )
             {
-                AppMain.GmSoundStopSE( AppMain.g_deco_mgr.se_handle );
-                AppMain.GsSoundFreeSeHandle( AppMain.g_deco_mgr.se_handle );
+                GsSound.StopSE( AppMain.g_deco_mgr.se_handle );
+                GsSound.FreeSeHandle( AppMain.g_deco_mgr.se_handle );
                 AppMain.g_deco_mgr.se_handle = null;
             }
             AppMain.gmDecoDeleteTcbPost();
@@ -583,14 +583,14 @@ public partial class AppMain
     // Token: 0x06000403 RID: 1027 RVA: 0x00021380 File Offset: 0x0001F580
     private static void GmDecoSetLightFinalZone()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = 0f;
         nns_VECTOR.y = -0.3f;
         nns_VECTOR.z = -0.4f;
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_2, ref nns_RGBA, 0.8f, nns_VECTOR );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06000404 RID: 1028 RVA: 0x000213F4 File Offset: 0x0001F5F4
@@ -611,7 +611,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000406 RID: 1030 RVA: 0x00021428 File Offset: 0x0001F628
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModel( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModel( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitModel(dec_rec, x, y, type);
         if ( gms_DECO_WORK != null )
@@ -622,27 +622,27 @@ public partial class AppMain
     }
 
     // Token: 0x06000407 RID: 1031 RVA: 0x0002144C File Offset: 0x0001F64C
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModelMaterial( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModelMaterial( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitModelMaterial(dec_rec, x, y, type);
         return gms_DECO_WORK.obj_work;
     }
 
     // Token: 0x06000408 RID: 1032 RVA: 0x0002146C File Offset: 0x0001F66C
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModelMotionMaterial( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModelMotionMaterial( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitModelMotioinMaterial(dec_rec, x, y, type);
         return gms_DECO_WORK.obj_work;
     }
 
     // Token: 0x06000409 RID: 1033 RVA: 0x00021489 File Offset: 0x0001F689
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitPrimitive3D( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitPrimitive3D( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         return null;
     }
 
     // Token: 0x0600040A RID: 1034 RVA: 0x0002148C File Offset: 0x0001F68C
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModelMotionTouch( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModelMotionTouch( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitModel(dec_rec, x, y, type);
         if ( gms_DECO_WORK != null )
@@ -653,10 +653,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600040B RID: 1035 RVA: 0x000214B0 File Offset: 0x0001F6B0
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitFall( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitFall( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitFall(dec_rec, x, y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_DECO_WORK.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_DECO_WORK.obj_work;
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = gms_DECO_WORK.obj_3d;
         float frame = AppMain.amMotionMaterialGetEndFrame(obj_3d.motion, obj_3d.mat_act_id) - AppMain.amMotionMaterialGetStartFrame(obj_3d.motion, obj_3d.mat_act_id);
         AppMain.gmDecoAddFallEvent( dec_rec, obj_work.pos.x + obj_work.ofst.x, obj_3d.texlist, frame );
@@ -664,42 +664,42 @@ public partial class AppMain
     }
 
     // Token: 0x0600040C RID: 1036 RVA: 0x00021524 File Offset: 0x0001F724
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitEffect( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitEffect( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitEffect(dec_rec, x, y, type);
         return gms_DECO_WORK.obj_work;
     }
 
     // Token: 0x0600040D RID: 1037 RVA: 0x00021544 File Offset: 0x0001F744
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitEffectBlockAndNext( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitEffectBlockAndNext( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitEffectBlockAndNext(dec_rec, x, y, type);
         return gms_DECO_WORK.obj_work;
     }
 
     // Token: 0x0600040E RID: 1038 RVA: 0x00021564 File Offset: 0x0001F764
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitEffectBlock( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitEffectBlock( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitEffectBlock(dec_rec, x, y, type);
         return gms_DECO_WORK.obj_work;
     }
 
     // Token: 0x0600040F RID: 1039 RVA: 0x00021584 File Offset: 0x0001F784
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModelEffect( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModelEffect( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitModelEffect(dec_rec, x, y, type);
         return gms_DECO_WORK.obj_work;
     }
 
     // Token: 0x06000410 RID: 1040 RVA: 0x000215A4 File Offset: 0x0001F7A4
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModelMotionMaterialTouch( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModelMotionMaterialTouch( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitModelMotioinMaterial(dec_rec, x, y, type);
         if ( gms_DECO_WORK == null )
         {
             return null;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_DECO_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_DECO_WORK;
         obs_OBJECT_WORK.flag &= 4294967293U;
         int id = (int)dec_rec.id;
         short num = AppMain.g_gm_deco_rect_size[id][0];
@@ -709,18 +709,18 @@ public partial class AppMain
         short right = (short)(num / 2);
         short bottom = (short)(num2 / 2);
         AppMain.gmDecoSetRect( gms_DECO_WORK, left, top, -500, right, bottom, 500, AppMain.g_gm_deco_func_rect[id] );
-        return ( AppMain.OBS_OBJECT_WORK )gms_DECO_WORK;
+        return ( OBS_OBJECT_WORK )gms_DECO_WORK;
     }
 
     // Token: 0x06000411 RID: 1041 RVA: 0x00021634 File Offset: 0x0001F834
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModelLoop( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModelLoop( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = AppMain.gmDecoInitModelLoop(dec_rec, x, y, type);
         return gms_DECO_WORK.obj_work;
     }
 
     // Token: 0x06000412 RID: 1042 RVA: 0x00021651 File Offset: 0x0001F851
-    private static void GmDecoInitData( AppMain.AMS_AMB_HEADER amb )
+    private static void GmDecoInitData( AMS_AMB_HEADER amb )
     {
         AppMain.gmDecoDataInit();
         AppMain.gmDecoDataSetAmbHeader( amb );
@@ -732,7 +732,7 @@ public partial class AppMain
     {
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         AppMain.GMS_DECO_DATA gms_DECO_DATA = AppMain.gmDecoDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = null;
+        AMS_AMB_HEADER header = null;
         if ( gms_DECO_DATA != null )
         {
             header = AppMain.gmDecoDataGetAmbHeader();
@@ -740,18 +740,18 @@ public partial class AppMain
         if ( AppMain.gmDecoIsUseModel( 0 ) )
         {
             string dir;
-            gms_DECO_DATA.tvx_model = AppMain.readAMBFile( AppMain.amBindGet( header, 0, out dir ) );
+            gms_DECO_DATA.tvx_model = AmFs.readAMBFile( AmBind.Get( header, 0, out dir ) );
             gms_DECO_DATA.tvx_model_data = new AppMain.TVX_FILE[gms_DECO_DATA.tvx_model.file_num];
             gms_DECO_DATA.tvx_model.dir = dir;
-            AppMain.AoTexBuild( gms_DECO_DATA.tvx_tex, AppMain.readAMBFile( AppMain.amBindGet( header, 1 ) ) );
+            AppMain.AoTexBuild( gms_DECO_DATA.tvx_tex, AmFs.readAMBFile( AmBind.Get( header, 1 ) ) );
             AppMain.AoTexLoad( gms_DECO_DATA.tvx_tex );
         }
         if ( AppMain.gmDecoIsUseModel( 1 ) )
         {
             string dir;
-            AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 4, out dir));
+            AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 4, out dir));
             ams_AMB_HEADER.dir = dir;
-            AppMain.AMS_AMB_HEADER ams_AMB_HEADER2 = AppMain.readAMBFile(AppMain.amBindGet(header, 5, out dir));
+            AMS_AMB_HEADER ams_AMB_HEADER2 = AmFs.readAMBFile(AmBind.Get(header, 5, out dir));
             ams_AMB_HEADER2.dir = dir;
             uint draw_flag = 0U;
             gms_DECO_DATA.obj_3d_list_fall = AppMain.GmGameDBuildRegBuildModel( ams_AMB_HEADER, ams_AMB_HEADER2, draw_flag );
@@ -783,7 +783,7 @@ public partial class AppMain
     {
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         AppMain.GMS_DECO_DATA gms_DECO_DATA = AppMain.gmDecoDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = null;
+        AMS_AMB_HEADER header = null;
         if ( gms_DECO_DATA != null )
         {
             header = AppMain.gmDecoDataGetAmbHeader();
@@ -795,7 +795,7 @@ public partial class AppMain
         if ( AppMain.gmDecoIsUseModel( 1 ) )
         {
             string dir;
-            AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 4, out dir));
+            AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 4, out dir));
             ams_AMB_HEADER.dir = dir;
             AppMain.GmGameDBuildRegFlushModel( gms_DECO_DATA.obj_3d_list_fall, ams_AMB_HEADER.file_num );
             gms_DECO_DATA.obj_3d_list_fall = null;
@@ -810,7 +810,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000418 RID: 1048 RVA: 0x00021823 File Offset: 0x0001FA23
-    private static AppMain.OBS_OBJECT_WORK GmDecoInitModelMotion( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
+    private static OBS_OBJECT_WORK GmDecoInitModelMotion( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, int x, int y, byte type )
     {
         return null;
     }
@@ -864,7 +864,7 @@ public partial class AppMain
             return;
         }
         int num = 0;
-        for ( AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 4 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 4 ) )
+        for ( OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( null, 4 ); obs_OBJECT_WORK != null; obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject( obs_OBJECT_WORK, 4 ) )
         {
             if ( obs_OBJECT_WORK.ppFunc == AppMain.gmDecoMainFuncLoop )
             {
@@ -956,14 +956,14 @@ public partial class AppMain
     }
 
     // Token: 0x06000423 RID: 1059 RVA: 0x00021A0C File Offset: 0x0001FC0C
-    private static void gmDecoDataSetAmbHeader( AppMain.AMS_AMB_HEADER amb )
+    private static void gmDecoDataSetAmbHeader( AMS_AMB_HEADER amb )
     {
         AppMain.GMS_DECO_DATA gms_DECO_DATA = AppMain.gmDecoDataGetInfo();
         gms_DECO_DATA.amb_header = amb;
     }
 
     // Token: 0x06000424 RID: 1060 RVA: 0x00021A28 File Offset: 0x0001FC28
-    private static AppMain.AMS_AMB_HEADER gmDecoDataGetAmbHeader()
+    private static AMS_AMB_HEADER gmDecoDataGetAmbHeader()
     {
         AppMain.GMS_DECO_DATA gms_DECO_DATA = AppMain.gmDecoDataGetInfo();
         return gms_DECO_DATA.amb_header;
@@ -1023,9 +1023,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000427 RID: 1063 RVA: 0x00021D78 File Offset: 0x0001FF78
-    private static AppMain.AMS_AMB_HEADER gmDecoDataGetMotionHeader( int id )
+    private static AMS_AMB_HEADER gmDecoDataGetMotionHeader( int id )
     {
-        AppMain.AMS_AMB_HEADER result = null;
+        AMS_AMB_HEADER result = null;
         switch ( id )
         {
             case 7:
@@ -1034,7 +1034,7 @@ public partial class AppMain
             case 11:
             case 12:
             case 13:
-                result = ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 834 ).pData;
+                result = ( AMS_AMB_HEADER )AppMain.ObjDataGet( 834 ).pData;
                 break;
             case 17:
             case 26:
@@ -1050,11 +1050,11 @@ public partial class AppMain
             case 179:
             case 183:
                 {
-                    AppMain.AMS_AMB_HEADER header = AppMain.gmDecoDataGetAmbHeader();
+                    AMS_AMB_HEADER header = AppMain.gmDecoDataGetAmbHeader();
                     if ( AppMain.gmDeco_matMotionHeader == null )
                     {
                         string dir;
-                        AppMain.gmDeco_matMotionHeader = AppMain.readAMBFile( AppMain.amBindGet( header, 2, out dir ) );
+                        AppMain.gmDeco_matMotionHeader = AmFs.readAMBFile( AmBind.Get( header, 2, out dir ) );
                         AppMain.gmDeco_matMotionHeader.dir = dir;
                     }
                     result = AppMain.gmDeco_matMotionHeader;
@@ -1065,9 +1065,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000428 RID: 1064 RVA: 0x000220BC File Offset: 0x000202BC
-    private static AppMain.AMS_AMB_HEADER gmDecoDataGetMatMotionHeader( int id )
+    private static AMS_AMB_HEADER gmDecoDataGetMatMotionHeader( int id )
     {
-        AppMain.AMS_AMB_HEADER result = null;
+        AMS_AMB_HEADER result = null;
         switch ( id )
         {
             case 6:
@@ -1078,7 +1078,7 @@ public partial class AppMain
             case 11:
             case 12:
             case 13:
-                result = ( AppMain.AMS_AMB_HEADER )AppMain.ObjDataGet( 835 ).pData;
+                result = ( AMS_AMB_HEADER )AppMain.ObjDataGet( 835 ).pData;
                 break;
             case 20:
             case 27:
@@ -1110,11 +1110,11 @@ public partial class AppMain
             case 179:
             case 183:
                 {
-                    AppMain.AMS_AMB_HEADER header = AppMain.gmDecoDataGetAmbHeader();
+                    AMS_AMB_HEADER header = AppMain.gmDecoDataGetAmbHeader();
                     if ( AppMain.gmDeco_motionHeader == null )
                     {
                         string dir;
-                        AppMain.gmDeco_motionHeader = AppMain.readAMBFile( AppMain.amBindGet( header, 3, out dir ) );
+                        AppMain.gmDeco_motionHeader = AmFs.readAMBFile( AmBind.Get( header, 3, out dir ) );
                         AppMain.gmDeco_motionHeader.dir = dir;
                     }
                     result = AppMain.gmDeco_motionHeader;
@@ -1217,7 +1217,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000432 RID: 1074 RVA: 0x0002253C File Offset: 0x0002073C
-    private static void gmDecoDraw( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoDraw( OBS_OBJECT_WORK obj_work )
     {
         uint num = obj_work.disp_flag;
         AppMain.GMS_DECO_WORK gms_DECO_WORK = (AppMain.GMS_DECO_WORK)obj_work;
@@ -1290,7 +1290,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000434 RID: 1076 RVA: 0x00022740 File Offset: 0x00020940
-    private static void gmDecoDrawFinalShutter3Line( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoDrawFinalShutter3Line( OBS_OBJECT_WORK obj_work )
     {
         if ( ( obj_work.user_flag & 2U ) == 0U )
         {
@@ -1315,7 +1315,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000435 RID: 1077 RVA: 0x000227E4 File Offset: 0x000209E4
-    private static void gmDecoDrawFinalShutter5Line( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoDrawFinalShutter5Line( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = (AppMain.GMS_DECO_WORK)obj_work;
         uint num = obj_work.disp_flag;
@@ -1385,7 +1385,7 @@ public partial class AppMain
         AppMain.GMS_DECO_MGR gms_DECO_MGR = AppMain.gmDecoGetMgr();
         if ( gms_DECO_MGR != null && !gms_DECO_MGR.flag_render_front )
         {
-            AppMain.NNS_RGBA_U8 color = AppMain.g_deco_rendaer_target_color;
+            NNS_RGBA_U8 color = AppMain.g_deco_rendaer_target_color;
             AppMain.amRenderCopyTarget( ams_RENDER_TARGET, color );
             AppMain.gmDecoCopySetRenderTargetForFront( ams_RENDER_TARGET );
         }
@@ -1427,7 +1427,7 @@ public partial class AppMain
         AppMain.GMS_DECO_MGR gms_DECO_MGR = AppMain.gmDecoGetMgr();
         if ( gms_DECO_MGR != null && !gms_DECO_MGR.flag_render_back )
         {
-            AppMain.NNS_RGBA_U8 color = AppMain.g_deco_rendaer_target_color;
+            NNS_RGBA_U8 color = AppMain.g_deco_rendaer_target_color;
             AppMain.amRenderCopyTarget( ams_RENDER_TARGET, color );
             AppMain.gmDecoCopySetRenderTargetForBack( ams_RENDER_TARGET );
         }
@@ -1435,7 +1435,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000438 RID: 1080 RVA: 0x000229E4 File Offset: 0x00020BE4
-    private static void gmDecoDrawFallRender( AppMain.AMS_RENDER_TARGET render_target, AppMain.NNS_MATRIX proj_mtx )
+    private static void gmDecoDrawFallRender( AppMain.AMS_RENDER_TARGET render_target, NNS_MATRIX proj_mtx )
     {
     }
 
@@ -1448,7 +1448,7 @@ public partial class AppMain
     // Token: 0x0600043A RID: 1082 RVA: 0x000229F0 File Offset: 0x00020BF0
     private static void gmDecoDrawFallBackUserFunc( object data )
     {
-        AppMain.NNS_MATRIX proj_mtx = AppMain.amDrawGetProjectionMatrix();
+        NNS_MATRIX proj_mtx = AppMain.amDrawGetProjectionMatrix();
         AppMain.AMS_RENDER_TARGET ams_RENDER_TARGET = AppMain.gmDecoDrawFallCopyRenderBack();
         if ( ams_RENDER_TARGET != null )
         {
@@ -1457,7 +1457,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600043B RID: 1083 RVA: 0x00022A13 File Offset: 0x00020C13
-    private static void gmDecoDrawFallFront( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoDrawFallFront( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDraw3DNNSetCameraEx( AppMain.g_obj.glb_camera_id, 1, obj_work.obj_3d.command_state );
         AppMain.ObjDraw3DNNUserFunc( AppMain._gmDecoDrawFallFrontUserFunc, null, 0, obj_work.obj_3d.command_state );
@@ -1465,7 +1465,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600043C RID: 1084 RVA: 0x00022A4D File Offset: 0x00020C4D
-    public static void gmDecoDrawFallBack( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmDecoDrawFallBack( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDraw3DNNSetCameraEx( AppMain.g_obj.glb_camera_id, 1, obj_work.obj_3d.command_state );
         AppMain.ObjDraw3DNNUserFunc( AppMain._gmDecoDrawFallBackUserFunc, null, 0, obj_work.obj_3d.command_state );
@@ -1476,7 +1476,7 @@ public partial class AppMain
     private static AppMain.GMS_DECO_WORK gmDecoLoadObj( AppMain.GMS_EVE_RECORD_DECORATE dec_rec, AppMain.TaskWorkFactoryDelegate work_size, int pos_x, int pos_y, AppMain.MPP_VOID_OBS_OBJECT_WORK main_func, AppMain.MPP_VOID_OBS_OBJECT_WORK move_func, AppMain.MPP_VOID_OBS_OBJECT_WORK out_func, AppMain.GSF_TASK_PROCEDURE dest_func )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = (AppMain.GMS_DECO_WORK)AppMain.OBM_OBJECT_TASK_DETAIL_INIT(5376, 5, 0, 0, work_size, "DECO OBJ");
-        AppMain.OBS_OBJECT_WORK obj_work = gms_DECO_WORK.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_DECO_WORK.obj_work;
         AppMain.mtTaskChangeTcbDestructor( obj_work.tcb, dest_func );
         obj_work.obj_type = 4;
         obj_work.pos.x = pos_x + AppMain.g_gm_deco_pos[( int )dec_rec.id][0];
@@ -1498,30 +1498,30 @@ public partial class AppMain
     // Token: 0x0600043E RID: 1086 RVA: 0x00022BA8 File Offset: 0x00020DA8
     private static AppMain.GMS_DECO_WORK gmDecoLoadModel( AppMain.GMS_DECO_WORK deco_work, AppMain.OBS_ACTION3D_NN_WORK obj_3d_work )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = deco_work.obj_work;
+        OBS_OBJECT_WORK obj_work = deco_work.obj_work;
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, obj_3d_work, deco_work.obj_3d );
         deco_work.obj_3d.drawflag |= 32U;
         return deco_work;
     }
 
     // Token: 0x0600043F RID: 1087 RVA: 0x00022BE0 File Offset: 0x00020DE0
-    private static void gmDecoLoadMotion( AppMain.GMS_DECO_WORK deco_work, int motion_index, AppMain.AMS_AMB_HEADER motion_amb )
+    private static void gmDecoLoadMotion( AppMain.GMS_DECO_WORK deco_work, int motion_index, AMS_AMB_HEADER motion_amb )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = deco_work.obj_work;
+        OBS_OBJECT_WORK obj_work = deco_work.obj_work;
         AppMain.ObjObjectAction3dNNMotionLoad( obj_work, 0, false, null, null, motion_index, motion_amb );
     }
 
     // Token: 0x06000440 RID: 1088 RVA: 0x00022C00 File Offset: 0x00020E00
-    private static void gmDecoLoadMatMotion( AppMain.GMS_DECO_WORK deco_work, int motion_index, AppMain.AMS_AMB_HEADER motion_amb )
+    private static void gmDecoLoadMatMotion( AppMain.GMS_DECO_WORK deco_work, int motion_index, AMS_AMB_HEADER motion_amb )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = deco_work.obj_work;
+        OBS_OBJECT_WORK obj_work = deco_work.obj_work;
         AppMain.ObjObjectAction3dNNMaterialMotionLoad( obj_work, 0, null, null, motion_index, motion_amb );
     }
 
     // Token: 0x06000441 RID: 1089 RVA: 0x00022C20 File Offset: 0x00020E20
     private static void gmDecoSetRect( AppMain.GMS_DECO_WORK deco_work, short left, short top, short back, short right, short bottom, short front, AppMain.OBS_RECT_WORK_Delegate1 func )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = deco_work.obj_work;
+        OBS_OBJECT_WORK obj_work = deco_work.obj_work;
         AppMain.ArrayPointer<AppMain.OBS_RECT_WORK> arrayPointer = new AppMain.ArrayPointer<AppMain.OBS_RECT_WORK>(deco_work.rect_work, 0);
         AppMain.ObjObjectGetRectBuf( obj_work, arrayPointer, 1 );
         AppMain.ObjRectGroupSet( arrayPointer, 1, 1 );
@@ -1535,7 +1535,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000442 RID: 1090 RVA: 0x00022CC8 File Offset: 0x00020EC8
-    private static void gmDecoMainFuncMotionCount( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoMainFuncMotionCount( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer--;
         if ( 0 < obj_work.user_timer )
@@ -1549,7 +1549,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000443 RID: 1091 RVA: 0x00022D1C File Offset: 0x00020F1C
-    private static void gmDecoMainFuncDecreaseMotionSpeed( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoMainFuncDecreaseMotionSpeed( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer--;
         if ( obj_work.user_timer <= 0 )
@@ -1577,7 +1577,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000444 RID: 1092 RVA: 0x00022E40 File Offset: 0x00021040
-    private static void gmDecoMainFuncMotionApplyCommonFrame( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoMainFuncMotionApplyCommonFrame( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_DECO_MGR gms_DECO_MGR = AppMain.gmDecoGetMgr();
         if ( gms_DECO_MGR == null )
@@ -1638,7 +1638,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000445 RID: 1093 RVA: 0x00022FD8 File Offset: 0x000211D8
-    private static void gmDecoMainFuncMotionCheckCommonFrame( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoMainFuncMotionCheckCommonFrame( OBS_OBJECT_WORK obj_work )
     {
         if ( ( AppMain.g_gm_main_system.game_flag & 4096U ) != 0U )
         {
@@ -1669,7 +1669,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000446 RID: 1094 RVA: 0x0002306C File Offset: 0x0002126C
-    private static void gmDecoMainFuncLoop( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoMainFuncLoop( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_DECO_MGR gms_DECO_MGR = AppMain.gmDecoGetMgr();
         if ( gms_DECO_MGR == null )
@@ -1704,18 +1704,18 @@ public partial class AppMain
         {
             if ( gms_DECO_MGR.common_frame_motion[num] > Convert.ToInt32( obj_work.user_work ) )
             {
-                AppMain.GmSoundStopSE( gms_DECO_MGR.se_handle );
-                AppMain.GsSoundFreeSeHandle( gms_DECO_MGR.se_handle );
+                GsSound.StopSE( gms_DECO_MGR.se_handle );
+                GsSound.FreeSeHandle( gms_DECO_MGR.se_handle );
                 gms_DECO_MGR.se_handle = null;
             }
         }
         else if ( gms_DECO_MGR.state_loop == 1 && gms_DECO_MGR.common_frame_motion[num] < Convert.ToInt32( obj_work.user_work ) && id != 0 )
         {
-            gms_DECO_MGR.se_handle = AppMain.GsSoundAllocSeHandle();
+            gms_DECO_MGR.se_handle = GsSound.AllocSeHandle();
             int num2 = id;
             if ( num2 == 183 )
             {
-                AppMain.GmSoundPlaySE( "Shutter1", gms_DECO_MGR.se_handle );
+                GmSound.PlaySE( "Shutter1", gms_DECO_MGR.se_handle );
             }
         }
         if ( obj_work.user_timer == Convert.ToInt32( obj_work.user_work ) && id != 0 )
@@ -1725,12 +1725,12 @@ public partial class AppMain
             {
                 return;
             }
-            AppMain.GmSoundPlaySE( "Shutter2" );
+            GmSound.PlaySE( "Shutter2" );
         }
     }
 
     // Token: 0x06000447 RID: 1095 RVA: 0x000231C8 File Offset: 0x000213C8
-    private static void gmDecoMainFuncEffectCheckCommonFrame( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoMainFuncEffectCheckCommonFrame( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_DECO_MGR gms_DECO_MGR = AppMain.gmDecoGetMgr();
         if ( gms_DECO_MGR == null )
@@ -1780,7 +1780,7 @@ public partial class AppMain
     // Token: 0x06000449 RID: 1097 RVA: 0x000232D4 File Offset: 0x000214D4
     private static void gmDecoRectFuncChangeMotionCount( AppMain.OBS_RECT_WORK own_rect_work, AppMain.OBS_RECT_WORK target_rect_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = own_rect_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = own_rect_work.parent_obj;
         AppMain.GMS_DECO_WORK gms_DECO_WORK = (AppMain.GMS_DECO_WORK)parent_obj;
         uint id = (uint)gms_DECO_WORK.event_record.id;
         parent_obj.user_timer = AppMain.g_gm_deco_user_timer[( int )( ( UIntPtr )id )];
@@ -1795,8 +1795,8 @@ public partial class AppMain
     // Token: 0x0600044A RID: 1098 RVA: 0x00023394 File Offset: 0x00021594
     private static void gmDecoRectFuncChangeDecreaseMotionSpeed( AppMain.OBS_RECT_WORK own_rect_work, AppMain.OBS_RECT_WORK target_rect_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = own_rect_work.parent_obj;
-        AppMain.OBS_OBJECT_WORK parent_obj2 = target_rect_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = own_rect_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj2 = target_rect_work.parent_obj;
         float num;
         if ( ( parent_obj2.move_flag & 32768U ) != 0U )
         {
@@ -1821,18 +1821,18 @@ public partial class AppMain
     // Token: 0x0600044B RID: 1099 RVA: 0x00023468 File Offset: 0x00021668
     private static void gmDecoRectFuncChangeMotionCommonFrame( AppMain.OBS_RECT_WORK own_rect_work, AppMain.OBS_RECT_WORK target_rect_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = own_rect_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = own_rect_work.parent_obj;
         parent_obj.ppFunc = AppMain.gmDecoMainFuncMotionCheckCommonFrame;
         parent_obj.flag |= 2U;
     }
 
     // Token: 0x0600044C RID: 1100 RVA: 0x0002349C File Offset: 0x0002169C
-    private static void gmDecoSetLightSpecial( AppMain.OBS_OBJECT_WORK obj_work, int id )
+    private static void gmDecoSetLightSpecial( OBS_OBJECT_WORK obj_work, int id )
     {
     }
 
     // Token: 0x0600044D RID: 1101 RVA: 0x000234A0 File Offset: 0x000216A0
-    private static void gmDecoAdjustIPhone( AppMain.OBS_OBJECT_WORK obj_work, int id )
+    private static void gmDecoAdjustIPhone( OBS_OBJECT_WORK obj_work, int id )
     {
         if ( obj_work == null )
         {
@@ -1981,12 +1981,12 @@ public partial class AppMain
     private static void gmDecoInitMotion( AppMain.GMS_DECO_WORK deco_work )
     {
         int id = (int)deco_work.event_record.id;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.gmDecoDataGetMotionHeader(id);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.gmDecoDataGetMotionHeader(id);
         int num = AppMain.g_gm_deco_node_motion_index[id][0];
         if ( num != -1 )
         {
             AppMain.gmDecoLoadMotion( deco_work, num, ams_AMB_HEADER );
-            AppMain.OBS_OBJECT_WORK obj_work = deco_work.obj_work;
+            OBS_OBJECT_WORK obj_work = deco_work.obj_work;
             uint disp_flag = obj_work.disp_flag;
             AppMain.ObjDrawObjectActionSet( obj_work, 0 );
             obj_work.disp_flag = disp_flag;
@@ -2022,7 +2022,7 @@ public partial class AppMain
         {
             return null;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_DECO_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_DECO_WORK;
         obs_OBJECT_WORK.flag &= 4294967293U;
         int id = (int)dec_rec.id;
         short num = AppMain.g_gm_deco_rect_size[id][0];
@@ -2039,12 +2039,12 @@ public partial class AppMain
     private static void gmDecoInitMaterial( AppMain.GMS_DECO_WORK deco_work )
     {
         int id = (int)deco_work.event_record.id;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.gmDecoDataGetMatMotionHeader(id);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.gmDecoDataGetMatMotionHeader(id);
         int num = AppMain.g_gm_deco_mat_motion_index[id][0];
         if ( num != -1 )
         {
             AppMain.gmDecoLoadMatMotion( deco_work, num, ams_AMB_HEADER );
-            AppMain.OBS_OBJECT_WORK obj_work = deco_work.obj_work;
+            OBS_OBJECT_WORK obj_work = deco_work.obj_work;
             uint disp_flag = obj_work.disp_flag;
             AppMain.ObjDrawObjectActionSet3DNNMaterial( obj_work, 0 );
             obj_work.disp_flag = disp_flag;
@@ -2093,7 +2093,7 @@ public partial class AppMain
         {
             return null;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_DECO_WORK;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_DECO_WORK;
         obs_OBJECT_WORK.flag &= 4294967293U;
         int id = (int)dec_rec.id;
         short num = AppMain.g_gm_deco_rect_size[id][0];
@@ -2138,7 +2138,7 @@ public partial class AppMain
             }
             else
             {
-                AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+                GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
                 if ( gms_DECO_WORK.obj_work.pos.x < gms_PLAYER_WORK.obj_work.pos.x )
                 {
                     gms_DECO_WORK.obj_work.user_timer = 254;
@@ -2211,7 +2211,7 @@ public partial class AppMain
             return null;
         }
         int id = (int)gms_DECO_WORK.event_record.id;
-        AppMain.gmDecoAdjustIPhone( ( AppMain.OBS_OBJECT_WORK )gms_DECO_WORK, id );
+        AppMain.gmDecoAdjustIPhone( ( OBS_OBJECT_WORK )gms_DECO_WORK, id );
         return gms_DECO_WORK;
     }
 
@@ -2464,7 +2464,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000460 RID: 1120 RVA: 0x000246E0 File Offset: 0x000228E0
-    private static void gmDecoSetDrawFall( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmDecoSetDrawFall( OBS_OBJECT_WORK obj_work )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -2510,7 +2510,7 @@ public partial class AppMain
         }
         if ( AppMain.gmDecoDataGetInfo().tvx_model_data[model_index] == null )
         {
-            AppMain.AmbChunk data = (AppMain.AmbChunk)AppMain.amBindGet(AppMain.gmDecoDataGetInfo().tvx_model, model_index);
+            AmbChunk data = (AmbChunk)AmBind.Get(AppMain.gmDecoDataGetInfo().tvx_model, model_index);
             AppMain.gmDecoDataGetInfo().tvx_model_data[model_index] = new AppMain.TVX_FILE( data );
         }
         AppMain.TVX_FILE file = AppMain.gmDecoDataGetInfo().tvx_model_data[model_index];

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x020001BF RID: 447
-    public class GMS_BOSS5_EGG_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_BOSS5_EGG_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002228 RID: 8744 RVA: 0x00142487 File Offset: 0x00140687
         public GMS_BOSS5_EGG_WORK()
@@ -16,7 +16,7 @@ public partial class AppMain
         }
 
         // Token: 0x06002229 RID: 8745 RVA: 0x0014249B File Offset: 0x0014069B
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d.ene_com.obj_work;
         }
@@ -38,9 +38,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600096F RID: 2415 RVA: 0x000551D8 File Offset: 0x000533D8
-    public static AppMain.OBS_OBJECT_WORK GmBoss5EggInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmBoss5EggInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_BOSS5_EGG_WORK(), "BOSS5_EGG");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_BOSS5_EGG_WORK(), "BOSS5_EGG");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_BOSS5_EGG_WORK gms_BOSS5_EGG_WORK = (AppMain.GMS_BOSS5_EGG_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.pos.z = AppMain.GMD_BOSS5_BG_FARSIDE_POS_Z;
@@ -65,7 +65,7 @@ public partial class AppMain
     // Token: 0x06000970 RID: 2416 RVA: 0x0005532C File Offset: 0x0005352C
     public static AppMain.GMS_BOSS5_EGG_WORK GmBoss5EggCreate( AppMain.GMS_BOSS5_BODY_WORK body_work, int pos_x, int pos_y )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GmEventMgrLocalEventBirth(334, pos_x, pos_y, 0, 0, 0, 0, 0, 0);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GmEventMgrLocalEventBirth(334, pos_x, pos_y, 0, 0, 0, 0, 0, 0);
         obs_OBJECT_WORK.parent_obj = AppMain.GMM_BS_OBJ( body_work );
         return ( AppMain.GMS_BOSS5_EGG_WORK )obs_OBJECT_WORK;
     }
@@ -73,7 +73,7 @@ public partial class AppMain
     // Token: 0x06000971 RID: 2417 RVA: 0x00055360 File Offset: 0x00053560
     public static void gmBoss5EggInitEscapeRun( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.GmBsCmnSetObjSpdZero( obs_OBJECT_WORK );
         obs_OBJECT_WORK.pos.x = AppMain.GmBsCmnGetPlayerObj().pos.x + ( ( int )AppMain.OBD_OBJ_CLIP_LCD_X << 12 );
     }
@@ -81,7 +81,7 @@ public partial class AppMain
     // Token: 0x06000972 RID: 2418 RVA: 0x000553A0 File Offset: 0x000535A0
     public static void gmBoss5EggUpdateEscapeRun( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         if ( AppMain.ObjViewOutCheck( obs_OBJECT_WORK.pos.x, obs_OBJECT_WORK.pos.y, 0, AppMain.GMD_BOSS5_EGG_ESCAPE_RUN_VIEWOUT_OFST_LEFT, 0, AppMain.GMD_BOSS5_EGG_ESCAPE_RUN_VIEWOUT_OFST_RIGHT, 0 ) == 0 )
         {
             int num = obs_OBJECT_WORK.pos.x - AppMain.GmBsCmnGetPlayerObj().pos.x;
@@ -94,7 +94,7 @@ public partial class AppMain
     // Token: 0x06000973 RID: 2419 RVA: 0x00055450 File Offset: 0x00053650
     public static void gmBoss5EggInitJump( AppMain.GMS_BOSS5_EGG_WORK egg_work, int dest_pos_x )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.VEC_Set( ref obs_OBJECT_WORK.spd_add, 0, 0, 0 );
         obs_OBJECT_WORK.spd.x = AppMain.GMD_BOSS5_EGG_JUMP_INIT_SPD_X;
         obs_OBJECT_WORK.spd.y = AppMain.GMD_BOSS5_EGG_JUMP_INIT_SPD_Y;
@@ -107,7 +107,7 @@ public partial class AppMain
     // Token: 0x06000974 RID: 2420 RVA: 0x000554F8 File Offset: 0x000536F8
     public static int gmBoss5EggUpdateJump( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.GMS_BOSS5_BODY_WORK gms_BOSS5_BODY_WORK = (AppMain.GMS_BOSS5_BODY_WORK)obs_OBJECT_WORK.parent_obj;
         if ( obs_OBJECT_WORK.pos.x >= egg_work.jump_dest_pos_x )
         {
@@ -124,14 +124,14 @@ public partial class AppMain
     // Token: 0x06000975 RID: 2421 RVA: 0x0005555C File Offset: 0x0005375C
     public static void gmBoss5EggGetBodyNodePos( AppMain.GMS_BOSS5_EGG_WORK egg_work, out AppMain.VecFx32 pos_out )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.GMS_BOSS5_BODY_WORK gms_BOSS5_BODY_WORK = (AppMain.GMS_BOSS5_BODY_WORK)obs_OBJECT_WORK.parent_obj;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GmBsCmnGetSNMMtx(gms_BOSS5_BODY_WORK.snm_work, gms_BOSS5_BODY_WORK.body_snm_reg_id);
+        NNS_MATRIX nns_MATRIX = AppMain.GmBsCmnGetSNMMtx(gms_BOSS5_BODY_WORK.snm_work, gms_BOSS5_BODY_WORK.body_snm_reg_id);
         pos_out = new AppMain.VecFx32( AppMain.FX_F32_TO_FX32( nns_MATRIX.M03 ), -AppMain.FX_F32_TO_FX32( nns_MATRIX.M13 ), AppMain.FX_F32_TO_FX32( nns_MATRIX.M23 ) );
     }
 
     // Token: 0x06000976 RID: 2422 RVA: 0x000555BC File Offset: 0x000537BC
-    public static void gmBoss5EggMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmBoss5EggMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_BOSS5_EGG_WORK gms_BOSS5_EGG_WORK = (AppMain.GMS_BOSS5_EGG_WORK)obj_work;
         if ( gms_BOSS5_EGG_WORK.proc_update != null )
@@ -143,7 +143,7 @@ public partial class AppMain
     // Token: 0x06000977 RID: 2423 RVA: 0x000555E4 File Offset: 0x000537E4
     public static void gmBoss5EggProcInit( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obj_work = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obj_work = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.GmBsCmnSetAction( obj_work, 0, 1, 0 );
         AppMain.GmBoss5EfctStartEggSweat( egg_work );
         egg_work.proc_update = AppMain.gmBoss5EggProcUpdateStandby;
@@ -152,7 +152,7 @@ public partial class AppMain
     // Token: 0x06000978 RID: 2424 RVA: 0x0005561C File Offset: 0x0005381C
     public static void gmBoss5EggProcUpdateStandby( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.GMS_BOSS5_MGR_WORK mgr_work = ((AppMain.GMS_BOSS5_BODY_WORK)obs_OBJECT_WORK.parent_obj).mgr_work;
         if ( ( mgr_work.flag & 4194304U ) != 0U )
         {
@@ -164,7 +164,7 @@ public partial class AppMain
     // Token: 0x06000979 RID: 2425 RVA: 0x00055668 File Offset: 0x00053868
     public static void gmBoss5EggProcUpdateRun( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.VecFx32 vecFx;
         AppMain.gmBoss5EggGetBodyNodePos( egg_work, out vecFx );
         AppMain.gmBoss5EggUpdateEscapeRun( egg_work );
@@ -179,7 +179,7 @@ public partial class AppMain
     // Token: 0x0600097A RID: 2426 RVA: 0x000556D0 File Offset: 0x000538D0
     public static void gmBoss5EggProcUpdateStartJump( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         if ( AppMain.GmBsCmnIsActionEnd( obs_OBJECT_WORK ) != 0 )
         {
             AppMain.GMS_BOSS5_MGR_WORK mgr_work = ((AppMain.GMS_BOSS5_BODY_WORK)obs_OBJECT_WORK.parent_obj).mgr_work;
@@ -196,7 +196,7 @@ public partial class AppMain
     // Token: 0x0600097B RID: 2427 RVA: 0x00055748 File Offset: 0x00053948
     public static void gmBoss5EggProcUpdateJump( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.gmBoss5EggUpdateJump( egg_work );
         if ( obs_OBJECT_WORK.spd.y > 0 )
         {
@@ -208,7 +208,7 @@ public partial class AppMain
     // Token: 0x0600097C RID: 2428 RVA: 0x0005578C File Offset: 0x0005398C
     public static void gmBoss5EggProcUpdateFall( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         if ( AppMain.gmBoss5EggUpdateJump( egg_work ) != 0 )
         {
             AppMain.VecFx32 vecFx;
@@ -223,7 +223,7 @@ public partial class AppMain
     // Token: 0x0600097D RID: 2429 RVA: 0x000557E8 File Offset: 0x000539E8
     public static void gmBoss5EggProcUpdateAnger( AppMain.GMS_BOSS5_EGG_WORK egg_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(egg_work);
         AppMain.GMS_BOSS5_BODY_WORK gms_BOSS5_BODY_WORK = (AppMain.GMS_BOSS5_BODY_WORK)obs_OBJECT_WORK.parent_obj;
         if ( AppMain.GmBsCmnIsActionEnd( obs_OBJECT_WORK ) != 0 )
         {

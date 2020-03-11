@@ -58,7 +58,7 @@ public partial class AppMain
         public string file_path_buf;
 
         // Token: 0x040049B9 RID: 18873
-        public AppMain.AMS_FS fs_req;
+        public AMS_FS fs_req;
     }
 
     // Token: 0x0200007E RID: 126
@@ -123,20 +123,20 @@ public partial class AppMain
         {
             case AppMain.DME_LOGO_COM_LOAD_STATE.DMD_LOGO_COM_LOAD_STATE_LOAD_WAIT:
                 context.file_path_buf = context.file_info.file_path;
-                context.fs_req = AppMain.amFsReadBackground( context.file_path_buf );
+                context.fs_req = AmFs.amFsReadBackground( context.file_path_buf );
                 if ( context.fs_req != null )
                 {
                     context.state = AppMain.DME_LOGO_COM_LOAD_STATE.DMD_LOGO_COM_LOAD_STATE_LOADING;
                 }
                 break;
             case AppMain.DME_LOGO_COM_LOAD_STATE.DMD_LOGO_COM_LOAD_STATE_LOADING:
-                if ( AppMain.amFsIsComplete( context.fs_req ) )
+                if ( AmFs.amFsIsComplete( context.fs_req ) )
                 {
                     if ( context.file_info.post_func != null )
                     {
                         context.file_info.post_func( context );
                     }
-                    AppMain.amFsClearRequest( context.fs_req );
+                    AmFs.amFsClearRequest( context.fs_req );
                     context.fs_req = null;
                     context.state = AppMain.DME_LOGO_COM_LOAD_STATE.DMD_LOGO_COM_LOAD_STATE_COMPLETE;
                 }

@@ -47,7 +47,7 @@ public partial class AppMain
         for (int i = 0; i < 2; i++)
         {
             AppMain.gm_over_textures[i].Clear();
-            AppMain.gm_over_texamb_list[i] = (AppMain.AMS_AMB_HEADER)AppMain.ObjDataLoadAmbIndex(null, AppMain.gm_over_tex_amb_idx_tbl[AppMain.GsEnvGetLanguage()][i], AppMain.GmGameDatGetCockpitData());
+            AppMain.gm_over_texamb_list[i] = (AMS_AMB_HEADER)AppMain.ObjDataLoadAmbIndex(null, AppMain.gm_over_tex_amb_idx_tbl[AppMain.GsEnvGetLanguage()][i], AppMain.GmGameDatGetCockpitData());
             AppMain.AoTexBuild(AppMain.gm_over_textures[i], AppMain.gm_over_texamb_list[i]);
             AppMain.AoTexLoad(AppMain.gm_over_textures[i]);
         }
@@ -107,7 +107,7 @@ public partial class AppMain
         gms_OVER_MGR_WORK.Clear();
         for (int i = 0; i < 4; i++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "GAME_OVER");
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "GAME_OVER");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK, gms_COCKPIT_2D_WORK.obj_2d, null, null, AppMain.gm_over_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][1], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_over_textures[1]), AppMain.gm_over_string_act_id_tbl[AppMain.GsEnvGetLanguage()][i], 0);
             gms_OVER_MGR_WORK.string_sub_parts[i] = gms_COCKPIT_2D_WORK;
@@ -115,7 +115,7 @@ public partial class AppMain
         }
         for (int j = 0; j < 2; j++)
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "GAME_OVER");
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_COCKPIT_CREATE_WORK(() => new AppMain.GMS_COCKPIT_2D_WORK(), null, 0, "GAME_OVER");
             AppMain.GMS_COCKPIT_2D_WORK gms_COCKPIT_2D_WORK2 = (AppMain.GMS_COCKPIT_2D_WORK)obs_OBJECT_WORK2;
             AppMain.ObjObjectAction2dAMALoadSetTexlist(obs_OBJECT_WORK2, gms_COCKPIT_2D_WORK2.obj_2d, null, null, AppMain.gm_over_ama_amb_idx_tbl[AppMain.GsEnvGetLanguage()][0], AppMain.GmGameDatGetCockpitData(), AppMain.AoTexGetTexList(AppMain.gm_over_textures[0]), AppMain.gm_over_fadeout_act_id_tbl[j], 0);
             gms_OVER_MGR_WORK.fadeout_sub_parts[j] = gms_COCKPIT_2D_WORK2;
@@ -148,7 +148,7 @@ public partial class AppMain
     // Token: 0x06000B07 RID: 2823 RVA: 0x00063552 File Offset: 0x00061752
     private static bool gmOverIsSkipKeyOn()
     {
-        if ((AppMain.AoPadDirect() & ControllerConsts.CONFIRM) != 0 || AppMain.isBackKeyPressed())
+        if ((AoPad.AoPadDirect() & ControllerConsts.CONFIRM) != 0 || AppMain.isBackKeyPressed())
         {
             AppMain.setBackKeyRequest(false);
             return true;
@@ -159,21 +159,21 @@ public partial class AppMain
     // Token: 0x06000B08 RID: 2824 RVA: 0x00063574 File Offset: 0x00061774
     private static void gmOverSetActionHide(AppMain.GMS_COCKPIT_2D_WORK cpit_2d)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)cpit_2d;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)cpit_2d;
         obs_OBJECT_WORK.disp_flag |= 4128U;
     }
 
     // Token: 0x06000B09 RID: 2825 RVA: 0x0006359C File Offset: 0x0006179C
     private static void gmOverSetActionPlay(AppMain.GMS_COCKPIT_2D_WORK cpit_2d)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)cpit_2d;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)cpit_2d;
         obs_OBJECT_WORK.disp_flag &= 4294963167U;
     }
 
     // Token: 0x06000B0A RID: 2826 RVA: 0x000635C4 File Offset: 0x000617C4
     private static void gmOverSetActionPause(AppMain.GMS_COCKPIT_2D_WORK cpit_2d)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)cpit_2d;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)cpit_2d;
         obs_OBJECT_WORK.disp_flag &= 4294967263U;
         obs_OBJECT_WORK.disp_flag |= 4096U;
     }
@@ -237,7 +237,7 @@ public partial class AppMain
     // Token: 0x06000B10 RID: 2832 RVA: 0x0006370C File Offset: 0x0006190C
     private static void gmOverProcUpdateGOWaitFadeEnd(AppMain.GMS_OVER_MGR_WORK mgr_work)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)mgr_work.fadeout_sub_parts[0];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)mgr_work.fadeout_sub_parts[0];
         if ((obs_OBJECT_WORK.disp_flag & 8U) != 0U)
         {
             AppMain.IzFadeInitEasy(0U, 1U, 1f);
@@ -279,7 +279,7 @@ public partial class AppMain
     // Token: 0x06000B14 RID: 2836 RVA: 0x000637F4 File Offset: 0x000619F4
     private static void gmOverProcUpdateTOWaitFadeEnd(AppMain.GMS_OVER_MGR_WORK mgr_work)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)mgr_work.fadeout_sub_parts[1];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)mgr_work.fadeout_sub_parts[1];
         if ((obs_OBJECT_WORK.disp_flag & 8U) != 0U)
         {
             AppMain.IzFadeInitEasy(0U, 1U, 1f);

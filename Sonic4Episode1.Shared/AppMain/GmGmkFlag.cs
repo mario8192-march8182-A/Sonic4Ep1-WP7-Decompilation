@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060018A4 RID: 6308 RVA: 0x000E0878 File Offset: 0x000DEA78
-    private static AppMain.OBS_OBJECT_WORK GmGmkFlagChangeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkFlagChangeInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_FLAG_CNG");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_FLAG_CNG");
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_COM_WORK.rect_work[2];
         AppMain.ObjRectGroupSet( obs_RECT_WORK, 1, 1 );
@@ -35,8 +35,8 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)gms_PLAYER_WORK;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_PLAYER_WORK;
         ushort id = gms_ENEMY_COM_WORK.eve_rec.id;
         if ( id <= 162 )
         {
@@ -113,7 +113,7 @@ public partial class AppMain
                 }
                 if ( obs_OBJECT_WORK.obj_type == 1 )
                 {
-                    AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+                    OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
                     obs_CAMERA.flag |= 2147483648U;
                     return;
                 }

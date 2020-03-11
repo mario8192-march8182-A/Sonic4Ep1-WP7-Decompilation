@@ -50,22 +50,22 @@ public partial class AppMain
     }
 
     // Token: 0x02000299 RID: 665
-    public class GMS_MAP_FAR_OBJ_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_MAP_FAR_OBJ_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002441 RID: 9281 RVA: 0x0014A725 File Offset: 0x00148925
-        public static explicit operator AppMain.GMS_MAP_FAR_OBJ_WORK( AppMain.OBS_OBJECT_WORK ob )
+        public static explicit operator AppMain.GMS_MAP_FAR_OBJ_WORK( OBS_OBJECT_WORK ob )
         {
             return ( AppMain.GMS_MAP_FAR_OBJ_WORK )ob.holder;
         }
 
         // Token: 0x06002442 RID: 9282 RVA: 0x0014A732 File Offset: 0x00148932
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_MAP_FAR_OBJ_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_MAP_FAR_OBJ_WORK work )
         {
             return work.obj_work;
         }
 
         // Token: 0x06002443 RID: 9283 RVA: 0x0014A73A File Offset: 0x0014893A
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.obj_work;
         }
@@ -73,11 +73,11 @@ public partial class AppMain
         // Token: 0x06002444 RID: 9284 RVA: 0x0014A742 File Offset: 0x00148942
         public GMS_MAP_FAR_OBJ_WORK()
         {
-            this.obj_work = AppMain.OBS_OBJECT_WORK.Create( this );
+            this.obj_work = OBS_OBJECT_WORK.Create( this );
         }
 
         // Token: 0x04005AA8 RID: 23208
-        public readonly AppMain.OBS_OBJECT_WORK obj_work;
+        public readonly OBS_OBJECT_WORK obj_work;
 
         // Token: 0x04005AA9 RID: 23209
         public readonly AppMain.OBS_ACTION3D_NN_WORK obj_3d = new AppMain.OBS_ACTION3D_NN_WORK();
@@ -153,7 +153,7 @@ public partial class AppMain
         }
 
         // Token: 0x04005AB2 RID: 23218
-        public AppMain.AMS_AMB_HEADER amb_header;
+        public AMS_AMB_HEADER amb_header;
 
         // Token: 0x04005AB3 RID: 23219
         public AppMain.OBS_ACTION3D_NN_WORK[] obj_3d_list;
@@ -162,7 +162,7 @@ public partial class AppMain
         public AppMain.OBS_ACTION3D_NN_WORK[] obj_3d_list_render;
 
         // Token: 0x04005AB5 RID: 23221
-        public readonly AppMain.OBS_OBJECT_WORK[] obj_work = new AppMain.OBS_OBJECT_WORK[16];
+        public readonly OBS_OBJECT_WORK[] obj_work = new OBS_OBJECT_WORK[16];
 
         // Token: 0x04005AB6 RID: 23222
         public AppMain.OBS_ACTION3D_NN_WORK nn_work;
@@ -174,7 +174,7 @@ public partial class AppMain
         public int nn_regist_num;
 
         // Token: 0x04005AB9 RID: 23225
-        public readonly AppMain.NNS_VECTOR pos = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04005ABA RID: 23226
         public AppMain.MP_HEADER mp_header;
@@ -216,7 +216,7 @@ public partial class AppMain
 
 
     // Token: 0x0600119B RID: 4507 RVA: 0x0009A53C File Offset: 0x0009873C
-    public static void GmMapFarInitData( AppMain.AMS_AMB_HEADER amb )
+    public static void GmMapFarInitData( AMS_AMB_HEADER amb )
     {
         AppMain.gmMapFarDataInit();
         AppMain.gmMapFarDataSetAmbHeader( amb );
@@ -374,7 +374,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011A2 RID: 4514 RVA: 0x0009A764 File Offset: 0x00098964
-    private static AppMain.NNS_VECTOR GmMapFarGetCameraPos( AppMain.NNS_VECTOR player_camera_pos )
+    public static NNS_VECTOR GmMapFarGetCameraPos( NNS_VECTOR player_camera_pos )
     {
         int stage_id = AppMain.gmMapFarGetStageId();
         switch ( AppMain.gmMapFarGetZoneType( stage_id ) )
@@ -397,11 +397,11 @@ public partial class AppMain
     }
 
     // Token: 0x060011A3 RID: 4515 RVA: 0x0009A7C8 File Offset: 0x000989C8
-    private static AppMain.NNS_VECTOR GmMapFarGetCameraTarget( AppMain.NNS_VECTOR camera_pos )
+    public static NNS_VECTOR GmMapFarGetCameraTarget( NNS_VECTOR camera_pos )
     {
         int stage_id = AppMain.gmMapFarGetStageId();
         int num = AppMain.gmMapFarGetZoneType(stage_id);
-        AppMain.NNS_VECTOR gmMapFarGetCameraTarget_result = AppMain.GmMapFarGetCameraTarget_result;
+        NNS_VECTOR gmMapFarGetCameraTarget_result = AppMain.GmMapFarGetCameraTarget_result;
         AppMain.nnAddVector( gmMapFarGetCameraTarget_result, camera_pos, AppMain.g_gm_map_far_camera_target_offset[num] );
         return gmMapFarGetCameraTarget_result;
     }
@@ -494,14 +494,14 @@ public partial class AppMain
     }
 
     // Token: 0x060011AC RID: 4524 RVA: 0x0009A994 File Offset: 0x00098B94
-    public static void gmMapFarDataSetAmbHeader( AppMain.AMS_AMB_HEADER amb )
+    public static void gmMapFarDataSetAmbHeader( AMS_AMB_HEADER amb )
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
         gms_MAP_FAR_DATA.amb_header = amb;
     }
 
     // Token: 0x060011AD RID: 4525 RVA: 0x0009A9B0 File Offset: 0x00098BB0
-    private static AppMain.AMS_AMB_HEADER gmMapFarDataGetAmbHeader()
+    private static AMS_AMB_HEADER gmMapFarDataGetAmbHeader()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
         return gms_MAP_FAR_DATA.amb_header;
@@ -521,7 +521,7 @@ public partial class AppMain
     private static AppMain.GMS_MAP_FAR_OBJ_WORK gmMapFarDataLoadObj( AppMain.GMD_MAP_FAR_OBJ_INDEX obj_index, AppMain.OBS_ACTION3D_NN_WORK obj_3d_work, AppMain.MPP_VOID_OBS_OBJECT_WORK main_func, AppMain.MPP_VOID_OBS_OBJECT_WORK out_func )
     {
         AppMain.GMS_MAP_FAR_OBJ_WORK gms_MAP_FAR_OBJ_WORK = (AppMain.GMS_MAP_FAR_OBJ_WORK)AppMain.OBM_OBJECT_TASK_DETAIL_INIT(12544, 5, 0, 0, () => new AppMain.GMS_MAP_FAR_OBJ_WORK(), "MAP FAR OBJ");
-        AppMain.OBS_OBJECT_WORK obj_work = gms_MAP_FAR_OBJ_WORK.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_MAP_FAR_OBJ_WORK.obj_work;
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, obj_3d_work, gms_MAP_FAR_OBJ_WORK.obj_3d );
         obj_work.obj_type = 8;
         obj_work.flag |= 18U;
@@ -545,14 +545,14 @@ public partial class AppMain
     }
 
     // Token: 0x060011B1 RID: 4529 RVA: 0x0009AAD8 File Offset: 0x00098CD8
-    private static void gmMapFarDataSetObjWork( AppMain.OBS_OBJECT_WORK obj_work, AppMain.GMD_MAP_FAR_OBJ_INDEX obj_index )
+    private static void gmMapFarDataSetObjWork( OBS_OBJECT_WORK obj_work, AppMain.GMD_MAP_FAR_OBJ_INDEX obj_index )
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
         gms_MAP_FAR_DATA.obj_work[( int )obj_index] = obj_work;
     }
 
     // Token: 0x060011B2 RID: 4530 RVA: 0x0009AAF4 File Offset: 0x00098CF4
-    private static AppMain.OBS_OBJECT_WORK gmMapFarDataGetObjWork( AppMain.GMD_MAP_FAR_OBJ_INDEX obj_index )
+    private static OBS_OBJECT_WORK gmMapFarDataGetObjWork( AppMain.GMD_MAP_FAR_OBJ_INDEX obj_index )
     {
         if ( ( AppMain.GMD_MAP_FAR_OBJ_INDEX )16 <= obj_index )
         {
@@ -834,9 +834,9 @@ public partial class AppMain
     }
 
     // Token: 0x060011CB RID: 4555 RVA: 0x0009B030 File Offset: 0x00099230
-    private static AppMain.NNS_VECTOR gmMapFarCameraGetPos( AppMain.NNS_VECTOR player_camera_pos, AppMain.GMS_MAP_FAR_SCROLL[] scroll_list_x, uint scroll_info_num_x, AppMain.GMS_MAP_FAR_SCROLL[] scroll_list_y, uint scroll_info_num_y )
+    private static NNS_VECTOR gmMapFarCameraGetPos( NNS_VECTOR player_camera_pos, AppMain.GMS_MAP_FAR_SCROLL[] scroll_list_x, uint scroll_info_num_x, AppMain.GMS_MAP_FAR_SCROLL[] scroll_list_y, uint scroll_info_num_y )
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.gmMapFarCameraGetPos_result;
+        NNS_VECTOR nns_VECTOR = AppMain.gmMapFarCameraGetPos_result;
         float x = player_camera_pos.x;
         nns_VECTOR.x = AppMain.gmMapFarCameraGetPos( x, scroll_list_x, scroll_info_num_x, AppMain.gmMapFarCameraGetSpeedX() );
         float y = player_camera_pos.y;
@@ -846,7 +846,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011CC RID: 4556 RVA: 0x0009B084 File Offset: 0x00099284
-    private static void gmMapFarSceneLoadObj( AppMain.GMD_MAP_FAR_OBJ_INDEX obj_index, AppMain.OBS_ACTION3D_NN_WORK obj_3d_work, uint mat_motion_index, AppMain.AMS_AMB_HEADER mat_amb_header, uint motion_index, AppMain.AMS_AMB_HEADER mtn_amb_header, AppMain.MPP_VOID_OBS_OBJECT_WORK main_func, AppMain.MPP_VOID_OBS_OBJECT_WORK out_func, uint command_state )
+    private static void gmMapFarSceneLoadObj( AppMain.GMD_MAP_FAR_OBJ_INDEX obj_index, AppMain.OBS_ACTION3D_NN_WORK obj_3d_work, uint mat_motion_index, AMS_AMB_HEADER mat_amb_header, uint motion_index, AMS_AMB_HEADER mtn_amb_header, AppMain.MPP_VOID_OBS_OBJECT_WORK main_func, AppMain.MPP_VOID_OBS_OBJECT_WORK out_func, uint command_state )
     {
         AppMain.GMS_MAP_FAR_OBJ_WORK gms_MAP_FAR_OBJ_WORK = AppMain.gmMapFarDataLoadObj(obj_index, obj_3d_work, main_func, out_func);
         gms_MAP_FAR_OBJ_WORK.obj_3d.command_state = command_state;
@@ -866,7 +866,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011CD RID: 4557 RVA: 0x0009B108 File Offset: 0x00099308
-    private static void gmMapFarSceneObjFuncDraw2DBG( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDraw2DBG( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         int num = AppMain.gmMapFarGetStageId();
@@ -968,7 +968,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011CE RID: 4558 RVA: 0x0009B4F0 File Offset: 0x000996F0
-    private static void gmMapFarSceneObjFuncDrawRockA( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawRockA( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         float y = -10f;
@@ -1036,7 +1036,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011CF RID: 4559 RVA: 0x0009B938 File Offset: 0x00099B38
-    private static void gmMapFarSceneObjFuncDrawRockB( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawRockB( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         float y = -10f;
@@ -1109,7 +1109,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011D0 RID: 4560 RVA: 0x0009BE14 File Offset: 0x0009A014
-    private static void gmMapFarSceneObjFuncDrawRockC( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawRockC( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         float y = -10f;
@@ -1279,7 +1279,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011D3 RID: 4563 RVA: 0x0009C690 File Offset: 0x0009A890
-    private static void gmMapFarSceneObjFuncDrawBg( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawBg( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         float num = -30f;
@@ -1393,7 +1393,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011D4 RID: 4564 RVA: 0x0009CB94 File Offset: 0x0009AD94
-    private static void gmMapFarSceneObjFuncDrawRotate( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawRotate( OBS_OBJECT_WORK pWork )
     {
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
@@ -1491,7 +1491,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011D5 RID: 4565 RVA: 0x0009CFCC File Offset: 0x0009B1CC
-    private static void gmMapFarSceneObjFuncDrawWheel( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawWheel( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         float num = -30f;
@@ -1547,7 +1547,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011D6 RID: 4566 RVA: 0x0009D124 File Offset: 0x0009B324
-    private static void gmMapFarSceneObjFuncDrawSLight( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawSLight( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         float num = -30f;
@@ -1585,7 +1585,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011D7 RID: 4567 RVA: 0x0009D240 File Offset: 0x0009B440
-    private static void gmMapFarSceneObjFuncDrawSea( AppMain.OBS_OBJECT_WORK pWork )
+    private static void gmMapFarSceneObjFuncDrawSea( OBS_OBJECT_WORK pWork )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = pWork.obj_3d;
         int num = AppMain.gmMapFarGetStageId();
@@ -1604,7 +1604,7 @@ public partial class AppMain
     // Token: 0x060011D8 RID: 4568 RVA: 0x0009D2F0 File Offset: 0x0009B4F0
     private static void gmMapFarDrawSeaUserFunc( object data )
     {
-        AppMain.NNS_RGBA_U8 color = new AppMain.NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
+        NNS_RGBA_U8 color = new NNS_RGBA_U8(0, 0, 0, byte.MaxValue);
         AppMain.amDrawGetProjectionMatrix();
         AppMain.amDrawEndScene();
         AppMain.amRenderSetTarget( AppMain._am_draw_target, AppMain.AMD_RENDER_CLEAR_COLOR | AppMain.AMD_RENDER_CLEAR_DEPTH, color );
@@ -1614,15 +1614,15 @@ public partial class AppMain
     private static void gmMapFarZone1Build()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
         string dir;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 0, out dir));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 0, out dir));
         ams_AMB_HEADER.dir = dir;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER2 = AppMain.readAMBFile(AppMain.amBindGet(header, 1, out dir));
+        AMS_AMB_HEADER ams_AMB_HEADER2 = AmFs.readAMBFile(AmBind.Get(header, 1, out dir));
         ams_AMB_HEADER2.dir = dir;
         gms_MAP_FAR_DATA.obj_3d_list = AppMain.GmGameDBuildRegBuildModel( ams_AMB_HEADER, ams_AMB_HEADER2, 0U );
         uint draw_flag = 0U;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER3 = AppMain.readAMBFile(AppMain.amBindGet(header, 3, out dir));
+        AMS_AMB_HEADER ams_AMB_HEADER3 = AmFs.readAMBFile(AmBind.Get(header, 3, out dir));
         ams_AMB_HEADER3.dir = dir;
         gms_MAP_FAR_DATA.obj_3d_list_render = AppMain.GmGameDBuildRegBuildModel( ams_AMB_HEADER3, ams_AMB_HEADER2, draw_flag );
     }
@@ -1637,13 +1637,13 @@ public partial class AppMain
     private static void gmMapFarZone1Flush()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
         string dir;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 0, out dir));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 0, out dir));
         ams_AMB_HEADER.dir = dir;
         AppMain.GmGameDBuildRegFlushModel( gms_MAP_FAR_DATA.obj_3d_list, ams_AMB_HEADER.file_num );
         gms_MAP_FAR_DATA.obj_3d_list = null;
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER2 = AppMain.readAMBFile(AppMain.amBindGet(header, 3, out dir));
+        AMS_AMB_HEADER ams_AMB_HEADER2 = AmFs.readAMBFile(AmBind.Get(header, 3, out dir));
         ams_AMB_HEADER2.dir = dir;
         AppMain.GmGameDBuildRegFlushModel( gms_MAP_FAR_DATA.obj_3d_list_render, ams_AMB_HEADER2.file_num );
         gms_MAP_FAR_DATA.obj_3d_list_render = null;
@@ -1703,25 +1703,25 @@ public partial class AppMain
                 command_state = 1U;
             }
             uint num6 = AppMain.g_map_far_zone_1_scene_obj_data_mat_motion[num4];
-            AppMain.AMS_AMB_HEADER mat_amb_header = null;
+            AMS_AMB_HEADER mat_amb_header = null;
             if ( 4294967295U != num6 )
             {
-                AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-                mat_amb_header = AppMain.readAMBFile( AppMain.amBindGet( header, 2 ) );
+                AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+                mat_amb_header = AmFs.readAMBFile( AmBind.Get( header, 2 ) );
             }
             AppMain.gmMapFarSceneLoadObj( ( AppMain.GMD_MAP_FAR_OBJ_INDEX )num4, obj_3d_work, num6, mat_amb_header, 0U, null, AppMain.g_map_far_zone_1_scene_obj_func_main[num4], AppMain.g_map_far_zone_1_scene_obj_func_out[num4], command_state );
             num4++;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork(AppMain.GMD_MAP_FAR_OBJ_INDEX.GMD_MAP_FAR_OBJ_INDEX_ZONE_1_SKY);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork(AppMain.GMD_MAP_FAR_OBJ_INDEX.GMD_MAP_FAR_OBJ_INDEX_ZONE_1_SKY);
         obs_OBJECT_WORK.scale.y = 8192;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.gmMapFarDataGetObjWork(AppMain.GMD_MAP_FAR_OBJ_INDEX.GMD_MAP_FAR_OBJ_INDEX_ZONE_1_SEA);
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.gmMapFarDataGetObjWork(AppMain.GMD_MAP_FAR_OBJ_INDEX.GMD_MAP_FAR_OBJ_INDEX_ZONE_1_SEA);
         obs_OBJECT_WORK2.disp_flag |= 4U;
         AppMain.ObjDrawObjectActionSet3DNNMaterial( obs_OBJECT_WORK2, 0 );
         obs_OBJECT_WORK2.obj_3d.mat_speed = 0.2f;
         int num7 = 0;
         while ( 6 > num7 )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num7);
+            OBS_OBJECT_WORK obs_OBJECT_WORK3 = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num7);
             obs_OBJECT_WORK3.user_work = ( uint )num7;
             num7++;
         }
@@ -1738,10 +1738,10 @@ public partial class AppMain
     }
 
     // Token: 0x060011DF RID: 4575 RVA: 0x0009D600 File Offset: 0x0009B800
-    private static AppMain.NNS_VECTOR gmMapFarZone1GetCameraPos( AppMain.NNS_VECTOR player_camera_pos )
+    private static NNS_VECTOR gmMapFarZone1GetCameraPos( NNS_VECTOR player_camera_pos )
     {
         AppMain.MP_HEADER mp_HEADER = AppMain.gmMapFarGetMapsetMpA();
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZone1GetCameraPos_result;
+        NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZone1GetCameraPos_result;
         nns_VECTOR.Assign( player_camera_pos );
         nns_VECTOR.y += ( float )( mp_HEADER.map_h * 64 );
         nns_VECTOR = AppMain.gmMapFarCameraGetPos( nns_VECTOR, AppMain.g_map_far_zone_1_scroll_x, ( uint )AppMain.g_map_far_zone_1_scroll_num_x, AppMain.g_map_far_zone_1_scroll_y, ( uint )AppMain.g_map_far_zone_1_scroll_num_y );
@@ -1757,9 +1757,9 @@ public partial class AppMain
     private static void gmMapFarZone2Build()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER mdl_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
-        AppMain.AMS_AMB_HEADER tex_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 3));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER mdl_amb = AmFs.readAMBFile(AmBind.Get(header, 0));
+        AMS_AMB_HEADER tex_amb = AmFs.readAMBFile(AmBind.Get(header, 3));
         gms_MAP_FAR_DATA.obj_3d_list = AppMain.GmGameDBuildRegBuildModel( mdl_amb, tex_amb, 0U );
     }
 
@@ -1773,8 +1773,8 @@ public partial class AppMain
     private static void gmMapFarZone2Flush()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 0));
         AppMain.GmGameDBuildRegFlushModel( gms_MAP_FAR_DATA.obj_3d_list, ams_AMB_HEADER.file_num );
         gms_MAP_FAR_DATA.obj_3d_list = null;
     }
@@ -1817,18 +1817,18 @@ public partial class AppMain
             AppMain.OBS_ACTION3D_NN_WORK obj_3d_work = gms_MAP_FAR_DATA.obj_3d_list[(int)((UIntPtr)num5)];
             uint command_state = 1U;
             uint num6 = AppMain.g_map_far_zone_2_scene_obj_data_motion[num4];
-            AppMain.AMS_AMB_HEADER mtn_amb_header = null;
+            AMS_AMB_HEADER mtn_amb_header = null;
             if ( 4294967295U != num6 )
             {
-                AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-                mtn_amb_header = AppMain.readAMBFile( AppMain.amBindGet( header, 1 ) );
+                AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+                mtn_amb_header = AmFs.readAMBFile( AmBind.Get( header, 1 ) );
             }
             uint num7 = AppMain.g_map_far_zone_2_scene_obj_data_mat_motion[num4];
-            AppMain.AMS_AMB_HEADER mat_amb_header = null;
+            AMS_AMB_HEADER mat_amb_header = null;
             if ( 4294967295U != num7 )
             {
-                AppMain.AMS_AMB_HEADER header2 = AppMain.gmMapFarDataGetAmbHeader();
-                mat_amb_header = AppMain.readAMBFile( AppMain.amBindGet( header2, 2 ) );
+                AMS_AMB_HEADER header2 = AppMain.gmMapFarDataGetAmbHeader();
+                mat_amb_header = AmFs.readAMBFile( AmBind.Get( header2, 2 ) );
             }
             AppMain.gmMapFarSceneLoadObj( ( AppMain.GMD_MAP_FAR_OBJ_INDEX )num4, obj_3d_work, num7, mat_amb_header, num6, mtn_amb_header, AppMain.g_map_far_zone_2_scene_obj_func_main[num4], AppMain.g_map_far_zone_2_scene_obj_func_out[num4], command_state );
             num4++;
@@ -1836,7 +1836,7 @@ public partial class AppMain
         int num8 = 0;
         while ( 3 > num8 )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num8);
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num8);
             obs_OBJECT_WORK.user_work = ( uint )num8;
             num8++;
         }
@@ -1853,10 +1853,10 @@ public partial class AppMain
     }
 
     // Token: 0x060011E6 RID: 4582 RVA: 0x0009D8A8 File Offset: 0x0009BAA8
-    private static AppMain.NNS_VECTOR gmMapFarZone2GetCameraPos( AppMain.NNS_VECTOR player_camera_pos )
+    private static NNS_VECTOR gmMapFarZone2GetCameraPos( NNS_VECTOR player_camera_pos )
     {
         AppMain.MP_HEADER mp_HEADER = AppMain.gmMapFarGetMapsetMpA();
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZone2GetCameraPos_result;
+        NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZone2GetCameraPos_result;
         nns_VECTOR.Assign( player_camera_pos );
         nns_VECTOR.y += ( float )( mp_HEADER.map_h * 64 );
         nns_VECTOR = AppMain.gmMapFarCameraGetPos( nns_VECTOR, AppMain.g_map_far_zone_2_scroll_x, ( uint )AppMain.g_map_far_zone_2_scroll_num_x, AppMain.g_map_far_zone_2_scroll_y, ( uint )AppMain.g_map_far_zone_2_scroll_num_y );
@@ -1872,9 +1872,9 @@ public partial class AppMain
     private static void gmMapFarZone3Build()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER mdl_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
-        AppMain.AMS_AMB_HEADER tex_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 1));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER mdl_amb = AmFs.readAMBFile(AmBind.Get(header, 0));
+        AMS_AMB_HEADER tex_amb = AmFs.readAMBFile(AmBind.Get(header, 1));
         gms_MAP_FAR_DATA.obj_3d_list = AppMain.GmGameDBuildRegBuildModel( mdl_amb, tex_amb, 0U );
     }
 
@@ -1888,8 +1888,8 @@ public partial class AppMain
     private static void gmMapFarZone3Flush()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 0));
         AppMain.GmGameDBuildRegFlushModel( gms_MAP_FAR_DATA.obj_3d_list, ams_AMB_HEADER.file_num );
         gms_MAP_FAR_DATA.obj_3d_list = null;
     }
@@ -1917,11 +1917,11 @@ public partial class AppMain
             AppMain.OBS_ACTION3D_NN_WORK obj_3d_work = gms_MAP_FAR_DATA.obj_3d_list[(int)((UIntPtr)num4)];
             uint command_state = 2U;
             uint num5 = AppMain.g_map_far_zone_3_scene_obj_data_mat_motion[num3];
-            AppMain.AMS_AMB_HEADER mat_amb_header = null;
+            AMS_AMB_HEADER mat_amb_header = null;
             if ( 4294967295U != num5 )
             {
-                AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-                mat_amb_header = AppMain.readAMBFile( AppMain.amBindGet( header, 2 ) );
+                AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+                mat_amb_header = AmFs.readAMBFile( AmBind.Get( header, 2 ) );
             }
             AppMain.gmMapFarSceneLoadObj( ( AppMain.GMD_MAP_FAR_OBJ_INDEX )num3, obj_3d_work, num5, mat_amb_header, 0U, null, AppMain.g_map_far_zone_3_scene_obj_func_main[num3], AppMain.g_map_far_zone_3_scene_obj_func_out[num3], command_state );
             num3++;
@@ -1929,7 +1929,7 @@ public partial class AppMain
         int num6 = 0;
         while ( 1 > num6 )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num6);
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num6);
             obs_OBJECT_WORK.user_work = ( uint )num6;
             num6++;
         }
@@ -1946,10 +1946,10 @@ public partial class AppMain
     }
 
     // Token: 0x060011ED RID: 4589 RVA: 0x0009DAF4 File Offset: 0x0009BCF4
-    private static AppMain.NNS_VECTOR gmMapFarZone3GetCameraPos( AppMain.NNS_VECTOR player_camera_pos )
+    private static NNS_VECTOR gmMapFarZone3GetCameraPos( NNS_VECTOR player_camera_pos )
     {
         AppMain.MP_HEADER mp_HEADER = AppMain.gmMapFarGetMapsetMpA();
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZone3GetCameraPos_result;
+        NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZone3GetCameraPos_result;
         nns_VECTOR.Assign( player_camera_pos );
         nns_VECTOR.y += ( float )( mp_HEADER.map_h * 64 );
         nns_VECTOR = AppMain.gmMapFarCameraGetPos( nns_VECTOR, AppMain.g_map_far_zone_3_scroll_x, ( uint )AppMain.g_map_far_zone_3_scroll_num_x, AppMain.g_map_far_zone_3_scroll_y, ( uint )AppMain.g_map_far_zone_3_scroll_num_y );
@@ -1997,9 +1997,9 @@ public partial class AppMain
     private static void gmMapFarZoneFinalBuild()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER mdl_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
-        AppMain.AMS_AMB_HEADER tex_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 1));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER mdl_amb = AmFs.readAMBFile(AmBind.Get(header, 0));
+        AMS_AMB_HEADER tex_amb = AmFs.readAMBFile(AmBind.Get(header, 1));
         gms_MAP_FAR_DATA.obj_3d_list = AppMain.GmGameDBuildRegBuildModel( mdl_amb, tex_amb, 0U );
     }
 
@@ -2013,8 +2013,8 @@ public partial class AppMain
     private static void gmMapFarZoneFinalFlush()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 0));
         AppMain.GmGameDBuildRegFlushModel( gms_MAP_FAR_DATA.obj_3d_list, ams_AMB_HEADER.file_num );
         gms_MAP_FAR_DATA.obj_3d_list = null;
     }
@@ -2046,7 +2046,7 @@ public partial class AppMain
         int num5 = 0;
         while ( 1 > num5 )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num5);
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.gmMapFarDataGetObjWork((AppMain.GMD_MAP_FAR_OBJ_INDEX)num5);
             obs_OBJECT_WORK.user_work = ( uint )num5;
             num5++;
         }
@@ -2063,10 +2063,10 @@ public partial class AppMain
     }
 
     // Token: 0x060011FA RID: 4602 RVA: 0x0009DD20 File Offset: 0x0009BF20
-    private static AppMain.NNS_VECTOR gmMapFarZoneFinalGetCameraPos( AppMain.NNS_VECTOR player_camera_pos )
+    private static NNS_VECTOR gmMapFarZoneFinalGetCameraPos( NNS_VECTOR player_camera_pos )
     {
         AppMain.MP_HEADER mp_HEADER = AppMain.gmMapFarGetMapsetMpA();
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZoneFinalGetCameraPos_result;
+        NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZoneFinalGetCameraPos_result;
         nns_VECTOR.Assign( player_camera_pos );
         nns_VECTOR.y += ( float )( mp_HEADER.map_h * 64 );
         nns_VECTOR = AppMain.gmMapFarCameraGetPos( nns_VECTOR, AppMain.g_map_far_zone_final_scroll_x, ( uint )AppMain.g_map_far_zone_final_scroll_num_x, AppMain.g_map_far_zone_final_scroll_y, ( uint )AppMain.g_map_far_zone_final_scroll_num_y );
@@ -2082,9 +2082,9 @@ public partial class AppMain
     private static void gmMapFarZoneSSBuild()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER mdl_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
-        AppMain.AMS_AMB_HEADER tex_amb = AppMain.readAMBFile(AppMain.amBindGet(header, 1));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER mdl_amb = AmFs.readAMBFile(AmBind.Get(header, 0));
+        AMS_AMB_HEADER tex_amb = AmFs.readAMBFile(AmBind.Get(header, 1));
         gms_MAP_FAR_DATA.obj_3d_list = AppMain.GmGameDBuildRegBuildModel( mdl_amb, tex_amb, 0U );
     }
 
@@ -2098,8 +2098,8 @@ public partial class AppMain
     private static void gmMapFarZoneSSFlush()
     {
         AppMain.GMS_MAP_FAR_DATA gms_MAP_FAR_DATA = AppMain.gmMapFarDataGetInfo();
-        AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.amBindGet(header, 0));
+        AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AmBind.Get(header, 0));
         AppMain.GmGameDBuildRegFlushModel( gms_MAP_FAR_DATA.obj_3d_list, ams_AMB_HEADER.file_num );
         gms_MAP_FAR_DATA.obj_3d_list = null;
     }
@@ -2126,11 +2126,11 @@ public partial class AppMain
             uint num4 = AppMain.g_map_far_zone_ss_scene_obj_data[num3];
             AppMain.OBS_ACTION3D_NN_WORK obj_3d_work = gms_MAP_FAR_DATA.obj_3d_list[(int)((UIntPtr)num4)];
             uint num5 = AppMain.g_map_far_zone_ss_scene_obj_data_mat_motion[num3];
-            AppMain.AMS_AMB_HEADER mat_amb_header = null;
+            AMS_AMB_HEADER mat_amb_header = null;
             if ( 4294967295U != num5 )
             {
-                AppMain.AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
-                mat_amb_header = AppMain.readAMBFile( AppMain.amBindGet( header, 2 ) );
+                AMS_AMB_HEADER header = AppMain.gmMapFarDataGetAmbHeader();
+                mat_amb_header = AmFs.readAMBFile( AmBind.Get( header, 2 ) );
             }
             AppMain.gmMapFarSceneLoadObj( ( AppMain.GMD_MAP_FAR_OBJ_INDEX )num3, obj_3d_work, num5, mat_amb_header, 0U, null, AppMain.g_map_far_zone_ss_scene_obj_func_main[num3], AppMain.g_map_far_zone_ss_scene_obj_func_out[num3], 1U );
             num3++;
@@ -2148,9 +2148,9 @@ public partial class AppMain
     }
 
     // Token: 0x06001201 RID: 4609 RVA: 0x0009DF48 File Offset: 0x0009C148
-    private static AppMain.NNS_VECTOR gmMapFarZoneSSGetCameraPos( AppMain.NNS_VECTOR player_camera_pos )
+    private static NNS_VECTOR gmMapFarZoneSSGetCameraPos( NNS_VECTOR player_camera_pos )
     {
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZoneSSGetCameraPos_result;
+        NNS_VECTOR nns_VECTOR = AppMain.gmMapFarZoneSSGetCameraPos_result;
         nns_VECTOR.Assign( player_camera_pos );
         nns_VECTOR.x = ( float )AppMain.OBD_LCD_X;
         nns_VECTOR.y = ( float )AppMain.OBD_LCD_Y;

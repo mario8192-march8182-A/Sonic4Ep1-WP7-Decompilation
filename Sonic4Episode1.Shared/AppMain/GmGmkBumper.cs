@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000034 RID: 52
-    public class GMS_GMK_BUMPER_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_BUMPER_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001D41 RID: 7489 RVA: 0x001372CD File Offset: 0x001354CD
         public GMS_GMK_BUMPER_WORK()
@@ -16,7 +16,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001D42 RID: 7490 RVA: 0x001372EC File Offset: 0x001354EC
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d.ene_com.obj_work;
         }
@@ -28,7 +28,7 @@ public partial class AppMain
         public readonly AppMain.OBS_ACTION3D_NN_WORK obj_3d_parts = new AppMain.OBS_ACTION3D_NN_WORK();
 
         // Token: 0x0400482F RID: 18479
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
     }
 
     // Token: 0x0600006F RID: 111 RVA: 0x00006068 File Offset: 0x00004268
@@ -40,17 +40,17 @@ public partial class AppMain
     // Token: 0x06000070 RID: 112 RVA: 0x0000608C File Offset: 0x0000428C
     private static void GmGmkBumperFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(852);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(852);
         AppMain.GmGameDBuildRegFlushModel( AppMain.g_gm_gmk_bumper_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.g_gm_gmk_bumper_obj_3d_list = null;
     }
 
     // Token: 0x06000071 RID: 113 RVA: 0x000060BC File Offset: 0x000042BC
-    private static AppMain.OBS_OBJECT_WORK GmGmkBumperInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkBumperInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         int num = (int)(eve_rec.id - 146);
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkBumperLoadObj(eve_rec, pos_x, pos_y, num);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         AppMain.gmGmkBumperInit( obj_work, num );
         return obj_work;
     }
@@ -75,7 +75,7 @@ public partial class AppMain
     private static AppMain.GMS_ENEMY_3D_WORK gmGmkBumperLoadObj( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, int type )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkBumperLoadObjNoModel(eve_rec, pos_x, pos_y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         int num = AppMain.g_gm_gmk_bumper_model_id[type];
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.g_gm_gmk_bumper_obj_3d_list[num], gms_ENEMY_3D_WORK.obj_3d );
         int index = AppMain.g_gm_gmk_bumper_motion_id[type];
@@ -85,7 +85,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000075 RID: 117 RVA: 0x000061EC File Offset: 0x000043EC
-    private static void gmGmkBumperInit( AppMain.OBS_OBJECT_WORK obj_work, int bumper_type )
+    private static void gmGmkBumperInit( OBS_OBJECT_WORK obj_work, int bumper_type )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.gmGmkBumperSetRect( gms_ENEMY_3D_WORK, bumper_type );
@@ -95,7 +95,7 @@ public partial class AppMain
         obj_work.disp_flag |= 4194324U;
         obj_work.pos.z = -122880;
         AppMain.GMS_GMK_BUMPER_WORK gms_GMK_BUMPER_WORK = (AppMain.GMS_GMK_BUMPER_WORK)gms_ENEMY_3D_WORK;
-        gms_GMK_BUMPER_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
+        gms_GMK_BUMPER_WORK.se_handle = GsSound.AllocSeHandle();
         obj_work.ppFunc = null;
         obj_work.ppMove = null;
         obj_work.ppOut = AppMain.gmGmkBumperDrawFunc;
@@ -121,15 +121,15 @@ public partial class AppMain
         AppMain.GMS_GMK_BUMPER_WORK gms_GMK_BUMPER_WORK = (tcb.work is AppMain.GMS_GMK_BUMPER_WORK) ? ((AppMain.GMS_GMK_BUMPER_WORK)tcb.work) : ((AppMain.GMS_GMK_BUMPER_WORK)AppMain.mtTaskGetTcbWork(tcb));
         if ( gms_GMK_BUMPER_WORK.se_handle != null )
         {
-            AppMain.GmSoundStopSE( gms_GMK_BUMPER_WORK.se_handle );
-            AppMain.GsSoundFreeSeHandle( gms_GMK_BUMPER_WORK.se_handle );
+            GsSound.StopSE( gms_GMK_BUMPER_WORK.se_handle );
+            GsSound.FreeSeHandle( gms_GMK_BUMPER_WORK.se_handle );
             gms_GMK_BUMPER_WORK.se_handle = null;
         }
         AppMain.GmEnemyDefaultExit( tcb );
     }
 
     // Token: 0x06000078 RID: 120 RVA: 0x00006370 File Offset: 0x00004570
-    private static void gmGmkBumperDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkBumperDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = obj_work.obj_3d;
         if ( obj_3d.motion != null )
@@ -152,12 +152,12 @@ public partial class AppMain
     // Token: 0x0600007A RID: 122 RVA: 0x000063E8 File Offset: 0x000045E8
     private static void gmGmkBumperDefFunc( AppMain.OBS_RECT_WORK gimmick_rect, AppMain.OBS_RECT_WORK player_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = gimmick_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = gimmick_rect.parent_obj;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)parent_obj;
-        AppMain.OBS_OBJECT_WORK parent_obj2 = player_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj2 = player_rect.parent_obj;
         if ( parent_obj2.holder == null || !( parent_obj2.holder is AppMain.GMS_ENEMY_COM_WORK ) )
         {
-            AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)parent_obj2;
+            GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)parent_obj2;
             if ( gms_PLAYER_WORK.seq_state == 40 )
             {
                 return;
@@ -397,7 +397,7 @@ public partial class AppMain
             {
                 flag_no_recover_homing = true;
             }
-            AppMain.GmPlySeqInitPinballAir( ( AppMain.GMS_PLAYER_WORK )parent_obj2, vecFx.x, vecFx.y, no_move_time, flag_no_recover_homing );
+            AppMain.GmPlySeqInitPinballAir( ( GMS_PLAYER_WORK )parent_obj2, vecFx.x, vecFx.y, no_move_time, flag_no_recover_homing );
         }
         else if ( parent_obj2.obj_type == 2 )
         {
@@ -424,7 +424,7 @@ public partial class AppMain
         {
             if ( gms_GMK_BUMPER_WORK.se_handle != null )
             {
-                AppMain.GmSoundPlaySE( "Casino6", gms_GMK_BUMPER_WORK.se_handle );
+                GmSound.PlaySE( "Casino6", gms_GMK_BUMPER_WORK.se_handle );
             }
             int num9 = AppMain.g_gmk_bumper_effect_id_flush[num4];
             if ( num9 != -1 )

@@ -414,7 +414,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000161 RID: 353
-    public class NNS_MOTION : AppMain.IClearable
+    public class NNS_MOTION : IClearable
     {
         // Token: 0x060020ED RID: 8429 RVA: 0x001402DC File Offset: 0x0013E4DC
         public NNS_MOTION()
@@ -545,16 +545,16 @@ public partial class AppMain
         public static AppMain.NNS_MOTION_BEZIER_HANDLE Read( BinaryReader reader )
         {
             AppMain.NNS_MOTION_BEZIER_HANDLE nns_MOTION_BEZIER_HANDLE = new AppMain.NNS_MOTION_BEZIER_HANDLE();
-            nns_MOTION_BEZIER_HANDLE.In.Assign( AppMain.NNS_VECTOR2D.Read( reader ) );
-            nns_MOTION_BEZIER_HANDLE.Out.Assign( AppMain.NNS_VECTOR2D.Read( reader ) );
+            nns_MOTION_BEZIER_HANDLE.In.Assign( NNS_VECTOR2D.Read( reader ) );
+            nns_MOTION_BEZIER_HANDLE.Out.Assign( NNS_VECTOR2D.Read( reader ) );
             return nns_MOTION_BEZIER_HANDLE;
         }
 
         // Token: 0x04004E57 RID: 20055
-        public readonly AppMain.NNS_VECTOR2D In = new AppMain.NNS_VECTOR2D();
+        public readonly NNS_VECTOR2D In = new NNS_VECTOR2D();
 
         // Token: 0x04004E58 RID: 20056
-        public readonly AppMain.NNS_VECTOR2D Out = new AppMain.NNS_VECTOR2D();
+        public readonly NNS_VECTOR2D Out = new NNS_VECTOR2D();
     }
 
     // Token: 0x02000163 RID: 355
@@ -783,7 +783,7 @@ public partial class AppMain
         public float Frame;
 
         // Token: 0x04004E64 RID: 20068
-        public AppMain.NNS_TEXCOORD Value;
+        public NNS_TEXCOORD Value;
     }
 
     // Token: 0x02000168 RID: 360
@@ -817,7 +817,7 @@ public partial class AppMain
         {
             AppMain.NNS_MOTION_KEY_Class5 nns_MOTION_KEY_Class = new AppMain.NNS_MOTION_KEY_Class5();
             nns_MOTION_KEY_Class.Frame = reader.ReadSingle();
-            nns_MOTION_KEY_Class.Value.Assign( AppMain.NNS_VECTOR.Read( reader ) );
+            nns_MOTION_KEY_Class.Value.Assign( NNS_VECTOR.Read( reader ) );
             return nns_MOTION_KEY_Class;
         }
 
@@ -836,7 +836,7 @@ public partial class AppMain
         public float Frame;
 
         // Token: 0x04004E66 RID: 20070
-        public readonly AppMain.NNS_VECTOR Value = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Value = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x02000169 RID: 361
@@ -869,7 +869,7 @@ public partial class AppMain
         public float Frame;
 
         // Token: 0x04004E68 RID: 20072
-        public readonly AppMain.NNS_RGB Value = new AppMain.NNS_RGB();
+        public readonly NNS_RGB Value = new NNS_RGB();
     }
 
     // Token: 0x0200016A RID: 362
@@ -902,7 +902,7 @@ public partial class AppMain
         public float Frame;
 
         // Token: 0x04004E6A RID: 20074
-        public AppMain.NNS_QUATERNION Value;
+        public NNS_QUATERNION Value;
     }
 
     // Token: 0x0200016B RID: 363
@@ -1131,7 +1131,7 @@ public partial class AppMain
         public float Frame;
 
         // Token: 0x04004E78 RID: 20088
-        public AppMain.NNS_ROTATE_A32 Value;
+        public NNS_ROTATE_A32 Value;
     }
 
     // Token: 0x02000171 RID: 369
@@ -1255,7 +1255,7 @@ public partial class AppMain
         public short Frame;
 
         // Token: 0x04004E7F RID: 20095
-        public AppMain.NNS_ROTATE_A16 Value;
+        public NNS_ROTATE_A16 Value;
     }
 
     // Token: 0x020001A5 RID: 421
@@ -1265,10 +1265,10 @@ public partial class AppMain
         public static AppMain.NNS_OBJECT nnsObj;
 
         // Token: 0x04004F67 RID: 20327
-        public static readonly AppMain.NNS_MATRIX nnsBaseMtx = new AppMain.NNS_MATRIX();
+        public static readonly NNS_MATRIX nnsBaseMtx = new NNS_MATRIX();
 
         // Token: 0x04004F68 RID: 20328
-        public static AppMain.NNS_MATRIX[] nnsMtxPal;
+        public static NNS_MATRIX[] nnsMtxPal;
 
         // Token: 0x04004F69 RID: 20329
         public static uint[] nnsNodeStatList;

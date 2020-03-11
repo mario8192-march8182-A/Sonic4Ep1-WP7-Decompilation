@@ -41,7 +41,7 @@ public partial class AppMain
     }
 
     // Token: 0x020003CB RID: 971
-    public class GMS_GMK_PULLEY_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_PULLEY_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x0600283A RID: 10298 RVA: 0x001529ED File Offset: 0x00150BED
         public GMS_GMK_PULLEY_WORK()
@@ -50,7 +50,7 @@ public partial class AppMain
         }
 
         // Token: 0x0600283B RID: 10299 RVA: 0x00152A01 File Offset: 0x00150C01
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.ene_com.obj_work;
         }
@@ -59,7 +59,7 @@ public partial class AppMain
         public readonly AppMain.GMS_ENEMY_3D_WORK gmk_work;
 
         // Token: 0x0400620C RID: 25100
-        public AppMain.GSS_SND_SE_HANDLE se_handle;
+        public GSS_SND_SE_HANDLE se_handle;
 
         // Token: 0x0400620D RID: 25101
         public AppMain.GMS_EFFECT_3DES_WORK efct_work;
@@ -74,15 +74,15 @@ public partial class AppMain
     // Token: 0x06001B02 RID: 6914 RVA: 0x000F582C File Offset: 0x000F3A2C
     private static void GmGmkPulleyFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(819);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(819);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_pulley_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06001B03 RID: 6915 RVA: 0x000F5864 File Offset: 0x000F3A64
-    private static AppMain.OBS_OBJECT_WORK GmGmkPulleyBaseInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPulleyBaseInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         pos_y -= 24576;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PULLEY_WORK(), "GMK_PULLEY_BASE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_RIDE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_PULLEY_WORK(), "GMK_PULLEY_BASE");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         ( ( AppMain.GMS_GMK_PULLEY_WORK )obs_OBJECT_WORK ).se_handle = null;
         AppMain.mtTaskChangeTcbDestructor( obs_OBJECT_WORK.tcb, AppMain.gmGmkPulleyBaseExit );
@@ -103,7 +103,7 @@ public partial class AppMain
         obs_RECT_WORK.flag |= 1024U;
         obs_OBJECT_WORK.pos.z = 0;
         obs_OBJECT_WORK.ppFunc = null;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_PULLEY_ROT");
+        OBS_OBJECT_WORK obs_OBJECT_WORK2 = AppMain.GMM_EFFECT_CREATE_WORK(() => new AppMain.GMS_EFFECT_3DNN_WORK(), obs_OBJECT_WORK, 0, "GMK_PULLEY_ROT");
         AppMain.GMS_EFFECT_3DNN_WORK gms_EFFECT_3DNN_WORK = (AppMain.GMS_EFFECT_3DNN_WORK)obs_OBJECT_WORK2;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK2, AppMain.gm_gmk_pulley_obj_3d_list[1], gms_EFFECT_3DNN_WORK.obj_3d );
         obs_OBJECT_WORK2.move_flag |= 8448U;
@@ -116,10 +116,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B04 RID: 6916 RVA: 0x000F5A98 File Offset: 0x000F3C98
-    private static AppMain.OBS_OBJECT_WORK GmGmkPulleyPoleLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPulleyPoleLInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         pos_y -= 24576;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_POLE_L");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_POLE_L");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_pulley_obj_3d_list[3], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.move_flag |= 8448U;
@@ -133,10 +133,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B05 RID: 6917 RVA: 0x000F5B78 File Offset: 0x000F3D78
-    private static AppMain.OBS_OBJECT_WORK GmGmkPulleyPoleRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPulleyPoleRInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         pos_y -= 24576;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_POLE_R");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_POLE_R");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_pulley_obj_3d_list[2], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.move_flag |= 8448U;
@@ -150,10 +150,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B06 RID: 6918 RVA: 0x000F5C58 File Offset: 0x000F3E58
-    private static AppMain.OBS_OBJECT_WORK GmGmkPulleyRopeFInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPulleyRopeFInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         pos_y -= 24576;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_ROPE_F");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_ROPE_F");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_pulley_obj_3d_list[4], gms_ENEMY_3D_WORK.obj_3d );
         obs_OBJECT_WORK.move_flag |= 8448U;
@@ -167,10 +167,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001B07 RID: 6919 RVA: 0x000F5D38 File Offset: 0x000F3F38
-    private static AppMain.OBS_OBJECT_WORK GmGmkPulleyRopeTInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkPulleyRopeTInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         pos_y -= 24576;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_ROPE_T");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_PULLEY_ROPE_T");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_pulley_obj_3d_list[5], gms_ENEMY_3D_WORK.obj_3d );
         if ( eve_rec.id == 95 )
@@ -226,8 +226,8 @@ public partial class AppMain
         AppMain.NNS_PRIM3D_PCT[] buffer = ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D.buffer;
         int offset = ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D.offset;
         ams_PARAM_DRAW_PRIMITIVE.format3D = 4;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         int num = 0;
         while ( ( long )num < ( long )( ( ulong )gms_GMK_PULLEY_MANAGER.num ) )
         {
@@ -239,8 +239,8 @@ public partial class AppMain
             vector.X = AppMain.FX_FX32_TO_F32( gms_GMK_PULLEY_REGISTER.vec.x );
             vector.Y = AppMain.FX_FX32_TO_F32( gms_GMK_PULLEY_REGISTER.vec.y );
             vector.Z = AppMain.FX_FX32_TO_F32( gms_GMK_PULLEY_REGISTER.vec.z );
-            AppMain.NNS_VECTOR[] array = AppMain.gm_gmk_pulley_pos[(int)gms_GMK_PULLEY_REGISTER.type];
-            AppMain.NNS_TEXCOORD[] array2 = AppMain.gm_gmk_pulley_tex[(int)gms_GMK_PULLEY_REGISTER.type];
+            NNS_VECTOR[] array = AppMain.gm_gmk_pulley_pos[(int)gms_GMK_PULLEY_REGISTER.type];
+            NNS_TEXCOORD[] array2 = AppMain.gm_gmk_pulley_tex[(int)gms_GMK_PULLEY_REGISTER.type];
             if ( gms_GMK_PULLEY_REGISTER.flip != 0 )
             {
                 AppMain.nnMakeRotateYMatrix( nns_MATRIX, ( int )gms_GMK_PULLEY_REGISTER.flip );
@@ -278,27 +278,27 @@ public partial class AppMain
             }
             num++;
         }
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX );
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.amMatrixPush( nns_MATRIX2 );
         AppMain.ObjDraw3DNNDrawPrimitive( ams_PARAM_DRAW_PRIMITIVE, 0U, 0, 0 );
         AppMain.amMatrixPop();
         AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX2 );
+        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
         gms_GMK_PULLEY_MANAGER.num = 0U;
     }
 
     // Token: 0x06001B09 RID: 6921 RVA: 0x000F6198 File Offset: 0x000F4398
     private static void gmGmkPulleyBaseExit( AppMain.MTS_TASK_TCB tcb )
     {
-        AppMain.OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK = (AppMain.GMS_GMK_PULLEY_WORK)p;
         if ( gms_GMK_PULLEY_WORK.se_handle != null )
         {
-            AppMain.GsSoundStopSeHandle( gms_GMK_PULLEY_WORK.se_handle );
-            AppMain.GsSoundFreeSeHandle( gms_GMK_PULLEY_WORK.se_handle );
+            GsSound.StopSeHandle( gms_GMK_PULLEY_WORK.se_handle );
+            GsSound.FreeSeHandle( gms_GMK_PULLEY_WORK.se_handle );
             gms_GMK_PULLEY_WORK.se_handle = null;
         }
         AppMain.GmEnemyDefaultExit( tcb );
@@ -308,7 +308,7 @@ public partial class AppMain
     private static void gmGmkPulleyDefFunc( AppMain.OBS_RECT_WORK mine_rect, AppMain.OBS_RECT_WORK match_rect )
     {
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         if ( gms_ENEMY_COM_WORK == null )
         {
             return;
@@ -317,7 +317,7 @@ public partial class AppMain
         {
             return;
         }
-        if ( gms_PLAYER_WORK.gmk_obj == ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK )
+        if ( gms_PLAYER_WORK.gmk_obj == ( OBS_OBJECT_WORK )gms_ENEMY_COM_WORK )
         {
             return;
         }
@@ -332,15 +332,15 @@ public partial class AppMain
             gms_ENEMY_COM_WORK.obj_work.dir.y = 0;
         }
         gms_ENEMY_COM_WORK.obj_work.user_flag = ( uint )( ( ulong )gms_ENEMY_COM_WORK.obj_work.user_flag & 18446744073709518847UL );
-        ( ( AppMain.OBS_OBJECT_WORK )gms_ENEMY_COM_WORK ).ppFunc = AppMain.gmGmkPulleyMove;
+        ( ( OBS_OBJECT_WORK )gms_ENEMY_COM_WORK ).ppFunc = AppMain.gmGmkPulleyMove;
         AppMain.ObjRectWorkSet( gms_ENEMY_COM_WORK.rect_work[2], -32, 9, 32, 24 );
     }
 
     // Token: 0x06001B0B RID: 6923 RVA: 0x000F62C4 File Offset: 0x000F44C4
-    private static void gmGmkPulleyMove( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleyMove( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( gms_PLAYER_WORK.gmk_obj != obj_work )
         {
             AppMain.gmGmkPulleySecedeSet( obj_work, 0 );
@@ -377,7 +377,7 @@ public partial class AppMain
         }
         if ( ( AppMain.g_gs_main_sys_info.game_flag & 1U ) != 0U )
         {
-            int num = AppMain.MTM_MATH_CLIP(AppMain.GmPlayerKeyGetGimmickRotZ(gms_PLAYER_WORK), -24576, 24576);
+            int num = AppMain.MTM_MATH_CLIP(GmPlayer.KeyGetGimmickRotZ(gms_PLAYER_WORK), -24576, 24576);
             num = num * 160 / 24576;
             obj_work.spd.x = obj_work.spd.x + num;
         }
@@ -407,13 +407,13 @@ public partial class AppMain
             }
             if ( ( obj_work.spd.x < -256 || obj_work.spd.x > 256 ) && ( obj_work.user_flag & 32768U ) != 0U )
             {
-                AppMain.GmPlayerActionChange( gms_PLAYER_WORK, 59 );
+                GmPlayer.ActionChange( gms_PLAYER_WORK, 59 );
                 AppMain.ObjDrawObjectActionSet3DNN( obj_work, 4, 0 );
                 obj_work.user_flag = ( uint )( ( ulong )obj_work.user_flag & 18446744073709518847UL );
             }
             else if ( gms_PLAYER_WORK.act_state != num3 )
             {
-                AppMain.GmPlayerActionChange( gms_PLAYER_WORK, num3 );
+                GmPlayer.ActionChange( gms_PLAYER_WORK, num3 );
                 gms_PLAYER_WORK.obj_work.disp_flag |= 4U;
                 AppMain.ObjDrawObjectActionSet3DNN( obj_work, id, 0 );
                 obj_work.disp_flag |= 4U;
@@ -471,7 +471,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B0C RID: 6924 RVA: 0x000F6780 File Offset: 0x000F4980
-    private static void gmGmkPulleySonicTakeOffSet( AppMain.GMS_PLAYER_WORK ply_work, int spd_x )
+    private static void gmGmkPulleySonicTakeOffSet( GMS_PLAYER_WORK ply_work, int spd_x )
     {
         ply_work.obj_work.spd.y = 0;
         ply_work.obj_work.spd.z = 0;
@@ -504,7 +504,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B0D RID: 6925 RVA: 0x000F68E8 File Offset: 0x000F4AE8
-    private static void gmGmkPulleySecedeSet( AppMain.OBS_OBJECT_WORK obj_work, int pos_x )
+    private static void gmGmkPulleySecedeSet( OBS_OBJECT_WORK obj_work, int pos_x )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         if ( pos_x != 0 )
@@ -523,14 +523,14 @@ public partial class AppMain
         AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK = (AppMain.GMS_GMK_PULLEY_WORK)obj_work;
         if ( gms_GMK_PULLEY_WORK.se_handle != null )
         {
-            AppMain.GsSoundStopSeHandle( gms_GMK_PULLEY_WORK.se_handle );
-            AppMain.GsSoundFreeSeHandle( gms_GMK_PULLEY_WORK.se_handle );
+            GsSound.StopSeHandle( gms_GMK_PULLEY_WORK.se_handle );
+            GsSound.FreeSeHandle( gms_GMK_PULLEY_WORK.se_handle );
             gms_GMK_PULLEY_WORK.se_handle = null;
         }
     }
 
     // Token: 0x06001B0E RID: 6926 RVA: 0x000F69B8 File Offset: 0x000F4BB8
-    private static void gmGmkPulleySecede( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleySecede( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.user_timer != 0 )
         {
@@ -549,16 +549,16 @@ public partial class AppMain
     }
 
     // Token: 0x06001B0F RID: 6927 RVA: 0x000F6A1C File Offset: 0x000F4C1C
-    private static void gmGmkPulleyRotMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleyRotMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
+        OBS_OBJECT_WORK parent_obj = obj_work.parent_obj;
         obj_work.pos.Assign( parent_obj.pos );
         ushort num = (ushort)(parent_obj.spd.x >> 1);
         obj_work.dir.z = ( ushort )( obj_work.dir.z + num );
     }
 
     // Token: 0x06001B10 RID: 6928 RVA: 0x000F6A64 File Offset: 0x000F4C64
-    private static void gmGmkPulleySparkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleySparkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK = (AppMain.GMS_GMK_PULLEY_WORK)obj_work;
@@ -587,8 +587,8 @@ public partial class AppMain
             AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK2 = (AppMain.GMS_GMK_PULLEY_WORK)obj_work;
             if ( gms_GMK_PULLEY_WORK2.se_handle == null || gms_GMK_PULLEY_WORK2.se_handle.au_player.sound[0] == null )
             {
-                gms_GMK_PULLEY_WORK2.se_handle = AppMain.GsSoundAllocSeHandle();
-                AppMain.GmSoundPlaySE( "Pulley", gms_GMK_PULLEY_WORK2.se_handle );
+                gms_GMK_PULLEY_WORK2.se_handle = GsSound.AllocSeHandle();
+                GmSound.PlaySE( "Pulley", gms_GMK_PULLEY_WORK2.se_handle );
                 return;
             }
             gms_GMK_PULLEY_WORK2.se_handle.snd_ctrl_param.volume = 1f;
@@ -596,12 +596,12 @@ public partial class AppMain
     }
 
     // Token: 0x06001B11 RID: 6929 RVA: 0x000F6B70 File Offset: 0x000F4D70
-    private static void gmGmkPulleySparkKill( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleySparkKill( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK = (AppMain.GMS_GMK_PULLEY_WORK)obj_work;
         if ( gms_GMK_PULLEY_WORK.efct_work != null )
         {
-            AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )gms_GMK_PULLEY_WORK.efct_work );
+            AppMain.ObjDrawKillAction3DES( ( OBS_OBJECT_WORK )gms_GMK_PULLEY_WORK.efct_work );
             gms_GMK_PULLEY_WORK.efct_work = null;
             AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK2 = (AppMain.GMS_GMK_PULLEY_WORK)obj_work;
             gms_GMK_PULLEY_WORK2.se_handle.snd_ctrl_param.volume = 0f;
@@ -609,37 +609,37 @@ public partial class AppMain
     }
 
     // Token: 0x06001B12 RID: 6930 RVA: 0x000F6BBF File Offset: 0x000F4DBF
-    private static void gmGmkPulleyDrawSetRopeN( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleyDrawSetRopeN( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkPulleyDrawSetObject( obj_work, 0 );
     }
 
     // Token: 0x06001B13 RID: 6931 RVA: 0x000F6BC8 File Offset: 0x000F4DC8
-    private static void gmGmkPulleyDrawSetRopeTL( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleyDrawSetRopeTL( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkPulleyDrawSetObject( obj_work, 1 );
     }
 
     // Token: 0x06001B14 RID: 6932 RVA: 0x000F6BD1 File Offset: 0x000F4DD1
-    private static void gmGmkPulleyDrawSetRopeTR( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleyDrawSetRopeTR( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkPulleyDrawSetObject( obj_work, 2 );
     }
 
     // Token: 0x06001B15 RID: 6933 RVA: 0x000F6BDA File Offset: 0x000F4DDA
-    private static void gmGmkPulleyDrawSetPoleL( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleyDrawSetPoleL( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkPulleyDrawSetObject( obj_work, 3 );
     }
 
     // Token: 0x06001B16 RID: 6934 RVA: 0x000F6BE3 File Offset: 0x000F4DE3
-    private static void gmGmkPulleyDrawSetPoleR( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkPulleyDrawSetPoleR( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkPulleyDrawSetObject( obj_work, 4 );
     }
 
     // Token: 0x06001B17 RID: 6935 RVA: 0x000F6BEC File Offset: 0x000F4DEC
-    private static void gmGmkPulleyDrawSetObject( AppMain.OBS_OBJECT_WORK obj_work, int type )
+    private static void gmGmkPulleyDrawSetObject( OBS_OBJECT_WORK obj_work, int type )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {

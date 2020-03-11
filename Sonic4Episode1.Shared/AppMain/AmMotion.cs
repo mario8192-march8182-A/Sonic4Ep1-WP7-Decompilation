@@ -165,7 +165,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001A24 RID: 6692 RVA: 0x000EA598 File Offset: 0x000E8798
-    public static void amMotionRegistFile( AppMain.AMS_MOTION motion, int file_id, AppMain.AMS_AMB_HEADER amb )
+    public static void amMotionRegistFile( AppMain.AMS_MOTION motion, int file_id, AMS_AMB_HEADER amb )
     {
         int num = 0;
         AppMain.AMS_MOTION_FILE ams_MOTION_FILE = motion.mtnfile[0];
@@ -227,7 +227,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001A26 RID: 6694 RVA: 0x000EA710 File Offset: 0x000E8910
-    public static int amMotionSetup( AppMain.ArrayPointer<AppMain.NNS_MOTION> motion, AppMain.AMS_AMB_HEADER amb )
+    public static int amMotionSetup( AppMain.ArrayPointer<AppMain.NNS_MOTION> motion, AMS_AMB_HEADER amb )
     {
         if ( amb.files.Length == 0 )
         {
@@ -248,7 +248,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001A27 RID: 6695 RVA: 0x000EA778 File Offset: 0x000E8978
-    public static void amMotionSetup( out AppMain.NNS_MOTION motion, AppMain.AmbChunk buf )
+    public static void amMotionSetup( out AppMain.NNS_MOTION motion, AmbChunk buf )
     {
         motion = null;
         using ( MemoryStream memoryStream = new MemoryStream( buf.array, buf.offset, buf.array.Length - buf.offset ) )
@@ -299,7 +299,7 @@ public partial class AppMain
     // Token: 0x06001A28 RID: 6696 RVA: 0x000EA8A8 File Offset: 0x000E8AA8
     public static int amMotionSetup( AppMain.ArrayPointer<AppMain.NNS_MOTION> motion, object _buf )
     {
-        AppMain.AmbChunk ambChunk = (AppMain.AmbChunk)_buf;
+        AmbChunk ambChunk = (AmbChunk)_buf;
         int result;
         using ( MemoryStream memoryStream = new MemoryStream( ambChunk.array, ambChunk.offset, ambChunk.array.Length - ambChunk.offset ) )
         {
@@ -460,7 +460,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001A33 RID: 6707 RVA: 0x000EACA4 File Offset: 0x000E8EA4
-    public static void amMotionMaterialRegistFile( AppMain.AMS_MOTION motion, int file_id, AppMain.AMS_AMB_HEADER amb )
+    public static void amMotionMaterialRegistFile( AppMain.AMS_MOTION motion, int file_id, AMS_AMB_HEADER amb )
     {
         int file_num = amb.file_num;
         for ( int i = 0; i < file_num; i++ )
@@ -526,7 +526,7 @@ public partial class AppMain
     {
         int node_num = motion.node_num;
         AppMain.AMS_PARAM_DRAW_MOTION_TRS ams_PARAM_DRAW_MOTION_TRS = AppMain.amDrawAlloc_AMS_PARAM_DRAW_MOTION_TRS();
-        AppMain.NNS_MATRIX nns_MATRIX = ams_PARAM_DRAW_MOTION_TRS.mtx = AppMain.amDrawAlloc_NNS_MATRIX();
+        NNS_MATRIX nns_MATRIX = ams_PARAM_DRAW_MOTION_TRS.mtx = AppMain.amDrawAlloc_NNS_MATRIX();
         AppMain.nnCopyMatrix( nns_MATRIX, AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_MOTION_TRS._object = motion._object;
         ams_PARAM_DRAW_MOTION_TRS.mtx = nns_MATRIX;
@@ -568,7 +568,7 @@ public partial class AppMain
         }
         int node_num = motion.node_num;
         AppMain.AMS_PARAM_DRAW_MOTION_TRS ams_PARAM_DRAW_MOTION_TRS = new AppMain.AMS_PARAM_DRAW_MOTION_TRS();
-        AppMain.NNS_MATRIX nns_MATRIX = ams_PARAM_DRAW_MOTION_TRS.mtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = ams_PARAM_DRAW_MOTION_TRS.mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnCopyMatrix( nns_MATRIX, AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_MOTION_TRS.mtx = nns_MATRIX;
         ams_PARAM_DRAW_MOTION_TRS.sub_obj_type = 0U;

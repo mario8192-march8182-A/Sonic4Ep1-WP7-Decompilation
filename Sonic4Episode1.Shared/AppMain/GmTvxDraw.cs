@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x02000142 RID: 322
-    private class GMS_TVX_DRAW_STACK : AppMain.IClearable
+    private class GMS_TVX_DRAW_STACK : IClearable
     {
         // Token: 0x06002092 RID: 8338 RVA: 0x0013F0EC File Offset: 0x0013D2EC
         public void Clear()
@@ -40,7 +40,7 @@ public partial class AppMain
         public int rotate_z;
 
         // Token: 0x04004D35 RID: 19765
-        public AppMain.NNS_TEXCOORD coord;
+        public NNS_TEXCOORD coord;
 
         // Token: 0x04004D36 RID: 19766
         public uint color;
@@ -56,14 +56,14 @@ public partial class AppMain
         public int v_wrap;
 
         // Token: 0x04004D39 RID: 19769
-        public AppMain.NNS_TEXCOORD coord;
+        public NNS_TEXCOORD coord;
 
         // Token: 0x04004D3A RID: 19770
         public uint color;
     }
 
     // Token: 0x02000144 RID: 324
-    private class GMS_TVX_DRAW_WORK : AppMain.IClearable
+    private class GMS_TVX_DRAW_WORK : IClearable
     {
         // Token: 0x06002094 RID: 8340 RVA: 0x0013F148 File Offset: 0x0013D348
         public void Clear()

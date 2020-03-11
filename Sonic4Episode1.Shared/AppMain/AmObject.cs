@@ -14,7 +14,7 @@ public partial class AppMain
     {
         _object = null;
         texfilelist = null;
-        AppMain.AmbChunk ambChunk = (AppMain.AmbChunk)_buf;
+        AmbChunk ambChunk = (AmbChunk)_buf;
         using (MemoryStream memoryStream = new MemoryStream(ambChunk.array, ambChunk.offset, ambChunk.array.Length - ambChunk.offset))
         {
             BinaryReader binaryReader = new BinaryReader(memoryStream);
@@ -67,7 +67,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001147 RID: 4423 RVA: 0x00097484 File Offset: 0x00095684
-    public static int amObjectLoad(out AppMain.NNS_OBJECT _object, out AppMain.NNS_TEXLIST texlist, out object texlistbuf, object buf, uint drawflag, string filepath, AppMain.AMS_AMB_HEADER amb)
+    public static int amObjectLoad(out AppMain.NNS_OBJECT _object, out AppMain.NNS_TEXLIST texlist, out object texlistbuf, object buf, uint drawflag, string filepath, AMS_AMB_HEADER amb)
     {
         AppMain.NNS_OBJECT obj_file;
         AppMain.NNS_TEXFILELIST nns_TEXFILELIST;
@@ -84,7 +84,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001148 RID: 4424 RVA: 0x000974D0 File Offset: 0x000956D0
-    private static int amObjectLoad(out AppMain.NNS_OBJECT _object, AppMain.NNS_TEXFILELIST txbfilelist, out AppMain.NNS_TEXLIST texlist, out object texlistbuf, object buf, uint drawflag, string filepath, AppMain.AMS_AMB_HEADER amb)
+    private static int amObjectLoad(out AppMain.NNS_OBJECT _object, AppMain.NNS_TEXFILELIST txbfilelist, out AppMain.NNS_TEXLIST texlist, out object texlistbuf, object buf, uint drawflag, string filepath, AMS_AMB_HEADER amb)
     {
         AppMain.NNS_OBJECT obj_file;
         AppMain.NNS_TEXFILELIST nns_TEXFILELIST;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0200026A RID: 618
-    public class GMS_ENE_MOGU_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_MOGU_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060023FB RID: 9211 RVA: 0x00149F79 File Offset: 0x00148179
         public GMS_ENE_MOGU_WORK()
@@ -16,13 +16,13 @@ public partial class AppMain
         }
 
         // Token: 0x060023FC RID: 9212 RVA: 0x00149F8D File Offset: 0x0014818D
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
 
         // Token: 0x060023FD RID: 9213 RVA: 0x00149F9F File Offset: 0x0014819F
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_ENE_MOGU_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_ENE_MOGU_WORK work )
         {
             return work.ene_3d_work.ene_com.obj_work;
         }
@@ -49,20 +49,20 @@ public partial class AppMain
     // Token: 0x06001033 RID: 4147 RVA: 0x0008CEE6 File Offset: 0x0008B0E6
     public static void GmEneMoguBuild()
     {
-        AppMain.gm_ene_mogu_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 674 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 675 ) ), 0U );
+        AppMain.gm_ene_mogu_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 674 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 675 ) ), 0U );
     }
 
     // Token: 0x06001034 RID: 4148 RVA: 0x0008CF14 File Offset: 0x0008B114
     public static void GmEneMoguFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(674));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(674));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_mogu_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06001035 RID: 4149 RVA: 0x0008CF48 File Offset: 0x0008B148
-    public static AppMain.OBS_OBJECT_WORK GmEneMoguInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmEneMoguInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_MOGU_WORK(), "ENE_MOGU");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_MOGU_WORK(), "ENE_MOGU");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_MOGU_WORK gms_ENE_MOGU_WORK = (AppMain.GMS_ENE_MOGU_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_mogu_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -99,7 +99,7 @@ public partial class AppMain
     // Token: 0x06001036 RID: 4150 RVA: 0x0008D120 File Offset: 0x0008B320
     public static int gmEneMoguCheckWater( AppMain.GMS_ENE_MOGU_WORK mogu_work, short ofst )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)mogu_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)mogu_work;
         if ( !AppMain.GmMainIsWaterLevel() )
         {
             return 0;
@@ -109,7 +109,7 @@ public partial class AppMain
             if ( ( mogu_work.flag & 1U ) == 0U && ( mogu_work.flag & 2U ) != 0U )
             {
                 AppMain.GmEfctCmnEsCreate( obs_OBJECT_WORK, 76 );
-                AppMain.GmSoundPlaySE( "Spray" );
+                GmSound.PlaySE( "Spray" );
             }
             mogu_work.flag |= 1U;
             return 1;
@@ -119,7 +119,7 @@ public partial class AppMain
             if ( ( mogu_work.flag & 2U ) != 0U )
             {
                 AppMain.GmEfctCmnEsCreate( obs_OBJECT_WORK, 76 );
-                AppMain.GmSoundPlaySE( "Spray" );
+                GmSound.PlaySE( "Spray" );
             }
             mogu_work.flag &= 4294967294U;
             return 1;
@@ -128,7 +128,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001037 RID: 4151 RVA: 0x0008D1CC File Offset: 0x0008B3CC
-    public static void gmEneMoguWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguWaitInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjDrawObjectActionSet( obj_work, 4 );
         obj_work.disp_flag |= 4U;
@@ -137,10 +137,10 @@ public partial class AppMain
     }
 
     // Token: 0x06001038 RID: 4152 RVA: 0x0008D20C File Offset: 0x0008B40C
-    public static void gmEneMoguWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguWaitMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_MOGU_WORK mogu_work = (AppMain.GMS_ENE_MOGU_WORK)obj_work;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         int num = gms_PLAYER_WORK.obj_work.pos.x - obj_work.pos.x;
         int num2 = gms_PLAYER_WORK.obj_work.pos.y - obj_work.pos.y;
         int num3 = AppMain.FX_Mul(num, num) + AppMain.FX_Mul(num2, num2);
@@ -165,7 +165,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001039 RID: 4153 RVA: 0x0008D2F8 File Offset: 0x0008B4F8
-    public static void gmEneMoguJumpInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguJumpInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_MOGU_WORK gms_ENE_MOGU_WORK = (AppMain.GMS_ENE_MOGU_WORK)obj_work;
         AppMain.ObjDrawObjectActionSet( obj_work, 4 );
@@ -190,7 +190,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600103A RID: 4154 RVA: 0x0008D3E0 File Offset: 0x0008B5E0
-    public static void gmEneMoguJumpMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguJumpMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_MOGU_WORK gms_ENE_MOGU_WORK = (AppMain.GMS_ENE_MOGU_WORK)obj_work;
         if ( ( obj_work.disp_flag & 1U ) != 0U )
@@ -234,7 +234,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600103B RID: 4155 RVA: 0x0008D4F0 File Offset: 0x0008B6F0
-    public static void gmEneMoguJumpEnd( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguJumpEnd( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_MOGU_WORK mogu_work = (AppMain.GMS_ENE_MOGU_WORK)obj_work;
         AppMain.gmEneMoguCheckWater( mogu_work, 0 );
@@ -245,7 +245,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600103C RID: 4156 RVA: 0x0008D528 File Offset: 0x0008B728
-    public static void gmEneMoguWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 6, 7 );
         obj_work.disp_flag |= 4U;
@@ -260,9 +260,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600103D RID: 4157 RVA: 0x0008D5A0 File Offset: 0x0008B7A0
-    public static void gmEneMoguWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguWalkMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         AppMain.GMS_ENE_MOGU_WORK gms_ENE_MOGU_WORK = (AppMain.GMS_ENE_MOGU_WORK)obj_work;
         AppMain.gmEneMoguCheckWater( gms_ENE_MOGU_WORK, 0 );
         int num = gms_PLAYER_WORK.obj_work.pos.x - obj_work.pos.x;
@@ -303,7 +303,7 @@ public partial class AppMain
             }
             return;
         }
-        if ( AppMain.AkMathRandFx() > AppMain.FX_F32_TO_FX32( 0.5f ) )
+        if ( AkMath.RandFx() > AppMain.FX_F32_TO_FX32( 0.5f ) )
         {
             AppMain.gmEneMoguFlipInit( obj_work );
         }
@@ -311,7 +311,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600103E RID: 4158 RVA: 0x0008D6EA File Offset: 0x0008B8EA
-    public static void gmEneMoguFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguFwMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountDown( obj_work.user_timer );
         if ( obj_work.user_timer <= 0 )
@@ -321,14 +321,14 @@ public partial class AppMain
     }
 
     // Token: 0x0600103F RID: 4159 RVA: 0x0008D70C File Offset: 0x0008B90C
-    public static void gmEneMoguFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguFlipInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSet3DNNBlendDependHFlip( obj_work, 2, 3 );
         obj_work.ppFunc = AppMain.gmEneMoguFlipMain;
     }
 
     // Token: 0x06001040 RID: 4160 RVA: 0x0008D72F File Offset: 0x0008B92F
-    public static void gmEneMoguFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneMoguFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneMoguSetWalkSpeed( ( AppMain.GMS_ENE_MOGU_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )
@@ -342,7 +342,7 @@ public partial class AppMain
     public static int gmEneMoguSetWalkSpeed( AppMain.GMS_ENE_MOGU_WORK mogu_work )
     {
         int result = 0;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)mogu_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)mogu_work;
         if ( ( obs_OBJECT_WORK.disp_flag & 1U ) != 0U )
         {
             if ( obs_OBJECT_WORK.obj_3d.act_id[0] == 3 && obs_OBJECT_WORK.obj_3d.frame[0] >= 20f )

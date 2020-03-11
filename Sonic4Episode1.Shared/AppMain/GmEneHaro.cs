@@ -8,7 +8,7 @@ public partial class AppMain
 {
 
     // Token: 0x02000076 RID: 118
-    public class GMS_ENE_HARO_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_HARO_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06001E30 RID: 7728 RVA: 0x00139713 File Offset: 0x00137913
         public GMS_ENE_HARO_WORK()
@@ -17,7 +17,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001E31 RID: 7729 RVA: 0x0013974A File Offset: 0x0013794A
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
@@ -62,21 +62,21 @@ public partial class AppMain
     // Token: 0x0600028B RID: 651 RVA: 0x00015283 File Offset: 0x00013483
     public static void GmEneHaroBuild()
     {
-        AppMain.gm_ene_haro_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 687 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 688 ) ), 0U );
+        AppMain.gm_ene_haro_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 687 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 688 ) ), 0U );
     }
 
     // Token: 0x0600028C RID: 652 RVA: 0x000152B0 File Offset: 0x000134B0
     public static void GmEneHaroFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(687));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(687));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_haro_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x0600028D RID: 653 RVA: 0x000152E4 File Offset: 0x000134E4
-    public static AppMain.OBS_OBJECT_WORK GmEneHaroInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmEneHaroInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_HARO_WORK(), "ENE_HARO");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_HARO_WORK(), "ENE_HARO");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_haro_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -121,16 +121,16 @@ public partial class AppMain
     // Token: 0x0600028E RID: 654 RVA: 0x00015560 File Offset: 0x00013760
     public static void gmEneHaroExit( AppMain.MTS_TASK_TCB tcb )
     {
-        AppMain.OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)p;
         AppMain.GmEneUtilExitNodeMatrix( gms_ENE_HARO_WORK.node_work );
         AppMain.GmEnemyDefaultExit( tcb );
     }
 
     // Token: 0x0600028F RID: 655 RVA: 0x0001558C File Offset: 0x0001378C
-    public static int gmEneHaroGetLength2N( AppMain.OBS_OBJECT_WORK obj_work )
+    public static int gmEneHaroGetLength2N( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
         {
             return int.MaxValue;
@@ -145,7 +145,7 @@ public partial class AppMain
     // Token: 0x06000290 RID: 656 RVA: 0x00015610 File Offset: 0x00013810
     public static int gmEneHaroIsPlayerLeft( AppMain.GMS_ENE_HARO_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( AppMain.g_gm_main_system.ply_work[( int )( ( UIntPtr )0 )].player_flag & 1024U ) != 0U )
         {
             return 1;
@@ -164,7 +164,7 @@ public partial class AppMain
     // Token: 0x06000291 RID: 657 RVA: 0x000156E8 File Offset: 0x000138E8
     public static int gmEneHaroIsPlayerCenter( AppMain.GMS_ENE_HARO_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( AppMain.g_gm_main_system.ply_work[( int )( ( UIntPtr )0 )].player_flag & 1024U ) != 0U )
         {
             return 1;
@@ -183,7 +183,7 @@ public partial class AppMain
     // Token: 0x06000292 RID: 658 RVA: 0x000157D4 File Offset: 0x000139D4
     public static int gmEneHaroIsPlayerFront( AppMain.GMS_ENE_HARO_WORK obj_work )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( AppMain.g_gm_main_system.ply_work[( int )( ( UIntPtr )0 )].player_flag & 1024U ) != 0U )
         {
             return 1;
@@ -200,7 +200,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000293 RID: 659 RVA: 0x000158AC File Offset: 0x00013AAC
-    public static void gmEneHaroWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHaroWaitInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)obj_work;
         AppMain.ObjDrawObjectActionSet( obj_work, 0 );
@@ -219,11 +219,11 @@ public partial class AppMain
     }
 
     // Token: 0x06000294 RID: 660 RVA: 0x00015998 File Offset: 0x00013B98
-    public static void gmEneHaroWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHaroWaitMain( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.gmEneHaroGetLength2N( obj_work ) <= 10000 )
         {
-            AppMain.GmSoundPlaySE( "Halogen" );
+            GmSound.PlaySE( "Halogen" );
             obj_work.obj_3d.blend_spd = 0.05f;
             AppMain.ObjDrawObjectActionSet3DNNBlend( obj_work, 1 );
             obj_work.disp_flag |= 4U;
@@ -232,7 +232,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000295 RID: 661 RVA: 0x000159F4 File Offset: 0x00013BF4
-    public static void gmEneHaroWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHaroWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)obj_work;
         obj_work.disp_flag |= 4U;
@@ -258,7 +258,7 @@ public partial class AppMain
         }
         if ( AppMain.gmEneHaroGetLength2N( obj_work ) <= 10000 )
         {
-            AppMain.GmSoundPlaySE( "Halogen" );
+            GmSound.PlaySE( "Halogen" );
             AppMain.ObjDrawObjectActionSet( obj_work, 1 );
             obj_work.disp_flag |= 4U;
             return;
@@ -268,36 +268,36 @@ public partial class AppMain
     }
 
     // Token: 0x06000296 RID: 662 RVA: 0x00015B58 File Offset: 0x00013D58
-    public static void gmEneHaroWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHaroWalkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)obj_work;
         if ( AppMain.gmEneHaroIsPlayerCenter( gms_ENE_HARO_WORK ) == 0 )
         {
             if ( AppMain.gmEneHaroIsPlayerLeft( gms_ENE_HARO_WORK ) != 0 )
             {
-                gms_ENE_HARO_WORK.angle_add -= AppMain.AKM_DEGtoA32( 0.03f );
-                if ( gms_ENE_HARO_WORK.angle_add < -AppMain.AKM_DEGtoA32( 0.35f ) )
+                gms_ENE_HARO_WORK.angle_add -= AkMath.DEGtoA32( 0.03f );
+                if ( gms_ENE_HARO_WORK.angle_add < -AkMath.DEGtoA32( 0.35f ) )
                 {
-                    gms_ENE_HARO_WORK.angle_add = -AppMain.AKM_DEGtoA32( 0.35f );
+                    gms_ENE_HARO_WORK.angle_add = -AkMath.DEGtoA32( 0.35f );
                 }
                 gms_ENE_HARO_WORK.angle += gms_ENE_HARO_WORK.angle_add;
             }
             else
             {
-                gms_ENE_HARO_WORK.angle_add += AppMain.AKM_DEGtoA32( 0.03f );
-                if ( gms_ENE_HARO_WORK.angle_add > AppMain.AKM_DEGtoA32( 0.35f ) )
+                gms_ENE_HARO_WORK.angle_add += AkMath.DEGtoA32( 0.03f );
+                if ( gms_ENE_HARO_WORK.angle_add > AkMath.DEGtoA32( 0.35f ) )
                 {
-                    gms_ENE_HARO_WORK.angle_add = AppMain.AKM_DEGtoA32( 0.35f );
+                    gms_ENE_HARO_WORK.angle_add = AkMath.DEGtoA32( 0.35f );
                 }
                 gms_ENE_HARO_WORK.angle += gms_ENE_HARO_WORK.angle_add;
             }
-            if ( gms_ENE_HARO_WORK.angle < -AppMain.AKM_DEGtoA32( 1.3f ) )
+            if ( gms_ENE_HARO_WORK.angle < -AkMath.DEGtoA32( 1.3f ) )
             {
-                gms_ENE_HARO_WORK.angle = -AppMain.AKM_DEGtoA32( 1.3f );
+                gms_ENE_HARO_WORK.angle = -AkMath.DEGtoA32( 1.3f );
             }
-            if ( gms_ENE_HARO_WORK.angle > AppMain.AKM_DEGtoA32( 1.3f ) )
+            if ( gms_ENE_HARO_WORK.angle > AkMath.DEGtoA32( 1.3f ) )
             {
-                gms_ENE_HARO_WORK.angle = AppMain.AKM_DEGtoA32( 1.3f );
+                gms_ENE_HARO_WORK.angle = AkMath.DEGtoA32( 1.3f );
             }
         }
         int v = AppMain.FX_Cos(gms_ENE_HARO_WORK.angle);
@@ -326,25 +326,25 @@ public partial class AppMain
         if ( gms_ENE_HARO_WORK.vec.x < 0 )
         {
             obj_work.disp_flag &= 4294967294U;
-            gms_ENE_HARO_WORK.targetAngle = AppMain.AKM_DEGtoA32( 250 );
+            gms_ENE_HARO_WORK.targetAngle = AkMath.DEGtoA32( 250 );
         }
         else
         {
             obj_work.disp_flag &= 4294967294U;
-            gms_ENE_HARO_WORK.targetAngle = AppMain.AKM_DEGtoA32( 330 );
+            gms_ENE_HARO_WORK.targetAngle = AkMath.DEGtoA32( 330 );
         }
         if ( ( int )obj_work.dir.y > gms_ENE_HARO_WORK.targetAngle )
         {
-            obj_work.dir.y = ( ushort )( obj_work.dir.y - ( ushort )AppMain.AKM_DEGtoA32( 5 ) );
+            obj_work.dir.y = ( ushort )( obj_work.dir.y - ( ushort )AkMath.DEGtoA32( 5 ) );
         }
         if ( ( int )obj_work.dir.y < gms_ENE_HARO_WORK.targetAngle )
         {
-            obj_work.dir.y = ( ushort )( obj_work.dir.y + ( ushort )AppMain.AKM_DEGtoA32( 5 ) );
+            obj_work.dir.y = ( ushort )( obj_work.dir.y + ( ushort )AkMath.DEGtoA32( 5 ) );
         }
     }
 
     // Token: 0x06000297 RID: 663 RVA: 0x00015ED1 File Offset: 0x000140D1
-    public static void gmEneHaroFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHaroFwMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountDown( obj_work.user_timer );
         if ( obj_work.user_timer <= 0 )
@@ -354,13 +354,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000298 RID: 664 RVA: 0x00015EF3 File Offset: 0x000140F3
-    public static void gmEneHaroFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHaroFlipInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.ppFunc = AppMain.gmEneHaroFlipMain;
     }
 
     // Token: 0x06000299 RID: 665 RVA: 0x00015F0E File Offset: 0x0001410E
-    public static void gmEneHaroFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneHaroFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneHaroSetWalkSpeed( ( AppMain.GMS_ENE_HARO_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )
@@ -377,12 +377,12 @@ public partial class AppMain
     }
 
     // Token: 0x0600029B RID: 667 RVA: 0x00015F4C File Offset: 0x0001414C
-    public static void gmEneEffectMainFuncHarogen( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneEffectMainFuncHarogen( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.parent_obj != null )
         {
             AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)obj_work.parent_obj;
-            AppMain.NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_HARO_WORK.node_work, 2);
+            NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_HARO_WORK.node_work, 2);
             if ( nns_MATRIX != null )
             {
                 float num = nns_MATRIX.M03 - AppMain.FX_FX32_TO_F32(gms_ENE_HARO_WORK.ene_3d_work.ene_com.obj_work.pos.x);

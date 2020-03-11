@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x0200019D RID: 413
-    public class GMS_ENE_T_STAR_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_T_STAR_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x060021EF RID: 8687 RVA: 0x00141FB9 File Offset: 0x001401B9
         public GMS_ENE_T_STAR_WORK()
@@ -16,7 +16,7 @@ public partial class AppMain
         }
 
         // Token: 0x060021F0 RID: 8688 RVA: 0x00141FD8 File Offset: 0x001401D8
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
@@ -46,20 +46,20 @@ public partial class AppMain
     // Token: 0x06000785 RID: 1925 RVA: 0x00042861 File Offset: 0x00040A61
     public static void GmEneTStarBuild()
     {
-        AppMain.gm_ene_t_star_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 680 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 681 ) ), 0U );
+        AppMain.gm_ene_t_star_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 680 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 681 ) ), 0U );
     }
 
     // Token: 0x06000786 RID: 1926 RVA: 0x0004288C File Offset: 0x00040A8C
     public static void GmEneTStarFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(680));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(680));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_t_star_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x06000787 RID: 1927 RVA: 0x000428C0 File Offset: 0x00040AC0
-    public static AppMain.OBS_OBJECT_WORK GmEneTStarInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmEneTStarInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_T_STAR_WORK(), "ENE_T_STAR");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_T_STAR_WORK(), "ENE_T_STAR");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_t_star_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -122,9 +122,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000788 RID: 1928 RVA: 0x00042BE0 File Offset: 0x00040DE0
-    public static AppMain.OBS_OBJECT_WORK GmEneTStarNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    public static OBS_OBJECT_WORK GmEneTStarNeedleInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_T_STAR_WORK(), "ENE_T_STAR");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_T_STAR_WORK(), "ENE_T_STAR");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_t_star_obj_3d_list[1], gms_ENEMY_3D_WORK.obj_3d );
         AppMain.ObjObjectAction3dNNMotionLoad( obs_OBJECT_WORK, 0, true, AppMain.ObjDataGet( 682 ), null, 0, null );
@@ -154,16 +154,16 @@ public partial class AppMain
     // Token: 0x06000789 RID: 1929 RVA: 0x00042DC4 File Offset: 0x00040FC4
     public static void gmEneTStarExit( AppMain.MTS_TASK_TCB tcb )
     {
-        AppMain.OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
+        OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)p;
         AppMain.GmEneUtilExitNodeMatrix( gms_ENE_T_STAR_WORK.node_work );
         AppMain.GmEnemyDefaultExit( tcb );
     }
 
     // Token: 0x0600078A RID: 1930 RVA: 0x00042DF0 File Offset: 0x00040FF0
-    public static int gmEneTStarGetLength2N( AppMain.OBS_OBJECT_WORK obj_work )
+    public static int gmEneTStarGetLength2N( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
         {
             return int.MaxValue;
@@ -176,10 +176,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600078B RID: 1931 RVA: 0x00042E74 File Offset: 0x00041074
-    public static AppMain.VecFx32 gmEneTStarGetPlayerVectorFx( AppMain.OBS_OBJECT_WORK obj_work )
+    public static AppMain.VecFx32 gmEneTStarGetPlayerVectorFx( OBS_OBJECT_WORK obj_work )
     {
         AppMain.VecFx32 result = default(AppMain.VecFx32);
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         int num = gms_PLAYER_WORK.obj_work.pos.x - obj_work.pos.x;
         int num2 = gms_PLAYER_WORK.obj_work.pos.y - obj_work.pos.y;
         if ( ( gms_PLAYER_WORK.player_flag & 1024U ) != 0U )
@@ -205,7 +205,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600078C RID: 1932 RVA: 0x00042F50 File Offset: 0x00041150
-    public static void gmEneTStarWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarWaitInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 4U;
         obj_work.ppFunc = AppMain.gmEneTStarWaitMain;
@@ -215,7 +215,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600078D RID: 1933 RVA: 0x00042FAB File Offset: 0x000411AB
-    public static void gmEneTStarWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarWaitMain( OBS_OBJECT_WORK obj_work )
     {
         if ( AppMain.gmEneTStarGetLength2N( obj_work ) < 16384 )
         {
@@ -224,7 +224,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600078E RID: 1934 RVA: 0x00042FCC File Offset: 0x000411CC
-    public static void gmEneTStarWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obj_work;
         obj_work.disp_flag |= 4U;
@@ -239,13 +239,13 @@ public partial class AppMain
     }
 
     // Token: 0x0600078F RID: 1935 RVA: 0x00043078 File Offset: 0x00041278
-    public static void gmEneTStarWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarWalkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obj_work;
         obj_work.disp_flag |= 4U;
         if ( gms_ENE_T_STAR_WORK.rotate > 0 )
         {
-            obj_work.dir.z = ( ushort )( obj_work.dir.z + ( ushort )AppMain.AKM_DEGtoA16( 10 ) );
+            obj_work.dir.z = ( ushort )( obj_work.dir.z + ( ushort )AkMath.DEGtoA16( 10 ) );
             AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK2 = gms_ENE_T_STAR_WORK;
             gms_ENE_T_STAR_WORK2.rotate -= 1;
             if ( gms_ENE_T_STAR_WORK.rotate == 0 )
@@ -269,7 +269,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000790 RID: 1936 RVA: 0x00043140 File Offset: 0x00041340
-    public static void gmEneTStarStopMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarStopMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obj_work;
         obj_work.disp_flag |= 4U;
@@ -283,37 +283,37 @@ public partial class AppMain
     }
 
     // Token: 0x06000791 RID: 1937 RVA: 0x00043198 File Offset: 0x00041398
-    public static void gmEneTStarAttackInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarAttackInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obj_work;
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX );
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
-        AppMain.nnMakeRotateZMatrix( nns_MATRIX2, AppMain.AKM_DEGtoA32( 72 ) );
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        AppMain.nnMakeRotateZMatrix( nns_MATRIX2, AkMath.DEGtoA32( 72 ) );
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         for ( int i = 0; i < 5; i++ )
         {
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GmEventMgrLocalEventBirth(308, obj_work.pos.x, obj_work.pos.y, 0, 0, 0, 0, 0, 0);
+            OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GmEventMgrLocalEventBirth(308, obj_work.pos.x, obj_work.pos.y, 0, 0, 0, 0, 0, 0);
             obs_OBJECT_WORK.parent_obj = obj_work;
             obs_OBJECT_WORK.dir.y = 49152;
-            obs_OBJECT_WORK.dir.z = ( ushort )AppMain.AKM_DEGtoA16( -72 * i );
+            obs_OBJECT_WORK.dir.z = ( ushort )AkMath.DEGtoA16( -72 * i );
             nns_VECTOR.x = nns_MATRIX.M01;
             nns_VECTOR.y = nns_MATRIX.M11;
             nns_VECTOR.z = 0f;
             obs_OBJECT_WORK.spd.x = AppMain.FX_F32_TO_FX32( nns_VECTOR.x * 4f );
             obs_OBJECT_WORK.spd.y = -AppMain.FX_F32_TO_FX32( nns_VECTOR.y * 4f );
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK2 = obs_OBJECT_WORK;
             obs_OBJECT_WORK2.pos.x = obs_OBJECT_WORK2.pos.x + AppMain.FX_F32_TO_FX32( nns_VECTOR.x * 10f );
-            AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
+            OBS_OBJECT_WORK obs_OBJECT_WORK3 = obs_OBJECT_WORK;
             obs_OBJECT_WORK3.pos.y = obs_OBJECT_WORK3.pos.y + -AppMain.FX_F32_TO_FX32( nns_VECTOR.y * 10f );
             AppMain.nnMultiplyMatrix( nns_MATRIX, nns_MATRIX, nns_MATRIX2 );
             AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
             gms_ENEMY_3D_WORK.ene_com.enemy_flag |= 32768U;
             AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctEneEsCreate(obs_OBJECT_WORK, 10);
-            gms_EFFECT_3DES_WORK.efct_com.obj_work.dir.z = ( ushort )AppMain.AKM_DEGtoA16( -72 * i );
+            gms_EFFECT_3DES_WORK.efct_com.obj_work.dir.z = ( ushort )AkMath.DEGtoA16( -72 * i );
         }
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
         obj_work.disp_flag |= 32U;
         obj_work.disp_flag |= 4U;
         obj_work.ppFunc = AppMain.gmEneTStarAttackMain;
@@ -325,14 +325,14 @@ public partial class AppMain
         gms_ENEMY_3D_WORK2.ene_com.rect_work[1].flag &= 4294967291U;
         gms_ENEMY_3D_WORK2.ene_com.rect_work[0].flag &= 4294967291U;
         gms_ENEMY_3D_WORK2.ene_com.rect_work[2].flag &= 4294967291U;
-        AppMain.GmSoundPlaySE( "Boss2_03" );
+        GmSound.PlaySE( "Boss2_03" );
         gms_ENEMY_3D_WORK2.ene_com.enemy_flag |= 65536U;
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX );
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX2 );
+        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
     }
 
     // Token: 0x06000792 RID: 1938 RVA: 0x00043434 File Offset: 0x00041634
-    public static void gmEneTStarAttackMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarAttackMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obj_work;
         if ( gms_ENE_T_STAR_WORK.timer > 0 )
@@ -344,13 +344,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000793 RID: 1939 RVA: 0x0004346E File Offset: 0x0004166E
-    public static void gmEneTStarNeedleMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarNeedleMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.UNREFERENCED_PARAMETER( obj_work );
     }
 
     // Token: 0x06000794 RID: 1940 RVA: 0x00043476 File Offset: 0x00041676
-    public static void gmEneTStarFwMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarFwMain( OBS_OBJECT_WORK obj_work )
     {
         obj_work.user_timer = AppMain.ObjTimeCountDown( obj_work.user_timer );
         if ( obj_work.user_timer <= 0 )
@@ -360,13 +360,13 @@ public partial class AppMain
     }
 
     // Token: 0x06000795 RID: 1941 RVA: 0x00043498 File Offset: 0x00041698
-    public static void gmEneTStarFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarFlipInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.ppFunc = AppMain.gmEneTStarFlipMain;
     }
 
     // Token: 0x06000796 RID: 1942 RVA: 0x000434B3 File Offset: 0x000416B3
-    public static void gmEneTStarFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneTStarFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneTStarSetWalkSpeed( ( AppMain.GMS_ENE_T_STAR_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )

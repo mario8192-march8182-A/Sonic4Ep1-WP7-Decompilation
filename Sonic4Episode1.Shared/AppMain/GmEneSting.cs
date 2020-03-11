@@ -8,16 +8,16 @@ public partial class AppMain
 {
 
     // Token: 0x0200031F RID: 799
-    public class GMS_ENE_STING_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_ENE_STING_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x06002582 RID: 9602 RVA: 0x0014D8EE File Offset: 0x0014BAEE
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.ene_3d_work.ene_com.obj_work;
         }
 
         // Token: 0x06002583 RID: 9603 RVA: 0x0014D900 File Offset: 0x0014BB00
-        public static explicit operator AppMain.OBS_OBJECT_WORK( AppMain.GMS_ENE_STING_WORK work )
+        public static explicit operator OBS_OBJECT_WORK( AppMain.GMS_ENE_STING_WORK work )
         {
             return work.ene_3d_work.ene_com.obj_work;
         }
@@ -59,20 +59,20 @@ public partial class AppMain
         public short bullet_dir;
 
         // Token: 0x04005DCE RID: 24014
-        public readonly AppMain.NNS_MATRIX jet_r_mtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX jet_r_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005DCF RID: 24015
-        public readonly AppMain.NNS_MATRIX jet_l_mtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX jet_l_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005DD0 RID: 24016
-        public readonly AppMain.NNS_MATRIX gun_mtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX gun_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
     }
 
 
     // Token: 0x0600159C RID: 5532 RVA: 0x000BC5C8 File Offset: 0x000BA7C8
-    private static AppMain.OBS_OBJECT_WORK GmEneStingInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmEneStingInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_STING_WORK(), "ENE_STING");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENE_STING_WORK(), "ENE_STING");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)obs_OBJECT_WORK;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_ene_sting_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -120,7 +120,7 @@ public partial class AppMain
     public static int gmEneStingSetWalkSpeed( AppMain.GMS_ENE_STING_WORK sting_work )
     {
         int result = 0;
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)sting_work;
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)sting_work;
         if ( ( obs_OBJECT_WORK.disp_flag & 1U ) != 0U )
         {
             if ( obs_OBJECT_WORK.obj_3d.act_id[0] == 3 && obs_OBJECT_WORK.obj_3d.frame[0] >= ( float )( AppMain.GMD_ENE_STING_TURN_FRAME / 2 ) )
@@ -172,26 +172,26 @@ public partial class AppMain
     // Token: 0x0600159E RID: 5534 RVA: 0x000BCAF0 File Offset: 0x000BACF0
     public static void GmEneStingBuild()
     {
-        AppMain.gm_ene_sting_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 667 ) ), AppMain.readAMBFile( AppMain.GmGameDatGetEnemyData( 668 ) ), 0U );
+        AppMain.gm_ene_sting_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 667 ) ), AmFs.readAMBFile( AppMain.GmGameDatGetEnemyData( 668 ) ), 0U );
     }
 
     // Token: 0x0600159F RID: 5535 RVA: 0x000BCB1C File Offset: 0x000BAD1C
     public static void GmEneStingFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetEnemyData(667));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetEnemyData(667));
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_ene_sting_obj_3d_list, ams_AMB_HEADER.file_num );
     }
 
     // Token: 0x060015A0 RID: 5536 RVA: 0x000BCB4C File Offset: 0x000BAD4C
-    public static void GmEneStingCreateBullet( AppMain.OBS_OBJECT_WORK parent_obj, int ofst_flash_x, int ofst_flash_y, int ofst_flash_z, int ofst_bul_x, int ofst_bul_y, int ofst_bul_z, int spd_x, int spd_y, short dir )
+    public static void GmEneStingCreateBullet( OBS_OBJECT_WORK parent_obj, int ofst_flash_x, int ofst_flash_y, int ofst_flash_z, int ofst_bul_x, int ofst_bul_y, int ofst_bul_z, int spd_x, int spd_y, short dir )
     {
         AppMain.GMS_EFFECT_COM_WORK gms_EFFECT_COM_WORK = (AppMain.GMS_EFFECT_COM_WORK)AppMain.GmEneComCreateAtkObject(parent_obj, 16);
         gms_EFFECT_COM_WORK.obj_work.parent_obj = null;
-        AppMain.OBS_OBJECT_WORK obj_work = gms_EFFECT_COM_WORK.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_EFFECT_COM_WORK.obj_work;
         obj_work.pos.x = obj_work.pos.x + ( ( ( parent_obj.disp_flag & 1U ) != 0U ) ? ( -ofst_bul_x ) : ofst_bul_x );
-        AppMain.OBS_OBJECT_WORK obj_work2 = gms_EFFECT_COM_WORK.obj_work;
+        OBS_OBJECT_WORK obj_work2 = gms_EFFECT_COM_WORK.obj_work;
         obj_work2.pos.y = obj_work2.pos.y + ofst_bul_y;
-        AppMain.OBS_OBJECT_WORK obj_work3 = gms_EFFECT_COM_WORK.obj_work;
+        OBS_OBJECT_WORK obj_work3 = gms_EFFECT_COM_WORK.obj_work;
         obj_work3.pos.z = obj_work3.pos.z + ofst_bul_z;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_EFFECT_COM_WORK.rect_work[1];
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -8, -8, 8, 8 );
@@ -205,19 +205,19 @@ public partial class AppMain
         gms_EFFECT_3DES_WORK = AppMain.GmEfctCmnEsCreate( parent_obj, 14 );
         AppMain.GmComEfctSetDispRotationS( gms_EFFECT_3DES_WORK, 0, 0, ( short )( ( int )dir - 32768 ) );
         gms_EFFECT_3DES_WORK.efct_com.obj_work.parent_obj = null;
-        AppMain.OBS_OBJECT_WORK obj_work4 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
+        OBS_OBJECT_WORK obj_work4 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
         obj_work4.pos.x = obj_work4.pos.x + ( ( ( parent_obj.disp_flag & 1U ) != 0U ) ? ( -ofst_flash_x ) : ofst_flash_x );
-        AppMain.OBS_OBJECT_WORK obj_work5 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
+        OBS_OBJECT_WORK obj_work5 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
         obj_work5.pos.y = obj_work5.pos.y + ofst_flash_y;
-        AppMain.OBS_OBJECT_WORK obj_work6 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
+        OBS_OBJECT_WORK obj_work6 = gms_EFFECT_3DES_WORK.efct_com.obj_work;
         obj_work6.pos.z = obj_work6.pos.z + ofst_flash_z;
     }
 
     // Token: 0x060015A1 RID: 5537 RVA: 0x000BCCE8 File Offset: 0x000BAEE8
-    public static void gmEneStingJetEfctMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingJetEfctMain( OBS_OBJECT_WORK obj_work )
     {
-        AppMain.NNS_MATRIX nns_MATRIX = (AppMain.NNS_MATRIX)obj_work.user_work_OBJECT;
-        AppMain.NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = (NNS_MATRIX)obj_work.user_work_OBJECT;
+        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
         if ( obj_work.parent_obj == null )
         {
             obj_work.flag |= 4U;
@@ -234,11 +234,11 @@ public partial class AppMain
         nns_VECTOR.x += -3f;
         AppMain.GmComEfctSetDispOffsetF( ( AppMain.GMS_EFFECT_3DES_WORK )obj_work, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z );
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
-        AppMain.GlobalPool<AppMain.NNS_VECTOR>.Release( nns_VECTOR );
+        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x060015A2 RID: 5538 RVA: 0x000BCDE9 File Offset: 0x000BAFE9
-    public static void gmEneStingWalkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingWalkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 0, 1 );
         obj_work.disp_flag |= 4U;
@@ -246,7 +246,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015A3 RID: 5539 RVA: 0x000BCE1C File Offset: 0x000BB01C
-    public static void gmEneStingWalkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingWalkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_STING_WORK sting_work = (AppMain.GMS_ENE_STING_WORK)obj_work;
         int num = AppMain.gmEneStingSetWalkSpeed(sting_work);
@@ -257,7 +257,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015A4 RID: 5540 RVA: 0x000BCE40 File Offset: 0x000BB040
-    public static void gmEneStingFlipInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingFlipInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)obj_work;
         AppMain.GmEneComActionSetDependHFlip( obj_work, 2, 3 );
@@ -271,7 +271,7 @@ public partial class AppMain
     {
         if ( sting_work.efct_r_jet == null )
         {
-            sting_work.efct_r_jet = AppMain.GmEfctEneEsCreate( ( AppMain.OBS_OBJECT_WORK )sting_work, 0 );
+            sting_work.efct_r_jet = AppMain.GmEfctEneEsCreate( ( OBS_OBJECT_WORK )sting_work, 0 );
             AppMain.GmComEfctAddDispOffsetF( sting_work.efct_r_jet, -11f, -9f, 0f );
             sting_work.efct_r_jet.efct_com.obj_work.flag |= 524304U;
             sting_work.efct_r_jet.efct_com.obj_work.user_work_OBJECT = sting_work.jet_r_mtx;
@@ -279,7 +279,7 @@ public partial class AppMain
         }
         if ( sting_work.efct_l_jet == null )
         {
-            sting_work.efct_l_jet = AppMain.GmEfctEneEsCreate( ( AppMain.OBS_OBJECT_WORK )sting_work, 0 );
+            sting_work.efct_l_jet = AppMain.GmEfctEneEsCreate( ( OBS_OBJECT_WORK )sting_work, 0 );
             AppMain.GmComEfctAddDispOffsetF( sting_work.efct_l_jet, -11f, -9f, 0f );
             sting_work.efct_l_jet.efct_com.obj_work.flag |= 524304U;
             sting_work.efct_l_jet.efct_com.obj_work.user_work_OBJECT = sting_work.jet_l_mtx;
@@ -303,7 +303,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015A7 RID: 5543 RVA: 0x000BD018 File Offset: 0x000BB218
-    public static void gmEneStingFlipMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingFlipMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmEneStingSetWalkSpeed( ( AppMain.GMS_ENE_STING_WORK )obj_work );
         if ( ( obj_work.disp_flag & 8U ) != 0U )
@@ -318,7 +318,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015A8 RID: 5544 RVA: 0x000BD076 File Offset: 0x000BB276
-    public static void gmEneStingAtkInit( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingAtkInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GmEneComActionSetDependHFlip( obj_work, 4, 7 );
         obj_work.ppFunc = AppMain.gmEneStingAtkMain;
@@ -328,8 +328,8 @@ public partial class AppMain
     // Token: 0x060015A9 RID: 5545 RVA: 0x000BD0A8 File Offset: 0x000BB2A8
     public static void gmEneStingMotionCallback( AppMain.AMS_MOTION motion, AppMain.NNS_OBJECT _object, object param )
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)param;
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.nnMultiplyMatrix( nns_MATRIX2, nns_MATRIX2, AppMain.amMatrixGetCurrent() );
@@ -339,8 +339,8 @@ public partial class AppMain
         gms_ENE_STING_WORK.jet_l_mtx.Assign( nns_MATRIX );
         AppMain.nnCalcNodeMatrixTRSList( nns_MATRIX, _object, AppMain.GMD_ENE_STING_NODE_ID_GUN, motion.data, nns_MATRIX2 );
         gms_ENE_STING_WORK.gun_mtx.Assign( nns_MATRIX );
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX );
-        AppMain.GlobalPool<AppMain.NNS_MATRIX>.Release( nns_MATRIX2 );
+        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
     }
 
     // Token: 0x060015AA RID: 5546 RVA: 0x000BD158 File Offset: 0x000BB358
@@ -351,7 +351,7 @@ public partial class AppMain
             return;
         }
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)mine_rect.parent_obj;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)match_rect.parent_obj;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)match_rect.parent_obj;
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_PLAYER_WORK.rect_work[2];
         float num = AppMain.FXM_FX32_TO_FLOAT(gms_PLAYER_WORK.obj_work.pos.x) + (float)(obs_RECT_WORK.rect.left + obs_RECT_WORK.rect.right >> 1);
         float num2 = AppMain.FXM_FX32_TO_FLOAT(gms_PLAYER_WORK.obj_work.pos.y) + (float)(obs_RECT_WORK.rect.top + obs_RECT_WORK.rect.bottom >> 1);
@@ -391,19 +391,19 @@ public partial class AppMain
         {
             gms_ENE_STING_WORK.bullet_dir = ( short )num9;
         }
-        AppMain.gmEneStingAtkInit( ( AppMain.OBS_OBJECT_WORK )gms_ENE_STING_WORK );
+        AppMain.gmEneStingAtkInit( ( OBS_OBJECT_WORK )gms_ENE_STING_WORK );
         gms_ENE_STING_WORK.search_rect_work.flag &= 4294967291U;
     }
 
     // Token: 0x060015AB RID: 5547 RVA: 0x000BD37C File Offset: 0x000BB57C
-    public static void gmEneStingRegRectFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingRegRectFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)obj_work;
         AppMain.ObjObjectRectRegist( obj_work, gms_ENE_STING_WORK.search_rect_work );
     }
 
     // Token: 0x060015AC RID: 5548 RVA: 0x000BD39C File Offset: 0x000BB59C
-    public static void gmEneStingAtkMain( AppMain.OBS_OBJECT_WORK obj_work )
+    public static void gmEneStingAtkMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)obj_work;
         if ( obj_work.user_timer != 0 )
@@ -417,7 +417,7 @@ public partial class AppMain
             {
                 AppMain.GmEneStingCreateBullet( obj_work, AppMain.GMD_ENE_STING_BULLET_FLASH_OFST_X, AppMain.GMD_ENE_STING_BULLET_FLASH_OFST_Y, AppMain.GMD_ENE_STING_BULLET_FLASH_OFST_Z, AppMain.GMD_ENE_STING_BULLET_OFST_X, AppMain.GMD_ENE_STING_BULLET_OFST_Y, AppMain.GMD_ENE_STING_BULLET_OFST_Z, gms_ENE_STING_WORK.bullet_spd_x, gms_ENE_STING_WORK.bullet_spd_y, gms_ENE_STING_WORK.bullet_dir );
                 AppMain.GmEneComActionSetDependHFlip( obj_work, 5, 8 );
-                AppMain.GmSoundPlaySE( "Sting" );
+                GmSound.PlaySE( "Sting" );
             }
             else
             {

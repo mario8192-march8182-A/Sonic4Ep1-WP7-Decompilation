@@ -14,19 +14,19 @@ public partial class AppMain
         public uint User;
 
         // Token: 0x04004E81 RID: 20097
-        public AppMain.NNS_RGBA Ambient;
+        public NNS_RGBA Ambient;
 
         // Token: 0x04004E82 RID: 20098
-        public AppMain.NNS_RGBA Diffuse;
+        public NNS_RGBA Diffuse;
 
         // Token: 0x04004E83 RID: 20099
-        public AppMain.NNS_RGBA Specular;
+        public NNS_RGBA Specular;
 
         // Token: 0x04004E84 RID: 20100
-        public readonly AppMain.NNS_VECTOR4D Position = new AppMain.NNS_VECTOR4D();
+        public readonly NNS_VECTOR4D Position = new NNS_VECTOR4D();
 
         // Token: 0x04004E85 RID: 20101
-        public readonly AppMain.NNS_VECTOR SpotDirection = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR SpotDirection = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004E86 RID: 20102
         public float SpotExponent;
@@ -71,7 +71,7 @@ public partial class AppMain
         // Token: 0x17000074 RID: 116
         // (get) Token: 0x06002137 RID: 8503 RVA: 0x00140EAC File Offset: 0x0013F0AC
         // (set) Token: 0x06002138 RID: 8504 RVA: 0x00140EB9 File Offset: 0x0013F0B9
-        public AppMain.NNS_RGBA Color
+        public NNS_RGBA Color
         {
             get
             {
@@ -101,7 +101,7 @@ public partial class AppMain
         // Token: 0x17000076 RID: 118
         // (get) Token: 0x0600213B RID: 8507 RVA: 0x00140EE2 File Offset: 0x0013F0E2
         // (set) Token: 0x0600213C RID: 8508 RVA: 0x00140EEF File Offset: 0x0013F0EF
-        public AppMain.NNS_VECTOR Direction
+        public NNS_VECTOR Direction
         {
             get
             {
@@ -144,7 +144,7 @@ public partial class AppMain
         // Token: 0x17000078 RID: 120
         // (get) Token: 0x06002140 RID: 8512 RVA: 0x00140F27 File Offset: 0x0013F127
         // (set) Token: 0x06002141 RID: 8513 RVA: 0x00140F34 File Offset: 0x0013F134
-        public AppMain.NNS_RGBA Color
+        public NNS_RGBA Color
         {
             get
             {
@@ -174,7 +174,7 @@ public partial class AppMain
         // Token: 0x1700007A RID: 122
         // (get) Token: 0x06002144 RID: 8516 RVA: 0x00140F5D File Offset: 0x0013F15D
         // (set) Token: 0x06002145 RID: 8517 RVA: 0x00140F6A File Offset: 0x0013F16A
-        public AppMain.NNS_VECTOR Position
+        public NNS_VECTOR Position
         {
             get
             {
@@ -247,7 +247,7 @@ public partial class AppMain
         // Token: 0x1700007E RID: 126
         // (get) Token: 0x0600214D RID: 8525 RVA: 0x00140FEC File Offset: 0x0013F1EC
         // (set) Token: 0x0600214E RID: 8526 RVA: 0x00140FF9 File Offset: 0x0013F1F9
-        public AppMain.NNS_RGBA Color
+        public NNS_RGBA Color
         {
             get
             {
@@ -277,7 +277,7 @@ public partial class AppMain
         // Token: 0x17000080 RID: 128
         // (get) Token: 0x06002151 RID: 8529 RVA: 0x00141022 File Offset: 0x0013F222
         // (set) Token: 0x06002152 RID: 8530 RVA: 0x0014102F File Offset: 0x0013F22F
-        public AppMain.NNS_VECTOR Position
+        public NNS_VECTOR Position
         {
             get
             {
@@ -292,7 +292,7 @@ public partial class AppMain
         // Token: 0x17000081 RID: 129
         // (get) Token: 0x06002153 RID: 8531 RVA: 0x00141043 File Offset: 0x0013F243
         // (set) Token: 0x06002154 RID: 8532 RVA: 0x00141050 File Offset: 0x0013F250
-        public AppMain.NNS_VECTOR Target
+        public NNS_VECTOR Target
         {
             get
             {
@@ -395,7 +395,7 @@ public partial class AppMain
         // Token: 0x17000087 RID: 135
         // (get) Token: 0x06002160 RID: 8544 RVA: 0x00141108 File Offset: 0x0013F308
         // (set) Token: 0x06002161 RID: 8545 RVA: 0x00141115 File Offset: 0x0013F315
-        public AppMain.NNS_RGBA Color
+        public NNS_RGBA Color
         {
             get
             {
@@ -425,7 +425,7 @@ public partial class AppMain
         // Token: 0x17000089 RID: 137
         // (get) Token: 0x06002164 RID: 8548 RVA: 0x0014113E File Offset: 0x0013F33E
         // (set) Token: 0x06002165 RID: 8549 RVA: 0x0014114B File Offset: 0x0013F34B
-        public AppMain.NNS_VECTOR Position
+        public NNS_VECTOR Position
         {
             get
             {
@@ -455,11 +455,11 @@ public partial class AppMain
         // Token: 0x1700008B RID: 139
         // (get) Token: 0x06002168 RID: 8552 RVA: 0x00141190 File Offset: 0x0013F390
         // (set) Token: 0x06002169 RID: 8553 RVA: 0x001411F8 File Offset: 0x0013F3F8
-        public AppMain.NNS_ROTATE_A32 Rotation
+        public NNS_ROTATE_A32 Rotation
         {
             get
             {
-                return new AppMain.NNS_ROTATE_A32
+                return new NNS_ROTATE_A32
                 {
                     x = MppBitConverter.SingleToInt32( this.data_.Target.y ),
                     y = MppBitConverter.SingleToInt32( this.data_.Target.z ),
@@ -569,16 +569,16 @@ public partial class AppMain
         public uint User;
 
         // Token: 0x04004E90 RID: 20112
-        public AppMain.NNS_RGBA Color;
+        public NNS_RGBA Color;
 
         // Token: 0x04004E91 RID: 20113
         public float Intensity;
 
         // Token: 0x04004E92 RID: 20114
-        public readonly AppMain.NNS_VECTOR Position = new AppMain.NNS_VECTOR();
+        public readonly NNS_VECTOR Position = new NNS_VECTOR();
 
         // Token: 0x04004E93 RID: 20115
-        public readonly AppMain.NNS_VECTOR Target = new AppMain.NNS_VECTOR();
+        public readonly NNS_VECTOR Target = new NNS_VECTOR();
 
         // Token: 0x04004E94 RID: 20116
         public float InnerRange;
@@ -623,7 +623,7 @@ public partial class AppMain
         // Token: 0x17000091 RID: 145
         // (get) Token: 0x0600217A RID: 8570 RVA: 0x00141336 File Offset: 0x0013F536
         // (set) Token: 0x0600217B RID: 8571 RVA: 0x00141343 File Offset: 0x0013F543
-        public AppMain.NNS_RGBA Color
+        public NNS_RGBA Color
         {
             get
             {
@@ -653,7 +653,7 @@ public partial class AppMain
         // Token: 0x17000093 RID: 147
         // (get) Token: 0x0600217E RID: 8574 RVA: 0x0014136C File Offset: 0x0013F56C
         // (set) Token: 0x0600217F RID: 8575 RVA: 0x00141379 File Offset: 0x0013F579
-        public AppMain.NNS_VECTOR Position
+        public NNS_VECTOR Position
         {
             get
             {
@@ -683,11 +683,11 @@ public partial class AppMain
         // Token: 0x17000095 RID: 149
         // (get) Token: 0x06002182 RID: 8578 RVA: 0x001413BC File Offset: 0x0013F5BC
         // (set) Token: 0x06002183 RID: 8579 RVA: 0x00141424 File Offset: 0x0013F624
-        public AppMain.NNS_ROTATE_A32 Rotation
+        public NNS_ROTATE_A32 Rotation
         {
             get
             {
-                return new AppMain.NNS_ROTATE_A32
+                return new NNS_ROTATE_A32
                 {
                     x = MppBitConverter.SingleToInt32( this.data_.Target.y ),
                     y = MppBitConverter.SingleToInt32( this.data_.Target.z ),
@@ -809,28 +809,28 @@ public partial class AppMain
         public float Intensity;
 
         // Token: 0x040054B3 RID: 21683
-        public AppMain.NNS_RGBA Ambient = default(AppMain.NNS_RGBA);
+        public NNS_RGBA Ambient = default(NNS_RGBA);
 
         // Token: 0x040054B4 RID: 21684
-        public AppMain.NNS_RGBA Diffuse = default(AppMain.NNS_RGBA);
+        public NNS_RGBA Diffuse = default(NNS_RGBA);
 
         // Token: 0x040054B5 RID: 21685
-        public AppMain.NNS_RGBA Specular = default(AppMain.NNS_RGBA);
+        public NNS_RGBA Specular = default(NNS_RGBA);
 
         // Token: 0x040054B6 RID: 21686
-        public AppMain.NNS_VECTOR Direction = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public NNS_VECTOR Direction = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040054B7 RID: 21687
-        public AppMain.NNS_VECTOR4D Position = new AppMain.NNS_VECTOR4D();
+        public NNS_VECTOR4D Position = new NNS_VECTOR4D();
 
         // Token: 0x040054B8 RID: 21688
-        public AppMain.NNS_VECTOR Target = AppMain.GlobalPool<AppMain.NNS_VECTOR>.Alloc();
+        public NNS_VECTOR Target = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040054B9 RID: 21689
         public int RotType;
 
         // Token: 0x040054BA RID: 21690
-        public AppMain.NNS_ROTATE_A32 Rotation;
+        public NNS_ROTATE_A32 Rotation;
 
         // Token: 0x040054BB RID: 21691
         public int InnerAngle;
@@ -870,7 +870,7 @@ public partial class AppMain
     private class NNS_GL_LIGHT
     {
         // Token: 0x040054C6 RID: 21702
-        public AppMain.NNS_RGBA AmbientColor = default(AppMain.NNS_RGBA);
+        public NNS_RGBA AmbientColor = default(NNS_RGBA);
 
         // Token: 0x040054C7 RID: 21703
         public AppMain.NNS_GL_LIGHT_DATA[] LightData = AppMain.New<AppMain.NNS_GL_LIGHT_DATA>(AppMain.NNE_LIGHT_MAX);
@@ -880,7 +880,7 @@ public partial class AppMain
     private class nnlight
     {
         // Token: 0x040054C8 RID: 21704
-        public static AppMain.NNS_MATRIX nngLightMtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public static NNS_MATRIX nngLightMtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x040054C9 RID: 21705
         public static AppMain.NNS_GL_LIGHT nngLight = new AppMain.NNS_GL_LIGHT();

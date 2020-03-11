@@ -314,7 +314,7 @@ public partial class AppMain
         public int texsrc;
 
         // Token: 0x040048D0 RID: 18640
-        public readonly AppMain.NNS_MATRIX texmtx = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX texmtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
     }
 
     // Token: 0x02000054 RID: 84
@@ -404,7 +404,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000057 RID: 87
-    public class AMS_DRAWSTATE_FOG_COLOR : AppMain.IClearable
+    public class AMS_DRAWSTATE_FOG_COLOR : IClearable
     {
         // Token: 0x06001DE9 RID: 7657 RVA: 0x00138D45 File Offset: 0x00136F45
         public AMS_DRAWSTATE_FOG_COLOR()
@@ -784,7 +784,7 @@ public partial class AppMain
         public AppMain.NNS_OBJECT _object;
 
         // Token: 0x0400490B RID: 18699
-        public AppMain.NNS_MATRIX mtx;
+        public NNS_MATRIX mtx;
 
         // Token: 0x0400490C RID: 18700
         public AppMain.NNS_TEXLIST texlist;
@@ -809,10 +809,10 @@ public partial class AppMain
     private class AMS_PARAM_DRAW_OBJECT_MATERIAL : AppMain.AMS_PARAM_DRAW_OBJECT
     {
         // Token: 0x04004912 RID: 18706
-        public AppMain.NNS_RGBA color;
+        public NNS_RGBA color;
 
         // Token: 0x04004913 RID: 18707
-        public readonly AppMain.NNS_VECTOR scale = new AppMain.NNS_VECTOR();
+        public readonly NNS_VECTOR scale = new NNS_VECTOR();
 
         // Token: 0x04004914 RID: 18708
         public float scroll_u;
@@ -834,7 +834,7 @@ public partial class AppMain
         public AppMain.AMS_PARAM_DRAW_OBJECT draw_object;
 
         // Token: 0x04004919 RID: 18713
-        public AppMain.NNS_MATRIX[] mtx;
+        public NNS_MATRIX[] mtx;
 
         // Token: 0x0400491A RID: 18714
         public uint[] nstat_list;
@@ -867,7 +867,7 @@ public partial class AppMain
         public AppMain.NNS_OBJECT _object;
 
         // Token: 0x0400491D RID: 18717
-        public AppMain.NNS_MATRIX mtx;
+        public NNS_MATRIX mtx;
 
         // Token: 0x0400491E RID: 18718
         public AppMain.NNS_TEXLIST texlist;
@@ -892,7 +892,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000065 RID: 101
-    private class AMS_PARAM_DRAW_MOTION_TRS : AppMain.IClearable
+    private class AMS_PARAM_DRAW_MOTION_TRS : IClearable
     {
         // Token: 0x06001E08 RID: 7688 RVA: 0x00139334 File Offset: 0x00137534
         public void Clear()
@@ -931,7 +931,7 @@ public partial class AppMain
         public AppMain.NNS_OBJECT _object;
 
         // Token: 0x04004926 RID: 18726
-        public AppMain.NNS_MATRIX mtx;
+        public NNS_MATRIX mtx;
 
         // Token: 0x04004927 RID: 18727
         public AppMain.NNS_TEXLIST texlist;
@@ -965,7 +965,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000066 RID: 102
-    public class AMS_PARAM_DRAW_PRIMITIVE : AppMain.IClearable
+    public class AMS_PARAM_DRAW_PRIMITIVE : IClearable
     {
         // Token: 0x1700006D RID: 109
         // (get) Token: 0x06001E0C RID: 7692 RVA: 0x001393BA File Offset: 0x001375BA
@@ -1065,7 +1065,7 @@ public partial class AppMain
         }
 
         // Token: 0x04004931 RID: 18737
-        public AppMain.NNS_MATRIX mtx;
+        public NNS_MATRIX mtx;
 
         // Token: 0x04004932 RID: 18738
         public int type;
@@ -1232,7 +1232,7 @@ public partial class AppMain
     private class __amDrawObject
     {
         // Token: 0x0400495E RID: 18782
-        public static AppMain.NNS_MATRIX[] plt_mtx;
+        public static NNS_MATRIX[] plt_mtx;
 
         // Token: 0x0400495F RID: 18783
         public static uint[] nstat;
@@ -1583,7 +1583,7 @@ public partial class AppMain
     }
 
     // Token: 0x060001C2 RID: 450 RVA: 0x00011054 File Offset: 0x0000F254
-    private static AppMain.NNS_MATRIX amDrawAlloc_NNS_MATRIX()
+    private static NNS_MATRIX amDrawAlloc_NNS_MATRIX()
     {
         return AppMain.amDraw_NNS_MATRIX_Pool.Alloc();
     }
@@ -1810,7 +1810,7 @@ public partial class AppMain
     }
 
     // Token: 0x060001E0 RID: 480 RVA: 0x0001136A File Offset: 0x0000F56A
-    private static void amDrawSetVSyncAlarm( AppMain.AMS_ALARM alarm )
+    private static void amDrawSetVSyncAlarm( AMS_ALARM alarm )
     {
         AppMain.mppAssertNotImpl();
     }
@@ -1828,7 +1828,7 @@ public partial class AppMain
     }
 
     // Token: 0x060001E3 RID: 483 RVA: 0x00011394 File Offset: 0x0000F594
-    public bool amDrawBegin( AppMain.AMS_RENDER_TARGET target, uint flag, AppMain.NNS_RGBA_U8 color, float depth, int stencil )
+    public bool amDrawBegin( AppMain.AMS_RENDER_TARGET target, uint flag, NNS_RGBA_U8 color, float depth, int stencil )
     {
         AppMain._am_draw_offset_x = 0;
         AppMain.amRenderSetTarget( target, flag, color, depth, stencil );
@@ -1872,7 +1872,7 @@ public partial class AppMain
     }
 
     // Token: 0x060001E5 RID: 485 RVA: 0x0001149C File Offset: 0x0000F69C
-    private static void amDrawEnd( AppMain.NNS_RGBA_U8 color, float z, int stencil )
+    private static void amDrawEnd( NNS_RGBA_U8 color, float z, int stencil )
     {
         if ( AppMain._am_draw_in_scene == 0 )
         {
@@ -1882,13 +1882,13 @@ public partial class AppMain
     }
 
     // Token: 0x060001E6 RID: 486 RVA: 0x000114AC File Offset: 0x0000F6AC
-    private static void amDrawSetBGColor( AppMain.NNS_RGBA_U8 bgColor )
+    private static void amDrawSetBGColor( NNS_RGBA_U8 bgColor )
     {
         AppMain._am_draw_bg_color = bgColor;
     }
 
     // Token: 0x060001E7 RID: 487 RVA: 0x000114B4 File Offset: 0x0000F6B4
-    private static AppMain.NNS_RGBA_U8 amDrawGetBGColor()
+    private static NNS_RGBA_U8 amDrawGetBGColor()
     {
         AppMain.mppAssertNotImpl();
         return AppMain._am_draw_bg_color;
@@ -2176,7 +2176,7 @@ public partial class AppMain
         AppMain._am_draw_state.zmode.compare = 1U;
         AppMain._am_draw_state.zmode.func = 515;
         AppMain._am_draw_state.zmode.update = 1U;
-        AppMain.NNS_MATRIX texmtx = AppMain._am_draw_state.envmap.texmtx;
+        NNS_MATRIX texmtx = AppMain._am_draw_state.envmap.texmtx;
         AppMain.nnMakeUnitMatrix( texmtx );
         AppMain.nnTranslateMatrix( texmtx, texmtx, 0.5f, 0.5f, 0f );
         AppMain.nnScaleMatrix( texmtx, texmtx, 0.5f, 0.5f, 0f );
@@ -2237,7 +2237,7 @@ public partial class AppMain
     }
 
     // Token: 0x060001FF RID: 511 RVA: 0x00011DCE File Offset: 0x0000FFCE
-    public static void amDrawSetProjection( AppMain.NNS_MATRIX proj_mtx, int proj_type )
+    public static void amDrawSetProjection( NNS_MATRIX proj_mtx, int proj_type )
     {
         AppMain._am_draw_proj_mtx.Assign( proj_mtx );
         AppMain._am_draw_proj_type = proj_type;
@@ -2245,7 +2245,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000200 RID: 512 RVA: 0x00011DE9 File Offset: 0x0000FFE9
-    private static AppMain.NNS_MATRIX amDrawGetProjectionMatrix()
+    private static NNS_MATRIX amDrawGetProjectionMatrix()
     {
         return AppMain._am_draw_proj_mtx;
     }
@@ -2351,7 +2351,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000209 RID: 521 RVA: 0x00011FC6 File Offset: 0x000101C6
-    private static void amDrawConv2D( AppMain.NNS_VECTOR2D vd, AppMain.NNS_VECTOR2D vs )
+    private static void amDrawConv2D( NNS_VECTOR2D vd, NNS_VECTOR2D vs )
     {
         vd.Assign( vs );
     }
@@ -2407,7 +2407,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000210 RID: 528 RVA: 0x00012075 File Offset: 0x00010275
-    public static void amDrawSetWorldViewMatrix( AppMain.NNS_MATRIX mtx )
+    public static void amDrawSetWorldViewMatrix( NNS_MATRIX mtx )
     {
         if ( mtx == null )
         {
@@ -2446,16 +2446,16 @@ public partial class AppMain
     }
 
     // Token: 0x06000215 RID: 533 RVA: 0x000120DC File Offset: 0x000102DC
-    public static void amDrawObjectSetMaterial( uint state, AppMain.NNS_OBJECT _object, AppMain.NNS_TEXLIST texlist, AppMain.NNS_VECTOR scale, ref AppMain.NNS_RGBA color, float u, float v, int blend, uint drawflag )
+    public static void amDrawObjectSetMaterial( uint state, AppMain.NNS_OBJECT _object, AppMain.NNS_TEXLIST texlist, NNS_VECTOR scale, ref NNS_RGBA color, float u, float v, int blend, uint drawflag )
     {
         AppMain.amDrawObjectSetMaterial( state, _object, texlist, scale, ref color, u, v, blend, drawflag, null );
     }
 
     // Token: 0x06000216 RID: 534 RVA: 0x00012100 File Offset: 0x00010300
-    public static void amDrawObjectSetMaterial( uint state, AppMain.NNS_OBJECT _object, AppMain.NNS_TEXLIST texlist, AppMain.NNS_VECTOR scale, ref AppMain.NNS_RGBA color, float u, float v, int blend, uint drawflag, AppMain.NNS_MATERIALCALLBACK_FUNC func )
+    public static void amDrawObjectSetMaterial( uint state, AppMain.NNS_OBJECT _object, AppMain.NNS_TEXLIST texlist, NNS_VECTOR scale, ref NNS_RGBA color, float u, float v, int blend, uint drawflag, AppMain.NNS_MATERIALCALLBACK_FUNC func )
     {
         AppMain.AMS_PARAM_DRAW_OBJECT_MATERIAL ams_PARAM_DRAW_OBJECT_MATERIAL = AppMain.amDrawAlloc_AMS_PARAM_DRAW_OBJECT_MATERIAL();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
+        NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
         AppMain.nnCopyMatrix( nns_MATRIX, AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_OBJECT_MATERIAL._object = _object;
         ams_PARAM_DRAW_OBJECT_MATERIAL.mtx = nns_MATRIX;
@@ -2502,7 +2502,7 @@ public partial class AppMain
     {
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.Assign( setParam );
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnCopyMatrix( nns_MATRIX, AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_PRIMITIVE.mtx = nns_MATRIX;
         AppMain.amDrawRegistCommand( state, -13, ams_PARAM_DRAW_PRIMITIVE );
@@ -2708,7 +2708,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600022E RID: 558 RVA: 0x000125E3 File Offset: 0x000107E3
-    private static void amDrawSetMaterialEnvMap( uint state, int texsrc, AppMain.NNS_MATRIX texmtx )
+    private static void amDrawSetMaterialEnvMap( uint state, int texsrc, NNS_MATRIX texmtx )
     {
         AppMain.mppAssertNotImpl();
     }
@@ -2847,20 +2847,20 @@ public partial class AppMain
     // Token: 0x0600023A RID: 570 RVA: 0x000128B8 File Offset: 0x00010AB8
     private static void _amDrawObject( AppMain.AMS_COMMAND_HEADER command, uint drawflag )
     {
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
+        NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
         AppMain.amMatrixPush();
         AppMain.AMS_PARAM_DRAW_OBJECT ams_PARAM_DRAW_OBJECT = (AppMain.AMS_PARAM_DRAW_OBJECT)command.param;
         int nNode = ams_PARAM_DRAW_OBJECT._object.nNode;
         if ( AppMain.__amDrawObject.plt_mtx == null || AppMain.__amDrawObject.plt_mtx.Length < nNode )
         {
             AppMain.__amDrawObject.nstat = new uint[nNode];
-            AppMain.__amDrawObject.plt_mtx = new AppMain.NNS_MATRIX[nNode];
+            AppMain.__amDrawObject.plt_mtx = new NNS_MATRIX[nNode];
             for ( int i = 0; i < nNode; i++ )
             {
-                AppMain.__amDrawObject.plt_mtx[i] = new AppMain.NNS_MATRIX();
+                AppMain.__amDrawObject.plt_mtx[i] = new NNS_MATRIX();
             }
         }
-        AppMain.NNS_MATRIX[] plt_mtx = AppMain.__amDrawObject.plt_mtx;
+        NNS_MATRIX[] plt_mtx = AppMain.__amDrawObject.plt_mtx;
         uint[] nstat = AppMain.__amDrawObject.nstat;
         if ( ams_PARAM_DRAW_OBJECT.mtx != null )
         {
@@ -2956,7 +2956,7 @@ public partial class AppMain
         AppMain.AMS_COMMAND_HEADER ams_COMMAND_HEADER = new AppMain.AMS_COMMAND_HEADER(command);
         ams_COMMAND_HEADER.command_id = -3;
         ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<AppMain.NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
         nns_MATRIX.Assign( AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_PRIMITIVE.Assign( ( AppMain.AMS_PARAM_DRAW_PRIMITIVE )command.param );
         ams_PARAM_DRAW_PRIMITIVE.mtx = nns_MATRIX;
@@ -2991,7 +2991,7 @@ public partial class AppMain
         }
         command.command_id = -4;
         ams_PARAM_DRAW_PRIMITIVE = AppMain.amDrawAlloc_AMS_PARAM_DRAW_PRIMITIVE();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
+        NNS_MATRIX nns_MATRIX = AppMain.amDrawAlloc_NNS_MATRIX();
         AppMain.nnCopyMatrix( nns_MATRIX, AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_PRIMITIVE.Assign( ( AppMain.AMS_PARAM_DRAW_PRIMITIVE )command.param );
         ams_PARAM_DRAW_PRIMITIVE.mtx = nns_MATRIX;
@@ -3006,7 +3006,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000241 RID: 577 RVA: 0x00012D69 File Offset: 0x00010F69
-    private static AppMain.NNS_MATRIX amDrawGetWorldViewMatrix()
+    private static NNS_MATRIX amDrawGetWorldViewMatrix()
     {
         return AppMain._am_draw_world_view_matrix;
     }
@@ -3014,7 +3014,7 @@ public partial class AppMain
     // Token: 0x06000242 RID: 578 RVA: 0x00012D70 File Offset: 0x00010F70
     private static void _amDrawSortPrimitive3D( AppMain.AMS_COMMAND_HEADER command, uint drawflag )
     {
-        AppMain.NNS_MATRIX amDrawSortPrimitive3D_base_mtx = AppMain._amDrawSortPrimitive3D_base_mtx;
+        NNS_MATRIX amDrawSortPrimitive3D_base_mtx = AppMain._amDrawSortPrimitive3D_base_mtx;
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = (AppMain.AMS_PARAM_DRAW_PRIMITIVE)command.param;
         if ( ams_PARAM_DRAW_PRIMITIVE.texlist != null && ams_PARAM_DRAW_PRIMITIVE.texId != -1 )
         {
@@ -3042,7 +3042,7 @@ public partial class AppMain
     private static void _amDrawSortPrimitive2D( AppMain.AMS_COMMAND_HEADER command, uint drawflag )
     {
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = (AppMain.AMS_PARAM_DRAW_PRIMITIVE)command.param;
-        AppMain.NNS_MATRIX amDrawSortPrimitive2D_mtx = AppMain._amDrawSortPrimitive2D_mtx;
+        NNS_MATRIX amDrawSortPrimitive2D_mtx = AppMain._amDrawSortPrimitive2D_mtx;
         AppMain.nnMakeOrthoMatrix( amDrawSortPrimitive2D_mtx, 0f, 720f, 1080f, 0f, 1f, 3f );
         AppMain.amDrawSetProjection( amDrawSortPrimitive2D_mtx, 1 );
         if ( ams_PARAM_DRAW_PRIMITIVE.texlist != null && ams_PARAM_DRAW_PRIMITIVE.texId != -1 )

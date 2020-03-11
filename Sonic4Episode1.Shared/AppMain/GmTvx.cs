@@ -136,8 +136,8 @@ public partial class AppMain
             int num3 = 0;
             AppMain._AMS_PARAM_DRAW_PRIMITIVE.vtxPCT3D = nns_PRIM3D_PCT_ARRAY;
             AppMain._AMS_PARAM_DRAW_PRIMITIVE.texId = array[(int)((UIntPtr)num2)].tex_id;
-            AppMain.SNNS_MATRIX snns_MATRIX = default(AppMain.SNNS_MATRIX);
-            AppMain.SNNS_MATRIX snns_MATRIX2 = default(AppMain.SNNS_MATRIX);
+            SNNS_MATRIX snns_MATRIX = default(SNNS_MATRIX);
+            SNNS_MATRIX snns_MATRIX2 = default(SNNS_MATRIX);
             AppMain.nnMakeUnitMatrix(ref snns_MATRIX2);
             for (uint num4 = 0U; num4 < array[(int)((UIntPtr)num2)].stack_num; num4 += 1U)
             {
@@ -163,7 +163,7 @@ public partial class AppMain
                 {
                     num8 = gms_TVX_DRAW_STACK.color;
                 }
-                AppMain.SNNS_VECTOR snns_VECTOR = default(AppMain.SNNS_VECTOR);
+                SNNS_VECTOR snns_VECTOR = default(SNNS_VECTOR);
                 int num9 = num3 + offset;
                 AppMain.AOS_TVX_VERTEX[] vtx = gms_TVX_DRAW_STACK.vtx;
                 int num10 = 0;

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060008A8 RID: 2216 RVA: 0x0004E58C File Offset: 0x0004C78C
-    private static AppMain.OBS_OBJECT_WORK GmGmkRockRideInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkRockRideInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = AppMain.gmGmkRockRideLoadObj(eve_rec, pos_x, pos_y, type);
-        AppMain.OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_ENEMY_3D_WORK.ene_com.obj_work;
         AppMain.gmGmkRockRideWaitInit( obj_work );
         return obj_work;
     }
@@ -18,15 +18,15 @@ public partial class AppMain
     // Token: 0x060008A9 RID: 2217 RVA: 0x0004E5B8 File Offset: 0x0004C7B8
     public static void GmGmkRockRideBuild()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(817));
-        AppMain.TXB_HEADER txb = AppMain.readTXBfile(AppMain.amBindGet(ams_AMB_HEADER, 0));
-        AppMain.g_gm_gmk_rock_ride_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.readAMBFile( AppMain.GmGameDatGetGimmickData( 816 ) ), ams_AMB_HEADER, 0U, txb );
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(817));
+        AppMain.TXB_HEADER txb = AppMain.readTXBfile(AmBind.Get(ams_AMB_HEADER, 0));
+        AppMain.g_gm_gmk_rock_ride_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AmFs.readAMBFile( AppMain.GmGameDatGetGimmickData( 816 ) ), ams_AMB_HEADER, 0U, txb );
     }
 
     // Token: 0x060008AA RID: 2218 RVA: 0x0004E600 File Offset: 0x0004C800
     public static void GmGmkRockRideFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.readAMBFile(AppMain.GmGameDatGetGimmickData(816));
+        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(AppMain.GmGameDatGetGimmickData(816));
         AppMain.GmGameDBuildRegFlushModel( AppMain.g_gm_gmk_rock_ride_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.g_gm_gmk_rock_ride_obj_3d_list = null;
     }
@@ -36,7 +36,7 @@ public partial class AppMain
     {
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_ROCK_WORK(), "GMK_ROCK_RIDE");
         AppMain.GMS_ENEMY_3D_WORK enemy_work = gms_GMK_ROCK_WORK.enemy_work;
-        AppMain.OBS_OBJECT_WORK obj_work = gms_GMK_ROCK_WORK.enemy_work.ene_com.obj_work;
+        OBS_OBJECT_WORK obj_work = gms_GMK_ROCK_WORK.enemy_work.ene_com.obj_work;
         enemy_work.ene_com.rect_work[0].flag &= 4294967291U;
         enemy_work.ene_com.rect_work[1].flag &= 4294967291U;
         AppMain.ObjObjectCopyAction3dNNModel( obj_work, AppMain.g_gm_gmk_rock_ride_obj_3d_list[0], enemy_work.obj_3d );
@@ -46,13 +46,13 @@ public partial class AppMain
     }
 
     // Token: 0x060008AC RID: 2220 RVA: 0x0004E703 File Offset: 0x0004C903
-    private static void gmGmkRockRideMoveFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideMoveFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.ObjObjectMove( obj_work );
     }
 
     // Token: 0x060008AD RID: 2221 RVA: 0x0004E70C File Offset: 0x0004C90C
-    private static void gmGmkRockRideDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.VecU16 vecU = new AppMain.VecU16(obj_work.dir);
         ushort z = AppMain.gmGmkRockRideGetUserTimerAngleZ(obj_work);
@@ -76,33 +76,33 @@ public partial class AppMain
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( gms_GMK_ROCK_WORK.se_handle != null )
         {
-            AppMain.GmSoundStopSE( gms_GMK_ROCK_WORK.se_handle );
-            AppMain.GsSoundFreeSeHandle( gms_GMK_ROCK_WORK.se_handle );
+            GsSound.StopSE( gms_GMK_ROCK_WORK.se_handle );
+            GsSound.FreeSeHandle( gms_GMK_ROCK_WORK.se_handle );
             gms_GMK_ROCK_WORK.se_handle = null;
         }
         AppMain.GmEnemyDefaultExit( tcb );
     }
 
     // Token: 0x060008AF RID: 2223 RVA: 0x0004E7BC File Offset: 0x0004C9BC
-    private static void gmGmkRockRideSetUserTimerAngleZ( AppMain.OBS_OBJECT_WORK obj_work, ushort angle_z )
+    private static void gmGmkRockRideSetUserTimerAngleZ( OBS_OBJECT_WORK obj_work, ushort angle_z )
     {
         obj_work.user_timer = ( int )angle_z;
     }
 
     // Token: 0x060008B0 RID: 2224 RVA: 0x0004E7C5 File Offset: 0x0004C9C5
-    private static void gmGmkRockRideAddUserTimerAngleZ( AppMain.OBS_OBJECT_WORK obj_work, short angle_z )
+    private static void gmGmkRockRideAddUserTimerAngleZ( OBS_OBJECT_WORK obj_work, short angle_z )
     {
         obj_work.user_timer += ( int )angle_z;
     }
 
     // Token: 0x060008B1 RID: 2225 RVA: 0x0004E7D5 File Offset: 0x0004C9D5
-    private static ushort gmGmkRockRideGetUserTimerAngleZ( AppMain.OBS_OBJECT_WORK obj_work )
+    private static ushort gmGmkRockRideGetUserTimerAngleZ( OBS_OBJECT_WORK obj_work )
     {
         return ( ushort )obj_work.user_timer;
     }
 
     // Token: 0x060008B2 RID: 2226 RVA: 0x0004E7E0 File Offset: 0x0004C9E0
-    private static void gmGmkRockRideWaitInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideWaitInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.gmGmkRockRideWaitSetRect( gms_ENEMY_3D_WORK );
@@ -115,7 +115,7 @@ public partial class AppMain
         AppMain.gmGmkRockRideSetUserTimerAngleZ( obj_work, angle_z );
         obj_work.user_work = ( uint )AppMain.mtMathRand();
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)obj_work;
-        gms_GMK_ROCK_WORK.se_handle = AppMain.GsSoundAllocSeHandle();
+        gms_GMK_ROCK_WORK.se_handle = GsSound.AllocSeHandle();
         obj_work.ppFunc = AppMain.gmGmkRockRideWaitMain;
         obj_work.ppMove = null;
         obj_work.ppOut = AppMain.gmGmkRockRideDrawFunc;
@@ -123,22 +123,22 @@ public partial class AppMain
     }
 
     // Token: 0x060008B3 RID: 2227 RVA: 0x0004E8BC File Offset: 0x0004CABC
-    private static void gmGmkRockRideWaitMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideWaitMain( OBS_OBJECT_WORK obj_work )
     {
     }
 
     // Token: 0x060008B4 RID: 2228 RVA: 0x0004E8C0 File Offset: 0x0004CAC0
     private static void gmGmkRockRideWaitDefFunc( AppMain.OBS_RECT_WORK own_rect, AppMain.OBS_RECT_WORK target_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)parent_obj;
         AppMain.GMS_ENEMY_COM_WORK ene_com = gms_ENEMY_3D_WORK.ene_com;
-        AppMain.OBS_OBJECT_WORK parent_obj2 = target_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj2 = target_rect.parent_obj;
         if ( parent_obj2.obj_type != 1 )
         {
             return;
         }
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = (AppMain.GMS_PLAYER_WORK)parent_obj2;
+        GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK)parent_obj2;
         if ( ( parent_obj2.move_flag & 1U ) != 0U )
         {
             if ( gms_ENEMY_3D_WORK.ene_com.eve_rec.flag != 0 )
@@ -187,7 +187,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008B6 RID: 2230 RVA: 0x0004EA7C File Offset: 0x0004CC7C
-    private static void gmGmkRockRideStartInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideStartInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gimmick_work = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.gmGmkRockRideStartSetRect( gimmick_work );
@@ -198,17 +198,17 @@ public partial class AppMain
         obj_work.move_flag &= 4294836223U;
         obj_work.spd_m = 0;
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)obj_work;
-        AppMain.GmSoundPlaySE( "BigRock3", gms_GMK_ROCK_WORK.se_handle );
+        GmSound.PlaySE( "BigRock3", gms_GMK_ROCK_WORK.se_handle );
         obj_work.ppFunc = AppMain.gmGmkRockRideStartMain;
         obj_work.ppMove = AppMain.gmGmkRockRideMoveFunc;
         obj_work.ppOut = AppMain.gmGmkRockRideDrawFunc;
     }
 
     // Token: 0x060008B7 RID: 2231 RVA: 0x0004EB40 File Offset: 0x0004CD40
-    private static void gmGmkRockRideStartMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideStartMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
-        AppMain.OBS_OBJECT_WORK target_obj = gms_ENEMY_3D_WORK.ene_com.target_obj;
+        OBS_OBJECT_WORK target_obj = gms_ENEMY_3D_WORK.ene_com.target_obj;
         AppMain.gmGmkRockRideAddUserTimerAngleZ( obj_work, ( short )( obj_work.spd_m >> 4 ) );
         int num = 224;
         if ( obj_work.pos.x < target_obj.pos.x )
@@ -241,7 +241,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008B9 RID: 2233 RVA: 0x0004EC38 File Offset: 0x0004CE38
-    private static void gmGmkRockRideRollInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideRollInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gimmick_work = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.gmGmkRockRideRollSetRect( gimmick_work );
@@ -267,7 +267,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008BA RID: 2234 RVA: 0x0004ED54 File Offset: 0x0004CF54
-    private static void gmGmkRockRideRollMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideRollMain( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkRockRideAddUserTimerAngleZ( obj_work, ( short )( obj_work.spd_m >> 4 ) );
         float num = AppMain.FX_FX32_TO_F32(AppMain.FX_Div(AppMain.MTM_MATH_ABS(obj_work.spd_m), 6));
@@ -289,7 +289,7 @@ public partial class AppMain
             AppMain.GMM_PAD_VIB_SMALL_TIME( 10f );
         }
         gms_GMK_ROCK_WORK.vib_timer++;
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if ( gms_PLAYER_WORK.seq_state != 31 )
         {
             obj_work.ppFunc = AppMain.gmGmkRockRideRollMainNoPlayer;
@@ -300,7 +300,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008BB RID: 2235 RVA: 0x0004EE40 File Offset: 0x0004D040
-    private static void gmGmkRockRideRollMainNoPlayer( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideRollMainNoPlayer( OBS_OBJECT_WORK obj_work )
     {
         AppMain.gmGmkRockRideAddUserTimerAngleZ( obj_work, ( short )( obj_work.spd_m >> 4 ) );
         float num = AppMain.FX_FX32_TO_F32(AppMain.FX_Div(AppMain.MTM_MATH_ABS(obj_work.spd_m), 6));
@@ -322,15 +322,15 @@ public partial class AppMain
     // Token: 0x060008BC RID: 2236 RVA: 0x0004EEC0 File Offset: 0x0004D0C0
     private static void gmGmkRockRideRollDefFunc( AppMain.OBS_RECT_WORK own_rect, AppMain.OBS_RECT_WORK target_rect )
     {
-        AppMain.OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj = own_rect.parent_obj;
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)parent_obj;
         AppMain.GMS_ENEMY_COM_WORK ene_com = gms_ENEMY_3D_WORK.ene_com;
-        AppMain.OBS_OBJECT_WORK parent_obj2 = target_rect.parent_obj;
+        OBS_OBJECT_WORK parent_obj2 = target_rect.parent_obj;
         if ( parent_obj2.obj_type != 1 )
         {
             return;
         }
-        AppMain.GMS_PLAYER_WORK ply_work = (AppMain.GMS_PLAYER_WORK)parent_obj2;
+        GMS_PLAYER_WORK ply_work = (GMS_PLAYER_WORK)parent_obj2;
         AppMain.GmPlySeqInitRockRide( ply_work, ene_com );
         own_rect.ppDef = AppMain.gmGmkRockRideRollDefFunc;
         parent_obj.ppFunc = AppMain.gmGmkRockRideRollMain;
@@ -348,7 +348,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008BE RID: 2238 RVA: 0x0004EF9C File Offset: 0x0004D19C
-    private static void gmGmkRockRideStopInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkRockRideStopInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENEMY_3D_WORK gimmick_work = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
         AppMain.gmGmkRockRideStopSetRect( gimmick_work );
@@ -362,12 +362,12 @@ public partial class AppMain
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)obj_work;
         if ( gms_GMK_ROCK_WORK.se_handle != null )
         {
-            AppMain.GmSoundStopSE( gms_GMK_ROCK_WORK.se_handle );
+            GsSound.StopSE( gms_GMK_ROCK_WORK.se_handle );
         }
         obj_work.ppFunc = null;
         if ( gms_GMK_ROCK_WORK.effect_work != null )
         {
-            AppMain.ObjDrawKillAction3DES( ( AppMain.OBS_OBJECT_WORK )gms_GMK_ROCK_WORK.effect_work );
+            AppMain.ObjDrawKillAction3DES( ( OBS_OBJECT_WORK )gms_GMK_ROCK_WORK.effect_work );
         }
         AppMain.GMM_PAD_VIB_STOP();
     }

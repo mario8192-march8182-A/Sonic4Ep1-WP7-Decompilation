@@ -93,7 +93,7 @@ public partial class AppMain
     // Token: 0x0600170A RID: 5898 RVA: 0x000C9174 File Offset: 0x000C7374
     public static AppMain.TXB_HEADER readTXBfile( object data )
     {
-        AppMain.AmbChunk ambChunk = (AppMain.AmbChunk)data;
+        AmbChunk ambChunk = (AmbChunk)data;
         return AppMain.readTXBfile( ambChunk.array, ambChunk.offset );
     }
 
@@ -153,7 +153,7 @@ public partial class AppMain
             for ( int j = 0; j < txb_HEADER.texfilelist.nTex; j++ )
             {
                 br.BaseStream.Position = ( long )( ( AppMain.TXB_TEXFILE )txb_HEADER.texfilelist.pTexFileList[j] ).name_offset;
-                txb_HEADER.texfilelist.pTexFileList[j].Filename = AppMain.readChars( br );
+                txb_HEADER.texfilelist.pTexFileList[j].Filename = AmFs.readChars( br );
                 string filename = txb_HEADER.texfilelist.pTexFileList[j].Filename.Replace(".PVR", ".PNG");
                 txb_HEADER.texfilelist.pTexFileList[j].Filename = filename;
             }

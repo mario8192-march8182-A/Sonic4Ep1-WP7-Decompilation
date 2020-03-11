@@ -41,16 +41,16 @@ public partial class AppMain
     public class DMS_SAVE_MAIN_WORK
     {
         // Token: 0x0400500F RID: 20495
-        public readonly AppMain.AMS_FS[] arc_cmn_amb_fs = new AppMain.AMS_FS[2];
+        public readonly AMS_FS[] arc_cmn_amb_fs = new AMS_FS[2];
 
         // Token: 0x04005010 RID: 20496
-        public readonly AppMain.AMS_AMB_HEADER[] arc_cmn_amb = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] arc_cmn_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005011 RID: 20497
-        public readonly AppMain.A2S_AMA_HEADER[] cmn_ama = new AppMain.A2S_AMA_HEADER[2];
+        public readonly A2S_AMA_HEADER[] cmn_ama = new A2S_AMA_HEADER[2];
 
         // Token: 0x04005012 RID: 20498
-        public readonly AppMain.AMS_AMB_HEADER[] cmn_amb = new AppMain.AMS_AMB_HEADER[2];
+        public readonly AMS_AMB_HEADER[] cmn_amb = new AMS_AMB_HEADER[2];
 
         // Token: 0x04005013 RID: 20499
         public readonly AppMain.AOS_TEXTURE[] cmn_tex = AppMain.New<AppMain.AOS_TEXTURE>(2);
@@ -101,7 +101,7 @@ public partial class AppMain
         public uint draw_state;
 
         // Token: 0x04005023 RID: 20515
-        public AppMain.GSS_SND_SCB bgm_scb;
+        public GSS_SND_SCB bgm_scb;
     }
 
     // Token: 0x020001C4 RID: 452
@@ -159,7 +159,7 @@ public partial class AppMain
         {
             return;
         }
-        if (!AppMain.AoAccountIsCurrentEnable())
+        if (!AoAccount.AoAccountIsCurrentEnable())
         {
             return;
         }
@@ -290,7 +290,7 @@ public partial class AppMain
             }
             AppMain.dm_save_mgr_p = null;
         }
-        if ((dms_SAVE_MAIN_WORK.flag & 2147483648U) != 0U && !AppMain.AoAccountIsCurrentEnable())
+        if ((dms_SAVE_MAIN_WORK.flag & 2147483648U) != 0U && !AoAccount.AoAccountIsCurrentEnable())
         {
             dms_SAVE_MAIN_WORK.proc_menu_update = AppMain.dmSaveProcStopDraw;
             dms_SAVE_MAIN_WORK.proc_input = null;
@@ -341,8 +341,8 @@ public partial class AppMain
     // Token: 0x0600098A RID: 2442 RVA: 0x00055D1F File Offset: 0x00053F1F
     private static void dmSaveLoadRequest(AppMain.DMS_SAVE_MAIN_WORK main_work)
     {
-        main_work.arc_cmn_amb_fs[0] = AppMain.amFsReadBackground("DEMO/CMN/D_CMN_WIN.AMB");
-        main_work.arc_cmn_amb_fs[1] = AppMain.amFsReadBackground(AppMain.dm_save_menu_cmn_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
+        main_work.arc_cmn_amb_fs[0] = AmFs.amFsReadBackground("DEMO/CMN/D_CMN_WIN.AMB");
+        main_work.arc_cmn_amb_fs[1] = AmFs.amFsReadBackground(AppMain.dm_save_menu_cmn_lng_amb_name_tbl[AppMain.GsEnvGetLanguage()]);
         main_work.proc_menu_update = AppMain.dmSaveProcLoadWait;
     }
 
@@ -353,13 +353,13 @@ public partial class AppMain
         {
             for (int i = 0; i < 2; i++)
             {
-                main_work.arc_cmn_amb[i] = AppMain.readAMBFile(main_work.arc_cmn_amb_fs[i]);
+                main_work.arc_cmn_amb[i] = AmFs.readAMBFile(main_work.arc_cmn_amb_fs[i]);
                 main_work.arc_cmn_amb_fs[i] = null;
-                main_work.cmn_ama[i] = AppMain.readAMAFile(AppMain.amBindGet(main_work.arc_cmn_amb[i], 0));
+                main_work.cmn_ama[i] = A2S.readAMAFile(AmBind.Get(main_work.arc_cmn_amb[i], 0));
                 string dir;
-                main_work.cmn_amb[i] = AppMain.readAMBFile(AppMain.amBindGet(main_work.arc_cmn_amb[i], 1, out dir));
+                main_work.cmn_amb[i] = AmFs.readAMBFile(AmBind.Get(main_work.arc_cmn_amb[i], 1, out dir));
                 main_work.cmn_amb[i].dir = dir;
-                AppMain.amFsClearRequest(main_work.arc_cmn_amb_fs[i]);
+                AmFs.amFsClearRequest(main_work.arc_cmn_amb_fs[i]);
                 main_work.arc_cmn_amb_fs[i] = null;
                 AppMain.AoTexBuild(main_work.cmn_tex[i], main_work.cmn_amb[i]);
                 AppMain.AoTexLoad(main_work.cmn_tex[i]);
@@ -390,7 +390,7 @@ public partial class AppMain
     {
         for (uint num = 0U; num < 6U; num += 1U)
         {
-            AppMain.A2S_AMA_HEADER ama;
+            A2S_AMA_HEADER ama;
             AppMain.AOS_TEXTURE tex;
             if (num >= 1U)
             {
@@ -694,15 +694,15 @@ public partial class AppMain
     // Token: 0x06000999 RID: 2457 RVA: 0x000565B0 File Offset: 0x000547B0
     private static void dmSaveInputProcWindow(AppMain.DMS_SAVE_MAIN_WORK main_work)
     {
-        if (AppMain.AoAccountGetCurrentId() < 0)
+        if (AoAccount.AoAccountGetCurrentId() < 0)
         {
-            if (AppMain.AoPadSomeoneStand(ControllerConsts.CONFIRM) >= 0)
+            if (AoPad.AoPadSomeoneStand(ControllerConsts.CONFIRM) >= 0)
             {
                 main_work.flag |= 4U;
                 return;
             }
         }
-        else if ((AppMain.AoPadStand() & ControllerConsts.CONFIRM) != 0)
+        else if ((AoPad.AoPadStand() & ControllerConsts.CONFIRM) != 0)
         {
             main_work.flag |= 4U;
         }
@@ -841,7 +841,7 @@ public partial class AppMain
     {
         for (int i = 0; i < 2; i++)
         {
-            if (!AppMain.amFsIsComplete(main_work.arc_cmn_amb_fs[i]))
+            if (!AmFs.amFsIsComplete(main_work.arc_cmn_amb_fs[i]))
             {
                 return 0;
             }

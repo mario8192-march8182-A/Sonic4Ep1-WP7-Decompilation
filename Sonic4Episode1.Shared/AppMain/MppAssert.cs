@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 public partial class AppMain
 {
     // Token: 0x06000A61 RID: 2657 RVA: 0x0005C7EC File Offset: 0x0005A9EC
-    public static void mppAssertNotImpl()
+    public static void mppAssertNotImpl([CallerMemberName] string name = null)
     {
+        System.Diagnostics.Debug.WriteLine($"{name} is not implemented.");
     }
 
     // Token: 0x06000A62 RID: 2658 RVA: 0x0005C7EE File Offset: 0x0005A9EE

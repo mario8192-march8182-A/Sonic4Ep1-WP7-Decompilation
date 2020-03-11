@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sonic4Episode1.Abstraction;
 
 public partial class AppMain
 {
@@ -55,11 +56,11 @@ public partial class AppMain
     // Token: 0x060009A4 RID: 2468 RVA: 0x00056B7C File Offset: 0x00054D7C
     public void DmLogoSonicBuild()
     {
-        AppMain.AMS_AMB_HEADER[] array = new AppMain.AMS_AMB_HEADER[1];
+        AMS_AMB_HEADER[] array = new AMS_AMB_HEADER[1];
         AppMain.dm_logo_sonic_build_tcb = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicDataBuildMain, this.dmLogoSonicDataBuildDest, 0U, ushort.MaxValue, 4096U, 0, null, "DM_LSONT_BUILD");
         AppMain.dm_logo_sonic_aos_tex = AppMain.New<AppMain.AOS_TEXTURE>(1);
         string dir;
-        array[0] = AppMain.readAMBFile(AppMain.amBindGet(AppMain.dm_logo_sonic_data[0], 1, out dir));
+        array[0] = AmFs.readAMBFile(AmBind.Get(AppMain.dm_logo_sonic_data[0], 1, out dir));
         array[0].dir = dir;
         AppMain.AOS_TEXTURE[] array2 = AppMain.dm_logo_sonic_aos_tex;
         for (int i = 0; i < 1; i++)
@@ -130,7 +131,7 @@ public partial class AppMain
     // Token: 0x060009AC RID: 2476 RVA: 0x00056CFC File Offset: 0x00054EFC
     public void dmLogoSonicActionCreate(AppMain.DMS_LOGO_SONIC_WORK logo_work)
     {
-        AppMain.A2S_AMA_HEADER ama = AppMain.readAMAFile(AppMain.amBindGet(AppMain.dm_logo_sonic_data[0], 0));
+        A2S_AMA_HEADER ama = A2S.readAMAFile(AmBind.Get(AppMain.dm_logo_sonic_data[0], 0));
         for (uint num = 0U; num < 2U; num += 1U)
         {
             AppMain.AoActSetTexture(AppMain.AoTexGetTexList(AppMain.dm_logo_sonic_aos_tex[(int)AppMain.dm_logo_sonic_tex_id_tbl[(int)((UIntPtr)num)]]));
@@ -150,8 +151,8 @@ public partial class AppMain
     // Token: 0x060009AE RID: 2478 RVA: 0x00056D80 File Offset: 0x00054F80
     public void dmLogoSonicStart()
     {
-        AppMain.NNS_RGBA nns_RGBA = new AppMain.NNS_RGBA(1f, 1f, 1f, 1f);
-        AppMain.NNS_RGB nns_RGB = new AppMain.NNS_RGB(1f, 1f, 1f);
+        NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
+        NNS_RGB nns_RGB = new NNS_RGB(1f, 1f, 1f);
         AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SONIC_WORK(), "DM_LSONT_MAIN");
         AppMain.DMS_LOGO_SONIC_WORK dms_LOGO_SONIC_WORK = (AppMain.DMS_LOGO_SONIC_WORK)mts_TASK_TCB.work;
         AppMain.nnSetPrimitive3DMaterial(ref nns_RGBA, ref nns_RGB, 1f);
@@ -178,7 +179,7 @@ public partial class AppMain
             {
                 dms_LOGO_SONIC_WORK.func(dms_LOGO_SONIC_WORK);
             }
-            if ((dms_LOGO_SONIC_WORK.flag & 1U) != 0U && (dms_LOGO_SONIC_WORK.flag & 2U) == 0U && (AppMain.amTpIsTouchPush(0) || AppMain.isBackKeyPressed() || PAD_ADIRECT(0) != 0))
+            if ((dms_LOGO_SONIC_WORK.flag & 1U) != 0U && (dms_LOGO_SONIC_WORK.flag & 2U) == 0U && (AppMain.amTpIsTouchPush(0) || AppMain.isBackKeyPressed() || AoPad.AoPadSomeoneDirect(ControllerConsts.CONFIRM) != -1))
             {
                 AppMain.setBackKeyRequest(false);
                 dms_LOGO_SONIC_WORK.flag |= 2U;
@@ -283,7 +284,7 @@ public partial class AppMain
     // Token: 0x060009B6 RID: 2486 RVA: 0x00057098 File Offset: 0x00055298
     public static void dmLogoSonicLoadPostFunc(AppMain.DMS_LOGO_COM_LOAD_CONTEXT context)
     {
-        AppMain.dm_logo_sonic_data[context.no] = AppMain.readAMBFile(context.fs_req);
+        AppMain.dm_logo_sonic_data[context.no] = AmFs.readAMBFile(context.fs_req);
     }
 
     // Token: 0x060009B7 RID: 2487 RVA: 0x000570B4 File Offset: 0x000552B4

@@ -50,7 +50,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600118F RID: 4495 RVA: 0x00099D89 File Offset: 0x00097F89
-    private static void dwaterSetObjectAMB( AppMain.AMS_AMB_HEADER amb_obj, AppMain.AMS_AMB_HEADER amb_tex )
+    private static void dwaterSetObjectAMB( AMS_AMB_HEADER amb_obj, AMS_AMB_HEADER amb_tex )
     {
         AppMain._dmap_water.amb_object = amb_obj;
         AppMain._dmap_water.amb_texture = amb_tex;
@@ -88,7 +88,7 @@ public partial class AppMain
         i = 0;
         while ( i < 2 )
         {
-            object obj = AppMain.amBindGet(AppMain._dmap_water.amb_object, i);
+            object obj = AmBind.Get(AppMain._dmap_water.amb_object, i);
             AppMain._dmap_water.regist_index = AppMain.amObjectLoad( out ( ~pointer )._object, out ( ~pointer ).texlist, out ( ~pointer ).texlistbuf, obj, objflag, null, AppMain._dmap_water.amb_texture );
             result = 0;
             i++;
@@ -218,7 +218,7 @@ public partial class AppMain
     private static void dwaterDrawReflection( uint state, uint drawflag )
     {
         AppMain.amMatrixPush();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amMatrixGetCurrent();
+        NNS_MATRIX nns_MATRIX = AppMain.amMatrixGetCurrent();
         AppMain.DMAP_WATER_OBJ dmap_WATER_OBJ = AppMain._dmap_water._object[1];
         AppMain.AMS_MOTION motion = dmap_WATER_OBJ.motion;
         AppMain.amMotionMaterialSetFrame( motion, AppMain._dmap_water._object[1].frame );
@@ -240,7 +240,7 @@ public partial class AppMain
     private static void dwaterDrawSurface( uint state, uint drawflag )
     {
         AppMain.amMatrixPush();
-        AppMain.NNS_MATRIX nns_MATRIX = AppMain.amMatrixGetCurrent();
+        NNS_MATRIX nns_MATRIX = AppMain.amMatrixGetCurrent();
         AppMain.DMAP_WATER_OBJ dmap_WATER_OBJ = AppMain._dmap_water._object[0];
         AppMain.AMS_MOTION motion = dmap_WATER_OBJ.motion;
         AppMain.amMotionMaterialSetFrame( motion, AppMain._dmap_water._object[0].frame );
@@ -263,7 +263,7 @@ public partial class AppMain
     {
         AppMain.DMAP_PARAM_WATER draw_param = AppMain._dmap_water.draw_param;
         AppMain.amDrawPushState();
-        AppMain.NNS_VECTOR nns_VECTOR = new AppMain.NNS_VECTOR(0f, draw_param.pos_dy, -0.5f);
+        NNS_VECTOR nns_VECTOR = new NNS_VECTOR(0f, draw_param.pos_dy, -0.5f);
         AppMain.nnTransformVector( nns_VECTOR, AppMain.amDrawGetProjectionMatrix(), nns_VECTOR );
         float draw_u = draw_param.draw_u;
         float draw_v = draw_param.draw_v;

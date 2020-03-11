@@ -25,7 +25,7 @@ public partial class AppMain
     }
 
     // Token: 0x02000183 RID: 387
-    public class GMS_GMK_CAM_SCR_LIMIT_WORK : AppMain.IOBS_OBJECT_WORK
+    public class GMS_GMK_CAM_SCR_LIMIT_WORK : IOBS_OBJECT_WORK
     {
         // Token: 0x0600219F RID: 8607 RVA: 0x001415FE File Offset: 0x0013F7FE
         public GMS_GMK_CAM_SCR_LIMIT_WORK()
@@ -40,7 +40,7 @@ public partial class AppMain
         }
 
         // Token: 0x060021A1 RID: 8609 RVA: 0x00141625 File Offset: 0x0013F825
-        public AppMain.OBS_OBJECT_WORK Cast()
+        public OBS_OBJECT_WORK Cast()
         {
             return this.gmk_work.obj_work;
         }
@@ -53,9 +53,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000698 RID: 1688 RVA: 0x0003B50C File Offset: 0x0003970C
-    private static AppMain.OBS_OBJECT_WORK GmGmkCamScrLimitInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type)
+    private static OBS_OBJECT_WORK GmGmkCamScrLimitInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_CAM_SCR_LIMIT_WORK(), "GMK_CAM_SCRLMT");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_GMK_CAM_SCR_LIMIT_WORK(), "GMK_CAM_SCRLMT");
         AppMain.GMS_GMK_CAM_SCR_LIMIT_WORK gms_GMK_CAM_SCR_LIMIT_WORK = (AppMain.GMS_GMK_CAM_SCR_LIMIT_WORK)obs_OBJECT_WORK;
         AppMain.GMS_ENEMY_COM_WORK gms_ENEMY_COM_WORK = (AppMain.GMS_ENEMY_COM_WORK)obs_OBJECT_WORK;
         gms_ENEMY_COM_WORK.enemy_flag |= 65536U;
@@ -80,9 +80,9 @@ public partial class AppMain
     }
 
     // Token: 0x06000699 RID: 1689 RVA: 0x0003B670 File Offset: 0x00039870
-    private static void gmGmkCamScrLimitMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCamScrLimitMain(OBS_OBJECT_WORK obj_work)
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if (obj_work.pos.x <= gms_PLAYER_WORK.obj_work.pos.x)
         {
             obj_work.ppFunc = AppMain.gmGmkCamScrLimitSetting;
@@ -91,9 +91,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600069A RID: 1690 RVA: 0x0003B6D8 File Offset: 0x000398D8
-    private static AppMain.OBS_OBJECT_WORK GmGmkCamScrLimitReleaseInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type)
+    private static OBS_OBJECT_WORK GmGmkCamScrLimitReleaseInit(AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type)
     {
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_SCRLMT_RELEASE");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_COM_WORK(), "GMK_SCRLMT_RELEASE");
         obs_OBJECT_WORK.user_flag = (uint)eve_rec.flag;
         obs_OBJECT_WORK.user_timer = 0;
         obs_OBJECT_WORK.move_flag |= 8480U;
@@ -112,9 +112,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600069B RID: 1691 RVA: 0x0003B79C File Offset: 0x0003999C
-    private static void gmGmkCamScrLimitRelease(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCamScrLimitRelease(OBS_OBJECT_WORK obj_work)
     {
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         int num = AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.pos.x) >> 12;
         int num2 = -AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.pos.y) >> 12;
         int num3 = AppMain.FXM_FLOAT_TO_FX32(AppMain.AMD_SCREEN_2D_WIDTH / 2f * obs_CAMERA.scale) >> 12;
@@ -195,9 +195,9 @@ public partial class AppMain
     }
 
     // Token: 0x0600069C RID: 1692 RVA: 0x0003BAF8 File Offset: 0x00039CF8
-    private static void gmGmkCamScrLimitReleaseMain(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCamScrLimitReleaseMain(OBS_OBJECT_WORK obj_work)
     {
-        AppMain.GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
+        GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
         if (obj_work.pos.x <= gms_PLAYER_WORK.obj_work.pos.x)
         {
             obj_work.ppFunc = AppMain.gmGmkCamScrLimitRelease;
@@ -227,10 +227,10 @@ public partial class AppMain
     }
 
     // Token: 0x0600069E RID: 1694 RVA: 0x0003BC10 File Offset: 0x00039E10
-    private static void gmGmkCamScrLimitSetting(AppMain.OBS_OBJECT_WORK obj_work)
+    private static void gmGmkCamScrLimitSetting(OBS_OBJECT_WORK obj_work)
     {
         AppMain.GMS_GMK_CAM_SCR_LIMIT_WORK gms_GMK_CAM_SCR_LIMIT_WORK = (AppMain.GMS_GMK_CAM_SCR_LIMIT_WORK)obj_work;
-        AppMain.OBS_CAMERA obs_CAMERA = AppMain.ObjCameraGet(0);
+        OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
         int num = AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.pos.x) >> 12;
         int num2 = -AppMain.FXM_FLOAT_TO_FX32(obs_CAMERA.pos.y) >> 12;
         int num3 = 1;
@@ -342,7 +342,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600069F RID: 1695 RVA: 0x0003C060 File Offset: 0x0003A260
-    private static AppMain.OBS_OBJECT_WORK GmGmkCamScrLimitRelease(byte flag)
+    private static OBS_OBJECT_WORK GmGmkCamScrLimitRelease(byte flag)
     {
         return AppMain.GmEventMgrLocalEventBirth(303, 0, 0, (ushort)(flag & 15), 0, 0, 0, 0, 0);
     }

@@ -195,7 +195,7 @@ public partial class AppMain
     // Token: 0x0600005C RID: 92 RVA: 0x00004C22 File Offset: 0x00002E22
     private void gmPadVibDest( AppMain.MTS_TASK_TCB tcb )
     {
-        AppMain.AoPadSetVibration( 0, 0 );
+        AoPad.AoPadSetVibration( 0, 0 );
         AppMain.gm_pad_vib_tcb = null;
     }
 }

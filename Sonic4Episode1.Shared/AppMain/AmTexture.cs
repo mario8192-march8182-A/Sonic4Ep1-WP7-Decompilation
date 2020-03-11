@@ -18,7 +18,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001860 RID: 6240 RVA: 0x000DB6A8 File Offset: 0x000D98A8
-    public static int amTextureLoad(AppMain.NNS_TEXLIST texlist, AppMain.NNS_TEXFILELIST texfilelist, string filepath, AppMain.AMS_AMB_HEADER amb)
+    public static int amTextureLoad(AppMain.NNS_TEXLIST texlist, AppMain.NNS_TEXFILELIST texfilelist, string filepath, AMS_AMB_HEADER amb)
     {
         int result = 0;
         AppMain.ArrayPointer<AppMain.NNS_TEXINFO> pointer = new AppMain.ArrayPointer<AppMain.NNS_TEXINFO>(texlist.pTexInfoList);

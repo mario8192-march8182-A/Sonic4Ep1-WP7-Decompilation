@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 public partial class AppMain 
 {
     // Token: 0x06000B1F RID: 2847 RVA: 0x00064510 File Offset: 0x00062710
-    private static AppMain.OBS_OBJECT_WORK GmGmkSsOblongInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkSsOblongInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         AppMain.UNREFERENCED_PARAMETER( type );
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_OBLONG");
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_ENEMY_CREATE_WORK(eve_rec, pos_x, pos_y, () => new AppMain.GMS_ENEMY_3D_WORK(), "GMK_SS_OBLONG");
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.view_out_ofst -= 128;
         AppMain.ObjObjectCopyAction3dNNModel( obs_OBJECT_WORK, AppMain.gm_gmk_ss_oblong_obj_3d_list[0], gms_ENEMY_3D_WORK.obj_3d );
@@ -52,20 +52,20 @@ public partial class AppMain
     public static void GmGmkSsOblongBuild()
     {
         AppMain.gm_gmk_ss_oblong_obj_3d_list = AppMain.GmGameDBuildRegBuildModel( AppMain.GmGameDatGetGimmickData( 987 ), AppMain.GmGameDatGetGimmickData( 988 ), 0U );
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(990);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(990);
         AppMain.gm_gmk_ss_oblong_obj_tvx_list = ams_AMB_HEADER;
     }
 
     // Token: 0x06000B21 RID: 2849 RVA: 0x00064730 File Offset: 0x00062930
     public static void GmGmkSsOblongFlush()
     {
-        AppMain.AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(987);
+        AMS_AMB_HEADER ams_AMB_HEADER = AppMain.GmGameDatGetGimmickData(987);
         AppMain.GmGameDBuildRegFlushModel( AppMain.gm_gmk_ss_oblong_obj_3d_list, ams_AMB_HEADER.file_num );
         AppMain.gm_gmk_ss_oblong_obj_tvx_list = null;
     }
 
     // Token: 0x06000B22 RID: 2850 RVA: 0x00064760 File Offset: 0x00062960
-    private static void gmGmkSsOblongMain( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsOblongMain( OBS_OBJECT_WORK obj_work )
     {
         if ( ( AppMain.GmSplStageGetWork().flag & 4U ) != 0U )
         {
@@ -82,7 +82,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000B23 RID: 2851 RVA: 0x000647C8 File Offset: 0x000629C8
-    private static void gmGmkSsOblongDrawFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkSsOblongDrawFunc( OBS_OBJECT_WORK obj_work )
     {
         AppMain.OBS_ACTION3D_NN_WORK obj_3d = obj_work.obj_3d;
         if ( !AppMain.GmMainIsDrawEnable() )
@@ -95,7 +95,7 @@ public partial class AppMain
         }
         if ( AppMain.gmGmkSsOblongDrawFunctvx == null )
         {
-            AppMain.gmGmkSsOblongDrawFunctvx = new AppMain.TVX_FILE( ( AppMain.AmbChunk )AppMain.amBindGet( AppMain.gm_gmk_ss_oblong_obj_tvx_list, 0 ) );
+            AppMain.gmGmkSsOblongDrawFunctvx = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( AppMain.gm_gmk_ss_oblong_obj_tvx_list, 0 ) );
         }
         AppMain.NNS_TEXLIST texlist = obj_work.obj_3d.texlist;
         uint num = AppMain.GMD_TVX_DISP_LIGHT_DISABLE;

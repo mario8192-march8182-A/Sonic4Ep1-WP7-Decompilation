@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x060004EF RID: 1263 RVA: 0x0002A404 File Offset: 0x00028604
-    private static AppMain.OBS_OBJECT_WORK GmGmkDecoFrameMgrInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
+    private static OBS_OBJECT_WORK GmGmkDecoFrameMgrInit( AppMain.GMS_EVE_RECORD_EVENT eve_rec, int pos_x, int pos_y, byte type )
     {
         if ( eve_rec.byte_param[1] != 0 )
         {
@@ -26,7 +26,7 @@ public partial class AppMain
             eve_rec.byte_param[1] = 1;
             return null;
         }
-        AppMain.OBS_OBJECT_WORK obs_OBJECT_WORK = (AppMain.OBS_OBJECT_WORK)AppMain.gmGmkDecoFrameMgrLoadObjNoModel(eve_rec, pos_x, pos_y, type);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)AppMain.gmGmkDecoFrameMgrLoadObjNoModel(eve_rec, pos_x, pos_y, type);
         AppMain.gmGmkDecoFrameMgrInit( obs_OBJECT_WORK );
         return obs_OBJECT_WORK;
     }
@@ -41,7 +41,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004F1 RID: 1265 RVA: 0x0002A4F4 File Offset: 0x000286F4
-    private static void gmGmkDecoFrameMgrInit( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkDecoFrameMgrInit( OBS_OBJECT_WORK obj_work )
     {
         obj_work.disp_flag |= 32U;
         obj_work.move_flag |= 8448U;
@@ -54,7 +54,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004F2 RID: 1266 RVA: 0x0002A574 File Offset: 0x00028774
-    private static void gmGmkDecoFrameMgrMainFunc( AppMain.OBS_OBJECT_WORK obj_work )
+    private static void gmGmkDecoFrameMgrMainFunc( OBS_OBJECT_WORK obj_work )
     {
         if ( obj_work.user_timer >= 510 )
         {
