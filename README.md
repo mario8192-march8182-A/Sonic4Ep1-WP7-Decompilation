@@ -18,4 +18,4 @@ After fixing the major collision issues the game is *mostly* playable, however a
 It's so big that it VS to lag pretty badly, but I've never had it hard crash.
 
 ## XNB files are perfectly fine
-The issue is the format of the audio itself, MonoGame on Windows excpects OGG Vorbis audio, while the original audio files are WMAs. A simple conversion with ffmpeg and a mass rename is enough to fix most of these issues. I've also built a tool that changes the file extension the XNBs are looking for, to make this process easier.
+The issue is the format of the audio itself, MonoGame on Windows expects OGG Vorbis audio, while the original audio files are WMAs. A simple conversion with ffmpeg and a mass rename is enough to fix most of these issues. I've also built a tool that changes the file extension the XNBs are looking for, to make this process easier.
