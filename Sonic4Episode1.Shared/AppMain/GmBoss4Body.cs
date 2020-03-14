@@ -508,7 +508,7 @@ public partial class AppMain
     }
 
     // Token: 0x060015CF RID: 5583 RVA: 0x000BD9A0 File Offset: 0x000BBBA0
-    private static void gmBoss4BodyExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss4BodyExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_BOSS4_BODY_WORK gms_BOSS4_BODY_WORK = (AppMain.GMS_BOSS4_BODY_WORK)obs_OBJECT_WORK;

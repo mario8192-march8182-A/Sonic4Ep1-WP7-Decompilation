@@ -765,12 +765,12 @@ public partial class AppMain
     }
 
     // Token: 0x060006B9 RID: 1721 RVA: 0x0003C69D File Offset: 0x0003A89D
-    private static void gmFixDest(AppMain.MTS_TASK_TCB tcb)
+    private static void gmFixDest(MTS_TASK_TCB tcb)
     {
     }
 
     // Token: 0x060006BA RID: 1722 RVA: 0x0003C6A0 File Offset: 0x0003A8A0
-    private static void gmFixProcMain(AppMain.MTS_TASK_TCB tcb)
+    private static void gmFixProcMain(MTS_TASK_TCB tcb)
     {
         AppMain.GMS_FIX_MGR_WORK gms_FIX_MGR_WORK = (AppMain.GMS_FIX_MGR_WORK)tcb.work;
         if (gms_FIX_MGR_WORK.proc_update != null)

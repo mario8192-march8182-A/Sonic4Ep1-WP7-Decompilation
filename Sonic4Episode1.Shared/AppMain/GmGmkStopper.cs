@@ -340,7 +340,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600026B RID: 619 RVA: 0x00013DF8 File Offset: 0x00011FF8
-    private static void gmGmkStopperExit(AppMain.MTS_TASK_TCB tcb)
+    private static void gmGmkStopperExit(MTS_TASK_TCB tcb)
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_GMK_STOPPER_WORK gms_GMK_STOPPER_WORK = (AppMain.GMS_GMK_STOPPER_WORK) p;

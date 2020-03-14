@@ -109,7 +109,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009AA RID: 2474 RVA: 0x00056CC3 File Offset: 0x00054EC3
-    public void dmLogoSonicLoadWait(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicLoadWait(MTS_TASK_TCB tcb)
     {
         if (this.DmLogoSonicLoadCheck())
         {
@@ -119,7 +119,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009AB RID: 2475 RVA: 0x00056CE5 File Offset: 0x00054EE5
-    public void dmLogoSonicBuildWait(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicBuildWait(MTS_TASK_TCB tcb)
     {
         if (this.DmLogoSonicBuildCheck())
         {
@@ -153,7 +153,7 @@ public partial class AppMain
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
         NNS_RGB nns_RGB = new NNS_RGB(1f, 1f, 1f);
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SONIC_WORK(), "DM_LSONT_MAIN");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSonicMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SONIC_WORK(), "DM_LSONT_MAIN");
         AppMain.DMS_LOGO_SONIC_WORK dms_LOGO_SONIC_WORK = (AppMain.DMS_LOGO_SONIC_WORK)mts_TASK_TCB.work;
         AppMain.nnSetPrimitive3DMaterial(ref nns_RGBA, ref nns_RGB, 1f);
         AppMain.AoActSysSetDrawStateEnable(false);
@@ -163,7 +163,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009AF RID: 2479 RVA: 0x00056E48 File Offset: 0x00055048
-    public void dmLogoSonicMainFunc(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicMainFunc(MTS_TASK_TCB tcb)
     {
         AppMain.DMS_LOGO_SONIC_WORK dms_LOGO_SONIC_WORK = (AppMain.DMS_LOGO_SONIC_WORK)tcb.work;
         if (AppMain.AoSysIsShowPlatformUI())
@@ -247,7 +247,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009B3 RID: 2483 RVA: 0x00057010 File Offset: 0x00055210
-    public void dmLogoSonicPreEndWait(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicPreEndWait(MTS_TASK_TCB tcb)
     {
         AppMain.DMS_LOGO_SONIC_WORK dms_LOGO_SONIC_WORK = (AppMain.DMS_LOGO_SONIC_WORK)tcb.work;
         dms_LOGO_SONIC_WORK.timer++;
@@ -260,7 +260,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009B4 RID: 2484 RVA: 0x0005705F File Offset: 0x0005525F
-    public void dmLogoSonicFlushWaitFunc(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicFlushWaitFunc(MTS_TASK_TCB tcb)
     {
         if (!this.DmLogoSonicFlushCheck())
         {
@@ -271,7 +271,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009B5 RID: 2485 RVA: 0x00057082 File Offset: 0x00055282
-    public void dmLogoSonicRelesehWaitFunc(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicRelesehWaitFunc(MTS_TASK_TCB tcb)
     {
         if (!this.DmLogoSonicReleaseCheck())
         {
@@ -288,7 +288,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009B7 RID: 2487 RVA: 0x000570B4 File Offset: 0x000552B4
-    public void dmLogoSonicDataBuildMain(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicDataBuildMain(MTS_TASK_TCB tcb)
     {
         bool flag = true;
         AppMain.AOS_TEXTURE[] array = AppMain.dm_logo_sonic_aos_tex;
@@ -308,13 +308,13 @@ public partial class AppMain
     }
 
     // Token: 0x060009B8 RID: 2488 RVA: 0x000570F1 File Offset: 0x000552F1
-    public void dmLogoSonicDataBuildDest(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicDataBuildDest(MTS_TASK_TCB tcb)
     {
         AppMain.dm_logo_sonic_build_tcb = null;
     }
 
     // Token: 0x060009B9 RID: 2489 RVA: 0x000570FC File Offset: 0x000552FC
-    public void dmLogoSonicDataFlushMain(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicDataFlushMain(MTS_TASK_TCB tcb)
     {
         bool flag = true;
         AppMain.AOS_TEXTURE[] array = AppMain.dm_logo_sonic_aos_tex;
@@ -335,7 +335,7 @@ public partial class AppMain
     }
 
     // Token: 0x060009BA RID: 2490 RVA: 0x0005713F File Offset: 0x0005533F
-    public void dmLogoSonicDataFlushDest(AppMain.MTS_TASK_TCB tcb)
+    public void dmLogoSonicDataFlushDest(MTS_TASK_TCB tcb)
     {
         AppMain.dm_logo_sonic_flush_tcb = null;
     }

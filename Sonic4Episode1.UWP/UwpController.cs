@@ -47,9 +47,9 @@ namespace Sonic4Episode1.UWP
             padData.ary = (short)(reading.RightThumbstickY * short.MaxValue);
 
             if (reading.Buttons.HasFlag(GamepadButtons.A))
-                padData.direction |= ControllerConsts.JUMP_BUTTON & ControllerConsts.CONFIRM;
+                padData.direction |= (ControllerConsts.JUMP_BUTTON | ControllerConsts.CONFIRM);
             if (reading.Buttons.HasFlag(GamepadButtons.B))
-                padData.direction |= ControllerConsts.JUMP_BUTTON & ControllerConsts.CANCEL;
+                padData.direction |= (ControllerConsts.JUMP_BUTTON | ControllerConsts.CANCEL);
 
             if (reading.Buttons.HasFlag(GamepadButtons.Y) || reading.Buttons.HasFlag(GamepadButtons.X))
                 padData.direction |= ControllerConsts.SUPER_SONIC;

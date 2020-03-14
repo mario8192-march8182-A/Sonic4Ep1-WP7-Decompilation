@@ -2299,7 +2299,7 @@ public partial class AppMain
     }
 
     // Token: 0x060004AD RID: 1197 RVA: 0x00028409 File Offset: 0x00026609
-    public static void objDraw3DESEffectServerMain(AppMain.MTS_TASK_TCB tcb)
+    public static void objDraw3DESEffectServerMain(MTS_TASK_TCB tcb)
     {
         AppMain.amEffectExecute();
     }

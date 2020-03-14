@@ -880,7 +880,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001495 RID: 5269 RVA: 0x000B5230 File Offset: 0x000B3430
-    private static void gmBoss1BodyExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss1BodyExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_BOSS1_BODY_WORK gms_BOSS1_BODY_WORK = (AppMain.GMS_BOSS1_BODY_WORK)obs_OBJECT_WORK;
@@ -2173,7 +2173,7 @@ public partial class AppMain
     }
 
     // Token: 0x060014EA RID: 5354 RVA: 0x000B7330 File Offset: 0x000B5530
-    private static void gmBoss1ChainExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss1ChainExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_BOSS1_CHAIN_WORK gms_BOSS1_CHAIN_WORK = (AppMain.GMS_BOSS1_CHAIN_WORK)obs_OBJECT_WORK;
@@ -2315,7 +2315,7 @@ public partial class AppMain
     }
 
     // Token: 0x060014F0 RID: 5360 RVA: 0x000B7778 File Offset: 0x000B5978
-    private static void gmBoss1EggExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss1EggExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_BOSS1_EGG_WORK gms_BOSS1_EGG_WORK = (AppMain.GMS_BOSS1_EGG_WORK)p;
@@ -2520,7 +2520,7 @@ public partial class AppMain
     }
 
     // Token: 0x060014FF RID: 5375 RVA: 0x000B7CE4 File Offset: 0x000B5EE4
-    private static void gmBoss1EffShockwaveExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss1EffShockwaveExit( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_BOSS1_EFF_SHOCKWAVE_WORK gms_BOSS1_EFF_SHOCKWAVE_WORK = (AppMain.GMS_BOSS1_EFF_SHOCKWAVE_WORK)AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmBoss1MgrDecObjCreateCount( gms_BOSS1_EFF_SHOCKWAVE_WORK.mgr_work );
@@ -2576,7 +2576,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001502 RID: 5378 RVA: 0x000B7EEC File Offset: 0x000B60EC
-    private static void gmBoss1EffShockwaveSubExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss1EffShockwaveSubExit( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_BOSS1_EFF_SHOCKWAVE_SUB_WORK gms_BOSS1_EFF_SHOCKWAVE_SUB_WORK = (AppMain.GMS_BOSS1_EFF_SHOCKWAVE_SUB_WORK)AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmBoss1MgrDecObjCreateCount( gms_BOSS1_EFF_SHOCKWAVE_SUB_WORK.mgr_work );

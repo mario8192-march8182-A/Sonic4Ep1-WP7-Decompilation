@@ -723,7 +723,7 @@ public partial class AppMain
     }
 
     // Token: 0x060000E9 RID: 233 RVA: 0x0000A198 File Offset: 0x00008398
-    public static void gmBoss5EfctRocketLeakageExit( AppMain.MTS_TASK_TCB tcb )
+    public static void gmBoss5EfctRocketLeakageExit( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_BOSS5_EFCT_GENERAL_WORK gms_BOSS5_EFCT_GENERAL_WORK = (AppMain.GMS_BOSS5_EFCT_GENERAL_WORK)AppMain.mtTaskGetTcbWork(tcb);
         GsSound.FreeSeHandle( gms_BOSS5_EFCT_GENERAL_WORK.se_handle );

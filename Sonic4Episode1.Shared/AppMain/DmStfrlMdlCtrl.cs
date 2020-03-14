@@ -249,7 +249,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000601 RID: 1537 RVA: 0x00035350 File Offset: 0x00033550
-    private static void dmStfrlMdlCtrlBoss1BodyExit( AppMain.MTS_TASK_TCB tcb )
+    private static void dmStfrlMdlCtrlBoss1BodyExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.DMS_STFRL_BOSS_BODY_WORK dms_STFRL_BOSS_BODY_WORK = (AppMain.DMS_STFRL_BOSS_BODY_WORK)obs_OBJECT_WORK;

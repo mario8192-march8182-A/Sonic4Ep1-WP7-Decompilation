@@ -8,7 +8,7 @@ using static AppMain;
 
 public class ObjCamera
 {
-    public static AppMain.MTS_TASK_TCB obj_camera_tcb;
+    public static MTS_TASK_TCB obj_camera_tcb;
     public static OBS_CAMERA_SYS obj_camera_sys;
     
     public static int Init(int cam_id, NNS_VECTOR pos, int group, ushort pause_level, int prio)
@@ -305,7 +305,7 @@ public class ObjCamera
     }
 
     // Token: 0x06000132 RID: 306 RVA: 0x0000D81C File Offset: 0x0000BA1C
-    private static void objCameraDest(AppMain.MTS_TASK_TCB pTcb)
+    private static void objCameraDest(MTS_TASK_TCB pTcb)
     {
         obj_camera_tcb = null;
         obj_camera_sys = null;
@@ -320,7 +320,7 @@ public class ObjCamera
     }
 
     // Token: 0x06000133 RID: 307 RVA: 0x0000D868 File Offset: 0x0000BA68
-    private static void objCameraMain(AppMain.MTS_TASK_TCB tcb)
+    private static void objCameraMain(MTS_TASK_TCB tcb)
     {
         if (AppMain.ObjObjectPauseCheck(0U) != 0U)
         {

@@ -166,7 +166,8 @@ public partial class AppMain
             {
                 if ( 1U == num )
                 {
-                    throw new NotImplementedException( "Investigation needed" );
+                    submotion.pKeyList = AppMain.NNS_MOTION_KEY_Class13.Read(reader, submotion.nKeyFrame);
+                    return;
                 }
                 if ( 2U != num )
                 {
@@ -1125,6 +1126,32 @@ public partial class AppMain
                 this.Value = motionKey.Value;
             }
             return this;
+        }
+
+        // Token: 0x06002129 RID: 8489 RVA: 0x00140CC0 File Offset: 0x0013EEC0
+        public static AppMain.NNS_MOTION_KEY_Class13 Read(BinaryReader reader)
+        {
+            return new AppMain.NNS_MOTION_KEY_Class13
+            {
+                Frame = reader.ReadInt16(),
+                Value = new NNS_ROTATE_A32()
+                {
+                    x = reader.ReadInt32(),
+                    y = reader.ReadInt32(),
+                    z = reader.ReadInt32()
+                }
+            };
+        }
+
+        // Token: 0x0600212A RID: 8490 RVA: 0x00140CF0 File Offset: 0x0013EEF0
+        public static AppMain.NNS_MOTION_KEY_Class13[] Read(BinaryReader reader, int count)
+        {
+            AppMain.NNS_MOTION_KEY_Class13[] array = new AppMain.NNS_MOTION_KEY_Class13[count];
+            for (int i = 0; i < count; i++)
+            {
+                array[i] = AppMain.NNS_MOTION_KEY_Class13.Read(reader);
+            }
+            return array;
         }
 
         // Token: 0x04004E77 RID: 20087

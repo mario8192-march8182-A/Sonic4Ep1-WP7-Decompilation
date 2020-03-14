@@ -67,7 +67,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000042 RID: 66 RVA: 0x0000464C File Offset: 0x0000284C
-    private static void gmPauseDest( AppMain.MTS_TASK_TCB tcb )
+    private static void gmPauseDest( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_PAUSE_WORK gms_PAUSE_WORK = (AppMain.GMS_PAUSE_WORK)tcb.work;
         AppMain.g_gm_main_system.game_flag |= ( gms_PAUSE_WORK.time_count_flag_save & 3072U );
@@ -76,7 +76,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000043 RID: 67 RVA: 0x0000469C File Offset: 0x0000289C
-    private static void gmPauseMain( AppMain.MTS_TASK_TCB tcb )
+    private static void gmPauseMain( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_PAUSE_WORK gms_PAUSE_WORK = (AppMain.GMS_PAUSE_WORK)tcb.work;
         if ( gms_PAUSE_WORK.proc_update != null )

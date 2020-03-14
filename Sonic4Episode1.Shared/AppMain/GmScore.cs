@@ -22,7 +22,7 @@ public partial class AppMain
         {
             return;
         }
-        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(18432, 5, 0, 0, () => new AppMain.GMS_SCORE_DISP_WORK(), null);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(18432, 5, 0, 0, () => new AppMain.GMS_SCORE_DISP_WORK(), "GMSCORE_CREATE_SCORE");
         AppMain.GMS_SCORE_DISP_WORK gms_SCORE_DISP_WORK = (AppMain.GMS_SCORE_DISP_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.pos.x = pos_x;
         obs_OBJECT_WORK.pos.y = pos_y + -65536;

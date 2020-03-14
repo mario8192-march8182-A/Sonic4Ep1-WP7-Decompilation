@@ -205,13 +205,13 @@ public partial class AppMain
         public readonly AppMain.GMS_MAP_FAR_CAMERA camera = new AppMain.GMS_MAP_FAR_CAMERA();
 
         // Token: 0x04005ABF RID: 23231
-        public AppMain.MTS_TASK_TCB tcb_pre_draw;
+        public MTS_TASK_TCB tcb_pre_draw;
 
         // Token: 0x04005AC0 RID: 23232
-        public AppMain.MTS_TASK_TCB tcb_draw;
+        public MTS_TASK_TCB tcb_draw;
 
         // Token: 0x04005AC1 RID: 23233
-        public AppMain.MTS_TASK_TCB tcb_post_draw;
+        public MTS_TASK_TCB tcb_post_draw;
     }
 
 
@@ -607,7 +607,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011B8 RID: 4536 RVA: 0x0009AB94 File Offset: 0x00098D94
-    private static AppMain.MTS_TASK_TCB gmMapFarCreateTcbPreDraw()
+    private static MTS_TASK_TCB gmMapFarCreateTcbPreDraw()
     {
         AppMain.GMS_MAP_FAR_MGR gms_MAP_FAR_MGR = AppMain.gmMapFarGetMgr();
         gms_MAP_FAR_MGR.tcb_pre_draw = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmMapFarTcbProcPreDraw, null, 0U, 0, 12544U, 5, null, "GM MAP FAR PRE DRAW" );
@@ -626,7 +626,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011BA RID: 4538 RVA: 0x0009AC04 File Offset: 0x00098E04
-    private static void gmMapFarTcbProcPreDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMapFarTcbProcPreDraw( MTS_TASK_TCB tcb )
     {
         int num = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         AppMain.ObjDraw3DNNUserFunc( AppMain._gmMapFarTcbProcPreDrawDT, null, 0, 1U );
@@ -677,7 +677,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011BB RID: 4539 RVA: 0x0009AD84 File Offset: 0x00098F84
-    private static AppMain.MTS_TASK_TCB gmMapFarCreateTcbDraw()
+    private static MTS_TASK_TCB gmMapFarCreateTcbDraw()
     {
         AppMain.GMS_MAP_FAR_MGR gms_MAP_FAR_MGR = AppMain.gmMapFarGetMgr();
         gms_MAP_FAR_MGR.tcb_draw = AppMain.MTM_TASK_MAKE_TCB( null, null, 0U, 0, 12544U, 5, null, "GM_MAP_FAR_DRAW" );
@@ -709,7 +709,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011BF RID: 4543 RVA: 0x0009AE10 File Offset: 0x00099010
-    private static AppMain.MTS_TASK_TCB gmMapFarCreateTcbPostDraw()
+    private static MTS_TASK_TCB gmMapFarCreateTcbPostDraw()
     {
         AppMain.GMS_MAP_FAR_MGR gms_MAP_FAR_MGR = AppMain.gmMapFarGetMgr();
         gms_MAP_FAR_MGR.tcb_post_draw = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmMapFarTcbProcPostDraw, null, 0U, 0, 12544U, 5, null, "GM MAP FAR POST DRAW" );
@@ -728,7 +728,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011C1 RID: 4545 RVA: 0x0009AE80 File Offset: 0x00099080
-    private static void gmMapFarTcbProcPostDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMapFarTcbProcPostDraw( MTS_TASK_TCB tcb )
     {
         AppMain.ObjDraw3DNNUserFunc( AppMain._gmMapFarTcbProcPostDrawDT, null, 0, 3U );
         AppMain.OBS_OBJECT obs_OBJECT = AppMain.gmMapFarGetObject();
@@ -1733,7 +1733,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011DE RID: 4574 RVA: 0x0009D5FE File Offset: 0x0009B7FE
-    private static void gmMpaFarZone1TcbProcDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMpaFarZone1TcbProcDraw( MTS_TASK_TCB tcb )
     {
     }
 
@@ -1848,7 +1848,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011E5 RID: 4581 RVA: 0x0009D8A6 File Offset: 0x0009BAA6
-    private static void gmMpaFarZone2TcbProcDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMpaFarZone2TcbProcDraw( MTS_TASK_TCB tcb )
     {
     }
 
@@ -1941,7 +1941,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011EC RID: 4588 RVA: 0x0009DAEF File Offset: 0x0009BCEF
-    private static void gmMpaFarZone3TcbProcDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMpaFarZone3TcbProcDraw( MTS_TASK_TCB tcb )
     {
     }
 
@@ -1989,7 +1989,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011F3 RID: 4595 RVA: 0x0009DB9C File Offset: 0x0009BD9C
-    private static void gmMpaFarZone4TcbProcDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMpaFarZone4TcbProcDraw( MTS_TASK_TCB tcb )
     {
     }
 
@@ -2058,7 +2058,7 @@ public partial class AppMain
     }
 
     // Token: 0x060011F9 RID: 4601 RVA: 0x0009DD1D File Offset: 0x0009BF1D
-    private static void gmMpaFarZoneFinalTcbProcDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMpaFarZoneFinalTcbProcDraw( MTS_TASK_TCB tcb )
     {
     }
 
@@ -2143,7 +2143,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001200 RID: 4608 RVA: 0x0009DF44 File Offset: 0x0009C144
-    private static void gmMpaFarZoneSSTcbProcDraw( AppMain.MTS_TASK_TCB tcb )
+    private static void gmMpaFarZoneSSTcbProcDraw( MTS_TASK_TCB tcb )
     {
     }
 

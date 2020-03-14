@@ -29,14 +29,14 @@ public partial class AppMain
             while (i > 0)
             {
                 uint id = nns_BINCNK_DATAHEADER.Id;
-                // NIOB (little endian)
-                if (id != 0x424F494E)
+                // NIOB/NZOB (little endian)
+                if (id != 0x424F494E && id != 0x424F5A4E)
                 {
                     if (id == 1145980238U)
                     {
                         break;
                     }
-                    if (id == 1280592206U)
+                    if (id == 1280592206U || id == 0x4C545A4e)
                     {
                         binaryReader.BaseStream.Seek(num2 + (long)nns_BINCNK_DATAHEADER.OfsMainData, 0);
                         texfilelist = AppMain.NNS_TEXFILELIST.Read(binaryReader, num2);

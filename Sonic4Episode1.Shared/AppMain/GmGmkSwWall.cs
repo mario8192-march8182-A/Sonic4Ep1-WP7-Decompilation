@@ -239,7 +239,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000750 RID: 1872 RVA: 0x00040430 File Offset: 0x0003E630
-    public static void gmGmkSwWallDest( AppMain.MTS_TASK_TCB tcb )
+    public static void gmGmkSwWallDest( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_SWWALL_WORK gms_GMK_SWWALL_WORK = (AppMain.GMS_GMK_SWWALL_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( ( gms_GMK_SWWALL_WORK.gmk_work.ene_com.enemy_flag & 2U ) != 0U )

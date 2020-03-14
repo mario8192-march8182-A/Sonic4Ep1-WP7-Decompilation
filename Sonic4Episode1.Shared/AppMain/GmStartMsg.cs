@@ -217,7 +217,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A9A RID: 2714 RVA: 0x0005D3C0 File Offset: 0x0005B5C0
-    public static void gmStartMsgMain( AppMain.MTS_TASK_TCB tcb )
+    public static void gmStartMsgMain( MTS_TASK_TCB tcb )
     {
         int num = AppMain.GsEnvGetLanguage();
         AppMain.GMS_SMSG_MGR_WORK gms_SMSG_MGR_WORK = (AppMain.GMS_SMSG_MGR_WORK)tcb.work;
@@ -359,7 +359,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000A9C RID: 2716 RVA: 0x0005D9CD File Offset: 0x0005BBCD
-    public static void gmStartMsgDest( AppMain.MTS_TASK_TCB tcb )
+    public static void gmStartMsgDest( MTS_TASK_TCB tcb )
     {
         AppMain.UNREFERENCED_PARAMETER( tcb );
         AppMain.gm_start_msg_end_state = true;

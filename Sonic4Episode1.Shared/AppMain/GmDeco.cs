@@ -153,7 +153,7 @@ public partial class AppMain
         }
 
         // Token: 0x04004B9D RID: 19357
-        public AppMain.MTS_TASK_TCB tcb_post;
+        public MTS_TASK_TCB tcb_post;
 
         // Token: 0x04004B9E RID: 19358
         public int[] common_frame_motion = new int[3];
@@ -313,7 +313,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003FE RID: 1022 RVA: 0x00020810 File Offset: 0x0001EA10
-    public static void gmDecoDrawServerMain( AppMain.MTS_TASK_TCB tcb )
+    public static void gmDecoDrawServerMain( MTS_TASK_TCB tcb )
     {
         if ( !AppMain.GmMainIsDrawEnable() )
         {
@@ -1190,7 +1190,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600042F RID: 1071 RVA: 0x000224B8 File Offset: 0x000206B8
-    private static AppMain.MTS_TASK_TCB gmDecoCreateTcbPost()
+    private static MTS_TASK_TCB gmDecoCreateTcbPost()
     {
         AppMain.GMS_DECO_MGR gms_DECO_MGR = AppMain.gmDecoGetMgr();
         gms_DECO_MGR.tcb_post = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmDecoTcbProcPost, null, 0U, 0, 5376U, 5, null, "GM DECO POST" );
@@ -1198,7 +1198,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000430 RID: 1072 RVA: 0x000224F7 File Offset: 0x000206F7
-    private static void gmDecoTcbProcPost( AppMain.MTS_TASK_TCB tcb )
+    private static void gmDecoTcbProcPost( MTS_TASK_TCB tcb )
     {
         AppMain.ObjDraw3DNNUserFunc( AppMain._gmDecoTcbProcPostDT, null, 0, 8U );
     }
@@ -1755,7 +1755,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000448 RID: 1096 RVA: 0x0002322C File Offset: 0x0002142C
-    private static void gmDecoTcbDest( AppMain.MTS_TASK_TCB tcb )
+    private static void gmDecoTcbDest( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_DECO_WORK gms_DECO_WORK = (AppMain.GMS_DECO_WORK)AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmDecoDelFallEvent( gms_DECO_WORK.event_record, gms_DECO_WORK.obj_work.pos.x + gms_DECO_WORK.obj_work.ofst.x );

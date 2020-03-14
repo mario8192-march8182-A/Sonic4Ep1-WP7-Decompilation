@@ -109,7 +109,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Trigger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBoss5Turret.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmBsCmn.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmClearDemo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmClrdm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmCockpit.cs" />
@@ -219,7 +218,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmOver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPad.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPause.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlyEfct.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlyEfctTrial.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\GmPlyParam.cs" />
@@ -314,6 +312,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)GLPositionData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GLTexCoordData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GLVector3Data.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gm\GmCamera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)gm\GmPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)gm\GmSound.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)gs\backup\EEmeraldStage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)gs\backup\ESpecialStage.cs" />
@@ -2135,6 +2135,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SDL_dummy.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SE_Objes_Extend.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SE_Objes_Superring.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SE_Obj_Lockon.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SE_Ring_Sparkle_Vari_0001_Ring_Sparkle01.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SE_Ring_Sparkle_Vari_0001_Ring_Sparkle02.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SE_Ring_Sparkle_Vari_0001_Ring_Sparkle03.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="$(MSBuildThisFileDirectory)Content\SOUND\SND_BGM.inf">

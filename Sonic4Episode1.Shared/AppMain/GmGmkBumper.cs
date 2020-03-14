@@ -116,7 +116,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000077 RID: 119 RVA: 0x00006310 File Offset: 0x00004510
-    private static void gmGmkBumperDestFunc( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkBumperDestFunc( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_BUMPER_WORK gms_GMK_BUMPER_WORK = (tcb.work is AppMain.GMS_GMK_BUMPER_WORK) ? ((AppMain.GMS_GMK_BUMPER_WORK)tcb.work) : ((AppMain.GMS_GMK_BUMPER_WORK)AppMain.mtTaskGetTcbWork(tcb));
         if ( gms_GMK_BUMPER_WORK.se_handle != null )

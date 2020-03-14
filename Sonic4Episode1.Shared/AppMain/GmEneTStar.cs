@@ -152,7 +152,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000789 RID: 1929 RVA: 0x00042DC4 File Offset: 0x00040FC4
-    public static void gmEneTStarExit( AppMain.MTS_TASK_TCB tcb )
+    public static void gmEneTStarExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)p;

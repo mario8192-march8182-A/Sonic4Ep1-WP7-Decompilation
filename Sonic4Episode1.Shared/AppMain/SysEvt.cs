@@ -213,7 +213,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001392 RID: 5010 RVA: 0x000AE61C File Offset: 0x000AC81C
-    private static void syEvtSys( AppMain.MTS_TASK_TCB tcb )
+    private static void syEvtSys( MTS_TASK_TCB tcb )
     {
         if ( AppMain.sy_evt_info.flag == 1U )
         {

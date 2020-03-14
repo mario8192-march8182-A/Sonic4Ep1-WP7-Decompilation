@@ -251,7 +251,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001229 RID: 4649 RVA: 0x0009EDF2 File Offset: 0x0009CFF2
-    private static void gmGmkDrainTankTcbDestOut( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkDrainTankTcbDestOut( MTS_TASK_TCB tcb )
     {
         AppMain.GmWaterSurfaceSetFlagEnableRef( true );
         AppMain.g_gm_main_system.game_flag &= 4294959103U;

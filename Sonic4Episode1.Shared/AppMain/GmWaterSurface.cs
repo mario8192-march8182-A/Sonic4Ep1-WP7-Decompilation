@@ -57,7 +57,7 @@ public partial class AppMain
         }
 
         // Token: 0x04005A6C RID: 23148
-        public AppMain.MTS_TASK_TCB tcb_water;
+        public MTS_TASK_TCB tcb_water;
 
         // Token: 0x04005A6D RID: 23149
         public AppMain.AMS_RENDER_TARGET render_target;
@@ -426,7 +426,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001183 RID: 4483 RVA: 0x000993B4 File Offset: 0x000975B4
-    private static AppMain.MTS_TASK_TCB gmWaterSurfaceCreateTcb()
+    private static MTS_TASK_TCB gmWaterSurfaceCreateTcb()
     {
         AppMain.GMS_WATER_SURFACE_MGR gms_WATER_SURFACE_MGR = AppMain.gmWaterSurfaceGetMgr();
         gms_WATER_SURFACE_MGR.tcb_water = AppMain.MTM_TASK_MAKE_TCB( AppMain.gmWaterSurfaceProc, null, 0U, 0, 8202U, 5, () => new AppMain.GMS_WATER_SURFACE_INFO(), "GM WATER SURFACE" );
@@ -494,7 +494,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001188 RID: 4488 RVA: 0x00099524 File Offset: 0x00097724
-    private static void gmWaterSurfaceProc( AppMain.MTS_TASK_TCB tcb )
+    private static void gmWaterSurfaceProc( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_WATER_SURFACE_INFO gms_WATER_SURFACE_INFO = (AppMain.GMS_WATER_SURFACE_INFO)tcb.work;
         float speed = 0f;

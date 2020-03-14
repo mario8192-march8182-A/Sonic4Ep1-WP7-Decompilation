@@ -13,7 +13,6 @@ namespace Sonic4Episode1.iOS
         {
             game = new Sonic4Ep1();
             game.SetAccelerometer(new XamarinAccelerometer());
-            game.SetSaveContentPath(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             game.Run();
         }
 

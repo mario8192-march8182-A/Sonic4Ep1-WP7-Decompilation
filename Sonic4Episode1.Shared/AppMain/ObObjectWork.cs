@@ -457,9 +457,9 @@ public class OBS_OBJECT_WORK : IClearable
     }
 
     // Token: 0x06002662 RID: 9826 RVA: 0x0014EFF0 File Offset: 0x0014D1F0
-    public static explicit operator AppMain.GMS_GMK_PMARKER_WORK(OBS_OBJECT_WORK p)
+    public static explicit operator GmGmkPointMarker.GMS_GMK_PMARKER_WORK(OBS_OBJECT_WORK p)
     {
-        return (AppMain.GMS_GMK_PMARKER_WORK) ((AppMain.GMS_ENEMY_3D_WORK) p.m_primaryHolder);
+        return (GmGmkPointMarker.GMS_GMK_PMARKER_WORK) ((AppMain.GMS_ENEMY_3D_WORK) p.m_primaryHolder);
     }
 
     // Token: 0x06002663 RID: 9827 RVA: 0x0014F002 File Offset: 0x0014D202
@@ -915,7 +915,7 @@ public class OBS_OBJECT_WORK : IClearable
     public OBS_OBJECT_WORK draw_next;
 
     // Token: 0x04005F85 RID: 24453
-    public AppMain.MTS_TASK_TCB tcb;
+    public MTS_TASK_TCB tcb;
 
     // Token: 0x04005F86 RID: 24454
     public int pause_level;

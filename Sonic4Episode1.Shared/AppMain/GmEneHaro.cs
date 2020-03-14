@@ -119,7 +119,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600028E RID: 654 RVA: 0x00015560 File Offset: 0x00013760
-    public static void gmEneHaroExit( AppMain.MTS_TASK_TCB tcb )
+    public static void gmEneHaroExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_ENE_HARO_WORK gms_ENE_HARO_WORK = (AppMain.GMS_ENE_HARO_WORK)p;

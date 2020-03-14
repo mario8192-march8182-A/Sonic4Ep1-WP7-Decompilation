@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Program Files (x86)\Android\android-sdk\platforms\android-27\data\res" t="IncludeRecursive" />
     <e p="C:\Users\wamwo\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\wamwo\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Sonic4Episode1.-1035099317.00" t="ExcludeRecursive" />
     <e p="C:\Users\wamwo\Documents\GitHub\Sonic4Ep1-WP7-Decompilation" t="IncludeFlat">
@@ -92,11 +93,9 @@
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="x64" t="Include">
-            <e p="Debug" t="Include">
-              <e p="netcoreapp2.1" t="Include">
-                <e p="Sonic4Episode1.AssemblyInfo.cs" t="Include" />
-              </e>
+          <e p="Release" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Sonic4Episode1.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -973,7 +972,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="81" t="Include">
               <e p="designtime" t="Include">
                 <e p="Resource.designer.cs" t="Include" />
@@ -1011,11 +1010,9 @@
         <e p="ImageManager.cs" t="Include" />
         <e p="LobbyManager.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="x64" t="Include">
-            <e p="Debug" t="Include">
-              <e p="netstandard1.4" t="Include">
-                <e p="Sonic4Episode1.Discord.AssemblyInfo.cs" t="Include" />
-              </e>
+          <e p="Release" t="Include">
+            <e p="netstandard1.4" t="Include">
+              <e p="Sonic4Episode1.Discord.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -1235,7 +1232,6 @@
           <e p="GmBoss5Trigger.cs" t="Include" />
           <e p="GmBoss5Turret.cs" t="Include" />
           <e p="GmBsCmn.cs" t="Include" />
-          <e p="GmCamera.cs" t="Include" />
           <e p="GmClearDemo.cs" t="Include" />
           <e p="GmClrdm.cs" t="Include" />
           <e p="GmCockpit.cs" t="Include" />
@@ -1345,7 +1341,6 @@
           <e p="GmOver.cs" t="Include" />
           <e p="GmPad.cs" t="Include" />
           <e p="GmPause.cs" t="Include" />
-          <e p="GmPlayer.cs" t="Include" />
           <e p="GmPlyEfct.cs" t="Include" />
           <e p="GmPlyEfctTrial.cs" t="Include" />
           <e p="GmPlyParam.cs" t="Include" />
@@ -2149,6 +2144,12 @@
             <e p="SDL109_SHSTG0519_32.wav" t="Include" />
             <e p="SDL110_SHSY22_32.wav" t="Include" />
             <e p="SDL_dummy.wav" t="Include" />
+            <e p="SE_Obj_Lockon.wav" t="Include" />
+            <e p="SE_Objes_Extend.wav" t="Include" />
+            <e p="SE_Objes_Superring.wav" t="Include" />
+            <e p="SE_Ring_Sparkle_Vari_0001_Ring_Sparkle01.wav" t="Include" />
+            <e p="SE_Ring_Sparkle_Vari_0001_Ring_Sparkle02.wav" t="Include" />
+            <e p="SE_Ring_Sparkle_Vari_0001_Ring_Sparkle03.wav" t="Include" />
             <e p="SND_BGM.inf" t="Include" />
             <e p="SND_FX.inf" t="Include" />
           </e>
@@ -2235,6 +2236,8 @@
         <e p="GLTexCoordData.cs" t="Include" />
         <e p="GLVector3Data.cs" t="Include" />
         <e p="gm" t="Include">
+          <e p="GmCamera.cs" t="Include" />
+          <e p="GmPlayer.cs" t="Include" />
           <e p="GmSound.cs" t="Include" />
         </e>
         <e p="gs" t="Include">
@@ -2283,13 +2286,50 @@
       <e p="Sonic4Episode1.sln" t="IncludeFlat" />
       <e p="Sonic4Episode1.UWP" t="IncludeRecursive">
         <e p="Assets" t="Include">
+          <e p="LargeTile.scale-100.png" t="Include" />
+          <e p="LargeTile.scale-125.png" t="Include" />
+          <e p="LargeTile.scale-150.png" t="Include" />
+          <e p="LargeTile.scale-200.png" t="Include" />
+          <e p="LargeTile.scale-400.png" t="Include" />
           <e p="LockScreenLogo.scale-200.png" t="Include" />
+          <e p="Logo.scale-100.png" t="Include" />
+          <e p="Logo.scale-125.png" t="Include" />
+          <e p="Logo.scale-150.png" t="Include" />
+          <e p="Logo.scale-200.png" t="Include" />
+          <e p="Logo.scale-400.png" t="Include" />
+          <e p="SmallLogo.altform-unplated_targetsize-16.png" t="Include" />
+          <e p="SmallLogo.altform-unplated_targetsize-24.png" t="Include" />
+          <e p="SmallLogo.altform-unplated_targetsize-256.png" t="Include" />
+          <e p="SmallLogo.altform-unplated_targetsize-32.png" t="Include" />
+          <e p="SmallLogo.altform-unplated_targetsize-48.png" t="Include" />
+          <e p="SmallLogo.scale-100.png" t="Include" />
+          <e p="SmallLogo.scale-125.png" t="Include" />
+          <e p="SmallLogo.scale-150.png" t="Include" />
+          <e p="SmallLogo.scale-200.png" t="Include" />
+          <e p="SmallLogo.scale-400.png" t="Include" />
+          <e p="SmallLogo.targetsize-16.png" t="Include" />
+          <e p="SmallLogo.targetsize-24.png" t="Include" />
+          <e p="SmallLogo.targetsize-256.png" t="Include" />
+          <e p="SmallLogo.targetsize-32.png" t="Include" />
+          <e p="SmallLogo.targetsize-48.png" t="Include" />
+          <e p="SmallTile.scale-100.png" t="Include" />
+          <e p="SmallTile.scale-125.png" t="Include" />
+          <e p="SmallTile.scale-150.png" t="Include" />
+          <e p="SmallTile.scale-200.png" t="Include" />
+          <e p="SmallTile.scale-400.png" t="Include" />
+          <e p="SplashScreen.scale-100.png" t="Include" />
+          <e p="SplashScreen.scale-125.png" t="Include" />
+          <e p="SplashScreen.scale-150.png" t="Include" />
           <e p="SplashScreen.scale-200.png" t="Include" />
+          <e p="SplashScreen.scale-400.png" t="Include" />
           <e p="Square150x150Logo.scale-200.png" t="Include" />
           <e p="Square44x44Logo.scale-200.png" t="Include" />
           <e p="Square44x44Logo.targetsize-24_altform-unplated.png" t="Include" />
-          <e p="StoreLogo.png" t="Include" />
-          <e p="Wide310x150Logo.scale-200.png" t="Include" />
+          <e p="StoreLogo.scale-100.png" t="Include" />
+          <e p="StoreLogo.scale-125.png" t="Include" />
+          <e p="StoreLogo.scale-150.png" t="Include" />
+          <e p="StoreLogo.scale-200.png" t="Include" />
+          <e p="StoreLogo.scale-400.png" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Content" t="Include">
@@ -2388,7 +2428,7 @@
         <e p="Microsoft.Devices.Sensors.cs" t="Include" />
         <e p="Microsoft.Phone.Tasks.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netstandard2.0" t="Include">
               <e p="Stubs.AssemblyInfo.cs" t="Include" />
             </e>

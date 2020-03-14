@@ -31,7 +31,7 @@ public partial class AppMain
         }
 
         // Token: 0x04005EBD RID: 24253
-        public AppMain.MTS_TASK_TCB tcb;
+        public MTS_TASK_TCB tcb;
     }
 
     // Token: 0x02000348 RID: 840
@@ -218,7 +218,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017BA RID: 6074 RVA: 0x000D25F4 File Offset: 0x000D07F4
-    private static void dmManualProcMain( AppMain.MTS_TASK_TCB tcb )
+    private static void dmManualProcMain( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_MANUAL_MAIN_WORK dms_MANUAL_MAIN_WORK = (AppMain.DMS_MANUAL_MAIN_WORK)tcb.work;
         if ( ( dms_MANUAL_MAIN_WORK.flag & 1U ) != 0U )
@@ -252,7 +252,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017BB RID: 6075 RVA: 0x000D26D1 File Offset: 0x000D08D1
-    private static void dmManualDest( AppMain.MTS_TASK_TCB tcb )
+    private static void dmManualDest( MTS_TASK_TCB tcb )
     {
     }
 

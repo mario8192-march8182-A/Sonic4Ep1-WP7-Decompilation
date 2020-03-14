@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameFramework;
 
 public partial class AppMain
 {
@@ -116,6 +117,8 @@ public partial class AppMain
                 ply_work.player_flag &= 2147483647U;
             }
         }
+
+        BenchmarkObject.speed = Math.Max(Math.Abs(ply_work.obj_work.spd.y), Math.Abs(ply_work.obj_work.spd_m));
     }
 
     // Token: 0x06001718 RID: 5912 RVA: 0x000C973B File Offset: 0x000C793B
@@ -1014,6 +1017,8 @@ public partial class AppMain
         ply_work.homing_boost_timer = 262144;
         GmPlayer.SetAtk(ply_work);
         AppMain.GmPlyEfctCreateHomingImpact(ply_work);
+        
+        
         GmSound.PlaySE("Homing");
     }
 
@@ -1988,12 +1993,7 @@ public partial class AppMain
         }
         if ((ply_work.obj_work.move_flag & 6U) == 0U)
         {
-            bool flag = false;
-            if (AppMain.MTM_MATH_ABS(ply_work.obj_work.spd.x) < 4096)
-            {
-                flag = true;
-            }
-            if (flag)
+            if (MTM_MATH_ABS(ply_work.obj_work.spd.x) < 4096)
             {
                 ushort angle = (ushort)(ply_work.obj_work.dir_fall - AppMain.g_gm_main_system.pseudofall_dir);
                 OBS_OBJECT_WORK obj_work2 = ply_work.obj_work;
@@ -2261,7 +2261,10 @@ public partial class AppMain
                 AppMain.GmPlySeqJumpDirec(gms_PLAYER_WORK);
             }
         }
-        if ((gms_PLAYER_WORK.player_flag & 32768U) != 0U && (gms_PLAYER_WORK.player_flag & 1024U) == 0U && obj_work.pos.x <= AppMain.g_obj.camera[0][0] + 65536 && obj_work.pos.x > AppMain.g_obj.camera[0][0] + 65536 - 4194304)
+        if ((gms_PLAYER_WORK.player_flag & 32768U) != 0U && 
+            (gms_PLAYER_WORK.player_flag & 1024U) == 0U /* && 
+            obj_work.pos.x <= AppMain.g_obj.camera[0][0] + 65536 && 
+            obj_work.pos.x > AppMain.g_obj.camera[0][0] + 65536 - 4194304*/)
         {
             if ((obj_work.move_flag & 16U) != 0U)
             {
@@ -4065,7 +4068,7 @@ public partial class AppMain
         ply_work.no_spddown_timer = 49152;
         ply_work.spd_work_max = ply_work.obj_work.spd_m;
         GmPlayer.SetAtk(ply_work);
-        GmSound.PlaySE("Spin");
+        //GmSound.PlaySE("Spin");
         if ((ply_work.player_flag & 262144U) == 0U)
         {
             AppMain.GmPlyEfctCreateSpinDashBlur(ply_work, 1U);
@@ -6275,7 +6278,7 @@ public partial class AppMain
         AppMain.nnMakeUnitMatrix(ply_work.ex_obj_mtx_r);
         AppMain.nnTranslateMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, 0f, 5f, 9f);
         AppMain.nnRotateXMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, ply_work.gmk_work1);
-        AppMain.nnTranslateMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, -1f, -5f, -9f);
+        AppMain.nnTranslateMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, 0f, -5f, -9f);
         float num;
         float num2;
         float num3;
@@ -6348,7 +6351,7 @@ public partial class AppMain
         AppMain.nnMakeUnitMatrix(ply_work.ex_obj_mtx_r);
         AppMain.nnTranslateMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, 0f, 5f, 9f);
         AppMain.nnRotateXMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, (int)(ply_work.gmk_work1));
-        AppMain.nnTranslateMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, -1f, -5f, -9f);
+        AppMain.nnTranslateMatrix(ply_work.ex_obj_mtx_r, ply_work.ex_obj_mtx_r, 0f, -5f, -9f);
         float num;
         float num2;
         float num3;

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using mpp;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
-using System.IO;
-using System.Runtime.InteropServices;
+using Microsoft.Xna.Framework.Graphics;
+using mpp;
 
 public partial class AppMain
 {
@@ -2334,25 +2334,26 @@ public partial class AppMain
         arsv[2] = nns_ROTATE_A.z;
         object pKeyList = submot.pKeyList;
         int nKeyFrame = submot.nKeyFrame;
-        uint num = submot.fType & 30720U;
+        uint interpolationType = submot.fType & 30720U;
         uint num2 = submot.fType & 28U;
-        int num3 = 0;
-        uint num4 = num;
+        int index = 0;
+
+        uint num4 = interpolationType;
         if (num4 != 14336U)
         {
             if (num4 != 16384U)
             {
-                if (num == 8192U)
+                if (interpolationType == 8192U)
                 {
-                    num3 += 2;
-                    num = 2048U;
+                    index += 2;
+                    interpolationType = 2048U;
                 }
-                else if (num == 4096U)
+                else if (interpolationType == 4096U)
                 {
-                    num3++;
-                    num = 2048U;
+                    index++;
+                    interpolationType = 2048U;
                 }
-                if (2048U == num)
+                if (2048U == interpolationType)
                 {
                     if (num2 == 16U)
                     {
@@ -2361,20 +2362,20 @@ public partial class AppMain
                         switch (num5)
                         {
                             case 2U:
-                                AppMain.nnInterpolateLinearA16_1((AppMain.NNS_MOTION_KEY_Class14[])pKeyList, nKeyFrame, frame, out arsv[num3]);
-                                arv[num3] = (int)arsv[num3];
+                                AppMain.nnInterpolateLinearA16_1((AppMain.NNS_MOTION_KEY_Class14[])pKeyList, nKeyFrame, frame, out arsv[index]);
+                                arv[index] = (int)arsv[index];
                                 break;
                             case 3U:
                                 break;
                             case 4U:
-                                AppMain.nnInterpolateConstantA16_1((AppMain.NNS_MOTION_KEY_Class14[])pKeyList, nKeyFrame, frame, out arsv[num3]);
-                                arv[num3] = (int)arsv[num3];
+                                AppMain.nnInterpolateConstantA16_1((AppMain.NNS_MOTION_KEY_Class14[])pKeyList, nKeyFrame, frame, out arsv[index]);
+                                arv[index] = (int)arsv[index];
                                 break;
                             default:
                                 if (num5 == 32U)
                                 {
-                                    AppMain.nnInterpolateSISplineA16_1((AppMain.NNS_MOTION_KEY_Class15[])pKeyList, nKeyFrame, frame, out arsv[num3]);
-                                    arv[num3] = (int)arsv[num3];
+                                    AppMain.nnInterpolateSISplineA16_1((AppMain.NNS_MOTION_KEY_Class15[])pKeyList, nKeyFrame, frame, out arsv[index]);
+                                    arv[index] = (int)arsv[index];
                                 }
                                 break;
                         }
@@ -2390,11 +2391,11 @@ public partial class AppMain
                                 case 3U:
                                     break;
                                 case 2U:
-                                    AppMain.nnInterpolateLinearA32_1((AppMain.NNS_MOTION_KEY_Class8[])pKeyList, nKeyFrame, frame, out arv[num3]);
+                                    AppMain.nnInterpolateLinearA32_1((AppMain.NNS_MOTION_KEY_Class8[])pKeyList, nKeyFrame, frame, out arv[index]);
                                     result = 1;
                                     break;
                                 case 4U:
-                                    AppMain.nnInterpolateConstantA32_1((AppMain.NNS_MOTION_KEY_Class8[])pKeyList, nKeyFrame, frame, out arv[num3]);
+                                    AppMain.nnInterpolateConstantA32_1((AppMain.NNS_MOTION_KEY_Class8[])pKeyList, nKeyFrame, frame, out arv[index]);
                                     result = 1;
                                     break;
                                 default:
@@ -2402,13 +2403,13 @@ public partial class AppMain
                                     {
                                         if (num6 == 32U)
                                         {
-                                            AppMain.nnInterpolateSISplineA32_1((AppMain.NNS_MOTION_KEY_Class10[])pKeyList, nKeyFrame, frame, out arv[num3]);
+                                            AppMain.nnInterpolateSISplineA32_1((AppMain.NNS_MOTION_KEY_Class10[])pKeyList, nKeyFrame, frame, out arv[index]);
                                             result = 1;
                                         }
                                     }
                                     else
                                     {
-                                        AppMain.nnInterpolateBezierA32_1((AppMain.NNS_MOTION_KEY_Class9[])pKeyList, nKeyFrame, frame, out arv[num3]);
+                                        AppMain.nnInterpolateBezierA32_1((AppMain.NNS_MOTION_KEY_Class9[])pKeyList, nKeyFrame, frame, out arv[index]);
                                         result = 1;
                                     }
                                     break;
@@ -3392,77 +3393,83 @@ public partial class AppMain
     // Token: 0x0600153E RID: 5438 RVA: 0x000B8DA0 File Offset: 0x000B6FA0
     public static float nnSin(int ang)
     {
-        float result = 0f;
-        int num = ang & 65535;
-        int num2 = ang & 57344;
-        float num3;
-        float f;
-        if (num2 <= 24576)
-        {
-            if (num2 <= 8192)
-            {
-                if (num2 == 0)
-                {
-                    num3 = AppMain.NNM_A32toRAD(num);
-                    f = num3 * num3;
-                    return AppMain.NNM_TAYLOR_SIN(num3, f);
-                }
-                if (num2 != 8192)
-                {
-                    return result;
-                }
-            }
-            else if (num2 != 16384)
-            {
-                if (num2 != 24576)
-                {
-                    return result;
-                }
-                goto IL_BC;
-            }
-            num -= 16384;
-            num3 = AppMain.NNM_A32toRAD(num);
-            f = num3 * num3;
-            return AppMain.NNM_TAYLOR_COS(num3, f);
-        }
-        if (num2 <= 40960)
-        {
-            if (num2 == 32768)
-            {
-                goto IL_BC;
-            }
-            if (num2 != 40960)
-            {
-                return result;
-            }
-        }
-        else if (num2 != 49152)
-        {
-            if (num2 != 57344)
-            {
-                return result;
-            }
-            num -= 65536;
-            num3 = AppMain.NNM_A32toRAD(num);
-            f = num3 * num3;
-            return AppMain.NNM_TAYLOR_SIN(num3, f);
-        }
-        num -= 49152;
-        num3 = AppMain.NNM_A32toRAD(num);
-        f = num3 * num3;
-        return -AppMain.NNM_TAYLOR_COS(num3, f);
-    IL_BC:
-        num -= 32768;
-        num3 = AppMain.NNM_A32toRAD(num);
-        f = num3 * num3;
-        result = -AppMain.NNM_TAYLOR_SIN(num3, f);
-        return result;
+        return (float)Math.Sin(NNM_A32toRAD(ang));
+
+        //     float result = 0f;
+        //     int num = ang & 65535;
+        //     int num2 = ang & 57344;
+        //     float num3;
+        //     float f;
+        //     if (num2 <= 24576)
+        //     {
+        //         if (num2 <= 8192)
+        //         {
+        //             if (num2 == 0)
+        //             {
+        //                 num3 = AppMain.NNM_A32toRAD(num);
+        //                 f = num3 * num3;
+        //                 return AppMain.NNM_TAYLOR_SIN(num3, f);
+        //             }
+        //             if (num2 != 8192)
+        //             {
+        //                 return result;
+        //             }
+        //         }
+        //         else if (num2 != 16384)
+        //         {
+        //             if (num2 != 24576)
+        //             {
+        //                 return result;
+        //             }
+        //             goto IL_BC;
+        //         }
+        //         num -= 16384;
+        //         num3 = AppMain.NNM_A32toRAD(num);
+        //         f = num3 * num3;
+        //         return AppMain.NNM_TAYLOR_COS(num3, f);
+        //     }
+        //     if (num2 <= 40960)
+        //     {
+        //         if (num2 == 32768)
+        //         {
+        //             goto IL_BC;
+        //         }
+        //         if (num2 != 40960)
+        //         {
+        //             return result;
+        //         }
+        //     }
+        //     else if (num2 != 49152)
+        //     {
+        //         if (num2 != 57344)
+        //         {
+        //             return result;
+        //         }
+        //         num -= 65536;
+        //         num3 = AppMain.NNM_A32toRAD(num);
+        //         f = num3 * num3;
+        //         return AppMain.NNM_TAYLOR_SIN(num3, f);
+        //     }
+        //     num -= 49152;
+        //     num3 = AppMain.NNM_A32toRAD(num);
+        //     f = num3 * num3;
+        //     return -AppMain.NNM_TAYLOR_COS(num3, f);
+        // IL_BC:
+        //     num -= 32768;
+        //     num3 = AppMain.NNM_A32toRAD(num);
+        //     f = num3 * num3;
+        //     result = -AppMain.NNM_TAYLOR_SIN(num3, f);
+        //     return result;
+
+
     }
+
+    private const double Pi = 16384;
 
     // Token: 0x0600153F RID: 5439 RVA: 0x000B8EC4 File Offset: 0x000B70C4
     public static float nnCos(int ang)
     {
-        return AppMain.nnSin(ang + 16384);
+        return (float)Math.Cos(NNM_A32toRAD(ang));
     }
 
     // Token: 0x06001540 RID: 5440 RVA: 0x000B8EE0 File Offset: 0x000B70E0
@@ -3478,100 +3485,106 @@ public partial class AppMain
     // Token: 0x06001541 RID: 5441 RVA: 0x000B8F24 File Offset: 0x000B7124
     public static void nnSinCos(int ang, out float s, out float c)
     {
-        int i;
-        for (i = (int)Math.Round((double)((float)ang * 0.5493164f)); i > 35999; i -= 36000)
-        {
-        }
-        while (i < 0)
-        {
-            i += 36000;
-        }
-        s = AppMain.nnSinTable[i];
-        c = AppMain.nnCosTable[i];
+        // int i;
+        // for (i = (int)Math.Round((double)((float)ang * 0.5493164f)); i > 35999; i -= 36000)
+        // {
+        // }
+        // while (i < 0)
+        // {
+        //     i += 36000;
+        // }
+        // s = AppMain.nnSinTable[i];
+        // c = AppMain.nnCosTable[i];
+
+        s = nnSin(ang);
+        c = nnCos(ang);
     }
 
     // Token: 0x06001542 RID: 5442 RVA: 0x000B8F74 File Offset: 0x000B7174
     public static void _nnSinCos(int ang, out float s, out float c)
     {
-        if (ang == 0)
-        {
-            s = 0f;
-            c = 1f;
-        }
-        int num = ang & 65535;
-        c = 0f;
-        s = 0f;
-        int num2 = ang & 57344;
-        float num3;
-        float f;
-        if (num2 <= 24576)
-        {
-            if (num2 <= 8192)
-            {
-                if (num2 == 0)
-                {
-                    num3 = AppMain.NNM_A32toRAD(num);
-                    f = num3 * num3;
-                    s = AppMain.NNM_TAYLOR_SIN(num3, f);
-                    c = AppMain.NNM_TAYLOR_COS(num3, f);
-                    return;
-                }
-                if (num2 != 8192)
-                {
-                    return;
-                }
-            }
-            else if (num2 != 16384)
-            {
-                if (num2 != 24576)
-                {
-                    return;
-                }
-                goto IL_D2;
-            }
-            num -= 16384;
-            num3 = AppMain.NNM_A32toRAD(num);
-            f = num3 * num3;
-            s = AppMain.NNM_TAYLOR_COS(num3, f);
-            c = -AppMain.NNM_TAYLOR_SIN(num3, f);
-            return;
-        }
-        if (num2 <= 40960)
-        {
-            if (num2 == 32768)
-            {
-                goto IL_D2;
-            }
-            if (num2 != 40960)
-            {
-                return;
-            }
-        }
-        else if (num2 != 49152)
-        {
-            if (num2 != 57344)
-            {
-                return;
-            }
-            num -= 65536;
-            num3 = AppMain.NNM_A32toRAD(num);
-            f = num3 * num3;
-            s = AppMain.NNM_TAYLOR_SIN(num3, f);
-            c = AppMain.NNM_TAYLOR_COS(num3, f);
-            return;
-        }
-        num -= 49152;
-        num3 = AppMain.NNM_A32toRAD(num);
-        f = num3 * num3;
-        s = -AppMain.NNM_TAYLOR_COS(num3, f);
-        c = AppMain.NNM_TAYLOR_SIN(num3, f);
-        return;
-    IL_D2:
-        num -= 32768;
-        num3 = AppMain.NNM_A32toRAD(num);
-        f = num3 * num3;
-        s = -AppMain.NNM_TAYLOR_SIN(num3, f);
-        c = -AppMain.NNM_TAYLOR_COS(num3, f);
+        s = nnSin(ang);
+        c = nnCos(ang);
+
+        //     if (ang == 0)
+        //     {
+        //         s = 0f;
+        //         c = 1f;
+        //     }
+        //     int num = ang & 65535;
+        //     c = 0f;
+        //     s = 0f;
+        //     int num2 = ang & 57344;
+        //     float num3;
+        //     float f;
+        //     if (num2 <= 24576)
+        //     {
+        //         if (num2 <= 8192)
+        //         {
+        //             if (num2 == 0)
+        //             {
+        //                 num3 = AppMain.NNM_A32toRAD(num);
+        //                 f = num3 * num3;
+        //                 s = AppMain.NNM_TAYLOR_SIN(num3, f);
+        //                 c = AppMain.NNM_TAYLOR_COS(num3, f);
+        //                 return;
+        //             }
+        //             if (num2 != 8192)
+        //             {
+        //                 return;
+        //             }
+        //         }
+        //         else if (num2 != 16384)
+        //         {
+        //             if (num2 != 24576)
+        //             {
+        //                 return;
+        //             }
+        //             goto IL_D2;
+        //         }
+        //         num -= 16384;
+        //         num3 = AppMain.NNM_A32toRAD(num);
+        //         f = num3 * num3;
+        //         s = AppMain.NNM_TAYLOR_COS(num3, f);
+        //         c = -AppMain.NNM_TAYLOR_SIN(num3, f);
+        //         return;
+        //     }
+        //     if (num2 <= 40960)
+        //     {
+        //         if (num2 == 32768)
+        //         {
+        //             goto IL_D2;
+        //         }
+        //         if (num2 != 40960)
+        //         {
+        //             return;
+        //         }
+        //     }
+        //     else if (num2 != 49152)
+        //     {
+        //         if (num2 != 57344)
+        //         {
+        //             return;
+        //         }
+        //         num -= 65536;
+        //         num3 = AppMain.NNM_A32toRAD(num);
+        //         f = num3 * num3;
+        //         s = AppMain.NNM_TAYLOR_SIN(num3, f);
+        //         c = AppMain.NNM_TAYLOR_COS(num3, f);
+        //         return;
+        //     }
+        //     num -= 49152;
+        //     num3 = AppMain.NNM_A32toRAD(num);
+        //     f = num3 * num3;
+        //     s = -AppMain.NNM_TAYLOR_COS(num3, f);
+        //     c = AppMain.NNM_TAYLOR_SIN(num3, f);
+        //     return;
+        // IL_D2:
+        //     num -= 32768;
+        //     num3 = AppMain.NNM_A32toRAD(num);
+        //     f = num3 * num3;
+        //     s = -AppMain.NNM_TAYLOR_SIN(num3, f);
+        //     c = -AppMain.NNM_TAYLOR_COS(num3, f);
     }
 
     // Token: 0x0600001B RID: 27 RVA: 0x00002606 File Offset: 0x00000806
@@ -7053,6 +7066,7 @@ public partial class AppMain
     // Token: 0x060004DA RID: 1242 RVA: 0x00029BA4 File Offset: 0x00027DA4
     public static void nnMakeRotateXZYQuaternion(out NNS_QUATERNION dst, int rx, int ry, int rz)
     {
+
         float num;
         float num2;
         if (rx == 0)

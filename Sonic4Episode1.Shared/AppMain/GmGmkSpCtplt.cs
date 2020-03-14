@@ -250,7 +250,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000276 RID: 630 RVA: 0x000145DC File Offset: 0x000127DC
-    private static void gmGmkSpCtpltExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkSpCtpltExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obj_work = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmGmkSpCtpltSeStop( obj_work );

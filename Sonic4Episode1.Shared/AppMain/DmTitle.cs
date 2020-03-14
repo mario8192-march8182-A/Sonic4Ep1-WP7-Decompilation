@@ -430,7 +430,7 @@ public partial class AppMain
     {
         AppMain.AoActSysSetDrawStateEnable(true);
         AppMain.AoActSysSetDrawState(10U);
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmTitleProcMain, this.dmTitleDest, 0U, 0, 8192U, 10, () => new AppMain.DMS_TITLE_MAIN_WORK(), "TITLE_MAIN");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmTitleProcMain, this.dmTitleDest, 0U, 0, 8192U, 10, () => new AppMain.DMS_TITLE_MAIN_WORK(), "TITLE_MAIN");
         AppMain.DMS_TITLE_MAIN_WORK dms_TITLE_MAIN_WORK = (AppMain.DMS_TITLE_MAIN_WORK)mts_TASK_TCB.work;
         this.dmTitleSetInitDispData(dms_TITLE_MAIN_WORK);
         if (AppMain.dm_title_is_title_start)
@@ -478,7 +478,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000C5F RID: 3167 RVA: 0x0006BE44 File Offset: 0x0006A044
-    private void dmTitleProcMain(AppMain.MTS_TASK_TCB tcb)
+    private void dmTitleProcMain(MTS_TASK_TCB tcb)
     {
         AppMain.DMS_TITLE_MAIN_WORK dms_TITLE_MAIN_WORK = (AppMain.DMS_TITLE_MAIN_WORK)tcb.work;
         dms_TITLE_MAIN_WORK.flag_prev = dms_TITLE_MAIN_WORK.flag;
@@ -521,7 +521,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000C60 RID: 3168 RVA: 0x0006BF89 File Offset: 0x0006A189
-    private void dmTitleDest(AppMain.MTS_TASK_TCB tcb)
+    private void dmTitleDest(MTS_TASK_TCB tcb)
     {
     }
 

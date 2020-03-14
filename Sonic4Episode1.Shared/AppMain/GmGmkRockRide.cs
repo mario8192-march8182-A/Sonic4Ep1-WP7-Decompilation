@@ -71,7 +71,7 @@ public partial class AppMain
     }
 
     // Token: 0x060008AE RID: 2222 RVA: 0x0004E778 File Offset: 0x0004C978
-    private static void gmGmkRockRideTcbDest( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkRockRideTcbDest( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_ROCK_WORK gms_GMK_ROCK_WORK = (AppMain.GMS_GMK_ROCK_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( gms_GMK_ROCK_WORK.se_handle != null )

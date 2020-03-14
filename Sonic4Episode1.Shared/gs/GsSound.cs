@@ -20,7 +20,7 @@ public class GsSound
     public static Dictionary<string, Song> bgmPreloadedList
         = new Dictionary<string, Song>();
 
-    private static AppMain.MTS_TASK_TCB gs_sound_tcb;
+    private static MTS_TASK_TCB gs_sound_tcb;
     private static string[] sLevel_Common_BGMList;
     private static string[] sLevel_1_BGMList;
     private static string[] sLevel_2_BGMList;
@@ -888,7 +888,7 @@ public class GsSound
     }
 
     // Token: 0x060002F5 RID: 757 RVA: 0x00017F54 File Offset: 0x00016154
-    private static void gsSoundProcMain(AppMain.MTS_TASK_TCB tcb)
+    private static void gsSoundProcMain(MTS_TASK_TCB tcb)
     {
         AmCri.AudioGetGlobal();
         gsSoundUpdateSystemSuspendWait();

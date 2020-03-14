@@ -101,7 +101,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000CA9 RID: 3241 RVA: 0x000701A4 File Offset: 0x0006E3A4
-    private static void dmSndBgmPlayerProcMain( AppMain.MTS_TASK_TCB tcb )
+    private static void dmSndBgmPlayerProcMain( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK dms_SND_BGM_PLAYER_MAIN_WORK = (AppMain.DMS_SND_BGM_PLAYER_MAIN_WORK)tcb.work;
         if ( ( AppMain.dm_snd_bgm_player_flag & 1U ) != 0U )
@@ -117,7 +117,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000CAA RID: 3242 RVA: 0x000701EC File Offset: 0x0006E3EC
-    private static void dmSndBgmPlayerDest( AppMain.MTS_TASK_TCB tcb )
+    private static void dmSndBgmPlayerDest( MTS_TASK_TCB tcb )
     {
     }
 

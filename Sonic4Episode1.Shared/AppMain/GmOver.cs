@@ -179,12 +179,12 @@ public partial class AppMain
     }
 
     // Token: 0x06000B0B RID: 2827 RVA: 0x000635F9 File Offset: 0x000617F9
-    private static void gmOverDest(AppMain.MTS_TASK_TCB tcb)
+    private static void gmOverDest(MTS_TASK_TCB tcb)
     {
     }
 
     // Token: 0x06000B0C RID: 2828 RVA: 0x000635FC File Offset: 0x000617FC
-    private static void gmOverMain(AppMain.MTS_TASK_TCB tcb)
+    private static void gmOverMain(MTS_TASK_TCB tcb)
     {
         AppMain.GMS_OVER_MGR_WORK gms_OVER_MGR_WORK = (AppMain.GMS_OVER_MGR_WORK)tcb.work;
         if (gms_OVER_MGR_WORK.proc_update != null)

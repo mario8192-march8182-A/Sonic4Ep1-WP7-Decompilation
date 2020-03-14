@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -555,6 +556,7 @@ public partial class AppMain
         {
             return lSpd;
         }
+#if !NICE_PHYSICS // speed cap
         if ( sSpd >= 0 )
         {
             if ( lSpd > sMaxSpd )
@@ -566,6 +568,7 @@ public partial class AppMain
         {
             lSpd = -sMaxSpd;
         }
+#endif
         return lSpd;
     }
 
@@ -1257,12 +1260,12 @@ public partial class AppMain
             AppMain.ObjExit();
         }
         AppMain.g_obj = new AppMain.OBS_OBJECT();
-        AppMain.ObjDispSRand( 0U );
+        AppMain.ObjDispSRand( (uint)Stopwatch.GetTimestamp() );
         AppMain.g_obj.speed = 4096;
         AppMain.g_obj.glb_scale.x = 4096;
         AppMain.g_obj.glb_scale.y = 4096;
         AppMain.g_obj.glb_scale.z = 4096;
-        AppMain.g_obj.draw_scale.x = 4096;
+        AppMain.g_obj.draw_scale.x = 8192;
         AppMain.g_obj.draw_scale.y = 4096;
         AppMain.g_obj.draw_scale.z = 4096;
         AppMain.g_obj.scale.x = 4096;
@@ -1279,28 +1282,33 @@ public partial class AppMain
         AppMain.g_obj.inv_draw_scale.z = 4096;
         AppMain.g_obj.depth = 4096;
         AppMain.g_obj.col_through_dot = 5;
-        AppMain.g_obj.cam_scale_center[0][0] = ( short )( lcd_size_x / 2 );
-        AppMain.g_obj.cam_scale_center[0][1] = ( short )( lcd_size_y / 2 );
-        AppMain.g_obj.cam_scale_center[1][0] = ( short )( lcd_size_x / 2 );
-        AppMain.g_obj.cam_scale_center[1][1] = ( short )( lcd_size_y / 2 );
+        ObjInitDispParams(lcd_size_x, lcd_size_y, disp_width, disp_height);
+        AppMain.g_obj.load_drawflag = 0U;
+        AppMain.g_obj.drawflag = 0U;
+        AppMain.g_obj.glb_camera_id = -1;
+        AppMain.ObjDrawInit();
+        AppMain.ObjRectCheckInit();
+        AppMain.ObjCollisionObjectClear();
+        AppMain.ObjCollisionObjectClear();
+        AppMain.ObjLoadSetInitDrawFlag( false );
+        if ( AppMain.obj_ptcb == null && _am_default_taskp != null )
+        {
+            AppMain.obj_ptcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.objMain, AppMain.objDestructor, 0U, ( ushort )pause_level, ( uint )prio, ( int )group, null, "object" );
+        }
+    }
+
+    private static void ObjInitDispParams(short lcd_size_x, short lcd_size_y, float disp_width, float disp_height)
+    {
+        AppMain.g_obj.cam_scale_center[0][0] = (short) (lcd_size_x / 2);
+        AppMain.g_obj.cam_scale_center[0][1] = (short) (lcd_size_y / 2);
+        AppMain.g_obj.cam_scale_center[1][0] = (short) (lcd_size_x / 2);
+        AppMain.g_obj.cam_scale_center[1][1] = (short) (lcd_size_y / 2);
         AppMain.g_obj.disp_width = disp_width;
         AppMain.g_obj.disp_height = disp_height;
         AppMain.g_obj.lcd_size[0] = lcd_size_x;
         AppMain.g_obj.lcd_size[1] = lcd_size_y;
         AppMain.g_obj.clip_lcd_size[0] = lcd_size_x;
         AppMain.g_obj.clip_lcd_size[1] = lcd_size_y;
-        AppMain.g_obj.load_drawflag = 0U;
-        AppMain.g_obj.drawflag = 0U;
-        AppMain.g_obj.glb_camera_id = -1;
-        AppMain.ObjRectCheckInit();
-        AppMain.ObjCollisionObjectClear();
-        AppMain.ObjCollisionObjectClear();
-        AppMain.ObjDrawInit();
-        AppMain.ObjLoadSetInitDrawFlag( false );
-        if ( AppMain.obj_ptcb == null )
-        {
-            AppMain.obj_ptcb = AppMain.MTM_TASK_MAKE_TCB( AppMain.objMain, AppMain.objDestructor, 0U, ( ushort )pause_level, ( uint )prio, ( int )group, null, "object" );
-        }
     }
 
     // Token: 0x060017F4 RID: 6132 RVA: 0x000D5434 File Offset: 0x000D3634
@@ -1493,7 +1501,7 @@ public partial class AppMain
     // Token: 0x0600180B RID: 6155 RVA: 0x000D5788 File Offset: 0x000D3988
     public static OBS_OBJECT_WORK ObjObjectTaskDetailInit( ushort prio, byte group, byte pause_level, byte obj_pause_level, AppMain.TaskWorkFactoryDelegate work_size, string name )
     {
-        AppMain.MTS_TASK_TCB tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain._ObjObjectMain, AppMain._ObjObjectExit, 0U, (ushort)pause_level, (uint)prio, (int)group, work_size, (name == null) ? "" : name);
+        MTS_TASK_TCB tcb = AppMain.MTM_TASK_MAKE_TCB(AppMain._ObjObjectMain, AppMain._ObjObjectExit, 0U, (ushort)pause_level, (uint)prio, (int)group, work_size, (name == null) ? "" : name);
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         obs_OBJECT_WORK.tcb = tcb;
         obs_OBJECT_WORK.pause_level = ( int )obj_pause_level;
@@ -1637,7 +1645,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001814 RID: 6164 RVA: 0x000D5A9C File Offset: 0x000D3C9C
-    public static void ObjObjectMain( AppMain.MTS_TASK_TCB tcb )
+    public static void ObjObjectMain( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         if ( ( obs_OBJECT_WORK.flag & 4U ) != 0U )
@@ -1781,7 +1789,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001815 RID: 6165 RVA: 0x000D5F48 File Offset: 0x000D4148
-    public static void ObjObjectExit( AppMain.MTS_TASK_TCB pTcb )
+    public static void ObjObjectExit( MTS_TASK_TCB pTcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(pTcb);
         if ( obs_OBJECT_WORK.obj_3d != null )
@@ -2177,7 +2185,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001826 RID: 6182 RVA: 0x000D689C File Offset: 0x000D4A9C
-    public static void objMain( AppMain.MTS_TASK_TCB tcb )
+    public static void objMain( MTS_TASK_TCB tcb )
     {
         AppMain.g_obj.scale.x = AppMain.FX_Mul( AppMain.g_obj.glb_scale.x, AppMain.g_obj.draw_scale.x );
         AppMain.g_obj.scale.y = AppMain.FX_Mul( AppMain.g_obj.glb_scale.y, AppMain.g_obj.draw_scale.y );
@@ -2185,6 +2193,9 @@ public partial class AppMain
         AppMain.g_obj.inv_scale.x = AppMain.FX_Div( 4096, AppMain.g_obj.scale.x );
         AppMain.g_obj.inv_scale.y = AppMain.FX_Div( 4096, AppMain.g_obj.scale.y );
         AppMain.g_obj.inv_scale.z = AppMain.FX_Div( 4096, AppMain.g_obj.scale.z );
+        
+        System.Diagnostics.Debug.WriteLine($"{g_obj.scale}");
+        
         if ( AppMain.g_obj.ppPre != null )
         {
             AppMain.g_obj.ppPre();
@@ -2281,7 +2292,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001828 RID: 6184 RVA: 0x000D6C98 File Offset: 0x000D4E98
-    public static void objDestructor( AppMain.MTS_TASK_TCB pTcb )
+    public static void objDestructor( MTS_TASK_TCB pTcb )
     {
         AppMain.obj_ptcb = null;
         AppMain.ObjSetBlockCollision( null );
@@ -2298,7 +2309,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001829 RID: 6185 RVA: 0x000D6D04 File Offset: 0x000D4F04
-    public static void objExitWait( AppMain.MTS_TASK_TCB pTcb )
+    public static void objExitWait( MTS_TASK_TCB pTcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.ObjObjectSearchRegistObject(null, ushort.MaxValue);
         if ( obs_OBJECT_WORK == null )
@@ -2315,7 +2326,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600182A RID: 6186 RVA: 0x000D6D54 File Offset: 0x000D4F54
-    public static void objObjectExitDataRelease( AppMain.MTS_TASK_TCB tcb )
+    public static void objObjectExitDataRelease( MTS_TASK_TCB tcb )
     {
         bool flag = false;
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
@@ -2355,7 +2366,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600182B RID: 6187 RVA: 0x000D6E24 File Offset: 0x000D5024
-    public static void objObjectDataReleaseCheck( AppMain.MTS_TASK_TCB tcb )
+    public static void objObjectDataReleaseCheck( MTS_TASK_TCB tcb )
     {
         bool flag = true;
         bool flag2 = true;

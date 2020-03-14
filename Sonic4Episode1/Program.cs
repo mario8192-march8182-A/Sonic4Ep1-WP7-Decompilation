@@ -10,7 +10,6 @@ namespace Sonic4Episode1
             using (var game = new Sonic4Ep1())
             {
                 game.SetControllerSource(new Win32ControllerSource());
-                game.SetSaveContentPath(System.IO.Directory.GetCurrentDirectory());
                 game.Run();
             }
         }

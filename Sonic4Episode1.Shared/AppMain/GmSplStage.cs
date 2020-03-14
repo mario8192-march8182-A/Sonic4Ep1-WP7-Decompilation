@@ -97,7 +97,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D82 RID: 3458 RVA: 0x00076224 File Offset: 0x00074424
-    private static void gmSplStageFadeInWait( AppMain.MTS_TASK_TCB tcb )
+    private static void gmSplStageFadeInWait( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = (AppMain.GMS_SPL_STG_WORK)tcb.work;
         gms_SPL_STG_WORK.counter += 1U;
@@ -110,7 +110,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D83 RID: 3459 RVA: 0x0007627C File Offset: 0x0007447C
-    private static void gmSplStageFadeInWait2( AppMain.MTS_TASK_TCB tcb )
+    private static void gmSplStageFadeInWait2( MTS_TASK_TCB tcb )
     {
         if ( AppMain.ObjObjectPauseCheck( 0U ) != 0U )
         {
@@ -138,7 +138,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D84 RID: 3460 RVA: 0x00076328 File Offset: 0x00074528
-    private static void gmSplStagePlayEndChk( AppMain.MTS_TASK_TCB tcb )
+    private static void gmSplStagePlayEndChk( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = (AppMain.GMS_SPL_STG_WORK)tcb.work;
         GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];
@@ -170,7 +170,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D85 RID: 3461 RVA: 0x0007644C File Offset: 0x0007464C
-    private static void gmSplStageRolling( AppMain.MTS_TASK_TCB tcb )
+    private static void gmSplStageRolling( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = (AppMain.GMS_SPL_STG_WORK)tcb.work;
         OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
@@ -206,7 +206,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D86 RID: 3462 RVA: 0x0007653C File Offset: 0x0007473C
-    private static void gmSplStageGotoEnd( AppMain.MTS_TASK_TCB tcb )
+    private static void gmSplStageGotoEnd( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_SPL_STG_WORK gms_SPL_STG_WORK = (AppMain.GMS_SPL_STG_WORK)tcb.work;
         if ( gms_SPL_STG_WORK.counter != 0U )
@@ -219,7 +219,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D87 RID: 3463 RVA: 0x00076590 File Offset: 0x00074790
-    private static void gmSplStageEnd( AppMain.MTS_TASK_TCB tcb )
+    private static void gmSplStageEnd( MTS_TASK_TCB tcb )
     {
         AppMain.UNREFERENCED_PARAMETER( tcb );
     }

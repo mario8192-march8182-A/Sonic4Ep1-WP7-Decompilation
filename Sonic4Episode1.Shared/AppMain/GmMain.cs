@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -121,7 +122,8 @@ public partial class AppMain
         else
         {
             AppMain.ObjInit(4, 61435, 0, AppMain.GMD_OBJ_LCD_X, AppMain.GMD_OBJ_LCD_Y, (float)AppMain.GSD_DISP_WIDTH, (float)AppMain.GSD_DISP_HEIGHT);
-        }
+        }        
+        
         AppMain.ObjDataAlloc(994);
         AppMain.ObjDrawESEffectSystemInit(0, 20480U, 5U);
         this.amTrailEFInitialize();
@@ -574,7 +576,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AA RID: 938 RVA: 0x0001CFAC File Offset: 0x0001B1AC
-    public static void gmMainDataLoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadWait(MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         if (!AppMain.GmPauseMenuLoadIsFinished())
@@ -595,7 +597,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AB RID: 939 RVA: 0x0001D00C File Offset: 0x0001B20C
-    public static void gmMainDataBuildWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataBuildWait(MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         if (!AppMain.GmGameDatBuildStandardCheck())
@@ -621,7 +623,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AC RID: 940 RVA: 0x0001D078 File Offset: 0x0001B278
-    public static void gmMainDataLoadingEndWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadingEndWait(MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         if (AppMain.DmLoadingIsExit())
@@ -632,7 +634,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AD RID: 941 RVA: 0x0001D091 File Offset: 0x0001B291
-    public static void gmMainDataLoadDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadDest(MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_load_wait_tcb = null;
     }
@@ -645,7 +647,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003AF RID: 943 RVA: 0x0001D0D4 File Offset: 0x0001B2D4
-    public static void gmMainRebuildWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainRebuildWait(MTS_TASK_TCB tcb)
     {
         if (!AppMain.GmGameDatReBuildRestartCheck())
         {
@@ -656,7 +658,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B0 RID: 944 RVA: 0x0001D0E9 File Offset: 0x0001B2E9
-    public static void gmMainRebuildDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainRebuildDest(MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_load_wait_tcb = null;
     }
@@ -677,7 +679,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B2 RID: 946 RVA: 0x0001D154 File Offset: 0x0001B354
-    public static void gmMainDataFlushExitFinalClearObjWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitFinalClearObjWait(MTS_TASK_TCB tcb)
     {
         AppMain._bossFinishThread = true;
         if (!AppMain.ObjObjectCheckClearAllObject())
@@ -710,7 +712,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B3 RID: 947 RVA: 0x0001D1E8 File Offset: 0x0001B3E8
-    public static void gmMainDataFlushExitFinalLoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitFinalLoadWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatLoadBossBattleLoadCheck())
         {
@@ -721,7 +723,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B4 RID: 948 RVA: 0x0001D217 File Offset: 0x0001B417
-    public static void gmMainDataFlushExitFinalWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitFinalWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatReleaseBossBattleReleaseCheck())
         {
@@ -731,7 +733,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B5 RID: 949 RVA: 0x0001D237 File Offset: 0x0001B437
-    public static void gmMainDataFlushExitWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushExitWait(MTS_TASK_TCB tcb)
     {
         if (!AppMain.ObjObjectCheckClearAllObject())
         {
@@ -745,7 +747,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B6 RID: 950 RVA: 0x0001D268 File Offset: 0x0001B468
-    public static void gmMainDataFlushWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataFlushWait(MTS_TASK_TCB tcb)
     {
         if (!AppMain.GmGameDatFlushStandardCheck())
         {
@@ -771,7 +773,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B7 RID: 951 RVA: 0x0001D2F0 File Offset: 0x0001B4F0
-    public static void gmMainDataReleaseWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatReleaseCheck() && !AppMain.ObjIsExitWait())
         {
@@ -794,7 +796,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003B8 RID: 952 RVA: 0x0001D3AF File Offset: 0x0001B5AF
-    public static void gmMainDataReleaseDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseDest(MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_release_wait_tcb = null;
     }
@@ -815,7 +817,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BA RID: 954 RVA: 0x0001D418 File Offset: 0x0001B618
-    public static void gmMainObjectReleaseFinalClearObjWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseFinalClearObjWait(MTS_TASK_TCB tcb)
     {
         if (!AppMain.ObjObjectCheckClearAllObject())
         {
@@ -848,7 +850,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BB RID: 955 RVA: 0x0001D4BC File Offset: 0x0001B6BC
-    public static void gmMainObjectReleaseFinalLoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseFinalLoadWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatLoadBossBattleLoadCheck())
         {
@@ -859,7 +861,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BC RID: 956 RVA: 0x0001D4EB File Offset: 0x0001B6EB
-    public static void gmMainObjectReleaseFinalWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseFinalWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmMainDatReleaseBossBattleReleaseCheck())
         {
@@ -871,7 +873,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BD RID: 957 RVA: 0x0001D526 File Offset: 0x0001B726
-    public static void gmMainObjectReleaseWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseWait(MTS_TASK_TCB tcb)
     {
         if (!AppMain.ObjObjectCheckClearAllObject())
         {
@@ -887,7 +889,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003BE RID: 958 RVA: 0x0001D548 File Offset: 0x0001B748
-    public static void gmMainObjectReleaseDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainObjectReleaseDest(MTS_TASK_TCB tcb)
     {
         AppMain.gm_main_release_wait_tcb = null;
     }
@@ -1126,7 +1128,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C1 RID: 961 RVA: 0x0001DCC0 File Offset: 0x0001BEC0
-    public static void gmMainPre(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainPre(MTS_TASK_TCB tcb)
     {
         AppMain.gmMainUpdateSuspendedPause();
         AppMain.GMS_MAIN_SYSTEM gms_MAIN_SYSTEM = AppMain.g_gm_main_system;
@@ -1180,7 +1182,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C2 RID: 962 RVA: 0x0001DDFC File Offset: 0x0001BFFC
-    public static void gmMainPost(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainPost(MTS_TASK_TCB tcb)
     {
         CPadEmu.CreateInstance();
         if ((AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)].player_flag & 1024U) != 0U && AppMain.g_gm_main_system.die_event_wait_time < 491520 && (AppMain.g_gm_main_system.game_flag & 64U) == 0U)
@@ -1363,7 +1365,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C5 RID: 965 RVA: 0x0001E284 File Offset: 0x0001C484
-    public static void gmMainDataLoadBoosBattleMgr_LoadWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadBoosBattleMgr_LoadWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatLoadCheck() == AppMain.GME_GAMEDAT_LOAD_PROGRESS.GMD_GAMEDAT_LOAD_PROGRESS_COMPLETE)
         {
@@ -1376,7 +1378,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C6 RID: 966 RVA: 0x0001E2CC File Offset: 0x0001C4CC
-    public static void gmMainDataLoadBoosBattleMgr_BuildWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataLoadBoosBattleMgr_BuildWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatBuildBossBattleCheck())
         {
@@ -1390,7 +1392,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C7 RID: 967 RVA: 0x0001E328 File Offset: 0x0001C528
-    public static void gmMainDataReleaseBoosBattleMgr_FlushWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseBoosBattleMgr_FlushWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatFlushBossBattleCheck())
         {
@@ -1401,7 +1403,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C8 RID: 968 RVA: 0x0001E368 File Offset: 0x0001C568
-    public static void gmMainDataReleaseBoosBattleMgr_ReleaseWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseBoosBattleMgr_ReleaseWait(MTS_TASK_TCB tcb)
     {
         if (AppMain.GmGameDatReleaseCheck())
         {
@@ -1414,7 +1416,7 @@ public partial class AppMain
     }
 
     // Token: 0x060003C9 RID: 969 RVA: 0x0001E3C2 File Offset: 0x0001C5C2
-    public static void gmMainDataReleaseBoosBattleMgr_EndWait(AppMain.MTS_TASK_TCB tcb)
+    public static void gmMainDataReleaseBoosBattleMgr_EndWait(MTS_TASK_TCB tcb)
     {
     }
 

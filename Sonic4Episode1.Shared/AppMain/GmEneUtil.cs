@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public partial class AppMain
 {
     // Token: 0x06000E0E RID: 3598 RVA: 0x0007BE28 File Offset: 0x0007A028
-    public static void gmEneExit( AppMain.MTS_TASK_TCB tcb )
+    public static void gmEneExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_ENE_KANI_WORK gms_ENE_KANI_WORK = (AppMain.GMS_ENE_KANI_WORK)p;

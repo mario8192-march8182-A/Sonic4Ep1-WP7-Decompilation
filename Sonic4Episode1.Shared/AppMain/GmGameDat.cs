@@ -11,12 +11,16 @@ public partial class AppMain
     {
         // Token: 0x04004D84 RID: 19844
         GMD_GAMEDAT_LOAD_PROGRESS_NOLOAD,
+
         // Token: 0x04004D85 RID: 19845
         GMD_GAMEDAT_LOAD_PROGRESS_LOADING,
+
         // Token: 0x04004D86 RID: 19846
         GMD_GAMEDAT_LOAD_PROGRESS_LOADFINISH,
+
         // Token: 0x04004D87 RID: 19847
         GMD_GAMEDAT_LOAD_PROGRESS_COMPLETE,
+
         // Token: 0x04004D88 RID: 19848
         GMD_GAMEDAT_LOAD_PROGRESS_MAX
     }
@@ -26,10 +30,13 @@ public partial class AppMain
     {
         // Token: 0x04004D8A RID: 19850
         GMD_GAMEDAT_ATTRSET_AT,
+
         // Token: 0x04004D8B RID: 19851
         GMD_GAMEDAT_ATTRSET_DF,
+
         // Token: 0x04004D8C RID: 19852
         GMD_GAMEDAT_ATTRSET_DI,
+
         // Token: 0x04004D8D RID: 19853
         GMD_GAMEDAT_ATTRSET_MAX
     }
@@ -38,7 +45,9 @@ public partial class AppMain
     public class GMS_GAMEDAT_LOAD_DATA
     {
         // Token: 0x060020BA RID: 8378 RVA: 0x0013F9EF File Offset: 0x0013DBEF
-        public GMS_GAMEDAT_LOAD_DATA( string _path, AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_ _alloc, AppMain.GMS_GAMEDAT_LOAD_DATA._proc_pre_ _proc_pre, AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_ _proc_post, int udata )
+        public GMS_GAMEDAT_LOAD_DATA(string _path, AppMain.GMS_GAMEDAT_LOAD_DATA._alloc_ _alloc,
+            AppMain.GMS_GAMEDAT_LOAD_DATA._proc_pre_ _proc_pre, AppMain.GMS_GAMEDAT_LOAD_DATA._proc_post_ _proc_post,
+            int udata)
         {
             this.path = _path;
             this.alloc = _alloc;
@@ -64,22 +73,22 @@ public partial class AppMain
 
         // Token: 0x0200014E RID: 334
         // (Invoke) Token: 0x060020BC RID: 8380
-        public delegate object _alloc_( string s );
+        public delegate object _alloc_(string s);
 
         // Token: 0x0200014F RID: 335
         // (Invoke) Token: 0x060020C0 RID: 8384
-        public delegate void _proc_pre_( AppMain.GMS_GAMEDAT_LOAD_CONTEXT contex );
+        public delegate void _proc_pre_(AppMain.GMS_GAMEDAT_LOAD_CONTEXT contex);
 
         // Token: 0x02000150 RID: 336
         // (Invoke) Token: 0x060020C4 RID: 8388
-        public delegate void _proc_post_( AppMain.GMS_GAMEDAT_LOAD_CONTEXT contex );
+        public delegate void _proc_post_(AppMain.GMS_GAMEDAT_LOAD_CONTEXT contex);
     }
 
     // Token: 0x02000151 RID: 337
     public class GMS_GAMEDAT_LOAD_INFO
     {
         // Token: 0x060020C7 RID: 8391 RVA: 0x0013FA1C File Offset: 0x0013DC1C
-        public GMS_GAMEDAT_LOAD_INFO( AppMain.GMS_GAMEDAT_LOAD_DATA[] _tbl, int _num )
+        public GMS_GAMEDAT_LOAD_INFO(AppMain.GMS_GAMEDAT_LOAD_DATA[] _tbl, int _num)
         {
             this.data_tbl = _tbl;
             this.num = _num;
@@ -97,12 +106,16 @@ public partial class AppMain
     {
         // Token: 0x04004D96 RID: 19862
         GMD_GAMEDAT_LOAD_STATE_LOADING,
+
         // Token: 0x04004D97 RID: 19863
         GMD_GAMEDAT_LOAD_STATE_LOADFINISH,
+
         // Token: 0x04004D98 RID: 19864
         GMD_GAMEDAT_LOAD_STATE_COMPLETE,
+
         // Token: 0x04004D99 RID: 19865
         GMD_GAMEDAT_LOAD_STATE_ERROR,
+
         // Token: 0x04004D9A RID: 19866
         GMD_GAMEDAT_LOAD_STATE_MAX
     }
@@ -158,22 +171,24 @@ public partial class AppMain
         // Token: 0x060020CA RID: 8394 RVA: 0x0013FA8C File Offset: 0x0013DC8C
         internal void Clear()
         {
-            for ( int i = 0; i < this.context.Length; i++ )
+            for (int i = 0; i < this.context.Length; i++)
             {
                 this.context[i].Clear();
             }
+
             this.proc_type = 0;
             this.load_finish = false;
             this.post_finish = false;
             this.stage_id = 0;
-            for ( int j = 0; j < this.char_id.Length; j++ )
+            for (int j = 0; j < this.char_id.Length; j++)
             {
                 this.char_id[j] = 0;
             }
         }
 
         // Token: 0x04004DA4 RID: 19876
-        public AppMain.GMS_GAMEDAT_LOAD_CONTEXT[] context = AppMain.New<AppMain.GMS_GAMEDAT_LOAD_CONTEXT>(AppMain.GMD_GAMEDAT_LOAD_CONTEXT_MAX);
+        public AppMain.GMS_GAMEDAT_LOAD_CONTEXT[] context =
+            AppMain.New<AppMain.GMS_GAMEDAT_LOAD_CONTEXT>(AppMain.GMD_GAMEDAT_LOAD_CONTEXT_MAX);
 
         // Token: 0x04004DA5 RID: 19877
         public int context_num;
@@ -200,12 +215,16 @@ public partial class AppMain
     {
         // Token: 0x04004FD8 RID: 20440
         GME_GAME_DBUILD_MDL_STATE_REG_WAIT,
+
         // Token: 0x04004FD9 RID: 20441
         GME_GAME_DBUILD_MDL_STATE_BUILD_WAIT,
+
         // Token: 0x04004FDA RID: 20442
         GME_GAME_DBUILD_MDL_STATE_REG_FLUSH_WAIT,
+
         // Token: 0x04004FDB RID: 20443
         GME_GAME_DBUILD_MDL_STATE_FLUSH_WAIT,
+
         // Token: 0x04004FDC RID: 20444
         GME_GAME_DBUILD_MDL_STATE_MAX
     }
@@ -218,8 +237,8 @@ public partial class AppMain
         {
             this.build_state = AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_REG_WAIT;
             this.obj_3d_list = null;
-            this.num = ( this.reg_num = 0 );
-            this.mdl_amb = ( this.tex_amb = null );
+            this.num = (this.reg_num = 0);
+            this.mdl_amb = (this.tex_amb = null);
             this.draw_flag = 0U;
             this.txb = null;
         }
@@ -260,109 +279,120 @@ public partial class AppMain
     }
 
     // Token: 0x060005AE RID: 1454 RVA: 0x00032F5C File Offset: 0x0003115C
-    public static void GmGameDatLoadInit( int proc_type, ushort stage_id, short[] char_id_list )
+    public static void GmGameDatLoadInit(int proc_type, ushort stage_id, short[] char_id_list)
     {
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmDataLoadMain, AppMain.gmDataLoadDest, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmDataLoadMain, AppMain.gmDataLoadDest, 0U,
+            ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD");
         AppMain.gm_gamedat_load_tcb = mts_TASK_TCB;
-        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK)mts_TASK_TCB.work;
+        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK) mts_TASK_TCB.work;
         AppMain.gm_gamedat_load_work = gms_GAMEDAT_LOAD_WORK;
         gms_GAMEDAT_LOAD_WORK.Clear();
         AppMain.gm_gamedat_load_work.stage_id = stage_id;
         int i = 0;
-        while ( ( long )i < 1L )
+        while ((long) i < 1L)
         {
-            gms_GAMEDAT_LOAD_WORK.char_id[i] = ( ushort )char_id_list[i];
+            gms_GAMEDAT_LOAD_WORK.char_id[i] = (ushort) char_id_list[i];
             i++;
         }
+
         gms_GAMEDAT_LOAD_WORK.proc_type = proc_type;
-        AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT> pointer = new AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT>(gms_GAMEDAT_LOAD_WORK.context);
+        AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT> pointer =
+            new AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT>(gms_GAMEDAT_LOAD_WORK.context);
         AppMain.GMS_GAMEDAT_LOAD_INFO gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_common_info_tbl[0];
         i = 0;
-        while ( i < gms_GAMEDAT_LOAD_INFO.num )
+        while (i < gms_GAMEDAT_LOAD_INFO.num)
         {
-            ( ~pointer ).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
-            ( ~pointer ).data_no = ( ushort )i;
-            AppMain.gmGameDatLoad( pointer );
+            (~pointer).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
+            (~pointer).data_no = (ushort) i;
+            AppMain.gmGameDatLoad(pointer);
             i++;
             pointer = ++pointer;
             gms_GAMEDAT_LOAD_WORK.context_num++;
         }
+
         int num = 0;
-        while ( ( long )num < 1L )
+        while ((long) num < 1L)
         {
-            if ( gms_GAMEDAT_LOAD_WORK.char_id[num] != 32767 )
+            if (gms_GAMEDAT_LOAD_WORK.char_id[num] != 32767)
             {
-                gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_player_info_tbl[( int )gms_GAMEDAT_LOAD_WORK.char_id[num]];
+                gms_GAMEDAT_LOAD_INFO =
+                    AppMain.gm_gamedat_tbl_player_info_tbl[(int) gms_GAMEDAT_LOAD_WORK.char_id[num]];
                 i = 0;
-                while ( i < gms_GAMEDAT_LOAD_INFO.num )
+                while (i < gms_GAMEDAT_LOAD_INFO.num)
                 {
-                    ( ~pointer ).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
-                    ( ~pointer ).char_id = gms_GAMEDAT_LOAD_WORK.char_id[num];
-                    ( ~pointer ).ply_no = ( ushort )num;
-                    ( ~pointer ).data_no = ( ushort )i;
-                    AppMain.gmGameDatLoad( pointer );
+                    (~pointer).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
+                    (~pointer).char_id = gms_GAMEDAT_LOAD_WORK.char_id[num];
+                    (~pointer).ply_no = (ushort) num;
+                    (~pointer).data_no = (ushort) i;
+                    AppMain.gmGameDatLoad(pointer);
                     i++;
                     pointer = ++pointer;
                     gms_GAMEDAT_LOAD_WORK.context_num++;
                 }
             }
+
             num++;
         }
-        gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_map_info_tbl[( int )stage_id];
+
+        gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_map_info_tbl[(int) stage_id];
         i = 0;
-        while ( i < gms_GAMEDAT_LOAD_INFO.num )
+        while (i < gms_GAMEDAT_LOAD_INFO.num)
         {
-            ( ~pointer ).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
-            ( ~pointer ).stage_id = stage_id;
-            ( ~pointer ).data_no = ( ushort )i;
-            AppMain.gmGameDatLoad( pointer );
+            (~pointer).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
+            (~pointer).stage_id = stage_id;
+            (~pointer).data_no = (ushort) i;
+            AppMain.gmGameDatLoad(pointer);
             i++;
             pointer = ++pointer;
             gms_GAMEDAT_LOAD_WORK.context_num++;
         }
-        gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_effect_info_tbl[( int )stage_id];
+
+        gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_effect_info_tbl[(int) stage_id];
         i = 0;
-        while ( i < gms_GAMEDAT_LOAD_INFO.num )
+        while (i < gms_GAMEDAT_LOAD_INFO.num)
         {
-            ( ~pointer ).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
-            ( ~pointer ).stage_id = stage_id;
-            AppMain.gmGameDatLoad( pointer );
+            (~pointer).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
+            (~pointer).stage_id = stage_id;
+            AppMain.gmGameDatLoad(pointer);
             i++;
             pointer = ++pointer;
             gms_GAMEDAT_LOAD_WORK.context_num++;
         }
-        if ( AppMain.g_gs_main_sys_info.stage_id != 16 )
+
+        if (AppMain.g_gs_main_sys_info.stage_id != 16)
         {
-            gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_enemy_info_tbl[( int )stage_id];
+            gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_enemy_info_tbl[(int) stage_id];
             i = 0;
-            while ( i < gms_GAMEDAT_LOAD_INFO.num )
+            while (i < gms_GAMEDAT_LOAD_INFO.num)
             {
-                ( ~pointer ).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
-                ( ~pointer ).stage_id = stage_id;
-                AppMain.gmGameDatLoad( pointer );
+                (~pointer).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
+                (~pointer).stage_id = stage_id;
+                AppMain.gmGameDatLoad(pointer);
                 i++;
                 pointer = ++pointer;
                 gms_GAMEDAT_LOAD_WORK.context_num++;
             }
         }
+
         gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_gimmick_common_info_tbl[0];
         i = 0;
-        while ( i < gms_GAMEDAT_LOAD_INFO.num )
+        while (i < gms_GAMEDAT_LOAD_INFO.num)
         {
-            ( ~pointer ).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
-            ( ~pointer ).stage_id = stage_id;
-            AppMain.gmGameDatLoad( pointer );
+            (~pointer).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
+            (~pointer).stage_id = stage_id;
+            AppMain.gmGameDatLoad(pointer);
             i++;
             pointer = ++pointer;
             gms_GAMEDAT_LOAD_WORK.context_num++;
         }
-        gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_gimmick_info_tbl[( int )stage_id];
+
+        gms_GAMEDAT_LOAD_INFO = AppMain.gm_gamedat_tbl_gimmick_info_tbl[(int) stage_id];
         i = 0;
-        while ( i < gms_GAMEDAT_LOAD_INFO.num )
+        while (i < gms_GAMEDAT_LOAD_INFO.num)
         {
-            ( ~pointer ).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
-            ( ~pointer ).stage_id = stage_id;
-            AppMain.gmGameDatLoad( pointer );
+            (~pointer).load_data = gms_GAMEDAT_LOAD_INFO.data_tbl[i];
+            (~pointer).stage_id = stage_id;
+            AppMain.gmGameDatLoad(pointer);
             i++;
             pointer = ++pointer;
             gms_GAMEDAT_LOAD_WORK.context_num++;
@@ -373,37 +403,41 @@ public partial class AppMain
     public static void GmGameDatLoadPost()
     {
         AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = AppMain.gm_gamedat_load_work;
-        if ( gms_GAMEDAT_LOAD_WORK == null )
+        if (gms_GAMEDAT_LOAD_WORK == null)
         {
             return;
         }
+
         gms_GAMEDAT_LOAD_WORK.proc_type = 0;
     }
 
     // Token: 0x060005B0 RID: 1456 RVA: 0x0003333E File Offset: 0x0003153E
     public static AppMain.GME_GAMEDAT_LOAD_PROGRESS GmGameDatLoadCheck()
     {
-        if ( AppMain.gm_gamedat_load_work == null )
+        if (AppMain.gm_gamedat_load_work == null)
         {
             return AppMain.GME_GAMEDAT_LOAD_PROGRESS.GMD_GAMEDAT_LOAD_PROGRESS_NOLOAD;
         }
-        if ( AppMain.gm_gamedat_load_work.post_finish )
+
+        if (AppMain.gm_gamedat_load_work.post_finish)
         {
             return AppMain.GME_GAMEDAT_LOAD_PROGRESS.GMD_GAMEDAT_LOAD_PROGRESS_COMPLETE;
         }
-        if ( AppMain.gm_gamedat_load_work.load_finish )
+
+        if (AppMain.gm_gamedat_load_work.load_finish)
         {
             return AppMain.GME_GAMEDAT_LOAD_PROGRESS.GMD_GAMEDAT_LOAD_PROGRESS_LOADFINISH;
         }
+
         return AppMain.GME_GAMEDAT_LOAD_PROGRESS.GMD_GAMEDAT_LOAD_PROGRESS_LOADING;
     }
 
     // Token: 0x060005B1 RID: 1457 RVA: 0x00033366 File Offset: 0x00031566
     public static void GmGameDatLoadExit()
     {
-        if ( AppMain.gm_gamedat_load_tcb != null )
+        if (AppMain.gm_gamedat_load_tcb != null)
         {
-            AppMain.mtTaskClearTcb( AppMain.gm_gamedat_load_tcb );
+            AppMain.mtTaskClearTcb(AppMain.gm_gamedat_load_tcb);
         }
     }
 
@@ -418,13 +452,14 @@ public partial class AppMain
     public static void GmGameDatReleaseStandard()
     {
         GmPlayer.Release();
-        if ( AppMain.g_gm_gamedat_cockpit_main_arc != null )
+        if (AppMain.g_gm_gamedat_cockpit_main_arc != null)
         {
             AppMain.g_gm_gamedat_cockpit_main_arc = null;
         }
-        for ( int i = 0; i < 3; i++ )
+
+        for (int i = 0; i < 3; i++)
         {
-            if ( AppMain.g_gm_gamedat_ring[i] != null )
+            if (AppMain.g_gm_gamedat_ring[i] != null)
             {
                 AppMain.g_gm_gamedat_ring[i] = null;
             }
@@ -438,30 +473,33 @@ public partial class AppMain
         AppMain.GmMapFarRelease();
         AppMain.GmDecoRelease();
         AppMain.GmWaterSurfaceRelease();
-        for ( int i = 0; i < 11; i++ )
+        for (int i = 0; i < 11; i++)
         {
-            if ( AppMain.g_gm_gamedat_effect[i] != null )
+            if (AppMain.g_gm_gamedat_effect[i] != null)
             {
                 AppMain.g_gm_gamedat_effect[i] = null;
             }
         }
-        if ( AppMain.g_gs_main_sys_info.stage_id != 16 )
+
+        if (AppMain.g_gs_main_sys_info.stage_id != 16)
         {
-            for ( int i = 0; i < 44; i++ )
+            for (int i = 0; i < 44; i++)
             {
-                if ( AppMain.g_gm_gamedat_enemy[i] != null )
+                if (AppMain.g_gm_gamedat_enemy[i] != null)
                 {
                     AppMain.g_gm_gamedat_enemy[i] = null;
                 }
             }
         }
-        if ( AppMain.g_gm_gamedat_enemy_arc != null )
+
+        if (AppMain.g_gm_gamedat_enemy_arc != null)
         {
             AppMain.g_gm_gamedat_enemy_arc = null;
         }
-        for ( int i = 0; i < 204; i++ )
+
+        for (int i = 0; i < 204; i++)
         {
-            if ( AppMain.g_gm_gamedat_gimmick[i] != null )
+            if (AppMain.g_gm_gamedat_gimmick[i] != null)
             {
                 AppMain.g_gm_gamedat_gimmick[i] = null;
             }
@@ -475,37 +513,41 @@ public partial class AppMain
     }
 
     // Token: 0x060005B6 RID: 1462 RVA: 0x00033460 File Offset: 0x00031660
-    public static object GmGameDatGetEnemyData( int data_no )
+    public static object GmGameDatGetEnemyData(int data_no)
     {
         return AppMain.g_gm_gamedat_enemy[data_no - 658];
     }
 
     // Token: 0x060005B7 RID: 1463 RVA: 0x0003346F File Offset: 0x0003166F
-    public static AMS_AMB_HEADER GmGameDatGetGimmickData( int data_no )
+    public static AMS_AMB_HEADER GmGameDatGetGimmickData(int data_no)
     {
         return AppMain.g_gm_gamedat_gimmick[data_no - 789];
     }
 
     // Token: 0x060005B8 RID: 1464 RVA: 0x00033488 File Offset: 0x00031688
-    private static void GmGameDatLoadBoosBattleInit( int boss_type )
+    private static void GmGameDatLoadBoosBattleInit(int boss_type)
     {
-        ushort num = (ushort)AppMain.g_gm_gamedat_bossbattle_stage_id_tbl[boss_type];
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmDataLoadMain, AppMain.gmDataLoadDest, 0U, ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD_BB");
+        ushort num = (ushort) AppMain.g_gm_gamedat_bossbattle_stage_id_tbl[boss_type];
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmDataLoadMain, AppMain.gmDataLoadDest, 0U,
+            ushort.MaxValue, 2048U, 5, () => new AppMain.GMS_GAMEDAT_LOAD_WORK(), "GM_LOAD_BB");
         AppMain.gm_gamedat_load_tcb = mts_TASK_TCB;
-        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK)mts_TASK_TCB.work;
+        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK) mts_TASK_TCB.work;
         AppMain.gm_gamedat_load_work = gms_GAMEDAT_LOAD_WORK;
         gms_GAMEDAT_LOAD_WORK.Clear();
         AppMain.gm_gamedat_load_work.stage_id = num;
         gms_GAMEDAT_LOAD_WORK.proc_type = 0;
-        AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT> pointer = new AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT>(gms_GAMEDAT_LOAD_WORK.context);
-        AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_INFO> pointer2 = new AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_INFO>(AppMain.gm_gamedat_tbl_enemy_final_info_tbl, (int)num);
+        AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT> pointer =
+            new AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_CONTEXT>(gms_GAMEDAT_LOAD_WORK.context);
+        AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_INFO> pointer2 =
+            new AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_INFO>(AppMain.gm_gamedat_tbl_enemy_final_info_tbl,
+                (int) num);
         int i = 0;
         AppMain.ArrayPointer<AppMain.GMS_GAMEDAT_LOAD_DATA> pointer3 = (~pointer2).data_tbl;
-        while ( i < ( ~pointer2 ).num )
+        while (i < (~pointer2).num)
         {
-            ( ~pointer ).load_data = pointer3;
-            ( ~pointer ).stage_id = num;
-            AppMain.gmGameDatLoad( pointer );
+            (~pointer).load_data = pointer3;
+            (~pointer).stage_id = num;
+            AppMain.gmGameDatLoad(pointer);
             i++;
             pointer = ++pointer;
             pointer3 = ++pointer3;
@@ -514,28 +556,29 @@ public partial class AppMain
     }
 
     // Token: 0x060005B9 RID: 1465 RVA: 0x000335AC File Offset: 0x000317AC
-    public static void GmGameDatBoosBattleRelease( int boss_type )
+    public static void GmGameDatBoosBattleRelease(int boss_type)
     {
         int num = AppMain.g_gm_gamedat_bossbattle_stage_id_tbl[boss_type];
-        for ( int i = 0; i < 44; i++ )
+        for (int i = 0; i < 44; i++)
         {
-            if ( AppMain.g_gm_gamedat_enemy[i] != null )
+            if (AppMain.g_gm_gamedat_enemy[i] != null)
             {
                 AppMain.g_gm_gamedat_enemy[i] = null;
             }
         }
-        if ( AppMain.g_gm_gamedat_enemy_arc != null )
+
+        if (AppMain.g_gm_gamedat_enemy_arc != null)
         {
             AppMain.g_gm_gamedat_enemy_arc = null;
         }
     }
 
     // Token: 0x060005BA RID: 1466 RVA: 0x000335EC File Offset: 0x000317EC
-    public static void gmDataLoadMain( AppMain.MTS_TASK_TCB tcb )
+    public static void gmDataLoadMain(MTS_TASK_TCB tcb)
     {
-        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK)tcb.work;
+        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK) tcb.work;
         AppMain.GME_GAMEDAT_LOAD_STATE gme_GAMEDAT_LOAD_STATE;
-        if ( gms_GAMEDAT_LOAD_WORK.proc_type == 1 )
+        if (gms_GAMEDAT_LOAD_WORK.proc_type == 1)
         {
             gme_GAMEDAT_LOAD_STATE = AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_LOADFINISH;
         }
@@ -543,312 +586,330 @@ public partial class AppMain
         {
             gme_GAMEDAT_LOAD_STATE = AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_COMPLETE;
         }
-        for ( int i = 0; i < gms_GAMEDAT_LOAD_WORK.context_num; i++ )
+
+        for (int i = 0; i < gms_GAMEDAT_LOAD_WORK.context_num; i++)
         {
-            AppMain.GME_GAMEDAT_LOAD_STATE gme_GAMEDAT_LOAD_STATE2 = AppMain.gmGameDatLoad(gms_GAMEDAT_LOAD_WORK.context[i]);
-            if ( gme_GAMEDAT_LOAD_STATE2 < gme_GAMEDAT_LOAD_STATE )
+            AppMain.GME_GAMEDAT_LOAD_STATE gme_GAMEDAT_LOAD_STATE2 =
+                AppMain.gmGameDatLoad(gms_GAMEDAT_LOAD_WORK.context[i]);
+            if (gme_GAMEDAT_LOAD_STATE2 < gme_GAMEDAT_LOAD_STATE)
             {
                 return;
             }
         }
+
         gms_GAMEDAT_LOAD_WORK.load_finish = true;
-        if ( gms_GAMEDAT_LOAD_WORK.proc_type == 1 )
+        if (gms_GAMEDAT_LOAD_WORK.proc_type == 1)
         {
-            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmDataLoadMainPostWait );
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmDataLoadMainPostWait);
             return;
         }
+
         gms_GAMEDAT_LOAD_WORK.post_finish = true;
-        AppMain.mtTaskChangeTcbProcedure( tcb, null );
+        AppMain.mtTaskChangeTcbProcedure(tcb, null);
     }
 
     // Token: 0x060005BB RID: 1467 RVA: 0x0003366C File Offset: 0x0003186C
-    public static void gmDataLoadMainPostWait( AppMain.MTS_TASK_TCB tcb )
+    public static void gmDataLoadMainPostWait(MTS_TASK_TCB tcb)
     {
-        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK)tcb.work;
-        if ( gms_GAMEDAT_LOAD_WORK.proc_type == 0 )
+        AppMain.GMS_GAMEDAT_LOAD_WORK gms_GAMEDAT_LOAD_WORK = (AppMain.GMS_GAMEDAT_LOAD_WORK) tcb.work;
+        if (gms_GAMEDAT_LOAD_WORK.proc_type == 0)
         {
-            AppMain.mtTaskChangeTcbProcedure( tcb, AppMain.gmDataLoadMain );
-            AppMain.gmDataLoadMain( tcb );
+            AppMain.mtTaskChangeTcbProcedure(tcb, AppMain.gmDataLoadMain);
+            AppMain.gmDataLoadMain(tcb);
         }
     }
 
     // Token: 0x060005BC RID: 1468 RVA: 0x000336A5 File Offset: 0x000318A5
-    public static void gmDataLoadDest( AppMain.MTS_TASK_TCB tcb )
+    public static void gmDataLoadDest(MTS_TASK_TCB tcb)
     {
         AppMain.gm_gamedat_load_tcb = null;
         AppMain.gm_gamedat_load_work = null;
     }
 
     // Token: 0x060005BD RID: 1469 RVA: 0x000336B3 File Offset: 0x000318B3
-    public static object gmGameDatLoadAllocHead( string path )
+    public static object gmGameDatLoadAllocHead(string path)
     {
         return null;
     }
 
     // Token: 0x060005BE RID: 1470 RVA: 0x000336B6 File Offset: 0x000318B6
-    public static object gmGameDatLoadAllocHeadSub( string path )
+    public static object gmGameDatLoadAllocHeadSub(string path)
     {
         return null;
     }
 
     // Token: 0x060005BF RID: 1471 RVA: 0x000336B9 File Offset: 0x000318B9
-    public static AppMain.GME_GAMEDAT_LOAD_STATE gmGameDatLoad( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static AppMain.GME_GAMEDAT_LOAD_STATE gmGameDatLoad(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        return AppMain.gmGameDatLoadFileReq( context );
+        return AppMain.gmGameDatLoadFileReq(context);
     }
 
     // Token: 0x060005C0 RID: 1472 RVA: 0x000336C4 File Offset: 0x000318C4
-    public static AppMain.GME_GAMEDAT_LOAD_STATE gmGameDatLoadFileReq( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static AppMain.GME_GAMEDAT_LOAD_STATE gmGameDatLoadFileReq(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        if ( context.state == AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_COMPLETE || context.state == AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_ERROR )
+        if (context.state == AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_COMPLETE ||
+            context.state == AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_ERROR)
         {
             return context.state;
         }
+
         AppMain.GMS_GAMEDAT_LOAD_DATA load_data = context.load_data;
-        if ( context.fs_req == null )
+        if (context.fs_req == null)
         {
             context.file_path = load_data.path;
-            if ( load_data.proc_pre != null )
+            if (load_data.proc_pre != null)
             {
-                load_data.proc_pre( context );
+                load_data.proc_pre(context);
             }
-            int stage_id = (int)context.stage_id;
-            if ( ( 7 == stage_id && "G_ZONE2/BOSS/BOSS02.AMB" == context.file_path ) || ( 11 == stage_id && "G_ZONE3/BOSS/BOSS03.AMB" == context.file_path ) || ( 15 == stage_id && "G_ZONEF/BOSS/BOSS04.AMB" == context.file_path ) || ( 16 == stage_id && "G_ZONEF/BOSS/BOSS05.AMB" == context.file_path ) )
-            {
-                context.fs_req = AmFs.amFsReadBackground( context.file_path, 8192 );
-            }
-            else
-            {
-                context.fs_req = AmFs.amFsReadBackground( context.file_path, 65536 );
-            }
+
+            int stage_id = (int) context.stage_id;
+            context.fs_req = AmFs.amFsReadBackground(context.file_path, 65536);
             context.state = AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_LOADING;
         }
-        else if ( AmFs.amFsIsComplete( context.fs_req ) )
+        else if (AmFs.amFsIsComplete(context.fs_req))
         {
             context.state = AppMain.GME_GAMEDAT_LOAD_STATE.GMD_GAMEDAT_LOAD_STATE_COMPLETE;
-            if ( AppMain.gm_gamedat_load_work.proc_type != 1 && context.fs_req != null )
+            if (AppMain.gm_gamedat_load_work.proc_type != 1 && context.fs_req != null)
             {
-                if ( load_data.proc_post != null )
+                if (load_data.proc_post != null)
                 {
-                    load_data.proc_post( context );
+                    load_data.proc_post(context);
                 }
-                AmFs.amFsClearRequest( context.fs_req );
+
+                AmFs.amFsClearRequest(context.fs_req);
                 context.fs_req = null;
             }
         }
+
         return context.state;
     }
 
     // Token: 0x060005C1 RID: 1473 RVA: 0x0003380A File Offset: 0x00031A0A
-    public static void gmGameDatLoadProcPostRing( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostRing(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
         AppMain.g_gm_gamedat_ring[context.load_data.user_data - 2] = context.fs_req;
         context.fs_req = null;
     }
 
     // Token: 0x060005C2 RID: 1474 RVA: 0x0003382C File Offset: 0x00031A2C
-    public static void gmGameDatLoadProcPostPlayer( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostPlayer(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.ObjDataSet( GmPlayer.g_gm_player_data_work[( int )context.ply_no][( int )context.data_no], context.fs_req );
+        AppMain.ObjDataSet(GmPlayer.g_gm_player_data_work[(int) context.ply_no][(int) context.data_no], context.fs_req);
         context.fs_req = null;
     }
 
     // Token: 0x060005C3 RID: 1475 RVA: 0x00033854 File Offset: 0x00031A54
-    public static void gmGameDatLoadProcPostCockpit( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostCockpit(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.g_gm_gamedat_cockpit_main_arc = AmFs.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_cockpit_main_arc = AmFs.readAMBFile(context.fs_req);
         context.fs_req = null;
     }
 
     // Token: 0x060005C4 RID: 1476 RVA: 0x00033870 File Offset: 0x00031A70
-    public static void gmGameDatLoadProcPostMap( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostMap(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.g_gm_gamedat_map[( int )context.data_no] = AmFs.readAMBFile( context.fs_req );
-        switch ( context.data_no )
+        AppMain.g_gm_gamedat_map[(int) context.data_no] = AmFs.readAMBFile(context.fs_req);
+        switch (context.data_no)
         {
             case 0:
+            {
+                AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(context.fs_req);
+                int i = 0;
+                while (i < 9 && i < ams_AMB_HEADER.file_num)
                 {
-                    AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile(context.fs_req);
-                    int i = 0;
-                    while ( i < 9 && i < ams_AMB_HEADER.file_num )
+                    switch (i)
                     {
-                        switch ( i )
-                        {
-                            case 0:
-                            case 1:
-                            case 4:
-                            case 5:
-                                AppMain.g_gm_gamedat_map_set[i] = AppMain.readMPFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, i ) );
-                                break;
-                            case 2:
-                            case 3:
-                                AppMain.g_gm_gamedat_map_set[i] = AppMain.readMDFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, i ) );
-                                break;
-                            default:
-                                AppMain.g_gm_gamedat_map_set[i] = AmBind.Get( ams_AMB_HEADER, i );
-                                break;
-                        }
-                        i++;
+                        case 0:
+                        case 1:
+                        case 4:
+                        case 5:
+                            AppMain.g_gm_gamedat_map_set[i] =
+                                AppMain.readMPFile((AmbChunk) AmBind.Get(ams_AMB_HEADER, i));
+                            break;
+                        case 2:
+                        case 3:
+                            AppMain.g_gm_gamedat_map_set[i] =
+                                AppMain.readMDFile((AmbChunk) AmBind.Get(ams_AMB_HEADER, i));
+                            break;
+                        default:
+                            AppMain.g_gm_gamedat_map_set[i] = AmBind.Get(ams_AMB_HEADER, i);
+                            break;
                     }
-                    for ( i = 0; i < 10; i += 2 )
-                    {
-                        if ( ams_AMB_HEADER.file_num >= 11 + i )
-                        {
-                            AppMain.g_gm_gamedat_map_set_add[i] = AppMain.readMPFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, 9 + i ) );
-                            AppMain.g_gm_gamedat_map_set_add[i + 1] = AppMain.readMDFile( ( AmbChunk )AmBind.Get( ams_AMB_HEADER, 9 + i + 1 ) );
-                        }
-                        else
-                        {
-                            AppMain.g_gm_gamedat_map_set_add[i] = null;
-                            AppMain.g_gm_gamedat_map_set_add[i + 1] = null;
-                        }
-                    }
-                    break;
+
+                    i++;
                 }
+
+                for (i = 0; i < 10; i += 2)
+                {
+                    if (ams_AMB_HEADER.file_num >= 11 + i)
+                    {
+                        AppMain.g_gm_gamedat_map_set_add[i] =
+                            AppMain.readMPFile((AmbChunk) AmBind.Get(ams_AMB_HEADER, 9 + i));
+                        AppMain.g_gm_gamedat_map_set_add[i + 1] =
+                            AppMain.readMDFile((AmbChunk) AmBind.Get(ams_AMB_HEADER, 9 + i + 1));
+                    }
+                    else
+                    {
+                        AppMain.g_gm_gamedat_map_set_add[i] = null;
+                        AppMain.g_gm_gamedat_map_set_add[i + 1] = null;
+                    }
+                }
+
+                break;
+            }
             case 1:
+            {
+                AMS_AMB_HEADER ams_AMB_HEADER2 = (AMS_AMB_HEADER) AppMain.g_gm_gamedat_map[(int) context.data_no];
+                AppMain.TVX_FILE[] array = new AppMain.TVX_FILE[ams_AMB_HEADER2.file_num];
+                for (int j = 0; j < ams_AMB_HEADER2.file_num; j++)
                 {
-                    AMS_AMB_HEADER ams_AMB_HEADER2 = (AMS_AMB_HEADER)AppMain.g_gm_gamedat_map[(int)context.data_no];
-                    AppMain.TVX_FILE[] array = new AppMain.TVX_FILE[ams_AMB_HEADER2.file_num];
-                    for ( int j = 0; j < ams_AMB_HEADER2.file_num; j++ )
-                    {
-                        array[j] = new AppMain.TVX_FILE( ( AmbChunk )AmBind.Get( ams_AMB_HEADER2, j ) );
-                    }
-                    if ( AppMain.g_gs_main_sys_info.stage_id >= 0 && AppMain.g_gs_main_sys_info.stage_id <= 3 )
-                    {
-                        for ( int k = 0; k < ams_AMB_HEADER2.file_num; k++ )
-                        {
-                            float num = array[k].vertexes[0][0].x;
-                            float num2 = array[k].vertexes[0][0].x;
-                            float num3 = array[k].vertexes[0][0].y;
-                            float num4 = array[k].vertexes[0][0].y;
-                            for ( int l = 1; l < array[k].vertexes[0].Length; l++ )
-                            {
-                                num = Math.Min( num, array[k].vertexes[0][l].x );
-                                num2 = Math.Max( num2, array[k].vertexes[0][l].x );
-                                num3 = Math.Min( num3, array[k].vertexes[0][l].y );
-                                num4 = Math.Max( num4, array[k].vertexes[0][l].y );
-                            }
-                            for ( int m = 0; m < array[k].vertexes[0].Length; m++ )
-                            {
-                                if ( array[k].vertexes[0][m].x == num )
-                                {
-                                    AppMain.AOS_TVX_VERTEX[] array2 = array[k].vertexes[0];
-                                    int num5 = m;
-                                    array2[num5].x = array2[num5].x - 0.5f;
-                                }
-                                else if ( array[k].vertexes[0][m].x == num2 )
-                                {
-                                    AppMain.AOS_TVX_VERTEX[] array3 = array[k].vertexes[0];
-                                    int num6 = m;
-                                    array3[num6].x = array3[num6].x + 0.5f;
-                                }
-                                if ( array[k].vertexes[0][m].y == num3 )
-                                {
-                                    AppMain.AOS_TVX_VERTEX[] array4 = array[k].vertexes[0];
-                                    int num7 = m;
-                                    array4[num7].y = array4[num7].y - 0.5f;
-                                }
-                                else if ( array[k].vertexes[0][m].y == num4 )
-                                {
-                                    AppMain.AOS_TVX_VERTEX[] array5 = array[k].vertexes[0];
-                                    int num8 = m;
-                                    array5[num8].y = array5[num8].y + 0.5f;
-                                }
-                            }
-                        }
-                        if ( AppMain.g_gs_main_sys_info.stage_id == 2 )
-                        {
-                            array[103].vertexes[0][1].x = 63.5f;
-                            array[103].vertexes[0][3].x = 63.5f;
-                        }
-                    }
-                    if ( AppMain.g_gs_main_sys_info.stage_id >= 4 && AppMain.g_gs_main_sys_info.stage_id <= 7 )
-                    {
-                        array[201].vertexes[1][1].x = 64f;
-                        array[201].vertexes[1][3].x = 64f;
-                    }
-                    if ( AppMain.g_gs_main_sys_info.stage_id >= 8 && AppMain.g_gs_main_sys_info.stage_id <= 11 )
-                    {
-                        for ( int n = 59; n <= 62; n++ )
-                        {
-                            array[n].vertexes[0][0].x = 64.5f;
-                            array[n].vertexes[0][2].x = 64.5f;
-                            array[n].vertexes[0][0].y = 64.5f;
-                            array[n].vertexes[0][1].y = 64.5f;
-                            array[n].vertexes[0][1].x = -0.5f;
-                            array[n].vertexes[0][3].x = -0.5f;
-                            array[n].vertexes[0][2].y = -0.5f;
-                            array[n].vertexes[0][3].y = -0.5f;
-                        }
-                    }
-                    AppMain.g_gm_gamedat_map[( int )context.data_no] = array;
-                    break;
+                    array[j] = new AppMain.TVX_FILE((AmbChunk) AmBind.Get(ams_AMB_HEADER2, j));
                 }
+
+                if (AppMain.g_gs_main_sys_info.stage_id >= 0 && AppMain.g_gs_main_sys_info.stage_id <= 3)
+                {
+                    for (int k = 0; k < ams_AMB_HEADER2.file_num; k++)
+                    {
+                        float num = array[k].vertexes[0][0].x;
+                        float num2 = array[k].vertexes[0][0].x;
+                        float num3 = array[k].vertexes[0][0].y;
+                        float num4 = array[k].vertexes[0][0].y;
+                        for (int l = 1; l < array[k].vertexes[0].Length; l++)
+                        {
+                            num = Math.Min(num, array[k].vertexes[0][l].x);
+                            num2 = Math.Max(num2, array[k].vertexes[0][l].x);
+                            num3 = Math.Min(num3, array[k].vertexes[0][l].y);
+                            num4 = Math.Max(num4, array[k].vertexes[0][l].y);
+                        }
+
+                        for (int m = 0; m < array[k].vertexes[0].Length; m++)
+                        {
+                            if (array[k].vertexes[0][m].x == num)
+                            {
+                                AppMain.AOS_TVX_VERTEX[] array2 = array[k].vertexes[0];
+                                int num5 = m;
+                                array2[num5].x = array2[num5].x - 0.5f;
+                            }
+                            else if (array[k].vertexes[0][m].x == num2)
+                            {
+                                AppMain.AOS_TVX_VERTEX[] array3 = array[k].vertexes[0];
+                                int num6 = m;
+                                array3[num6].x = array3[num6].x + 0.5f;
+                            }
+
+                            if (array[k].vertexes[0][m].y == num3)
+                            {
+                                AppMain.AOS_TVX_VERTEX[] array4 = array[k].vertexes[0];
+                                int num7 = m;
+                                array4[num7].y = array4[num7].y - 0.5f;
+                            }
+                            else if (array[k].vertexes[0][m].y == num4)
+                            {
+                                AppMain.AOS_TVX_VERTEX[] array5 = array[k].vertexes[0];
+                                int num8 = m;
+                                array5[num8].y = array5[num8].y + 0.5f;
+                            }
+                        }
+                    }
+
+                    if (AppMain.g_gs_main_sys_info.stage_id == 2)
+                    {
+                        array[103].vertexes[0][1].x = 63.5f;
+                        array[103].vertexes[0][3].x = 63.5f;
+                    }
+                }
+
+                if (AppMain.g_gs_main_sys_info.stage_id >= 4 && AppMain.g_gs_main_sys_info.stage_id <= 7)
+                {
+                    array[201].vertexes[1][1].x = 64f;
+                    array[201].vertexes[1][3].x = 64f;
+                }
+
+                if (AppMain.g_gs_main_sys_info.stage_id >= 8 && AppMain.g_gs_main_sys_info.stage_id <= 11)
+                {
+                    for (int n = 59; n <= 62; n++)
+                    {
+                        array[n].vertexes[0][0].x = 64.5f;
+                        array[n].vertexes[0][2].x = 64.5f;
+                        array[n].vertexes[0][0].y = 64.5f;
+                        array[n].vertexes[0][1].y = 64.5f;
+                        array[n].vertexes[0][1].x = -0.5f;
+                        array[n].vertexes[0][3].x = -0.5f;
+                        array[n].vertexes[0][2].y = -0.5f;
+                        array[n].vertexes[0][3].y = -0.5f;
+                    }
+                }
+
+                AppMain.g_gm_gamedat_map[(int) context.data_no] = array;
+                break;
+            }
             case 2:
                 break;
             case 3:
+            {
+                AMS_AMB_HEADER ams_AMB_HEADER3 = AmFs.readAMBFile(context.fs_req);
+                int num9 = 0;
+                while (num9 < 3 && num9 < ams_AMB_HEADER3.file_num)
                 {
-                    AMS_AMB_HEADER ams_AMB_HEADER3 = AmFs.readAMBFile(context.fs_req);
-                    int num9 = 0;
-                    while ( num9 < 3 && num9 < ams_AMB_HEADER3.file_num )
-                    {
-                        AppMain.g_gm_gamedat_map_attr_set[num9] = AmBind.Get( ams_AMB_HEADER3, num9 );
-                        num9++;
-                    }
-                    break;
+                    AppMain.g_gm_gamedat_map_attr_set[num9] = AmBind.Get(ams_AMB_HEADER3, num9);
+                    num9++;
                 }
+
+                break;
+            }
             default:
                 return;
         }
+
         context.fs_req = null;
     }
 
     // Token: 0x060005C5 RID: 1477 RVA: 0x00033E45 File Offset: 0x00032045
-    public static void gmGameDatLoadProcPostMapFar( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostMapFar(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.GmMapFarInitData( AmFs.readAMBFile( context.fs_req ) );
+        AppMain.GmMapFarInitData(AmFs.readAMBFile(context.fs_req));
         context.fs_req = null;
     }
 
     // Token: 0x060005C6 RID: 1478 RVA: 0x00033E5E File Offset: 0x0003205E
-    public static void gmGameDatLoadProcPostEffect( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostEffect(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.g_gm_gamedat_effect[context.load_data.user_data - 5] = AmFs.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_effect[context.load_data.user_data - 5] = AmFs.readAMBFile(context.fs_req);
         context.fs_req = null;
     }
 
     // Token: 0x060005C7 RID: 1479 RVA: 0x00033E85 File Offset: 0x00032085
-    public static void gmGameDatLoadProcPostEnemy( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostEnemy(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
         AppMain.g_gm_gamedat_enemy[context.load_data.user_data - 658] = context.fs_req;
         context.fs_req = null;
     }
 
     // Token: 0x060005C8 RID: 1480 RVA: 0x00033EAB File Offset: 0x000320AB
-    public static void gmGameDatLoadProcPostBoss( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostBoss(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.g_gm_gamedat_enemy_arc = AmFs.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_enemy_arc = AmFs.readAMBFile(context.fs_req);
         context.fs_req = null;
     }
 
     // Token: 0x060005C9 RID: 1481 RVA: 0x00033EC4 File Offset: 0x000320C4
-    public static void gmGameDatLoadProcPostGimmick( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostGimmick(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.g_gm_gamedat_gimmick[context.load_data.user_data - 789] = AmFs.readAMBFile( context.fs_req );
+        AppMain.g_gm_gamedat_gimmick[context.load_data.user_data - 789] = AmFs.readAMBFile(context.fs_req);
         context.fs_req = null;
     }
 
     // Token: 0x060005CA RID: 1482 RVA: 0x00033EEF File Offset: 0x000320EF
-    public static void gmGameDatLoadProcPostDeco( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostDeco(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.GmDecoInitData( AmFs.readAMBFile( context.fs_req ) );
+        AppMain.GmDecoInitData(AmFs.readAMBFile(context.fs_req));
         context.fs_req = null;
     }
 
     // Token: 0x060005CB RID: 1483 RVA: 0x00033F08 File Offset: 0x00032108
-    public static void gmGameDatLoadProcPostWaterSurface( AppMain.GMS_GAMEDAT_LOAD_CONTEXT context )
+    public static void gmGameDatLoadProcPostWaterSurface(AppMain.GMS_GAMEDAT_LOAD_CONTEXT context)
     {
-        AppMain.GmWaterSurfaceInitData( AmFs.readAMBFile( context.fs_req ) );
+        AppMain.GmWaterSurfaceInitData(AmFs.readAMBFile(context.fs_req));
         context.fs_req = null;
     }
 
@@ -856,44 +917,47 @@ public partial class AppMain
     // Token: 0x060008E8 RID: 2280 RVA: 0x0005196C File Offset: 0x0004FB6C
     private static void GmGameDatBuildInit()
     {
-        AppMain.ObjLoadSetInitDrawFlag( true );
+        AppMain.ObjLoadSetInitDrawFlag(true);
         AppMain.GmGameDBuildModelBuildInit();
-        for ( int i = 0; i < 44; i++ )
+        for (int i = 0; i < 44; i++)
         {
-            if ( AppMain.g_gm_gamedat_enemy[i] != null )
+            if (AppMain.g_gm_gamedat_enemy[i] != null)
             {
                 AppMain.OBS_DATA_WORK obs_DATA_WORK = AppMain.ObjDataGet(658 + i);
-                AppMain.ObjDataSet( obs_DATA_WORK, AppMain.g_gm_gamedat_enemy[i] );
+                AppMain.ObjDataSet(obs_DATA_WORK, AppMain.g_gm_gamedat_enemy[i]);
                 AppMain.OBS_DATA_WORK obs_DATA_WORK2 = obs_DATA_WORK;
                 obs_DATA_WORK2.num |= 32768;
             }
         }
-        for ( int i = 0; i < 204; i++ )
+
+        for (int i = 0; i < 204; i++)
         {
-            if ( AppMain.g_gm_gamedat_gimmick[i] != null )
+            if (AppMain.g_gm_gamedat_gimmick[i] != null)
             {
                 AppMain.OBS_DATA_WORK obs_DATA_WORK = AppMain.ObjDataGet(789 + i);
-                AppMain.ObjDataSet( obs_DATA_WORK, AppMain.g_gm_gamedat_gimmick[i] );
+                AppMain.ObjDataSet(obs_DATA_WORK, AppMain.g_gm_gamedat_gimmick[i]);
                 AppMain.OBS_DATA_WORK obs_DATA_WORK3 = obs_DATA_WORK;
                 obs_DATA_WORK3.num |= 32768;
             }
         }
-        for ( int i = 0; i < 3; i++ )
+
+        for (int i = 0; i < 3; i++)
         {
-            if ( AppMain.g_gm_gamedat_ring[i] != null )
+            if (AppMain.g_gm_gamedat_ring[i] != null)
             {
                 AppMain.OBS_DATA_WORK obs_DATA_WORK = AppMain.ObjDataGet(2 + i);
-                AppMain.ObjDataSet( obs_DATA_WORK, AppMain.g_gm_gamedat_ring[i] );
+                AppMain.ObjDataSet(obs_DATA_WORK, AppMain.g_gm_gamedat_ring[i]);
                 AppMain.OBS_DATA_WORK obs_DATA_WORK4 = obs_DATA_WORK;
                 obs_DATA_WORK4.num |= 32768;
             }
         }
-        for ( int i = 0; i < 11; i++ )
+
+        for (int i = 0; i < 11; i++)
         {
-            if ( AppMain.g_gm_gamedat_effect[i] != null )
+            if (AppMain.g_gm_gamedat_effect[i] != null)
             {
                 AppMain.OBS_DATA_WORK obs_DATA_WORK = AppMain.ObjDataGet(5 + i);
-                AppMain.ObjDataSet( obs_DATA_WORK, AppMain.g_gm_gamedat_effect[i] );
+                AppMain.ObjDataSet(obs_DATA_WORK, AppMain.g_gm_gamedat_effect[i]);
                 AppMain.OBS_DATA_WORK obs_DATA_WORK5 = obs_DATA_WORK;
                 obs_DATA_WORK5.num |= 32768;
             }
@@ -929,77 +993,93 @@ public partial class AppMain
         AppMain.GmGmkGoalPanelBuild();
         AppMain.GmGmkItemBuild();
         AppMain.GmGmkNeedleBuild();
-        AppMain.GmGmkPointMarkerBuild();
+        GmGmkPointMarker.Build();
         AppMain.GmGmkAnimalBuild();
         AppMain.GmGmkSplRingBuild();
-        if ( AppMain.g_gs_main_sys_info.stage_id == 11 || ( !AppMain.GMM_MAIN_STAGE_IS_BOSS() && !AppMain.GMM_MAIN_STAGE_IS_SS() && !AppMain.GMM_MAIN_STAGE_IS_ENDING() ) )
+        if (AppMain.g_gs_main_sys_info.stage_id == 11 || (!AppMain.GMM_MAIN_STAGE_IS_BOSS() &&
+                                                          !AppMain.GMM_MAIN_STAGE_IS_SS() &&
+                                                          !AppMain.GMM_MAIN_STAGE_IS_ENDING()))
         {
             AppMain.GmEneHariSenboBuild();
         }
+
         AppMain.GmEfctBossBuildSingleDataInit();
-        if ( AppMain.gm_gamedat_build_area_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] != null )
+        if (AppMain.gm_gamedat_build_area_tbl[(int) AppMain.g_gs_main_sys_info.stage_id] != null)
         {
-            AppMain.gm_gamedat_build_area_tbl[( int )AppMain.g_gs_main_sys_info.stage_id]();
+            AppMain.gm_gamedat_build_area_tbl[(int) AppMain.g_gs_main_sys_info.stage_id]();
         }
     }
 
     // Token: 0x060008EB RID: 2283 RVA: 0x00051B6C File Offset: 0x0004FD6C
     private static bool GmGameDatBuildStandardCheck()
     {
-        return GmPlayer.BuildCheck() && GmSound.BuildCheck() && AppMain.GmRingBuildCheck() != 0 && AppMain.GmFixBuildDataLoop() && AppMain.GmClearDemoBuildCheck() && AppMain.GmStartDemoBuildCheck() && AppMain.GmOverBuildDataLoop() && AppMain.GmPauseMenuBuildIsFinished() && AppMain.GmEfctCmnBuildDataLoop();
+        return GmPlayer.BuildCheck() && GmSound.BuildCheck() && AppMain.GmRingBuildCheck() != 0 &&
+               AppMain.GmFixBuildDataLoop() && AppMain.GmClearDemoBuildCheck() && AppMain.GmStartDemoBuildCheck() &&
+               AppMain.GmOverBuildDataLoop() && AppMain.GmPauseMenuBuildIsFinished() &&
+               AppMain.GmEfctCmnBuildDataLoop();
     }
 
     // Token: 0x060008EC RID: 2284 RVA: 0x00051BCC File Offset: 0x0004FDCC
     private static bool GmGameDatBuildAreaCheck()
     {
         bool result = true;
-        if ( !AppMain.GmMapBuildDataLoop() )
+        if (!AppMain.GmMapBuildDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmMapFarCheckLoading() )
+
+        if (!AppMain.GmMapFarCheckLoading())
         {
             result = false;
         }
-        if ( !AppMain.GmDecoCheckLoading() )
+
+        if (!AppMain.GmDecoCheckLoading())
         {
             result = false;
         }
-        if ( !AppMain.GmWaterSurfaceCheckLoading() )
+
+        if (!AppMain.GmWaterSurfaceCheckLoading())
         {
             result = false;
         }
-        if ( !AppMain.GmGameDBuildCheckBuildModel() )
+
+        if (!AppMain.GmGameDBuildCheckBuildModel())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctZoneBuildDataLoop() )
+
+        if (!AppMain.GmEfctZoneBuildDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctEneBuildDataLoop() )
+
+        if (!AppMain.GmEfctEneBuildDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctBossCmnBuildDataLoop() )
+
+        if (!AppMain.GmEfctBossCmnBuildDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctBossBuildSingleDataLoop() )
+
+        if (!AppMain.GmEfctBossBuildSingleDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmStartMsgBuildCheck() )
+
+        if (!AppMain.GmStartMsgBuildCheck())
         {
             result = false;
         }
+
         return result;
     }
 
     // Token: 0x060008ED RID: 2285 RVA: 0x00051C36 File Offset: 0x0004FE36
     private static void GmGameDatFlushInit()
     {
-        AppMain.ObjLoadSetInitDrawFlag( false );
+        AppMain.ObjLoadSetInitDrawFlag(false);
         AppMain.GmGameDBuildModelFlushInit();
     }
 
@@ -1020,17 +1100,21 @@ public partial class AppMain
     // Token: 0x060008EF RID: 2287 RVA: 0x00051C74 File Offset: 0x0004FE74
     private static void GmGameDatFlushArea()
     {
-        if ( AppMain.gm_gamedat_flush_area_tbl[( int )AppMain.g_gs_main_sys_info.stage_id] != null )
+        if (AppMain.gm_gamedat_flush_area_tbl[(int) AppMain.g_gs_main_sys_info.stage_id] != null)
         {
-            AppMain.gm_gamedat_flush_area_tbl[( int )AppMain.g_gs_main_sys_info.stage_id]();
+            AppMain.gm_gamedat_flush_area_tbl[(int) AppMain.g_gs_main_sys_info.stage_id]();
         }
-        if ( AppMain.g_gs_main_sys_info.stage_id == 11 || ( !AppMain.GMM_MAIN_STAGE_IS_BOSS() && !AppMain.GMM_MAIN_STAGE_IS_SS() && !AppMain.GMM_MAIN_STAGE_IS_ENDING() ) )
+
+        if (AppMain.g_gs_main_sys_info.stage_id == 11 || (!AppMain.GMM_MAIN_STAGE_IS_BOSS() &&
+                                                          !AppMain.GMM_MAIN_STAGE_IS_SS() &&
+                                                          !AppMain.GMM_MAIN_STAGE_IS_ENDING()))
         {
             AppMain.GmEneHariSenboFlush();
         }
+
         AppMain.GmGmkSplRingFlush();
         AppMain.GmGmkAnimalFlush();
-        AppMain.GmGmkPointMarkerFlush();
+        GmGmkPointMarker.Flush();
         AppMain.GmGmkNeedleFlush();
         AppMain.GmGmkItemFlush();
         AppMain.GmGmkGoalPanelFlush();
@@ -1048,41 +1132,51 @@ public partial class AppMain
     // Token: 0x060008F0 RID: 2288 RVA: 0x00051D1C File Offset: 0x0004FF1C
     private static bool GmGameDatFlushStandardCheck()
     {
-        return AppMain.GmRingFlushCheck() != 0 && AppMain.GmEfctCmnFlushDataLoop() && AppMain.GmFixFlushDataLoop() && AppMain.GmStartDemoFlushCheck() && AppMain.GmClearDemoFlushCheck() && AppMain.GmOverFlushDataLoop() && AppMain.GmPauseMenuFlushIsFinished() && AppMain.GmGameDBuildCheckFlushModel() && AppMain.GmWaterSurfaceCheckFlush() && GmPlayer.FlushCheck();
+        return AppMain.GmRingFlushCheck() != 0 && AppMain.GmEfctCmnFlushDataLoop() && AppMain.GmFixFlushDataLoop() &&
+               AppMain.GmStartDemoFlushCheck() && AppMain.GmClearDemoFlushCheck() && AppMain.GmOverFlushDataLoop() &&
+               AppMain.GmPauseMenuFlushIsFinished() && AppMain.GmGameDBuildCheckFlushModel() &&
+               AppMain.GmWaterSurfaceCheckFlush() && GmPlayer.FlushCheck();
     }
 
     // Token: 0x060008F1 RID: 2289 RVA: 0x00051D84 File Offset: 0x0004FF84
     private static bool GmGameDatFlushAreaCheck()
     {
         bool result = true;
-        if ( !AppMain.GmStartMsgFlushCheck() )
+        if (!AppMain.GmStartMsgFlushCheck())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctZoneFlushDataLoop() )
+
+        if (!AppMain.GmEfctZoneFlushDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctEneFlushDataLoop() )
+
+        if (!AppMain.GmEfctEneFlushDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctBossCmnFlushDataLoop() )
+
+        if (!AppMain.GmEfctBossCmnFlushDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctBossFlushSingleDataLoop() )
+
+        if (!AppMain.GmEfctBossFlushSingleDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmMapFlushDataLoop() )
+
+        if (!AppMain.GmMapFlushDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmDecoCheckFlushing() )
+
+        if (!AppMain.GmDecoCheckFlushing())
         {
             result = false;
         }
+
         return result;
     }
 
@@ -1090,12 +1184,12 @@ public partial class AppMain
     private static void GmGameDatBuildBossBattleInit()
     {
         AppMain.GmGameDBuildModelBuildInit();
-        for ( int i = 0; i < 44; i++ )
+        for (int i = 0; i < 44; i++)
         {
-            if ( AppMain.g_gm_gamedat_enemy[i] != null )
+            if (AppMain.g_gm_gamedat_enemy[i] != null)
             {
                 AppMain.OBS_DATA_WORK obs_DATA_WORK = AppMain.ObjDataGet(658 + i);
-                AppMain.ObjDataSet( obs_DATA_WORK, AppMain.g_gm_gamedat_enemy[i] );
+                AppMain.ObjDataSet(obs_DATA_WORK, AppMain.g_gm_gamedat_enemy[i]);
                 AppMain.OBS_DATA_WORK obs_DATA_WORK2 = obs_DATA_WORK;
                 obs_DATA_WORK2.num |= 32768;
             }
@@ -1103,11 +1197,11 @@ public partial class AppMain
     }
 
     // Token: 0x060008F3 RID: 2291 RVA: 0x00051E2A File Offset: 0x0005002A
-    private static void GmGameDatBuildBossBattle( int boss_type )
+    private static void GmGameDatBuildBossBattle(int boss_type)
     {
         int num = AppMain.g_gm_gamedat_bossbattle_stage_id_tbl[boss_type];
         AppMain.GmEfctBossBuildSingleDataInit();
-        if ( AppMain.gm_gamedat_build_boss_buttle_tbl[boss_type] != null )
+        if (AppMain.gm_gamedat_build_boss_buttle_tbl[boss_type] != null)
         {
             AppMain.gm_gamedat_build_boss_buttle_tbl[boss_type]();
         }
@@ -1117,26 +1211,31 @@ public partial class AppMain
     private static bool GmGameDatBuildBossBattleCheck()
     {
         bool result = true;
-        if ( !AppMain.GmGameDBuildCheckBuildModel() )
+        if (!AppMain.GmGameDBuildCheckBuildModel())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctZoneBuildDataLoop() )
+
+        if (!AppMain.GmEfctZoneBuildDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctEneBuildDataLoop() )
+
+        if (!AppMain.GmEfctEneBuildDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctBossCmnBuildDataLoop() )
+
+        if (!AppMain.GmEfctBossCmnBuildDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctBossBuildSingleDataLoop() )
+
+        if (!AppMain.GmEfctBossBuildSingleDataLoop())
         {
             result = false;
         }
+
         return result;
     }
 
@@ -1147,57 +1246,65 @@ public partial class AppMain
     }
 
     // Token: 0x060008F6 RID: 2294 RVA: 0x00051E94 File Offset: 0x00050094
-    private static void GmGameDatFlushBossBattle( int boss_type )
+    public static void GmGameDatFlushBossBattle(int boss_type)
     {
         int num = AppMain.g_gm_gamedat_bossbattle_stage_id_tbl[boss_type];
-        if ( AppMain.gm_gamedat_flush_boss_buttle_tbl[boss_type] != null )
+        if (AppMain.gm_gamedat_flush_boss_buttle_tbl[boss_type] != null)
         {
             AppMain.gm_gamedat_flush_boss_buttle_tbl[boss_type]();
         }
     }
 
     // Token: 0x060008F7 RID: 2295 RVA: 0x00051EB4 File Offset: 0x000500B4
-    private static bool GmGameDatFlushBossBattleCheck()
+    public static bool GmGameDatFlushBossBattleCheck()
     {
         bool result = true;
-        if ( !AppMain.GmGameDBuildCheckFlushModel() )
+        if (!AppMain.GmGameDBuildCheckFlushModel())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctZoneFlushDataLoop() )
+
+        if (!AppMain.GmEfctZoneFlushDataLoop())
         {
             result = false;
         }
-        if ( !AppMain.GmEfctBossFlushSingleDataLoop() )
+
+        if (!AppMain.GmEfctBossFlushSingleDataLoop())
         {
             result = false;
         }
+
         return result;
     }
 
     // Token: 0x060008F8 RID: 2296 RVA: 0x00051EE0 File Offset: 0x000500E0
-    private static void GmGameDBuildModelBuildInit()
+    public static void GmGameDBuildModelBuildInit()
     {
-        for ( int i = 0; i < AppMain.gm_obj_build_model_work_buf.Length; i++ )
+        for (int i = 0; i < AppMain.gm_obj_build_model_work_buf.Length; i++)
         {
             AppMain.gm_obj_build_model_work_buf[i].Clear();
         }
+
         AppMain.gm_obj_build_model_work_reg_num = 0;
     }
 
     // Token: 0x060008F9 RID: 2297 RVA: 0x00051F11 File Offset: 0x00050111
-    private static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel( AMS_AMB_HEADER mdl_amb, AMS_AMB_HEADER tex_amb, uint draw_flag )
+    public static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel(AMS_AMB_HEADER mdl_amb,
+        AMS_AMB_HEADER tex_amb, uint draw_flag)
     {
-        return AppMain.GmGameDBuildRegBuildModel( mdl_amb, tex_amb, draw_flag, null );
+        return AppMain.GmGameDBuildRegBuildModel(mdl_amb, tex_amb, draw_flag, null);
     }
 
     // Token: 0x060008FA RID: 2298 RVA: 0x00051F1C File Offset: 0x0005011C
-    private static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel( AMS_AMB_HEADER mdl_amb, AMS_AMB_HEADER tex_amb, uint draw_flag, AppMain.TXB_HEADER txb )
+    public static AppMain.OBS_ACTION3D_NN_WORK[] GmGameDBuildRegBuildModel(AMS_AMB_HEADER mdl_amb,
+        AMS_AMB_HEADER tex_amb, uint draw_flag, AppMain.TXB_HEADER txb)
     {
-        AppMain.GMS_GDBUILD_BUILD_MDL_WORK gms_GDBUILD_BUILD_MDL_WORK = AppMain.gm_obj_build_model_work_buf[AppMain.gm_obj_build_model_work_reg_num];
+        AppMain.GMS_GDBUILD_BUILD_MDL_WORK gms_GDBUILD_BUILD_MDL_WORK =
+            AppMain.gm_obj_build_model_work_buf[AppMain.gm_obj_build_model_work_reg_num];
         AppMain.gm_obj_build_model_work_reg_num++;
         gms_GDBUILD_BUILD_MDL_WORK.num = mdl_amb.file_num;
-        gms_GDBUILD_BUILD_MDL_WORK.obj_3d_list = AppMain.New<AppMain.OBS_ACTION3D_NN_WORK>( gms_GDBUILD_BUILD_MDL_WORK.num );
+        gms_GDBUILD_BUILD_MDL_WORK.obj_3d_list =
+            AppMain.New<AppMain.OBS_ACTION3D_NN_WORK>(gms_GDBUILD_BUILD_MDL_WORK.num);
         gms_GDBUILD_BUILD_MDL_WORK.mdl_amb = mdl_amb;
         gms_GDBUILD_BUILD_MDL_WORK.tex_amb = tex_amb;
         gms_GDBUILD_BUILD_MDL_WORK.draw_flag = draw_flag;
@@ -1212,151 +1319,180 @@ public partial class AppMain
         AppMain.ArrayPointer<AppMain.GMS_GDBUILD_BUILD_MDL_WORK> pointer = null;
         AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK> pointer2 = null;
         bool result = true;
-        if ( AppMain.gm_obj_build_model_work_reg_num != 0 )
+        if (AppMain.gm_obj_build_model_work_reg_num != 0)
         {
             int i = AppMain.gm_obj_build_model_work_reg_num - 1;
-            pointer = new AppMain.ArrayPointer<AppMain.GMS_GDBUILD_BUILD_MDL_WORK>( AppMain.gm_obj_build_model_work_buf, i );
-            while ( i >= 0 )
+            pointer = new AppMain.ArrayPointer<AppMain.GMS_GDBUILD_BUILD_MDL_WORK>(AppMain.gm_obj_build_model_work_buf,
+                i);
+            while (i >= 0)
             {
-                if ( ( ~pointer ).build_state == ( AppMain.GME_GAME_DBUILD_MDL_STATE )AppMain.GME_GAME_DBUILD_MDL_STATE_REG_WAIT )
+                if ((~pointer).build_state ==
+                    (AppMain.GME_GAME_DBUILD_MDL_STATE) AppMain.GME_GAME_DBUILD_MDL_STATE_REG_WAIT)
                 {
                     int j = (~pointer).reg_num;
-                    pointer2 = new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>( ( ~pointer ).obj_3d_list, j );
-                    if ( ( ~pointer ).txb == null )
+                    pointer2 = new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>((~pointer).obj_3d_list, j);
+                    if ((~pointer).txb == null)
                     {
-                        while ( AppMain.GsMainSysGetDisplayListRegistNum() <= 188 && j < ( ~pointer ).num )
+                        while (AppMain.GsMainSysGetDisplayListRegistNum() <= 188 && j < (~pointer).num)
                         {
-                            AppMain.ObjAction3dNNModelLoad( ~pointer2, null, null, j, ( ~pointer ).mdl_amb, null, ( ~pointer ).tex_amb, ( ~pointer ).draw_flag );
+                            AppMain.ObjAction3dNNModelLoad(~pointer2, null, null, j, (~pointer).mdl_amb, null,
+                                (~pointer).tex_amb, (~pointer).draw_flag);
                             j++;
                             pointer2 = ++pointer2;
                         }
-                        if ( j == ( ~pointer ).reg_num )
+
+                        if (j == (~pointer).reg_num)
                         {
                             return false;
                         }
-                        ( ~pointer ).reg_num = j;
-                        if ( ( ~pointer ).reg_num == ( ~pointer ).num )
+
+                        (~pointer).reg_num = j;
+                        if ((~pointer).reg_num == (~pointer).num)
                         {
-                            ( ~pointer ).build_state = AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_BUILD_WAIT;
+                            (~pointer).build_state =
+                                AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_BUILD_WAIT;
                         }
                     }
                     else
                     {
-                        while ( AppMain.GsMainSysGetDisplayListRegistNum() <= 188 && j < ( ~pointer ).num )
+                        while (AppMain.GsMainSysGetDisplayListRegistNum() <= 188 && j < (~pointer).num)
                         {
-                            AppMain.ObjAction3dNNModelLoadTxb( pointer2, null, null, j, ( ~pointer ).mdl_amb, null, ( ~pointer ).tex_amb, ( ~pointer ).draw_flag, ( ~pointer ).txb );
+                            AppMain.ObjAction3dNNModelLoadTxb(pointer2, null, null, j, (~pointer).mdl_amb, null,
+                                (~pointer).tex_amb, (~pointer).draw_flag, (~pointer).txb);
                             j++;
                             pointer2 = ++pointer2;
                         }
-                        if ( j == ( ~pointer ).reg_num )
+
+                        if (j == (~pointer).reg_num)
                         {
                             return false;
                         }
-                        ( ~pointer ).reg_num = j;
-                        if ( ( ~pointer ).reg_num == ( ~pointer ).num )
+
+                        (~pointer).reg_num = j;
+                        if ((~pointer).reg_num == (~pointer).num)
                         {
-                            ( ~pointer ).build_state = AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_BUILD_WAIT;
+                            (~pointer).build_state =
+                                AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_BUILD_WAIT;
                         }
                     }
+
                     result = false;
                 }
-                else if ( ( ~pointer ).build_state == ( AppMain.GME_GAME_DBUILD_MDL_STATE )AppMain.GME_GAME_DBUILD_MDL_STATE_BUILD_WAIT )
+                else if ((~pointer).build_state ==
+                         (AppMain.GME_GAME_DBUILD_MDL_STATE) AppMain.GME_GAME_DBUILD_MDL_STATE_BUILD_WAIT)
                 {
-                    pointer2 = new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>( ( ~pointer ).obj_3d_list );
+                    pointer2 = new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>((~pointer).obj_3d_list);
                     int j = 0;
-                    while ( j < ( ~pointer ).num )
+                    while (j < (~pointer).num)
                     {
-                        if ( !AppMain.ObjAction3dNNModelLoadCheck( ~pointer2 ) )
+                        if (!AppMain.ObjAction3dNNModelLoadCheck(~pointer2))
                         {
                             result = false;
                             break;
                         }
+
                         j++;
                         pointer2 = ++pointer2;
                     }
-                    if ( j >= ( ~pointer ).num && i == AppMain.gm_obj_build_model_work_reg_num - 1 )
+
+                    if (j >= (~pointer).num && i == AppMain.gm_obj_build_model_work_reg_num - 1)
                     {
                         AppMain.gm_obj_build_model_work_reg_num--;
                     }
                 }
+
                 i--;
                 pointer = --pointer;
             }
         }
+
         return result;
     }
 
     // Token: 0x060008FC RID: 2300 RVA: 0x000521DD File Offset: 0x000503DD
     private static void GmGameDBuildModelFlushInit()
     {
-        AppMain.ClearArray<AppMain.GMS_GDBUILD_BUILD_MDL_WORK>( AppMain.gm_obj_build_model_work_buf );
+        AppMain.ClearArray<AppMain.GMS_GDBUILD_BUILD_MDL_WORK>(AppMain.gm_obj_build_model_work_buf);
         AppMain.gm_obj_build_model_work_reg_num = 0;
     }
 
     // Token: 0x060008FD RID: 2301 RVA: 0x000521F0 File Offset: 0x000503F0
-    private static void GmGameDBuildRegFlushModel( AppMain.OBS_ACTION3D_NN_WORK[] obj_3d_list, int num )
+    public static void GmGameDBuildRegFlushModel(AppMain.OBS_ACTION3D_NN_WORK[] obj_3d_list, int num)
     {
-        AppMain.GMS_GDBUILD_BUILD_MDL_WORK gms_GDBUILD_BUILD_MDL_WORK = AppMain.gm_obj_build_model_work_buf[AppMain.gm_obj_build_model_work_reg_num];
+        AppMain.GMS_GDBUILD_BUILD_MDL_WORK gms_GDBUILD_BUILD_MDL_WORK =
+            AppMain.gm_obj_build_model_work_buf[AppMain.gm_obj_build_model_work_reg_num];
         AppMain.gm_obj_build_model_work_reg_num++;
         gms_GDBUILD_BUILD_MDL_WORK.num = num;
         gms_GDBUILD_BUILD_MDL_WORK.obj_3d_list = obj_3d_list;
-        gms_GDBUILD_BUILD_MDL_WORK.build_state = AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_REG_FLUSH_WAIT;
+        gms_GDBUILD_BUILD_MDL_WORK.build_state =
+            AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_REG_FLUSH_WAIT;
     }
 
     // Token: 0x060008FE RID: 2302 RVA: 0x0005222C File Offset: 0x0005042C
-    private static bool GmGameDBuildCheckFlushModel()
+    public static bool GmGameDBuildCheckFlushModel()
     {
         bool result = true;
-        if ( AppMain.gm_obj_build_model_work_reg_num != 0 )
+        if (AppMain.gm_obj_build_model_work_reg_num != 0)
         {
             int i = AppMain.gm_obj_build_model_work_reg_num - 1;
-            AppMain.ArrayPointer<AppMain.GMS_GDBUILD_BUILD_MDL_WORK> pointer = new AppMain.ArrayPointer<AppMain.GMS_GDBUILD_BUILD_MDL_WORK>(AppMain.gm_obj_build_model_work_buf, i);
-            while ( i >= 0 )
+            AppMain.ArrayPointer<AppMain.GMS_GDBUILD_BUILD_MDL_WORK> pointer =
+                new AppMain.ArrayPointer<AppMain.GMS_GDBUILD_BUILD_MDL_WORK>(AppMain.gm_obj_build_model_work_buf, i);
+            while (i >= 0)
             {
-                if ( ( ~pointer ).build_state == AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_REG_FLUSH_WAIT )
+                if ((~pointer).build_state ==
+                    AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_REG_FLUSH_WAIT)
                 {
                     int j = (~pointer).reg_num;
-                    AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK> pointer2 = new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>((~pointer).obj_3d_list, j);
-                    while ( AppMain.GsMainSysGetDisplayListRegistNum() <= 188 && j < ( ~pointer ).num )
+                    AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK> pointer2 =
+                        new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>((~pointer).obj_3d_list, j);
+                    while (AppMain.GsMainSysGetDisplayListRegistNum() <= 188 && j < (~pointer).num)
                     {
-                        AppMain.ObjAction3dNNModelRelease( pointer2 );
+                        AppMain.ObjAction3dNNModelRelease(pointer2);
                         j++;
                         pointer2 = ++pointer2;
                     }
-                    if ( j == ( ~pointer ).reg_num )
+
+                    if (j == (~pointer).reg_num)
                     {
                         return false;
                     }
-                    ( ~pointer ).reg_num = j;
-                    if ( ( ~pointer ).reg_num == ( ~pointer ).num )
+
+                    (~pointer).reg_num = j;
+                    if ((~pointer).reg_num == (~pointer).num)
                     {
-                        ( ~pointer ).build_state = AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_FLUSH_WAIT;
+                        (~pointer).build_state = AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_FLUSH_WAIT;
                     }
+
                     result = false;
                 }
-                else if ( ( ~pointer ).build_state == AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_FLUSH_WAIT )
+                else if ((~pointer).build_state ==
+                         AppMain.GME_GAME_DBUILD_MDL_STATE.GME_GAME_DBUILD_MDL_STATE_FLUSH_WAIT)
                 {
                     int j = 0;
                     AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK> pointer2 = (~pointer).obj_3d_list;
-                    while ( j < ( ~pointer ).num )
+                    while (j < (~pointer).num)
                     {
-                        if ( !AppMain.ObjAction3dNNModelReleaseCheck( pointer2 ) )
+                        if (!AppMain.ObjAction3dNNModelReleaseCheck(pointer2))
                         {
                             result = false;
                             break;
                         }
+
                         j++;
                         pointer2 = ++pointer2;
                     }
-                    if ( j >= ( ~pointer ).num && i == AppMain.gm_obj_build_model_work_reg_num - 1 )
+
+                    if (j >= (~pointer).num && i == AppMain.gm_obj_build_model_work_reg_num - 1)
                     {
                         AppMain.gm_obj_build_model_work_reg_num--;
                     }
                 }
+
                 i--;
                 pointer = --pointer;
             }
         }
+
         return result;
     }
 
@@ -1393,8 +1529,8 @@ public partial class AppMain
         AppMain.GmGmkBreakLandBuild();
         AppMain.GmGmkBreakWallBuild();
         AppMain.GmGmkBreakObjBuild();
-        AppMain.GmEfctEneBuildDataInit( 0 );
-        AppMain.GmEfctZoneBuildDataInit( 0 );
+        AppMain.GmEfctEneBuildDataInit(0);
+        AppMain.GmEfctZoneBuildDataInit(0);
     }
 
     // Token: 0x06000903 RID: 2307 RVA: 0x000523E8 File Offset: 0x000505E8
@@ -1410,8 +1546,8 @@ public partial class AppMain
         AppMain.GmGmkBreakLandBuild();
         AppMain.GmGmkBreakWallBuild();
         AppMain.GmGmkBreakObjBuild();
-        AppMain.GmEfctEneBuildDataInit( 0 );
-        AppMain.GmEfctZoneBuildDataInit( 0 );
+        AppMain.GmEfctEneBuildDataInit(0);
+        AppMain.GmEfctZoneBuildDataInit(0);
     }
 
     // Token: 0x06000904 RID: 2308 RVA: 0x00052428 File Offset: 0x00050628
@@ -1427,8 +1563,8 @@ public partial class AppMain
         AppMain.GmGmkBreakLandBuild();
         AppMain.GmGmkBreakWallBuild();
         AppMain.GmGmkBreakObjBuild();
-        AppMain.GmEfctEneBuildDataInit( 0 );
-        AppMain.GmEfctZoneBuildDataInit( 0 );
+        AppMain.GmEfctEneBuildDataInit(0);
+        AppMain.GmEfctZoneBuildDataInit(0);
     }
 
     // Token: 0x06000905 RID: 2309 RVA: 0x00052468 File Offset: 0x00050668
@@ -1437,7 +1573,7 @@ public partial class AppMain
         AppMain.GmBoss1Build();
         AppMain.GmGmkLandBuild();
         AppMain.GmGmkCapsuleBuild();
-        AppMain.GmEfctZoneBuildDataInit( 0 );
+        AppMain.GmEfctZoneBuildDataInit(0);
         AppMain.GmEfctBossCmnBuildDataInit();
     }
 
@@ -1456,8 +1592,8 @@ public partial class AppMain
         AppMain.GmGmkSpCtpltBuild();
         AppMain.GmGmkBreakWallBuild();
         AppMain.GmGmkBreakObjBuild();
-        AppMain.GmEfctEneBuildDataInit( 1 );
-        AppMain.GmEfctZoneBuildDataInit( 1 );
+        AppMain.GmEfctEneBuildDataInit(1);
+        AppMain.GmEfctZoneBuildDataInit(1);
     }
 
     // Token: 0x06000907 RID: 2311 RVA: 0x000524D9 File Offset: 0x000506D9
@@ -1471,8 +1607,8 @@ public partial class AppMain
         AppMain.GmGmkSlotBuild();
         AppMain.GmGmkSpCtpltBuild();
         AppMain.GmGmkSsArrowBuild();
-        AppMain.GmEfctEneBuildDataInit( 1 );
-        AppMain.GmEfctZoneBuildDataInit( 1 );
+        AppMain.GmEfctEneBuildDataInit(1);
+        AppMain.GmEfctZoneBuildDataInit(1);
         AppMain.GmStartMsgBuild();
     }
 
@@ -1491,8 +1627,8 @@ public partial class AppMain
         AppMain.GmGmkBreakWallBuild();
         AppMain.GmGmkBreakObjBuild();
         AppMain.GmGmkSsArrowBuild();
-        AppMain.GmEfctEneBuildDataInit( 1 );
-        AppMain.GmEfctZoneBuildDataInit( 1 );
+        AppMain.GmEfctEneBuildDataInit(1);
+        AppMain.GmEfctZoneBuildDataInit(1);
     }
 
     // Token: 0x06000909 RID: 2313 RVA: 0x00052569 File Offset: 0x00050769
@@ -1506,7 +1642,7 @@ public partial class AppMain
         AppMain.GmGmkShutterBuild();
         AppMain.GmGmkNeedleNeonBuild();
         AppMain.GmEfctBossCmnBuildDataInit();
-        AppMain.GmEfctZoneBuildDataInit( 1 );
+        AppMain.GmEfctZoneBuildDataInit(1);
     }
 
     // Token: 0x0600090A RID: 2314 RVA: 0x0005259C File Offset: 0x0005079C
@@ -1524,8 +1660,8 @@ public partial class AppMain
         AppMain.GmGmkRockRideBuild();
         AppMain.GmGmkSwitchBuildTypeZone3();
         AppMain.GmGmkSwWallBuild();
-        AppMain.GmEfctEneBuildDataInit( 2 );
-        AppMain.GmEfctZoneBuildDataInit( 2 );
+        AppMain.GmEfctEneBuildDataInit(2);
+        AppMain.GmEfctZoneBuildDataInit(2);
     }
 
     // Token: 0x0600090B RID: 2315 RVA: 0x000525F1 File Offset: 0x000507F1
@@ -1540,8 +1676,8 @@ public partial class AppMain
         AppMain.GmGmkSwitchBuildTypeZone3();
         AppMain.GmGmkSwWallBuild();
         AppMain.GmGmkDSignBuild();
-        AppMain.GmEfctEneBuildDataInit( 2 );
-        AppMain.GmEfctZoneBuildDataInit( 2 );
+        AppMain.GmEfctEneBuildDataInit(2);
+        AppMain.GmEfctZoneBuildDataInit(2);
         AppMain.GmStartMsgBuild();
     }
 
@@ -1561,8 +1697,8 @@ public partial class AppMain
         AppMain.GmGmkDrainTankBuild();
         AppMain.GmGmkSwitchBuildTypeZone3();
         AppMain.GmGmkSwWallBuild();
-        AppMain.GmEfctEneBuildDataInit( 2 );
-        AppMain.GmEfctZoneBuildDataInit( 2 );
+        AppMain.GmEfctEneBuildDataInit(2);
+        AppMain.GmEfctZoneBuildDataInit(2);
     }
 
     // Token: 0x0600090D RID: 2317 RVA: 0x0005268E File Offset: 0x0005088E
@@ -1575,8 +1711,8 @@ public partial class AppMain
         AppMain.GmGmkCapsuleBuild();
         AppMain.GmGmkSpearBuild();
         AppMain.GmGmkBoss3PillarBuild();
-        AppMain.GmEfctEneBuildDataInit( 2 );
-        AppMain.GmEfctZoneBuildDataInit( 2 );
+        AppMain.GmEfctEneBuildDataInit(2);
+        AppMain.GmEfctZoneBuildDataInit(2);
         AppMain.GmEfctBossCmnBuildDataInit();
     }
 
@@ -1595,8 +1731,8 @@ public partial class AppMain
         AppMain.GmGmkBreakWallBuild();
         AppMain.GmGmkSwitchBuildTypeZone4();
         AppMain.GmGmkSwWallBuild();
-        AppMain.GmEfctEneBuildDataInit( 3 );
-        AppMain.GmEfctZoneBuildDataInit( 3 );
+        AppMain.GmEfctEneBuildDataInit(3);
+        AppMain.GmEfctZoneBuildDataInit(3);
     }
 
     // Token: 0x0600090F RID: 2319 RVA: 0x0005271C File Offset: 0x0005091C
@@ -1615,8 +1751,8 @@ public partial class AppMain
         AppMain.GmGmkGearBuild();
         AppMain.GmGmkSwitchBuildTypeZone4();
         AppMain.GmGmkSwWallBuild();
-        AppMain.GmEfctEneBuildDataInit( 3 );
-        AppMain.GmEfctZoneBuildDataInit( 3 );
+        AppMain.GmEfctEneBuildDataInit(3);
+        AppMain.GmEfctZoneBuildDataInit(3);
     }
 
     // Token: 0x06000910 RID: 2320 RVA: 0x00052778 File Offset: 0x00050978
@@ -1638,8 +1774,8 @@ public partial class AppMain
         AppMain.GmGmkGearBuild();
         AppMain.GmGmkSwitchBuildTypeZone4();
         AppMain.GmGmkSwWallBuild();
-        AppMain.GmEfctEneBuildDataInit( 3 );
-        AppMain.GmEfctZoneBuildDataInit( 3 );
+        AppMain.GmEfctEneBuildDataInit(3);
+        AppMain.GmEfctZoneBuildDataInit(3);
     }
 
     // Token: 0x06000911 RID: 2321 RVA: 0x000527E1 File Offset: 0x000509E1
@@ -1662,7 +1798,7 @@ public partial class AppMain
         AppMain.GmGmkBoss3PillarBuild();
         AppMain.GmGmkNeedleNeonBuild();
         AppMain.GmEfctBossCmnBuildDataInit();
-        AppMain.GmEfctZoneBuildDataInit( 4 );
+        AppMain.GmEfctZoneBuildDataInit(4);
     }
 
     // Token: 0x06000913 RID: 2323 RVA: 0x00052827 File Offset: 0x00050A27
@@ -1676,7 +1812,7 @@ public partial class AppMain
         AppMain.GmGmkBoss3PillarBuild();
         AppMain.GmGmkNeedleNeonBuild();
         AppMain.GmEfctBossCmnBuildDataInit();
-        AppMain.GmEfctZoneBuildDataInit( 4 );
+        AppMain.GmEfctZoneBuildDataInit(4);
     }
 
     // Token: 0x06000914 RID: 2324 RVA: 0x00052857 File Offset: 0x00050A57
@@ -1690,14 +1826,14 @@ public partial class AppMain
         AppMain.GmGmkBoss3PillarBuild();
         AppMain.GmGmkNeedleNeonBuild();
         AppMain.GmEfctBossCmnBuildDataInit();
-        AppMain.GmEfctZoneBuildDataInit( 4 );
+        AppMain.GmEfctZoneBuildDataInit(4);
     }
 
     // Token: 0x06000915 RID: 2325 RVA: 0x00052887 File Offset: 0x00050A87
     private static void gmGameDatBuildStageFinalBoss04()
     {
         AppMain.GmGmkLandBuild();
-        AppMain.GmEfctZoneBuildDataInit( 4 );
+        AppMain.GmEfctZoneBuildDataInit(4);
     }
 
     // Token: 0x06000916 RID: 2326 RVA: 0x00052894 File Offset: 0x00050A94
@@ -1712,7 +1848,7 @@ public partial class AppMain
         AppMain.GmGmkBoss3PillarBuild();
         AppMain.GmGmkNeedleNeonBuild();
         AppMain.GmEfctBossCmnBuildDataInit();
-        AppMain.GmEfctZoneBuildDataInit( 4 );
+        AppMain.GmEfctZoneBuildDataInit(4);
     }
 
     // Token: 0x06000917 RID: 2327 RVA: 0x000528C9 File Offset: 0x00050AC9
@@ -1728,7 +1864,7 @@ public partial class AppMain
         AppMain.GmGmkSsArrowBuild();
         AppMain.GmGmkSsOblongBuild();
         AppMain.GmGmkBobbinBuild();
-        AppMain.GmEfctZoneBuildDataInit( 5 );
+        AppMain.GmEfctZoneBuildDataInit(5);
         AppMain.GmStartMsgBuild();
     }
 
@@ -1736,7 +1872,7 @@ public partial class AppMain
     private static void gmGameDatBuildEnding()
     {
         AppMain.GmGmkLandBuild();
-        AppMain.GmEfctZoneBuildDataInit( 0 );
+        AppMain.GmEfctZoneBuildDataInit(0);
         AppMain.GmEndingBuild();
         AppMain.DmStfrlMdlCtrlRingBuild();
         AppMain.DmStfrlMdlCtrlBoss1Build();
@@ -1755,8 +1891,8 @@ public partial class AppMain
         AppMain.GmGmkBreakObjFlush();
         AppMain.GmGmkBreakWallFlush();
         AppMain.GmGmkBreakLandFlush();
-        AppMain.GmEfctEneFlushDataInit( 0 );
-        AppMain.GmEfctZoneFlushDataInit( 0 );
+        AppMain.GmEfctEneFlushDataInit(0);
+        AppMain.GmEfctZoneFlushDataInit(0);
     }
 
     // Token: 0x0600091A RID: 2330 RVA: 0x00052964 File Offset: 0x00050B64
@@ -1772,8 +1908,8 @@ public partial class AppMain
         AppMain.GmGmkBreakObjFlush();
         AppMain.GmGmkBreakWallFlush();
         AppMain.GmGmkBreakLandFlush();
-        AppMain.GmEfctEneFlushDataInit( 0 );
-        AppMain.GmEfctZoneFlushDataInit( 0 );
+        AppMain.GmEfctEneFlushDataInit(0);
+        AppMain.GmEfctZoneFlushDataInit(0);
     }
 
     // Token: 0x0600091B RID: 2331 RVA: 0x000529A4 File Offset: 0x00050BA4
@@ -1789,8 +1925,8 @@ public partial class AppMain
         AppMain.GmGmkBreakObjFlush();
         AppMain.GmGmkBreakWallFlush();
         AppMain.GmGmkBreakLandFlush();
-        AppMain.GmEfctEneFlushDataInit( 0 );
-        AppMain.GmEfctZoneFlushDataInit( 0 );
+        AppMain.GmEfctEneFlushDataInit(0);
+        AppMain.GmEfctZoneFlushDataInit(0);
     }
 
     // Token: 0x0600091C RID: 2332 RVA: 0x000529E4 File Offset: 0x00050BE4
@@ -1799,7 +1935,7 @@ public partial class AppMain
         AppMain.GmBoss1Flush();
         AppMain.GmGmkLandFlush();
         AppMain.GmGmkCapsuleFlush();
-        AppMain.GmEfctZoneFlushDataInit( 0 );
+        AppMain.GmEfctZoneFlushDataInit(0);
         AppMain.GmEfctBossCmnFlushDataInit();
     }
 
@@ -1818,8 +1954,8 @@ public partial class AppMain
         AppMain.GmGmkSpCtpltFlush();
         AppMain.GmGmkBreakObjFlush();
         AppMain.GmGmkBreakWallFlush();
-        AppMain.GmEfctEneFlushDataInit( 1 );
-        AppMain.GmEfctZoneFlushDataInit( 1 );
+        AppMain.GmEfctEneFlushDataInit(1);
+        AppMain.GmEfctZoneFlushDataInit(1);
     }
 
     // Token: 0x0600091E RID: 2334 RVA: 0x00052A55 File Offset: 0x00050C55
@@ -1833,8 +1969,8 @@ public partial class AppMain
         AppMain.GmGmkSlotFlush();
         AppMain.GmGmkSpCtpltFlush();
         AppMain.GmGmkSsArrowFlush();
-        AppMain.GmEfctEneFlushDataInit( 1 );
-        AppMain.GmEfctZoneFlushDataInit( 1 );
+        AppMain.GmEfctEneFlushDataInit(1);
+        AppMain.GmEfctZoneFlushDataInit(1);
         AppMain.GmStartMsgFlush();
     }
 
@@ -1853,8 +1989,8 @@ public partial class AppMain
         AppMain.GmGmkBreakObjFlush();
         AppMain.GmGmkBreakWallFlush();
         AppMain.GmGmkSsArrowFlush();
-        AppMain.GmEfctEneFlushDataInit( 1 );
-        AppMain.GmEfctZoneFlushDataInit( 1 );
+        AppMain.GmEfctEneFlushDataInit(1);
+        AppMain.GmEfctZoneFlushDataInit(1);
     }
 
     // Token: 0x06000920 RID: 2336 RVA: 0x00052AE5 File Offset: 0x00050CE5
@@ -1867,7 +2003,7 @@ public partial class AppMain
         AppMain.GmGmkFlipperFlush();
         AppMain.GmGmkShutterFlush();
         AppMain.GmGmkNeedleNeonFlush();
-        AppMain.GmEfctZoneFlushDataInit( 1 );
+        AppMain.GmEfctZoneFlushDataInit(1);
         AppMain.GmEfctBossCmnFlushDataInit();
     }
 
@@ -1886,8 +2022,8 @@ public partial class AppMain
         AppMain.GmGmkRockRideFlush();
         AppMain.GmGmkSwitchFlush();
         AppMain.GmGmkSwWallFlush();
-        AppMain.GmEfctEneFlushDataInit( 2 );
-        AppMain.GmEfctZoneFlushDataInit( 2 );
+        AppMain.GmEfctEneFlushDataInit(2);
+        AppMain.GmEfctZoneFlushDataInit(2);
     }
 
     // Token: 0x06000922 RID: 2338 RVA: 0x00052B6D File Offset: 0x00050D6D
@@ -1902,8 +2038,8 @@ public partial class AppMain
         AppMain.GmGmkSwitchFlush();
         AppMain.GmGmkSwWallFlush();
         AppMain.GmGmkDSignFlush();
-        AppMain.GmEfctEneFlushDataInit( 2 );
-        AppMain.GmEfctZoneFlushDataInit( 2 );
+        AppMain.GmEfctEneFlushDataInit(2);
+        AppMain.GmEfctZoneFlushDataInit(2);
         AppMain.GmStartMsgFlush();
     }
 
@@ -1923,8 +2059,8 @@ public partial class AppMain
         AppMain.GmGmkDrainTankFlush();
         AppMain.GmGmkSwitchFlush();
         AppMain.GmGmkSwWallFlush();
-        AppMain.GmEfctEneFlushDataInit( 2 );
-        AppMain.GmEfctZoneFlushDataInit( 2 );
+        AppMain.GmEfctEneFlushDataInit(2);
+        AppMain.GmEfctZoneFlushDataInit(2);
     }
 
     // Token: 0x06000924 RID: 2340 RVA: 0x00052C0A File Offset: 0x00050E0A
@@ -1937,8 +2073,8 @@ public partial class AppMain
         AppMain.GmGmkCapsuleFlush();
         AppMain.GmGmkSpearFlush();
         AppMain.GmGmkBoss3PillarFlush();
-        AppMain.GmEfctEneFlushDataInit( 2 );
-        AppMain.GmEfctZoneFlushDataInit( 2 );
+        AppMain.GmEfctEneFlushDataInit(2);
+        AppMain.GmEfctZoneFlushDataInit(2);
         AppMain.GmEfctBossCmnFlushDataInit();
     }
 
@@ -1957,8 +2093,8 @@ public partial class AppMain
         AppMain.GmGmkBreakWallFlush();
         AppMain.GmGmkSwitchFlush();
         AppMain.GmGmkSwWallFlush();
-        AppMain.GmEfctEneFlushDataInit( 3 );
-        AppMain.GmEfctZoneFlushDataInit( 3 );
+        AppMain.GmEfctEneFlushDataInit(3);
+        AppMain.GmEfctZoneFlushDataInit(3);
     }
 
     // Token: 0x06000926 RID: 2342 RVA: 0x00052C98 File Offset: 0x00050E98
@@ -1977,8 +2113,8 @@ public partial class AppMain
         AppMain.GmGmkGearFlush();
         AppMain.GmGmkSwitchFlush();
         AppMain.GmGmkSwWallFlush();
-        AppMain.GmEfctEneFlushDataInit( 3 );
-        AppMain.GmEfctZoneFlushDataInit( 3 );
+        AppMain.GmEfctEneFlushDataInit(3);
+        AppMain.GmEfctZoneFlushDataInit(3);
     }
 
     // Token: 0x06000927 RID: 2343 RVA: 0x00052CF4 File Offset: 0x00050EF4
@@ -2000,8 +2136,8 @@ public partial class AppMain
         AppMain.GmGmkGearFlush();
         AppMain.GmGmkSwitchFlush();
         AppMain.GmGmkSwWallFlush();
-        AppMain.GmEfctEneFlushDataInit( 3 );
-        AppMain.GmEfctZoneFlushDataInit( 3 );
+        AppMain.GmEfctEneFlushDataInit(3);
+        AppMain.GmEfctZoneFlushDataInit(3);
     }
 
     // Token: 0x06000928 RID: 2344 RVA: 0x00052D5D File Offset: 0x00050F5D
@@ -2023,7 +2159,7 @@ public partial class AppMain
         AppMain.GmGmkShutterFlush();
         AppMain.GmGmkBoss3PillarFlush();
         AppMain.GmGmkNeedleNeonFlush();
-        AppMain.GmEfctZoneFlushDataInit( 4 );
+        AppMain.GmEfctZoneFlushDataInit(4);
         AppMain.GmEfctBossCmnFlushDataInit();
     }
 
@@ -2037,7 +2173,7 @@ public partial class AppMain
         AppMain.GmGmkShutterFlush();
         AppMain.GmGmkBoss3PillarFlush();
         AppMain.GmGmkNeedleNeonFlush();
-        AppMain.GmEfctZoneFlushDataInit( 4 );
+        AppMain.GmEfctZoneFlushDataInit(4);
         AppMain.GmEfctBossCmnFlushDataInit();
     }
 
@@ -2051,7 +2187,7 @@ public partial class AppMain
         AppMain.GmGmkShutterFlush();
         AppMain.GmGmkBoss3PillarFlush();
         AppMain.GmGmkNeedleNeonFlush();
-        AppMain.GmEfctZoneFlushDataInit( 4 );
+        AppMain.GmEfctZoneFlushDataInit(4);
         AppMain.GmEfctBossCmnFlushDataInit();
     }
 
@@ -2059,7 +2195,7 @@ public partial class AppMain
     private static void gmGameDatFlushStageFinalBoss04()
     {
         AppMain.GmGmkLandFlush();
-        AppMain.GmEfctZoneFlushDataInit( 4 );
+        AppMain.GmEfctZoneFlushDataInit(4);
     }
 
     // Token: 0x0600092D RID: 2349 RVA: 0x00052E10 File Offset: 0x00051010
@@ -2073,7 +2209,7 @@ public partial class AppMain
         AppMain.GmGmkShutterFlush();
         AppMain.GmGmkBoss3PillarFlush();
         AppMain.GmGmkNeedleNeonFlush();
-        AppMain.GmEfctZoneFlushDataInit( 4 );
+        AppMain.GmEfctZoneFlushDataInit(4);
         AppMain.GmEfctBossCmnFlushDataInit();
     }
 
@@ -2090,7 +2226,7 @@ public partial class AppMain
         AppMain.GmGmkSsArrowFlush();
         AppMain.GmGmkSsOblongFlush();
         AppMain.GmGmkBobbinFlush();
-        AppMain.GmEfctZoneFlushDataInit( 5 );
+        AppMain.GmEfctZoneFlushDataInit(5);
         AppMain.GmStartMsgFlush();
     }
 
@@ -2098,7 +2234,7 @@ public partial class AppMain
     private static void gmGameDatFlushEnding()
     {
         AppMain.GmGmkLandFlush();
-        AppMain.GmEfctZoneFlushDataInit( 0 );
+        AppMain.GmEfctZoneFlushDataInit(0);
         AppMain.GmEndingFlush();
         AppMain.DmStfrlMdlCtrlSonicFlush();
         AppMain.DmStfrlMdlCtrlRingFlush();

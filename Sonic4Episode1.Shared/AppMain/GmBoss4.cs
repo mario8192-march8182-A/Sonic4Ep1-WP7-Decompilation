@@ -724,7 +724,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000EB5 RID: 3765 RVA: 0x00082338 File Offset: 0x00080538
-    private static void gmBoss4ChibiExit(AppMain.MTS_TASK_TCB tcb)
+    private static void gmBoss4ChibiExit(MTS_TASK_TCB tcb)
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_BOSS4_CHIBI_WORK gms_BOSS4_CHIBI_WORK = (AppMain.GMS_BOSS4_CHIBI_WORK) p;

@@ -67,7 +67,7 @@ public partial class AppMain
         }
 
         // Token: 0x040057F6 RID: 22518
-        public AppMain.MTS_TASK_TCB main_tcb;
+        public MTS_TASK_TCB main_tcb;
     }
 
     // Token: 0x06000D61 RID: 3425 RVA: 0x000754F0 File Offset: 0x000736F0
@@ -250,7 +250,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D70 RID: 3440 RVA: 0x000757CC File Offset: 0x000739CC
-    private static void gmStartDemoProcMain( AppMain.MTS_TASK_TCB tcb )
+    private static void gmStartDemoProcMain( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_START_DEMO_WORK gms_START_DEMO_WORK = (AppMain.GMS_START_DEMO_WORK)tcb.work;
         if ( ( gms_START_DEMO_WORK.flag & 1U ) != 0U )

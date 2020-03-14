@@ -370,7 +370,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018C9 RID: 6345 RVA: 0x000E225C File Offset: 0x000E045C
-    private void dmTitleOpDataBuildMain( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpDataBuildMain( MTS_TASK_TCB tcb )
     {
         bool flag = true;
         AppMain.AOS_TEXTURE[] array = AppMain.dm_titleop_aos_tex;
@@ -394,13 +394,13 @@ public partial class AppMain
     }
 
     // Token: 0x060018CA RID: 6346 RVA: 0x000E22A2 File Offset: 0x000E04A2
-    private void dmTitleOpDataBuildDest( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpDataBuildDest( MTS_TASK_TCB tcb )
     {
         AppMain.dm_titleop_build_tcb = null;
     }
 
     // Token: 0x060018CB RID: 6347 RVA: 0x000E22AC File Offset: 0x000E04AC
-    private void dmTitleOpDataFlushMain( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpDataFlushMain( MTS_TASK_TCB tcb )
     {
         bool flag = true;
         AppMain.AOS_TEXTURE[] array = AppMain.dm_titleop_aos_tex;
@@ -431,7 +431,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018CC RID: 6348 RVA: 0x000E2320 File Offset: 0x000E0520
-    private void dmTitleOpDataFlushDest( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpDataFlushDest( MTS_TASK_TCB tcb )
     {
         AppMain.dm_titleop_flush_tcb = null;
     }
@@ -453,13 +453,13 @@ public partial class AppMain
     }
 
     // Token: 0x060018CE RID: 6350 RVA: 0x000E23E3 File Offset: 0x000E05E3
-    private void dmTitleOpMgrDest( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpMgrDest( MTS_TASK_TCB tcb )
     {
         AppMain.dm_titleop_mgr_tcb = null;
     }
 
     // Token: 0x060018CF RID: 6351 RVA: 0x000E23EC File Offset: 0x000E05EC
-    private void dmTitleOpMgrMain( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpMgrMain( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_TITLEOP_MGR_WORK dms_TITLEOP_MGR_WORK = (AppMain.DMS_TITLEOP_MGR_WORK)tcb.work;
         if ( ( dms_TITLEOP_MGR_WORK.flag & 536870912U ) != 0U )
@@ -563,7 +563,7 @@ public partial class AppMain
     // Token: 0x060018D4 RID: 6356 RVA: 0x000E2870 File Offset: 0x000E0A70
     private AppMain.DMS_TITLEOP_OBJ_3DNN_WORK dmTitleOpCreate3DObj( ushort prio, byte group, AppMain.TaskWorkFactoryDelegate work_size )
     {
-        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, group, 0, 0, work_size, null);
+        OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.OBM_OBJECT_TASK_DETAIL_INIT(prio, group, 0, 0, work_size, "CREATE_TTILE3DOBJ");
         AppMain.DMS_TITLEOP_OBJ_3DNN_WORK result = (AppMain.DMS_TITLEOP_OBJ_3DNN_WORK)obs_OBJECT_WORK;
         obs_OBJECT_WORK.ppOut = this.dmTitleOpObjDraw;
         obs_OBJECT_WORK.ppOutSub = null;
@@ -599,7 +599,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018D7 RID: 6359 RVA: 0x000E2964 File Offset: 0x000E0B64
-    private void dmTitleOpEndStart( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpEndStart( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_TITLEOP_MGR_WORK dms_TITLEOP_MGR_WORK = (AppMain.DMS_TITLEOP_MGR_WORK)tcb.work;
         this.dmTitleOpPreEnd( ref dms_TITLEOP_MGR_WORK );
@@ -617,7 +617,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018D9 RID: 6361 RVA: 0x000E29D4 File Offset: 0x000E0BD4
-    private void dmTitleOpPreEndWait( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpPreEndWait( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_TITLEOP_MGR_WORK dms_TITLEOP_MGR_WORK = (AppMain.DMS_TITLEOP_MGR_WORK)tcb.work;
         dms_TITLEOP_MGR_WORK.frame++;
@@ -639,7 +639,7 @@ public partial class AppMain
     }
 
     // Token: 0x060018DB RID: 6363 RVA: 0x000E2A41 File Offset: 0x000E0C41
-    private void dmTitleOpEndWait( AppMain.MTS_TASK_TCB tcb )
+    private void dmTitleOpEndWait( MTS_TASK_TCB tcb )
     {
         if ( !AppMain.ObjObjectCheckClearAllObject() )
         {

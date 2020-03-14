@@ -323,12 +323,12 @@ public partial class AppMain
     }
 
     // Token: 0x06001164 RID: 4452 RVA: 0x00098D25 File Offset: 0x00096F25
-    private static void izFadeDest( AppMain.MTS_TASK_TCB tcb )
+    private static void izFadeDest( MTS_TASK_TCB tcb )
     {
     }
 
     // Token: 0x06001165 RID: 4453 RVA: 0x00098D28 File Offset: 0x00096F28
-    private static void izFadeMain( AppMain.MTS_TASK_TCB tcb )
+    private static void izFadeMain( MTS_TASK_TCB tcb )
     {
         AppMain.IZS_FADE_WORK fade_work = (AppMain.IZS_FADE_WORK)tcb.work;
         AppMain.IzFadeUpdate( fade_work );
@@ -336,7 +336,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001166 RID: 4454 RVA: 0x00098D50 File Offset: 0x00096F50
-    private static void izFadeEndWaitMain( AppMain.MTS_TASK_TCB tcb )
+    private static void izFadeEndWaitMain( MTS_TASK_TCB tcb )
     {
         AppMain.IZS_FADE_WORK izs_FADE_WORK = (AppMain.IZS_FADE_WORK)tcb.work;
         izs_FADE_WORK.count += 1f;

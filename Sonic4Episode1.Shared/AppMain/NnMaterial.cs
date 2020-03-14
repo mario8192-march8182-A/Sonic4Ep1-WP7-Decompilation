@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using System.IO;
 using System.Runtime.InteropServices;
+using MemoryStream = System.IO.MemoryStream;
 
 public partial class AppMain
 {
@@ -928,6 +930,10 @@ public partial class AppMain
             uint num = reader.ReadUInt32();
             if ( num != 0U )
             {
+                var name = Path.GetTempFileName();
+                Debug.WriteLine(name);
+                File.WriteAllBytes(name, (reader.BaseStream as MemoryStream).ToArray());
+            
                 long position = reader.BaseStream.Position;
                 reader.BaseStream.Seek( data0Pos + ( long )( ( ulong )num ), 0 );
                 nns_MATERIALPTR.pMaterial = AppMain.NNS_MATERIAL_GLES11_DESC.Read( reader, data0Pos, out transparentMaterial );

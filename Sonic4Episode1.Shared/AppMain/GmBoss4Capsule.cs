@@ -257,7 +257,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000722 RID: 1826 RVA: 0x0003F3B5 File Offset: 0x0003D5B5
-    private static void gmBoss4CapsuleExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss4CapsuleExit( MTS_TASK_TCB tcb )
     {
         AppMain.GmBoss4DecObjCreateCount();
         AppMain.GmEnemyDefaultExit( tcb );

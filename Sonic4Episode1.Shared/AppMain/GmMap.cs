@@ -360,14 +360,14 @@ public partial class AppMain
     // (get) Token: 0x0600186D RID: 6253 RVA: 0x000DD9DF File Offset: 0x000DBBDF
     public static uint GMD_MAP_DRAW_WIDTH
     {
-        get { return AppMain.gm_map_draw_size[0]; }
+        get { return (uint) Math.Min((AppMain.gm_map_draw_size[0] * (_am_draw_video.scalar * 2)), 8); }
     }
 
     // Token: 0x17000069 RID: 105
     // (get) Token: 0x0600186E RID: 6254 RVA: 0x000DD9E8 File Offset: 0x000DBBE8
     public static uint GMD_MAP_DRAW_HEIGHT
     {
-        get { return AppMain.gm_map_draw_size[1]; }
+        get { return (uint) Math.Min((AppMain.gm_map_draw_size[1] * (_am_draw_video.scalar * 2)), 8); }
     }
 
     // Token: 0x0600186F RID: 6255 RVA: 0x000DD9F1 File Offset: 0x000DBBF1
@@ -1289,13 +1289,13 @@ public partial class AppMain
     }
 
     // Token: 0x06001892 RID: 6290 RVA: 0x000DF163 File Offset: 0x000DD363
-    private static void gmMapDest(AppMain.MTS_TASK_TCB tcb)
+    private static void gmMapDest(MTS_TASK_TCB tcb)
     {
         AppMain.gm_map_tcb = null;
     }
 
     // Token: 0x06001893 RID: 6291 RVA: 0x000DF16C File Offset: 0x000DD36C
-    private static void gmMapMain(AppMain.MTS_TASK_TCB tcb)
+    private static void gmMapMain(MTS_TASK_TCB tcb)
     {
         int num = AppMain.GMM_MAIN_GET_ZONE_TYPE();
         if (num == 5)
@@ -1608,7 +1608,7 @@ public partial class AppMain
                 l++;
                 continue;
                 IL_FA:
-                if (num4 != 0 && AppMain.gm_map_block_check[8 + (int) num2 - block_left, 8 + (int) num3 - block_top] ==
+                if (num4 != 0 && AppMain.gm_map_block_check[MTM_MATH_CLIP(8 + (int) num2 - block_left, 0, 23), MTM_MATH_CLIP(8 + (int) num3 - block_top, 0, 23)] ==
                     -1)
                 {
                     AppMain.gm_map_block_check[8 + (int) num2 - block_left, 8 + (int) num3 - block_top] = (short) num4;

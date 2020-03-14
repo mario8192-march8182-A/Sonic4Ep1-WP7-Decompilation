@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Security.Cryptography;
 using GameFramework;
 using Microsoft.Xna.Framework;
@@ -20,15 +21,13 @@ public class Sonic4Ep1 : Game
     public Sonic4Ep1()
     {
         pInstance = this;
-        this.graphics = new GraphicsDeviceManager(this);
         Window.AllowUserResizing = true;
         Window.ClientSizeChanged += OnClientSizeChange;
-        this.graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
-        this.graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
-        this.graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
-        this.graphics.PreparingDeviceSettings += this.graphics_PreparingDeviceSettings;
-        this.graphics.SynchronizeWithVerticalRetrace = true;
-#if UWP || __IOS__ || __ANDROID__
+        
+        this.graphics = new GraphicsDeviceManager(this);
+        this.graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+        //this.graphics.SynchronizeWithVerticalRetrace = true;
+#if WINDOWS_UAP || __IOS__ || __ANDROID__
         this.graphics.IsFullScreen = true;
 #else
         this.graphics.IsFullScreen = false;
@@ -38,6 +37,18 @@ public class Sonic4Ep1 : Game
         base.TargetElapsedTime = TimeSpan.FromTicks(TimeSpan.TicksPerSecond / 60);
         base.Activated += this.OnActivated;
         base.Deactivated += this.OnDeactivated;
+
+#if WINDOWS_UAP
+        this.saveContentPath =
+            Windows.Storage.ApplicationData.Current.RoamingFolder.Path;
+#else
+        this.saveContentPath =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "Sonic4Episode1Deluxe");
+#endif
+
+        if (!Directory.Exists(saveContentPath))
+            Directory.CreateDirectory(saveContentPath);
     }
 
     public void SetControllerSource(IControllerSource controllerSource)
@@ -54,21 +65,9 @@ public class Sonic4Ep1 : Game
             this.accelerometer.Initialize();
         }
     }
-
-    public void SetSaveContentPath(string path)
-    {
-        this.saveContentPath = path;
-    }
-
     private void OnClientSizeChange(object sender, EventArgs e)
     {
         _resizePending = true;
-    }
-
-    // Token: 0x0600287A RID: 10362 RVA: 0x00152F69 File Offset: 0x00151169
-    private void graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
-    {
-        PresentationParameters presentationParameters = e.GraphicsDeviceInformation.PresentationParameters;
     }
 
     // Token: 0x0600287B RID: 10363 RVA: 0x00152F78 File Offset: 0x00151178
@@ -93,7 +92,7 @@ public class Sonic4Ep1 : Game
         this.fnts[2] = base.Content.Load<SpriteFont>("large");
 
         //#if DEBUG
-        this.benchmarkObject = new BenchmarkObject(this, fntKootenay, new Vector2(0, 0), Color.Red);
+        this.benchmarkObject = new BenchmarkObject(this, fnts[0], new Vector2(0, 0), Color.Red);
         //#endif
 
         this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
@@ -109,20 +108,20 @@ public class Sonic4Ep1 : Game
             SaveState._saveFile(SaveState.save);
         }
 
-        this.storeSystemVolume = true;
-        try
-        {
-            if (!AppMain.g_ao_sys_global.is_playing_device_bgm_music)
-            {
-                XnaMediaPlayer.Pause();
-            }
-            XnaMediaPlayer.Volume = this.deviceMusicVolume;
-            return;
-        }
-        catch (Exception)
-        {
-            return;
-        }
+        // this.storeSystemVolume = true;
+        // try
+        // {
+        //     if (!AppMain.g_ao_sys_global.is_playing_device_bgm_music)
+        //     {
+        //         XnaMediaPlayer.Pause();
+        //     }
+        //     XnaMediaPlayer.Volume = this.deviceMusicVolume;
+        //     return;
+        // }
+        // catch (Exception)
+        // {
+        //     return;
+        // }
     }
 
     // Token: 0x0600287E RID: 10366 RVA: 0x00153128 File Offset: 0x00151328

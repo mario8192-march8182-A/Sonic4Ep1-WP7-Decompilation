@@ -573,7 +573,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000082 RID: 130 RVA: 0x000074EC File Offset: 0x000056EC
-    private static void gmEveMgrMain( AppMain.MTS_TASK_TCB tcb )
+    private static void gmEveMgrMain( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_EVE_MGR_WORK gms_EVE_MGR_WORK = (AppMain.GMS_EVE_MGR_WORK)tcb.work;
         if ( gms_EVE_MGR_WORK.sts_proc != null )
@@ -589,7 +589,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000083 RID: 131 RVA: 0x00007551 File Offset: 0x00005751
-    private static void gmEveMgrDest( AppMain.MTS_TASK_TCB tcb )
+    private static void gmEveMgrDest( MTS_TASK_TCB tcb )
     {
         AppMain.g_gm_eve_mgr_work = null;
         AppMain.gm_eve_mgr_tcb = null;

@@ -203,6 +203,6 @@ public partial class AppMain
         }
 
         // Token: 0x04005885 RID: 22661
-        public AppMain.MTS_TASK_TCB tcb;
+        public MTS_TASK_TCB tcb;
     }
 }

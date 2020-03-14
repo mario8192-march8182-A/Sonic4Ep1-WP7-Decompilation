@@ -199,7 +199,7 @@ public partial class AppMain
     }
 
     // Token: 0x060000A7 RID: 167 RVA: 0x00008C6C File Offset: 0x00006E6C
-    private static bool GmEfctCmnFlushDataLoop()
+    public static bool GmEfctCmnFlushDataLoop()
     {
         bool flag = true;
         int num = 0;
@@ -278,7 +278,7 @@ public partial class AppMain
     }
 
     // Token: 0x060000A8 RID: 168 RVA: 0x00008D90 File Offset: 0x00006F90
-    private static AppMain.GMS_EFFECT_3DES_WORK GmEfctCmnEsCreate( OBS_OBJECT_WORK parent_obj, int efct_cmn_idx )
+    public static AppMain.GMS_EFFECT_3DES_WORK GmEfctCmnEsCreate( OBS_OBJECT_WORK parent_obj, int efct_cmn_idx )
     {
         AppMain.GMS_EFCT_CMN_CREATE_PARAM gms_EFCT_CMN_CREATE_PARAM = AppMain.gm_efct_cmn_create_param_tbl[efct_cmn_idx];
         AppMain.OBS_DATA_WORK model_dwork;

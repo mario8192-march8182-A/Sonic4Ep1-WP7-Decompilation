@@ -85,7 +85,7 @@ public partial class AppMain
     private static void gmClearDemoInit()
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmClearDemoProcMain, AppMain.gmClearDemoDest, 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmClearDemoProcMain, AppMain.gmClearDemoDest, 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
         AppMain.gm_clrdm_mgr_p.tcb = mts_TASK_TCB;
         AppMain.GMS_CLRDM_MAIN_WORK gms_CLRDM_MAIN_WORK = (AppMain.GMS_CLRDM_MAIN_WORK)mts_TASK_TCB.work;
         for (int i = 0; i < 2; i++)
@@ -149,7 +149,7 @@ public partial class AppMain
     private static void gmClearDemoRetryInit()
     {
         AppMain.GSS_MAIN_SYS_INFO gss_MAIN_SYS_INFO = AppMain.GsGetMainSysInfo();
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmClearDemoProcMain, AppMain.gmClearDemoDest, 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmClearDemoProcMain, AppMain.gmClearDemoDest, 0U, 0, 18448U, 5, () => new AppMain.GMS_CLRDM_MAIN_WORK(), "CLRDM_MAIN");
         AppMain.gm_clrdm_mgr_p.tcb = mts_TASK_TCB;
         AppMain.GMS_CLRDM_MAIN_WORK gms_CLRDM_MAIN_WORK = (AppMain.GMS_CLRDM_MAIN_WORK)mts_TASK_TCB.work;
         for (int i = 0; i < 2; i++)
@@ -546,7 +546,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000E27 RID: 3623 RVA: 0x0007CF58 File Offset: 0x0007B158
-    private static void gmClearDemoProcMain(AppMain.MTS_TASK_TCB tcb)
+    private static void gmClearDemoProcMain(MTS_TASK_TCB tcb)
     {
         AppMain.GMS_CLRDM_MAIN_WORK gms_CLRDM_MAIN_WORK = (AppMain.GMS_CLRDM_MAIN_WORK)tcb.work;
         if ((gms_CLRDM_MAIN_WORK.flag & 1U) != 0U)
@@ -587,7 +587,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000E28 RID: 3624 RVA: 0x0007D067 File Offset: 0x0007B267
-    private static void gmClearDemoDest(AppMain.MTS_TASK_TCB tcb)
+    private static void gmClearDemoDest(MTS_TASK_TCB tcb)
     {
     }
 

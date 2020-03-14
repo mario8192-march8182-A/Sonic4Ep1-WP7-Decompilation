@@ -13,9 +13,9 @@ public class GmSound
     private static GSS_SND_SCB gm_sound_jingle_scb;
     private static GSS_SND_SCB gm_sound_jingle_bgm_scb;
     private static uint gm_sound_flag;
-    private static AppMain.MTS_TASK_TCB gm_sound_1shot_tcb;
-    private static AppMain.MTS_TASK_TCB gm_sound_bgm_fade_tcb;
-    private static AppMain.MTS_TASK_TCB gm_sound_bgm_win_boss_tcb;
+    private static MTS_TASK_TCB gm_sound_1shot_tcb;
+    private static MTS_TASK_TCB gm_sound_bgm_fade_tcb;
+    private static MTS_TASK_TCB gm_sound_bgm_win_boss_tcb;
     public static readonly string[] gm_sound_bgm_name_list;
     public static readonly string[] gm_sound_speedup_bgm_name_list;
     public static readonly string[] gm_sound_jingle_name_list;
@@ -431,7 +431,7 @@ public class GmSound
         GsSound.ScbSetSeqMute(gm_sound_jingle_scb, false);
         GsSound.StopBgm(gm_sound_jingle_scb);
         GsSound.PlayBgm(gm_sound_jingle_scb,
-            gm_sound_jingle_name_list[(int) ((UIntPtr) jngl_idx)], fade_frame);
+            gm_sound_jingle_name_list[(int) jngl_idx], fade_frame);
         gm_sound_jingle_scb.flag |= 2147483648U;
     }
 
@@ -448,7 +448,7 @@ public class GmSound
         GsSound.ScbSetSeqMute(gm_sound_jingle_bgm_scb, false);
         GsSound.StopBgm(gm_sound_jingle_bgm_scb);
         GsSound.PlayBgm(gm_sound_jingle_bgm_scb,
-            gm_sound_jingle_name_list[(int) ((UIntPtr) jngl_idx)], fade_frame);
+            gm_sound_jingle_name_list[(int) jngl_idx], fade_frame);
         gm_sound_jingle_bgm_scb.flag |= 2147483648U;
     }
 
@@ -589,16 +589,19 @@ public class GmSound
     // Token: 0x0600083D RID: 2109 RVA: 0x00048108 File Offset: 0x00046308
     public static bool GmBGMIsAlreadyPlaying()
     {
-        AMS_CRIAUDIO_INTERFACE ams_CRIAUDIO_INTERFACE = AmCri.AudioGetGlobal();
-        return ams_CRIAUDIO_INTERFACE.players[gm_sound_bgm_scb.auply_no] != null &&
-               ams_CRIAUDIO_INTERFACE.players[gm_sound_bgm_scb.auply_no].se_name ==
+        AMS_CRIAUDIO_INTERFACE criaudioInterface = AmCri.AudioGetGlobal();
+        return criaudioInterface.players[gm_sound_bgm_scb.auply_no] != null &&
+               criaudioInterface.players[gm_sound_bgm_scb.auply_no].se_name ==
                gm_sound_bgm_name_list[(int) AppMain.g_gs_main_sys_info.stage_id] &&
-               !ams_CRIAUDIO_INTERFACE.players[gm_sound_bgm_scb.auply_no].IsPaused();
+               !criaudioInterface.players[gm_sound_bgm_scb.auply_no].IsPaused();
     }
 
     // Token: 0x0600083E RID: 2110 RVA: 0x00048176 File Offset: 0x00046376
     public static void PlayJingle1UP(bool ret_last_sound)
     {
+#if NICE_PHYSICS
+        PlaySE("OneUp");
+#else
         if (ret_last_sound)
         {
             gmSoundPlay1ShotJingle(0U, 0, 0, 0);
@@ -606,9 +609,10 @@ public class GmSound
         }
 
         PlayJingle(0U, 0);
+#endif
     }
 
-    // Token: 0x0600083F RID: 2111 RVA: 0x0004818C File Offset: 0x0004638C
+    // Token: 0x0600083F RID: 211 RVA: 0x0004818C File Offset: 0x0004638C
     public static void PlayGameOver()
     {
         StopStageBGM(15);
@@ -731,7 +735,7 @@ public class GmSound
     }
 
     // Token: 0x06000845 RID: 2117 RVA: 0x00048434 File Offset: 0x00046634
-    public static void gmSound1ShotJingleFunc(AppMain.MTS_TASK_TCB tcb)
+    public static void gmSound1ShotJingleFunc(MTS_TASK_TCB tcb)
     {
         if ((gm_sound_flag & 134217728U) != 0U)
         {
@@ -744,7 +748,7 @@ public class GmSound
         {
             StopJingle(0);
             gm_sound_flag &= 2147483647U;
-            if (!GsSound.IsBgmStop(gm_sound_jingle_bgm_scb) &&
+            if (GsSound.IsBgmStop(gm_sound_jingle_bgm_scb) ||
                 GsSound.IsBgmPause(gm_sound_jingle_bgm_scb))
             {
                 ResumeBGMJingle(gms_SOUND_1SHOT_JINGLE_WORK.bgm_fade_in_frame);
@@ -760,7 +764,7 @@ public class GmSound
     }
 
     // Token: 0x06000846 RID: 2118 RVA: 0x000484CF File Offset: 0x000466CF
-    public static void gmSound1ShotJingleDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmSound1ShotJingleDest(MTS_TASK_TCB tcb)
     {
         gm_sound_1shot_tcb = null;
     }
@@ -833,7 +837,7 @@ public class GmSound
     }
 
     // Token: 0x06000849 RID: 2121 RVA: 0x0004862C File Offset: 0x0004682C
-    public static void gmSoundBGMFadeFunc(AppMain.MTS_TASK_TCB tcb)
+    public static void gmSoundBGMFadeFunc(MTS_TASK_TCB tcb)
     {
         GMS_SOUND_BGM_FADE_MGR_WORK
             gms_SOUND_BGM_FADE_MGR_WORK = (GMS_SOUND_BGM_FADE_MGR_WORK) tcb.work;
@@ -873,7 +877,7 @@ public class GmSound
     }
 
     // Token: 0x0600084A RID: 2122 RVA: 0x000486FC File Offset: 0x000468FC
-    public static void gmSoundBGMFadeDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmSoundBGMFadeDest(MTS_TASK_TCB tcb)
     {
         GMS_SOUND_BGM_FADE_MGR_WORK
             gms_SOUND_BGM_FADE_MGR_WORK = (GMS_SOUND_BGM_FADE_MGR_WORK) tcb.work;
@@ -937,7 +941,7 @@ public class GmSound
     }
 
     // Token: 0x0600084D RID: 2125 RVA: 0x00048804 File Offset: 0x00046A04
-    public static void gmSoundBGMWinBossFunc(AppMain.MTS_TASK_TCB tcb)
+    public static void gmSoundBGMWinBossFunc(MTS_TASK_TCB tcb)
     {
         GMS_SOUND_BGM_WIN_BOSS_MGR_WORK gms_SOUND_BGM_WIN_BOSS_MGR_WORK =
             (GMS_SOUND_BGM_WIN_BOSS_MGR_WORK) tcb.work;
@@ -996,7 +1000,7 @@ public class GmSound
     }
 
     // Token: 0x0600084E RID: 2126 RVA: 0x00048915 File Offset: 0x00046B15
-    public static void gmSoundBGMWinBossDest(AppMain.MTS_TASK_TCB tcb)
+    public static void gmSoundBGMWinBossDest(MTS_TASK_TCB tcb)
     {
         if (tcb == gm_sound_bgm_win_boss_tcb)
         {

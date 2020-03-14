@@ -10,7 +10,7 @@ public partial class AppMain
 
     // Token: 0x02000338 RID: 824
     // (Invoke) Token: 0x060025B5 RID: 9653
-    public delegate void GSF_TASK_PROCEDURE( AppMain.MTS_TASK_TCB task );
+    public delegate void GSF_TASK_PROCEDURE( MTS_TASK_TCB task );
 
     // Token: 0x02000339 RID: 825
     private struct GSS_TASK_SYS

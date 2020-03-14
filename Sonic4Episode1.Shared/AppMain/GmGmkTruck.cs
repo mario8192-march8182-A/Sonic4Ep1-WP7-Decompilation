@@ -210,7 +210,7 @@ public partial class AppMain
     }
 
     // Token: 0x0600066E RID: 1646 RVA: 0x000391BC File Offset: 0x000373BC
-    public static void gmGmkTruckDest( AppMain.MTS_TASK_TCB tcb )
+    public static void gmGmkTruckDest( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( gms_GMK_TRUCK_WORK.h_snd_lorry != null )

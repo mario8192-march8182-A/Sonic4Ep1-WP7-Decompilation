@@ -171,7 +171,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001262 RID: 4706 RVA: 0x000A0B34 File Offset: 0x0009ED34
-    private static void gmEndingCtrl( AppMain.MTS_TASK_TCB tcb )
+    private static void gmEndingCtrl( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_ENDING_WORK gms_ENDING_WORK = (AppMain.GMS_ENDING_WORK)tcb.work;
         GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int)((UIntPtr)0)];

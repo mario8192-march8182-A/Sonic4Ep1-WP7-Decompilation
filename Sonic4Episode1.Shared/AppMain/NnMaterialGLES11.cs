@@ -16,7 +16,7 @@ public partial class AppMain
     public class NNS_MATERIAL_GLES11_LOGIC
     {
         // Token: 0x06001ECB RID: 7883 RVA: 0x0013BF74 File Offset: 0x0013A174
-        public static AppMain.NNS_MATERIAL_GLES11_LOGIC Read( BinaryReader reader )
+        public static AppMain.NNS_MATERIAL_GLES11_LOGIC Read(BinaryReader reader)
         {
             return new AppMain.NNS_MATERIAL_GLES11_LOGIC
             {
@@ -32,7 +32,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001ECC RID: 7884 RVA: 0x0013BFE8 File Offset: 0x0013A1E8
-        public AppMain.NNS_MATERIAL_GLES11_LOGIC Assign( AppMain.NNS_MATERIAL_GLES11_LOGIC logic )
+        public AppMain.NNS_MATERIAL_GLES11_LOGIC Assign(AppMain.NNS_MATERIAL_GLES11_LOGIC logic)
         {
             this.fFlag = logic.fFlag;
             this.SrcFactor = logic.SrcFactor;
@@ -74,7 +74,7 @@ public partial class AppMain
     public class NNS_TEXTURE_GLES11_COMBINE
     {
         // Token: 0x06001ECE RID: 7886 RVA: 0x0013C060 File Offset: 0x0013A260
-        public static AppMain.NNS_TEXTURE_GLES11_COMBINE Read( BinaryReader reader )
+        public static AppMain.NNS_TEXTURE_GLES11_COMBINE Read(BinaryReader reader)
         {
             AppMain.NNS_TEXTURE_GLES11_COMBINE nns_TEXTURE_GLES11_COMBINE = new AppMain.NNS_TEXTURE_GLES11_COMBINE();
             nns_TEXTURE_GLES11_COMBINE.CombineRGB = reader.ReadUInt16();
@@ -99,7 +99,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001ECF RID: 7887 RVA: 0x0013C160 File Offset: 0x0013A360
-        public AppMain.NNS_TEXTURE_GLES11_COMBINE Assign( AppMain.NNS_TEXTURE_GLES11_COMBINE combine )
+        public AppMain.NNS_TEXTURE_GLES11_COMBINE Assign(AppMain.NNS_TEXTURE_GLES11_COMBINE combine)
         {
             this.CombineRGB = combine.CombineRGB;
             this.Source0RGB = combine.Source0RGB;
@@ -169,7 +169,7 @@ public partial class AppMain
     public struct NNS_MATERIAL_GLES11_TEXMAP_DESC
     {
         // Token: 0x06001ED1 RID: 7889 RVA: 0x0013C22C File Offset: 0x0013A42C
-        public void Assign( ref AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC pPtr )
+        public void Assign(ref AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC pPtr)
         {
             this.fType = pPtr.fType;
             this.iTexIdx = pPtr.iTexIdx;
@@ -185,7 +185,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001ED2 RID: 7890 RVA: 0x0013C2C0 File Offset: 0x0013A4C0
-        public NNS_MATERIAL_GLES11_TEXMAP_DESC( ref AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC desc )
+        public NNS_MATERIAL_GLES11_TEXMAP_DESC(ref AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC desc)
         {
             this.fType = desc.fType;
             this.iTexIdx = desc.iTexIdx;
@@ -201,20 +201,21 @@ public partial class AppMain
         }
 
         // Token: 0x06001ED3 RID: 7891 RVA: 0x0013C354 File Offset: 0x0013A554
-        public static AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC Read( BinaryReader reader, long data0Pos )
+        public static AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC Read(BinaryReader reader, long data0Pos)
         {
             AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC result = default(AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC);
             result.fType = reader.ReadUInt32();
             result.iTexIdx = reader.ReadInt32();
             result.EnvMode = reader.ReadInt32();
             uint num = reader.ReadUInt32();
-            if ( num != 0U )
+            if (num != 0U)
             {
                 long position = reader.BaseStream.Position;
-                reader.BaseStream.Seek( data0Pos + ( long )( ( ulong )num ), 0 );
-                result.pCombine = AppMain.NNS_TEXTURE_GLES11_COMBINE.Read( reader );
-                reader.BaseStream.Seek( position, 0 );
+                reader.BaseStream.Seek(data0Pos + (long) ((ulong) num), 0);
+                result.pCombine = AppMain.NNS_TEXTURE_GLES11_COMBINE.Read(reader);
+                reader.BaseStream.Seek(position, 0);
             }
+
             result.Offset.u = reader.ReadSingle();
             result.Offset.v = reader.ReadSingle();
             result.Scale.u = reader.ReadSingle();
@@ -222,22 +223,24 @@ public partial class AppMain
             result.WrapS = reader.ReadInt32();
             result.WrapT = reader.ReadInt32();
             uint num2 = reader.ReadUInt32();
-            if ( num2 != 0U )
+            if (num2 != 0U)
             {
                 long position = reader.BaseStream.Position;
-                reader.BaseStream.Seek( data0Pos + ( long )( ( ulong )num2 ), 0 );
-                result.pFilterMode = AppMain.NNS_TEXTURE_FILTERMODE.Read( reader );
-                reader.BaseStream.Seek( position, 0 );
+                reader.BaseStream.Seek(data0Pos + (long) ((ulong) num2), 0);
+                result.pFilterMode = AppMain.NNS_TEXTURE_FILTERMODE.Read(reader);
+                reader.BaseStream.Seek(position, 0);
             }
+
             result.LODBias = reader.ReadSingle();
             uint num3 = reader.ReadUInt32();
-            if ( num3 != 0U )
+            if (num3 != 0U)
             {
                 long position = reader.BaseStream.Position;
-                reader.BaseStream.Seek( data0Pos + ( long )( ( ulong )num3 ), 0 );
-                result.pTexInfo = AppMain.NNS_TEXINFO.Read( reader );
-                reader.BaseStream.Seek( position, 0 );
+                reader.BaseStream.Seek(data0Pos + (long) ((ulong) num3), 0);
+                result.pTexInfo = AppMain.NNS_TEXINFO.Read(reader);
+                reader.BaseStream.Seek(position, 0);
             }
+
             return result;
         }
 
@@ -279,42 +282,66 @@ public partial class AppMain
     public class NNS_MATERIAL_GLES11_DESC
     {
         // Token: 0x06001ED4 RID: 7892 RVA: 0x0013C4CC File Offset: 0x0013A6CC
-        public static AppMain.NNS_MATERIAL_GLES11_DESC Read( BinaryReader reader, long data0Pos, out bool transparentMaterial )
+        public static AppMain.NNS_MATERIAL_GLES11_DESC Read(BinaryReader reader, long data0Pos,
+            out bool transparentMaterial)
         {
             transparentMaterial = false;
             AppMain.NNS_MATERIAL_GLES11_DESC nns_MATERIAL_GLES11_DESC = new AppMain.NNS_MATERIAL_GLES11_DESC();
             nns_MATERIAL_GLES11_DESC.fFlag = reader.ReadUInt32();
             nns_MATERIAL_GLES11_DESC.User = reader.ReadUInt32();
             uint num = reader.ReadUInt32();
-            if ( num != 0U )
+            if (num != 0U)
             {
                 long position = reader.BaseStream.Position;
-                reader.BaseStream.Seek( data0Pos + ( long )( ( ulong )num ), 0 );
-                nns_MATERIAL_GLES11_DESC.pColor = AppMain.NNS_MATERIAL_STDSHADER_COLOR.Read( reader );
-                reader.BaseStream.Seek( position, 0 );
-                transparentMaterial = ( 1f != nns_MATERIAL_GLES11_DESC.pColor.Diffuse.a );
+                reader.BaseStream.Seek(data0Pos + (long) ((ulong) num), 0);
+                nns_MATERIAL_GLES11_DESC.pColor = AppMain.NNS_MATERIAL_STDSHADER_COLOR.Read(reader);
+                reader.BaseStream.Seek(position, 0);
+                transparentMaterial = (1f != nns_MATERIAL_GLES11_DESC.pColor.Diffuse.a);
             }
+
             uint num2 = reader.ReadUInt32();
-            if ( num2 != 0U )
+            if (num2 != 0U)
             {
                 long position = reader.BaseStream.Position;
-                reader.BaseStream.Seek( data0Pos + ( long )( ( ulong )num2 ), 0 );
-                nns_MATERIAL_GLES11_DESC.pLogic = AppMain.NNS_MATERIAL_GLES11_LOGIC.Read( reader );
-                reader.BaseStream.Seek( position, 0 );
+                reader.BaseStream.Seek(data0Pos + (long) ((ulong) num2), 0);
+                nns_MATERIAL_GLES11_DESC.pLogic = AppMain.NNS_MATERIAL_GLES11_LOGIC.Read(reader);
+                reader.BaseStream.Seek(position, 0);
             }
+
             nns_MATERIAL_GLES11_DESC.nTex = reader.ReadInt32();
             uint num3 = reader.ReadUInt32();
-            if ( num3 != 0U )
+            if (num3 != 0U)
             {
                 long position = reader.BaseStream.Position;
-                reader.BaseStream.Seek( data0Pos + ( long )( ( ulong )num3 ), 0 );
-                nns_MATERIAL_GLES11_DESC.pTexDesc = new AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC[nns_MATERIAL_GLES11_DESC.nTex];
-                for ( int i = 0; i < nns_MATERIAL_GLES11_DESC.nTex; i++ )
+                reader.BaseStream.Seek(data0Pos + (long) ((ulong) num3), 0);
+                nns_MATERIAL_GLES11_DESC.pTexDesc =
+                    new AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC[nns_MATERIAL_GLES11_DESC.nTex];
+                for (int i = 0; i < nns_MATERIAL_GLES11_DESC.nTex; i++)
                 {
-                    nns_MATERIAL_GLES11_DESC.pTexDesc[i] = AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC.Read( reader, data0Pos );
+                    try
+                    {
+                        nns_MATERIAL_GLES11_DESC.pTexDesc[i] =
+                            AppMain.NNS_MATERIAL_GLES11_TEXMAP_DESC.Read(reader, data0Pos);
+                    }
+                    catch (Exception e)
+                    {
+                        nns_MATERIAL_GLES11_DESC.pTexDesc[i] = new NNS_MATERIAL_GLES11_TEXMAP_DESC()
+                        {
+                            EnvMode = 8448,
+                            LODBias = 0,
+                            Offset = new NNS_TEXCOORD() {u = 0, v = 0},
+                            Scale = new NNS_TEXCOORD(1,1),
+                            fType = 1073742080,
+                            WrapS = 104797,
+                            WrapT = 104787,
+                            iTexIdx = i
+                        };
+                    }
                 }
-                reader.BaseStream.Seek( position, 0 );
+
+                reader.BaseStream.Seek(position, 0);
             }
+
             return nns_MATERIAL_GLES11_DESC;
         }
 
@@ -324,7 +351,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001ED6 RID: 7894 RVA: 0x0013C624 File Offset: 0x0013A824
-        public NNS_MATERIAL_GLES11_DESC( AppMain.NNS_MATERIAL_GLES11_DESC desc )
+        public NNS_MATERIAL_GLES11_DESC(AppMain.NNS_MATERIAL_GLES11_DESC desc)
         {
             this.fFlag = desc.fFlag;
             this.User = desc.User;
@@ -335,7 +362,7 @@ public partial class AppMain
         }
 
         // Token: 0x06001ED7 RID: 7895 RVA: 0x0013C680 File Offset: 0x0013A880
-        public AppMain.NNS_MATERIAL_GLES11_DESC Assign( AppMain.NNS_MATERIAL_GLES11_DESC desc )
+        public AppMain.NNS_MATERIAL_GLES11_DESC Assign(AppMain.NNS_MATERIAL_GLES11_DESC desc)
         {
             this.fFlag = desc.fFlag;
             this.User = desc.User;

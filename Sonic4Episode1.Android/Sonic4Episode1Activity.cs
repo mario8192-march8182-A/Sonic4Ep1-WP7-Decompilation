@@ -20,7 +20,6 @@ namespace Sonic4Episode1.Android
         {
             base.OnCreate(bundle);
             var g = new Sonic4Ep1();
-            g.SetSaveContentPath(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData));
             SetContentView((View)g.Services.GetService(typeof(View)));
             g.Run();
         }

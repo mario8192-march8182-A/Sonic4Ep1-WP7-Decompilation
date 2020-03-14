@@ -364,7 +364,7 @@ public partial class AppMain
     }
 
     // Token: 0x060010B9 RID: 4281 RVA: 0x00093254 File Offset: 0x00091454
-    private static void gmBoss3ExitFunc( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss3ExitFunc( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obj_work_parts = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmBoss3MgrDeleteObject( obj_work_parts );
@@ -482,7 +482,7 @@ public partial class AppMain
     }
 
     // Token: 0x060010C2 RID: 4290 RVA: 0x0009350C File Offset: 0x0009170C
-    private static void gmBoss3BodyExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss3BodyExit( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_BOSS3_BODY_WORK gms_BOSS3_BODY_WORK = (AppMain.GMS_BOSS3_BODY_WORK)AppMain.mtTaskGetTcbWork(tcb);
         OBS_OBJECT_WORK obj_work = gms_BOSS3_BODY_WORK.ene_3d.ene_com.obj_work;

@@ -188,7 +188,7 @@ public partial class AppMain
     }
 
     // Token: 0x060017AA RID: 6058 RVA: 0x000D15C8 File Offset: 0x000CF7C8
-    private static void gmGmkSeesawExitTCB( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkSeesawExitTCB( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_SEESAW_WORK gms_GMK_SEESAW_WORK = (AppMain.GMS_GMK_SEESAW_WORK)AppMain.mtTaskGetTcbWork(tcb);
         short[] array = AppMain.seesaw_alive;

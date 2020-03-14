@@ -29,7 +29,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000653 RID: 1619 RVA: 0x000382F8 File Offset: 0x000364F8
-    private static void gmGmkWaterSliderEffectDestFunc( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkWaterSliderEffectDestFunc( MTS_TASK_TCB tcb )
     {
         if ( AppMain.g_gm_gmk_water_slider_se_handle != null )
         {
@@ -264,7 +264,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000661 RID: 1633 RVA: 0x0003887C File Offset: 0x00036A7C
-    private static void gmGmkWaterSliderDestFunc( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkWaterSliderDestFunc( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_WATER_SLIDER_WORK gms_GMK_WATER_SLIDER_WORK = (AppMain.GMS_GMK_WATER_SLIDER_WORK)AppMain.mtTaskGetTcbWork(tcb);
         AppMain.ObjAction3dNNMotionRelease( gms_GMK_WATER_SLIDER_WORK.obj_3d_parts );

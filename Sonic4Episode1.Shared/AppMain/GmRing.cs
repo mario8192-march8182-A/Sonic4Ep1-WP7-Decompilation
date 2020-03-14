@@ -312,7 +312,7 @@ public partial class AppMain
     // Token: 0x06000D95 RID: 3477 RVA: 0x00076A90 File Offset: 0x00074C90
     public static void GmRingInit()
     {
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmRingMain, AppMain.gmRingDest, 0U, 0, 7680U, 5, () => new AppMain.GMS_RING_SYS_WORK(), "GM RING MAIN");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(AppMain.gmRingMain, AppMain.gmRingDest, 0U, 0, 7680U, 5, () => new AppMain.GMS_RING_SYS_WORK(), "GM RING MAIN");
         if ( mts_TASK_TCB == null )
         {
             return;
@@ -362,7 +362,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D96 RID: 3478 RVA: 0x00076CF4 File Offset: 0x00074EF4
-    public static void gmRingMain( AppMain.MTS_TASK_TCB tcb )
+    public static void gmRingMain( MTS_TASK_TCB tcb )
     {
         if ( ( AppMain.gm_ring_sys_work.flag & 1U ) != 0U )
         {
@@ -784,7 +784,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D9B RID: 3483 RVA: 0x00077E68 File Offset: 0x00076068
-    public static void gmRingDest( AppMain.MTS_TASK_TCB tcb )
+    public static void gmRingDest( MTS_TASK_TCB tcb )
     {
         for ( AppMain.GMS_RING_WORK gms_RING_WORK = AppMain.gm_ring_sys_work.ring_list_start; gms_RING_WORK != null; gms_RING_WORK = gms_RING_WORK.post_ring )
         {
@@ -1016,6 +1016,7 @@ public partial class AppMain
     // Token: 0x06000DA3 RID: 3491 RVA: 0x000784AC File Offset: 0x000766AC
     public static void GmRingGetSE()
     {
+#if !NICE_PHYSICS
         bool flag = true;
         if ( AppMain.gm_ring_sys_work.ring_se_cnt >= 1 )
         {
@@ -1043,6 +1044,11 @@ public partial class AppMain
             GmSound.PlaySE( "Ring1R", AppMain.gm_ring_sys_work.h_snd_ring[1] );
         }
         AppMain.gm_ring_sys_work.ring_se_cnt++;
+#else
+        GmSound.PlaySE("Ring1");
+        GmSound.PlaySE("RingJingle" + random.Next(1, 4));
+#endif
+
     }
 
     // Token: 0x06000DA4 RID: 3492 RVA: 0x0007854E File Offset: 0x0007674E

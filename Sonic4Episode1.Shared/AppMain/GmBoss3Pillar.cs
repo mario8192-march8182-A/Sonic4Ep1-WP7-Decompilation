@@ -447,7 +447,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013E5 RID: 5093 RVA: 0x000B0428 File Offset: 0x000AE628
-    private static void gmBoss3PillarDestFunc( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss3PillarDestFunc( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_BOSS3_PILLAR_MAIN_WORK gms_GMK_BOSS3_PILLAR_MAIN_WORK = (AppMain.GMS_GMK_BOSS3_PILLAR_MAIN_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( gms_GMK_BOSS3_PILLAR_MAIN_WORK.effect_work != null )
@@ -779,7 +779,7 @@ public partial class AppMain
     }
 
     // Token: 0x060013F2 RID: 5106 RVA: 0x000B0EF8 File Offset: 0x000AF0F8
-    private static void gmBoss3PillarWallDestFunc( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss3PillarWallDestFunc( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_BOSS3_PILLAR_WALL_WORK gms_GMK_BOSS3_PILLAR_WALL_WORK = (AppMain.GMS_GMK_BOSS3_PILLAR_WALL_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( gms_GMK_BOSS3_PILLAR_WALL_WORK.effect_work != null )

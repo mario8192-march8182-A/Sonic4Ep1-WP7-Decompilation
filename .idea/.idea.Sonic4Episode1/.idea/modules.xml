@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/.idea.Sonic4Episode1/Sonic4Episode1.Android.iml" filepath="$PROJECT_DIR$/.idea/.idea.Sonic4Episode1/Sonic4Episode1.Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/.idea.Sonic4Episode1/riderModule.iml" filepath="$PROJECT_DIR$/.idea/.idea.Sonic4Episode1/riderModule.iml" />
     </modules>
   </component>

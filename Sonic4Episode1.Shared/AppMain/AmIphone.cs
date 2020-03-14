@@ -316,10 +316,11 @@ public partial class AppMain
     {
         OpenGL.init(m_game, m_graphicsDevice);
 
+        var scalar = 1f;
         var scaledWidth = 480f;
         var scaledHeight = 320f;
-
-        ScaleProportions(ref scaledWidth, ref scaledHeight, port.Width, port.Height, out var scalar);
+       
+        ScaleProportions(ref scaledWidth, ref scaledHeight, port.Width, port.Height, out scalar);
 
         OpenGL.glViewport(0, 0, (int)port.Width, (int)port.Height);
 
@@ -355,7 +356,20 @@ public partial class AppMain
 
         _am_draw_video.wide_screen = true;
         _am_draw_video.refresh_rate = 60f;
-        _am_draw_video.scalar = scalar * 0.75f;
+        _am_draw_video.scalar = scalar * 0.66f;
+        
+        g_gs_main_sys_info.sys_disp_width = scaledWidth;
+        g_gs_main_sys_info.sys_disp_height = scaledHeight;
+
+        if (AppMain.g_gs_main_sys_info.stage_id == 9)
+        {
+            ObjInitDispParams((short)((double)AppMain.GMD_OBJ_LCD_X * 1.42), (short)((double)AppMain.GMD_OBJ_LCD_X * 1.42), (float)AppMain.GSD_DISP_WIDTH, (float)AppMain.GSD_DISP_HEIGHT);
+        }
+        else
+        {
+            ObjInitDispParams((short)AppMain.GSD_DISP_WIDTH, (short)AppMain.GSD_DISP_HEIGHT, (float)AppMain.GSD_DISP_WIDTH, (float)AppMain.GSD_DISP_HEIGHT);
+        }  
+        
         amRenderInit();
         GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
     }

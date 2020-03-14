@@ -498,7 +498,7 @@ public partial class AppMain
     public class DMS_STFRL_MGR
     {
         // Token: 0x040062A5 RID: 25253
-        public AppMain.MTS_TASK_TCB tcb;
+        public MTS_TASK_TCB tcb;
     }
 
     // Token: 0x06001B7B RID: 7035 RVA: 0x000FB99C File Offset: 0x000F9B9C
@@ -651,7 +651,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B85 RID: 7045 RVA: 0x000FBE14 File Offset: 0x000FA014
-    private static void dmStaffRollProcMain( AppMain.MTS_TASK_TCB tcb )
+    private static void dmStaffRollProcMain( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_STFRL_MAIN_WORK dms_STFRL_MAIN_WORK = (AppMain.DMS_STFRL_MAIN_WORK)tcb.work;
         if ( ( dms_STFRL_MAIN_WORK.flag & 1U ) != 0U )
@@ -697,7 +697,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B86 RID: 7046 RVA: 0x000FBF3E File Offset: 0x000FA13E
-    private static void dmStaffRollDest( AppMain.MTS_TASK_TCB tcb )
+    private static void dmStaffRollDest( MTS_TASK_TCB tcb )
     {
         if ( AppMain.dm_stfrl_is_full_staffroll )
         {

@@ -513,7 +513,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000581 RID: 1409 RVA: 0x00030544 File Offset: 0x0002E744
-    private static void gmGmkGearDest( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkGearDest( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_GEAR_WORK gms_GMK_GEAR_WORK = (AppMain.GMS_GMK_GEAR_WORK)AppMain.mtTaskGetTcbWork(tcb);
         if ( gms_GMK_GEAR_WORK.h_snd_gear != null )

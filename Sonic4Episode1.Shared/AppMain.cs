@@ -19534,7 +19534,7 @@ public partial class AppMain
         AppMain.GMD_BOSS5_CTPLT_OBJ_COL_RECT_HEIGHT_INT = 256;
         AppMain.GMD_BOSS5_CTPLT_OBJ_COL_RECT_OFST_X_INT = -86;
         AppMain.GMD_BOSS5_CTPLT_OBJ_COL_RECT_OFST_Y_INT = -256;
-        AppMain.dm_logo_sega_load_tcb = new AppMain.Reference<AppMain.MTS_TASK_TCB>(null);
+        AppMain.dm_logo_sega_load_tcb = new AppMain.Reference<MTS_TASK_TCB>(null);
         AppMain.dm_logo_sega_build_tcb = null;
         AppMain.dm_logo_sega_flush_tcb = null;
         AppMain.dm_logo_sega_aos_tex = null;
@@ -20315,7 +20315,7 @@ public partial class AppMain
         AppMain.dm_save_is_task_draw = false;
         AppMain.dm_save_is_snd_build = false;
         AppMain.dm_logo_sonic_data = new AMS_AMB_HEADER[1];
-        AppMain.dm_logo_sonic_load_tcb = new AppMain.Reference<AppMain.MTS_TASK_TCB>(null);
+        AppMain.dm_logo_sonic_load_tcb = new AppMain.Reference<MTS_TASK_TCB>(null);
         AppMain.dm_logo_sonic_build_tcb = null;
         AppMain.dm_logo_sonic_flush_tcb = null;
         AppMain.dm_logo_sonic_aos_tex = null;
@@ -22767,7 +22767,6 @@ public partial class AppMain
         };
         AppMain.gmGmkSsOblongDrawFunctvx = null;
         AppMain.gm_gmk_splring_obj_3d_list = null;
-        AppMain.gm_gmk_pmarker_obj_3d_list = null;
         AppMain.GMD_BOSS5_DEFAULT_BLEND_SPD = 0.125f;
         AppMain.GMD_BOSS5_LIFE = 33;
         AppMain.GMD_BOSS5_STRONG_MODE_THRESHOLD_LIFE = 17;
@@ -27156,7 +27155,7 @@ public partial class AppMain
             AppMain.GmGmkPistonUpInit,
             AppMain.GmGmkPistonDownInit,
             AppMain.GmGmkLandInit,
-            AppMain.GmGmkPointMarkerInit,
+            GmGmkPointMarker.Init,
             AppMain.GmGmkBreakObjInit,
             AppMain.GmGmkFlagChangeInit,
             AppMain.GmGmkCamScrLimitInit,
@@ -34367,7 +34366,7 @@ public partial class AppMain
             new AppMain.GMS_GMK_ANIMAL_PARAM(5120, -16384, 864),
             new AppMain.GMS_GMK_ANIMAL_PARAM(5120, -16384, 480)
         };
-        AppMain.dm_titleop_load_tcb = new AppMain.Reference<AppMain.MTS_TASK_TCB>(null);
+        AppMain.dm_titleop_load_tcb = new AppMain.Reference<MTS_TASK_TCB>(null);
         AppMain.dm_titleop_build_tcb = null;
         AppMain.dm_titleop_flush_tcb = null;
         AppMain.dm_titleop_mgr_tcb = null;
@@ -34531,19 +34530,19 @@ public partial class AppMain
             {
                 new NNS_VECTOR(0f, 3.1496513f, 0f),
                 new NNS_VECTOR(0f, -54.510956f, 0f),
-                new NNS_VECTOR(64f, 3.1496513f, -1f),
-                new NNS_VECTOR(64f, -54.510956f, -1f)
+                new NNS_VECTOR(64f, 3.1496513f, 0f),
+                new NNS_VECTOR(64f, -54.510956f, 0f)
             },
             new NNS_VECTOR[]
             {
                 new NNS_VECTOR(0f, -5.4280963f, 0f),
                 new NNS_VECTOR(64f, -37.42803f, 0f),
-                new NNS_VECTOR(0f, 0.83844805f, -1f),
+                new NNS_VECTOR(0f, 0.83844805f, 0f),
                 new NNS_VECTOR(64f, -31.161482f, 0f)
             },
             new NNS_VECTOR[]
             {
-                new NNS_VECTOR(0f, 0.83844805f, -1f),
+                new NNS_VECTOR(0f, 0.83844805f, 0f),
                 new NNS_VECTOR(64f, -31.161482f, 0f),
                 new NNS_VECTOR(0f, -5.4280963f, 0f),
                 new NNS_VECTOR(64f, -37.42803f, 0f)
@@ -34552,15 +34551,15 @@ public partial class AppMain
             {
                 new NNS_VECTOR(-20.63973f, -54.4f, 0f),
                 new NNS_VECTOR(0f, -54.4f, 0f),
-                new NNS_VECTOR(-20.63973f, 2.9215617f, -1f),
-                new NNS_VECTOR(0f, 2.9215617f, -1f)
+                new NNS_VECTOR(-20.63973f, 2.9215617f, 0f),
+                new NNS_VECTOR(0f, 2.9215617f, 0f)
             },
             new NNS_VECTOR[]
             {
                 new NNS_VECTOR(0f, -54.4f, 0f),
                 new NNS_VECTOR(20.63973f, -54.4f, 0f),
-                new NNS_VECTOR(0f, 2.9215617f, -1f),
-                new NNS_VECTOR(20.63973f, 2.9215617f, -1f)
+                new NNS_VECTOR(0f, 2.9215617f, 0f),
+                new NNS_VECTOR(20.63973f, 2.9215617f, 0f)
             }
         };
         AppMain.gm_gmk_pulley_tex = new NNS_TEXCOORD[][]
@@ -84376,10 +84375,10 @@ public partial class AppMain
     private static AppMain.AMS_TRAIL_INTERFACE pTr = AppMain.AmTrailGlobal;
 
     // Token: 0x04003E0D RID: 15885
-    private static AppMain.MTS_TASK_TCB gm_pause_tcb = null;
+    private static MTS_TASK_TCB gm_pause_tcb = null;
 
     // Token: 0x04003E0E RID: 15886
-    private static AppMain.MTS_TASK_TCB gm_pad_vib_tcb = null;
+    private static MTS_TASK_TCB gm_pad_vib_tcb = null;
 
     // Token: 0x04003E0F RID: 15887
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_slot_obj_3d_list = null;
@@ -84603,7 +84602,7 @@ public partial class AppMain
     private static AppMain.GMS_EVE_MGR_WORK g_gm_eve_mgr_work;
 
     // Token: 0x04003E3A RID: 15930
-    private static AppMain.MTS_TASK_TCB gm_eve_mgr_tcb;
+    private static MTS_TASK_TCB gm_eve_mgr_tcb;
 
     // Token: 0x04003E3B RID: 15931
     public static AppMain.GMS_EVE_DATA_EV_HEADER gm_eve_data;
@@ -85095,16 +85094,16 @@ public partial class AppMain
     public static AppMain.GMS_MAIN_SYSTEM g_gm_main_system;
 
     // Token: 0x04003F0B RID: 16139
-    private static AppMain.MTS_TASK_TCB gm_main_load_wait_tcb;
+    private static MTS_TASK_TCB gm_main_load_wait_tcb;
 
     // Token: 0x04003F0C RID: 16140
-    private static AppMain.MTS_TASK_TCB gm_main_release_wait_tcb;
+    private static MTS_TASK_TCB gm_main_release_wait_tcb;
 
     // Token: 0x04003F0D RID: 16141
-    private static AppMain.MTS_TASK_TCB gm_main_load_bossbattle_tcb;
+    private static MTS_TASK_TCB gm_main_load_bossbattle_tcb;
 
     // Token: 0x04003F0E RID: 16142
-    private static AppMain.MTS_TASK_TCB gm_main_release_bossbattle_tcb;
+    private static MTS_TASK_TCB gm_main_release_bossbattle_tcb;
 
     // Token: 0x04003F0F RID: 16143
     private static OpenGL.glArray4f[] LightColor;
@@ -85320,7 +85319,7 @@ public partial class AppMain
     private static object obj_draw_material_cb_param;
 
     // Token: 0x04003F56 RID: 16214
-    private static AppMain.MTS_TASK_TCB obj_draw_effect_server_tcb;
+    private static MTS_TASK_TCB obj_draw_effect_server_tcb;
 
     // Token: 0x04003F57 RID: 16215
     public static AppMain.TaskProc _objDrawStart_DT;
@@ -85750,7 +85749,7 @@ public partial class AppMain
     private static int[] g_gm_gamedat_bossbattle_stage_id_tbl;
 
     // Token: 0x04003FE5 RID: 16357
-    private static AppMain.MTS_TASK_TCB gm_gamedat_load_tcb;
+    private static MTS_TASK_TCB gm_gamedat_load_tcb;
 
     // Token: 0x04003FE6 RID: 16358
     private static AppMain.GMS_GAMEDAT_LOAD_WORK gm_gamedat_load_work;
@@ -86230,7 +86229,7 @@ public partial class AppMain
     public static readonly AppMain.GMS_GAMEDAT_LOAD_INFO[] gm_gamedat_tbl_gimmick_info_tbl;
 
     // Token: 0x04004085 RID: 16517
-    private static AppMain.MTS_TASK_TCB gm_fix_tcb;
+    private static MTS_TASK_TCB gm_fix_tcb;
 
     // Token: 0x04004086 RID: 16518
     private static object[] gm_fix_texamb_list;
@@ -86434,13 +86433,13 @@ public partial class AppMain
     public static short GMD_BOSS5_CTPLT_OBJ_COL_RECT_OFST_Y_INT;
 
     // Token: 0x040040C9 RID: 16585
-    public static AppMain.Reference<AppMain.MTS_TASK_TCB> dm_logo_sega_load_tcb;
+    public static AppMain.Reference<MTS_TASK_TCB> dm_logo_sega_load_tcb;
 
     // Token: 0x040040CA RID: 16586
-    public static AppMain.MTS_TASK_TCB dm_logo_sega_build_tcb;
+    public static MTS_TASK_TCB dm_logo_sega_build_tcb;
 
     // Token: 0x040040CB RID: 16587
-    public static AppMain.MTS_TASK_TCB dm_logo_sega_flush_tcb;
+    public static MTS_TASK_TCB dm_logo_sega_flush_tcb;
 
     // Token: 0x040040CC RID: 16588
     public static AppMain.AOS_TEXTURE[] dm_logo_sega_aos_tex;
@@ -86771,13 +86770,13 @@ public partial class AppMain
     private static readonly AMS_AMB_HEADER[] dm_logo_sonic_data;
 
     // Token: 0x04004143 RID: 16707
-    public static AppMain.Reference<AppMain.MTS_TASK_TCB> dm_logo_sonic_load_tcb;
+    public static AppMain.Reference<MTS_TASK_TCB> dm_logo_sonic_load_tcb;
 
     // Token: 0x04004144 RID: 16708
-    public static AppMain.MTS_TASK_TCB dm_logo_sonic_build_tcb;
+    public static MTS_TASK_TCB dm_logo_sonic_build_tcb;
 
     // Token: 0x04004145 RID: 16709
-    public static AppMain.MTS_TASK_TCB dm_logo_sonic_flush_tcb;
+    public static MTS_TASK_TCB dm_logo_sonic_flush_tcb;
 
     // Token: 0x04004146 RID: 16710
     public static AppMain.AOS_TEXTURE[] dm_logo_sonic_aos_tex;
@@ -87089,7 +87088,7 @@ public partial class AppMain
     private static AppMain.AOS_TEXTURE[] gm_start_msg_aos_tex;
 
     // Token: 0x040041B0 RID: 16816
-    private static AppMain.MTS_TASK_TCB gm_start_msg_tcb;
+    private static MTS_TASK_TCB gm_start_msg_tcb;
 
     // Token: 0x040041B1 RID: 16817
     private static bool gm_start_msg_end_state;
@@ -87107,7 +87106,7 @@ public partial class AppMain
   
 
     // Token: 0x040041C6 RID: 16838
-    private static AppMain.MTS_TASK_TCB gm_over_tcb;
+    private static MTS_TASK_TCB gm_over_tcb;
 
     // Token: 0x040041C7 RID: 16839
     private static AMS_AMB_HEADER[] gm_over_texamb_list;
@@ -87147,9 +87146,6 @@ public partial class AppMain
 
     // Token: 0x040041D3 RID: 16851
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_splring_obj_3d_list;
-
-    // Token: 0x040041D4 RID: 16852
-    private static AppMain.OBS_ACTION3D_NN_WORK[] gm_gmk_pmarker_obj_3d_list;
 
     // Token: 0x040041D5 RID: 16853
     private static float GMD_BOSS5_DEFAULT_BLEND_SPD;
@@ -87722,7 +87718,7 @@ public partial class AppMain
     private static bool dm_title_is_title_start;
 
     // Token: 0x04004293 RID: 17043
-    private static AppMain.MTS_TASK_TCB dm_snd_bgm_player_tcb;
+    private static MTS_TASK_TCB dm_snd_bgm_player_tcb;
 
     // Token: 0x04004294 RID: 17044
     private static uint dm_snd_bgm_player_flag;
@@ -87908,7 +87904,7 @@ public partial class AppMain
     private static int[] g_gm_start_demo_action_node_flag_act;
 
     // Token: 0x040042D2 RID: 17106
-    private static AppMain.MTS_TASK_TCB gm_spl_tcb;
+    private static MTS_TASK_TCB gm_spl_tcb;
 
     // Token: 0x040042D3 RID: 17107
     private static uint[] gm_spl_stage_init_time;
@@ -87923,7 +87919,7 @@ public partial class AppMain
     public static short g_gm_ring_size;
 
     // Token: 0x040042D7 RID: 17111
-    public static AppMain.MTS_TASK_TCB gm_ring_tcb;
+    public static MTS_TASK_TCB gm_ring_tcb;
 
     // Token: 0x040042D8 RID: 17112
     public static AppMain.GMS_RING_SYS_WORK gm_ring_sys_work;
@@ -88454,7 +88450,7 @@ public partial class AppMain
     private static int[][] g_gm_boss3_battle_pattern_per;
 
     // Token: 0x0400438E RID: 17294
-    private static AppMain.MTS_TASK_TCB iz_fade_tcb;
+    private static MTS_TASK_TCB iz_fade_tcb;
 
     // Token: 0x0400438F RID: 17295
     private static readonly byte[][] iz_fade_color;
@@ -88706,7 +88702,7 @@ public partial class AppMain
     public static ushort[] g_gm_decorate_size_tbl;
 
     // Token: 0x040043E2 RID: 17378
-    private static AppMain.MTS_TASK_TCB gm_ending_tcb;
+    private static MTS_TASK_TCB gm_ending_tcb;
 
     // Token: 0x040043E3 RID: 17379
     private static AppMain.OBS_ACTION3D_NN_WORK[] gm_ending_obj_3d_list;
@@ -88887,7 +88883,7 @@ public partial class AppMain
     private static int[] dmStgSlctSetScoreDispFrame_time_digit;
 
     // Token: 0x0400441A RID: 17434
-    private static AppMain.MTS_TASK_TCB sy_evt_tcb;
+    private static MTS_TASK_TCB sy_evt_tcb;
 
     // Token: 0x0400441B RID: 17435
     private static AppMain.SYS_EVT_INFO sy_evt_info;
@@ -89622,7 +89618,7 @@ public partial class AppMain
     private static AppMain.AOS_SPRITE[] aoActDrawSortState_spr_tbl;
 
     // Token: 0x0400450F RID: 17679
-    private static AppMain.MTS_TASK_TCB gs_task_mt_system_tcb;
+    private static MTS_TASK_TCB gs_task_mt_system_tcb;
 
     // Token: 0x04004510 RID: 17680
     private static AppMain.GSS_TASK_SYS gs_task_mtsys;
@@ -89761,7 +89757,7 @@ public partial class AppMain
     public static readonly AppMain.AMS_DRAWSTATE g_obj_draw_3dnn_draw_state;
 
     // Token: 0x04004543 RID: 17731
-    private static AppMain.MTS_TASK_TCB obj_ptcb;
+    private static MTS_TASK_TCB obj_ptcb;
 
     // Token: 0x04004544 RID: 17732
     private static AppMain.OBS_DATA_WORK[] obj_data_work_save;
@@ -89822,7 +89818,7 @@ public partial class AppMain
     private static int gm_map_release_obj3d_num;
 
     // Token: 0x04004567 RID: 17767
-    private static AppMain.MTS_TASK_TCB gm_map_tcb;
+    private static MTS_TASK_TCB gm_map_tcb;
 
     // Token: 0x04004568 RID: 17768
     private static uint gm_map_draw_command_state;
@@ -89924,16 +89920,16 @@ public partial class AppMain
     private static readonly AppMain.GMS_GMK_ANIMAL_PARAM[] g_gm_gmk_animal_speed_param;
 
     // Token: 0x04004589 RID: 17801
-    private static AppMain.Reference<AppMain.MTS_TASK_TCB> dm_titleop_load_tcb;
+    private static AppMain.Reference<MTS_TASK_TCB> dm_titleop_load_tcb;
 
     // Token: 0x0400458A RID: 17802
-    private static AppMain.MTS_TASK_TCB dm_titleop_build_tcb;
+    private static MTS_TASK_TCB dm_titleop_build_tcb;
 
     // Token: 0x0400458B RID: 17803
-    private static AppMain.MTS_TASK_TCB dm_titleop_flush_tcb;
+    private static MTS_TASK_TCB dm_titleop_flush_tcb;
 
     // Token: 0x0400458C RID: 17804
-    private static AppMain.MTS_TASK_TCB dm_titleop_mgr_tcb;
+    private static MTS_TASK_TCB dm_titleop_mgr_tcb;
 
     // Token: 0x0400458D RID: 17805
     private static bool dm_titleop_build_state;
@@ -90185,7 +90181,7 @@ public partial class AppMain
     private static NNS_VECTOR4D _amDrawLine_cross;
 
     // Token: 0x040045E1 RID: 17889
-    private static AppMain.MTS_TASK_TCB gm_ply_efct_trail_sys_tcb;
+    private static MTS_TASK_TCB gm_ply_efct_trail_sys_tcb;
 
     // Token: 0x040045E2 RID: 17890
     private static readonly AppMain.GMS_PLY_EFCT_TRAIL_COLOR gm_ply_efct_trail_color_son;
@@ -90534,6 +90530,8 @@ public partial class AppMain
 
         // Token: 0x04005690 RID: 22160
         public int z;
+        
+        public override string ToString() => $"({x}, {y}, {z})";
     }
 
     // Token: 0x0200021B RID: 539

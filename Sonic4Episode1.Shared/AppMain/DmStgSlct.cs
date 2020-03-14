@@ -645,7 +645,7 @@ public partial class AppMain
     private void dmStgSlctInit()
     {
         AppMain.AoActSysSetDrawStateEnable(false);
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmStgSlctProcMain, this.dmStgSlctDest, 0U, 0, 8192U, 0, () => new AppMain.DMS_STGSLCT_MAIN_WORK(), "STGSLCT_MAIN");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmStgSlctProcMain, this.dmStgSlctDest, 0U, 0, 8192U, 0, () => new AppMain.DMS_STGSLCT_MAIN_WORK(), "STGSLCT_MAIN");
         AppMain.DMS_STGSLCT_MAIN_WORK dms_STGSLCT_MAIN_WORK = (AppMain.DMS_STGSLCT_MAIN_WORK)mts_TASK_TCB.work;
         if (AppMain.GeEnvGetDecideKey() == AppMain.GSE_DECIDE_KEY.GSD_DECIDE_KEY_O)
         {
@@ -973,7 +973,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001327 RID: 4903 RVA: 0x000A6B9C File Offset: 0x000A4D9C
-    private void dmStgSlctProcMain(AppMain.MTS_TASK_TCB tcb)
+    private void dmStgSlctProcMain(MTS_TASK_TCB tcb)
     {
         AppMain.DMS_STGSLCT_MAIN_WORK dms_STGSLCT_MAIN_WORK = (AppMain.DMS_STGSLCT_MAIN_WORK)tcb.work;
         if ((dms_STGSLCT_MAIN_WORK.flag & 1U) != 0U)
@@ -1015,7 +1015,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001328 RID: 4904 RVA: 0x000A6CC4 File Offset: 0x000A4EC4
-    private void dmStgSlctDest(AppMain.MTS_TASK_TCB tcb)
+    private void dmStgSlctDest(MTS_TASK_TCB tcb)
     {
     }
 

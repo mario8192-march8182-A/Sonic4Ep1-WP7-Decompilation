@@ -16,7 +16,7 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Sonic4Episode1.UWP.App">
       <uap:VisualElements DisplayName="Sonic 4: Episode 1 Deluxe" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="Sonic 4: Episode 1" BackgroundColor="#464646">
-        <uap:DefaultTile Square310x310Logo="Assets\LargeTile.png"  Square71x71Logo="Assets\SmallTile.png">
+        <uap:DefaultTile Square71x71Logo="Assets\SmallTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
         <uap:InitialRotationPreference>

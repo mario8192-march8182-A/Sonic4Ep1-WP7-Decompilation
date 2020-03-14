@@ -33,24 +33,41 @@ public partial class AppMain
             else
             {
                 string fileName = (~pointer2).Filename;
-                int num = fileName.LastIndexOf(".pvr", StringComparison.OrdinalIgnoreCase);
-                if (num > 0)
-                {
-                    fileName = fileName.Remove(num);
-                    fileName += ".PNG";
-                }
-                num = Array.IndexOf<string>(amb.files, fileName);
-                Texture2D texture2D;
-                if (amb.buf[num] != null)
+                fileName = Path.ChangeExtension(fileName, "PNG");
+                var num = Math.Max(Array.IndexOf(amb.files, fileName), Array.IndexOf(amb.files, (~pointer2).Filename));
+                Texture2D texture2D = null;
+                if (amb.buf.ElementAtOrDefault(num) != null)
                 {
                     texture2D = (Texture2D)amb.buf[num];
                 }
                 else
                 {
-                    using (var memoryStream = new MemoryStream(amb.data, amb.offsets[num], amb.data.Length - amb.offsets[num]))
+                    var dir = Path.Combine(Directory.GetCurrentDirectory(), "ExternalTextures");
+                    var path = Path.Combine(dir, fileName);
+                    if (File.Exists(path))
                     {
-                        texture2D = Texture2D.FromStream(AppMain.m_game.GraphicsDevice, memoryStream);
-                        amb.buf[num] = texture2D;
+                        using (var file = File.OpenRead(path))
+                        {
+                            texture2D = Texture2D.FromStream(AppMain.m_game.GraphicsDevice, file);
+                            amb.buf[num] = texture2D;
+                        }
+                    }
+                    else
+                    {
+                        using (var memoryStream = new MemoryStream(amb.data, amb.offsets[num], amb.data.Length - amb.offsets[num]))
+                        {
+                            if (Directory.Exists(dir))
+                            {
+                                using (var file = File.Create(path))
+                                {
+                                    memoryStream.CopyTo(file);
+                                    memoryStream.Seek(0, SeekOrigin.Begin);
+                                }
+                            }
+
+                            texture2D = Texture2D.FromStream(AppMain.m_game.GraphicsDevice, memoryStream);
+                            amb.buf[num] = texture2D;
+                        }
                     }
                 }
                 result = AppMain.amTextureLoad(pointer, pointer2, filepath, texture2D, 0);

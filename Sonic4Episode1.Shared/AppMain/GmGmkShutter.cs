@@ -152,7 +152,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000FD1 RID: 4049 RVA: 0x00089E98 File Offset: 0x00088098
-    private static void gmGmkShutterDestFuncForFinaleZone( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkShutterDestFuncForFinaleZone( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_GMK_SHUTTER_WORK gms_GMK_SHUTTER_WORK = (AppMain.GMS_GMK_SHUTTER_WORK)AppMain.mtTaskGetTcbWork(tcb);
         AppMain.ObjAction3dNNMotionRelease( gms_GMK_SHUTTER_WORK.obj_3d_parts );

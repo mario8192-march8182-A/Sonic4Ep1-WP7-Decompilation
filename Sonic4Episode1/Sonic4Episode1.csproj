@@ -6,6 +6,14 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>TRACE;NICE_PHYSICS;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants>TRACE;NICE_PHYSICS;</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Include="Content\SOUND\S4EP1_00_Z1A1_Normal_Mixed4816.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

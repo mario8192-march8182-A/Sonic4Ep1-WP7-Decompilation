@@ -27,6 +27,7 @@ public class GmPlayer
                     gm_player_motion_list_tr_son_right
                 };
             }
+
             return _g_gm_player_motion_right_tbl;
         }
     }
@@ -50,6 +51,7 @@ public class GmPlayer
                     gm_player_motion_list_tr_son_left
                 };
             }
+
             return _g_gm_player_motion_left_tbl;
         }
     }
@@ -73,6 +75,7 @@ public class GmPlayer
                     gm_player_model_list_tr_son
                 };
             }
+
             return _g_gm_player_model_tbl;
         }
     }
@@ -96,6 +99,7 @@ public class GmPlayer
                     gm_player_mtn_blend_setting_tr_son
                 };
             }
+
             return _g_gm_player_mtn_blend_setting_tbl;
         }
     }
@@ -328,18 +332,30 @@ public class GmPlayer
 
         g_gm_player_parameter = new AppMain.GMS_PLY_PARAMETER[]
         {
+#if NICE_PHYSICS
+            // sonic phy params
+            new AppMain.GMS_PLY_PARAMETER(290, 55296, 640, 12288 * 2, 8192, ushort.MaxValue, 32, 8192, 1800, 180,
+                96, 24, 192, ushort.MaxValue, 640, 1280, 1280, 23130, 680, int.MaxValue, 7168, 256,
+                36864, 2048, 145, 36864, 128, 12288),
+#else
+            // sonic phy params
             new AppMain.GMS_PLY_PARAMETER(145, 36864, 1024, 12288, 8192, 40960, 128, 8192, 1800, 180, 96, 24, 192,
                 53248, 640, 1280, 1280, 23130, 680, 61440, 7168, 256, 36864, 2048, 145, 36864, 128, 12288),
+#endif
+            // super sonic phy params
             new AppMain.GMS_PLY_PARAMETER(435, 61440, 2048, 36864, 24576, 61440, 128, 12288, 1800, 180, 96, 24, 288,
                 61440, 960, 1280, 1280, 32703, 680, 61440, 7168, 768, 61440, 4096, 435, 61440, 128, 18432),
+
             new AppMain.GMS_PLY_PARAMETER(145, 36864, 1024, 12288, 8192, 40960, 128, 8192, 1800, 180, 96, 24, 512,
                 20480, 640, 1280, 1280, 16384, 312, 24576, 7168, 256, 36864, 2048, 145, 36864, 128, 12288),
             new AppMain.GMS_PLY_PARAMETER(145, 36864, 1024, 12288, 8192, 40960, 128, 8192, 1800, 180, 96, 24, 192,
                 53248, 640, 1280, 1280, 23130, 680, 61440, 7168, 256, 36864, 2048, 145, 36864, 128, 12288),
+
             new AppMain.GMS_PLY_PARAMETER(435, 61440, 2048, 36864, 24576, 61440, 128, 8192, 1800, 180, 96, 24, 288,
                 61440, 640, 1280, 1280, 32703, 680, 61440, 7168, 768, 61440, 4096, 435, 61440, 128, 18432),
             new AppMain.GMS_PLY_PARAMETER(145, 24576, 512, 12288, 8192, 40960, 128, 24576, 1800, 180, 96, 240, 512,
                 40960, 512, 512, 512, 19275, 680, 61440, 7168, 256, 36864, 512, 145, 36864, 128, 12288),
+
             new AppMain.GMS_PLY_PARAMETER(435, 40960, 512, 36864, 24576, 61440, 128, 30720, 1800, 180, 96, 240, 512,
                 40960, 512, 512, 512, 27252, 680, 61440, 7168, 768, 61440, 1024, 435, 61440, 128, 18432)
         };
@@ -443,27 +459,27 @@ public class GmPlayer
     // Token: 0x06000AA6 RID: 2726 RVA: 0x0005DC74 File Offset: 0x0005BE74
     public static void Build()
     {
-        AMS_AMB_HEADER ams_AMB_HEADER = AmFs.readAMBFile((AMS_FS) g_gm_player_data_work[0][0].pData);
+        AMS_AMB_HEADER ambFile = AmFs.readAMBFile((AMS_FS) g_gm_player_data_work[0][0].pData);
         AMS_AMB_HEADER amb_tex = AmFs.readAMBFile((AMS_FS) g_gm_player_data_work[0][1].pData);
-        g_gm_ply_son_obj_3d_list = AppMain.New<AppMain.OBS_ACTION3D_NN_WORK>(ams_AMB_HEADER.file_num);
+        g_gm_ply_son_obj_3d_list = AppMain.New<AppMain.OBS_ACTION3D_NN_WORK>(ambFile.file_num);
         AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK> pointer =
             new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>(g_gm_ply_son_obj_3d_list);
         int i = 0;
-        while (i < ams_AMB_HEADER.file_num)
+        while (i < ambFile.file_num)
         {
-            AppMain.ObjAction3dNNModelLoad(pointer, null, null, i, ams_AMB_HEADER, null, amb_tex, 0U);
+            AppMain.ObjAction3dNNModelLoad(pointer, null, null, i, ambFile, null, amb_tex, 0U);
             i++;
             pointer = ++pointer;
         }
 
-        ams_AMB_HEADER = AmFs.readAMBFile((AMS_FS) g_gm_player_data_work[0][2].pData);
+        ambFile = AmFs.readAMBFile((AMS_FS) g_gm_player_data_work[0][2].pData);
         amb_tex = AmFs.readAMBFile((AMS_FS) g_gm_player_data_work[0][3].pData);
-        g_gm_ply_sson_obj_3d_list = AppMain.New<AppMain.OBS_ACTION3D_NN_WORK>(ams_AMB_HEADER.file_num);
+        g_gm_ply_sson_obj_3d_list = AppMain.New<AppMain.OBS_ACTION3D_NN_WORK>(ambFile.file_num);
         pointer = new AppMain.ArrayPointer<AppMain.OBS_ACTION3D_NN_WORK>(g_gm_ply_sson_obj_3d_list);
         i = 0;
-        while (i < ams_AMB_HEADER.file_num)
+        while (i < ambFile.file_num)
         {
-            AppMain.ObjAction3dNNModelLoad(pointer, null, null, i, ams_AMB_HEADER, null, amb_tex, 0U);
+            AppMain.ObjAction3dNNModelLoad(pointer, null, null, i, ambFile, null, amb_tex, 0U);
             i++;
             pointer = ++pointer;
         }
@@ -952,11 +968,26 @@ public class GmPlayer
     {
         ply_work.spd_add = g_gm_player_parameter[(int) ply_work.char_id].spd_add;
         ply_work.spd_max = g_gm_player_parameter[(int) ply_work.char_id].spd_max;
+
+        Debug.WriteLine($"spd_max: {ply_work.spd_max}, char_id: {ply_work.char_id}");
+
+#if NICE_PHYSICS
+        // TODO: this better
+        ply_work.spd1 = (int) ((double) 36864 * 0.15);
+        ply_work.spd2 = (int) ((double) 36864 * 0.3);
+        ply_work.spd3 = (int) ((double) 36864 * 0.45);
+        ply_work.spd4 = (int) ((double) 36864 * 0.6);
+        ply_work.spd5 = (int) ((double) 36864 * 0.65);
+
+#else
         ply_work.spd1 = (int) ((double) ply_work.spd_max * 0.15);
         ply_work.spd2 = (int) ((double) ply_work.spd_max * 0.3);
         ply_work.spd3 = (int) ((double) ply_work.spd_max * 0.5);
         ply_work.spd4 = (int) ((double) ply_work.spd_max * 0.7);
         ply_work.spd5 = (int) ((double) ply_work.spd_max * 0.9);
+
+#endif
+
         ply_work.spd_dec = g_gm_player_parameter[(int) ply_work.char_id].spd_dec;
         ply_work.spd_spin = g_gm_player_parameter[(int) ply_work.char_id].spd_spin;
         ply_work.spd_add_spin = g_gm_player_parameter[(int) ply_work.char_id].spd_add_spin;
@@ -1385,7 +1416,11 @@ public class GmPlayer
         ply_work.ring_num = (short) AppMain.MTM_MATH_CLIP((int) ply_work.ring_num, 0, 999);
         ply_work.ring_stage_num += add_ring;
         ply_work.ring_stage_num = (short) AppMain.MTM_MATH_CLIP((int) ply_work.ring_stage_num, 0, 9999);
-        AppMain.GmRingGetSE();
+        if (add_ring != 10)
+        {
+            AppMain.GmRingGetSE();
+        }
+
         if (AppMain.g_gs_main_sys_info.game_mode == 1)
         {
             return;
@@ -1515,6 +1550,7 @@ public class GmPlayer
     // Token: 0x06000ACA RID: 2762 RVA: 0x0005FD32 File Offset: 0x0005DF32
     public static void ItemRing10Set(GMS_PLAYER_WORK ply_work)
     {
+        GmSound.PlaySE("10Ring");
         RingGet(ply_work, 10);
     }
 
@@ -1540,11 +1576,11 @@ public class GmPlayer
     // Token: 0x06000ACD RID: 2765 RVA: 0x0005FD80 File Offset: 0x0005DF80
     public static void ActionChange(GMS_PLAYER_WORK ply_work, int act_state)
     {
-        Debug.WriteLine($"Sonic transition to action: {act_state}");
-        if (act_state == 26 || act_state == 27 || act_state == 21)
-        {
-            Debug.WriteLine(new StackTrace());
-        }
+        // Debug.WriteLine($"Sonic transition to action: {act_state}");
+        // if (act_state == 26 || act_state == 27 || act_state == 21)
+        // {
+        //     Debug.WriteLine(new StackTrace());
+        // }
 
         ply_work.prev_act_state = ply_work.act_state;
         ply_work.act_state = act_state;
@@ -1647,7 +1683,7 @@ public class GmPlayer
             ((ply_work.obj_work.disp_flag & 1U) != 0U && num2 < -4096 && (ply_work.gmk_flag & 131072U) == 0U))
         {
             flag = true;
-            ply_work.maxdash_timer = 122880;
+            ply_work.maxdash_timer = 122880 / 2;
         }
 
         int act_state;
@@ -2081,7 +2117,7 @@ public class GmPlayer
     }
 
     // Token: 0x06000AE5 RID: 2789 RVA: 0x00060B90 File Offset: 0x0005ED90
-    public static void gmPlayerExit(AppMain.MTS_TASK_TCB tcb)
+    public static void gmPlayerExit(MTS_TASK_TCB tcb)
     {
         GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK) AppMain.mtTaskGetTcbWork(tcb);
         AppMain.g_gm_main_system.ply_work[(int) gms_PLAYER_WORK.player_id] = null;
@@ -3090,6 +3126,7 @@ public class GmPlayer
     // Token: 0x06000AF8 RID: 2808 RVA: 0x00062708 File Offset: 0x00060908
     public static void gmPlayerKeyGet(GMS_PLAYER_WORK ply_work)
     {
+#if !NICE_PHYSICS
         if (ply_work.no_key_timer != 0 || (ply_work.player_flag & 4194304U) != 0U)
         {
             ply_work.no_key_timer = AppMain.ObjTimeCountDown(ply_work.no_key_timer);
@@ -3101,6 +3138,7 @@ public class GmPlayer
             ply_work.key_walk_rot_z = 0;
             return;
         }
+#endif
 
         if ((ply_work.player_flag & 4194304U) == 0U && ply_work.player_id == 0)
         {
@@ -3646,14 +3684,15 @@ public class GmPlayer
         {
             return num;
         }
-        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)ply_work;
-        ushort num4 = (ushort)(obs_OBJECT_WORK.dir.z + obs_OBJECT_WORK.dir_fall);
-        obs_COL_CHK_DATA.flag = (ushort)(obs_OBJECT_WORK.flag & 1U);
+
+        OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK) ply_work;
+        ushort num4 = (ushort) (obs_OBJECT_WORK.dir.z + obs_OBJECT_WORK.dir_fall);
+        obs_COL_CHK_DATA.flag = (ushort) (obs_OBJECT_WORK.flag & 1U);
         obs_COL_CHK_DATA.vec = 2;
         obs_COL_CHK_DATA.dir = null;
         obs_COL_CHK_DATA.attr = null;
-        ushort num5 = (ushort)((obs_OBJECT_WORK.dir.z + 8192 & 49152) >> 14);
-        num5 += (ushort)((obs_OBJECT_WORK.dir_fall + 8192 & 49152) >> 14);
+        ushort num5 = (ushort) ((obs_OBJECT_WORK.dir.z + 8192 & 49152) >> 14);
+        num5 += (ushort) ((obs_OBJECT_WORK.dir_fall + 8192 & 49152) >> 14);
         switch (num5 & 3)
         {
             case 0:
@@ -3669,6 +3708,7 @@ public class GmPlayer
                 obs_COL_CHK_DATA.vec = 0;
                 break;
         }
+
         if ((num4 & 16383) != 0)
         {
             NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
@@ -3680,27 +3720,28 @@ public class GmPlayer
             switch ((num4 & 49152) >> 14)
             {
                 case 0:
-                    num2 = (int)(obs_OBJECT_WORK.field_rect[0] - 2);
-                    num3 = (int)(obs_OBJECT_WORK.field_rect[3] + 2);
+                    num2 = (int) (obs_OBJECT_WORK.field_rect[0] - 2);
+                    num3 = (int) (obs_OBJECT_WORK.field_rect[3] + 2);
                     break;
                 case 1:
-                    num2 = (int)(obs_OBJECT_WORK.field_rect[0] - 2);
-                    num3 = (int)(obs_OBJECT_WORK.field_rect[1] - 2);
+                    num2 = (int) (obs_OBJECT_WORK.field_rect[0] - 2);
+                    num3 = (int) (obs_OBJECT_WORK.field_rect[1] - 2);
                     break;
                 case 2:
-                    num2 = (int)(obs_OBJECT_WORK.field_rect[2] + 2);
-                    num3 = (int)(obs_OBJECT_WORK.field_rect[1] - 2);
+                    num2 = (int) (obs_OBJECT_WORK.field_rect[2] + 2);
+                    num3 = (int) (obs_OBJECT_WORK.field_rect[1] - 2);
                     break;
                 case 3:
-                    num2 = (int)(obs_OBJECT_WORK.field_rect[2] + 2);
-                    num3 = (int)(obs_OBJECT_WORK.field_rect[3] + 2);
+                    num2 = (int) (obs_OBJECT_WORK.field_rect[2] + 2);
+                    num3 = (int) (obs_OBJECT_WORK.field_rect[3] + 2);
                     break;
             }
-            nns_VECTOR.x = (float)num2;
-            nns_VECTOR.y = (float)(-(float)num3);
+
+            nns_VECTOR.x = (float) num2;
+            nns_VECTOR.y = (float) (-(float) num3);
             nns_VECTOR.z = 0f;
-            nns_VECTOR2.x = (float)num2 + 10f * AppMain.nnCos((int)(-(int)num4));
-            nns_VECTOR2.y = (float)(-(float)num3) + 10f * AppMain.nnSin((int)(-(int)num4));
+            nns_VECTOR2.x = (float) num2 + 10f * AppMain.nnCos((int) (-(int) num4));
+            nns_VECTOR2.y = (float) (-(float) num3) + 10f * AppMain.nnSin((int) (-(int) num4));
             nns_VECTOR2.z = 0f;
             nns_VECTOR3.x = (nns_VECTOR3.y = (nns_VECTOR3.z = 0f));
             nns_VECTOR5.x = nns_VECTOR2.x - nns_VECTOR.x;
@@ -3709,7 +3750,8 @@ public class GmPlayer
             nns_VECTOR6.x = nns_VECTOR3.x - nns_VECTOR.x;
             nns_VECTOR6.y = nns_VECTOR3.y - nns_VECTOR.y;
             nns_VECTOR6.z = nns_VECTOR3.z - nns_VECTOR.z;
-            float num6 = AppMain.nnDotProductVector(nns_VECTOR5, nns_VECTOR6) / AppMain.nnDotProductVector(nns_VECTOR5, nns_VECTOR5);
+            float num6 = AppMain.nnDotProductVector(nns_VECTOR5, nns_VECTOR6) /
+                         AppMain.nnDotProductVector(nns_VECTOR5, nns_VECTOR5);
             nns_VECTOR4.x = nns_VECTOR.x + nns_VECTOR5.x * num6;
             nns_VECTOR4.y = nns_VECTOR.y + nns_VECTOR5.y * num6;
             nns_VECTOR4.z = nns_VECTOR.z + nns_VECTOR5.z * num6;
@@ -3728,24 +3770,25 @@ public class GmPlayer
             {
                 case 0:
                     num2 = 0;
-                    num3 = (int)obs_OBJECT_WORK.field_rect[3] << 12;
+                    num3 = (int) obs_OBJECT_WORK.field_rect[3] << 12;
                     break;
                 case 1:
-                    num2 = (int)(-(int)obs_OBJECT_WORK.field_rect[3]) << 12;
+                    num2 = (int) (-(int) obs_OBJECT_WORK.field_rect[3]) << 12;
                     num3 = 0;
                     break;
                 case 2:
                     num2 = 0;
-                    num3 = (int)(-(int)obs_OBJECT_WORK.field_rect[3]) << 12;
+                    num3 = (int) (-(int) obs_OBJECT_WORK.field_rect[3]) << 12;
                     break;
                 case 3:
-                    num2 = (int)obs_OBJECT_WORK.field_rect[3] << 12;
+                    num2 = (int) obs_OBJECT_WORK.field_rect[3] << 12;
                     num3 = 0;
                     break;
             }
         }
-        int num7 = AppMain.FXM_FLOAT_TO_FX32((float)obs_OBJECT_WORK.field_rect[2] * AppMain.nnCos((int)num4));
-        int num8 = AppMain.FXM_FLOAT_TO_FX32((float)obs_OBJECT_WORK.field_rect[2] * AppMain.nnSin((int)num4));
+
+        int num7 = AppMain.FXM_FLOAT_TO_FX32((float) obs_OBJECT_WORK.field_rect[2] * AppMain.nnCos((int) num4));
+        int num8 = AppMain.FXM_FLOAT_TO_FX32((float) obs_OBJECT_WORK.field_rect[2] * AppMain.nnSin((int) num4));
         obs_COL_CHK_DATA.pos_x = num2 + num7 + obs_OBJECT_WORK.pos.x >> 12;
         obs_COL_CHK_DATA.pos_y = num3 + num8 + obs_OBJECT_WORK.pos.y >> 12;
         int num9 = AppMain.ObjDiffCollision(obs_COL_CHK_DATA);
@@ -3753,8 +3796,9 @@ public class GmPlayer
         {
             num |= 1U;
         }
-        num7 = AppMain.FXM_FLOAT_TO_FX32((float)obs_OBJECT_WORK.field_rect[0] * AppMain.nnCos((int)num4));
-        num8 = AppMain.FXM_FLOAT_TO_FX32((float)obs_OBJECT_WORK.field_rect[0] * AppMain.nnSin((int)num4));
+
+        num7 = AppMain.FXM_FLOAT_TO_FX32((float) obs_OBJECT_WORK.field_rect[0] * AppMain.nnCos((int) num4));
+        num8 = AppMain.FXM_FLOAT_TO_FX32((float) obs_OBJECT_WORK.field_rect[0] * AppMain.nnSin((int) num4));
         obs_COL_CHK_DATA.pos_x = num2 + num7 + obs_OBJECT_WORK.pos.x >> 12;
         obs_COL_CHK_DATA.pos_y = num3 + num8 + obs_OBJECT_WORK.pos.y >> 12;
         int num10 = AppMain.ObjDiffCollision(obs_COL_CHK_DATA);
@@ -3762,6 +3806,7 @@ public class GmPlayer
         {
             num |= 2U;
         }
+
         return num;
     }
 }

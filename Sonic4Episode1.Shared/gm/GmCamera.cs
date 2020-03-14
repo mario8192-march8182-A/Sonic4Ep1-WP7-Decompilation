@@ -126,10 +126,10 @@ public class GmCamera
     public static void PosSet(int pos_x, int pos_y, int pos_z)
     {
         OBS_CAMERA obs_CAMERA = ObjCamera.Get(0);
-        float num = (float) (AppMain.GSD_DISP_WIDTH / 2f) * obs_CAMERA.scale;
-        float num2 = (float) (AppMain.GSD_DISP_HEIGHT / 2f) * obs_CAMERA.scale;
+        float num = (float) ((AppMain.GSD_DISP_WIDTH / AppMain._am_draw_video.scalar) / 2f) * obs_CAMERA.scale;
+        float num2 = (float) ((AppMain.GSD_DISP_HEIGHT / AppMain._am_draw_video.scalar) / 2f) * obs_CAMERA.scale;
         float num3 = (float) AppMain.g_gm_main_system.map_fcol.bottom -
-                     (float) (AppMain.GSD_DISP_HEIGHT / 2f) * obs_CAMERA.scale;
+                     (float) ((AppMain.GSD_DISP_HEIGHT / AppMain._am_draw_video.scalar) / 2f) * obs_CAMERA.scale;
         obs_CAMERA.pos.x = AppMain.FXM_FX32_TO_FLOAT(pos_x);
         if (obs_CAMERA.pos.x < num)
         {

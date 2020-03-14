@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -217,10 +218,11 @@ public class AmFs
         AmbChunk ambChunk = new AmbChunk(amb.data, 0, 0, amb);
         for (int i = 0; i < amb.files.Length; i++)
         {
+            Debug.WriteLine(amb.files[i]);
             ambChunk.offset = amb.offsets[i];
             ambChunk.length = amb.lengths[i];
             string extension = Path.GetExtension(amb.files[i]);
-            if (extension == ".INM" || extension == ".INV")
+            if (extension == ".INM" || extension == ".INV" || extension == ".ZNM") 
             {
                 AppMain.NNS_MOTION nns_MOTION;
                 AppMain.amMotionSetup(out nns_MOTION, ambChunk);
@@ -348,7 +350,6 @@ public class AmFs
 
     public static int amFsRead(string file_name, out byte[] buf)
     {
-        int num = 0;
         using (var stream = TitleContainer.OpenStream(file_name))
         using (var altStream = new MemoryStream())
         {
@@ -361,7 +362,6 @@ public class AmFs
 
     public static byte[] amFsRead(string file_name)
     {
-        int num = 0;
         using (var stream = TitleContainer.OpenStream(file_name))
         using (var altStream = new MemoryStream())
         {

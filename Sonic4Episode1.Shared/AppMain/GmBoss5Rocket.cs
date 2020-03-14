@@ -208,7 +208,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001058 RID: 4184 RVA: 0x0008FE8C File Offset: 0x0008E08C
-    public static void gmBoss5RocketExit( AppMain.MTS_TASK_TCB tcb )
+    public static void gmBoss5RocketExit( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_BOSS5_ROCKET_WORK rkt_work = (AppMain.GMS_BOSS5_ROCKET_WORK)AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmBoss5RocketReleaseCallbacks( rkt_work );

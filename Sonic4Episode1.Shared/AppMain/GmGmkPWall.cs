@@ -811,7 +811,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B31 RID: 6961 RVA: 0x000F8688 File Offset: 0x000F6888
-    private static void gmGmkPressWallExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkPressWallExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.mtTaskGetTcbWork(tcb);
         if ( AppMain.pwall == ( AppMain.GMS_GMK_PWALL_WORK )obs_OBJECT_WORK )

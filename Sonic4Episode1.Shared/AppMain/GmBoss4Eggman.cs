@@ -98,7 +98,7 @@ public partial class AppMain
     }
 
     // Token: 0x060005DE RID: 1502 RVA: 0x00034428 File Offset: 0x00032628
-    private static void gmBoss4EggExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss4EggExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_BOSS4_EGG_WORK gms_BOSS4_EGG_WORK = (AppMain.GMS_BOSS4_EGG_WORK)p;

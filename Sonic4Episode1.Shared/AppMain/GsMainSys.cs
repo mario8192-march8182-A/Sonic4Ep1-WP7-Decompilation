@@ -69,10 +69,10 @@ public partial class AppMain
         
 
         // Token: 0x04004B5D RID: 19293
-        public AppMain.MTS_TASK_TCB pre_tcb;
+        public MTS_TASK_TCB pre_tcb;
 
         // Token: 0x04004B5E RID: 19294
-        public AppMain.MTS_TASK_TCB post_tcb;
+        public MTS_TASK_TCB post_tcb;
 
         // Token: 0x04004B5F RID: 19295
         public uint game_time;
@@ -410,7 +410,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D13 RID: 3347 RVA: 0x00074AB8 File Offset: 0x00072CB8
-    private static void gsMainSysSystemInitMain(AppMain.MTS_TASK_TCB tcb)
+    private static void gsMainSysSystemInitMain(MTS_TASK_TCB tcb)
     {
         if (!AppMain.GsMainSysCheckLoadShaderFinished())
         {
@@ -421,7 +421,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000D14 RID: 3348 RVA: 0x00074AD9 File Offset: 0x00072CD9
-    private static void gsMainSysSystemInitMain2(AppMain.MTS_TASK_TCB tcb)
+    private static void gsMainSysSystemInitMain2(MTS_TASK_TCB tcb)
     {
         if (!AppMain.GsInitOtherIsInitialized())
         {
@@ -483,8 +483,8 @@ public partial class AppMain
     public static void GsMainSysInfoInit(AppMain.GSS_MAIN_SYS_INFO gs_main)
     {
         gs_main.Clear();
-        gs_main.sys_disp_width = 480f;
-        gs_main.sys_disp_height = 320f;
+        gs_main.sys_disp_width = _am_draw_video.width_2d;
+        gs_main.sys_disp_height = _am_draw_video.height_2d;
         gs_main.level = 1;
         gs_main.backup.Init();
     }

@@ -172,7 +172,7 @@ public partial class AppMain
                 buffer[num7].Pos.x = ( buffer[num7 + 1].Pos.x = 6.5f + num5 );
                 buffer[num7 + 2].Pos.x = ( buffer[num7 + 3].Pos.x = -6.5f + num5 );
                 buffer[num7].Pos.y = ( buffer[num7 + 2].Pos.y = 13f - num6 );
-                buffer[num7 + 1].Pos.y = ( buffer[num7 + 3].Pos.y = -1f - num6 );
+                buffer[num7 + 1].Pos.y = ( buffer[num7 + 3].Pos.y = -num6 );
                 buffer[num7].Pos.z = ( buffer[num7 + 1].Pos.z = ( buffer[num7 + 2].Pos.z = ( buffer[num7 + 3].Pos.z = -1f ) ) );
                 buffer[num7 + 4] = buffer[num7 + 2];
                 buffer[num7 + 5] = buffer[num7 + 3];

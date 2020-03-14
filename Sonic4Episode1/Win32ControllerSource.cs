@@ -11,7 +11,7 @@ namespace Sonic4Episode1
     class Win32Controller : Controller
     {
         public int index;
-        private bool doVibrate;
+        private bool doVibrate = true;
 
         public Win32Controller(int index)
         {

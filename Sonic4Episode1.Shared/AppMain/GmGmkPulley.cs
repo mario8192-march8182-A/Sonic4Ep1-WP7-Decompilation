@@ -291,7 +291,7 @@ public partial class AppMain
     }
 
     // Token: 0x06001B09 RID: 6921 RVA: 0x000F6198 File Offset: 0x000F4398
-    private static void gmGmkPulleyBaseExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmGmkPulleyBaseExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_GMK_PULLEY_WORK gms_GMK_PULLEY_WORK = (AppMain.GMS_GMK_PULLEY_WORK)p;

@@ -1480,7 +1480,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000B69 RID: 2921 RVA: 0x00066618 File Offset: 0x00064818
-    private static void gmBoss5BodyExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmBoss5BodyExit( MTS_TASK_TCB tcb )
     {
         AppMain.GMS_BOSS5_BODY_WORK body_work = (AppMain.GMS_BOSS5_BODY_WORK)AppMain.mtTaskGetTcbWork(tcb);
         AppMain.gmBoss5BodyReleaseCallbacks( body_work );

@@ -245,7 +245,7 @@ public partial class AppMain
         this.dmLogoSegaObjSysytemInit();
         GsSound.Reset();
         GsSound.Begin( 3, 32767U, 0 );
-        AppMain.MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSegaMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SEGA_WORK(), "DM_LSEGA_MAIN");
+        MTS_TASK_TCB mts_TASK_TCB = AppMain.MTM_TASK_MAKE_TCB(this.dmLogoSegaMainFunc, null, 0U, 0, 4096U, 0, () => new AppMain.DMS_LOGO_SEGA_WORK(), "DM_LSEGA_MAIN");
         AppMain.DMS_LOGO_SEGA_WORK dms_LOGO_SEGA_WORK = (AppMain.DMS_LOGO_SEGA_WORK)mts_TASK_TCB.work;
         AppMain.nnSetPrimitive3DMaterial( ref nns_RGBA, ref nns_RGB, 1f );
         AppMain.AoActSysSetDrawStateEnable( false );
@@ -325,7 +325,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007AE RID: 1966 RVA: 0x00043EFC File Offset: 0x000420FC
-    private void dmLogoSegaMainFunc( AppMain.MTS_TASK_TCB tcb )
+    private void dmLogoSegaMainFunc( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_LOGO_SEGA_WORK dms_LOGO_SEGA_WORK = (AppMain.DMS_LOGO_SEGA_WORK)tcb.work;
         if ( AppMain.GsSystemBgmIsPlay() )
@@ -393,7 +393,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007AF RID: 1967 RVA: 0x000440F0 File Offset: 0x000422F0
-    private void gmLogoSegaPreEndWaitFunc( AppMain.MTS_TASK_TCB tcb )
+    private void gmLogoSegaPreEndWaitFunc( MTS_TASK_TCB tcb )
     {
         AppMain.DMS_LOGO_SEGA_WORK dms_LOGO_SEGA_WORK = (AppMain.DMS_LOGO_SEGA_WORK)tcb.work;
         dms_LOGO_SEGA_WORK.timer++;
@@ -405,7 +405,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007B0 RID: 1968 RVA: 0x00044139 File Offset: 0x00042339
-    private void gmLogoSegaEndWaitFunc( AppMain.MTS_TASK_TCB tcb )
+    private void gmLogoSegaEndWaitFunc( MTS_TASK_TCB tcb )
     {
         if ( !AppMain.ObjObjectCheckClearAllObject() )
         {
@@ -420,7 +420,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007B1 RID: 1969 RVA: 0x00044163 File Offset: 0x00042363
-    private void gmLogoSegaFlushWaitFunc( AppMain.MTS_TASK_TCB tcb )
+    private void gmLogoSegaFlushWaitFunc( MTS_TASK_TCB tcb )
     {
         if ( !this.DmLogoSegaFlushCheck() )
         {
@@ -431,7 +431,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007B2 RID: 1970 RVA: 0x00044186 File Offset: 0x00042386
-    private void gmLogoSegaRelesehWaitFunc( AppMain.MTS_TASK_TCB tcb )
+    private void gmLogoSegaRelesehWaitFunc( MTS_TASK_TCB tcb )
     {
         if ( !this.DmLogoSegaReleaseCheck() )
         {
@@ -726,7 +726,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007C4 RID: 1988 RVA: 0x00044B9C File Offset: 0x00042D9C
-    private void dmLogoSegaDataBuildMain( AppMain.MTS_TASK_TCB tcb )
+    private void dmLogoSegaDataBuildMain( MTS_TASK_TCB tcb )
     {
         bool flag = true;
         if ( !AppMain.GmGameDBuildCheckBuildModel() )
@@ -761,13 +761,13 @@ public partial class AppMain
     }
 
     // Token: 0x060007C5 RID: 1989 RVA: 0x00044C1F File Offset: 0x00042E1F
-    private void dmLogoSegaDataBuildDest( AppMain.MTS_TASK_TCB tcb )
+    private void dmLogoSegaDataBuildDest( MTS_TASK_TCB tcb )
     {
         AppMain.dm_logo_sega_build_tcb = null;
     }
 
     // Token: 0x060007C6 RID: 1990 RVA: 0x00044C28 File Offset: 0x00042E28
-    private void dmLogoSegaDataFlushMain( AppMain.MTS_TASK_TCB tcb )
+    private void dmLogoSegaDataFlushMain( MTS_TASK_TCB tcb )
     {
         bool flag = true;
         if ( !AppMain.GmGameDBuildCheckFlushModel() )
@@ -810,13 +810,13 @@ public partial class AppMain
     }
 
     // Token: 0x060007C7 RID: 1991 RVA: 0x00044CC1 File Offset: 0x00042EC1
-    private void dmLogoSegaDataFlushDest( AppMain.MTS_TASK_TCB tcb )
+    private void dmLogoSegaDataFlushDest( MTS_TASK_TCB tcb )
     {
         AppMain.dm_logo_sega_flush_tcb = null;
     }
 
     // Token: 0x060007C8 RID: 1992 RVA: 0x00044CC9 File Offset: 0x00042EC9
-    private void dmLogoSegaLoadWait( AppMain.MTS_TASK_TCB tcb )
+    private void dmLogoSegaLoadWait( MTS_TASK_TCB tcb )
     {
         if ( this.DmLogoSegaLoadCheck() )
         {
@@ -826,7 +826,7 @@ public partial class AppMain
     }
 
     // Token: 0x060007C9 RID: 1993 RVA: 0x00044CEB File Offset: 0x00042EEB
-    private void dmLogoSegaBuildWait( AppMain.MTS_TASK_TCB tcb )
+    private void dmLogoSegaBuildWait( MTS_TASK_TCB tcb )
     {
         if ( this.DmLogoSegaBuildCheck() )
         {

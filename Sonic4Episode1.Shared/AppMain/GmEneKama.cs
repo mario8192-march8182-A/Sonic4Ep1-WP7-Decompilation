@@ -372,7 +372,7 @@ public partial class AppMain
     }
 
     // Token: 0x06000944 RID: 2372 RVA: 0x000537C8 File Offset: 0x000519C8
-    private static void gmEneKamaExit( AppMain.MTS_TASK_TCB tcb )
+    private static void gmEneKamaExit( MTS_TASK_TCB tcb )
     {
         OBS_OBJECT_WORK p = AppMain.mtTaskGetTcbWork(tcb);
         AppMain.GMS_ENE_KAMA_WORK gms_ENE_KAMA_WORK = (AppMain.GMS_ENE_KAMA_WORK)p;
