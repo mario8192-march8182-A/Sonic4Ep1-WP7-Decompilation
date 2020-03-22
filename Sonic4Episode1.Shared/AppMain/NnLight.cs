@@ -26,7 +26,7 @@ public partial class AppMain
         public readonly NNS_VECTOR4D Position = new NNS_VECTOR4D();
 
         // Token: 0x04004E85 RID: 20101
-        public readonly NNS_VECTOR SpotDirection = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR SpotDirection = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004E86 RID: 20102
         public float SpotExponent;
@@ -818,13 +818,13 @@ public partial class AppMain
         public NNS_RGBA Specular = default(NNS_RGBA);
 
         // Token: 0x040054B6 RID: 21686
-        public NNS_VECTOR Direction = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public NNS_VECTOR Direction = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040054B7 RID: 21687
         public NNS_VECTOR4D Position = new NNS_VECTOR4D();
 
         // Token: 0x040054B8 RID: 21688
-        public NNS_VECTOR Target = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public NNS_VECTOR Target = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040054B9 RID: 21689
         public int RotType;
@@ -880,7 +880,7 @@ public partial class AppMain
     private class nnlight
     {
         // Token: 0x040054C8 RID: 21704
-        public static NNS_MATRIX nngLightMtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public static NNS_MATRIX nngLightMtx = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x040054C9 RID: 21705
         public static AppMain.NNS_GL_LIGHT nngLight = new AppMain.NNS_GL_LIGHT();

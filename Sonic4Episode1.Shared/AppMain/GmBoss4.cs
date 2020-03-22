@@ -1549,7 +1549,7 @@ public partial class AppMain
             return;
         }
 
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = AppMain.FXM_FX32_TO_FLOAT(gms_PLAYER_WORK.obj_work.pos.x);
         nns_VECTOR.y = AppMain.FXM_FX32_TO_FLOAT(-gms_PLAYER_WORK.obj_work.pos.y + 24576);
         nns_VECTOR.z = AppMain.FXM_FX32_TO_FLOAT(gms_PLAYER_WORK.obj_work.pos.z);
@@ -1693,7 +1693,7 @@ public partial class AppMain
             AppMain.gm_boss4_n_scroll_pt_x - (int) (AppMain.AMD_SCREEN_2D_WIDTH / 2f * 0.75f) - 48;
         AppMain.g_gm_main_system.map_fcol.right =
             AppMain.gm_boss4_n_scroll_pt_x + (int) (AppMain.AMD_SCREEN_2D_WIDTH / 2f * 0.75f);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x06000EDB RID: 3803 RVA: 0x00083DFC File Offset: 0x00081FFC

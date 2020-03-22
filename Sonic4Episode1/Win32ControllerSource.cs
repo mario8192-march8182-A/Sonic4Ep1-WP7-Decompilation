@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using Microsoft.Xna.Framework.Input;
 using Sonic4Episode1.Abstraction;
 
@@ -10,28 +11,41 @@ namespace Sonic4Episode1
 {
     class Win32Controller : Controller
     {
-        public int index;
-        private bool doVibrate = true;
+        private int _index;
+        private bool _doVibrate = true;
+        private KeyboardController _keyboardController;
 
         public Win32Controller(int index)
         {
-            this.index = index;
+            this._index = index;
+
+            if (index == 0)
+            {
+                _keyboardController = new KeyboardController();
+            }
         }
 
         public override void SetVibrationEnabled(bool enabled)
         {
-            this.doVibrate = enabled;
+            _doVibrate = enabled;
+            if (!_doVibrate)
+                GamePad.SetVibration(_index, 0, 0);
         }
 
         public override void SetVibration(ushort left, ushort right)
         {
-            if (this.doVibrate)
-                GamePad.SetVibration(index, (float)left / ushort.MaxValue, (float)right / ushort.MaxValue);
+            if (_doVibrate)
+                GamePad.SetVibration(_index, (float)left / ushort.MaxValue, (float)right / ushort.MaxValue);
         }
 
-        protected override void UpdateControllerReading(ref ControllerReading reading)
+        public override void UpdateControllerReading(ref ControllerReading reading)
         {
-            var state = GamePad.GetState(index, GamePadDeadZone.Circular);
+            var state = GamePad.GetState(_index, GamePadDeadZone.Circular);
+
+            if (_index == 0)
+                _keyboardController.UpdateControllerReading(ref reading);
+            else if (!state.IsConnected)
+                return;
 
             reading.alx = (short)(state.ThumbSticks.Left.X * short.MaxValue);
             reading.aly = (short)(state.ThumbSticks.Left.Y * short.MaxValue);
@@ -73,29 +87,14 @@ namespace Sonic4Episode1
         public Win32ControllerSource()
         {
             controllers = new List<Controller>(4);
+            for (int i = 0; i < 4; i++)
+            {
+                controllers.Add(new Win32Controller(i));
+            }
         }
 
         public void Update()
         {
-            if (!hasKeyboard)
-            {
-                var state = Keyboard.GetState();
-                if (state.GetPressedKeys().Any())
-                {
-                    controllerIndex++;
-                    hasKeyboard = true;
-                    controllers.Add(new KeyboardController());
-                }
-            }
-
-            for (int i = 0; i < 4; i++)
-            {
-                if (GamePad.GetState(i).IsButtonDown(Buttons.Start) && !controllers.OfType<Win32Controller>().Any(c => c.index == i))
-                {
-                    controllers.Add(new Win32Controller(i));
-                }
-            }
-
             foreach (var item in controllers)
             {
                 item?.UpdateControllerReading();

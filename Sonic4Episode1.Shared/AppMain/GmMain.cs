@@ -1031,7 +1031,7 @@ public partial class AppMain
     public static void gmMainInitLight()
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         if (AppMain.g_gs_main_sys_info.stage_id == 2 || AppMain.g_gs_main_sys_info.stage_id == 3)
         {
             AppMain.g_obj.ambient_color.r = 1f;
@@ -1124,7 +1124,7 @@ public partial class AppMain
             AppMain.GmBoss5LandSetLight();
             AppMain.GmDecoSetLightFinalZone();
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x060003C1 RID: 961 RVA: 0x0001DCC0 File Offset: 0x0001BEC0

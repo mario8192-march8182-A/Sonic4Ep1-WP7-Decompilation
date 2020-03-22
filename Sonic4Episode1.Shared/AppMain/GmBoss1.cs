@@ -1349,20 +1349,20 @@ public partial class AppMain
     private static bool gmBoss1BodyUpdateRush( AppMain.GMS_BOSS1_BODY_WORK body_work )
     {
         OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GMM_BS_OBJ(body_work);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.amVectorSet( nns_VECTOR, AppMain.FX_FX32_TO_F32( body_work.bash_targ_pos.x ) - AppMain.FX_FX32_TO_F32( obs_OBJECT_WORK.pos.x ), AppMain.FX_FX32_TO_F32( body_work.bash_targ_pos.y ) - AppMain.FX_FX32_TO_F32( obs_OBJECT_WORK.pos.y ), 0f );
         AppMain.amVectorSet( nns_VECTOR2, AppMain.FX_FX32_TO_F32( obs_OBJECT_WORK.spd.x ), AppMain.FX_FX32_TO_F32( obs_OBJECT_WORK.spd.y ), 0f );
         if ( 0f >= AppMain.nnDotProductVector( nns_VECTOR2, nns_VECTOR ) )
         {
             AppMain.GmBsCmnSetObjSpdZero( obs_OBJECT_WORK );
             AppMain.VEC_Set( ref obs_OBJECT_WORK.pos, body_work.bash_targ_pos.x, body_work.bash_targ_pos.y, body_work.bash_targ_pos.z );
-            AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
-            AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR2 );
+            GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+            GlobalPool<NNS_VECTOR>.Release( nns_VECTOR2 );
             return true;
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR2 );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR2 );
         return false;
     }
 
@@ -1466,7 +1466,7 @@ public partial class AppMain
     // Token: 0x060014BD RID: 5309 RVA: 0x000B61A8 File Offset: 0x000B43A8
     private static void gmBoss1BodyUpdateChainTopDirection( AppMain.GMS_BOSS1_BODY_WORK body_work )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         if ( ( body_work.flag & 1U ) == 0U )
         {
             NNS_MATRIX src = AppMain.GmBsCmnGetSNMMtx(body_work.snm_work, body_work.chaintop_snm_reg_id);
@@ -1478,7 +1478,7 @@ public partial class AppMain
         {
             AppMain.GmBsCmnEnableCNMMtxNode( body_work.cnm_mgr_work, body_work.chaintop_cnm_reg_id, 0 );
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x060014BE RID: 5310 RVA: 0x000B6238 File Offset: 0x000B4438
@@ -2619,7 +2619,7 @@ public partial class AppMain
         AppMain.nnMakeUnitQuaternion( ref sct_part_ndc.spin_quat );
         for ( int i = 0; i < 2; i++ )
         {
-            NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
             NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
             float num = AppMain.FX_FX32_TO_F32(AkMath.RandFx()) * 2f - 1f;
             num = AppMain.MTM_MATH_CLIP( num, -1f, 1f );
@@ -2627,7 +2627,7 @@ public partial class AppMain
             AkMath.GetRandomUnitVector( nns_VECTOR, num, rand_angle );
             AppMain.nnMakeRotateAxisQuaternion( out nns_QUATERNION, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z, ang );
             AppMain.nnMultiplyQuaternion( ref sct_part_ndc.spin_quat, ref nns_QUATERNION, ref sct_part_ndc.spin_quat );
-            AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+            GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
         }
         if ( is_ironball )
         {

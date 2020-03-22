@@ -156,19 +156,19 @@ public partial class AppMain
         public short iSibling;
 
         // Token: 0x0400474B RID: 18251
-        public readonly NNS_VECTOR Translation = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Translation = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x0400474C RID: 18252
         public NNS_ROTATE_A32 Rotation;
 
         // Token: 0x0400474D RID: 18253
-        public readonly NNS_VECTOR Scaling = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Scaling = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x0400474E RID: 18254
-        public readonly NNS_MATRIX InvInitMtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX InvInitMtx = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x0400474F RID: 18255
-        public readonly NNS_VECTOR Center = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Center = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004750 RID: 18256
         public float Radius;
@@ -632,7 +632,7 @@ public partial class AppMain
         }
 
         // Token: 0x04004775 RID: 18293
-        public readonly NNS_VECTOR Center = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Center = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004776 RID: 18294
         public float Radius;
@@ -988,7 +988,7 @@ public partial class AppMain
     public class NNS_COMMON_PW2
     {
         // Token: 0x0400479D RID: 18333
-        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x0400479E RID: 18334
         public readonly AppMain.NNS_COMMON_WEIGHT2 Wgt = new AppMain.NNS_COMMON_WEIGHT2();
@@ -998,7 +998,7 @@ public partial class AppMain
     public class NNS_COMMON_PW4
     {
         // Token: 0x0400479F RID: 18335
-        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A0 RID: 18336
         public readonly AppMain.NNS_COMMON_WEIGHT[] Wgt = AppMain.New<AppMain.NNS_COMMON_WEIGHT>(4);
@@ -1008,20 +1008,20 @@ public partial class AppMain
     public class NNS_COMMON_PN
     {
         // Token: 0x040047A1 RID: 18337
-        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A2 RID: 18338
-        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x0200001D RID: 29
     public class NNS_COMMON_PNW2
     {
         // Token: 0x040047A3 RID: 18339
-        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A4 RID: 18340
-        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A5 RID: 18341
         public readonly AppMain.NNS_COMMON_WEIGHT2 Wgt = new AppMain.NNS_COMMON_WEIGHT2();
@@ -1031,10 +1031,10 @@ public partial class AppMain
     public class NNS_COMMON_PNW4
     {
         // Token: 0x040047A6 RID: 18342
-        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A7 RID: 18343
-        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047A8 RID: 18344
         public readonly AppMain.NNS_COMMON_WEIGHT[] Wgt = AppMain.New<AppMain.NNS_COMMON_WEIGHT>(4);
@@ -1309,10 +1309,10 @@ public partial class AppMain
     public class NNS_PRIM3D_PN
     {
         // Token: 0x04005D31 RID: 23857
-        public readonly NNS_VECTOR Pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04005D32 RID: 23858
-        public readonly NNS_VECTOR Nrm = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Nrm = GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x02000306 RID: 774
@@ -2181,10 +2181,10 @@ public partial class AppMain
     // Token: 0x06001128 RID: 4392 RVA: 0x00095D28 File Offset: 0x00093F28
     public static int nnCalcNodeMotionCore(NNS_MATRIX pNodeMtx, ref int? pHideFlag, NNS_MATRIX pBaseMtx, AppMain.NNS_NODE pNode, int NodeIdx, AppMain.NNS_OBJECT pObj, AppMain.NNS_MOTION pMot, int SubMotIdx, float frame)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         NNS_ROTATE_A32 nns_ROTATE_A = default(NNS_ROTATE_A32);
         NNS_QUATERNION rq = default(NNS_QUATERNION);
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
         uint fType = pNode.fType;
         uint num = pNode.fType & 3840U;
         nns_VECTOR.Assign(pNode.Translation);
@@ -2314,8 +2314,8 @@ public partial class AppMain
         {
             AppMain.nnScaleMatrixFast(pNodeMtx, nns_VECTOR2.x, nns_VECTOR2.y, nns_VECTOR2.z);
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
         return SubMotIdx;
     }
 
@@ -3618,8 +3618,8 @@ public partial class AppMain
     public static void nnCalcNodeStatusListMatrixPaletteNode(int nodeIdx)
     {
         AppMain.mppAssertNotImpl();
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.NNS_NODE nns_NODE;
         do
         {
@@ -3747,9 +3747,9 @@ public partial class AppMain
     // Token: 0x0600013C RID: 316 RVA: 0x0000E6B1 File Offset: 0x0000C8B1
     public void nnMakeNodeTreeMatrix(NNS_MATRIX mtx, NNS_VECTOR vec, NNS_VECTOR trans)
     {
-        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        GlobalPool<NNS_VECTOR>.Alloc();
+        GlobalPool<NNS_VECTOR>.Alloc();
+        GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.mppAssertNotImpl();
     }
 
@@ -4405,12 +4405,12 @@ public partial class AppMain
         {
             return;
         }
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeTranslateMatrix(nns_MATRIX, 0.5f, 0.5f, 0f);
         AppMain.nnScaleMatrix(nns_MATRIX, nns_MATRIX, 0.5f, -0.5f, 0f);
         if (pEnvMtx != null)
         {
-            NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
             AppMain.nnCopyMatrix(nns_MATRIX2, pEnvMtx);
             nns_MATRIX2.M03 = 0f;
             nns_MATRIX2.M13 = 0f;
@@ -4432,7 +4432,7 @@ public partial class AppMain
                 OpenGL.glLoadMatrixf(ref matrix);
             }
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
+        GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
     }
 
     // Token: 0x06000187 RID: 391 RVA: 0x0000FDB8 File Offset: 0x0000DFB8
@@ -4895,9 +4895,9 @@ public partial class AppMain
     // Token: 0x0600018F RID: 399 RVA: 0x00010A58 File Offset: 0x0000EC58
     public static void nnMakeTargetUpVectorCameraViewMatrix(NNS_MATRIX mtx, AppMain.NNS_CAMERA_TARGET_UPVECTOR cam)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = cam.Position.x - cam.Target.x;
         nns_VECTOR.y = cam.Position.y - cam.Target.y;
         nns_VECTOR.z = cam.Position.z - cam.Target.z;
@@ -6941,7 +6941,7 @@ public partial class AppMain
     // Token: 0x060004D7 RID: 1239 RVA: 0x000298C4 File Offset: 0x00027AC4
     public static void nnMakeRotateAxisQuaternion(out NNS_QUATERNION dst, float vx, float vy, float vz, int ang)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = vx;
         nns_VECTOR.y = vy;
         nns_VECTOR.z = vz;
@@ -6954,7 +6954,7 @@ public partial class AppMain
         dst.y = nns_VECTOR.y * num;
         dst.z = nns_VECTOR.z * num;
         dst.w = w;
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x060004D8 RID: 1240 RVA: 0x0002993C File Offset: 0x00027B3C
@@ -8642,8 +8642,8 @@ public partial class AppMain
     // Token: 0x06000729 RID: 1833 RVA: 0x0003FB2B File Offset: 0x0003DD2B
     public static void nnCalc1BoneSIIK(NNS_MATRIX jnt1mtx, NNS_MATRIX jnt1motmtx, NNS_MATRIX effmtx, float lbone1)
     {
-        AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        GlobalPool<NNS_MATRIX>.Alloc();
+        GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.mppAssertNotImpl();
     }
 
@@ -8884,8 +8884,8 @@ public partial class AppMain
     // Token: 0x060007EC RID: 2028 RVA: 0x000454D6 File Offset: 0x000436D6
     public void nnDrawCircumsphereCore(NNS_VECTOR center, float radius, NNS_MATRIX mtx, ref NNS_RGBA col, int trans)
     {
-        AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        GlobalPool<NNS_MATRIX>.Alloc();
+        GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.mppAssertNotImpl();
     }
 
@@ -9669,10 +9669,10 @@ public partial class AppMain
     // Token: 0x06000809 RID: 2057 RVA: 0x00046DEC File Offset: 0x00044FEC
     public void nnCalcMatrixPaletteLinkMotionNode(int nodeIdx)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR4 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR4 = GlobalPool<NNS_VECTOR>.Alloc();
         NNS_QUATERNION rotation = default(NNS_QUATERNION);
         NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
         AppMain.NNS_TRS nns_TRS = new AppMain.NNS_TRS();
@@ -9769,17 +9769,17 @@ public partial class AppMain
             nodeIdx = (int)nns_NODE.iSibling;
         }
         while (nns_NODE.iSibling != -1);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR4);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR4);
     }
 
     // Token: 0x0600080A RID: 2058 RVA: 0x000471AC File Offset: 0x000453AC
     public void nnCalcMatrixTRSList1BoneXSIIK(NNS_MATRIX[] mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, NNS_MATRIX basemtx, int rootidx)
     {
         int num = -1;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         int num2 = -1;
         NNS_VECTORFAST nns_VECTORFAST = default(NNS_VECTORFAST);
         AppMain.NNS_NODE[] pNodeList = obj.pNodeList;
@@ -9826,9 +9826,9 @@ public partial class AppMain
     public void nnCalcMatrixTRSList2BoneXSIIK(NNS_MATRIX[] mtxlist, AppMain.NNS_OBJECT obj, AppMain.NNS_TRS[] trslist, NNS_MATRIX basemtx, int rootidx)
     {
         int num = -1;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         int num2 = -1;
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         int num3 = -1;
         NNS_VECTORFAST nns_VECTORFAST = default(NNS_VECTORFAST);
         AppMain.NNS_NODE[] pNodeList = obj.pNodeList;
@@ -9892,13 +9892,13 @@ public partial class AppMain
     // Token: 0x0600080C RID: 2060 RVA: 0x000474EC File Offset: 0x000456EC
     public static void nnCalcMatrixPaletteTRSListNode1BoneXSIIK(int rootidx)
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         int num = -1;
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
         int num2 = -1;
-        NNS_MATRIX nns_MATRIX4 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX5 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX4 = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX5 = GlobalPool<NNS_MATRIX>.Alloc();
         NNS_VECTORFAST nns_VECTORFAST = default(NNS_VECTORFAST);
         AppMain.NNS_NODE nns_NODE = AppMain.nncalctrsmotion.nnsNodeList[rootidx];
         NNS_MATRIX nns_MATRIX6 = nns_MATRIX;
@@ -12832,7 +12832,7 @@ public partial class AppMain
             }
             else
             {
-                NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+                NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
                 AppMain.nnTransformVector(nns_VECTOR, AppMain.nncalcnodematrix.nnsBaseMtx, nns_NODE.Translation);
                 AppMain.nnCopyVectorMatrixTranslation(mtx, nns_VECTOR);
             }
@@ -12922,11 +12922,11 @@ public partial class AppMain
         AppMain.NNS_NODE nns_NODE2 = null;
         AppMain.NNS_NODE nns_NODE3 = null;
         AppMain.NNS_NODE nns_NODE4 = null;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX4 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX5 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX4 = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX5 = GlobalPool<NNS_MATRIX>.Alloc();
         NNS_VECTORFAST src2 = default(NNS_VECTORFAST);
         int nodeidx2 = 0;
         int num3 = 0;
@@ -13301,10 +13301,10 @@ public partial class AppMain
                 }
                 else
                 {
-                    NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+                    NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
                     AppMain.nnTransformVector(nns_VECTOR, AppMain.nncalcmatrixpalette.nnsBaseMtx, nns_NODE.Translation);
                     AppMain.nnCopyVectorMatrixTranslation(nns_MATRIX, nns_VECTOR);
-                    AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+                    GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
                 }
             }
             if ((nns_NODE.fType & 4096U) != 0U)

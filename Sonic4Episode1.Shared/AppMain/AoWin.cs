@@ -101,7 +101,7 @@ public partial class AppMain
     // Token: 0x060018E8 RID: 6376 RVA: 0x000E2E04 File Offset: 0x000E1004
     private static void aoWinSysMakeCommandA( uint state, AppMain.NNS_TEXLIST texlist, uint tex_id, float x, float y, float w, float h, float z )
     {
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.mtx = null;
         ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D = null;
         ams_PARAM_DRAW_PRIMITIVE.format3D = 4;
@@ -129,7 +129,7 @@ public partial class AppMain
         AppMain.aoWinSysMakeVertex02A( nns_PRIM3D_PCT_ARRAY, x, y, w, h );
         ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D = nns_PRIM3D_PCT_ARRAY;
         AppMain.amDrawPrimitive3D( state, ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x060018E9 RID: 6377 RVA: 0x000E2EF0 File Offset: 0x000E10F0

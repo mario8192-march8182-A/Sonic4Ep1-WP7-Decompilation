@@ -138,7 +138,7 @@ public partial class AppMain
         };
 
         // Token: 0x04004C43 RID: 19523
-        public static readonly NNS_MATRIX nnsPrim3DMatrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public static readonly NNS_MATRIX nnsPrim3DMatrix = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04004C44 RID: 19524
         public static uint nnsAlphaFunc = 516U;

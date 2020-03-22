@@ -47,9 +47,9 @@ public class AkMath
     // Token: 0x060013B0 RID: 5040 RVA: 0x000AE978 File Offset: 0x000ACB78
     public static void NormalizeMtx(NNS_MATRIX dst_mtx, NNS_MATRIX src_mtx)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.amVectorSet(nns_VECTOR, src_mtx.M00, src_mtx.M01, src_mtx.M02);
         AppMain.amVectorSet(nns_VECTOR2, src_mtx.M10, src_mtx.M11, src_mtx.M12);
         AppMain.amVectorSet(nns_VECTOR3, src_mtx.M20, src_mtx.M21, src_mtx.M22);
@@ -66,15 +66,15 @@ public class AkMath
         dst_mtx.M20 = nns_VECTOR3.x * num;
         dst_mtx.M21 = nns_VECTOR3.y * num;
         dst_mtx.M22 = nns_VECTOR3.z * num;
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
     }
 
     // Token: 0x060013B1 RID: 5041 RVA: 0x000AEA9C File Offset: 0x000ACC9C
     public static void ExtractScaleMtx(NNS_MATRIX dst_mtx, NNS_MATRIX src_mtx)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.amVectorSet(nns_VECTOR, src_mtx.M(0, 0), src_mtx.M(0, 1), src_mtx.M(0, 2));
         float x = AppMain.nnLengthVector(nns_VECTOR);
         AppMain.amVectorSet(nns_VECTOR, src_mtx.M(1, 0), src_mtx.M(1, 1), src_mtx.M(1, 2));
@@ -82,7 +82,7 @@ public class AkMath
         AppMain.amVectorSet(nns_VECTOR, src_mtx.M(2, 0), src_mtx.M(2, 1), src_mtx.M(2, 2));
         float z = AppMain.nnLengthVector(nns_VECTOR);
         AppMain.nnMakeScaleMatrix(dst_mtx, x, y, z);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x060013B2 RID: 5042 RVA: 0x000AEB33 File Offset: 0x000ACD33

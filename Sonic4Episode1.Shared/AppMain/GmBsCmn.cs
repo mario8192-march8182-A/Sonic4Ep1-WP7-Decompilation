@@ -250,7 +250,7 @@ public partial class AppMain
         public uint user_timer;
 
         // Token: 0x04005C99 RID: 23705
-        public readonly NNS_MATRIX w_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX w_mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005C9A RID: 23706
         public int is_enable;
@@ -269,7 +269,7 @@ public partial class AppMain
         public uint[] reserved = new uint[3];
 
         // Token: 0x04005C9E RID: 23710
-        public readonly NNS_MATRIX node_w_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX node_w_mtx = GlobalPool<NNS_MATRIX>.Alloc();
     }
 
     // Token: 0x020002E9 RID: 745

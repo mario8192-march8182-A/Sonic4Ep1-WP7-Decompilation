@@ -1710,7 +1710,7 @@ public partial class AppMain
         AppMain.GMS_BOSS4_EGG_WORK gms_BOSS4_EGG_WORK = (AppMain.GMS_BOSS4_EGG_WORK)body_work.parts_objs[1];
         NNS_MATRIX nns_MATRIX = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_EGG_WORK.node_work, 9);
         NNS_MATRIX nns_MATRIX2 = AppMain.GmBoss4UtilGetNodeMatrix(body_work.node_work, 2);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = nns_MATRIX.M03 - nns_MATRIX2.M03 + ( float )obs_OBJECT_WORK.pos.x / 4096f;
         nns_VECTOR.y = nns_MATRIX.M13;
         nns_VECTOR.z = nns_MATRIX.M23;
@@ -1737,7 +1737,7 @@ public partial class AppMain
         {
             body_work.proc_update = AppMain.gmBoss4BodyStateUpdate2ndAttack;
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06001609 RID: 5641 RVA: 0x000C012C File Offset: 0x000BE32C
@@ -1765,7 +1765,7 @@ public partial class AppMain
         AppMain.GMS_BOSS4_EGG_WORK gms_BOSS4_EGG_WORK = (AppMain.GMS_BOSS4_EGG_WORK)body_work.parts_objs[1];
         NNS_MATRIX nns_MATRIX = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_EGG_WORK.node_work, 6);
         NNS_MATRIX nns_MATRIX2 = AppMain.GmBoss4UtilGetNodeMatrix(body_work.node_work, 2);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = nns_MATRIX.M03 - nns_MATRIX2.M03 + ( float )obs_OBJECT_WORK.pos.x / 4096f;
         nns_VECTOR.y = nns_MATRIX.M13;
         nns_VECTOR.z = nns_MATRIX.M23;
@@ -1783,7 +1783,7 @@ public partial class AppMain
             obs_OBJECT_WORK2.spd.y = AppMain.FX_F32_TO_FX32( AppMain.GMD_BOSS4_BODY_CREATE_CAP_THROW_SPD_Y_2 );
         }
         body_work.proc_update = AppMain.gmBoss4BodyStateUpdate2ndAttack;
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x0600160B RID: 5643 RVA: 0x000C02E0 File Offset: 0x000BE4E0
@@ -2087,7 +2087,7 @@ public partial class AppMain
         }
         NNS_MATRIX nns_MATRIX = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_BODY_WORK.node_work, 5);
         NNS_MATRIX nns_MATRIX2 = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_BODY_WORK.node_work, 2);
-        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnCopyMatrix( nns_MATRIX3, nns_MATRIX );
         nns_MATRIX3.M03 = nns_MATRIX.M03 - nns_MATRIX2.M03 + ( float )gms_BOSS4_BODY_WORK.ene_3d.ene_com.obj_work.pos.x / 4096f;
         AppMain.GmBoss4UtilSetMatrixES( obj_work, nns_MATRIX3 );
@@ -2096,7 +2096,7 @@ public partial class AppMain
         {
             obj_work.disp_flag |= 4096U;
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
     }
 
     // Token: 0x06001622 RID: 5666 RVA: 0x000C0D98 File Offset: 0x000BEF98
@@ -2114,7 +2114,7 @@ public partial class AppMain
         }
         NNS_MATRIX nns_MATRIX = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_BODY_WORK.node_work, 8);
         NNS_MATRIX nns_MATRIX2 = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_BODY_WORK.node_work, 2);
-        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnCopyMatrix( nns_MATRIX3, nns_MATRIX );
         nns_MATRIX3.M03 = nns_MATRIX.M03 - nns_MATRIX2.M03 + ( float )gms_BOSS4_BODY_WORK.ene_3d.ene_com.obj_work.pos.x / 4096f;
         AppMain.GmBoss4UtilSetMatrixES( obj_work, nns_MATRIX3 );
@@ -2123,7 +2123,7 @@ public partial class AppMain
         {
             obj_work.disp_flag |= 4096U;
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
     }
 
     // Token: 0x06001623 RID: 5667 RVA: 0x000C0E90 File Offset: 0x000BF090

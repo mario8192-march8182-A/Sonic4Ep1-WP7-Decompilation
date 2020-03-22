@@ -219,13 +219,13 @@ public partial class AppMain
         }
 
         // Token: 0x040047E8 RID: 18408
-        public readonly NNS_VECTOR pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047E9 RID: 18409
-        public readonly NNS_VECTOR sub_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR sub_pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047EA RID: 18410
-        public readonly NNS_VECTOR dir = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR dir = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040047EB RID: 18411
         public float time;
@@ -637,11 +637,11 @@ public partial class AppMain
         }
         NNS_RGBA startColor = work.startColor;
         NNS_RGBA ptclColor = work.ptclColor;
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
         float num = 1f;
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         int ablend = 1;
         AppMain.amDrawGetPrimBlendParam((int)work.blendType, ams_PARAM_DRAW_PRIMITIVE);
         if (work.zTest != 0)
@@ -785,9 +785,9 @@ public partial class AppMain
             ams_PARAM_DRAW_PRIMITIVE.sortZ = sortZ;
             AppMain.amDrawPrimitive3D(pEffect.drawState, ams_PARAM_DRAW_PRIMITIVE);
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
     }
 
     // Token: 0x06000037 RID: 55 RVA: 0x000039AC File Offset: 0x00001BAC
@@ -803,9 +803,9 @@ public partial class AppMain
         nns_RGBA.g = work.startColor.g * num2 + work.endColor.g * (1f - num2);
         nns_RGBA.b = work.startColor.b * num2 + work.endColor.b * (1f - num2);
         nns_RGBA.a = work.startColor.a * num2 + work.endColor.a * (1f - num2);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.nnDistanceVector(pNow.pos, AppMain._am_ef_camPos);
         AppMain.amVectorSet(nns_VECTOR3, 0f, 0f, 1f);
         AppMain.nnCrossProductVector(nns_VECTOR, nns_VECTOR3, pNow.dir);
@@ -819,9 +819,9 @@ public partial class AppMain
         _pv[pv + 5].Col = AppMain.AMD_FCOLTORGBA8888(nns_RGBA.r, nns_RGBA.g, nns_RGBA.b, nns_RGBA.a);
         _pv[pv + 1].Col = _pv[pv + 5].Col;
         _pv[pv + 3] = _pv[pv + 1];
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
     }
 
     // Token: 0x06000038 RID: 56 RVA: 0x00003C0C File Offset: 0x00001E0C
@@ -837,9 +837,9 @@ public partial class AppMain
         nns_RGBA.g = work.startColor.g * num2 + work.endColor.g * (1f - num2);
         nns_RGBA.b = work.startColor.b * num2 + work.endColor.b * (1f - num2);
         nns_RGBA.a = work.startColor.a * num2 + work.endColor.a * (1f - num2);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.nnDistanceVector(pNow.pos, AppMain._am_ef_camPos);
         AppMain.amVectorSet(nns_VECTOR3, 0f, 0f, 1f);
         AppMain.nnCrossProductVector(nns_VECTOR, nns_VECTOR3, pNow.dir);
@@ -857,9 +857,9 @@ public partial class AppMain
         _pv[pv + 5].Tex.u = num2;
         _pv[pv + 5].Tex.v = 1f;
         _pv[pv + 3] = _pv[pv + 1];
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
     }
 
     // Token: 0x06000039 RID: 57 RVA: 0x00003EC4 File Offset: 0x000020C4

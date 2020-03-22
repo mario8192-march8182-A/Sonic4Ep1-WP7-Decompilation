@@ -30,13 +30,13 @@ public partial class AppMain
         }
 
         // Token: 0x04005A51 RID: 23121
-        public readonly AppMain.AMS_PARAM_DRAW_PRIMITIVE prim_param = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        public readonly AppMain.AMS_PARAM_DRAW_PRIMITIVE prim_param = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
 
         // Token: 0x04005A52 RID: 23122
         public readonly AppMain.NNS_PRIM2D_PC[][] vtx = AppMain.New<AppMain.NNS_PRIM2D_PC>(2, 4);
 
         // Token: 0x04005A53 RID: 23123
-        public readonly NNS_MATRIX mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005A54 RID: 23124
         public NNS_RGBA start_col;

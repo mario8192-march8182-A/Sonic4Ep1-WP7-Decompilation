@@ -102,7 +102,7 @@ public partial class AppMain
             this.ame_idx = ame_idx;
             this.pos_type = pos_type;
             this.init_flag = init_flag;
-            this.disp_ofst = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            this.disp_ofst = GlobalPool<NNS_VECTOR>.Alloc();
             this.disp_ofst.Assign(disp_ofst);
             this.disp_rot = disp_rot;
             this.scale = scale;
@@ -113,7 +113,7 @@ public partial class AppMain
         // Token: 0x060024D0 RID: 9424 RVA: 0x0014B37D File Offset: 0x0014957D
         public GMS_EFFECT_CREATE_PARAM()
         {
-            this.disp_ofst = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            this.disp_ofst = GlobalPool<NNS_VECTOR>.Alloc();
             this.disp_rot = default(NNS_ROTATE_A16);
         }
 

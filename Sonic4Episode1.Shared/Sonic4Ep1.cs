@@ -23,7 +23,7 @@ public class Sonic4Ep1 : Game
         pInstance = this;
         Window.AllowUserResizing = true;
         Window.ClientSizeChanged += OnClientSizeChange;
-        
+
         this.graphics = new GraphicsDeviceManager(this);
         this.graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
         //this.graphics.SynchronizeWithVerticalRetrace = true;
@@ -94,9 +94,12 @@ public class Sonic4Ep1 : Game
         //#if DEBUG
         this.benchmarkObject = new BenchmarkObject(this, fnts[0], new Vector2(0, 0), Color.Red);
         //#endif
+    }
 
-        this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
-        this.appMain.AppInit(saveContentPath, this.controllerSource, Window.ClientBounds);
+    protected override void BeginRun()
+    {
+
+
     }
 
     // Token: 0x0600287D RID: 10365 RVA: 0x001530B8 File Offset: 0x001512B8
@@ -170,6 +173,13 @@ public class Sonic4Ep1 : Game
     // Token: 0x06002882 RID: 10370 RVA: 0x00153224 File Offset: 0x00151424
     protected override void Draw(GameTime gameTime)
     {
+        if (!isInit)
+        {
+            this.appMain = new AppMain(this, this.graphics, base.GraphicsDevice);
+            this.appMain.AppInit(saveContentPath, this.controllerSource, Window.ClientBounds);
+            isInit = true;
+        }
+
         if (_resizePending)
         {
             graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
@@ -240,4 +250,5 @@ public class Sonic4Ep1 : Game
     private BenchmarkObject benchmarkObject;
     private string saveContentPath;
     private IControllerSource controllerSource;
+    private bool isInit;
 }

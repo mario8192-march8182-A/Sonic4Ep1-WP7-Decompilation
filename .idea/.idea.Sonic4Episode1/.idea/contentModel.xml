@@ -93,7 +93,7 @@
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
               <e p="Sonic4Episode1.AssemblyInfo.cs" t="Include" />
             </e>
@@ -972,7 +972,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="81" t="Include">
               <e p="designtime" t="Include">
                 <e p="Resource.designer.cs" t="Include" />
@@ -1010,9 +1010,11 @@
         <e p="ImageManager.cs" t="Include" />
         <e p="LobbyManager.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
-            <e p="netstandard1.4" t="Include">
-              <e p="Sonic4Episode1.Discord.AssemblyInfo.cs" t="Include" />
+          <e p="x64" t="Include">
+            <e p="Debug" t="Include">
+              <e p="netstandard1.4" t="Include">
+                <e p="Sonic4Episode1.Discord.AssemblyInfo.cs" t="Include" />
+              </e>
             </e>
           </e>
         </e>
@@ -2428,7 +2430,7 @@
         <e p="Microsoft.Devices.Sensors.cs" t="Include" />
         <e p="Microsoft.Phone.Tasks.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">
               <e p="Stubs.AssemblyInfo.cs" t="Include" />
             </e>

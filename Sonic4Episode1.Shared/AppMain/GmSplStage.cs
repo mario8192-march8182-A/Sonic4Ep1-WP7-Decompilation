@@ -22,7 +22,7 @@ public partial class AppMain
         public int roll_spd;
 
         // Token: 0x040057FB RID: 22523
-        public readonly NNS_VECTOR light_vec = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR light_vec = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x040057FC RID: 22524
         public ushort get_ring;
@@ -61,7 +61,7 @@ public partial class AppMain
     private static void GmSplStageSetLight()
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = -0.4f;
         nns_VECTOR.y = -0.4f;
         nns_VECTOR.z = -1f;
@@ -228,7 +228,7 @@ public partial class AppMain
     private static void gmSplStageLightCtrl( AppMain.GMS_SPL_STG_WORK tcb_work )
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.UNREFERENCED_PARAMETER( tcb_work );
         nns_VECTOR = AppMain.gmSplStageLightRot( -1f, -1f, -1f );
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
@@ -241,7 +241,7 @@ public partial class AppMain
     // Token: 0x06000D89 RID: 3465 RVA: 0x00076630 File Offset: 0x00074830
     private static NNS_VECTOR gmSplStageLightRot( float pos_x, float pos_y, float pos_z )
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         float num = pos_x * AppMain.nnSin((int)(-(int)AppMain.g_gm_main_system.pseudofall_dir));
         float num2 = pos_x * AppMain.nnCos((int)(-(int)AppMain.g_gm_main_system.pseudofall_dir));
         float num3 = pos_y * AppMain.nnSin((int)(-(int)AppMain.g_gm_main_system.pseudofall_dir));

@@ -284,7 +284,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObObjectWork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObRect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\ObTbl.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AppMain\Pool.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\Reference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\SysEvt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AppMain\Vector3_VertexData.cs" />
@@ -330,7 +330,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)mpp\BlendStateExt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mpp\DepthStencilStateExt.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mpp\MppBitConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)mpp\OpenGL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\OpenGL.orig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mpp\RasterizerStateEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)mpp\SamplerStateExt.cs" />
     <Folder Include="$(MSBuildThisFileDirectory)nn" />
@@ -2318,6 +2318,7 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Microsoft.Xna.Framework.RuntimeProfile" />
     <None Include="$(MSBuildThisFileDirectory)Microsoft.Xna.Framework.XlastConfiguration" />
+    <Compile Include="$(MSBuildThisFileDirectory)mpp\OpenGL.fast.cs" />
     <None Include="$(MSBuildThisFileDirectory)Sonic4 ep I.ico" />
   </ItemGroup>
 </Project>

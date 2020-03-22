@@ -38,10 +38,10 @@ public partial class AppMain
         public float ZFar;
 
         // Token: 0x04004C20 RID: 19488
-        public readonly NNS_VECTOR Position = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Position = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004C21 RID: 19489
-        public readonly NNS_VECTOR Target = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Target = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004C22 RID: 19490
         public int Roll;
@@ -66,13 +66,13 @@ public partial class AppMain
         public float ZFar;
 
         // Token: 0x04004C28 RID: 19496
-        public readonly NNS_VECTOR Position = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Position = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004C29 RID: 19497
-        public readonly NNS_VECTOR Target = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Target = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004C2A RID: 19498
-        public readonly NNS_VECTOR UpVector = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR UpVector = GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x02000105 RID: 261
@@ -94,13 +94,13 @@ public partial class AppMain
         public float ZFar;
 
         // Token: 0x04004C30 RID: 19504
-        public readonly NNS_VECTOR Position = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Position = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004C31 RID: 19505
-        public readonly NNS_VECTOR Target = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Target = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004C32 RID: 19506
-        public readonly NNS_VECTOR UpTarget = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR UpTarget = GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x02000106 RID: 262
@@ -122,7 +122,7 @@ public partial class AppMain
         public float ZFar;
 
         // Token: 0x04004C38 RID: 19512
-        public readonly NNS_VECTOR Position = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Position = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004C39 RID: 19513
         public readonly int RotType;

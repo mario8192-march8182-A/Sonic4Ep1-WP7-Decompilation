@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 public partial class AppMain
 {
@@ -109,11 +110,19 @@ public partial class AppMain
     // Token: 0x06000057 RID: 87 RVA: 0x00004A26 File Offset: 0x00002C26
     private static void GmPadVibInit()
     {
+        AoPad.AoPadEnableVibration(true);
     }
 
     // Token: 0x06000058 RID: 88 RVA: 0x00004A28 File Offset: 0x00002C28
     private static void GmPadVibExit()
     {
+        if (gm_pad_vib_tcb != null)
+        {
+            mtTaskClearTcb(gm_pad_vib_tcb);
+            gm_pad_vib_tcb = null;
+        }
+
+        AoPad.AoPadEnableVibration(false);
     }
 
     // Token: 0x06000059 RID: 89 RVA: 0x00004A2A File Offset: 0x00002C2A
@@ -127,6 +136,14 @@ public partial class AppMain
     private static void GmPadVibSet(int vib_type, float time, ushort left_vib, ushort right_vib, float add_dec_time,
         float int_vib_time, float int_stop_time, uint prio)
     {
+        if (gm_pad_vib_tcb != null)
+        {
+            mtTaskClearTcb(gm_pad_vib_tcb);
+            gm_pad_vib_tcb = null;
+        }
+
+        Debug.WriteLine(new StackTrace());
+
         AppMain.gm_pad_vib_tcb = AppMain.MTM_TASK_MAKE_TCB(gmPadVibDMain, gmPadVibDest, 0, 0, prio, 0,
             () => createVibeTaskWork(vib_type, time, left_vib, right_vib, add_dec_time, int_vib_time, int_stop_time),
             "PAD_VIB");
@@ -150,7 +167,7 @@ public partial class AppMain
     // Token: 0x0600005B RID: 91 RVA: 0x00004A40 File Offset: 0x00002C40
     private static void gmPadVibDMain(MTS_TASK_TCB tcb)
     {
-        AppMain.GMS_PAD_VIB_WORK work = (AppMain.GMS_PAD_VIB_WORK) tcb.work;
+        AppMain.GMS_PAD_VIB_WORK work = (AppMain.GMS_PAD_VIB_WORK)tcb.work;
         if (AppMain.ObjObjectPauseCheck(0U) != 0U)
         {
             if ((work.flag & 2U) == 0U)
@@ -185,8 +202,8 @@ public partial class AppMain
                 if (work.time - work.time_count < work.add_dec_time)
                 {
                     float num = (work.time - work.time_count) / work.add_dec_time;
-                    work.left_vib = (ushort) AppMain.nnRoundOff((float) work.left_vib * num + 0.5f);
-                    work.right_vib = (ushort) AppMain.nnRoundOff((float) work.right_vib * num + 0.5f);
+                    work.left_vib = (ushort)AppMain.nnRoundOff((float)work.left_vib * num + 0.5f);
+                    work.right_vib = (ushort)AppMain.nnRoundOff((float)work.right_vib * num + 0.5f);
                     return;
                 }
 
@@ -195,8 +212,8 @@ public partial class AppMain
                 if (work.time_count < work.add_dec_time)
                 {
                     float num = work.time_count / work.add_dec_time;
-                    work.left_vib = (ushort) AppMain.nnRoundOff((float) work.left_vib * num + 0.5f);
-                    work.right_vib = (ushort) AppMain.nnRoundOff((float) work.right_vib * num + 0.5f);
+                    work.left_vib = (ushort)AppMain.nnRoundOff((float)work.left_vib * num + 0.5f);
+                    work.right_vib = (ushort)AppMain.nnRoundOff((float)work.right_vib * num + 0.5f);
                     return;
                 }
 

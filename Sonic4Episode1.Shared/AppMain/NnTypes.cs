@@ -654,7 +654,7 @@ public class NNS_MATRIX : IClearable
     // Token: 0x06001EA5 RID: 7845 RVA: 0x0013B108 File Offset: 0x00139308
     public static NNS_MATRIX CreateIdentity()
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         nns_MATRIX.M00 = 1f;
         nns_MATRIX.M01 = 0f;
         nns_MATRIX.M02 = 0f;
@@ -1016,7 +1016,7 @@ public class NNS_VECTOR : IClearable
     // Token: 0x06001E8D RID: 7821 RVA: 0x0013AA2C File Offset: 0x00138C2C
     public static NNS_VECTOR Read(BinaryReader reader)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = reader.ReadSingle();
         nns_VECTOR.y = reader.ReadSingle();
         nns_VECTOR.z = reader.ReadSingle();

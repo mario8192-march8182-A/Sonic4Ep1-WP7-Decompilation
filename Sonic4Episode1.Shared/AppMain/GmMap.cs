@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 public partial class AppMain
 {
@@ -360,14 +360,14 @@ public partial class AppMain
     // (get) Token: 0x0600186D RID: 6253 RVA: 0x000DD9DF File Offset: 0x000DBBDF
     public static uint GMD_MAP_DRAW_WIDTH
     {
-        get { return (uint) Math.Min((AppMain.gm_map_draw_size[0] * (_am_draw_video.scalar * 2)), 8); }
+        get { return (uint)Math.Min((AppMain.gm_map_draw_size[0] * (_am_draw_video.scalar * 2)), 8); }
     }
 
     // Token: 0x17000069 RID: 105
     // (get) Token: 0x0600186E RID: 6254 RVA: 0x000DD9E8 File Offset: 0x000DBBE8
     public static uint GMD_MAP_DRAW_HEIGHT
     {
-        get { return (uint) Math.Min((AppMain.gm_map_draw_size[1] * (_am_draw_video.scalar * 2)), 8); }
+        get { return (uint)Math.Min((AppMain.gm_map_draw_size[1] * (_am_draw_video.scalar * 2)), 8); }
     }
 
     // Token: 0x0600186F RID: 6255 RVA: 0x000DD9F1 File Offset: 0x000DBBF1
@@ -410,7 +410,7 @@ public partial class AppMain
 
         if (AppMain.gm_map_tex_load_init)
         {
-            AppMain.AoTexBuild(AppMain.gm_map_texture, (AMS_AMB_HEADER) AppMain.g_gm_gamedat_map[2]);
+            AppMain.AoTexBuild(AppMain.gm_map_texture, (AMS_AMB_HEADER)AppMain.g_gm_gamedat_map[2]);
             AppMain.AoTexLoad(AppMain.gm_map_texture);
             AppMain.gm_map_tex_load_init = false;
         }
@@ -432,7 +432,7 @@ public partial class AppMain
         result.blocks = new AppMain.DF_BLOCK[result.block_num];
         int num = data.offset + 4;
         int num2 = 0;
-        while ((long) num2 < (long) ((ulong) result.block_num))
+        while ((long)num2 < (long)((ulong)result.block_num))
         {
             AppMain.DF_BLOCK df_BLOCK = new AppMain.DF_BLOCK();
             result.blocks[num2] = df_BLOCK;
@@ -463,7 +463,7 @@ public partial class AppMain
                 result.block_num = binaryReader.ReadUInt32();
                 result.blocks = new AppMain.DI_BLOCK[result.block_num];
                 int num = 0;
-                while ((long) num < (long) ((ulong) result.block_num))
+                while ((long)num < (long)((ulong)result.block_num))
                 {
                     result.blocks[num] = new AppMain.DI_BLOCK();
                     for (int i = 0; i < 8; i++)
@@ -490,7 +490,7 @@ public partial class AppMain
                 result.block_num = binaryReader.ReadUInt32();
                 result.blocks = new AppMain.AT_BLOCK[result.block_num];
                 int num = 0;
-                while ((long) num < (long) ((ulong) result.block_num))
+                while ((long)num < (long)((ulong)result.block_num))
                 {
                     result.blocks[num] = new AppMain.AT_BLOCK();
                     for (int i = 0; i < 8; i++)
@@ -521,7 +521,7 @@ public partial class AppMain
             {
                 mp_HEADER.map_w = binaryReader.ReadUInt16();
                 mp_HEADER.map_h = binaryReader.ReadUInt16();
-                int num = (int) (mp_HEADER.map_w * mp_HEADER.map_h);
+                int num = (int)(mp_HEADER.map_w * mp_HEADER.map_h);
                 mp_HEADER.blocks = new AppMain.MP_BLOCK[num];
                 for (int i = 0; i < num; i++)
                 {
@@ -556,7 +556,7 @@ public partial class AppMain
             {
                 md_HEADER.map_w = binaryReader.ReadUInt16();
                 md_HEADER.map_h = binaryReader.ReadUInt16();
-                int num = (int) (md_HEADER.map_w * md_HEADER.map_h);
+                int num = (int)(md_HEADER.map_w * md_HEADER.map_h);
                 md_HEADER.blocks = new AppMain.MD_BLOCK[num];
                 for (int i = 0; i < num; i++)
                 {
@@ -587,19 +587,19 @@ public partial class AppMain
     // Token: 0x0600187B RID: 6267 RVA: 0x000DDF24 File Offset: 0x000DC124
     private static void GmMapBuildColData()
     {
-        AppMain.MP_HEADER mp_HEADER = (AppMain.MP_HEADER) AppMain.g_gm_gamedat_map_set[4];
-        AppMain.MP_HEADER mp_HEADER2 = (AppMain.MP_HEADER) AppMain.g_gm_gamedat_map_set[5];
+        AppMain.MP_HEADER mp_HEADER = (AppMain.MP_HEADER)AppMain.g_gm_gamedat_map_set[4];
+        AppMain.MP_HEADER mp_HEADER2 = (AppMain.MP_HEADER)AppMain.g_gm_gamedat_map_set[5];
         AppMain.g_gm_main_system.map_fcol.map_block_num_x = mp_HEADER.map_w;
         AppMain.g_gm_main_system.map_fcol.map_block_num_y = mp_HEADER.map_h;
         AppMain.g_gm_main_system.map_fcol.block_map_datap[0] = mp_HEADER.blocks;
         AppMain.g_gm_main_system.map_fcol.block_map_datap[1] = mp_HEADER2.blocks;
-        AppMain.DF_HEADER df_HEADER = AppMain.readDFFile((AmbChunk) AppMain.g_gm_gamedat_map_attr_set[1]);
-        AppMain.DI_HEADER di_HEADER = AppMain.readDIFile((AmbChunk) AppMain.g_gm_gamedat_map_attr_set[2]);
-        AppMain.AT_HEADER at_HEADER = AppMain.readATFile((AmbChunk) AppMain.g_gm_gamedat_map_attr_set[0]);
+        AppMain.DF_HEADER df_HEADER = AppMain.readDFFile((AmbChunk)AppMain.g_gm_gamedat_map_attr_set[1]);
+        AppMain.DI_HEADER di_HEADER = AppMain.readDIFile((AmbChunk)AppMain.g_gm_gamedat_map_attr_set[2]);
+        AppMain.AT_HEADER at_HEADER = AppMain.readATFile((AmbChunk)AppMain.g_gm_gamedat_map_attr_set[0]);
         if (AppMain.g_gs_main_sys_info.stage_id == 9)
         {
             int num = 0;
-            while ((long) num < (long) ((ulong) at_HEADER.block_num))
+            while ((long)num < (long)((ulong)at_HEADER.block_num))
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -623,10 +623,10 @@ public partial class AppMain
         AppMain.g_gm_main_system.map_fcol.char_attr_datap = at_HEADER.blocks;
         AppMain.g_gm_main_system.map_fcol.left = 0;
         AppMain.g_gm_main_system.map_fcol.top = 0;
-        AppMain.g_gm_main_system.map_fcol.right = (int) (AppMain.g_gm_main_system.map_fcol.map_block_num_x * 64);
-        AppMain.g_gm_main_system.map_fcol.bottom = (int) (AppMain.g_gm_main_system.map_fcol.map_block_num_y * 64);
-        AppMain.g_gm_main_system.map_size[0] = (int) (AppMain.g_gm_main_system.map_fcol.map_block_num_x * 64);
-        AppMain.g_gm_main_system.map_size[1] = (int) (AppMain.g_gm_main_system.map_fcol.map_block_num_y * 64);
+        AppMain.g_gm_main_system.map_fcol.right = (int)(AppMain.g_gm_main_system.map_fcol.map_block_num_x * 64);
+        AppMain.g_gm_main_system.map_fcol.bottom = (int)(AppMain.g_gm_main_system.map_fcol.map_block_num_y * 64);
+        AppMain.g_gm_main_system.map_size[0] = (int)(AppMain.g_gm_main_system.map_fcol.map_block_num_x * 64);
+        AppMain.g_gm_main_system.map_size[1] = (int)(AppMain.g_gm_main_system.map_fcol.map_block_num_y * 64);
     }
 
     // Token: 0x0600187C RID: 6268 RVA: 0x000DE16D File Offset: 0x000DC36D
@@ -681,7 +681,7 @@ public partial class AppMain
         AppMain.gm_map_tcb.work = gms_MAP_SYS_WORK;
         AppMain.gm_map_draw_command_state = 0U;
         AppMain.gm_map_draw_margin_adjust = 0U;
-        uint stage_id = (uint) AppMain.g_gs_main_sys_info.stage_id;
+        uint stage_id = (uint)AppMain.g_gs_main_sys_info.stage_id;
         AppMain.GmMapSetMapDrawSize(1);
         gms_MAP_SYS_WORK.auto_resize = true;
         switch (stage_id)
@@ -734,15 +734,15 @@ public partial class AppMain
             {
                 gms_MAP_SYS_WORK.flag |= 1U << i;
                 map_state[i].pos_z = AppMain.gm_map_addmap_pos_z_tbl[i];
-                AppMain.MP_HEADER mp_HEADER = (AppMain.MP_HEADER) AppMain.g_gm_gamedat_map_set_add[i * 2];
-                map_state[i].map_block_num[0] = (int) mp_HEADER.map_w;
-                map_state[i].map_block_num[1] = (int) mp_HEADER.map_h;
+                AppMain.MP_HEADER mp_HEADER = (AppMain.MP_HEADER)AppMain.g_gm_gamedat_map_set_add[i * 2];
+                map_state[i].map_block_num[0] = (int)mp_HEADER.map_w;
+                map_state[i].map_block_num[1] = (int)mp_HEADER.map_h;
                 map_state[i].map_size[0] = map_state[i].map_block_num[0] * 64;
                 map_state[i].map_size[1] = map_state[i].map_block_num[1] * 64;
-                map_state[i].scrl_scale[0] = ((float) map_state[i].map_size[0] - (float) AppMain.OBD_LCD_X) /
-                                             ((float) AppMain.g_gm_main_system.map_size[0] - (float) AppMain.OBD_LCD_X);
-                map_state[i].scrl_scale[1] = ((float) map_state[i].map_size[1] - (float) AppMain.OBD_LCD_Y) /
-                                             ((float) AppMain.g_gm_main_system.map_size[1] - (float) AppMain.OBD_LCD_Y);
+                map_state[i].scrl_scale[0] = ((float)map_state[i].map_size[0] - (float)AppMain.OBD_LCD_X) /
+                                             ((float)AppMain.g_gm_main_system.map_size[0] - (float)AppMain.OBD_LCD_X);
+                map_state[i].scrl_scale[1] = ((float)map_state[i].map_size[1] - (float)AppMain.OBD_LCD_Y) /
+                                             ((float)AppMain.g_gm_main_system.map_size[1] - (float)AppMain.OBD_LCD_Y);
                 if (AppMain.g_gs_main_sys_info.stage_id == 1 || AppMain.g_gs_main_sys_info.stage_id == 2 ||
                     AppMain.g_gs_main_sys_info.stage_id == 8 || AppMain.g_gs_main_sys_info.stage_id == 10)
                 {
@@ -807,91 +807,91 @@ public partial class AppMain
     {
         float num = 0f;
         float num2 = 0f;
-        int num3 = (int) pos_x >> 6;
-        int num4 = (int) pos_y >> 6;
-        int num5 = (int) (AppMain.GMD_MAP_DRAW_WIDTH + 4U + AppMain.gm_map_draw_margin_adjust * 2U);
-        int num6 = (int) (AppMain.GMD_MAP_DRAW_HEIGHT + 2U + AppMain.gm_map_draw_margin_adjust * 2U);
-        int num7 = num3 - (num5 >> 1);
-        int num8 = num3 + (num5 >> 1);
-        int num9 = num4 - (num6 >> 1);
-        int num10 = num4 + (num6 >> 1);
-        if (num7 < 0)
+        int num3 = (int)pos_x >> 6;
+        int num4 = (int)pos_y >> 6;
+        int num5 = (int)(AppMain.GMD_MAP_DRAW_WIDTH + 4U + AppMain.gm_map_draw_margin_adjust * 2U);
+        int num6 = (int)(AppMain.GMD_MAP_DRAW_HEIGHT + 2U + AppMain.gm_map_draw_margin_adjust * 2U);
+        int block_left = num3 - (num5 >> 1);
+        int block_right = num3 + (num5 >> 1);
+        int block_top = num4 - (num6 >> 1);
+        int block_bottom = num4 + (num6 >> 1);
+        if (block_left < 0)
         {
             if (!loop_h)
             {
-                num7 = 0;
+                block_left = 0;
             }
             else
             {
-                num7 += (int) mp_header.map_w;
-                num = (float) (-(float) (mp_header.map_w << 6));
+                block_left += (int)mp_header.map_w;
+                num = (float)(-(float)(mp_header.map_w << 6));
             }
         }
-        else if (num7 >= (int) mp_header.map_w)
+        else if (block_left >= (int)mp_header.map_w)
         {
             if (!loop_h)
             {
-                num7 = (int) mp_header.map_w - num5;
+                block_left = (int)mp_header.map_w - num5;
             }
             else
             {
-                num7 -= (int) mp_header.map_w;
-                num = (float) (mp_header.map_w << 6);
+                block_left -= (int)mp_header.map_w;
+                num = (float)(mp_header.map_w << 6);
             }
         }
 
-        if (num9 < 0)
+        if (block_top < 0)
         {
-            num9 = 0;
+            block_top = 0;
         }
 
-        if (num8 >= (int) mp_header.map_w)
+        if (block_right >= (int)mp_header.map_w)
         {
             if (!loop_h)
             {
-                num8 = (int) (mp_header.map_w - 1);
+                block_right = (int)(mp_header.map_w - 1);
             }
             else
             {
-                num8 -= (int) mp_header.map_w;
-                num2 = (float) (mp_header.map_w << 6);
+                block_right -= (int)mp_header.map_w;
+                num2 = (float)(mp_header.map_w << 6);
             }
         }
-        else if (num8 < 0)
+        else if (block_right < 0)
         {
             if (!loop_h)
             {
-                num8 = num5;
+                block_right = num5;
             }
             else
             {
-                num8 += (int) mp_header.map_w;
-                num2 = (float) (-(float) (mp_header.map_w << 6));
+                block_right += (int)mp_header.map_w;
+                num2 = (float)(-(float)(mp_header.map_w << 6));
             }
         }
 
-        if (num10 >= (int) mp_header.map_h)
+        if (block_bottom >= (int)mp_header.map_h)
         {
-            num10 = (int) (mp_header.map_h - 1);
+            block_bottom = (int)(mp_header.map_h - 1);
         }
 
-        if (num7 >= num8)
+        if (block_left >= block_right)
         {
-            AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x + num, trans_y, trans_z, num7,
-                (int) (mp_header.map_w - 1), num9, num10);
-            AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x + num2, trans_y, trans_z, 0, num8, num9,
-                num10);
+            AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x + num, trans_y, trans_z, block_left,
+                (int)(mp_header.map_w - 1), block_top, block_bottom);
+            AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x + num2, trans_y, trans_z, 0, block_right, block_top,
+                block_bottom);
             return;
         }
 
         if (loop_h)
         {
-            AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x + num, trans_y, trans_z, num7, num8,
-                num9, num10);
+            AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x + num, trans_y, trans_z, block_left, block_right,
+                block_top, block_bottom);
             return;
         }
 
-        AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x, trans_y, trans_z, num7, num8, num9, num10);
+        AppMain.gmMapDrawMapRange(obj3d_tbl, mp_header, md_header, trans_x, trans_y, trans_z, block_left, block_right, block_top, block_bottom);
     }
 
     // Token: 0x06001886 RID: 6278 RVA: 0x000DE740 File Offset: 0x000DC940
@@ -910,7 +910,7 @@ public partial class AppMain
             return;
         }
 
-        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
         gms_MAP_SYS_WORK.flag |= 2147483648U;
         AppMain.GMS_MAP_OTHER_MAP_STATE[] map_state = gms_MAP_SYS_WORK.map_state;
         for (int i = 0; i < 5; i++)
@@ -919,7 +919,7 @@ public partial class AppMain
                 map_state[i].map_size[0] != AppMain.g_gm_main_system.map_size[0])
             {
                 map_state[i].scrl_scale[0] =
-                    (float) map_state[i].map_size[0] / (float) AppMain.g_gm_main_system.map_size[0];
+                    (float)map_state[i].map_size[0] / (float)AppMain.g_gm_main_system.map_size[0];
             }
         }
     }
@@ -932,7 +932,7 @@ public partial class AppMain
             return;
         }
 
-        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
         if ((gms_MAP_SYS_WORK.flag & 536870912U) != 0U)
         {
             return;
@@ -955,7 +955,7 @@ public partial class AppMain
             return;
         }
 
-        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
         if ((gms_MAP_SYS_WORK.flag & 536870912U) == 0U)
         {
             return;
@@ -992,18 +992,18 @@ public partial class AppMain
             mag = 1;
         }
 
-        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
         AppMain.GMS_MAP_OTHER_MAP_STATE gms_MAP_OTHER_MAP_STATE = gms_MAP_SYS_WORK.map_state[map_type];
         if ((gms_MAP_SYS_WORK.flag & 2147483648U) > 0U)
         {
-            gms_MAP_OTHER_MAP_STATE.scrl_scale[0] = (float) gms_MAP_OTHER_MAP_STATE.map_size[0] /
-                                                    (float) AppMain.g_gm_main_system.map_size[0] / (float) mag;
+            gms_MAP_OTHER_MAP_STATE.scrl_scale[0] = (float)gms_MAP_OTHER_MAP_STATE.map_size[0] /
+                                                    (float)AppMain.g_gm_main_system.map_size[0] / (float)mag;
             return;
         }
 
         gms_MAP_OTHER_MAP_STATE.scrl_scale[0] =
-            ((float) gms_MAP_OTHER_MAP_STATE.map_size[0] - (float) AppMain.OBD_LCD_X) /
-            ((float) AppMain.g_gm_main_system.map_size[0] - (float) AppMain.OBD_LCD_X) / (float) mag;
+            ((float)gms_MAP_OTHER_MAP_STATE.map_size[0] - (float)AppMain.OBD_LCD_X) /
+            ((float)AppMain.g_gm_main_system.map_size[0] - (float)AppMain.OBD_LCD_X) / (float)mag;
     }
 
     // Token: 0x0600188B RID: 6283 RVA: 0x000DE9EC File Offset: 0x000DCBEC
@@ -1014,18 +1014,18 @@ public partial class AppMain
             return;
         }
 
-        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
         gms_MAP_SYS_WORK.main_cam_user_ofst[0] += move_size;
-        float num = (float) AppMain.g_gm_main_system.map_size[0];
+        float num = (float)AppMain.g_gm_main_system.map_size[0];
         if (gms_MAP_SYS_WORK.main_cam_user_disp[0] + gms_MAP_SYS_WORK.main_cam_user_ofst[0] -
-            (float) AppMain.OBD_LCD_X >= num)
+            (float)AppMain.OBD_LCD_X >= num)
         {
             gms_MAP_SYS_WORK.main_cam_user_ofst[0] -= num;
             return;
         }
 
         if (gms_MAP_SYS_WORK.main_cam_user_disp[0] + gms_MAP_SYS_WORK.main_cam_user_ofst[0] +
-            (float) AppMain.OBD_LCD_X <= -num)
+            (float)AppMain.OBD_LCD_X <= -num)
         {
             gms_MAP_SYS_WORK.main_cam_user_ofst[0] += num;
         }
@@ -1041,7 +1041,7 @@ public partial class AppMain
             return;
         }
 
-        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
         AppMain.main_camera_pos[0].Assign(main_disp_pos);
         AppMain.main_camera_pos[1].Assign(main_target_pos);
         if ((gms_MAP_SYS_WORK.flag & 536870912U) != 0U)
@@ -1055,9 +1055,9 @@ public partial class AppMain
         float num = AppMain.AMD_SCREEN_2D_WIDTH / 2f * 0.67438334f * 1f;
         float num2 = AppMain.AMD_SCREEN_2D_HEIGHT / 2f * 0.67438334f * 1f * 0.9f;
         float num3 = 0f + num;
-        float num4 = (float) AppMain.g_gm_main_system.map_size[0] - num;
+        float num4 = (float)AppMain.g_gm_main_system.map_size[0] - num;
         float num5 = 0f + num2;
-        float num6 = (float) AppMain.g_gm_main_system.map_size[1] - num2;
+        float num6 = (float)AppMain.g_gm_main_system.map_size[1] - num2;
         AppMain.GMS_MAP_OTHER_MAP_STATE gms_MAP_OTHER_MAP_STATE;
         if (camera_id == 2)
         {
@@ -1081,7 +1081,7 @@ public partial class AppMain
             }
             else if (AppMain.main_camera_pos[num7].x >= num4)
             {
-                dest_disp_pos.x = (float) gms_MAP_OTHER_MAP_STATE.map_size[0] - num;
+                dest_disp_pos.x = (float)gms_MAP_OTHER_MAP_STATE.map_size[0] - num;
             }
             else
             {
@@ -1100,7 +1100,7 @@ public partial class AppMain
         }
         else if (-AppMain.main_camera_pos[num7].y >= num6)
         {
-            dest_disp_pos.y = -((float) gms_MAP_OTHER_MAP_STATE.map_size[1] - num2);
+            dest_disp_pos.y = -((float)gms_MAP_OTHER_MAP_STATE.map_size[1] - num2);
         }
         else
         {
@@ -1118,7 +1118,7 @@ public partial class AppMain
             }
             else if (AppMain.main_camera_pos[num7].x >= num4)
             {
-                dest_target_pos.x = (float) gms_MAP_OTHER_MAP_STATE.map_size[0] - num;
+                dest_target_pos.x = (float)gms_MAP_OTHER_MAP_STATE.map_size[0] - num;
             }
             else
             {
@@ -1138,7 +1138,7 @@ public partial class AppMain
         }
         else if (-AppMain.main_camera_pos[num7].y >= num6)
         {
-            dest_target_pos.y = -((float) gms_MAP_OTHER_MAP_STATE.map_size[1] - num2);
+            dest_target_pos.y = -((float)gms_MAP_OTHER_MAP_STATE.map_size[1] - num2);
         }
         else
         {
@@ -1154,7 +1154,7 @@ public partial class AppMain
     {
         if (AppMain.gm_map_tcb != null)
         {
-            AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+            AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
             if (disp)
             {
                 gms_MAP_SYS_WORK.flag &= 4026531839U;
@@ -1170,7 +1170,7 @@ public partial class AppMain
     {
         if (AppMain.gm_map_tcb != null)
         {
-            AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) AppMain.gm_map_tcb.work;
+            AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)AppMain.gm_map_tcb.work;
             if (disp)
             {
                 gms_MAP_SYS_WORK.flag &= 4160749567U;
@@ -1188,7 +1188,7 @@ public partial class AppMain
         OBS_CAMERA obs_CAMERA = ObjCamera.Get(AppMain.g_obj.glb_camera_id);
         float x = obs_CAMERA.disp_pos.x;
         float src = -obs_CAMERA.disp_pos.y;
-        int stage_id = (int) AppMain.g_gs_main_sys_info.stage_id;
+        int stage_id = (int)AppMain.g_gs_main_sys_info.stage_id;
         int num = stage_id;
         switch (num)
         {
@@ -1311,7 +1311,7 @@ public partial class AppMain
 
         int num2 = 0;
         int num3 = AppMain.gm_map_add_tbl_use_no[num] + 1;
-        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK) tcb.work;
+        AppMain.GMS_MAP_SYS_WORK gms_MAP_SYS_WORK = (AppMain.GMS_MAP_SYS_WORK)tcb.work;
         if ((gms_MAP_SYS_WORK.flag & 134217728U) != 0U)
         {
             return;
@@ -1333,7 +1333,7 @@ public partial class AppMain
             AppMain.g_gm_main_system.game_flag &= 4026531839U;
         }
 
-        AppMain.TVX_FILE[] tvxamb = (AppMain.TVX_FILE[]) AppMain.g_gm_gamedat_map[1];
+        AppMain.TVX_FILE[] tvxamb = (AppMain.TVX_FILE[])AppMain.g_gm_gamedat_map[1];
         AppMain.NNS_TEXLIST texlist = AppMain.AoTexGetTexList(AppMain.gm_map_texture);
         NNS_MATRIX nns_MATRIX = AppMain.gmMapMain_mtx;
         AppMain.nnMakeUnitMatrix(nns_MATRIX);
@@ -1375,8 +1375,8 @@ public partial class AppMain
                 x = obs_CAMERA.disp_pos.x;
                 pos_y = -obs_CAMERA.disp_pos.y;
                 AppMain.GmMapSetDrawState(map_state[i].command_state);
-                mp_HEADER = (AppMain.MP_HEADER) AppMain.g_gm_gamedat_map_set_add[i * 2];
-                md_HEADER = (AppMain.MD_HEADER) AppMain.g_gm_gamedat_map_set_add[1 + i * 2];
+                mp_HEADER = (AppMain.MP_HEADER)AppMain.g_gm_gamedat_map_set_add[i * 2];
+                md_HEADER = (AppMain.MD_HEADER)AppMain.g_gm_gamedat_map_set_add[1 + i * 2];
                 AppMain.gmMapInitDrawMapTvx();
                 AppMain.gmMapSetDrawMapTvx(tvxamb, mp_HEADER, md_HEADER, x, pos_y, AppMain.gmMapTransX, 0f,
                     map_state[i].pos_z, loop_h, mp_HEADER.blocks[0], md_HEADER.blocks[0]);
@@ -1392,14 +1392,14 @@ public partial class AppMain
         AppMain.gmMapInitDrawMapTvx();
         if ((gms_MAP_SYS_WORK.flag & 268435456U) == 0U)
         {
-            mp_HEADER = (AppMain.MP_HEADER) AppMain.g_gm_gamedat_map_set[1];
-            md_HEADER = (AppMain.MD_HEADER) AppMain.g_gm_gamedat_map_set[3];
+            mp_HEADER = (AppMain.MP_HEADER)AppMain.g_gm_gamedat_map_set[1];
+            md_HEADER = (AppMain.MD_HEADER)AppMain.g_gm_gamedat_map_set[3];
             AppMain.gmMapSetDrawMapTvx(tvxamb, mp_HEADER, md_HEADER, x, pos_y, AppMain.gmMapTransX, 0f, -128f, false,
                 mp_HEADER.blocks[0], md_HEADER.blocks[0]);
         }
 
-        mp_HEADER = (AppMain.MP_HEADER) AppMain.g_gm_gamedat_map_set[0];
-        md_HEADER = (AppMain.MD_HEADER) AppMain.g_gm_gamedat_map_set[2];
+        mp_HEADER = (AppMain.MP_HEADER)AppMain.g_gm_gamedat_map_set[0];
+        md_HEADER = (AppMain.MD_HEADER)AppMain.g_gm_gamedat_map_set[2];
         AppMain.gmMapSetDrawMapTvx(tvxamb, mp_HEADER, md_HEADER, x, pos_y, AppMain.gmMapTransX, 0f, 128f, false,
             mp_HEADER.blocks[0], md_HEADER.blocks[0]);
         AppMain.gmMapExecuteDrawMapTvx(nns_MATRIX, texlist);
@@ -1415,7 +1415,7 @@ public partial class AppMain
             for (int j = 0; j < AppMain.gm_map_texture.texlist.nTex; j++)
             {
                 AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE =
-                    AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+                    GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
                 ams_PARAM_DRAW_PRIMITIVE.Clear();
                 ams_PARAM_DRAW_PRIMITIVE.type = 0;
                 ams_PARAM_DRAW_PRIMITIVE.ablend = 1;
@@ -1448,7 +1448,7 @@ public partial class AppMain
                 buffer[offset].Col = (buffer[offset + 1].Col =
                     (buffer[offset + 2].Col = (buffer[offset + 3].Col = uint.MaxValue)));
                 AppMain.ObjDraw3DNNDrawPrimitive(ams_PARAM_DRAW_PRIMITIVE, AppMain.gm_map_draw_command_state, 0, 0);
-                AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
+                GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
             }
         }
     }
@@ -1472,10 +1472,10 @@ public partial class AppMain
     {
         float num = 0f;
         float num2 = 0f;
-        int num3 = (int) pos_x >> 6;
-        int num4 = (int) pos_y >> 6;
-        int num5 = (int) (AppMain.GMD_MAP_DRAW_WIDTH + 2U + AppMain.gm_map_draw_margin_adjust * 2U);
-        int num6 = (int) (AppMain.GMD_MAP_DRAW_HEIGHT + 2U + AppMain.gm_map_draw_margin_adjust * 2U);
+        int num3 = (int)pos_x >> 6;
+        int num4 = (int)pos_y >> 6;
+        int num5 = (int)(AppMain.GMD_MAP_DRAW_WIDTH + 2U + AppMain.gm_map_draw_margin_adjust * 2U);
+        int num6 = (int)(AppMain.GMD_MAP_DRAW_HEIGHT + 2U + AppMain.gm_map_draw_margin_adjust * 2U);
         int num7 = num3 - (num5 >> 1);
         int num8 = num3 + (num5 >> 1);
         int num9 = num4 - (num6 >> 1);
@@ -1488,20 +1488,20 @@ public partial class AppMain
             }
             else
             {
-                num7 += (int) mp_header.map_w;
-                num = (float) (-(float) (mp_header.map_w << 6));
+                num7 += (int)mp_header.map_w;
+                num = (float)(-(float)(mp_header.map_w << 6));
             }
         }
-        else if (num7 >= (int) mp_header.map_w)
+        else if (num7 >= (int)mp_header.map_w)
         {
             if (!loop_h)
             {
-                num7 = (int) mp_header.map_w - num5;
+                num7 = (int)mp_header.map_w - num5;
             }
             else
             {
-                num7 -= (int) mp_header.map_w;
-                num = (float) (mp_header.map_w << 6);
+                num7 -= (int)mp_header.map_w;
+                num = (float)(mp_header.map_w << 6);
             }
         }
 
@@ -1510,16 +1510,16 @@ public partial class AppMain
             num9 = 0;
         }
 
-        if (num8 >= (int) mp_header.map_w)
+        if (num8 >= (int)mp_header.map_w)
         {
             if (!loop_h)
             {
-                num8 = (int) (mp_header.map_w - 1);
+                num8 = (int)(mp_header.map_w - 1);
             }
             else
             {
-                num8 -= (int) mp_header.map_w;
-                num2 = (float) (mp_header.map_w << 6);
+                num8 -= (int)mp_header.map_w;
+                num2 = (float)(mp_header.map_w << 6);
             }
         }
         else if (num8 < 0)
@@ -1530,20 +1530,20 @@ public partial class AppMain
             }
             else
             {
-                num8 += (int) mp_header.map_w;
-                num2 = (float) (-(float) (mp_header.map_w << 6));
+                num8 += (int)mp_header.map_w;
+                num2 = (float)(-(float)(mp_header.map_w << 6));
             }
         }
 
-        if (num10 >= (int) mp_header.map_h)
+        if (num10 >= (int)mp_header.map_h)
         {
-            num10 = (int) (mp_header.map_h - 1);
+            num10 = (int)(mp_header.map_h - 1);
         }
 
         if (num7 >= num8)
         {
             AppMain.gmMapSetDrawMapRangeTvx(tvxamb, mp_header, md_header, trans_x + num, trans_y, trans_z, num7,
-                (int) (mp_header.map_w - 1), num9, num10, mp_block, md_block);
+                (int)(mp_header.map_w - 1), num9, num10, mp_block, md_block);
             AppMain.gmMapSetDrawMapRangeTvx(tvxamb, mp_header, md_header, trans_x + num2, trans_y, trans_z, 0, num8,
                 num9, num10, mp_block, md_block);
             return;
@@ -1576,63 +1576,61 @@ public partial class AppMain
         uint gmd_MAP_DRAW_WIDTH = AppMain.GMD_MAP_DRAW_WIDTH;
         uint gmd_MAP_DRAW_HEIGHT = AppMain.GMD_MAP_DRAW_HEIGHT;
         AppMain.GMS_MAP_PRIM_DRAW_WORK[] array = AppMain.gm_map_prim_draw_work;
-        for (int k = block_left; k <= block_right; k++)
+        for (int x = block_left; x <= block_right; x++)
         {
-            int l = block_top;
-            while (l <= block_bottom)
+            int y = block_top;
+            while (y <= block_bottom)
             {
-                int num = l * (int) mp_header.map_w + k;
-                AppMain.MP_BLOCK mp = mp_header.blocks[num];
-                float num2 = (float) k;
-                float num3 = (float) l;
-                int num4 = (int) mp.id;
-                if (num4 != 0)
+                int block_index = y * (int)mp_header.map_w + x;
+                AppMain.MP_BLOCK mp = mp_header.blocks[block_index];
+                float block_x = (float)x;
+                float block_y = (float)y;
+                int block_id = (int)mp.id;
+                if (block_id != 0)
                 {
                     goto IL_FA;
                 }
 
-                AppMain.MD_BLOCK md_BLOCK = md_header.blocks[num];
-                int ofst_x = (int) md_BLOCK.ofst_x;
-                int ofst_y = (int) md_BLOCK.ofst_y;
+                AppMain.MD_BLOCK md_BLOCK = md_header.blocks[block_index];
+                int ofst_x = (int)md_BLOCK.ofst_x;
+                int ofst_y = (int)md_BLOCK.ofst_y;
                 if ((ofst_x | ofst_y) != 0)
                 {
-                    num += (int) mp_header.map_w * ofst_y + ofst_x;
-                    mp = mp_header.blocks[num];
-                    num4 = (int) mp.id;
-                    num2 += (float) ofst_x;
-                    num3 += (float) ofst_y;
+                    block_index += (int)mp_header.map_w * ofst_y + ofst_x;
+                    mp = mp_header.blocks[block_index];
+                    block_id = (int)mp.id;
+                    block_x += (float)ofst_x;
+                    block_y += (float)ofst_y;
                     goto IL_FA;
                 }
 
-                IL_24B:
-                l++;
+            IL_24B:
+                y++;
                 continue;
-                IL_FA:
-                if (num4 != 0 && AppMain.gm_map_block_check[MTM_MATH_CLIP(8 + (int) num2 - block_left, 0, 23), MTM_MATH_CLIP(8 + (int) num3 - block_top, 0, 23)] ==
-                    -1)
+            IL_FA:
+                if (block_id != 0 && AppMain.gm_map_block_check[MTM_MATH_CLIP(8 + (int)block_x - block_left, 0, 23), MTM_MATH_CLIP(8 + (int)block_y - block_top, 0, 23)] == -1)
                 {
-                    AppMain.gm_map_block_check[8 + (int) num2 - block_left, 8 + (int) num3 - block_top] = (short) num4;
-                    num4--;
-                    AppMain.TVX_FILE file = tvxamb[num4];
-                    uint num5 = AppMain.AoTvxGetTextureNum(file);
-                    for (uint num6 = 0U; num6 < num5; num6 += 1U)
+                    AppMain.gm_map_block_check[8 + (int)block_x - block_left, 8 + (int)block_y - block_top] = (short)block_id;
+                    block_id--;
+                    AppMain.TVX_FILE file = tvxamb[block_id];
+                    uint texture_num = AppMain.AoTvxGetTextureNum(file);
+                    for (uint i = 0U; i < texture_num; i += 1U)
                     {
-                        uint num7 = AppMain.AoTvxGetVertexNum(file, num6);
-                        int num8 = AppMain.AoTvxGetTextureId(file, num6);
+                        uint vertex_num = AppMain.AoTvxGetVertexNum(file, i);
+                        int texture_id = AppMain.AoTvxGetTextureId(file, i);
                         for (int m = 0; m < 16; m++)
                         {
-                            if (array[m].tex_id == -1 || array[m].tex_id == num8)
+                            if (array[m].tex_id == -1 || array[m].tex_id == texture_id)
                             {
-                                array[m].tex_id = num8;
-                                array[m].all_vtx_num += num7;
-                                AppMain.GMS_MAP_PRIM_DRAW_STACK gms_MAP_PRIM_DRAW_STACK =
-                                    array[m].stack[(int) ((UIntPtr) array[m].stack_num)];
-                                gms_MAP_PRIM_DRAW_STACK.vtx = AppMain.AoTvxGetVertex(file, num6);
-                                gms_MAP_PRIM_DRAW_STACK.vtx_num = (ushort) num7;
-                                gms_MAP_PRIM_DRAW_STACK.mp = mp;
-                                gms_MAP_PRIM_DRAW_STACK.dx = trans_x + (num2 + 0.5f) * 64f;
-                                gms_MAP_PRIM_DRAW_STACK.dy = -trans_y + (-num3 - 0.5f) * 64f;
-                                gms_MAP_PRIM_DRAW_STACK.dz = trans_z;
+                                array[m].tex_id = texture_id;
+                                array[m].all_vtx_num += vertex_num;
+                                var draw_stack = array[m].stack[(int)(array[m].stack_num)];
+                                draw_stack.vtx = AppMain.AoTvxGetVertex(file, i);
+                                draw_stack.vtx_num = (ushort)vertex_num;
+                                draw_stack.mp = mp;
+                                draw_stack.dx = trans_x + (block_x + 0.5f) * 64f;
+                                draw_stack.dy = -trans_y + (-block_y - 0.5f) * 64f;
+                                draw_stack.dz = trans_z;
                                 array[m].stack_num += 1U;
                                 break;
                             }
@@ -1651,7 +1649,7 @@ public partial class AppMain
     private static void gmMapExecuteDrawMapTvx(NNS_MATRIX mtx, AppMain.NNS_TEXLIST texlist)
     {
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE =
-            AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+            GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         AppMain.GMS_MAP_PRIM_DRAW_WORK[] array = AppMain.gm_map_prim_draw_work;
         int[] array2 = AppMain.gm_map_prim_draw_tvx_alpha_set;
         AppMain.GMS_MAP_PRIM_DRAW_WORK[] array3 = AppMain.amDraw_GMS_MAP_PRIM_DRAW_WORK_Array_Pool.AllocArray(8);
@@ -1669,26 +1667,26 @@ public partial class AppMain
         ams_PARAM_DRAW_PRIMITIVE.format3D = 4;
         ams_PARAM_DRAW_PRIMITIVE.texlist = texlist;
         uint num2 = 0U;
-        while (num2 < 16U && array[(int) ((UIntPtr) num2)].tex_id != -1)
+        while (num2 < 16U && array[(int)(num2)].tex_id != -1)
         {
-            if (array2 != null && array2[array[(int) ((UIntPtr) num2)].tex_id] != 0)
+            if (array2 != null && array2[array[(int)(num2)].tex_id] != 0)
             {
                 if (num >= 8U)
                 {
                     break;
                 }
 
-                array3[(int) ((UIntPtr) num)] = array[(int) ((UIntPtr) num2)];
-                array3[(int) ((UIntPtr) num)].op = (uint) array2[array[(int) ((UIntPtr) num2)].tex_id];
+                array3[(int)(num)] = array[(int)(num2)];
+                array3[(int)(num)].op = (uint)array2[array[(int)(num2)].tex_id];
                 num += 1U;
             }
             else
             {
-                ams_PARAM_DRAW_PRIMITIVE.count = (int) (array[(int) ((UIntPtr) num2)].all_vtx_num +
-                    array[(int) ((UIntPtr) num2)].stack_num * 2U - 2U);
+                ams_PARAM_DRAW_PRIMITIVE.count = (int)(array[(int)(num2)].all_vtx_num +
+                    array[(int)(num2)].stack_num * 2U - 2U);
                 AppMain.NNS_PRIM3D_PCT_ARRAY v_tbl_array =
                     AppMain.amDrawAlloc_NNS_PRIM3D_PCT(ams_PARAM_DRAW_PRIMITIVE.count);
-                AppMain.gmMapExecuteDrawMapTvxCore(mtx, array[(int) ((UIntPtr) num2)], ams_PARAM_DRAW_PRIMITIVE,
+                AppMain.gmMapExecuteDrawMapTvxCore(mtx, array[(int)(num2)], ams_PARAM_DRAW_PRIMITIVE,
                     v_tbl_array, color);
             }
 
@@ -1698,7 +1696,7 @@ public partial class AppMain
         if (array2 != null)
         {
             int num3 = 0;
-            while ((long) num3 < (long) ((ulong) num))
+            while ((long)num3 < (long)((ulong)num))
             {
                 switch (array3[num3].op)
                 {
@@ -1716,7 +1714,7 @@ public partial class AppMain
                         break;
                 }
 
-                ams_PARAM_DRAW_PRIMITIVE.count = (int) (array3[num3].all_vtx_num + array3[num3].stack_num * 2U - 2U);
+                ams_PARAM_DRAW_PRIMITIVE.count = (int)(array3[num3].all_vtx_num + array3[num3].stack_num * 2U - 2U);
                 AppMain.NNS_PRIM3D_PCT_ARRAY v_tbl_array2 =
                     AppMain.amDrawAlloc_NNS_PRIM3D_PCT(ams_PARAM_DRAW_PRIMITIVE.count);
                 AppMain.gmMapExecuteDrawMapTvxCore(mtx, array3[num3], ams_PARAM_DRAW_PRIMITIVE, v_tbl_array2, color);
@@ -1724,7 +1722,7 @@ public partial class AppMain
             }
         }
 
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
     }
 
     // Token: 0x06001898 RID: 6296 RVA: 0x000DFE98 File Offset: 0x000DE098
@@ -1740,16 +1738,16 @@ public partial class AppMain
         SNNS_VECTOR snns_VECTOR = default(SNNS_VECTOR);
         for (uint num2 = 0U; num2 < work.stack_num; num2 += 1U)
         {
-            AppMain.GMS_MAP_PRIM_DRAW_STACK gms_MAP_PRIM_DRAW_STACK = work.stack[(int) ((UIntPtr) num2)];
-            ushort num3 = (ushort) (gms_MAP_PRIM_DRAW_STACK.vtx_num / 3);
+            AppMain.GMS_MAP_PRIM_DRAW_STACK gms_MAP_PRIM_DRAW_STACK = work.stack[(int)(num2)];
+            ushort num3 = (ushort)(gms_MAP_PRIM_DRAW_STACK.vtx_num / 3);
             float dx = gms_MAP_PRIM_DRAW_STACK.dx;
             float dy = gms_MAP_PRIM_DRAW_STACK.dy;
             float dz = gms_MAP_PRIM_DRAW_STACK.dz;
-            NNS_MATRIX mtx2 = AppMain.gmMapGetUsePrimMatrix((int) gms_MAP_PRIM_DRAW_STACK.mp.rot,
-                (int) gms_MAP_PRIM_DRAW_STACK.mp.flip_h | (int) gms_MAP_PRIM_DRAW_STACK.mp.flip_v << 1);
+            NNS_MATRIX mtx2 = AppMain.gmMapGetUsePrimMatrix((int)gms_MAP_PRIM_DRAW_STACK.mp.rot,
+                (int)gms_MAP_PRIM_DRAW_STACK.mp.flip_h | (int)gms_MAP_PRIM_DRAW_STACK.mp.flip_v << 1);
             int num4 = num;
             AppMain.AOS_TVX_VERTEX[] vtx = gms_MAP_PRIM_DRAW_STACK.vtx;
-            for (int i = 0; i < (int) gms_MAP_PRIM_DRAW_STACK.vtx_num; i++)
+            for (int i = 0; i < (int)gms_MAP_PRIM_DRAW_STACK.vtx_num; i++)
             {
                 snns_VECTOR.x = vtx[i].x;
                 snns_VECTOR.y = vtx[i].y;
@@ -1770,7 +1768,7 @@ public partial class AppMain
                 buffer[num5].Col = (vtx[i].c & color);
             }
 
-            num += (int) (gms_MAP_PRIM_DRAW_STACK.vtx_num + 2);
+            num += (int)(gms_MAP_PRIM_DRAW_STACK.vtx_num + 2);
             if (num2 != 0U)
             {
                 int num9 = num4 - 1;
@@ -1779,7 +1777,7 @@ public partial class AppMain
 
             if (num2 != work.stack_num - 1U)
             {
-                int num9 = num4 + (int) (gms_MAP_PRIM_DRAW_STACK.vtx_num - 1);
+                int num9 = num4 + (int)(gms_MAP_PRIM_DRAW_STACK.vtx_num - 1);
                 buffer[num9 + 1] = buffer[num9];
             }
         }
@@ -1795,7 +1793,7 @@ public partial class AppMain
         AppMain.GMS_MAP_PRIM_DRAW_TVX_UV_WORK gms_MAP_PRIM_DRAW_TVX_UV_WORK = AppMain.gm_map_prim_draw_uv_work;
         int num = 0;
         int num2 = 0;
-        int num3 = AppMain.g_gm_gamedat_zone_type_tbl[(int) AppMain.g_gs_main_sys_info.stage_id];
+        int num3 = AppMain.g_gm_gamedat_zone_type_tbl[(int)AppMain.g_gs_main_sys_info.stage_id];
         switch (num3)
         {
             case 0:
@@ -1820,8 +1818,8 @@ public partial class AppMain
         }
 
         uint num4 = 32U;
-        uint num5 = (uint) ((ulong) num4 + (ulong) ((long) (4 * num)));
-        uint num6 = (uint) ((ulong) num5 + (ulong) ((long) (4 * num)));
+        uint num5 = (uint)((ulong)num4 + (ulong)((long)(4 * num)));
+        uint num6 = (uint)((ulong)num5 + (ulong)((long)(4 * num)));
         gms_MAP_PRIM_DRAW_TVX_UV_WORK = new AppMain.GMS_MAP_PRIM_DRAW_TVX_UV_WORK();
         AppMain.gm_map_prim_draw_uv_work = gms_MAP_PRIM_DRAW_TVX_UV_WORK;
         gms_MAP_PRIM_DRAW_TVX_UV_WORK.mgr_index_tbl_num = num;
@@ -1872,13 +1870,13 @@ public partial class AppMain
         int[] tex_uv_index_tbl = gms_MAP_PRIM_DRAW_TVX_UV_WORK.tex_uv_index_tbl;
         for (int j = 0; j < num; j++)
         {
-            ushort tex_id = ((GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[]) mgr_index_tbl_addr)[j].tex_id;
-            ushort mgr_id = ((GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[]) mgr_index_tbl_addr)[j].mgr_id;
+            ushort tex_id = ((GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[])mgr_index_tbl_addr)[j].tex_id;
+            ushort mgr_id = ((GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[])mgr_index_tbl_addr)[j].mgr_id;
             for (int k = 0; k < num2; k++)
             {
-                if ((int) tex_id == k)
+                if ((int)tex_id == k)
                 {
-                    tex_uv_index_tbl[k] = (int) mgr_id;
+                    tex_uv_index_tbl[k] = (int)mgr_id;
                 }
             }
         }
@@ -1901,20 +1899,20 @@ public partial class AppMain
             uint[] frame_index_tbl = gms_MAP_PRIM_DRAW_TVX_UV_WORK.frame_index_tbl;
             uint[] frame_tbl = gms_MAP_PRIM_DRAW_TVX_UV_WORK.frame_tbl;
             AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[] array =
-                (AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[]) gms_MAP_PRIM_DRAW_TVX_UV_WORK.mgr_index_tbl_addr;
+                (AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[])gms_MAP_PRIM_DRAW_TVX_UV_WORK.mgr_index_tbl_addr;
             for (int i = 0; i < mgr_index_tbl_num; i++)
             {
                 ushort mgr_id = array[i].mgr_id;
                 AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][] array2 =
-                    (AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][]) gms_MAP_PRIM_DRAW_TVX_UV_WORK.mgr_tbl_addr;
-                AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[] array3 = array2[(int) mgr_id];
-                if ((frame_tbl[(int) mgr_id] += 1U) >=
-                    (uint) array3[(int) ((UIntPtr) frame_index_tbl[(int) mgr_id])].time)
+                    (AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][])gms_MAP_PRIM_DRAW_TVX_UV_WORK.mgr_tbl_addr;
+                AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[] array3 = array2[(int)mgr_id];
+                if ((frame_tbl[(int)mgr_id] += 1U) >=
+                    (uint)array3[(int)(frame_index_tbl[(int)mgr_id])].time)
                 {
-                    frame_tbl[(int) mgr_id] = 0U;
-                    frame_index_tbl[(int) mgr_id] =
-                        (uint) ((ulong) (frame_index_tbl[(int) mgr_id] + 1U) %
-                                (ulong) ((long) mgr_tbl_num[(int) mgr_id]));
+                    frame_tbl[(int)mgr_id] = 0U;
+                    frame_index_tbl[(int)mgr_id] =
+                        (uint)((ulong)(frame_index_tbl[(int)mgr_id] + 1U) %
+                                (ulong)((long)mgr_tbl_num[(int)mgr_id]));
                 }
             }
         }
@@ -1923,24 +1921,24 @@ public partial class AppMain
     // Token: 0x0600189C RID: 6300 RVA: 0x000E042C File Offset: 0x000DE62C
     private static void gmMapGetDrawMapTvxTexScrollUV(int tex_id, out NNS_TEXCOORD scr_uv)
     {
-        AppMain.GMS_MAP_PRIM_DRAW_TVX_UV_WORK gms_MAP_PRIM_DRAW_TVX_UV_WORK = AppMain.gm_map_prim_draw_uv_work;
+        AppMain.GMS_MAP_PRIM_DRAW_TVX_UV_WORK uv_work = AppMain.gm_map_prim_draw_uv_work;
         scr_uv.u = 0f;
         scr_uv.v = 0f;
-        if (gms_MAP_PRIM_DRAW_TVX_UV_WORK != null)
+        if (uv_work != null)
         {
-            int num = gms_MAP_PRIM_DRAW_TVX_UV_WORK.tex_uv_index_tbl[tex_id];
+            int num = uv_work.tex_uv_index_tbl[tex_id];
             if (-1 != num)
             {
                 AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][] array =
-                    (AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][]) gms_MAP_PRIM_DRAW_TVX_UV_WORK.mgr_tbl_addr;
+                    (AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[][])uv_work.mgr_tbl_addr;
                 AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR[] array2 = array[num];
                 NNS_TEXCOORD[][] array3 =
-                    (NNS_TEXCOORD[][]) gms_MAP_PRIM_DRAW_TVX_UV_WORK.uv_mgr_tbl_addr;
+                    (NNS_TEXCOORD[][])uv_work.uv_mgr_tbl_addr;
                 NNS_TEXCOORD[] array4 = array3[num];
-                uint num2 = gms_MAP_PRIM_DRAW_TVX_UV_WORK.frame_index_tbl[num];
-                ushort motion_id = array2[(int) ((UIntPtr) num2)].motion_id;
-                scr_uv.u = array4[(int) motion_id].u;
-                scr_uv.v = array4[(int) motion_id].v;
+                uint num2 = uv_work.frame_index_tbl[num];
+                ushort motion_id = array2[(int)(num2)].motion_id;
+                scr_uv.u = array4[(int)motion_id].u;
+                scr_uv.v = array4[(int)motion_id].v;
             }
         }
     }
@@ -1948,7 +1946,7 @@ public partial class AppMain
     // Token: 0x0600189D RID: 6301 RVA: 0x000E04C8 File Offset: 0x000DE6C8
     private static void gmMapCreateUsePrimMatrix()
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         for (int i = 0; i < 4; i++)
         {
             AppMain.nnMakeUnitMatrix(nns_MATRIX);

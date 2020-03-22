@@ -2044,10 +2044,10 @@ public class GmPlayer
     // Token: 0x06000ADC RID: 2780 RVA: 0x00060A3C File Offset: 0x0005EC3C
     public static void SetLight(NNS_VECTOR light_vec, ref NNS_RGBA light_col)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.nnNormalizeVector(nns_VECTOR, light_vec);
         AppMain.ObjDrawSetParallelLight(AppMain.NNE_LIGHT_6, ref light_col, 1f, nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x06000ADD RID: 2781 RVA: 0x00060A6E File Offset: 0x0005EC6E
@@ -2717,7 +2717,7 @@ public class GmPlayer
                     AppMain.GmPlySeqLandingSet(ply_work, 40960);
                 }
 
-                AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+                AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
                 obs_COL_CHK_DATA.pos_x = ply_work.obj_work.pos.x >> 12;
                 obs_COL_CHK_DATA.pos_y = (ply_work.obj_work.pos.y >> 12) + (int) ply_work.obj_work.field_rect[1] - 4;
                 obs_COL_CHK_DATA.flag = (ushort) (ply_work.obj_work.flag & 1U);
@@ -2730,7 +2730,7 @@ public class GmPlayer
                 AppMain.ObjDiffCollisionFast(obs_COL_CHK_DATA);
                 num = array[0];
                 ply_work.obj_work.dir.z = num;
-                AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+                GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
             }
             else if ((ply_work.obj_work.move_flag & 4U) != 0U)
             {
@@ -3664,8 +3664,8 @@ public class GmPlayer
     public static void gmGmkPlayerMotionCallbackTruck(AppMain.AMS_MOTION motion, AppMain.NNS_OBJECT _object,
         object param)
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         GMS_PLAYER_WORK gms_PLAYER_WORK = (GMS_PLAYER_WORK) param;
         AppMain.nnMakeUnitMatrix(nns_MATRIX2);
         AppMain.nnMultiplyMatrix(nns_MATRIX2, nns_MATRIX2, AppMain.amMatrixGetCurrent());
@@ -3676,7 +3676,7 @@ public class GmPlayer
     // Token: 0x060008A5 RID: 2213 RVA: 0x0004DB2C File Offset: 0x0004BD2C
     public static uint gmPlayerCheckTruckAirFoot(GMS_PLAYER_WORK ply_work)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         uint num = 0U;
         int num2 = 0;
         int num3 = 0;
@@ -3711,12 +3711,12 @@ public class GmPlayer
 
         if ((num4 & 16383) != 0)
         {
-            NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-            NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-            NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-            NNS_VECTOR nns_VECTOR4 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-            NNS_VECTOR nns_VECTOR5 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-            NNS_VECTOR nns_VECTOR6 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR4 = GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR5 = GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR6 = GlobalPool<NNS_VECTOR>.Alloc();
             switch ((num4 & 49152) >> 14)
             {
                 case 0:
@@ -3757,12 +3757,12 @@ public class GmPlayer
             nns_VECTOR4.z = nns_VECTOR.z + nns_VECTOR5.z * num6;
             num2 = AppMain.FXM_FLOAT_TO_FX32(nns_VECTOR4.x);
             num3 = AppMain.FXM_FLOAT_TO_FX32(-nns_VECTOR4.y);
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR4);
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR5);
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR6);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR3);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR4);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR5);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR6);
         }
         else
         {
@@ -3920,7 +3920,7 @@ public class GMS_PLAYER_WORK : IOBS_OBJECT_WORK
     public AppMain.GMS_PLY_SEQ_STATE_DATA[] seq_state_data_tbl;
 
     // Token: 0x04005545 RID: 21829
-    public readonly NNS_MATRIX ex_obj_mtx_r = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+    public readonly NNS_MATRIX ex_obj_mtx_r = GlobalPool<NNS_MATRIX>.Alloc();
 
     // Token: 0x04005546 RID: 21830
     public short spin_se_timer;
@@ -4214,7 +4214,7 @@ public class GMS_PLAYER_WORK : IOBS_OBJECT_WORK
     public ushort truck_prev_dir_fall;
 
     // Token: 0x040055A7 RID: 21927
-    public readonly NNS_MATRIX truck_mtx_ply_mtn_pos = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+    public readonly NNS_MATRIX truck_mtx_ply_mtn_pos = GlobalPool<NNS_MATRIX>.Alloc();
 
     // Token: 0x040055A8 RID: 21928
     public ushort truck_stick_prev_dir;
@@ -4271,7 +4271,7 @@ public class GMS_PLAYER_WORK : IOBS_OBJECT_WORK
     public bool is_nudge;
 
     // Token: 0x040055BA RID: 21946
-    public readonly NNS_VECTOR calc_accel = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR calc_accel = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x040055BB RID: 21947
     public ushort key_on;

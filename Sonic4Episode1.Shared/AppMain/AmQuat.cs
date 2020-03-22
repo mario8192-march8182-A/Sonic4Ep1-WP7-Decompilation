@@ -64,10 +64,10 @@ public partial class AppMain
     // Token: 0x06000F5D RID: 3933 RVA: 0x0008803C File Offset: 0x0008623C
     public void amQuatVectorToQuat( ref NNS_QUATERNION pQuat, NNS_VECTOR4D pV1, NNS_VECTOR4D pV2 )
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR3 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_VECTOR nns_VECTOR4 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR3 = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR4 = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.VEC3_COPY( nns_VECTOR, pV1 );
         AppMain.VEC3_COPY( nns_VECTOR2, pV2 );
         AppMain.nnAddVector( nns_VECTOR4, nns_VECTOR, nns_VECTOR2 );
@@ -77,10 +77,10 @@ public partial class AppMain
         AppMain.nnCrossProductVector( nns_VECTOR3, nns_VECTOR, nns_VECTOR2 );
         AppMain.VEC3_COPY( pQuat, nns_VECTOR3 );
         pQuat.w = AppMain.nnDotProductVector( nns_VECTOR, nns_VECTOR2 );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR2 );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR3 );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR4 );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR2 );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR3 );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR4 );
     }
 
     // Token: 0x06000F5E RID: 3934 RVA: 0x000880D8 File Offset: 0x000862D8
@@ -178,13 +178,13 @@ public partial class AppMain
             AppMain.VEC4_COPY( pDst, ref nns_QUATERNION );
             return;
         }
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.VEC4_COPY( nns_VECTOR4D, ref nns_QUATERNION );
         AppMain.VEC4_COPY( nns_VECTOR4D2, pVec );
         AppMain.amVectorAdd( pDst, nns_VECTOR4D, nns_VECTOR4D2 );
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release( nns_VECTOR4D );
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release( nns_VECTOR4D2 );
+        GlobalPool<NNS_VECTOR4D>.Release( nns_VECTOR4D );
+        GlobalPool<NNS_VECTOR4D>.Release( nns_VECTOR4D2 );
     }
 
     // Token: 0x06000F65 RID: 3941 RVA: 0x00088320 File Offset: 0x00086520

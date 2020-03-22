@@ -338,9 +338,9 @@ public partial class AppMain
     {
         AppMain.GMS_ENE_UNIDES_WORK gms_ENE_UNIDES_WORK = (AppMain.GMS_ENE_UNIDES_WORK)obj_work;
         AppMain.GMS_ENE_UNIDES_WORK gms_ENE_UNIDES_WORK2 = (AppMain.GMS_ENE_UNIDES_WORK)obj_work.parent_obj;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
         int num = gms_ENE_UNIDES_WORK2.rot_y;
         int rot_x = gms_ENE_UNIDES_WORK2.rot_x;
         int rot_z = gms_ENE_UNIDES_WORK2.rot_z;
@@ -370,9 +370,9 @@ public partial class AppMain
                 gms_ENE_UNIDES_WORK2.stop = 1;
             }
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
     }
 
     // Token: 0x06000DFE RID: 3582 RVA: 0x0007B550 File Offset: 0x00079750

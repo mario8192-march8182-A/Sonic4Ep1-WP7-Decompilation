@@ -173,7 +173,7 @@ public partial class AppMain
         OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_BOSS4_BODY_WORK;
         NNS_MATRIX nns_MATRIX = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_BODY_WORK.node_work, 2);
         NNS_MATRIX nns_MATRIX2 = AppMain.GmBoss4UtilGetNodeMatrix(gms_BOSS4_BODY_WORK.node_work, 2);
-        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnCopyMatrix( nns_MATRIX3, nns_MATRIX );
         nns_MATRIX3.M03 = nns_MATRIX.M03 - nns_MATRIX2.M03 + ( float )obs_OBJECT_WORK.pos.x / 4096f;
         AppMain.GmBoss4UtilSetMatrixNN( obj_work, nns_MATRIX3 );
@@ -216,7 +216,7 @@ public partial class AppMain
         {
             obj_work.disp_flag &= 4294967279U;
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
     }
 
     // Token: 0x060005E4 RID: 1508 RVA: 0x000347E3 File Offset: 0x000329E3

@@ -2074,7 +2074,7 @@ public class AMS_AME_HEADER
 public class AMS_AME_NODE_NOISE : AMS_AME_NODE
 {
     // Token: 0x04005A49 RID: 23113
-    public readonly NNS_VECTOR4D axis = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D axis = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A4A RID: 23114
     public float magnitude;
@@ -2083,7 +2083,7 @@ public class AMS_AME_NODE_NOISE : AMS_AME_NODE
 public class AMS_AME_NODE_DRAG : AMS_AME_NODE
 {
     // Token: 0x04005A47 RID: 23111
-    public readonly NNS_VECTOR4D position = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D position = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A48 RID: 23112
     public float magnitude;
@@ -2092,16 +2092,16 @@ public class AMS_AME_NODE_DRAG : AMS_AME_NODE
 public class AMS_AME_NODE_VORTEX : AMS_AME_NODE
 {
     // Token: 0x04005A45 RID: 23109
-    public readonly NNS_VECTOR4D position = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D position = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A46 RID: 23110
-    public readonly NNS_VECTOR4D axis = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D axis = GlobalPool<NNS_VECTOR4D>.Alloc();
 }
 
 public class AMS_AME_NODE_RADIAL : AMS_AME_NODE
 {
     // Token: 0x04005A42 RID: 23106
-    public readonly NNS_VECTOR4D position = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D position = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A43 RID: 23107
     public float magnitude;
@@ -2113,7 +2113,7 @@ public class AMS_AME_NODE_RADIAL : AMS_AME_NODE
 public class AMS_AME_NODE_UNIFORM : AMS_AME_NODE
 {
     // Token: 0x04005A40 RID: 23104
-    public readonly NNS_VECTOR4D direction = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D direction = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A41 RID: 23105
     public float magnitude;
@@ -2122,7 +2122,7 @@ public class AMS_AME_NODE_UNIFORM : AMS_AME_NODE
 public class AMS_AME_NODE_GRAVITY : AMS_AME_NODE
 {
     // Token: 0x04005A3E RID: 23102
-    public readonly NNS_VECTOR4D direction = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D direction = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A3F RID: 23103
     public float magnitude;
@@ -2131,13 +2131,13 @@ public class AMS_AME_NODE_GRAVITY : AMS_AME_NODE
 public class AMS_AME_NODE_MODEL : AMS_AME_NODE_TR_ROT
 {
     // Token: 0x04005A30 RID: 23088
-    public readonly NNS_VECTOR4D rotate_axis = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D rotate_axis = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A31 RID: 23089
-    public readonly NNS_VECTOR4D scale_start = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D scale_start = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A32 RID: 23090
-    public readonly NNS_VECTOR4D scale_end = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D scale_end = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A33 RID: 23091
     public float z_bias;
@@ -2176,7 +2176,7 @@ public class AMS_AME_NODE_MODEL : AMS_AME_NODE_TR_ROT
 public class AMS_AME_NODE_PLANE : AMS_AME_NODE_TR_ROT
 {
     // Token: 0x04005A19 RID: 23065
-    public readonly NNS_VECTOR4D rotate_axis = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D rotate_axis = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x04005A1A RID: 23066
     public float z_bias;
@@ -2500,7 +2500,7 @@ public struct AMS_AME_TEX_ANIM_KEY
 public class AMS_AME_NODE_TR_ROT : AMS_AME_NODE
 {
     // Token: 0x040059CB RID: 22987
-    public readonly NNS_VECTOR4D translate = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D translate = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x040059CC RID: 22988
     public NNS_QUATERNION rotate;
@@ -2559,7 +2559,7 @@ public class AMS_AME_BOUNDING
     }
 
     // Token: 0x040059BE RID: 22974
-    public readonly NNS_VECTOR4D center = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+    public readonly NNS_VECTOR4D center = GlobalPool<NNS_VECTOR4D>.Alloc();
 
     // Token: 0x040059BF RID: 22975
     public float radius;

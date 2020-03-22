@@ -2826,14 +2826,14 @@ public partial class AppMain
             result = 1;
         }
         AppMain.nnSlerpQuaternion( out nns_QUATERNION, ref body_work.cnpy_close_init_quat, ref body_work.cnpy_close_dest_quat, body_work.cnpy_close_ratio );
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeQuaternionMatrix( nns_MATRIX, ref nns_QUATERNION );
         AppMain.GmBsCmnSetCNMMtx( body_work.cnm_mgr_work, nns_MATRIX, body_work.head_cnm_reg_id );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeScaleMatrix( nns_MATRIX2, 0f, 0f, 0f );
         AppMain.GmBsCmnSetCNMMtx( body_work.cnm_mgr_work, nns_MATRIX2, body_work.pole_cnm_reg_id );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
         return result;
     }
 
@@ -2941,7 +2941,7 @@ public partial class AppMain
     // Token: 0x06000BC1 RID: 3009 RVA: 0x00068758 File Offset: 0x00066958
     private static void gmBoss5BodyInitArmPose( AppMain.GMS_BOSS5_BODY_WORK body_work )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX );
         for ( int i = 0; i < 2; i++ )
         {
@@ -2956,7 +2956,7 @@ public partial class AppMain
             AppMain.nnMakeUnitMatrix( body_work.rkt_ofst_mtx[i] );
         }
         body_work.flag |= 16U;
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x06000BC2 RID: 3010 RVA: 0x0006881C File Offset: 0x00066A1C
@@ -2992,10 +2992,10 @@ public partial class AppMain
         }
         for ( int k = 0; k < 2; k++ )
         {
-            NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-            NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-            NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-            NNS_MATRIX nns_MATRIX4 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX4 = GlobalPool<NNS_MATRIX>.Alloc();
             NNS_MATRIX nns_MATRIX5 = AppMain.GmBsCmnGetSNMMtx(body_work.snm_work, body_work.armpt_snm_reg_ids[k][0]);
             NNS_MATRIX nns_MATRIX6 = AppMain.GmBsCmnGetSNMMtx(body_work.snm_work, body_work.armpt_snm_reg_ids[k][1]);
             NNS_MATRIX nns_MATRIX7 = AppMain.GmBsCmnGetSNMMtx(body_work.snm_work, body_work.armpt_snm_reg_ids[k][2]);
@@ -3011,17 +3011,17 @@ public partial class AppMain
             AppMain.nnMultiplyMatrix( nns_MATRIX4, nns_MATRIX4, nns_MATRIX7 );
             AppMain.nnMultiplyMatrix( nns_MATRIX4, nns_MATRIX4, array[k][2] );
             AppMain.nnCopyMatrix( body_work.rkt_ofst_mtx[k], nns_MATRIX4 );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX4 );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX4 );
         }
     }
 
     // Token: 0x06000BC5 RID: 3013 RVA: 0x00068A00 File Offset: 0x00066C00
     private static void gmBoss5BodyInitCanopyPartsPose( AppMain.GMS_BOSS5_BODY_WORK body_work )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         int[] array = new int[]
         {
             body_work.head_cnm_reg_id,
@@ -3038,7 +3038,7 @@ public partial class AppMain
             AppMain.GmBsCmnEnableCNMMtxNode( body_work.cnm_mgr_work, array[i], 1 );
             AppMain.GmBsCmnSetCNMMtx( body_work.cnm_mgr_work, nns_MATRIX, array[i] );
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x06000BC6 RID: 3014 RVA: 0x00068AA0 File Offset: 0x00066CA0
@@ -4754,7 +4754,7 @@ public partial class AppMain
             body_work.leg_snm_reg_ids[0],
             body_work.leg_snm_reg_ids[1]
         };
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX );
         for ( int i = 0; i < 22; i++ )
         {
@@ -4787,7 +4787,7 @@ public partial class AppMain
         AppMain.nnMakeUnitQuaternion( ref sct_part_ndc.spin_quat );
         for ( int i = 0; i < 2; i++ )
         {
-            NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
             float num = AppMain.FX_FX32_TO_F32(AkMath.RandFx()) * 2f - 1f;
             num = AppMain.MTM_MATH_CLIP( num, -1f, 1f );
             short rand_angle = AkMath.DEGtoA16(360f * AppMain.FX_FX32_TO_F32(AkMath.RandFx()));
@@ -4795,7 +4795,7 @@ public partial class AppMain
             NNS_QUATERNION nns_QUATERNION;
             AppMain.nnMakeRotateAxisQuaternion( out nns_QUATERNION, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z, AppMain.GMD_BOSS5_SCT_SPIN_SPD_ANGLE );
             AppMain.nnMultiplyQuaternion( ref sct_part_ndc.spin_quat, ref nns_QUATERNION, ref sct_part_ndc.spin_quat );
-            AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+            GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
         }
     }
 

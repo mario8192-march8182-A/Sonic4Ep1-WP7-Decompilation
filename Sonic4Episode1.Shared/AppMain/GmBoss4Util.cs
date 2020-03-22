@@ -131,7 +131,7 @@ public partial class AppMain
     // Token: 0x060006EE RID: 1774 RVA: 0x0003DE2C File Offset: 0x0003C02C
     private static void GmBoss4UtilSetMatrixES( OBS_OBJECT_WORK obj_work, NNS_MATRIX w_mtx )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.MTM_ASSERT( obj_work );
         AppMain.MTM_ASSERT( obj_work.obj_3des );
         obj_work.pos.x = AppMain.FX_F32_TO_FX32( w_mtx.M03 );
@@ -139,7 +139,7 @@ public partial class AppMain
         obj_work.pos.z = AppMain.FX_F32_TO_FX32( w_mtx.M23 );
         obj_work.obj_3des.flag |= 32U;
         AkMath.NormalizeMtx( nns_MATRIX, w_mtx );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x060006EF RID: 1775 RVA: 0x0003DEB4 File Offset: 0x0003C0B4
@@ -531,7 +531,7 @@ public partial class AppMain
     // Token: 0x06000707 RID: 1799 RVA: 0x0003E9C4 File Offset: 0x0003CBC4
     private static void GmBoss4UtilRotateVecFx32( ref AppMain.VecFx32 f, int angle )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         nns_MATRIX.M00 = 1f;
         nns_MATRIX.M10 = 0f;
         nns_MATRIX.M20 = 0f;
@@ -553,7 +553,7 @@ public partial class AppMain
         f.x = AppMain.FX_F32_TO_FX32( nns_MATRIX.M03 );
         f.y = AppMain.FX_F32_TO_FX32( nns_MATRIX.M13 );
         f.z = AppMain.FX_F32_TO_FX32( nns_MATRIX.M23 );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x06000708 RID: 1800 RVA: 0x0003EAEF File Offset: 0x0003CCEF

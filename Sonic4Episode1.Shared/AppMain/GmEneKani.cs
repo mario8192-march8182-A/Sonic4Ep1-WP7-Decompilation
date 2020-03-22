@@ -224,7 +224,7 @@ public partial class AppMain
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
         AppMain.GMS_ENE_KANI_WORK gms_ENE_KANI_WORK = (AppMain.GMS_ENE_KANI_WORK)obj_work;
         NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_KANI_WORK.node_work, 16);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = nns_MATRIX.M03 - AppMain.FX_FX32_TO_F32( obj_work.pos.x );
         nns_VECTOR.y = nns_MATRIX.M13 - AppMain.FX_FX32_TO_F32( -obj_work.pos.y );
         nns_VECTOR.z = nns_MATRIX.M23 - AppMain.FX_FX32_TO_F32( obj_work.pos.z );
@@ -239,7 +239,7 @@ public partial class AppMain
             obj_work.ppFunc = AppMain.gmEneKaniAttackEnd;
             AppMain.ObjDrawObjectActionSet( obj_work, 1 );
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06000E09 RID: 3593 RVA: 0x0007BC8C File Offset: 0x00079E8C
@@ -249,7 +249,7 @@ public partial class AppMain
         AppMain.OBS_RECT_WORK obs_RECT_WORK = gms_ENEMY_3D_WORK.ene_com.rect_work[1];
         AppMain.GMS_ENE_KANI_WORK gms_ENE_KANI_WORK = (AppMain.GMS_ENE_KANI_WORK)obj_work;
         NNS_MATRIX nns_MATRIX = AppMain.GmEneUtilGetNodeMatrix(gms_ENE_KANI_WORK.node_work, 16);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = nns_MATRIX.M03 - AppMain.FX_FX32_TO_F32( obj_work.pos.x );
         nns_VECTOR.y = nns_MATRIX.M13 - AppMain.FX_FX32_TO_F32( -obj_work.pos.y );
         nns_VECTOR.z = nns_MATRIX.M23 - AppMain.FX_FX32_TO_F32( obj_work.pos.z );
@@ -263,7 +263,7 @@ public partial class AppMain
         {
             obj_work.ppFunc = AppMain.gmEneKaniWalkInit;
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06000E0A RID: 3594 RVA: 0x0007BDA2 File Offset: 0x00079FA2

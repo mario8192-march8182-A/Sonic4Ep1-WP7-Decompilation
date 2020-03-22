@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 
-#if DESKTOP
+#if DESKTOP || (WINDOWS_UAP && !ARM)
 using Discord;
 #endif
 
@@ -20,7 +20,7 @@ public enum AoPresenceLocation
 
 public static class AoPresence
 {
-#if DESKTOP
+#if DESKTOP || (WINDOWS_UAP && !ARM)
     private static Discord.Discord discord;
     private static Discord.ActivityManager activityManager;
 #endif
@@ -28,7 +28,7 @@ public static class AoPresence
     // Token: 0x060002BB RID: 699 RVA: 0x00016F33 File Offset: 0x00015133
     public static void Init()
     {
-#if DESKTOP
+#if DESKTOP || (WINDOWS_UAP && !ARM)
         try
         {
             discord = new Discord.Discord(686320985669894185, (ulong)CreateFlags.NoRequireDiscord);
@@ -37,13 +37,16 @@ public static class AoPresence
 
             AoPresenceSet(AoPresenceLocation.TitleScreen);
         }
-        catch {}
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+        }
 #endif
     }
 
     public static void AoPresenceUpdate()
     {
-#if DESKTOP
+#if DESKTOP || (WINDOWS_UAP && !ARM)
         if (discord != null)
         {
             try
@@ -67,8 +70,8 @@ public static class AoPresence
     // Token: 0x060002BD RID: 701 RVA: 0x00016F38 File Offset: 0x00015138
     public static void AoPresenceExit()
     {
-#if DESKTOP
-        if(discord == null)
+#if DESKTOP || (WINDOWS_UAP && !ARM)
+        if (discord == null)
             return;
 
         discord.Dispose();
@@ -78,8 +81,8 @@ public static class AoPresence
     // Token: 0x060002BE RID: 702 RVA: 0x00016F3A File Offset: 0x0001513A
     public static void AoPresenceSet(AoPresenceLocation location)
     {
-#if DESKTOP
-        if(discord == null)
+#if DESKTOP || (WINDOWS_UAP && !ARM)
+        if (discord == null)
             return;
 
         var discordPresence = new Activity() { ApplicationId = 686320985669894185 };
@@ -198,7 +201,7 @@ public static class AoPresence
         {
             return "";
         }
-        
+
         switch (AppMain.g_gs_main_sys_info.stage_id)
         {
             case 0:

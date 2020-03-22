@@ -377,16 +377,19 @@ public partial class AppMain
     // Token: 0x06001544 RID: 5444 RVA: 0x000B9230 File Offset: 0x000B7430
     public static void amIPhoneExitNN()
     {
+        mppAssertNotImpl();
     }
 
     // Token: 0x06001545 RID: 5445 RVA: 0x000B9232 File Offset: 0x000B7432
     public static void amIPhoneSetTextureAttribute(AppMain.AMS_PARAM_LOAD_TEXTURE param)
     {
+        mppAssertNotImpl();
     }
 
     // Token: 0x06001546 RID: 5446 RVA: 0x000B9234 File Offset: 0x000B7434
     public static bool IsGLExtensionSupported(string extension)
     {
+        mppAssertNotImpl();
         return true;
     }
 }

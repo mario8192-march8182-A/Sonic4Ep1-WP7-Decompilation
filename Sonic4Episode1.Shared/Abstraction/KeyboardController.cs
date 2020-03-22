@@ -12,7 +12,7 @@ namespace Sonic4Episode1.Abstraction
         public override void SetVibration(ushort left, ushort right) { }
         public override void SetVibrationEnabled(bool enabled) { }
 
-        protected override void UpdateControllerReading(ref ControllerReading reading)
+        public override void UpdateControllerReading(ref ControllerReading reading)
         {
             var state = Keyboard.GetState();
             if (state.IsKeyDown(Keys.Up))

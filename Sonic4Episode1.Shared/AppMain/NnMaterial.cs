@@ -766,7 +766,7 @@ public partial class AppMain
         public int texcoordsrc;
 
         // Token: 0x04004C11 RID: 19473
-        public readonly NNS_MATRIX texmtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX texmtx = GlobalPool<NNS_MATRIX>.Alloc();
     }
 
     // Token: 0x020000FF RID: 255

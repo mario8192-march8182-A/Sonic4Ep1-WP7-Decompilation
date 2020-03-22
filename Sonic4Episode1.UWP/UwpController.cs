@@ -36,7 +36,7 @@ namespace Sonic4Episode1.UWP
             // ?
         }
 
-        protected override void UpdateControllerReading(ref ControllerReading padData)
+        public override void UpdateControllerReading(ref ControllerReading padData)
         {
             var reading = pad.GetCurrentReading();
 

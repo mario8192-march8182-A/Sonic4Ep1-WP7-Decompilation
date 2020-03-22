@@ -192,6 +192,6 @@ namespace Sonic4Episode1.Abstraction
             return reading;
         }
 
-        protected abstract void UpdateControllerReading(ref ControllerReading reading);
+        public abstract void UpdateControllerReading(ref ControllerReading reading);
     }
 }

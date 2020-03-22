@@ -195,7 +195,7 @@ public partial class AppMain
     private void DmTitleOpInit()
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.Clear();
         NNS_VECTOR pos = new NNS_VECTOR(0f, 0f, 50f);
         AppMain.g_obj.flag = 4259848U;
@@ -227,7 +227,7 @@ public partial class AppMain
         obs_CAMERA.znear = 0.1f;
         obs_CAMERA.zfar = 32768f;
         this.dmTitleOpMgrInit();
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x060018C1 RID: 6337 RVA: 0x000E1F0C File Offset: 0x000E010C

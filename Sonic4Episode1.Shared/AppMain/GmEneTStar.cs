@@ -286,12 +286,12 @@ public partial class AppMain
     public static void gmEneTStarAttackInit( OBS_OBJECT_WORK obj_work )
     {
         AppMain.GMS_ENE_T_STAR_WORK gms_ENE_T_STAR_WORK = (AppMain.GMS_ENE_T_STAR_WORK)obj_work;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX );
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.nnMakeRotateZMatrix( nns_MATRIX2, AkMath.DEGtoA32( 72 ) );
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         for ( int i = 0; i < 5; i++ )
         {
             OBS_OBJECT_WORK obs_OBJECT_WORK = AppMain.GmEventMgrLocalEventBirth(308, obj_work.pos.x, obj_work.pos.y, 0, 0, 0, 0, 0, 0);
@@ -313,7 +313,7 @@ public partial class AppMain
             AppMain.GMS_EFFECT_3DES_WORK gms_EFFECT_3DES_WORK = AppMain.GmEfctEneEsCreate(obs_OBJECT_WORK, 10);
             gms_EFFECT_3DES_WORK.efct_com.obj_work.dir.z = ( ushort )AkMath.DEGtoA16( -72 * i );
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
         obj_work.disp_flag |= 32U;
         obj_work.disp_flag |= 4U;
         obj_work.ppFunc = AppMain.gmEneTStarAttackMain;
@@ -327,8 +327,8 @@ public partial class AppMain
         gms_ENEMY_3D_WORK2.ene_com.rect_work[2].flag &= 4294967291U;
         GmSound.PlaySE( "Boss2_03" );
         gms_ENEMY_3D_WORK2.ene_com.enemy_flag |= 65536U;
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
     }
 
     // Token: 0x06000792 RID: 1938 RVA: 0x00043434 File Offset: 0x00041634

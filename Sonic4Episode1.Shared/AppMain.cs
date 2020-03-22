@@ -7408,7 +7408,7 @@ public partial class AppMain
         AppMain._am_draw_state = new AppMain.AMS_DRAWSTATE();
         AppMain._am_draw_state_stack_num = 0;
         AppMain._am_draw_state_stack = AppMain.New<AppMain.AMS_DRAWSTATE>(8U);
-        AppMain._am_draw_proj_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        AppMain._am_draw_proj_mtx = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain._am_draw_proj_type = 0;
         AppMain._am_displaylist_manager = new AppMain.AMS_DISPLAYLIST_MANAGER();
         AppMain._am_draw_sort_system_exec = new AppMain._am_draw_command_delegate[]
@@ -7464,41 +7464,41 @@ public partial class AppMain
             AppMain._amDrawSetFogRange,
             AppMain._amDrawSetZMode
         };
-        AppMain._am_draw_world_view_matrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        AppMain._am_draw_world_view_matrix = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain._am_draw_command_buf = new object[4][];
         AppMain._am_draw_data_buf = new object[4][];
-        AppMain.amDraw_AMS_PARAM_DRAW_PRIMITIVE_Pool = new AppMain.Pool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>();
-        AppMain.amDraw_NNS_MATRIX_Pool = new AppMain.Pool<NNS_MATRIX>();
-        AppMain.amDraw_AMS_PARAM_MAKE_TASK_Pool = new AppMain.Pool<AppMain.AMS_PARAM_MAKE_TASK>();
-        AppMain.amDraw_AMS_DRAWSTATE_FOG_Pool = new AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG>();
-        AppMain.amDraw_AMS_DRAWSTATE_FOG_COLOR_Pool = new AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG_COLOR>();
-        AppMain.amDraw_AMS_DRAWSTATE_FOG_RANGE_Pool = new AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG_RANGE>();
-        AppMain.amDraw_AMS_PARAM_DRAW_OBJECT_MATERIAL_Pool = new AppMain.Pool<AppMain.AMS_PARAM_DRAW_OBJECT_MATERIAL>();
-        AppMain.amDraw_GMS_GMK_ITEM_MAT_CB_PARAM_Pool = new AppMain.Pool<AppMain.GMS_GMK_ITEM_MAT_CB_PARAM>();
-        AppMain.amDraw_DMAP_PARAM_WATER_Pool = new AppMain.Pool<AppMain.DMAP_PARAM_WATER>();
+        AppMain.amDraw_AMS_PARAM_DRAW_PRIMITIVE_Pool = new Pool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>();
+        AppMain.amDraw_NNS_MATRIX_Pool = new Pool<NNS_MATRIX>();
+        AppMain.amDraw_AMS_PARAM_MAKE_TASK_Pool = new Pool<AppMain.AMS_PARAM_MAKE_TASK>();
+        AppMain.amDraw_AMS_DRAWSTATE_FOG_Pool = new Pool<AppMain.AMS_DRAWSTATE_FOG>();
+        AppMain.amDraw_AMS_DRAWSTATE_FOG_COLOR_Pool = new Pool<AppMain.AMS_DRAWSTATE_FOG_COLOR>();
+        AppMain.amDraw_AMS_DRAWSTATE_FOG_RANGE_Pool = new Pool<AppMain.AMS_DRAWSTATE_FOG_RANGE>();
+        AppMain.amDraw_AMS_PARAM_DRAW_OBJECT_MATERIAL_Pool = new Pool<AppMain.AMS_PARAM_DRAW_OBJECT_MATERIAL>();
+        AppMain.amDraw_GMS_GMK_ITEM_MAT_CB_PARAM_Pool = new Pool<AppMain.GMS_GMK_ITEM_MAT_CB_PARAM>();
+        AppMain.amDraw_DMAP_PARAM_WATER_Pool = new Pool<AppMain.DMAP_PARAM_WATER>();
         AppMain.NNS_PRIM3D_PCT_buf = new AppMain.NNS_PRIM3D_PCT[16384];
         AppMain.NNS_PRIM3D_PCT_buf_size = 0;
         AppMain.NNS_PRIM3D_PCT_arrays = AppMain.New<AppMain.NNS_PRIM3D_PCT_ARRAY>(1024);
         AppMain.NNS_PRIM3D_PCT_arrays_count = 0;
-        AppMain.amDraw_NNS_PRIM3D_PC_Array_Pool = new AppMain.ArrayPool<AppMain.NNS_PRIM3D_PC>();
-        AppMain.amDraw_GMS_MAP_PRIM_DRAW_WORK_Array_Pool = new AppMain.ArrayPool<AppMain.GMS_MAP_PRIM_DRAW_WORK>();
-        AppMain.amDraw_NNS_TRS_Array_Pool = new AppMain.ArrayPoolFast<AppMain.NNS_TRS>();
-        AppMain.amDraw_NNS_MATERIAL_STDSHADER_COLOR_Pool = new AppMain.Pool<AppMain.NNS_MATERIAL_STDSHADER_COLOR>();
-        AppMain.amDraw_NNS_MATERIAL_GLES11_DESC_Pool = new AppMain.Pool<AppMain.NNS_MATERIAL_GLES11_DESC>();
-        AppMain.amDraw_NNS_MATERIALPTR_Pool = new AppMain.Pool<AppMain.NNS_MATERIALPTR>();
-        AppMain.amDraw_NNS_MATERIALPTR_Array_Pool = new AppMain.ArrayPoolFast<AppMain.NNS_MATERIALPTR>();
+        AppMain.amDraw_NNS_PRIM3D_PC_Array_Pool = new ArrayPool<AppMain.NNS_PRIM3D_PC>();
+        AppMain.amDraw_GMS_MAP_PRIM_DRAW_WORK_Array_Pool = new ArrayPool<AppMain.GMS_MAP_PRIM_DRAW_WORK>();
+        AppMain.amDraw_NNS_TRS_Array_Pool = new ArrayPoolFast<AppMain.NNS_TRS>();
+        AppMain.amDraw_NNS_MATERIAL_STDSHADER_COLOR_Pool = new Pool<AppMain.NNS_MATERIAL_STDSHADER_COLOR>();
+        AppMain.amDraw_NNS_MATERIAL_GLES11_DESC_Pool = new Pool<AppMain.NNS_MATERIAL_GLES11_DESC>();
+        AppMain.amDraw_NNS_MATERIALPTR_Pool = new Pool<AppMain.NNS_MATERIALPTR>();
+        AppMain.amDraw_NNS_MATERIALPTR_Array_Pool = new ArrayPoolFast<AppMain.NNS_MATERIALPTR>();
         AppMain.amDraw_GMS_BS_CMN_CNM_NODE_INFO_Array_Pool =
-            new AppMain.ArrayPoolFast<AppMain.GMS_BS_CMN_CNM_NODE_INFO>();
-        AppMain.amDraw_GMS_BS_CMN_CNM_NODE_INFO_Pool = new AppMain.Pool<AppMain.GMS_BS_CMN_CNM_NODE_INFO>();
-        AppMain.amDraw_GMS_BS_CMN_CNM_PARAM_Pool = new AppMain.Pool<AppMain.GMS_BS_CMN_CNM_PARAM>();
-        AppMain.amDraw_OBS_DRAW_PARAM_3DNN_USER_FUNC_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_USER_FUNC>();
-        AppMain.amDraw_OBS_DRAW_PARAM_3DNN_MOTION_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_MOTION>();
+            new ArrayPoolFast<AppMain.GMS_BS_CMN_CNM_NODE_INFO>();
+        AppMain.amDraw_GMS_BS_CMN_CNM_NODE_INFO_Pool = new Pool<AppMain.GMS_BS_CMN_CNM_NODE_INFO>();
+        AppMain.amDraw_GMS_BS_CMN_CNM_PARAM_Pool = new Pool<AppMain.GMS_BS_CMN_CNM_PARAM>();
+        AppMain.amDraw_OBS_DRAW_PARAM_3DNN_USER_FUNC_Pool = new Pool<AppMain.OBS_DRAW_PARAM_3DNN_USER_FUNC>();
+        AppMain.amDraw_OBS_DRAW_PARAM_3DNN_MOTION_Pool = new Pool<AppMain.OBS_DRAW_PARAM_3DNN_MOTION>();
         AppMain.amDraw_OBS_DRAW_PARAM_3DNN_DRAW_MOTION_Pool =
-            new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION>();
-        AppMain.amDraw_AMS_PARAM_DRAW_MOTION_TRS_Pool = new AppMain.Pool<AppMain.AMS_PARAM_DRAW_MOTION_TRS>();
-        AppMain.amDraw_NNS_TRS_Pool = new AppMain.Pool<AppMain.NNS_TRS>();
-        AppMain.amDraw_AOS_ACT_DRAW_Pool = new AppMain.Pool<AppMain.AOS_ACT_DRAW>();
-        AppMain.amDraw_NNS_OBJECT_Pool = new AppMain.Pool<AppMain.NNS_OBJECT>();
+            new Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION>();
+        AppMain.amDraw_AMS_PARAM_DRAW_MOTION_TRS_Pool = new Pool<AppMain.AMS_PARAM_DRAW_MOTION_TRS>();
+        AppMain.amDraw_NNS_TRS_Pool = new Pool<AppMain.NNS_TRS>();
+        AppMain.amDraw_AOS_ACT_DRAW_Pool = new Pool<AppMain.AOS_ACT_DRAW>();
+        AppMain.amDraw_NNS_OBJECT_Pool = new Pool<AppMain.NNS_OBJECT>();
         AppMain.NNS_PRIM3D_PCT_ALLOC_CNT = 0;
         AppMain._amDrawSortPrimitive3D_base_mtx = new NNS_MATRIX();
         AppMain._amDrawSortPrimitive2D_mtx = new NNS_MATRIX();
@@ -14196,9 +14196,9 @@ public partial class AppMain
         AppMain.obj_draw_effect_server_tcb = null;
         AppMain._objDrawStart_DT = AppMain.objDrawStart_DT;
         AppMain.ObjDrawAction3DNN_obj_mtx = new NNS_MATRIX();
-        AppMain._ObjDraw3DNNModel_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_MODEL>();
+        AppMain._ObjDraw3DNNModel_Pool = new Pool<AppMain.OBS_DRAW_PARAM_3DNN_MODEL>();
         AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE_Pool =
-            new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE>();
+            new Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE>();
         AppMain._objDraw3DNNDrawPrimitive_DT = AppMain.objDraw3DNNDrawPrimitive_DT;
         AppMain.vec_dispObjDrawAction3DES = default(SNNS_VECTOR4D);
         AppMain.vec_posObjDrawAction3DES = default(SNNS_VECTOR4D);
@@ -14208,8 +14208,8 @@ public partial class AppMain
         AppMain._objDraw3DESMatrixPop_UserFunc = AppMain.objDraw3DESMatrixPop_UserFunc;
         AppMain.ObjDrawAction2DAMA_acm = new AppMain.AOS_ACT_ACM();
         AppMain._objDraw2DAMAPre_DT = AppMain.objDraw2DAMAPre_DT;
-        AppMain._objDraw3DNNSetCamera_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SET_CAMERA>();
-        AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool = new AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL>();
+        AppMain._objDraw3DNNSetCamera_Pool = new Pool<AppMain.OBS_DRAW_PARAM_3DNN_SET_CAMERA>();
+        AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool = new Pool<AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL>();
         AppMain._objDraw3DNNMaterialCallback = AppMain.objDraw3DNNMaterialCallback;
         AppMain.tempSNNS_MATRIX0 = default(SNNS_MATRIX);
         AppMain.gm_gmk_upbumper_obj_3d_list = null;
@@ -14485,7 +14485,7 @@ public partial class AppMain
         AppMain.GMD_TVX_DISP_SCALE = 2U;
         AppMain.GMD_TVX_DISP_LIGHT_DISABLE = 4U;
         AppMain.GMD_TVX_DISP_BLEND = 8U;
-        AppMain._AMS_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain._AMS_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         AppMain.gm_map_prim_draw_tvx_mgr_index_tbl_z2 = new AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX[]
         {
             new AppMain.GMS_MAP_PRIM_DRAW_TVX_MGR_INDEX
@@ -30259,7 +30259,7 @@ public partial class AppMain
         AppMain._ObjDrawActionSummaryDelegate = AppMain.ObjDrawActionSummary;
         AppMain._ObjObjectMoveDelegate = AppMain.ObjObjectMove;
         AppMain._gmEffectDefaultRecFuncDelegate = AppMain.gmEffectDefaultRecFunc;
-        AppMain.GMS_EFFECT_3DES_WORK_Pool = new AppMain.SimplePool<AppMain.GMS_EFFECT_3DES_WORK>();
+        AppMain.GMS_EFFECT_3DES_WORK_Pool = new SimplePool<AppMain.GMS_EFFECT_3DES_WORK>();
         AppMain._GmEffect3dESTaskDelegate = (() => AppMain.GMS_EFFECT_3DES_WORK_Pool.Alloc());
         AppMain._GmEffectDefaultMainFuncDeleteAtEnd = AppMain.GmEffectDefaultMainFuncDeleteAtEnd;
         AppMain.GMD_BS_CMN_CNM_FLAG_INHERIT_SCALE = 1U;
@@ -31737,7 +31737,7 @@ public partial class AppMain
         AppMain.g_ao_act_acm_flag_num = 0U;
         AppMain.g_ao_act_acm_flag_peak = 0U;
         AppMain.g_ao_act_texlist = null;
-        AppMain.AOS_SPRITE_Pool = new AppMain.Pool<AppMain.AOS_SPRITE>();
+        AppMain.AOS_SPRITE_Pool = new Pool<AppMain.AOS_SPRITE>();
         AppMain.aoActDrawTask_TaskProc = AppMain.aoActDrawTask;
         AppMain.AmaMagicId = new byte[]
         {
@@ -32349,7 +32349,7 @@ public partial class AppMain
         AppMain._ObjObjectMain = AppMain.ObjObjectMain;
         AppMain._ObjObjectViewOutCheck = AppMain.ObjObjectViewOutCheck;
         AppMain._objObjectDataReleaseCheck = AppMain.objObjectDataReleaseCheck;
-        AppMain.nnCalcNode_mtx_pool = new AppMain.SimplePool<NNS_MATRIX>();
+        AppMain.nnCalcNode_mtx_pool = new SimplePool<NNS_MATRIX>();
         AppMain.nnInitMaterialMotionObject_bTexOffsetMot = new bool[8];
         AppMain._am_iphone_accel_data = new AppMain.AMS_IPHONE_ACCEL_DATA();
         AppMain._am_is_back_key_pressed = false;
@@ -84896,31 +84896,31 @@ public partial class AppMain
     private static object[][] _am_draw_data_buf;
 
     // Token: 0x04003E9D RID: 16029
-    private static AppMain.Pool<AppMain.AMS_PARAM_DRAW_PRIMITIVE> amDraw_AMS_PARAM_DRAW_PRIMITIVE_Pool;
+    private static Pool<AppMain.AMS_PARAM_DRAW_PRIMITIVE> amDraw_AMS_PARAM_DRAW_PRIMITIVE_Pool;
 
     // Token: 0x04003E9E RID: 16030
-    private static AppMain.Pool<NNS_MATRIX> amDraw_NNS_MATRIX_Pool;
+    private static Pool<NNS_MATRIX> amDraw_NNS_MATRIX_Pool;
 
     // Token: 0x04003E9F RID: 16031
-    private static AppMain.Pool<AppMain.AMS_PARAM_MAKE_TASK> amDraw_AMS_PARAM_MAKE_TASK_Pool;
+    private static Pool<AppMain.AMS_PARAM_MAKE_TASK> amDraw_AMS_PARAM_MAKE_TASK_Pool;
 
     // Token: 0x04003EA0 RID: 16032
-    private static AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG> amDraw_AMS_DRAWSTATE_FOG_Pool;
+    private static Pool<AppMain.AMS_DRAWSTATE_FOG> amDraw_AMS_DRAWSTATE_FOG_Pool;
 
     // Token: 0x04003EA1 RID: 16033
-    private static AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG_COLOR> amDraw_AMS_DRAWSTATE_FOG_COLOR_Pool;
+    private static Pool<AppMain.AMS_DRAWSTATE_FOG_COLOR> amDraw_AMS_DRAWSTATE_FOG_COLOR_Pool;
 
     // Token: 0x04003EA2 RID: 16034
-    private static AppMain.Pool<AppMain.AMS_DRAWSTATE_FOG_RANGE> amDraw_AMS_DRAWSTATE_FOG_RANGE_Pool;
+    private static Pool<AppMain.AMS_DRAWSTATE_FOG_RANGE> amDraw_AMS_DRAWSTATE_FOG_RANGE_Pool;
 
     // Token: 0x04003EA3 RID: 16035
-    private static AppMain.Pool<AppMain.AMS_PARAM_DRAW_OBJECT_MATERIAL> amDraw_AMS_PARAM_DRAW_OBJECT_MATERIAL_Pool;
+    private static Pool<AppMain.AMS_PARAM_DRAW_OBJECT_MATERIAL> amDraw_AMS_PARAM_DRAW_OBJECT_MATERIAL_Pool;
 
     // Token: 0x04003EA4 RID: 16036
-    private static AppMain.Pool<AppMain.GMS_GMK_ITEM_MAT_CB_PARAM> amDraw_GMS_GMK_ITEM_MAT_CB_PARAM_Pool;
+    private static Pool<AppMain.GMS_GMK_ITEM_MAT_CB_PARAM> amDraw_GMS_GMK_ITEM_MAT_CB_PARAM_Pool;
 
     // Token: 0x04003EA5 RID: 16037
-    private static AppMain.Pool<AppMain.DMAP_PARAM_WATER> amDraw_DMAP_PARAM_WATER_Pool;
+    private static Pool<AppMain.DMAP_PARAM_WATER> amDraw_DMAP_PARAM_WATER_Pool;
 
     // Token: 0x04003EA6 RID: 16038
     private static AppMain.NNS_PRIM3D_PCT[] NNS_PRIM3D_PCT_buf;
@@ -84935,55 +84935,55 @@ public partial class AppMain
     private static int NNS_PRIM3D_PCT_arrays_count;
 
     // Token: 0x04003EAA RID: 16042
-    private static AppMain.ArrayPool<AppMain.NNS_PRIM3D_PC> amDraw_NNS_PRIM3D_PC_Array_Pool;
+    private static ArrayPool<AppMain.NNS_PRIM3D_PC> amDraw_NNS_PRIM3D_PC_Array_Pool;
 
     // Token: 0x04003EAB RID: 16043
-    private static AppMain.ArrayPool<AppMain.GMS_MAP_PRIM_DRAW_WORK> amDraw_GMS_MAP_PRIM_DRAW_WORK_Array_Pool;
+    private static ArrayPool<AppMain.GMS_MAP_PRIM_DRAW_WORK> amDraw_GMS_MAP_PRIM_DRAW_WORK_Array_Pool;
 
     // Token: 0x04003EAC RID: 16044
-    private static AppMain.ArrayPoolFast<AppMain.NNS_TRS> amDraw_NNS_TRS_Array_Pool;
+    private static ArrayPoolFast<AppMain.NNS_TRS> amDraw_NNS_TRS_Array_Pool;
 
     // Token: 0x04003EAD RID: 16045
-    private static AppMain.Pool<AppMain.NNS_MATERIAL_STDSHADER_COLOR> amDraw_NNS_MATERIAL_STDSHADER_COLOR_Pool;
+    private static Pool<AppMain.NNS_MATERIAL_STDSHADER_COLOR> amDraw_NNS_MATERIAL_STDSHADER_COLOR_Pool;
 
     // Token: 0x04003EAE RID: 16046
-    private static AppMain.Pool<AppMain.NNS_MATERIAL_GLES11_DESC> amDraw_NNS_MATERIAL_GLES11_DESC_Pool;
+    private static Pool<AppMain.NNS_MATERIAL_GLES11_DESC> amDraw_NNS_MATERIAL_GLES11_DESC_Pool;
 
     // Token: 0x04003EAF RID: 16047
-    private static AppMain.Pool<AppMain.NNS_MATERIALPTR> amDraw_NNS_MATERIALPTR_Pool;
+    private static Pool<AppMain.NNS_MATERIALPTR> amDraw_NNS_MATERIALPTR_Pool;
 
     // Token: 0x04003EB0 RID: 16048
-    private static AppMain.ArrayPoolFast<AppMain.NNS_MATERIALPTR> amDraw_NNS_MATERIALPTR_Array_Pool;
+    private static ArrayPoolFast<AppMain.NNS_MATERIALPTR> amDraw_NNS_MATERIALPTR_Array_Pool;
 
     // Token: 0x04003EB1 RID: 16049
-    private static AppMain.ArrayPoolFast<AppMain.GMS_BS_CMN_CNM_NODE_INFO> amDraw_GMS_BS_CMN_CNM_NODE_INFO_Array_Pool;
+    private static ArrayPoolFast<AppMain.GMS_BS_CMN_CNM_NODE_INFO> amDraw_GMS_BS_CMN_CNM_NODE_INFO_Array_Pool;
 
     // Token: 0x04003EB2 RID: 16050
-    private static AppMain.Pool<AppMain.GMS_BS_CMN_CNM_NODE_INFO> amDraw_GMS_BS_CMN_CNM_NODE_INFO_Pool;
+    private static Pool<AppMain.GMS_BS_CMN_CNM_NODE_INFO> amDraw_GMS_BS_CMN_CNM_NODE_INFO_Pool;
 
     // Token: 0x04003EB3 RID: 16051
-    private static AppMain.Pool<AppMain.GMS_BS_CMN_CNM_PARAM> amDraw_GMS_BS_CMN_CNM_PARAM_Pool;
+    private static Pool<AppMain.GMS_BS_CMN_CNM_PARAM> amDraw_GMS_BS_CMN_CNM_PARAM_Pool;
 
     // Token: 0x04003EB4 RID: 16052
-    private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_USER_FUNC> amDraw_OBS_DRAW_PARAM_3DNN_USER_FUNC_Pool;
+    private static Pool<AppMain.OBS_DRAW_PARAM_3DNN_USER_FUNC> amDraw_OBS_DRAW_PARAM_3DNN_USER_FUNC_Pool;
 
     // Token: 0x04003EB5 RID: 16053
-    private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_MOTION> amDraw_OBS_DRAW_PARAM_3DNN_MOTION_Pool;
+    private static Pool<AppMain.OBS_DRAW_PARAM_3DNN_MOTION> amDraw_OBS_DRAW_PARAM_3DNN_MOTION_Pool;
 
     // Token: 0x04003EB6 RID: 16054
-    private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION> amDraw_OBS_DRAW_PARAM_3DNN_DRAW_MOTION_Pool;
+    private static Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_MOTION> amDraw_OBS_DRAW_PARAM_3DNN_DRAW_MOTION_Pool;
 
     // Token: 0x04003EB7 RID: 16055
-    private static AppMain.Pool<AppMain.AMS_PARAM_DRAW_MOTION_TRS> amDraw_AMS_PARAM_DRAW_MOTION_TRS_Pool;
+    private static Pool<AppMain.AMS_PARAM_DRAW_MOTION_TRS> amDraw_AMS_PARAM_DRAW_MOTION_TRS_Pool;
 
     // Token: 0x04003EB8 RID: 16056
-    private static AppMain.Pool<AppMain.NNS_TRS> amDraw_NNS_TRS_Pool;
+    private static Pool<AppMain.NNS_TRS> amDraw_NNS_TRS_Pool;
 
     // Token: 0x04003EB9 RID: 16057
-    private static AppMain.Pool<AppMain.AOS_ACT_DRAW> amDraw_AOS_ACT_DRAW_Pool;
+    private static Pool<AppMain.AOS_ACT_DRAW> amDraw_AOS_ACT_DRAW_Pool;
 
     // Token: 0x04003EBA RID: 16058
-    private static AppMain.Pool<AppMain.NNS_OBJECT> amDraw_NNS_OBJECT_Pool;
+    private static Pool<AppMain.NNS_OBJECT> amDraw_NNS_OBJECT_Pool;
 
     // Token: 0x04003EBB RID: 16059
     public static int NNS_PRIM3D_PCT_ALLOC_CNT;
@@ -85328,10 +85328,10 @@ public partial class AppMain
     private static NNS_MATRIX ObjDrawAction3DNN_obj_mtx;
 
     // Token: 0x04003F59 RID: 16217
-    private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_MODEL> _ObjDraw3DNNModel_Pool;
+    private static Pool<AppMain.OBS_DRAW_PARAM_3DNN_MODEL> _ObjDraw3DNNModel_Pool;
 
     // Token: 0x04003F5A RID: 16218
-    private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE> OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE_Pool;
+    private static Pool<AppMain.OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE> OBS_DRAW_PARAM_3DNN_DRAW_PRIMITIVE_Pool;
 
     // Token: 0x04003F5B RID: 16219
     private static AppMain.OBF_DRAW_USER_DT_FUNC _objDraw3DNNDrawPrimitive_DT;
@@ -85361,10 +85361,10 @@ public partial class AppMain
     public static AppMain.OBF_DRAW_USER_DT_FUNC _objDraw2DAMAPre_DT;
 
     // Token: 0x04003F64 RID: 16228
-    private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SET_CAMERA> _objDraw3DNNSetCamera_Pool;
+    private static Pool<AppMain.OBS_DRAW_PARAM_3DNN_SET_CAMERA> _objDraw3DNNSetCamera_Pool;
 
     // Token: 0x04003F65 RID: 16229
-    private static AppMain.Pool<AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL> OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool;
+    private static Pool<AppMain.OBS_DRAW_PARAM_3DNN_SORT_MODEL> OBS_DRAW_PARAM_3DNN_SORT_MODEL_Pool;
 
     // Token: 0x04003F66 RID: 16230
     private static AppMain.NNS_MATERIALCALLBACK_FUNC _objDraw3DNNMaterialCallback;
@@ -89066,7 +89066,7 @@ public partial class AppMain
     private static AppMain.MPP_VOID_OBS_OBJECT_WORK _gmEffectDefaultRecFuncDelegate;
 
     // Token: 0x04004457 RID: 17495
-    private static AppMain.SimplePool<AppMain.GMS_EFFECT_3DES_WORK> GMS_EFFECT_3DES_WORK_Pool;
+    private static SimplePool<AppMain.GMS_EFFECT_3DES_WORK> GMS_EFFECT_3DES_WORK_Pool;
 
     // Token: 0x04004458 RID: 17496
     private static AppMain.TaskWorkFactoryDelegate _GmEffect3dESTaskDelegate;
@@ -89591,7 +89591,7 @@ public partial class AppMain
     private static AppMain.NNS_TEXLIST g_ao_act_texlist;
 
     // Token: 0x04004506 RID: 17670
-    private static AppMain.Pool<AppMain.AOS_SPRITE> AOS_SPRITE_Pool;
+    private static Pool<AppMain.AOS_SPRITE> AOS_SPRITE_Pool;
 
     // Token: 0x04004507 RID: 17671
     private static AppMain.TaskProc aoActDrawTask_TaskProc;
@@ -89778,7 +89778,7 @@ public partial class AppMain
     private static AppMain.GSF_TASK_PROCEDURE _objObjectDataReleaseCheck;
 
     // Token: 0x0400454A RID: 17738
-    private static AppMain.SimplePool<NNS_MATRIX> nnCalcNode_mtx_pool;
+    private static SimplePool<NNS_MATRIX> nnCalcNode_mtx_pool;
 
     // Token: 0x0400454B RID: 17739
     private static bool[] nnInitMaterialMotionObject_bTexOffsetMot;

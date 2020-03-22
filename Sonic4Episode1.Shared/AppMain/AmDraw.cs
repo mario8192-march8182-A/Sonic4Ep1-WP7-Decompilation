@@ -314,7 +314,7 @@ public partial class AppMain
         public int texsrc;
 
         // Token: 0x040048D0 RID: 18640
-        public readonly NNS_MATRIX texmtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX texmtx = GlobalPool<NNS_MATRIX>.Alloc();
     }
 
     // Token: 0x02000054 RID: 84
@@ -2500,9 +2500,9 @@ public partial class AppMain
     // Token: 0x0600021A RID: 538 RVA: 0x000121F4 File Offset: 0x000103F4
     private static void amDrawPrim2D( uint state, AppMain.AMS_PARAM_DRAW_PRIMITIVE setParam )
     {
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.Assign( setParam );
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnCopyMatrix( nns_MATRIX, AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_PRIMITIVE.mtx = nns_MATRIX;
         AppMain.amDrawRegistCommand( state, -13, ams_PARAM_DRAW_PRIMITIVE );
@@ -2955,8 +2955,8 @@ public partial class AppMain
         }
         AppMain.AMS_COMMAND_HEADER ams_COMMAND_HEADER = new AppMain.AMS_COMMAND_HEADER(command);
         ams_COMMAND_HEADER.command_id = -3;
-        ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         nns_MATRIX.Assign( AppMain.amMatrixGetCurrent() );
         ams_PARAM_DRAW_PRIMITIVE.Assign( ( AppMain.AMS_PARAM_DRAW_PRIMITIVE )command.param );
         ams_PARAM_DRAW_PRIMITIVE.mtx = nns_MATRIX;

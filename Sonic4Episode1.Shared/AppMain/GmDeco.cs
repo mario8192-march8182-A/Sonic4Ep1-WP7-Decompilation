@@ -358,10 +358,10 @@ public partial class AppMain
                 AppMain.VecFx32 vecFx = default(AppMain.VecFx32);
                 vecFx.Assign( gms_DECO_FALL_MANAGER.reg[0].vec );
                 AppMain.NNS_TEXLIST texlist = gms_DECO_FALL_MANAGER.texlist;
-                NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+                NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
                 AppMain.nnMakeUnitMatrix( nns_MATRIX );
                 AppMain.nnTranslateMatrix( nns_MATRIX, nns_MATRIX, AppMain.FX_FX32_TO_F32( vecFx.x ), AppMain.FX_FX32_TO_F32( vecFx.y ), AppMain.FX_FX32_TO_F32( vecFx.z ) );
-                AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+                AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
                 ams_PARAM_DRAW_PRIMITIVE.type = 0;
                 ams_PARAM_DRAW_PRIMITIVE.count = ( int )( 6 * gms_DECO_FALL_MANAGER.reg_num );
                 ams_PARAM_DRAW_PRIMITIVE.ablend = 1;
@@ -382,7 +382,7 @@ public partial class AppMain
                 ams_PARAM_DRAW_PRIMITIVE.format3D = 4;
                 uint num = 0U;
                 float num2 = AppMain.fmod(dividend, gms_DECO_FALL_MANAGER.frame) / gms_DECO_FALL_MANAGER.frame * 5.027991f;
-                NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+                NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
                 AppMain.VecFx32 vecFx2 = default(AppMain.VecFx32);
                 for ( uint num3 = 0U; num3 < 8U; num3 += 1U )
                 {
@@ -411,12 +411,12 @@ public partial class AppMain
                         num += 1U;
                     }
                 }
-                AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+                GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
                 AppMain.amMatrixPush( nns_MATRIX );
-                AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+                GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
                 AppMain.ObjDraw3DNNDrawPrimitive( ams_PARAM_DRAW_PRIMITIVE, command, 0, 0 );
                 AppMain.amMatrixPop();
-                AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+                GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
                 goto IL_5C4;
                 IL_76:
                 command = 9U;
@@ -584,13 +584,13 @@ public partial class AppMain
     private static void GmDecoSetLightFinalZone()
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = 0f;
         nns_VECTOR.y = -0.3f;
         nns_VECTOR.z = -0.4f;
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_2, ref nns_RGBA, 0.8f, nns_VECTOR );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06000404 RID: 1028 RVA: 0x000213F4 File Offset: 0x0001F5F4

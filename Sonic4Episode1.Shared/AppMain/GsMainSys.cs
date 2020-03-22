@@ -114,13 +114,13 @@ public partial class AppMain
         public int die_event_wait_time;
 
         // Token: 0x04004B6C RID: 19308
-        public readonly NNS_VECTOR def_light_vec = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR def_light_vec = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004B6D RID: 19309
         public NNS_RGBA def_light_col;
 
         // Token: 0x04004B6E RID: 19310
-        public readonly NNS_VECTOR ply_light_vec = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR ply_light_vec = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04004B6F RID: 19311
         public NNS_RGBA ply_light_col;

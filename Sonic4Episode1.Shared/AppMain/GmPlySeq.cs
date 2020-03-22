@@ -3569,7 +3569,7 @@ public partial class AppMain
         {
             return false;
         }
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = ply_work.obj_work.pos.x >> 12;
         obs_COL_CHK_DATA.pos_y = (ply_work.obj_work.pos.y >> 12) + (int)ply_work.obj_work.field_rect[3];
         obs_COL_CHK_DATA.flag = (ushort)(ply_work.obj_work.flag & 1U);
@@ -3589,10 +3589,10 @@ public partial class AppMain
                 num2 = AppMain.ObjDiffCollision(obs_COL_CHK_DATA);
                 if ((ply_work.obj_work.disp_flag & 1U) != 0U)
                 {
-                    AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+                    GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
                     return AppMain.GmPlySeqChangeSequence(ply_work, 14);
                 }
-                AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+                GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
                 if (num2 > 0)
                 {
                     return AppMain.GmPlySeqChangeSequence(ply_work, 15);
@@ -3605,10 +3605,10 @@ public partial class AppMain
                 num3 = AppMain.ObjDiffCollision(obs_COL_CHK_DATA);
                 if ((ply_work.obj_work.disp_flag & 1U) == 0U)
                 {
-                    AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+                    GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
                     return AppMain.GmPlySeqChangeSequence(ply_work, 14);
                 }
-                AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+                GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
                 if (num3 > 0)
                 {
                     return AppMain.GmPlySeqChangeSequence(ply_work, 15);
@@ -3616,7 +3616,7 @@ public partial class AppMain
                 return AppMain.GmPlySeqChangeSequence(ply_work, 13);
             }
         }
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         return false;
     }
 
@@ -5056,7 +5056,7 @@ public partial class AppMain
                 }
                 else if ((ply_work.player_flag & 4U) != 0U)
                 {
-                    NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+                    NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
                     NNS_VECTOR nns_VECTOR = new NNS_VECTOR(0f, -1f, 0f);
                     AppMain.nnMakeUnitMatrix(nns_MATRIX);
                     AppMain.nnRotateXYZMatrix(nns_MATRIX, nns_MATRIX, (int)(-(int)gms_ENEMY_COM_WORK.target_dp_dir.x), (int)gms_ENEMY_COM_WORK.target_dp_dir.y, (int)gms_ENEMY_COM_WORK.target_dp_dir.z);
@@ -5065,7 +5065,7 @@ public partial class AppMain
                     obs_OBJECT_WORK.pos.x = gmk_obj.pos.x + AppMain.FXM_FLOAT_TO_FX32(nns_VECTOR.x);
                     obs_OBJECT_WORK.pos.y = gmk_obj.pos.y + AppMain.FXM_FLOAT_TO_FX32(nns_VECTOR.y);
                     obs_OBJECT_WORK.pos.z = gmk_obj.pos.z + AppMain.FXM_FLOAT_TO_FX32(nns_VECTOR.z);
-                    AppMain.GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
+                    GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
                 }
                 if ((ply_work.player_flag & 8U) != 0U)
                 {
@@ -6199,7 +6199,7 @@ public partial class AppMain
     // Token: 0x060008A6 RID: 2214 RVA: 0x0004DFE8 File Offset: 0x0004C1E8
     public static void gmPlySeqGmkMainTruckDanger(GMS_PLAYER_WORK ply_work)
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         if ((ply_work.player_flag & 2U) == 0U)
         {
             if (AppMain.MTM_MATH_ABS(ply_work.gmk_work3) < 6144)
@@ -6306,7 +6306,7 @@ public partial class AppMain
     // Token: 0x060008A7 RID: 2215 RVA: 0x0004E368 File Offset: 0x0004C568
     public static void gmPlySeqGmkMainTruckDangerRet(GMS_PLAYER_WORK ply_work)
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         ply_work.gmk_work2 = AppMain.ObjTimeCountUp(ply_work.gmk_work2);
         if (73728 <= ply_work.gmk_work2 && ply_work.gmk_work2 <= 131072)
         {

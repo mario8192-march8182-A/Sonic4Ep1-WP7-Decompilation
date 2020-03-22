@@ -317,10 +317,10 @@ public partial class AppMain
         public float mat_speed;
 
         // Token: 0x04005F31 RID: 24369
-        public readonly NNS_MATRIX user_obj_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX user_obj_mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005F32 RID: 24370
-        public readonly NNS_MATRIX user_obj_mtx_r = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX user_obj_mtx_r = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005F33 RID: 24371
         public float blend_spd;
@@ -2194,7 +2194,7 @@ public partial class AppMain
         AppMain.g_obj.inv_scale.y = AppMain.FX_Div( 4096, AppMain.g_obj.scale.y );
         AppMain.g_obj.inv_scale.z = AppMain.FX_Div( 4096, AppMain.g_obj.scale.z );
         
-        System.Diagnostics.Debug.WriteLine($"{g_obj.scale}");
+        // System.Diagnostics.Debug.WriteLine($"{g_obj.scale}");
         
         if ( AppMain.g_obj.ppPre != null )
         {

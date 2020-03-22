@@ -188,26 +188,24 @@ public class GsSound
     // Token: 0x060002C4 RID: 708 RVA: 0x00017074 File Offset: 0x00015274
     private static void fillSoundTable(string filename, Dictionary<string, SOUND_TABLE> list)
     {
-        using (Stream stream = TitleContainer.OpenStream("Content\\SOUND\\" + filename))
+        using (var stream = TitleContainer.OpenStream("Content\\SOUND\\" + filename))
         {
-            using (StreamReader streamReader = new StreamReader(stream))
+            using (var streamReader = new StreamReader(stream))
             {
                 while (streamReader.Peek() >= 0)
                 {
                     string text = streamReader.ReadLine();
-                    string[] array = text.Split(new char[]
-                    {
-                        '|'
-                    });
+                    string[] array = text.Split('|');
                     int count = array.Length;
                     SOUND_TABLE sound_TABLE = new SOUND_TABLE(count);
                     for (int i = 0; i < array.Length; i++)
                     {
-                        int num = array[i].IndexOf("Aisac");
+                        var line = array[i];
+                        int num = line.IndexOf("Aisac");
                         if (num != -1)
                         {
-                            string text2 = array[i].Substring(num);
-                            array[i] = array[i].Substring(0, num - 1);
+                            string text2 = line.Substring(num);
+                            line = line.Substring(0, num - 1);
                             string[] array2 = text2.Split(new char[]
                             {
                                 '#'
@@ -219,27 +217,18 @@ public class GsSound
                                 if (array2[j].StartsWith("Volume"))
                                 {
                                     sound_TABLE.asiac[i].types[j - 1] = 0;
-                                    array3 = array2[j].Substring(7).Split(new char[]
-                                    {
-                                        ' '
-                                    });
+                                    array3 = array2[j].Substring(7).Split(' ');
                                 }
                                 else if (array2[j].StartsWith("Pitch"))
                                 {
                                     sound_TABLE.asiac[i].types[j - 1] = 1;
-                                    array3 = array2[j].Substring(6).Split(new char[]
-                                    {
-                                        ' '
-                                    });
+                                    array3 = array2[j].Substring(6).Split(' ');
                                 }
 
                                 sound_TABLE.asiac[i].values[j - 1] = new float[array3.Length][];
                                 for (int k = 0; k < array3.Length; k++)
                                 {
-                                    string[] array4 = array3[k].Split(new char[]
-                                    {
-                                        ','
-                                    });
+                                    string[] array4 = array3[k].Split(',');
                                     sound_TABLE.asiac[i].values[j - 1][k] = new float[2];
                                     sound_TABLE.asiac[i].values[j - 1][k][0] =
                                         float.Parse(array4[0], CultureInfo.InvariantCulture);
@@ -250,10 +239,7 @@ public class GsSound
                             }
                         }
 
-                        string[] array5 = array[i].Split(new char[]
-                        {
-                            ','
-                        });
+                        string[] array5 = line.Split(',');
                         if (i == 0)
                         {
                             sound_TABLE.name = array5[0];

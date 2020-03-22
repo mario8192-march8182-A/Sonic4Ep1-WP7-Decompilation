@@ -114,10 +114,10 @@ public partial class AppMain
         vecFx.x = obj_work.pos.x + obj_work.ofst.x;
         vecFx.y = -( obj_work.pos.y + obj_work.ofst.y );
         vecFx.z = obj_work.pos.z + obj_work.ofst.z;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX );
         AppMain.nnTranslateMatrix( nns_MATRIX, nns_MATRIX, AppMain.FX_FX32_TO_F32( vecFx.x ), AppMain.FX_FX32_TO_F32( vecFx.y ), AppMain.FX_FX32_TO_F32( vecFx.z ) );
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.type = 0;
         ams_PARAM_DRAW_PRIMITIVE.count = ( int )( 30U * obj_work.user_work );
         ams_PARAM_DRAW_PRIMITIVE.ablend = 0;
@@ -182,8 +182,8 @@ public partial class AppMain
         AppMain.amMatrixPush( nns_MATRIX );
         AppMain.ObjDraw3DNNDrawPrimitive( ams_PARAM_DRAW_PRIMITIVE );
         AppMain.amMatrixPop();
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x060008DF RID: 2271 RVA: 0x00050EB8 File Offset: 0x0004F0B8

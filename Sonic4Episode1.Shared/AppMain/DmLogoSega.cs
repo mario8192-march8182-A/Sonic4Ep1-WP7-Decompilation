@@ -260,7 +260,7 @@ public partial class AppMain
     private void dmLogoSegaObjSysytemInit()
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         NNS_VECTOR pos = new NNS_VECTOR(0f, 0f, 50f);
         AppMain.ObjInit( 4, 61435, 0, AppMain.GMD_OBJ_LCD_X, AppMain.GMD_OBJ_LCD_Y, ( float )AppMain.GSD_DISP_WIDTH, ( float )AppMain.GSD_DISP_HEIGHT );
         AppMain.ObjDataAlloc( 10 );
@@ -285,7 +285,7 @@ public partial class AppMain
         nns_VECTOR.z = -1f;
         AppMain.nnNormalizeVector( nns_VECTOR, nns_VECTOR );
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_0, ref nns_RGBA, 1f, nns_VECTOR );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
         ObjCamera.Init( 0, pos, 0, 0, 6144 );
         ObjCamera.Init3d( 0 );
         AppMain.g_obj.glb_camera_id = 0;

@@ -987,7 +987,7 @@ public partial class AppMain
     // Token: 0x060013FB RID: 5115 RVA: 0x000B1520 File Offset: 0x000AF720
     private static void gmGmkBoss3PillarWallDrawBack( float left, float top, float right, float bottom, float z )
     {
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.aTest = 0;
         ams_PARAM_DRAW_PRIMITIVE.zMask = 0;
         ams_PARAM_DRAW_PRIMITIVE.zTest = 1;
@@ -1015,7 +1015,7 @@ public partial class AppMain
         AppMain.gmGmkBoss3PillarWallMatrixPush( 0U );
         AppMain.amDrawPrimitive3D( 0U, ams_PARAM_DRAW_PRIMITIVE );
         AppMain.gmGmkBoss3PillarWallMatrixPop( 0U );
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x060013FC RID: 5116 RVA: 0x000B1671 File Offset: 0x000AF871
@@ -1036,10 +1036,10 @@ public partial class AppMain
         AppMain.UNREFERENCED_PARAMETER( param );
         AppMain.amMatrixPush();
         NNS_MATRIX mtx = AppMain.amMatrixGetCurrent();
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMultiplyMatrix( nns_MATRIX, AppMain.amDrawGetWorldViewMatrix(), mtx );
         AppMain.nnSetPrimitive3DMatrix( nns_MATRIX );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x060013FF RID: 5119 RVA: 0x000B16DC File Offset: 0x000AF8DC

@@ -139,7 +139,7 @@ public partial class AppMain
         float num2 = (float)(vecFx.x >> 12);
         float num3 = -(float)(vecFx.y >> 12);
         float z = 256f;
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.aTest = 0;
         ams_PARAM_DRAW_PRIMITIVE.zMask = 0;
         ams_PARAM_DRAW_PRIMITIVE.zTest = 1;
@@ -186,7 +186,7 @@ public partial class AppMain
         ams_PARAM_DRAW_PRIMITIVE.count = 6;
         ams_PARAM_DRAW_PRIMITIVE.sortZ = gms_DECOGLARE_PARAM.sort_z;
         AppMain.amDrawPrimitive3D( 4U, ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x060004F5 RID: 1269 RVA: 0x0002AA74 File Offset: 0x00028C74

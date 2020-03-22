@@ -59,13 +59,13 @@ public partial class AppMain
         public short bullet_dir;
 
         // Token: 0x04005DCE RID: 24014
-        public readonly NNS_MATRIX jet_r_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX jet_r_mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005DCF RID: 24015
-        public readonly NNS_MATRIX jet_l_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX jet_l_mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
         // Token: 0x04005DD0 RID: 24016
-        public readonly NNS_MATRIX gun_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public readonly NNS_MATRIX gun_mtx = GlobalPool<NNS_MATRIX>.Alloc();
     }
 
 
@@ -217,7 +217,7 @@ public partial class AppMain
     public static void gmEneStingJetEfctMain( OBS_OBJECT_WORK obj_work )
     {
         NNS_MATRIX nns_MATRIX = (NNS_MATRIX)obj_work.user_work_OBJECT;
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         if ( obj_work.parent_obj == null )
         {
             obj_work.flag |= 4U;
@@ -234,7 +234,7 @@ public partial class AppMain
         nns_VECTOR.x += -3f;
         AppMain.GmComEfctSetDispOffsetF( ( AppMain.GMS_EFFECT_3DES_WORK )obj_work, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z );
         AppMain.GmEffectDefaultMainFuncDeleteAtEndCopyDirZ( obj_work );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x060015A2 RID: 5538 RVA: 0x000BCDE9 File Offset: 0x000BAFE9
@@ -328,8 +328,8 @@ public partial class AppMain
     // Token: 0x060015A9 RID: 5545 RVA: 0x000BD0A8 File Offset: 0x000BB2A8
     public static void gmEneStingMotionCallback( AppMain.AMS_MOTION motion, AppMain.NNS_OBJECT _object, object param )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.GMS_ENE_STING_WORK gms_ENE_STING_WORK = (AppMain.GMS_ENE_STING_WORK)param;
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.nnMultiplyMatrix( nns_MATRIX2, nns_MATRIX2, AppMain.amMatrixGetCurrent() );
@@ -339,8 +339,8 @@ public partial class AppMain
         gms_ENE_STING_WORK.jet_l_mtx.Assign( nns_MATRIX );
         AppMain.nnCalcNodeMatrixTRSList( nns_MATRIX, _object, AppMain.GMD_ENE_STING_NODE_ID_GUN, motion.data, nns_MATRIX2 );
         gms_ENE_STING_WORK.gun_mtx.Assign( nns_MATRIX );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
     }
 
     // Token: 0x060015AA RID: 5546 RVA: 0x000BD158 File Offset: 0x000BB358

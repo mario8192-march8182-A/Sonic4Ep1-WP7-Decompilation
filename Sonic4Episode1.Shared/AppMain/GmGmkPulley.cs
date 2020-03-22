@@ -206,7 +206,7 @@ public partial class AppMain
         {
             return;
         }
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.type = 1;
         ams_PARAM_DRAW_PRIMITIVE.ablend = 0;
         ams_PARAM_DRAW_PRIMITIVE.bldSrc = 768;
@@ -226,8 +226,8 @@ public partial class AppMain
         AppMain.NNS_PRIM3D_PCT[] buffer = ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D.buffer;
         int offset = ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D.offset;
         ams_PARAM_DRAW_PRIMITIVE.format3D = 4;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         int num = 0;
         while ( ( long )num < ( long )( ( ulong )gms_GMK_PULLEY_MANAGER.num ) )
         {
@@ -278,15 +278,15 @@ public partial class AppMain
             }
             num++;
         }
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.amMatrixPush( nns_MATRIX2 );
         AppMain.ObjDraw3DNNDrawPrimitive( ams_PARAM_DRAW_PRIMITIVE, 0U, 0, 0 );
         AppMain.amMatrixPop();
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
         gms_GMK_PULLEY_MANAGER.num = 0U;
     }
 

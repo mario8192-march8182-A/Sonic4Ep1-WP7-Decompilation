@@ -34,6 +34,6 @@ public partial class AppMain
         public AppMain.GMS_EFFECT_3DES_WORK efct_jet;
 
         // Token: 0x04004B86 RID: 19334
-        public NNS_MATRIX jet_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        public NNS_MATRIX jet_mtx = GlobalPool<NNS_MATRIX>.Alloc();
     }
 }

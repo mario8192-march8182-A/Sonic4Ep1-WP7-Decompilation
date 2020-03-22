@@ -1778,12 +1778,12 @@ public partial class AppMain
         }
         else
         {
-            NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-            NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
             AppMain.NNS_CAMERAPTR nns_CAMERAPTR = new AppMain.NNS_CAMERAPTR();
             AppMain.NNS_CAMERA_TARGET_ROLL nns_CAMERA_TARGET_ROLL = new AppMain.NNS_CAMERA_TARGET_ROLL();
             NNS_VECTOR vec = new NNS_VECTOR(0f, 0f, 0f);
-            NNS_MATRIX scaleMatrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX scaleMatrix = GlobalPool<NNS_MATRIX>.Alloc();
             nnMakeScaleMatrix(scaleMatrix, AMD_SCREEN_SCALE, AMD_SCREEN_SCALE, AMD_SCREEN_SCALE);
             nns_CAMERAPTR.fType = 255U;
             nns_CAMERAPTR.pCamera = nns_CAMERA_TARGET_ROLL;
@@ -1853,7 +1853,7 @@ public partial class AppMain
             AppMain._objDraw3DNNModel_DT.plt_mtx = new NNS_MATRIX[nNode];
             for (int i = 0; i < nNode; i++)
             {
-                AppMain._objDraw3DNNModel_DT.plt_mtx[i] = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+                AppMain._objDraw3DNNModel_DT.plt_mtx[i] = GlobalPool<NNS_MATRIX>.Alloc();
             }
         }
         NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNModel_DT.plt_mtx;
@@ -1947,7 +1947,7 @@ public partial class AppMain
             AppMain._objDraw3DNNMotion_DT.plt_mtx = new NNS_MATRIX[nMtxPal];
             for (int i = 0; i < nMtxPal; i++)
             {
-                AppMain._objDraw3DNNMotion_DT.plt_mtx[i] = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+                AppMain._objDraw3DNNMotion_DT.plt_mtx[i] = GlobalPool<NNS_MATRIX>.Alloc();
             }
         }
         NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNMotion_DT.plt_mtx;
@@ -2126,7 +2126,7 @@ public partial class AppMain
             AppMain._objDraw3DNNDrawMotion_DT.nstat = new uint[nNode];
             for (int i = 0; i < nNode; i++)
             {
-                AppMain._objDraw3DNNDrawMotion_DT.plt_mtx[i] = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+                AppMain._objDraw3DNNDrawMotion_DT.plt_mtx[i] = GlobalPool<NNS_MATRIX>.Alloc();
             }
         }
         NNS_MATRIX[] plt_mtx = AppMain._objDraw3DNNDrawMotion_DT.plt_mtx;

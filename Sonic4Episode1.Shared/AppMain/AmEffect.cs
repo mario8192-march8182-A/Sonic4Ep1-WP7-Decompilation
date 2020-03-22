@@ -710,13 +710,13 @@ public partial class AppMain
 
         if (ecb.bounding.radius > 0f)
         {
-            NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+            NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
             if (AppMain._amEffectFrustumCulling(nns_VECTOR4D, AppMain._am_view_frustum, ecb.bounding) == 0)
             {
                 return;
             }
 
-            AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+            GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
         }
 
         for (AMS_AME_ENTRY ams_AME_ENTRY = ecb.entry_head;
@@ -1200,9 +1200,9 @@ public partial class AppMain
     // Token: 0x06001A83 RID: 6787 RVA: 0x000ECEDC File Offset: 0x000EB0DC
     public static void _amCreateSpawnParticle(AMS_AME_RUNTIME runtime, AMS_AME_RUNTIME_WORK work)
     {
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorInit(nns_VECTOR4D);
-        AMS_AME_CREATE_PARAM ams_AME_CREATE_PARAM = AppMain.GlobalPool<AMS_AME_CREATE_PARAM>.Alloc();
+        AMS_AME_CREATE_PARAM ams_AME_CREATE_PARAM = GlobalPool<AMS_AME_CREATE_PARAM>.Alloc();
         ams_AME_CREATE_PARAM.ecb = runtime.ecb;
         ams_AME_CREATE_PARAM.runtime = runtime.spawn_runtime;
         ams_AME_CREATE_PARAM.node = runtime.spawn_runtime.node;
@@ -1340,8 +1340,8 @@ public partial class AppMain
             }
         }
 
-        AppMain.GlobalPool<AMS_AME_CREATE_PARAM>.Release(ams_AME_CREATE_PARAM);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<AMS_AME_CREATE_PARAM>.Release(ams_AME_CREATE_PARAM);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
     }
 
     // Token: 0x06001A84 RID: 6788 RVA: 0x000ED484 File Offset: 0x000EB684
@@ -1977,10 +1977,10 @@ public partial class AppMain
             return 1;
         }
 
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorScale(nns_VECTOR4D, ams_AME_RUNTIME_WORK_CIRCLE.velocity, AppMain._am_unit_time);
         AppMain.amVectorAdd(ams_AME_RUNTIME_WORK_CIRCLE.position, nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
         float size_rate = ams_AME_RUNTIME.ecb.size_rate;
         ams_AME_RUNTIME_WORK_CIRCLE.spread += ams_AME_NODE_CIRCLE.spread_variation * AppMain._am_unit_time;
         if (ams_AME_NODE_CIRCLE.radius_variation != 0f)
@@ -2000,9 +2000,9 @@ public partial class AppMain
         NNS_QUATERNION rotate = ams_AME_RUNTIME_WORK_CIRCLE.rotate;
         AppMain.amQuatToMatrix(null, ref rotate, null);
         ams_AME_RUNTIME_WORK_CIRCLE.rotate = rotate;
-        NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D3 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D4 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D3 = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D4 = GlobalPool<NNS_VECTOR4D>.Alloc();
         AMS_AME_LIST next = ams_AME_RUNTIME.child_head.next;
         AMS_AME_LIST child_tail = ams_AME_RUNTIME.child_tail;
         while (next != child_tail)
@@ -2035,14 +2035,14 @@ public partial class AppMain
                     float num4;
                     AppMain.amSinCos(angle, out num3, out num4);
                     AppMain.amVectorSet(nns_VECTOR4D2, num3 * num, 0f, num4 * num);
-                    NNS_VECTOR4D nns_VECTOR4D5 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+                    NNS_VECTOR4D nns_VECTOR4D5 = GlobalPool<NNS_VECTOR4D>.Alloc();
                     NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
                     AppMain.amVectorOuterProduct(nns_VECTOR4D5, nns_VECTOR4D4, nns_VECTOR4D2);
                     AppMain.amVectorUnit(nns_VECTOR4D5);
                     AppMain.amQuatRotAxisToQuat(ref nns_QUATERNION, nns_VECTOR4D5,
                         AppMain.NNM_DEGtoRAD((int) ams_AME_RUNTIME_WORK_CIRCLE.spread));
                     AppMain.amQuatMultiVector(nns_VECTOR4D4, nns_VECTOR4D4, ref nns_QUATERNION, null);
-                    AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D5);
+                    GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D5);
                     AppMain.amMatrixCalcVector(nns_VECTOR4D2, nns_VECTOR4D2);
                     AppMain.amMatrixCalcVector(nns_VECTOR4D4, nns_VECTOR4D4);
                     AppMain.amVectorScale(nns_VECTOR4D3, nns_VECTOR4D4,
@@ -2076,9 +2076,9 @@ public partial class AppMain
             next = next.next;
         }
 
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D4);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D4);
         AppMain.amMatrixPop();
         return 0;
     }
@@ -2512,7 +2512,7 @@ public partial class AppMain
         float num4 = ams_AME_NODE_SPRITE.scale_y_start * size_rate;
         float num5 = ams_AME_NODE_SPRITE.scale_x_end * size_rate;
         float num6 = ams_AME_NODE_SPRITE.scale_y_end * size_rate;
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
         while (next != active_tail)
         {
             AMS_AME_RUNTIME_WORK_SPRITE work = (AMS_AME_RUNTIME_WORK_SPRITE) ((AMS_AME_RUNTIME_WORK) next);
@@ -2603,7 +2603,7 @@ public partial class AppMain
             next = next.next;
         }
 
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
         return 0;
     }
 
@@ -2615,7 +2615,7 @@ public partial class AppMain
         AMS_AME_LIST next = ams_AME_RUNTIME.active_head.next;
         AMS_AME_LIST active_tail = ams_AME_RUNTIME.active_tail;
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE =
-            AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+            GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         int ablend = AppMain._amEffectSetDrawMode(ams_AME_RUNTIME, ams_PARAM_DRAW_PRIMITIVE, ams_AME_NODE_SPRITE.blend);
         SNNS_VECTOR snns_VECTOR = default(SNNS_VECTOR);
         SNNS_VECTOR snns_VECTOR2 = default(SNNS_VECTOR);
@@ -2734,7 +2734,7 @@ public partial class AppMain
             AppMain.amDrawPrimitive3D(ams_AME_RUNTIME.ecb.drawState, ams_PARAM_DRAW_PRIMITIVE);
         }
 
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
         return 0;
     }
 
@@ -2832,7 +2832,7 @@ public partial class AppMain
         float num6 = ams_AME_NODE_LINE.outside_width_start * size_rate;
         float num7 = ams_AME_NODE_LINE.inside_width_end * size_rate;
         float num8 = ams_AME_NODE_LINE.outside_width_end * size_rate;
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
         while (next != active_tail)
         {
             AMS_AME_RUNTIME_WORK_LINE work = (AMS_AME_RUNTIME_WORK_LINE) ((AMS_AME_RUNTIME_WORK) next);
@@ -2926,7 +2926,7 @@ public partial class AppMain
             next = next.next;
         }
 
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
         return 0;
     }
 
@@ -3076,13 +3076,13 @@ public partial class AppMain
         AppMain.amVectorAdd(ams_AME_RUNTIME_WORK_PLANE.velocity, ams_AME_CREATE_PARAM.velocity);
         if ((ams_AME_NODE_PLANE.flag & 4U) != 0U)
         {
-            NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+            NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
             float radian = AppMain.nnRandom() * 2f * 3.1415927f;
             AppMain.amVectorRandom(nns_VECTOR4D);
             NNS_QUATERNION rotate = ams_AME_RUNTIME_WORK_PLANE.rotate;
             AppMain.amQuatRotAxisToQuat(ref rotate, nns_VECTOR4D, radian);
             ams_AME_RUNTIME_WORK_PLANE.rotate = rotate;
-            AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+            GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
         }
         else
         {
@@ -3091,11 +3091,11 @@ public partial class AppMain
 
         if ((ams_AME_NODE_PLANE.flag & 8U) != 0U)
         {
-            NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+            NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
             AppMain.amVectorRandom(nns_VECTOR4D2);
             ams_AME_RUNTIME_WORK_PLANE.set_rotate_axis(nns_VECTOR4D2.x, nns_VECTOR4D2.y, nns_VECTOR4D2.z,
                 ams_AME_NODE_PLANE.rotate_axis.w);
-            AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
+            GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
         }
         else
         {
@@ -3177,7 +3177,7 @@ public partial class AppMain
         float num6 = ams_AME_NODE_PLANE.scale_y_end * size_rate;
         NNS_VECTOR4D amEffect_vel = AppMain._amEffect_vel;
         NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
         while (next != active_tail)
         {
             AMS_AME_RUNTIME_WORK_PLANE work = (AMS_AME_RUNTIME_WORK_PLANE) ((AMS_AME_RUNTIME_WORK) next);
@@ -3275,7 +3275,7 @@ public partial class AppMain
             next = next.next;
         }
 
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
         return 0;
     }
 
@@ -3287,7 +3287,7 @@ public partial class AppMain
         AMS_AME_LIST next = ams_AME_RUNTIME.active_head.next;
         AMS_AME_LIST active_tail = ams_AME_RUNTIME.active_tail;
         AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE =
-            AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+            GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         int ablend = AppMain._amEffectSetDrawMode(ams_AME_RUNTIME, ams_PARAM_DRAW_PRIMITIVE, ams_AME_NODE_PLANE.blend);
         SNNS_VECTOR4D snns_VECTOR4D = default(SNNS_VECTOR4D);
         float z_bias = ams_AME_NODE_PLANE.z_bias;
@@ -3400,7 +3400,7 @@ public partial class AppMain
             AppMain.amDrawPrimitive3D(ams_AME_RUNTIME.ecb.drawState, ams_PARAM_DRAW_PRIMITIVE);
         }
 
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
         return 0;
     }
 
@@ -3421,7 +3421,7 @@ public partial class AppMain
         AppMain.amVectorAdd(ams_AME_RUNTIME_WORK_MODEL.velocity, ams_AME_CREATE_PARAM.velocity);
         if ((ams_AME_NODE_MODEL.flag & 4U) != 0U)
         {
-            NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+            NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
             AppMain.amVectorRandom(nns_VECTOR4D);
             NNS_QUATERNION rotate = ams_AME_RUNTIME_WORK_MODEL.rotate;
             AppMain.amQuatRotAxisToQuat(ref rotate, nns_VECTOR4D, AppMain.nnRandom() * 2f * 3.1415927f);
@@ -3434,7 +3434,7 @@ public partial class AppMain
 
         if ((ams_AME_NODE_MODEL.flag & 8U) != 0U)
         {
-            NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+            NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
             AppMain.amVectorRandom(nns_VECTOR4D2);
             ams_AME_RUNTIME_WORK_MODEL.set_rotate_axis(nns_VECTOR4D2.x, nns_VECTOR4D2.y, nns_VECTOR4D2.z,
                 ams_AME_NODE_MODEL.rotate_axis.w);
@@ -3470,8 +3470,8 @@ public partial class AppMain
             num2 = 0f;
         }
 
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorScale(nns_VECTOR4D, ams_AME_NODE_MODEL.scale_start, ams_AME_RUNTIME.ecb.size_rate);
         AppMain.amVectorScale(nns_VECTOR4D2, ams_AME_NODE_MODEL.scale_end, ams_AME_RUNTIME.ecb.size_rate);
         while (next != active_tail)
@@ -3479,10 +3479,10 @@ public partial class AppMain
             work = (AMS_AME_RUNTIME_WORK_MODEL) ((AMS_AME_RUNTIME_WORK) next);
             work.time += AppMain._am_unit_frame;
             float num3 = work.time * num2;
-            NNS_VECTOR4D nns_VECTOR4D3 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+            NNS_VECTOR4D nns_VECTOR4D3 = GlobalPool<NNS_VECTOR4D>.Alloc();
             AppMain.amVectorScale(nns_VECTOR4D3, work.velocity, AppMain._am_unit_time);
             AppMain.amVectorAdd(work.position, nns_VECTOR4D3);
-            AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
+            GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
             if (work.time >= num)
             {
                 if (ams_AME_RUNTIME.spawn_runtime != null)
@@ -3498,7 +3498,7 @@ public partial class AppMain
             else
             {
                 NNS_QUATERNION nns_QUATERNION = default(NNS_QUATERNION);
-                NNS_VECTOR4D nns_VECTOR4D4 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+                NNS_VECTOR4D nns_VECTOR4D4 = GlobalPool<NNS_VECTOR4D>.Alloc();
                 Vector4D_Buf rotate_axis = work.rotate_axis;
                 nns_VECTOR4D4.x = rotate_axis.x;
                 nns_VECTOR4D4.y = rotate_axis.y;
@@ -3517,14 +3517,14 @@ public partial class AppMain
                 work.set_color(ams_RGBA.color);
                 work.scroll_u += ams_AME_NODE_MODEL.scroll_u * AppMain._am_unit_time;
                 work.scroll_v += ams_AME_NODE_MODEL.scroll_v * AppMain._am_unit_time;
-                AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D4);
+                GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D4);
             }
 
             next = work.next;
         }
 
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
         return 0;
     }
 
@@ -3548,8 +3548,8 @@ public partial class AppMain
             z_bias * AppMain._am_ef_worldViewMtx.M21, z_bias * AppMain._am_ef_worldViewMtx.M22);
         AMS_AME_LIST active_tail = ams_AME_RUNTIME.active_tail;
         AMS_AME_LIST next = ams_AME_RUNTIME.active_head.next;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         while (next != active_tail)
         {
             AMS_AME_RUNTIME_WORK_MODEL ams_AME_RUNTIME_WORK_MODEL =
@@ -3607,8 +3607,8 @@ public partial class AppMain
             next = ams_AME_RUNTIME_WORK_MODEL.next;
         }
 
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
-        AppMain.GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_MATRIX>.Release(nns_MATRIX);
         return 0;
     }
 
@@ -3617,8 +3617,8 @@ public partial class AppMain
     {
         AMS_AME_NODE_GRAVITY ams_AME_NODE_GRAVITY = (AMS_AME_NODE_GRAVITY) node;
         float am_unit_time = AppMain._am_unit_time;
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorCopy(nns_VECTOR4D2, ams_AME_NODE_GRAVITY.direction);
         if ((ams_AME_NODE_GRAVITY.flag & 2U) != 0U)
         {
@@ -3630,8 +3630,8 @@ public partial class AppMain
         AppMain.amVectorAdd(work.position, nns_VECTOR4D);
         AppMain.amVectorScale(nns_VECTOR4D, nns_VECTOR4D2, ams_AME_NODE_GRAVITY.magnitude * am_unit_time);
         AppMain.amVectorAdd(work.velocity, nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
     }
 
     // Token: 0x06001AA8 RID: 6824 RVA: 0x000F2DF4 File Offset: 0x000F0FF4
@@ -3639,7 +3639,7 @@ public partial class AppMain
     {
         AMS_AME_NODE_UNIFORM ams_AME_NODE_UNIFORM = (AMS_AME_NODE_UNIFORM) node;
         float am_unit_time = AppMain._am_unit_time;
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorScale(nns_VECTOR4D, ams_AME_NODE_UNIFORM.direction,
             ams_AME_NODE_UNIFORM.magnitude * am_unit_time);
         if ((ams_AME_NODE_UNIFORM.flag & 2U) != 0U)
@@ -3648,7 +3648,7 @@ public partial class AppMain
         }
 
         AppMain.amVectorAdd(work.position, nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
     }
 
     // Token: 0x06001AA9 RID: 6825 RVA: 0x000F2E54 File Offset: 0x000F1054
@@ -3656,8 +3656,8 @@ public partial class AppMain
     {
         AMS_AME_NODE_RADIAL ams_AME_NODE_RADIAL = (AMS_AME_NODE_RADIAL) node;
         float am_unit_time = AppMain._am_unit_time;
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorCopy(nns_VECTOR4D2, ams_AME_NODE_RADIAL.position);
         if ((ams_AME_NODE_RADIAL.flag & 1U) != 0U)
         {
@@ -3669,18 +3669,18 @@ public partial class AppMain
             (double) ams_AME_NODE_RADIAL.attenuation);
         AppMain.amVectorScaleUnit(nns_VECTOR4D, nns_VECTOR4D, ams_AME_NODE_RADIAL.magnitude * num * am_unit_time);
         AppMain.amVectorAdd(work.position, nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
     }
 
     // Token: 0x06001AAA RID: 6826 RVA: 0x000F2EF4 File Offset: 0x000F10F4
     public static void _amApplyVortex(AMS_AME_ECB ecb, AMS_AME_NODE node, AMS_AME_RUNTIME_WORK work)
     {
         AMS_AME_NODE_VORTEX ams_AME_NODE_VORTEX = (AMS_AME_NODE_VORTEX) node;
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D3 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D4 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D3 = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D4 = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorCopy(nns_VECTOR4D, ams_AME_NODE_VORTEX.position);
         AppMain.amVectorCopy(nns_VECTOR4D3, ams_AME_NODE_VORTEX.axis);
         if ((ams_AME_NODE_VORTEX.flag & 1U) != 0U)
@@ -3700,10 +3700,10 @@ public partial class AppMain
         AppMain.amVectorOuterProduct(nns_VECTOR4D4, nns_VECTOR4D3, nns_VECTOR4D4);
         AppMain.amVectorScale(nns_VECTOR4D2, nns_VECTOR4D4, AppMain._am_unit_time);
         AppMain.amVectorAdd(work.velocity, nns_VECTOR4D2);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D4);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D4);
     }
 
     // Token: 0x06001AAB RID: 6827 RVA: 0x000F2FD4 File Offset: 0x000F11D4
@@ -3711,9 +3711,9 @@ public partial class AppMain
     {
         AMS_AME_NODE_DRAG ams_AME_NODE_DRAG = (AMS_AME_NODE_DRAG) node;
         float am_unit_time = AppMain._am_unit_time;
-        NNS_VECTOR4D nns_VECTOR4D = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D2 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
-        NNS_VECTOR4D nns_VECTOR4D3 = AppMain.GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D2 = GlobalPool<NNS_VECTOR4D>.Alloc();
+        NNS_VECTOR4D nns_VECTOR4D3 = GlobalPool<NNS_VECTOR4D>.Alloc();
         AppMain.amVectorCopy(nns_VECTOR4D3, ams_AME_NODE_DRAG.position);
         if ((ams_AME_NODE_DRAG.flag & 1U) != 0U)
         {
@@ -3727,9 +3727,9 @@ public partial class AppMain
         AppMain.amVectorAdd(work.position, nns_VECTOR4D);
         AppMain.amVectorScale(nns_VECTOR4D, nns_VECTOR4D2, ams_AME_NODE_DRAG.magnitude * am_unit_time);
         AppMain.amVectorAdd(work.velocity, nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
-        AppMain.GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D2);
+        GlobalPool<NNS_VECTOR4D>.Release(nns_VECTOR4D3);
     }
 
     // Token: 0x06001AAC RID: 6828 RVA: 0x000F308C File Offset: 0x000F128C

@@ -399,7 +399,7 @@ public partial class AppMain
     // Token: 0x06000122 RID: 290 RVA: 0x0000B694 File Offset: 0x00009894
     public static void objDiffCollisionDirWidthCheck(OBS_OBJECT_WORK pWork, byte ucWall, int sSpd)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         short num = 0;
         short num2 = 0;
         short num3 = 0;
@@ -767,13 +767,13 @@ public partial class AppMain
             }
         }
 
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
     }
 
     // Token: 0x06000123 RID: 291 RVA: 0x0000BF34 File Offset: 0x0000A134
     public static sbyte objDiffCollisionSimpleOverCheck(OBS_OBJECT_WORK pWork)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.flag = AppMain.objDiffSufSet(pWork);
         ushort num;
         if ((pWork.move_flag & 16U) != 0U)
@@ -833,7 +833,7 @@ public partial class AppMain
         obs_COL_CHK_DATA.pos_x = (pWork.pos.x >> 12) + (int) num3;
         obs_COL_CHK_DATA.pos_y = (pWork.pos.y >> 12) + (int) num5;
         sbyte b2 = (sbyte) AppMain.ObjCollisionUnion(pWork, obs_COL_CHK_DATA);
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         sbyte b3;
         if (b < b2)
         {
@@ -855,7 +855,7 @@ public partial class AppMain
     // Token: 0x06000124 RID: 292 RVA: 0x0000C13C File Offset: 0x0000A33C
     public static void objDiffCollisionDirHeightCheck(OBS_OBJECT_WORK pWork)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         OBS_OBJECT_WORK ride_obj = pWork.ride_obj;
         uint[] array = AppMain.objDiffCollisionDirHeightCheck_ulAttr;
         array[0] = 0U;
@@ -1377,7 +1377,7 @@ public partial class AppMain
             }
         }
 
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
     }
 
     // Token: 0x06000125 RID: 293 RVA: 0x0000CF1C File Offset: 0x0000B11C
@@ -1416,7 +1416,7 @@ public partial class AppMain
     public static int ObjDiffCollisionDetFast(int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir,
         uint[] pAttr)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
         obs_COL_CHK_DATA.pos_y = lPosY;
         obs_COL_CHK_DATA.dir = pDir;
@@ -1424,7 +1424,7 @@ public partial class AppMain
         obs_COL_CHK_DATA.flag = usFlag;
         obs_COL_CHK_DATA.vec = usVec;
         int result = AppMain.ObjDiffCollisionFast(obs_COL_CHK_DATA);
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         return result;
     }
 
@@ -1510,7 +1510,7 @@ public partial class AppMain
     public static int ObjDiffCollisionDet(int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir,
         uint[] pAttr)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
         obs_COL_CHK_DATA.pos_y = lPosY;
         obs_COL_CHK_DATA.dir = pDir;
@@ -1518,7 +1518,7 @@ public partial class AppMain
         obs_COL_CHK_DATA.flag = usFlag;
         obs_COL_CHK_DATA.vec = usVec;
         int result = AppMain.ObjDiffCollision(obs_COL_CHK_DATA);
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         return result;
     }
 
@@ -2437,7 +2437,7 @@ public partial class AppMain
     public static int ObjCollisionObjectFastCheckDet(int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir,
         uint[] pAttr)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
         obs_COL_CHK_DATA.pos_y = lPosY;
         obs_COL_CHK_DATA.dir = pDir;
@@ -2445,7 +2445,7 @@ public partial class AppMain
         obs_COL_CHK_DATA.flag = usFlag;
         obs_COL_CHK_DATA.vec = usVec;
         int result = AppMain.ObjCollisionObjectFastCheck(obs_COL_CHK_DATA);
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         return result;
     }
 
@@ -2461,7 +2461,7 @@ public partial class AppMain
             return num;
         }
 
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.Assign(pData);
         for (ushort num3 = 0; num3 < (ushort) AppMain._obj_collision_num; num3 += 1)
         {
@@ -2541,7 +2541,7 @@ public partial class AppMain
             }
         }
 
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         return num;
     }
 
@@ -2549,7 +2549,7 @@ public partial class AppMain
     public static int ObjCollisionObjectCheckDet(OBS_OBJECT_WORK pObj, int lPosX, int lPosY, ushort usFlag,
         ushort usVec, ushort[] pDir, uint[] pAttr)
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
         obs_COL_CHK_DATA.pos_y = lPosY;
         obs_COL_CHK_DATA.dir = pDir;
@@ -2557,7 +2557,7 @@ public partial class AppMain
         obs_COL_CHK_DATA.flag = usFlag;
         obs_COL_CHK_DATA.vec = usVec;
         int result = AppMain.ObjCollisionObjectCheck(pObj, obs_COL_CHK_DATA);
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         return result;
     }
 
@@ -2572,7 +2572,7 @@ public partial class AppMain
             return num;
         }
 
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.Assign(pData);
         ushort num4;
         if ((pObj.move_flag & 16U) == 0U)
@@ -2761,7 +2761,7 @@ public partial class AppMain
             }
         }
 
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release(obs_COL_CHK_DATA);
         return num;
     }
 

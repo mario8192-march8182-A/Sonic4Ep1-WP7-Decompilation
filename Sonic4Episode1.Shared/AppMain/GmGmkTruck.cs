@@ -129,7 +129,7 @@ public partial class AppMain
         AppMain.ObjRectAtkSet( obs_RECT_WORK, 0, 0 );
         AppMain.ObjRectWorkSet( obs_RECT_WORK, -64, -64, 64, 64 );
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = -0.85f;
         nns_VECTOR.y = -0.45f;
         nns_VECTOR.z = -3.05f;
@@ -350,7 +350,7 @@ public partial class AppMain
         AppMain.nnTranslateMatrix( obj_work.obj_3d.user_obj_mtx_r, obj_work.obj_3d.user_obj_mtx_r, gms_GMK_TRUCK_WORK.trans_r.x, gms_GMK_TRUCK_WORK.trans_r.y, gms_GMK_TRUCK_WORK.trans_r.z );
         if ( ( target_player.gmk_flag & 262144U ) != 0U && target_player.gmk_work3 != 0 )
         {
-            NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+            NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
             gms_GMK_TRUCK_WORK.slope_z_dir = ( ushort )target_player.gmk_work3;
             gms_GMK_TRUCK_WORK.slope_f_z_dir = ( ushort )( AppMain.MTM_MATH_ABS( target_player.gmk_work3 ) >> 2 );
             gms_GMK_TRUCK_WORK.slope_f_y_dir = ( ushort )( target_player.gmk_work3 >> 2 );
@@ -361,7 +361,7 @@ public partial class AppMain
             AppMain.nnRotateZMatrix( nns_MATRIX, nns_MATRIX, ( int )gms_GMK_TRUCK_WORK.slope_f_z_dir );
             AppMain.nnTranslateMatrix( nns_MATRIX, nns_MATRIX, num3, num4, num5 );
             AppMain.nnMultiplyMatrix( obj_work.obj_3d.user_obj_mtx_r, obj_work.obj_3d.user_obj_mtx_r, nns_MATRIX );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
         }
         if ( ( target_player.obj_work.move_flag & 1U ) != 0U && AppMain.MTM_MATH_ABS( target_player.obj_work.spd_m ) >= AppMain.GMD_GMK_TRUCK_SPARK_EFCT_SMALL_MIN_SPD && ( gms_GMK_TRUCK_WORK.efct_f_spark == null || gms_GMK_TRUCK_WORK.efct_b_spark == null ) )
         {
@@ -545,8 +545,8 @@ public partial class AppMain
     // Token: 0x06000677 RID: 1655 RVA: 0x00039E28 File Offset: 0x00038028
     public static void gmGmkTruckMotionCallback( AppMain.AMS_MOTION motion, AppMain.NNS_OBJECT _object, object param )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)param;
         AppMain.nnMakeUnitMatrix( nns_MATRIX2 );
         AppMain.nnMultiplyMatrix( nns_MATRIX2, nns_MATRIX2, AppMain.amMatrixGetCurrent() );
@@ -944,10 +944,10 @@ public partial class AppMain
     {
         AppMain.GMS_GMK_TRUCK_WORK gms_GMK_TRUCK_WORK = (AppMain.GMS_GMK_TRUCK_WORK)obj_work.parent_obj;
         NNS_MATRIX nns_MATRIX = (NNS_MATRIX)obj_work.user_work_OBJECT;
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         if ( obj_work.parent_obj == null )
         {
-            AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+            GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
             return;
         }
         OBS_OBJECT_WORK obs_OBJECT_WORK = (OBS_OBJECT_WORK)gms_GMK_TRUCK_WORK.target_player;
@@ -980,6 +980,6 @@ public partial class AppMain
         AppMain.GmComEfctSetDispOffsetF( ( AppMain.GMS_EFFECT_3DES_WORK )obj_work, nns_VECTOR.x, nns_VECTOR.y, nns_VECTOR.z );
         AppMain.GmComEfctSetDispRotation( ( AppMain.GMS_EFFECT_3DES_WORK )obj_work, 0, 0, dir_z );
         AppMain.ObjDrawActionSummary( obj_work );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

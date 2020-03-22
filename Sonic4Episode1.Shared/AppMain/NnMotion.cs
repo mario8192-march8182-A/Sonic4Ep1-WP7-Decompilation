@@ -837,7 +837,7 @@ public partial class AppMain
         public float Frame;
 
         // Token: 0x04004E66 RID: 20070
-        public readonly NNS_VECTOR Value = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR Value = GlobalPool<NNS_VECTOR>.Alloc();
     }
 
     // Token: 0x02000169 RID: 361

@@ -3668,7 +3668,7 @@ public partial class AppMain
                 num4 += 1U;
                 num3 += 1U;
             }
-            AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+            AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
             if (aos_SPRITE.fade.a > 0)
             {
                 AppMain.amDrawSetFogColor(AppMain.g_ao_act_sys_draw_state, (float)aos_SPRITE.fade.r / 255f, (float)aos_SPRITE.fade.g / 255f, (float)aos_SPRITE.fade.b / 255f);
@@ -3879,7 +3879,7 @@ public partial class AppMain
                 }
             }
             AppMain.amDrawPrimitive3D(AppMain.g_ao_act_sys_draw_state, ams_PARAM_DRAW_PRIMITIVE);
-            AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
+            GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release(ams_PARAM_DRAW_PRIMITIVE);
         }
         AppMain.amDrawSetFog(AppMain.g_ao_act_sys_draw_state, 0);
     }

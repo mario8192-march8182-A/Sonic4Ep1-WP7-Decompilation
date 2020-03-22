@@ -268,9 +268,9 @@ public partial class AppMain
     {
         AppMain.GMS_BOSS4_BODY_WORK gms_BOSS4_BODY_WORK = (AppMain.GMS_BOSS4_BODY_WORK)obj_work.parent_obj;
         AppMain.GMS_BOSS4_CAP_WORK gms_BOSS4_CAP_WORK = (AppMain.GMS_BOSS4_CAP_WORK)obj_work;
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX2 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
-        NNS_MATRIX nns_MATRIX3 = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX2 = GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX3 = GlobalPool<NNS_MATRIX>.Alloc();
         if ( gms_BOSS4_CAP_WORK.wait > 0 )
         {
             obj_work.pos.z = 131072;
@@ -295,12 +295,12 @@ public partial class AppMain
             AppMain.nnRotateYMatrix( nns_MATRIX, nns_MATRIX, num );
             AppMain.nnMakeTranslateMatrix( nns_MATRIX2, AppMain._cap_len, 0f, 0f );
             AppMain.nnMultiplyMatrix( nns_MATRIX3, nns_MATRIX, nns_MATRIX2 );
-            NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+            NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
             AppMain.nnCopyMatrixTranslationVector( nns_VECTOR, nns_MATRIX3 );
             obj_work.pos.x = obj_work.pos.x + AppMain.FX_F32_TO_FX32( nns_VECTOR.x );
             obj_work.pos.y = obj_work.pos.y + AppMain.FX_F32_TO_FX32( nns_VECTOR.y );
             obj_work.pos.z = obj_work.pos.z + AppMain.FX_F32_TO_FX32( nns_VECTOR.z );
-            AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+            GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
         }
         if ( AppMain._cap_kill_flag != 0 )
         {
@@ -309,9 +309,9 @@ public partial class AppMain
             AppMain.GmBoss4EffCommonInit( 735, new AppMain.VecFx32?( pos2 ) );
             gms_BOSS4_CAP_WORK.wait = 30;
             AppMain.T_FUNC( AppMain.gmBoss4CapsuleBomb, obj_work );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
-            AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+            GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
             return;
         }
         AppMain.GMS_ENEMY_3D_WORK gms_ENEMY_3D_WORK = (AppMain.GMS_ENEMY_3D_WORK)obj_work;
@@ -341,9 +341,9 @@ public partial class AppMain
             AppMain.GmBoss4UtilInit1ShotTimer( gms_BOSS4_CAP_WORK.timer, 20U );
             gms_BOSS4_CAP_WORK.wait = 60;
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX3 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX2 );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x06000724 RID: 1828 RVA: 0x0003F758 File Offset: 0x0003D958

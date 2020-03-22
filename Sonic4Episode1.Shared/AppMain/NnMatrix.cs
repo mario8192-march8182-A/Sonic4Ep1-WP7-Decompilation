@@ -107,7 +107,7 @@ public partial class AppMain
             if ( this.invert == null )
             {
                 NNS_MATRIX src = this.get();
-                this.invert = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+                this.invert = GlobalPool<NNS_MATRIX>.Alloc();
                 AppMain.nnInvertMatrix( this.invert, src );
             }
             return this.invert;

@@ -1383,7 +1383,7 @@ public partial class AppMain
     private static void dmStaffRollBGDraw( AppMain.DMS_STFRL_MAIN_WORK main_work )
     {
         AppMain.UNREFERENCED_PARAMETER( main_work );
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.mtx = null;
         ams_PARAM_DRAW_PRIMITIVE.vtxPC3D = AppMain.amDrawAlloc_NNS_PRIM3D_PC( 4 );
         AppMain.NNS_PRIM3D_PC[] vtxPC3D = ams_PARAM_DRAW_PRIMITIVE.vtxPC3D;
@@ -1404,7 +1404,7 @@ public partial class AppMain
         AppMain.AoActDrawCorWide( vtxPC3D, 0, 4U, AppMain.AOE_ACT_CORW.AOD_ACT_CORW_NONE );
         AppMain.amDrawPrimitive3D( 40U, ams_PARAM_DRAW_PRIMITIVE );
         AppMain.amDrawMakeTask( AppMain.dmStaffRollTaskBgDraw, 2048, 0U );
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x06001BA3 RID: 7075 RVA: 0x000FD15F File Offset: 0x000FB35F
@@ -1419,7 +1419,7 @@ public partial class AppMain
     // Token: 0x06001BA4 RID: 7076 RVA: 0x000FD178 File Offset: 0x000FB378
     private static void dmStaffRollStageScrDraw( AppMain.DMS_STFRL_MAIN_WORK main_work )
     {
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.mtx = null;
         ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D = AppMain.dmStaffRollStageScrDraw_DrawArray;
         AppMain.NNS_PRIM3D_PCT[] buffer = ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D.buffer;
@@ -1447,7 +1447,7 @@ public partial class AppMain
         AppMain.AoActDrawCorWide( AppMain.dmStaffRollStageScrDraw_DrawArray, 0, 4U, AppMain.AOE_ACT_CORW.AOD_ACT_CORW_LEFT );
         AppMain.amDrawPrimitive3D( 30U, ams_PARAM_DRAW_PRIMITIVE );
         AppMain.amDrawMakeTask( AppMain.dmStaffRollStageScrTaskDraw, 2304, null );
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x06001BA5 RID: 7077 RVA: 0x000FD46F File Offset: 0x000FB66F
@@ -1485,7 +1485,7 @@ public partial class AppMain
     public static void dmStaffRollStaffListOneLineDraw( AppMain.DMS_STFRL_MAIN_WORK main_work, uint disp_pos_y, uint cur_line )
     {
         int i = 0;
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         uint num = 0U;
         uint[] array = new uint[3];
         uint[] array2 = array;
@@ -1564,7 +1564,7 @@ public partial class AppMain
             ams_PARAM_DRAW_PRIMITIVE.zTest = 0;
             AppMain.AoActDrawCorWide( ams_PARAM_DRAW_PRIMITIVE.vtxPCT3D, 0, 4U, AppMain.AOE_ACT_CORW.AOD_ACT_CORW_CENTER );
             AppMain.amDrawPrimitive3D( 20U, ams_PARAM_DRAW_PRIMITIVE );
-            AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+            GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
             return;
         }
         int num7 = 0;
@@ -1653,7 +1653,7 @@ public partial class AppMain
             }
             i++;
         }
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x06001BA8 RID: 7080 RVA: 0x000FDF0D File Offset: 0x000FC10D
@@ -2122,7 +2122,7 @@ public partial class AppMain
     private static void dmStaffRollInitLight()
     {
         NNS_RGBA def_light_col = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         AppMain.g_obj.ambient_color.r = 0.8f;
         AppMain.g_obj.ambient_color.g = 0.8f;
         AppMain.g_obj.ambient_color.b = 0.8f;
@@ -2134,7 +2134,7 @@ public partial class AppMain
         AppMain.g_gm_main_system.def_light_vec.Assign( nns_VECTOR );
         AppMain.g_gm_main_system.def_light_col = def_light_col;
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_6, ref def_light_col, 1f, nns_VECTOR );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 
     // Token: 0x06001BBC RID: 7100 RVA: 0x000FEB8C File Offset: 0x000FCD8C
@@ -2156,7 +2156,7 @@ public partial class AppMain
     // Token: 0x06001BBD RID: 7101 RVA: 0x000FEC18 File Offset: 0x000FCE18
     private static void dmStaffRollCameraFunc( OBS_CAMERA obj_camera )
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = AppMain.FXM_FX32_TO_FLOAT( 0 );
         nns_VECTOR.y = AppMain.FXM_FX32_TO_FLOAT( 0 );
         nns_VECTOR.z = AppMain.FXM_FX32_TO_FLOAT( 409600 );
@@ -2176,6 +2176,6 @@ public partial class AppMain
         obj_camera.target_pos.z -= 50f;
         AppMain.ObjObjectCameraSet( AppMain.FXM_FLOAT_TO_FX32( obj_camera.disp_pos.x - ( float )( AppMain.OBD_LCD_X / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( -obj_camera.disp_pos.y - ( float )( AppMain.OBD_LCD_Y / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( obj_camera.disp_pos.x - ( float )( AppMain.OBD_LCD_X / 2 ) ), AppMain.FXM_FLOAT_TO_FX32( -obj_camera.disp_pos.y - ( float )( AppMain.OBD_LCD_Y / 2 ) ) );
         GmCamera.SetClipCamera( obj_camera );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

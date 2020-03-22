@@ -271,13 +271,13 @@ public partial class AppMain
     // Token: 0x06000A41 RID: 2625 RVA: 0x0005C050 File Offset: 0x0005A250
     private static AppMain.AMS_TCB amTaskNextTcb(AppMain.AMS_TCB tcbp)
     {
-        return tcbp.next = AppMain.GlobalPool<AppMain.AMS_TCB>.Alloc();
+        return tcbp.next = GlobalPool<AppMain.AMS_TCB>.Alloc();
     }
 
     // Token: 0x06000A42 RID: 2626 RVA: 0x0005C06C File Offset: 0x0005A26C
     private static AppMain.AMS_TCB amPrevNextTcb(AppMain.AMS_TCB tcbp)
     {
-        return tcbp.prev = AppMain.GlobalPool<AppMain.AMS_TCB>.Alloc();
+        return tcbp.prev = GlobalPool<AppMain.AMS_TCB>.Alloc();
     }
 
     // Token: 0x06000A43 RID: 2627 RVA: 0x0005C087 File Offset: 0x0005A287
@@ -357,7 +357,7 @@ public partial class AppMain
     // Token: 0x06000A4B RID: 2635 RVA: 0x0005C214 File Offset: 0x0005A414
     private static AppMain.AMS_TCB amTaskMake(AppMain.AMS_TASK taskp, AppMain.TaskProc proc, AppMain.TaskProc dest, uint prio, uint user, uint attr, string name, uint stall, int group, uint run)
     {
-        AppMain.AMS_TCB ams_TCB = AppMain.GlobalPool<AppMain.AMS_TCB>.Alloc();
+        AppMain.AMS_TCB ams_TCB = GlobalPool<AppMain.AMS_TCB>.Alloc();
         ams_TCB.name = name;
         AppMain.AMS_TCB_FOOTER ams_TCB_FOOTER = AppMain.amTaskGetTcbFooter(ams_TCB);
         ams_TCB_FOOTER.cpu_cnt = 0U;
@@ -697,7 +697,7 @@ public partial class AppMain
         AppMain.AMS_TASK taskp = tcb.taskp;
         tcb.prev.next = tcb.next;
         tcb.next.prev = tcb.prev;
-        AppMain.GlobalPool<AppMain.AMS_TCB>.Release(tcb);
+        GlobalPool<AppMain.AMS_TCB>.Release(tcb);
     }
 
     // Token: 0x06000A5C RID: 2652 RVA: 0x0005C7DA File Offset: 0x0005A9DA

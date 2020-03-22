@@ -24,8 +24,8 @@ public class GmCamera
     static GmCamera()
     {        
         gm_camera_work = new GMS_CAMERA_WORK();
-        gm_camera_vibration = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        gm_camera_option_allow_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        gm_camera_vibration = GlobalPool<NNS_VECTOR>.Alloc();
+        gm_camera_option_allow_pos = GlobalPool<NNS_VECTOR>.Alloc();
         gm_camera_common_allow_pos = new NNS_VECTOR(15f, 50f, 0f);
         gm_camera_splstg_allow_pos = new NNS_VECTOR(0f, 0f, 0f);
     }
@@ -185,12 +185,12 @@ public class GmCamera
     // Token: 0x06001048 RID: 4168 RVA: 0x0008DEAC File Offset: 0x0008C0AC
     public static void DelaySet(float dly_x, float dly_y, float dly_z)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR.x = dly_x;
         nns_VECTOR.y = dly_y;
         nns_VECTOR.z = dly_z;
         ObjCamera.PlaySet(0, nns_VECTOR);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x06001049 RID: 4169 RVA: 0x0008DEE4 File Offset: 0x0008C0E4
@@ -554,11 +554,11 @@ public class GmCamera
     // Token: 0x06001050 RID: 4176 RVA: 0x0008ED3C File Offset: 0x0008CF3C
     public static void TruckFunc(OBS_CAMERA obj_camera)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         GMS_PLAYER_WORK gms_PLAYER_WORK = AppMain.g_gm_main_system.ply_work[(int) ((UIntPtr) 0)];
         if ((gms_PLAYER_WORK.player_flag & 1024U) != 0U && (gms_PLAYER_WORK.player_flag & 65536U) == 0U)
         {
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
             return;
         }
 
@@ -580,7 +580,7 @@ public class GmCamera
                 obj_camera.pos.z = nns_VECTOR.z;
             }
 
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
             return;
         }
 
@@ -730,7 +730,7 @@ public class GmCamera
         gm_camera_vibration.y = gmCameraVibeCheck(gm_camera_vibration.y);
         gm_camera_vibration.z = gmCameraVibeCheck(gm_camera_vibration.z);
         obj_camera.pos.z = 50f;
-        NNS_VECTOR nns_VECTOR2 = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR2 = GlobalPool<NNS_VECTOR>.Alloc();
         nns_VECTOR2.x = obj_camera.ofst.x;
         nns_VECTOR2.y = obj_camera.ofst.y;
         nns_VECTOR2.z = obj_camera.ofst.z;
@@ -745,7 +745,7 @@ public class GmCamera
         obj_camera.disp_pos.x = obj_camera.pos.x + nns_VECTOR2.x;
         obj_camera.disp_pos.y = obj_camera.pos.y + nns_VECTOR2.y;
         obj_camera.disp_pos.z = obj_camera.pos.z + nns_VECTOR2.z;
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR2);
         gmCameraLookupCheck(obj_camera);
         float num2 = (float) AppMain.g_gm_main_system.map_fcol.left +
                      (float) (AppMain.GSD_DISP_WIDTH / 2f) * obj_camera.scale;
@@ -847,7 +847,7 @@ public class GmCamera
             AppMain.FXM_FLOAT_TO_FX32(obj_camera.disp_pos.x - (float) (AppMain.OBD_LCD_X / 2f)),
             AppMain.FXM_FLOAT_TO_FX32(-obj_camera.disp_pos.y - (float) (AppMain.OBD_LCD_Y / 2f)));
         SetClipCamera(obj_camera);
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x06001051 RID: 4177 RVA: 0x0008F8B8 File Offset: 0x0008DAB8

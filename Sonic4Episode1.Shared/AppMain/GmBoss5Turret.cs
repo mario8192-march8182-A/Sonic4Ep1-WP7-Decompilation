@@ -122,14 +122,14 @@ public partial class AppMain
     // Token: 0x06000E6A RID: 3690 RVA: 0x00080FB4 File Offset: 0x0007F1B4
     public static void gmBoss5TurretGetDispRotatedOfstPos( AppMain.GMS_BOSS5_TURRET_WORK trt_work, ref AppMain.VecFx32 src_ofst_pos, out AppMain.VecFx32 dest_ofst_pos )
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.amVectorSet( nns_VECTOR, AppMain.FX_FX32_TO_F32( src_ofst_pos.x ), AppMain.FX_FX32_TO_F32( -src_ofst_pos.y ), AppMain.FX_FX32_TO_F32( src_ofst_pos.z ) );
         AppMain.nnMakeQuaternionMatrix( nns_MATRIX, ref trt_work.disp_quat );
         AppMain.nnTransformVector( nns_VECTOR, nns_MATRIX, nns_VECTOR );
         dest_ofst_pos = new AppMain.VecFx32( AppMain.FX_F32_TO_FX32( nns_VECTOR.x ), AppMain.FX_F32_TO_FX32( -nns_VECTOR.y ), AppMain.FX_F32_TO_FX32( nns_VECTOR.z ) );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x06000E6B RID: 3691 RVA: 0x00081044 File Offset: 0x0007F244
@@ -259,7 +259,7 @@ public partial class AppMain
     // Token: 0x06000E75 RID: 3701 RVA: 0x000813E4 File Offset: 0x0007F5E4
     public static void gmBoss5TurretInitPartsPose( AppMain.GMS_BOSS5_TURRET_WORK trt_work )
     {
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.GMS_BOSS5_BODY_WORK gms_BOSS5_BODY_WORK = (AppMain.GMS_BOSS5_BODY_WORK)AppMain.GMM_BS_OBJ(trt_work).parent_obj;
         int[] array = new int[]
         {
@@ -275,7 +275,7 @@ public partial class AppMain
             AppMain.GmBsCmnEnableCNMMtxNode( gms_BOSS5_BODY_WORK.cnm_mgr_work, array[i], 1 );
             AppMain.GmBsCmnSetCNMMtx( gms_BOSS5_BODY_WORK.cnm_mgr_work, nns_MATRIX, array[i] );
         }
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
     }
 
     // Token: 0x06000E76 RID: 3702 RVA: 0x00081488 File Offset: 0x0007F688
@@ -334,10 +334,10 @@ public partial class AppMain
             trt_work.trt_slide_length = 0f;
             result = 1;
         }
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeTranslateMatrix( nns_MATRIX, 0f, trt_work.trt_slide_length + AppMain.GMD_BOSS5_TURRET_SLIDE_POLE_DISP_OFST_Y, 0f );
         AppMain.GmBsCmnSetCNMMtx( gms_BOSS5_BODY_WORK.cnm_mgr_work, nns_MATRIX, gms_BOSS5_BODY_WORK.pole_cnm_reg_id );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
         return result;
     }
 
@@ -381,12 +381,12 @@ public partial class AppMain
             trt_work.cvr_slide_ratio = 0f;
             result = 1;
         }
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         float num = 1f + trt_work.cvr_slide_ratio * (AppMain.GMD_BOSS5_TURRET_COVER_SLIDE_SCALE_MAX - 1f);
         AppMain.nnMakeRotateXMatrix( nns_MATRIX, AkMath.DEGtoA32( trt_work.cvr_slide_ratio * AppMain.GMD_BOSS5_TURRET_COVER_SLIDE_DEG_MAX ) );
         AppMain.nnScaleMatrix( nns_MATRIX, nns_MATRIX, num, num, num );
         AppMain.GmBsCmnSetCNMMtx( gms_BOSS5_BODY_WORK.cnm_mgr_work, nns_MATRIX, gms_BOSS5_BODY_WORK.cover_cnm_reg_id );
-        AppMain.GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
+        GlobalPool<NNS_MATRIX>.Release( nns_MATRIX );
         return result;
     }
 

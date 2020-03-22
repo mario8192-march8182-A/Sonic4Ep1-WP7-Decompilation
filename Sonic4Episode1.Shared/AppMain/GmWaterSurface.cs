@@ -299,7 +299,7 @@ public partial class AppMain
     // Token: 0x06001175 RID: 4469 RVA: 0x0009915C File Offset: 0x0009735C
     private static void GmWaterSurfaceDrawNoWaterField( float left, float top, float right, float bottom )
     {
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.aTest = 0;
         ams_PARAM_DRAW_PRIMITIVE.zMask = 0;
         ams_PARAM_DRAW_PRIMITIVE.zTest = 1;
@@ -328,7 +328,7 @@ public partial class AppMain
         AppMain.gmWaterSurfaceMatrixPush( 9U );
         AppMain.amDrawPrimitive3D( 9U, ams_PARAM_DRAW_PRIMITIVE );
         AppMain.gmWaterSurfaceMatrixPop( 9U );
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x06001176 RID: 4470 RVA: 0x000992BF File Offset: 0x000974BF
@@ -565,7 +565,7 @@ public partial class AppMain
         AppMain.ObjDraw3DNNUserFunc( AppMain._gmWaterSurfaceTcbProcPreDrawDT, null, 0, 9U );
         AppMain.ObjDraw3DNNSetCameraEx( AppMain.g_obj.glb_camera_id, 1, 9U );
         AppMain.ObjDraw3DNNSetCameraEx( 6, 1, 4U );
-        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
+        AppMain.AMS_PARAM_DRAW_PRIMITIVE ams_PARAM_DRAW_PRIMITIVE = GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Alloc();
         ams_PARAM_DRAW_PRIMITIVE.aTest = 0;
         ams_PARAM_DRAW_PRIMITIVE.zMask = 1;
         ams_PARAM_DRAW_PRIMITIVE.zTest = 1;
@@ -660,7 +660,7 @@ public partial class AppMain
         }
         AppMain.ObjDraw3DNNSetCameraEx( AppMain.g_obj.glb_camera_id, 1, 4U );
         AppMain.ObjDraw3DNNUserFunc( AppMain.gmWaterSurfaceTcbProcPostDrawDT, null, 0, 8U );
-        AppMain.GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
+        GlobalPool<AppMain.AMS_PARAM_DRAW_PRIMITIVE>.Release( ams_PARAM_DRAW_PRIMITIVE );
     }
 
     // Token: 0x06001189 RID: 4489 RVA: 0x00099BF3 File Offset: 0x00097DF3
@@ -680,7 +680,7 @@ public partial class AppMain
     {
         AppMain.amMatrixPush();
         NNS_MATRIX mtx = AppMain.amMatrixGetCurrent();
-        NNS_MATRIX nns_MATRIX = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX nns_MATRIX = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMultiplyMatrix( nns_MATRIX, AppMain.amDrawGetWorldViewMatrix(), mtx );
         AppMain.nnSetPrimitive3DMatrix( nns_MATRIX );
     }

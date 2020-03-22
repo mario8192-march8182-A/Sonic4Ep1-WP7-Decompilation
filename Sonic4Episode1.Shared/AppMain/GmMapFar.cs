@@ -174,7 +174,7 @@ public partial class AppMain
         public int nn_regist_num;
 
         // Token: 0x04005AB9 RID: 23225
-        public readonly NNS_VECTOR pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        public readonly NNS_VECTOR pos = GlobalPool<NNS_VECTOR>.Alloc();
 
         // Token: 0x04005ABA RID: 23226
         public AppMain.MP_HEADER mp_header;

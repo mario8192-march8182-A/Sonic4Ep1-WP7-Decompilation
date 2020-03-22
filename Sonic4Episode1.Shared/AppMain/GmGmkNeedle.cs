@@ -509,7 +509,7 @@ public partial class AppMain
     public static void GmGmkNeedleSetLight()
     {
         NNS_RGBA nns_RGBA = new NNS_RGBA(1f, 1f, 1f, 1f);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         if ( AppMain.g_gs_main_sys_info.stage_id == 14 )
         {
             nns_VECTOR.x = -0.1f;
@@ -536,6 +536,6 @@ public partial class AppMain
             intensity = 1f;
         }
         AppMain.ObjDrawSetParallelLight( AppMain.NNE_LIGHT_2, ref nns_RGBA, intensity, nns_VECTOR );
-        AppMain.GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
+        GlobalPool<NNS_VECTOR>.Release( nns_VECTOR );
     }
 }

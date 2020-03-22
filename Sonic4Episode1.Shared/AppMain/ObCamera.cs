@@ -105,10 +105,10 @@ public class ObjCamera
                 return;
             }
 
-            AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+            GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
         }
 
-        NNS_MATRIX scaleMatrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX scaleMatrix = GlobalPool<NNS_MATRIX>.Alloc();
         nnMakeScaleMatrix(scaleMatrix, AppMain.AMD_SCREEN_SCALE, AppMain.AMD_SCREEN_SCALE, AppMain.AMD_SCREEN_SCALE);
 
         OBS_CAMERA obs_CAMERA = obj_camera_sys.obj_camera[cam_id];
@@ -327,9 +327,9 @@ public class ObjCamera
             return;
         }
 
-        NNS_MATRIX scaleMatrix = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+        NNS_MATRIX scaleMatrix = GlobalPool<NNS_MATRIX>.Alloc();
         AppMain.nnMakeScaleMatrix(scaleMatrix, AMD_SCREEN_SCALE, AMD_SCREEN_SCALE, AMD_SCREEN_SCALE);
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         for (int i = 0; i < 8; i++)
         {
             OBS_CAMERA obs_CAMERA = obj_camera_sys.obj_camera[i];
@@ -394,7 +394,7 @@ public class ObjCamera
                         case OBE_CAMERA_TYPE.OBE_CAMERA_TYPE_TARGET_ROLL:
                         {
                             AppMain.NNS_CAMERA_TARGET_ROLL nns_CAMERA_TARGET_ROLL =
-                                AppMain.GlobalPool<AppMain.NNS_CAMERA_TARGET_ROLL>.Alloc();
+                                GlobalPool<AppMain.NNS_CAMERA_TARGET_ROLL>.Alloc();
                             int roll = obs_CAMERA.roll;
                             if ((obs_CAMERA.flag & 1073741824U) != 0U)
                             {
@@ -404,7 +404,7 @@ public class ObjCamera
                             GetTargetRollCamera(obs_CAMERA, nns_CAMERA_TARGET_ROLL);
                             AppMain.nnMakeTargetRollCameraViewMatrix(obs_CAMERA.view_mtx, nns_CAMERA_TARGET_ROLL);
                             obs_CAMERA.roll = roll;
-                            AppMain.GlobalPool<AppMain.NNS_CAMERA_TARGET_ROLL>.Release(nns_CAMERA_TARGET_ROLL);
+                            GlobalPool<AppMain.NNS_CAMERA_TARGET_ROLL>.Release(nns_CAMERA_TARGET_ROLL);
                             break;
                         }
                         case OBE_CAMERA_TYPE.OBE_CAMERA_TYPE_TARGET_UP_TARGET:
@@ -430,13 +430,13 @@ public class ObjCamera
             }
         }
 
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x06000134 RID: 308 RVA: 0x0000DC00 File Offset: 0x0000BE00
     private static void objCameraMove(OBS_CAMERA obj_camera)
     {
-        NNS_VECTOR nns_VECTOR = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+        NNS_VECTOR nns_VECTOR = GlobalPool<NNS_VECTOR>.Alloc();
         if (obj_camera.target_obj != null)
         {
             nns_VECTOR.x = AppMain.FXM_FX32_TO_FLOAT(obj_camera.target_obj.pos.x) + obj_camera.target_ofst.x;
@@ -599,7 +599,7 @@ public class ObjCamera
         }
 
         obj_camera.pos.z += obj_camera.ofst.z;
-        AppMain.GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
+        GlobalPool<NNS_VECTOR>.Release(nns_VECTOR);
     }
 
     // Token: 0x06000135 RID: 309 RVA: 0x0000E326 File Offset: 0x0000C526
@@ -742,55 +742,55 @@ public class OBS_CAMERA : IClearable
     public int camera_id;
 
     // Token: 0x04004883 RID: 18563
-    public readonly NNS_VECTOR disp_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR disp_pos = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004884 RID: 18564
-    public readonly NNS_VECTOR prev_disp_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR prev_disp_pos = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004885 RID: 18565
-    public readonly NNS_VECTOR pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR pos = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004886 RID: 18566
-    public readonly NNS_VECTOR prev_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR prev_pos = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004887 RID: 18567
-    public readonly NNS_VECTOR ofst = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR ofst = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004888 RID: 18568
-    public readonly NNS_VECTOR disp_ofst = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR disp_ofst = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004889 RID: 18569
-    public readonly NNS_VECTOR target_ofst = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR target_ofst = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x0400488A RID: 18570
-    public readonly NNS_VECTOR play_ofst_max = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR play_ofst_max = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x0400488B RID: 18571
-    public readonly NNS_VECTOR allow = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR allow = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x0400488C RID: 18572
-    public readonly NNS_VECTOR allow_limit = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR allow_limit = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x0400488D RID: 18573
     public OBS_OBJECT_WORK target_obj;
 
     // Token: 0x0400488E RID: 18574
-    public readonly NNS_VECTOR target_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR target_pos = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x0400488F RID: 18575
     public OBS_OBJECT_WORK camup_obj;
 
     // Token: 0x04004890 RID: 18576
-    public readonly NNS_VECTOR camup_pos = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR camup_pos = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004891 RID: 18577
-    public readonly NNS_VECTOR spd = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR spd = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004892 RID: 18578
-    public readonly NNS_VECTOR spd_add = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR spd_add = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004893 RID: 18579
-    public readonly NNS_VECTOR spd_max = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR spd_max = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x04004894 RID: 18580
     public int roll;
@@ -808,7 +808,7 @@ public class OBS_CAMERA : IClearable
     public ushort index;
 
     // Token: 0x04004899 RID: 18585
-    public readonly NNS_VECTOR work = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR work = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x0400489A RID: 18586
     public uint command_state;
@@ -829,19 +829,19 @@ public class OBS_CAMERA : IClearable
     public OBE_CAMERA_TYPE camera_type;
 
     // Token: 0x040048A0 RID: 18592
-    public readonly NNS_MATRIX prj_pers_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+    public readonly NNS_MATRIX prj_pers_mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
     // Token: 0x040048A1 RID: 18593
-    public readonly NNS_MATRIX prj_ortho_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+    public readonly NNS_MATRIX prj_ortho_mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
     // Token: 0x040048A2 RID: 18594
-    public readonly NNS_MATRIX view_mtx = AppMain.GlobalPool<NNS_MATRIX>.Alloc();
+    public readonly NNS_MATRIX view_mtx = GlobalPool<NNS_MATRIX>.Alloc();
 
     // Token: 0x040048A3 RID: 18595
     public int fovy;
 
     // Token: 0x040048A4 RID: 18596
-    public readonly NNS_VECTOR up_vec = AppMain.GlobalPool<NNS_VECTOR>.Alloc();
+    public readonly NNS_VECTOR up_vec = GlobalPool<NNS_VECTOR>.Alloc();
 
     // Token: 0x040048A5 RID: 18597
     public float scale;

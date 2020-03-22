@@ -38,7 +38,7 @@ public partial class AppMain
     // Token: 0x06000012 RID: 18 RVA: 0x000020E8 File Offset: 0x000002E8
     private static int ObjBlockCollisionDet( int lPosX, int lPosY, ushort usFlag, ushort usVec, ushort[] pDir, uint[] pAttr )
     {
-        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
+        AppMain.OBS_COL_CHK_DATA obs_COL_CHK_DATA = GlobalPool<AppMain.OBS_COL_CHK_DATA>.Alloc();
         obs_COL_CHK_DATA.pos_x = lPosX;
         obs_COL_CHK_DATA.pos_y = lPosY;
         obs_COL_CHK_DATA.dir = pDir;
@@ -46,7 +46,7 @@ public partial class AppMain
         obs_COL_CHK_DATA.flag = usFlag;
         obs_COL_CHK_DATA.vec = usVec;
         int result = AppMain.ObjBlockCollision(obs_COL_CHK_DATA);
-        AppMain.GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release( obs_COL_CHK_DATA );
+        GlobalPool<AppMain.OBS_COL_CHK_DATA>.Release( obs_COL_CHK_DATA );
         return result;
     }
 
